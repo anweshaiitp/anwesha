@@ -25,7 +25,7 @@ $url = $_SERVER['PATH_INFO'];
 if ( preg_match('@^events$@', $url, $match ) ) {
 	require ('/controller/events.php');
 } elseif (preg_match('@^events/([A-Za-z]+)$@', $url, $match)) {
-	require ('/controller/club.php');
+	require ('/controller/getSubEvents.php');
 } elseif (preg_match('@^events/([A-Za-z]+)/([A-Za-z0-9])$@', $url, $match)) {
 	require ('/controller/eventDetail.php');
 } else {
