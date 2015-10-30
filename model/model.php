@@ -31,7 +31,7 @@ class People{
         return (!isset($val) || trim($val)==='');
     }
 
-    public function getUser($id){
+    public function getUser($id,$conn){
         $sql = " SELECT * FROM People WHERE id = $id";
         $result = mysqli_query($conn, $sql);
         if(!$result || mysql_num_rows($result)!=1){
@@ -47,14 +47,28 @@ class People{
         $arr[]=$row;
         return $arr;
 
-            
-    }
-
-    public function getEvents($id){
 
     }
 
-    public function getGroups($id){
+    public function getEvents($id, $conn){
+
+        $sql = " SELECT * FROM Registration WHERE id = $id";
+        $result = mysqli_query($conn, $sql);
+        if(!$result){
+            $error = "The user is registered in no Events";
+            $arr = array();
+            $arr[]=-1;
+            $arr[]=$error;
+            return $arr;
+        }
+        $row = mysqli_fetch_array($result);
+        $arr = array();
+        $arr[]=1;
+        $arr[]=$row;
+        return $arr;
+    }
+
+    public function getGroups($id, $conn){
 
     }
 
@@ -66,43 +80,43 @@ class People{
             $arr[]=$error;
             return $arr;
         }
-            // $conn = mysqli_connect(SERVER_ADDRESS,USER_NAME,PASSWORD,DATABASE);
-            $Err = '';
+        // $conn = mysqli_connect(SERVER_ADDRESS,USER_NAME,PASSWORD,DATABASE);
+        $Err = '';
 
-            $sql = "SELECT pId FROM Pids LIMIT 1";
-            $result = mysqli_query($conn, $sql);
-            if (!$result) {
-                $Err = 'Problem in Getting A New ID';
-                mysqli_close($conn);
-            }
-            $row = mysqli_fetch_array($result);
-            $id = $row['ID'];
+        $sql = "SELECT pId FROM Pids LIMIT 1";
+        $result = mysqli_query($conn, $sql);
+        if (!$result) {
+            $Err = 'Problem in Getting A New ID';
+            mysqli_close($conn);
+        }
+        $row = mysqli_fetch_array($result);
+        $id = $row['ID'];
 
-            $time = time() ;
+        $time = time() ;
 
-            $sqlInsert = "INSERT INTO People(name,pId,college,sex,mobile,email,dob,city,feePaid,confirm,time) VALUES ($n, $id, $col, $se, $mob, $em, $dob, $cit, 0, 0,$time)";
+        $sqlInsert = "INSERT INTO People(name,pId,college,sex,mobile,email,dob,city,feePaid,confirm,time) VALUES ($n, $id, $col, $se, $mob, $em, $dob, $cit, 0, 0,$time)";
 
-            $result = mysqli_query($conn,$sqlInsert);
-            if(!$result){
-                $Err = 'Problem in Creating new registration - Maybe mobile number already in use.';
-                mysqli_close($conn);
-                $arr = array();
-                $arr[]=-1;
-                $arr[]=$Err;
-                return $arr;
-            }
+        $result = mysqli_query($conn,$sqlInsert);
+        if(!$result){
+            $Err = 'Problem in Creating new registration - Maybe mobile number already in use.';
+            mysqli_close($conn);
+            $arr = array();
+            $arr[]=-1;
+            $arr[]=$Err;
+            return $arr;
+        }
 
-            $sqlDeletePid="DELETE FROM Pids WHERE pId=$id";
-            $result = mysqli_query($conn,$sqlDeletePid);
-            if(!$result){
-                $Err='An Internal Error Occured... Please try later';
-                mysqli_close($conn);
-                $arr = array();
-                $arr[]=-1;
-                $arr[]=$Err;
-                return $arr;
-            }
-            return getUser($id);
+        $sqlDeletePid="DELETE FROM Pids WHERE pId=$id";
+        $result = mysqli_query($conn,$sqlDeletePid);
+        if(!$result){
+            $Err='An Internal Error Occured... Please try later';
+            mysqli_close($conn);
+            $arr = array();
+            $arr[]=-1;
+            $arr[]=$Err;
+            return $arr;
+        }
+        return getUser($id);
     }
 }
 
@@ -122,14 +136,12 @@ class Events{
         return $arr;
     }
 
-    public function getAllEvents($conn)
-    {
+    public function getAllEvents($conn){
         $sql = "SELECT * FROM Events";
         $result = mysqli_query($conn, $sql);
         $arr = array();
         if(!$result){
             $error = "Error in retrieving database info";
-            $arr = array();
             $arr[]=0;
             $arr[]=$error;
             return $arr;
@@ -138,6 +150,23 @@ class Events{
         $arr[] = mysqli_fetch_array($result);
         return $arr;
     }
+
+    public function getSubEvent($mainEvent,$conn){
+
+        $sql = "SELECT * FROM Events WHERE code = $mainEvent";
+        $result = mysqli_query($conn, $sql);
+        $arr = array();
+        if(!$result){
+            $error = "Could not get Sub Events for $mainEvent";
+            $arr[]=0;
+            $arr[]=$error;
+            return $arr;
+        }
+        $arr[] = 1;
+        $arr[] = mysqli_fetch_array($result);
+        return $arr;
+    }
+
 }
 
 ?>
