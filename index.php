@@ -20,18 +20,18 @@ class Routing
 }
 // set this to path where the project is located
 $url = $_SERVER['REQUEST_URI'];
-preg_match('@(.*)index.php$@', $_SERVER['PHP_SELF'], $mat );
+preg_match('@(.*)index.php(.*)$@', $_SERVER['PHP_SELF'], $mat );
 $base = '@^'. $mat[1] ;
-if ( preg_match($base .'events$@', $url, $match ) ) {
+if ( preg_match($base .'events/?$@', $url, $match ) ) {
 	require ('controller/events.php');
-} elseif (preg_match($base . 'events/([A-Za-z]+)$@', $url, $match)) {
+} elseif (preg_match($base . 'events/([A-Za-z]+)/?$@', $url, $match)) {
 	require ('controller/getSubEvents.php');
-} elseif (preg_match($base . 'events/([A-Za-z]+)/([A-Za-z0-9])$@', $url, $match)) {
+} elseif (preg_match($base . 'events/([A-Za-z]+)/([A-Za-z0-9])/?$@', $url, $match)) {
 	require ('controller/eventDetail.php');
 } elseif (preg_match($base . '$@', $url)) {
 	require ('view/index.html');
 } else {
-	die('invalid url');
+	die('invalid url ' . $url);
 }
 
 
