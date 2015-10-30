@@ -164,7 +164,7 @@ class Events{
 
     public function getSubEvent($mainEvent,$conn){
 
-        $sql = "SELECT * FROM Events WHERE code = $mainEvent";
+        $sql = "SELECT * FROM Events WHERE code = '$mainEvent'";
         $result = mysqli_query($conn, $sql);
         $arr = array();
         if(!$result || mysqli_num_rows($result)==0){
