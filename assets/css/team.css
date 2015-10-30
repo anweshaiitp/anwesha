@@ -1,0 +1,74 @@
+#team{
+background: #efefef;
+background-size:cover;
+width:100%;
+height:100%;
+overflow-Y:scroll;
+}
+#team h1{
+text-align:center;
+background:#006c9a;
+width:100%;
+line-height:3em;
+color:#fff;
+font-family:bebas;
+font-size:3em;
+}
+#team .box{
+width:60%;
+position:relative;
+left:50%;
+transform:translateX(-50%);
+}
+#team ul.box {
+list-style-type: none;
+text-align: center;
+}
+#team ul.box li {
+display: inline-block;
+margin: 1em 2em 2em 0;
+position: relative;
+overflow:hidden;
+border-radius:50%;
+border: rgba(0,180,255,0.5) 1em solid;
+}
+#team span.details {
+color: white;
+cursor: pointer;
+display: table;
+left: 0;
+position: absolute;
+top: 0;
+}
+#team span.details span {
+display: table-cell;
+vertical-align: middle;
+}
+#team span.details {
+background: rgba(0,108,154,0.8);
+border-radius:50%;
+color: white;
+display: table;
+height: 12em;
+width: 12em;
+left: 0;
+position: absolute;
+top: 0;
+opacity: 0;
+-webkit-transition: all 0.5s;
+-moz-transition: all 0.5s;
+-o-transition: all 0.5s;
+transition: all 0.5s;
+}
+#team ul.box li:hover span.details {
+opacity: 1;
+}
+#team img{
+width:12em;
+height:12em;
+}
+#team h2{
+font-family:bebas;
+margin:2em;
+font-size:1.5em;
+}

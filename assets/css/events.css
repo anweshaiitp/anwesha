@@ -1,0 +1,139 @@
+body{
+background:url(../images/bg2.jpg) repeat-x;
+background-size:32.5%;
+background-color:#efefef;
+}
+
+.topbar{
+position:fixed;
+top:0;
+background:rgba(0,0,0,0.5);
+width:100%;
+-webkit-transition: background 0.5s linear;
+color:#fff;
+height:2.5em;
+font-family:agency;
+}
+.topbar:hover{
+background:rgba(0,144,204,0.8);
+}
+.topbar ul{
+text-align:center;
+}
+.topbar li{
+position:relative;
+top:0.75em;
+padding:1.25em;
+display:inline;
+color:#fff;
+-webkit-transition: all 0.5s linear;
+}
+.topbar li:hover{
+text-decoration:underline;
+}
+.topbar img{
+height:1em;
+}
+
+.sidebar{
+position:fixed;
+left:-15em;
+top:0;
+background:#000;
+border-right:solid 0.5em;
+border-color:rgba(0,180,255,0.8);
+height:100%;
+width:15em;
+transition: all linear 0.2s;
+text-align:center;
+color:rgba(255,255,255,0.9);
+}.sidebar:hover{
+left:0;
+border-color:rgba(0,180,255,0.6);
+}
+.sidebar .cont{
+height:100%;
+width:100%;
+background: radial-gradient(black 15%, transparent 16%) 0 0,
+radial-gradient(black 15%, transparent 16%) 0.25em 0.25em,
+radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 0.03125em,
+radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0.25em 0.28125em;
+background-size:0.5em 0.5em;
+overflow-y:scroll;
+}
+.sidebar ul{
+margin:0.5em;
+}
+.sidebar li{
+background:rgba(0,180,255,0.4);
+margin:0.1em;
+width:100%;
+font-family:agency;
+font-size:1.5em;
+line-height:1.75em;
+}
+.sidebar li:hover{
+background:rgba(0,180,255,0.6);
+}
+.sidebar h2{
+font-family:ardestine;
+font-size:2.5em;
+padding:1em;
+color:rgba(255,255,255,0.8);
+}
+.cont::-webkit-scrollbar{
+width: 0.4em;
+}
+
+.cont::-webkit-scrollbar-thumb{
+background-color: rgba(255,255,255,0.2);
+}
+
+
+.container{
+position:absolute;
+width:66%;
+left:50%;
+transform:translateX(-50%);
+background:#fff;
+margin:5em 0 2em 0;
+border-radius:0.4em;
+box-shadow: 0px 2px 2.5px gray, -2.5px 2px 3.75px gray, 2.5px 2px 3.75px gray;
+padding:0 0 1em 0;
+}
+.cover{
+background:url(../images/competitions_fg.jpg) center center;
+background-size:cover;
+width:100%;
+height:15em;
+}
+
+h1{
+position:relative;
+top:50%;
+background-color:rgba(0,0,0,0.7);
+transform:translateY(-50%);
+font-size:3em;
+font-family:ardestine;
+text-align:center;
+color:rgba(255,255,255,0.9);
+}
+.content{
+font-family:agency;
+font-size:1.4em;
+line-height:1.2em;
+text-align:justify;
+padding:2em;
+}
+.content .right{
+width:80%;
+float:right;
+}
+.content .left{
+width:20%;
+float:left;
+}
+h3{
+font-weight:700;
+}
+
