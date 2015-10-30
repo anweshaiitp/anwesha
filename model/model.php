@@ -23,16 +23,31 @@ class People{
             $error = "Invalid D.O.B";
         }  else if (!preg_match('/^[a-zA-Z0-9.@]*$/', $cit)) {
             $error = "Invalid City";
-        }  
+        }
         return $error;
-    } 
+    }
 
     function IsNullOrEmptyString($val){
         return (!isset($val) || trim($val)==='');
     }
 
     public function getUser($id){
+        $sql = " SELECT * FROM People WHERE id = $id";
+        $result = mysqli_query($conn, $sql);
+        if(!$result || mysql_num_rows($result)!=1){
+            $error = "Problem in displaying result for Anwesha ID";
+            $arr = array();
+            $arr[errno]=0;
+            $arr[error]=$error;
+            return $arr;
+        }
+        $row = mysqli_fetch_assoc($result);
+        $arr = array();
+        $arr[errno]=1;
+        $arr[error]=$$row;
+        return $arr;
 
+            
     }
 
     public function getEvents($id){
@@ -57,12 +72,12 @@ class People{
             $sql = "SELECT pId FROM Pids LIMIT 1";
             $result = mysqli_query($conn, $sql);
             if (!$result) {
-                $Err = 'Problem in Getting A new ID';
+                $Err = 'Problem in Getting A New ID';
                 mysqli_close($conn);
             }
             $row = mysqli_fetch_array($result);
-            $id = $row['ID']; 
-            
+            $id = $row['ID'];
+
             $time = time() ;
 
             $sqlInsert = "INSERT INTO People(name,pId,college,sex,mobile,email,dob,city,feePaid,confirm,time) VALUES ($n, $id, $col, $se, $mob, $em, $dob, $cit, 0, 0,$time)";
@@ -80,11 +95,29 @@ class People{
             $sqlDeletePid="DELETE FROM Pids WHERE pId=$id";
             $result = mysqli_query($conn,$sqlDeletePid);
             if(!$result){
-                
+                $Err='An Internal Error Occured... Please try later';
+                mysqli_close($conn);
+                $arr = array();
+                $arr[errno]=0;
+                $arr[error]=$Err;
+                return $arr;
             }
+            getUser($id);
+    }
+}
 
-
-            
+class Events{
+    public function getMainEvents(){
+        
+        $sql = " SELECT * FROM Events WHERE code = 1";
+        $result = mysqli_query($conn, $sql);
+        if(!$result){
+            $error = "No Top Level Events found";
+            $arr = array();
+            $arr[errno]=0;
+            $arr[error]=$error;
+            return $arr;
+        }
     }
 }
 
