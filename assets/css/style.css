@@ -1,5 +1,5 @@
 body{
-background:url(../images/bg.jpg) no-repeat center center fixed;
+background:url(../../images/bg.jpg) no-repeat center center fixed;
 -webkit-background-size: cover;
 -moz-background-size: cover;
 -o-background-size: cover;
@@ -168,7 +168,7 @@ position:relative;
 width:100%;
 min-height:100%;
 text-align:center;
-background:url(../images/bg2.jpg) center center;
+background:url(../../images/bg2.jpg) center center;
 }
 #about .container{
 position:relative;
@@ -226,7 +226,7 @@ transition: all 0.5s;
 }
 
 #events{
-background:url(../images/background.jpg) center center fixed;
+background:url(../../images/background.jpg) center center fixed;
 background-size:100% auto;
 text-align:center;
 height:100%;
@@ -1012,7 +1012,7 @@ background:#fff;
 }
 
 #sponsorsload{
-background:url(../images/bg.jpg) no-repeat center center fixed;
+background:url(../../images/bg.jpg) no-repeat center center fixed;
 -webkit-background-size: cover;
 -moz-background-size: cover;
 -o-background-size: cover;
