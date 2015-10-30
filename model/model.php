@@ -1,5 +1,5 @@
 <?php
-require('../connection.php');
+// require('../connection.php');
 
 class People{
     var $name,$pId,$college,$sex,$mobile,$email,$dob,$city,$feePaid,$confirm,$time;
@@ -37,14 +37,14 @@ class People{
         if(!$result || mysql_num_rows($result)!=1){
             $error = "Problem in displaying result for Anwesha ID";
             $arr = array();
-            $arr[errno]=0;
-            $arr[error]=$error;
+            $arr[]=-1;
+            $arr[]=$error;
             return $arr;
         }
         $row = mysqli_fetch_assoc($result);
         $arr = array();
-        $arr[errno]=1;
-        $arr[error]=$$row;
+        $arr[]=1;
+        $arr[]=$row;
         return $arr;
 
             
@@ -58,15 +58,15 @@ class People{
 
     }
 
-    public function createUser($n,$col,$se,$mob,$em,$db,$cit){
+    public function createUser($n,$col,$se,$mob,$em,$db,$cit,$conn){
         $error = validateData($n,$col,$se,$mob,$em,$db,$cit);
         if(isset($error)){
             $arr = array();
-            $arr[errno]=0;
-            $arr[error]=$error;
+            $arr[]=-1;
+            $arr[]=$error;
             return $arr;
         }
-            $conn = mysqli_connect(SERVER_ADDRESS,USER_NAME,PASSWORD,DATABASE);
+            // $conn = mysqli_connect(SERVER_ADDRESS,USER_NAME,PASSWORD,DATABASE);
             $Err = '';
 
             $sql = "SELECT pId FROM Pids LIMIT 1";
@@ -87,8 +87,8 @@ class People{
                 $Err = 'Problem in Creating new registration - Maybe mobile number already in use.';
                 mysqli_close($conn);
                 $arr = array();
-                $arr[errno]=0;
-                $arr[error]=$Err;
+                $arr[]=-1;
+                $arr[]=$Err;
                 return $arr;
             }
 
@@ -98,26 +98,45 @@ class People{
                 $Err='An Internal Error Occured... Please try later';
                 mysqli_close($conn);
                 $arr = array();
-                $arr[errno]=0;
-                $arr[error]=$Err;
+                $arr[]=-1;
+                $arr[]=$Err;
                 return $arr;
             }
-            getUser($id);
+            return getUser($id);
     }
 }
 
 class Events{
-    public function getMainEvents(){
-        
+    public function getMainEvents($conn){
         $sql = " SELECT * FROM Events WHERE code = 1";
         $result = mysqli_query($conn, $sql);
+        $arr = array();
         if(!$result){
             $error = "No Top Level Events found";
-            $arr = array();
-            $arr[errno]=0;
-            $arr[error]=$error;
+            $arr[] = -1;
+            $arr[] = $error;
             return $arr;
         }
+        $arr[] = 1;
+        $arr[] = mysqli_fetch_array($result);
+        return $arr;
+    }
+
+    public function getAllEvents($conn)
+    {
+        $sql = "SELECT * FROM Events";
+        $result = mysqli_query($conn, $sql);
+        $arr = array();
+        if(!$result){
+            $error = "Error in retrieving database info";
+            $arr = array();
+            $arr[]=0;
+            $arr[]=$error;
+            return $arr;
+        }
+        $arr[] = 1;
+        $arr[] = mysqli_fetch_array($result);
+        return $arr;
     }
 }
 
