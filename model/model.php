@@ -27,6 +27,17 @@ class People{
         return $error;
     }
 
+    public function validateString($param){
+
+        $error = null;
+        if (!preg_match('/^[a-zA-Z0-9.]*$/', $param)) {
+            $error = "Invalid Name";
+
+        }
+        return $error;
+    }
+
+
     function IsNullOrEmptyString($val){
         return (!isset($val) || trim($val)==='');
     }
@@ -54,7 +65,7 @@ class People{
 
         $sql = " SELECT * FROM Registration WHERE id = $id";
         $result = mysqli_query($conn, $sql);
-        if(!$result){
+        if(!$result || mysql_num_rows($result)==0){
             $error = "The user is registered in no Events";
             $arr = array();
             $arr[]=-1;
@@ -85,7 +96,7 @@ class People{
 
         $sql = "SELECT pId FROM Pids LIMIT 1";
         $result = mysqli_query($conn, $sql);
-        if (!$result) {
+        if(!$result || mysql_num_rows($result)==0){
             $Err = 'Problem in Getting A New ID';
             mysqli_close($conn);
         }
@@ -125,7 +136,7 @@ class Events{
         $sql = " SELECT * FROM Events WHERE code = 1";
         $result = mysqli_query($conn, $sql);
         $arr = array();
-        if(!$result){
+        if(!$result || mysql_num_rows($result)==0){
             $error = "No Top Level Events found";
             $arr[] = -1;
             $arr[] = $error;
@@ -140,7 +151,7 @@ class Events{
         $sql = "SELECT * FROM Events";
         $result = mysqli_query($conn, $sql);
         $arr = array();
-        if(!$result){
+        if(!$result || mysql_num_rows($result)==0){
             $error = "Error in retrieving database info";
             $arr[]=0;
             $arr[]=$error;
@@ -156,7 +167,7 @@ class Events{
         $sql = "SELECT * FROM Events WHERE code = $mainEvent";
         $result = mysqli_query($conn, $sql);
         $arr = array();
-        if(!$result){
+        if(!$result || mysql_num_rows($result)==0){
             $error = "Could not get Sub Events for $mainEvent";
             $arr[]=0;
             $arr[]=$error;
