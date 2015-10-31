@@ -32,6 +32,10 @@ if (preg_match($base . '$@', $url)) {
 	require ('controller/getSubEvents.php');
 } elseif (preg_match($base . 'events/([A-Za-z]+)/([A-Za-z0-9])/?$@', $url, $match)) {
 	require ('controller/eventDetail.php');
+} elseif (preg_match($base . 'user/register/?$@', $url)) {
+	require ('controller/userRegistration.php');
+} elseif (preg_match($base . 'user/verifyEmail/[0-9]{4}/[A-Za-z0-9]{40}/?$@', $url, $match)) {
+	require ('controller/verifyEmail.php');
 } else {
 	die('invalid url ' . $url);
 }

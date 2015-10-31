@@ -10,7 +10,7 @@ $mobile = $_POST['mobile'];
 $email = $_POST['email'];
 $dob = $_POST['dob'];
 $city = $_POST['city'];
-$result = People::createUser($name,$college,$sex,$mob,$email,$dob,$city,$conn);
+$result = People::createUser($name,$college,$sex,$mobile,$email,$dob,$city,$conn);
 mysqli_close($conn);
 header('Content-type: appication/json');
 echo json_encode($result);

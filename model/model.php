@@ -100,18 +100,18 @@ class People{
         $error = null;
         if (strlen($n)<6 || strlen($n) > 40){
             $error = 'Username is too long or too short';
-        }  else if (!preg_match('/^[a-zA-Z0-9.]*$/', $n)) {
+        }  else if (!preg_match('/^[a-zA-Z0-9.\s]*$/', $n)) {
             $error = "Invalid Name";
-        }  else if (!preg_match('/^[a-zA-Z0-9.]*$/', $col)) {
+        }  else if (!preg_match('/^[a-zA-Z0-9.\s]*$/', $col)) {
             $error = "Invalid College Name";
         }  else if ($se!='M' && $se!='F') {
             $error = "Invalid Sex";
         }  else if (!preg_match('/^[789][0-9]{9}$/', $mob)) {
-            $error = "Invalid Mobile Number";
-        }  else if (!preg_match(!filter_var($em, FILTER_VALIDATE_EMAIL))) {
+            $error = "Invalid Mobile Number ";
+        }  else if (!filter_var($em, FILTER_VALIDATE_EMAIL)) {
             $error = "Invalid Email-ID";
         }  else if (DateTime::createFromFormat('Y-m-d', $db) == FALSE) {
-            $error = "Invalid D.O.B";
+            $error = "Invalid D.O.B".$db;
         }  else if (!preg_match('/^[a-zA-Z0-9.@]*$/', $cit)) {
             $error = "Invalid City";
         }
@@ -194,13 +194,17 @@ class People{
         $result = mysqli_query($conn, $sql);
         if(!$result || mysqli_num_rows($result)==0){
             $Err = 'Problem in Getting A New ID';
+            $arr = array();
+            $arr[]=-1;
+            $arr[]=$Err;
+            return $arr;
         }
         $row = mysqli_fetch_assoc($result);
-        $id = $row['ID'];
+        $id = $row['pId'];
 
         $time = time() ;
 
-        $sqlInsert = "INSERT INTO People(name,pId,college,sex,mobile,email,dob,city,feePaid,confirm,time) VALUES ($n, $id, $col, $se, $mob, $em, $dob, $cit, 0, 0,$time)";
+        $sqlInsert = "INSERT INTO People(name,pId,college,sex,mobile,email,dob,city,feePaid,confirm,time) VALUES ('$n', $id, '$col', '$se', '$mob', '$em', '$db', '$cit', 0, 0,$time)";
 
         $result = mysqli_query($conn,$sqlInsert);
         if(!$result){
@@ -232,7 +236,7 @@ class People{
             return $arr;
         }
         self::Email($em,$n,$token,$id);
-        return getUser($id);
+        return self::getUser($id);
     }
 
     public function Email($emailId,$name,$link,$id)
