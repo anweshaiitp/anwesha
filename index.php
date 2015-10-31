@@ -22,14 +22,16 @@ class Routing
 $url = $_SERVER['REQUEST_URI'];
 preg_match('@(.*)index.php(.*)$@', $_SERVER['PHP_SELF'], $mat );
 $base = '@^'. $mat[1] ;
-if ( preg_match($base .'events/?$@', $url, $match ) ) {
+if (preg_match($base . '$@', $url)) {
+	require ('view/index.html');
+} elseif ( preg_match($base .'events/?$@', $url, $match ) ) {
 	require ('controller/events.php');
+} elseif (preg_match($base . 'allEvents/?$@', $url)) {
+	require ('controller/allEvents.php');
 } elseif (preg_match($base . 'events/([A-Za-z]+)/?$@', $url, $match)) {
 	require ('controller/getSubEvents.php');
 } elseif (preg_match($base . 'events/([A-Za-z]+)/([A-Za-z0-9])/?$@', $url, $match)) {
 	require ('controller/eventDetail.php');
-} elseif (preg_match($base . '$@', $url)) {
-	require ('view/index.html');
 } else {
 	die('invalid url ' . $url);
 }

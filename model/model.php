@@ -1,9 +1,100 @@
 <?php
-// require('../connection.php');
+/**
+*
+*                             PPPPPP                        lll        
+*                             PP   PP   eee   oooo  pp pp   lll   eee  
+*                             PPPPPP  ee   e oo  oo ppp  pp lll ee   e 
+*                             PP      eeeee  oo  oo pppppp  lll eeeee  
+*                             PP       eeeee  oooo  pp      lll  eeeee 
+*                                                   pp                 
+*/
 
+/**
+ * class People cotains information of users registered for anwesha
+ */
 class People{
-    var $name,$pId,$college,$sex,$mobile,$email,$dob,$city,$feePaid,$confirm,$time;
+    /**
+     * name of the user
+     * @var string
+     */
+    var $name;
+    /**
+     * registered id of the user
+     * @var int
+     */
+    var $pId;
+    /**
+     * user's college name
+     * @var string
+     */
+    var $college;
+    /**
+     * gender information
+     * @var string
+     */
+    var $sex;
+    /**
+     * 10 digit mobile number
+     * @var int
+     */
+    var $mobile;
+    /**
+     * email id of user
+     * @var string
+     */
+    var $email;
+    /**
+     * dob of the user
+     * @var date
+     */
+    var $dob;
+    /**
+     * city of user
+     * @var string
+     */
+    var $city;
+    /**
+     * numeric fee
+     * @var int
+     */
+    var $feePaid;
+    /**
+     * [$confirm description]
+     * @var [type]
+     */
+    var $confirm;
+    /**
+     * registration time of user
+     * @var time
+     */
+    var $time;
 
+
+    public function __construct(){
+        $this->$name = null;
+        $this->$pId = null;
+        $this->$college = null;
+        $this->$sex = null;
+        $this->$mobile = null;
+        $this->$email = null;
+        $this->$dob = null;
+        $this->$city = null;
+        $this->$feePaid = null;
+        $this->$confirm = null;
+        $this->$time = null;
+    }
+
+    /**
+     * Checks if the data entered for registraion is avlid or not
+     * @param  string $n   name
+     * @param  string $col college
+     * @param  string $se  gender
+     * @param  int $mob 10 digit mobile number
+     * @param  string $em  emailId
+     * @param  string $db  date of birth
+     * @param  string $cit city
+     * @return string      if null then no errors, else returns the error.
+     */
     public function validateData($n,$col,$se,$mob,$em,$db,$cit){
 
         $error = null;
@@ -42,6 +133,13 @@ class People{
         return (!isset($val) || trim($val)==='');
     }
 
+
+    /**
+     * to get People object with given id
+     * @param  int $id   anwesha id of user
+     * @param  MySQLi object $conn variable containing connection details
+     * @return array       array
+     */
     public function getUser($id,$conn){
         $sql = " SELECT * FROM People WHERE id = $id";
         $result = mysqli_query($conn, $sql);
@@ -57,8 +155,6 @@ class People{
         $arr[]=1;
         $arr[]=$row;
         return $arr;
-
-
     }
 
     public function getEvents($id, $conn){
@@ -130,6 +226,18 @@ class People{
         return getUser($id);
     }
 }
+/**
+*                            EEEEEEE                        tt          
+*                            EE      vv   vv   eee  nn nnn  tt     sss  
+*                            EEEEE    vv vv  ee   e nnn  nn tttt  s     
+*                            EE        vvv   eeeee  nn   nn tt     sss  
+*                            EEEEEEE    v     eeeee nn   nn  tttt     s 
+*                                                                sss  
+*
+*/ 
+/**
+ * 
+ */
 
 class Events{
     public function getMainEvents($conn){
@@ -153,7 +261,7 @@ class Events{
         $arr = array();
         if(!$result || mysqli_num_rows($result)==0){
             $error = "Error in retrieving database info";
-            $arr[]=0;
+            $arr[]=-1;
             $arr[]=$error;
             return $arr;
         }
@@ -169,7 +277,7 @@ class Events{
         $arr = array();
         if(!$result || mysqli_num_rows($result)==0){
             $error = "Could not get Sub Events for $mainEvent";
-            $arr[]=0;
+            $arr[]=-1;
             $arr[]=$error;
             return $arr;
         }
