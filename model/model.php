@@ -72,7 +72,7 @@ class People{
             $arr[]=$error;
             return $arr;
         }
-        $row = mysqli_fetch_array($result);
+        $row = mysqli_fetch_assoc($result);
         $arr = array();
         $arr[]=1;
         $arr[]=$row;
@@ -100,7 +100,7 @@ class People{
             $Err = 'Problem in Getting A New ID';
             mysqli_close($conn);
         }
-        $row = mysqli_fetch_array($result);
+        $row = mysqli_fetch_assoc($result);
         $id = $row['ID'];
 
         $time = time() ;
@@ -143,7 +143,7 @@ class Events{
             return $arr;
         }
         $arr[] = 1;
-        $arr[] = mysqli_fetch_array($result);
+        $arr[] = mysqli_fetch_assoc($result);
         return $arr;
     }
 
@@ -158,7 +158,7 @@ class Events{
             return $arr;
         }
         $arr[] = 1;
-        $arr[] = mysqli_fetch_array($result);
+        $arr[] = mysqli_fetch_assoc($result);
         return $arr;
     }
 
@@ -174,7 +174,7 @@ class Events{
             return $arr;
         }
         $arr[] = 1;
-        $arr[] = mysqli_fetch_array($result);
+        $arr[] = mysqli_fetch_assoc($result);
         return $arr;
     }
 
