@@ -180,7 +180,7 @@ class People{
     }
 
     public function createUser($n,$col,$se,$mob,$em,$db,$cit,$conn){
-        $error = validateData($n,$col,$se,$mob,$em,$db,$cit);
+        $error = self::validateData($n,$col,$se,$mob,$em,$db,$cit);
         if(isset($error)){
             $arr = array();
             $arr[]=-1;
@@ -194,7 +194,6 @@ class People{
         $result = mysqli_query($conn, $sql);
         if(!$result || mysqli_num_rows($result)==0){
             $Err = 'Problem in Getting A New ID';
-            mysqli_close($conn);
         }
         $row = mysqli_fetch_assoc($result);
         $id = $row['ID'];
@@ -206,7 +205,6 @@ class People{
         $result = mysqli_query($conn,$sqlInsert);
         if(!$result){
             $Err = 'Problem in Creating new registration - Maybe mobile number already in use.';
-            mysqli_close($conn);
             $arr = array();
             $arr[]=-1;
             $arr[]=$Err;
@@ -217,13 +215,34 @@ class People{
         $result = mysqli_query($conn,$sqlDeletePid);
         if(!$result){
             $Err='An Internal Error Occured... Please try later';
-            mysqli_close($conn);
             $arr = array();
             $arr[]=-1;
             $arr[]=$Err;
             return $arr;
         }
+        $token = sha1(base64_encode((openssl_random_pseudo_bytes(15))));
+        $sqlInsert = "INSERT INTO LoginTable(pId,password,csrfToken) VALUES ($id,NULL,'$token')";
+
+        $result = mysqli_query($conn,$sqlInsert);
+        if(!$result){
+            $Err = 'Problem in Creating login Id. Contact Registration team for help.';
+            $arr = array();
+            $arr[]=-1;
+            $arr[]=$Err;
+            return $arr;
+        }
+        self::Email($em,$n,$token,$id);
         return getUser($id);
+    }
+
+    public function Email($emailId,$name,$link,$id)
+    {
+        $baseURL = '';
+        $link = $baseURL . '' . $id . '/' . $link; 
+        // mail($to,$subject,$message);
+        $message = "Hi $name,\nThank you for registering for Anwesha2k16. Your Registered Id is : ANW$id. To complete your registration, you need to verify your email account. Click here for email verification link: $link .\nIn case you have any registration related queries feel free to contact Aditya Gupta(+918292337923) or Arindam Banerjee(+919472472543) or drop an email to registration@anwesha.info. You can also visit our website http://2016.anwesha.info/ for more information.\nThank You.\nRegistration Desk\nAnwesha 2k16";
+        $subject = "Email Verification, Anwesha2k16";
+        mail($emailId,$subject,$message);
     }
 }
 /**
