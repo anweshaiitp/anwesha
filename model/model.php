@@ -278,7 +278,6 @@ class People{
         }
 
         $pid = $returnArray[1]['pId'];
-
         $sql = "INSERT INTO `anwesha`.`CampusAmberg` (`pId`, `refKey`, `address`, `degree`, `grad`, `leader`, `involvement`) VALUES ($pid, '0', '$address', '$degree', $grad, '$leader', '$involvement')";
 
         $result = mysqli_query($conn, $sql);

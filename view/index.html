@@ -34,11 +34,10 @@ $(function(){
 
 </head>
 
-<body>
+<body ng-controller="DefaultCtrl as dctrl">
 <!--<h1 ng-controller="testCtrl as u">
 	{{u.x}}
 </h1>-->
-	<div ng-view>
 	<div id="intro">
 		<div id="logo"><img src="images/logo-bg.png"></div>
 		<span>THINK.DREAM.LIVE.</span>
@@ -201,7 +200,7 @@ $(function(){
 		<ul>
 			<div id="inpage">
 				<a href="#intro"><li><img class="ico" src="images/icons/home.png"> Home</li></a>
-				<a class="sliding" href="#/events"><li><img class="ico" src="images/icons/events.png"> Events</li></a>
+				<a class="sliding" href="#" ng-click="dctrl.showEvents()"><li><img class="ico" src="images/icons/events.png"> Events</li></a>
 			</div>
 				<a href="#comingsoon" onclick="document.body.style.overflow='hidden';document.getElementById('comingsoon').style.display='block';document.getElementById('fade').style.display='block';"><li><img class="ico" src="images/icons/schedule.png"> Schedule</li></a>
 				<a href="#comingsoon" onclick="document.body.style.overflow='hidden';document.getElementById('comingsoon').style.display='block';document.getElementById('fade').style.display='block'"><li><img class="ico" src="images/icons/pronites.png">Pronites</li></a>
@@ -227,7 +226,8 @@ $(function(){
 	<a target="_blank" href="https://twitter.com/anwesha_iitp"><img src="images/social/Twitter-icon.png"></a>
 	<a target="_blank" href="https://www.youtube.com/user/AnweshaIITP"><img src="images/social/Youtube-icon.png"></a>
 </div-->
-<div class="cover"></div></div>
+<div class="cover"></div>
+<div class="events" ng-show="dctrl.isEvents"></div>
 <script>
 		$(document).ready(function(){
 			$('#logo').animate({},0).delay(3000).animate({'opacity':0.9},2500,function(){

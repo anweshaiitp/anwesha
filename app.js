@@ -106,7 +106,11 @@
 	} ] );
 
 	myApplication.controller( 'DefaultCtrl', ['$scope', function($scope){
-		this.x = "Hi there";
+		var self = this;
+		this.isEvents = false;
+		this.showEvents = function() {
+			self.isEvents = true;
+		}
 	} ] );
 
 	myApplication.controller( 'eventCtrl', ['$scope', '$http', 'Events', function($scope,$http,$events){
@@ -114,7 +118,7 @@
 		$events.init($http);
 	} ] );
 
-	myApplication.config(function($routeProvider) {
+	/*myApplication.config(function($routeProvider) {
 	$routeProvider
 
 	     //route for the home page
@@ -128,6 +132,6 @@
 	    	templateUrl : 'view/event.html',
 	    	controller  : 'eventCtrl'
 	    })
-	});
+	});*/
 })();
 
