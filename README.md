@@ -14,9 +14,9 @@
 ## TODO
 - [ ] Write setupdb.php.
 - [ ] Write Trigger to clean tables in 4-5 days.
-- [ ] Write backend for Campus Ambessador.
-- [ ] Testing Registration (User/Campus Ambessador).
-- [ ] Testing Events Details.
+- [ ] Write backend for Campus Ambassador.
+- [ ] Testing Registration (User/Campus Ambassador).
+- [x] Testing Events Details.
 - [ ] Testing Events Details [With Image rendering].
 - [ ] Write fb register backend and frontend.
 - [ ] Add __re-captcha__ on registration page.
@@ -31,3 +31,14 @@
 - [ ] Login for Core/organizing committee
 - [ ] Expanded Features for above (delete/add registration, add/delete/edit teams)
 - [ ] Fee payment portal.
+
+## DEADLINE
+- [ ] Campus Ambassador Completion - 2 Nov 2015
+- [ ] User Registration Completion - 9 Nov 2015
+- [ ] Event Page Completion - 9 Nov 2015
+- [ ] User Login - 16 Nov 2015
+- [ ] Events Registration - 16 Nov 2015
+- [ ] re-captcha on each page - 16 Nov 2015
+- [ ] FB Registration & Login - 16 Nov 2015
+- [ ] FB Integration - 7 Dec 2015
+- [ ] Login page for Core & Organising Committee - 14 Dec 2015
