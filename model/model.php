@@ -168,10 +168,13 @@ class People{
             $arr[]=$error;
             return $arr;
         }
-        $row = mysqli_fetch_assoc($result);
         $arr = array();
+        $results = array();
+        while($row = mysqli_fetch_assoc($result)){
+            $results[] = $row;
+        }
         $arr[]=1;
-        $arr[]=$row;
+        $arr[] = $results;
         return $arr;
     }
 
@@ -389,7 +392,11 @@ class Events{
             return $arr;
         }
         $arr[] = 1;
-        $arr[] = mysqli_fetch_assoc($result);
+        $results = array();
+        while($row = mysqli_fetch_assoc($result)){
+            $results[] = $row;
+        }
+        $arr[] = $results;
         return $arr;
     }
 
@@ -404,7 +411,11 @@ class Events{
             return $arr;
         }
         $arr[] = 1;
-        $arr[] = mysqli_fetch_assoc($result);
+        $results = array();
+        while($row = mysqli_fetch_assoc($result)){
+            $results[] = $row;
+        }
+        $arr[] = $results;
         return $arr;
     }
 
@@ -420,7 +431,11 @@ class Events{
             return $arr;
         }
         $arr[] = 1;
-        $arr[] = mysqli_fetch_assoc($result);
+        $results = array();
+        while($row = mysqli_fetch_assoc($result)){
+            $results[] = $row;
+        }
+        $arr[] = $results;
         return $arr;
     }
 
