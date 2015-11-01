@@ -1,12 +1,12 @@
 <?php
 /**
 *
-*                             PPPPPP                        lll        
-*                             PP   PP   eee   oooo  pp pp   lll   eee  
-*                             PPPPPP  ee   e oo  oo ppp  pp lll ee   e 
-*                             PP      eeeee  oo  oo pppppp  lll eeeee  
-*                             PP       eeeee  oooo  pp      lll  eeeee 
-*                                                   pp                 
+*                             PPPPPP                        lll
+*                             PP   PP   eee   oooo  pp pp   lll   eee
+*                             PPPPPP  ee   e oo  oo ppp  pp lll ee   e
+*                             PP      eeeee  oo  oo pppppp  lll eeeee
+*                             PP       eeeee  oooo  pp      lll  eeeee
+*                                                   pp
 */
 
 /**
@@ -239,10 +239,38 @@ class People{
         return self::getUser($id);
     }
 
+
+    public function createCampusAmbassador($name,$college,$sex,$mob,$email,$dob,$city,$refkey,$address,$degree,$grad,$things,$leader,$involement,$conn){
+        $returnArray = self::getUser($name,$college,$sex,$mob,$email,$dob,$city,$conn);
+        if($returnArray[0]==-1){
+            $error = "Problem in Registering the user.";
+            $arr = array();
+            $arr[]=-1;
+            $arr[]=$error;
+            return $arr;
+        }
+
+        $pid = $returnArray[1]['pId'];
+
+        $sql = "INSERT INTO `anwesha`.`CampusAmberg` (`pId`, `refKey`, `address`, `degree`, `grad`, `leader`, `involvement`) VALUES ($pid, '0', '$address', '$degree', $grad, '$leader', '$involvement');"
+
+        $result = mysqli_query($conn, $sql);
+        if(!$result){
+            $error = "Could not register the Campus Ambassador";
+            $arr = array();
+            $arr[]=-1;
+            $arr[]=$error;
+            return $arr;
+        }
+
+        return $returnArray;
+
+    }
+
     public function Email($emailId,$name,$link,$id)
     {
         $baseURL = '';
-        $link = $baseURL . '' . $id . '/' . $link; 
+        $link = $baseURL . '' . $id . '/' . $link;
         // mail($to,$subject,$message);
         $message = "Hi $name,\nThank you for registering for Anwesha2k16. Your Registered Id is : ANW$id. To complete your registration, you need to verify your email account. Click here for email verification link: $link .\nIn case you have any registration related queries feel free to contact Aditya Gupta(+918292337923) or Arindam Banerjee(+919472472543) or drop an email to registration@anwesha.info. You can also visit our website http://2016.anwesha.info/ for more information.\nThank You.\nRegistration Desk\nAnwesha 2k16";
         $subject = "Email Verification, Anwesha2k16";
@@ -250,16 +278,16 @@ class People{
     }
 }
 /**
-*                            EEEEEEE                        tt          
-*                            EE      vv   vv   eee  nn nnn  tt     sss  
-*                            EEEEE    vv vv  ee   e nnn  nn tttt  s     
-*                            EE        vvv   eeeee  nn   nn tt     sss  
-*                            EEEEEEE    v     eeeee nn   nn  tttt     s 
-*                                                                sss  
+*                            EEEEEEE                        tt
+*                            EE      vv   vv   eee  nn nnn  tt     sss
+*                            EEEEE    vv vv  ee   e nnn  nn tttt  s
+*                            EE        vvv   eeeee  nn   nn tt     sss
+*                            EEEEEEE    v     eeeee nn   nn  tttt     s
+*                                                                sss
 *
-*/ 
+*/
 /**
- * 
+ *
  */
 
 class Events{
