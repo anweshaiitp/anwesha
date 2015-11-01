@@ -302,9 +302,9 @@ class People{
     {
         $baseURL = '';
         if ($ca){
-            $baseURL = $baseURL . 'verifyCampusAmbassador/';
+            $baseURL = $baseURL . 'verifyEmail/CampusAmbassador/';
         } else {
-            $baseURL = $baseURL . 'verifyUser/';
+            $baseURL = $baseURL . 'verifyEmail/User/';
         }
         $link = $baseURL . '' . $id . '/' . $link;
         // mail($to,$subject,$message);
