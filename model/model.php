@@ -276,7 +276,7 @@ class People{
 
         $pid = $returnArray[1]['pId'];
 
-        $sql = "INSERT INTO `anwesha`.`CampusAmberg` (`pId`, `refKey`, `address`, `degree`, `grad`, `leader`, `involvement`) VALUES ($pid, '0', '$address', '$degree', $grad, '$leader', '$involvement');"
+        $sql = "INSERT INTO `anwesha`.`CampusAmberg` (`pId`, `refKey`, `address`, `degree`, `grad`, `leader`, `involvement`) VALUES ($pid, '0', '$address', '$degree', $grad, '$leader', '$involvement')";
 
         $result = mysqli_query($conn, $sql);
         if(!$result){
@@ -312,6 +312,57 @@ class People{
         $subject = "Email Verification, Anwesha2k16";
         mail($emailId,$subject,$message);
     }
+
+    /**
+     * Verfies the user registraion
+     * @param int $id      Anwesha Id for registered user
+     * @param string $token     Confirmation Token
+     */
+    public function verifyEmail($id,$token,$conn){
+        $sql = "SELECT * FROM LoginTable WHERE pId = $id";
+        $result = mysqli_query($conn, $sql);
+        if(!$result || mysqli_num_rows($result)!=1){
+            $error = "No such User - Invalid Link";
+            $arr = array();
+            $arr[] = -1;
+            $arr[] = $error;
+            return $arr;
+        }
+        $row = mysqli_fetch_assoc($result);
+        if(strcmp($token,$row['csrfToken'])!=0){
+            $error = "Invalid Link or Link Expired";
+            $arr = array();
+            $arr[] = -1;
+            $arr[] = $error;
+            return $arr;
+        }
+
+        $sqlUpdate = "UPDATE People SET confirm = 1 WHERE pId = $id";
+        $result = mysqli_query($conn, $sqlUpdate);
+        if(!result){
+            $error = "Some Internal Error Occured - Please try again.";
+            $arr = array();
+            $arr[] = -1;
+            $arr[] = $error;
+            return $arr;
+        }
+        $sqlUpdate = "UPDATE LoginTable SET csrfToken = ''";
+        $result = mysqli_query($conn, $sqlUpdate);
+        if(!result){
+            $error = "Some Internal Error Occured - Please try again.";
+            $arr = array();
+            $arr[] = -1;
+            $arr[] = $error;
+            return $arr;
+        }
+        $arr = array();
+        $arr[]=1;
+        return $arr;
+
+
+    }
+
+
 }
 /**
 *                            EEEEEEE                        tt
