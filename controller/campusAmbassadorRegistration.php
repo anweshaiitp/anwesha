@@ -17,6 +17,6 @@ $responsibility = $_POST['responsibility'];
 $involvement = $_POST['involvement'];
 $result = People::createCampusAmbassador($name,$college,$sex,$mobile,$email,$dob,$city,$address,$degree,$graduation,$responsibility,$involvement,$conn);
 mysqli_close($conn);
-header('Content-type: appication/json');
+header('Content-type: application/json');
 echo json_encode($result);
 ?>

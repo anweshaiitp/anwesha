@@ -8,6 +8,6 @@ $id = $group[1];
 $token = $group[2];
 $verification = People::verifyEmail($id,$token);
 mysqli_close($conn);
-header('Content-type: appication/json');
+header('Content-type: application/json');
 echo json_encode($result);
 ?>

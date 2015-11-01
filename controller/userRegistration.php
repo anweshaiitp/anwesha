@@ -16,6 +16,6 @@ $city = $_POST['city'];
  */
 $result = People::createUser($name,$college,$sex,$mobile,$email,$dob,$city,false,$conn);
 mysqli_close($conn);
-header('Content-type: appication/json');
+header('Content-type: application/json');
 echo json_encode($result);
 ?>
