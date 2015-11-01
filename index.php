@@ -31,8 +31,6 @@ if (preg_match($base . '$@', $url)) {
 	require ('controller/allEvents.php');
 } elseif (preg_match($base . 'events/([A-Za-z]+)/?$@', $url, $match)) {
 	require ('controller/getSubEvents.php');
-} elseif (preg_match($base . 'events/([A-Za-z]+)/([A-Za-z0-9])/?$@', $url, $match)) {
-	require ('controller/eventDetail.php');
 } elseif (preg_match($base . 'user/register/User/?$@', $url)) {
 	require ('controller/userRegistration.php');
 } elseif (preg_match($base . 'user/register/CampusAmbassador/?$@', $url)) {
