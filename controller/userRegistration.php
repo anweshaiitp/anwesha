@@ -10,7 +10,11 @@ $mobile = $_POST['mobile'];
 $email = $_POST['email'];
 $dob = $_POST['dob'];
 $city = $_POST['city'];
-$result = People::createUser($name,$college,$sex,$mobile,$email,$dob,$city,$conn);
+/**
+ * Information if user was created or not. As false is passed, it will create user not CampusAmbassador.
+ * @var array;
+ */
+$result = People::createUser($name,$college,$sex,$mobile,$email,$dob,$city,false,$conn);
 mysqli_close($conn);
 header('Content-type: appication/json');
 echo json_encode($result);

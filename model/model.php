@@ -178,8 +178,20 @@ class People{
     public function getGroups($id, $conn){
 
     }
-
-    public function createUser($n,$col,$se,$mob,$em,$db,$cit,$conn){
+    /**
+     * Registers a new user for anwesha
+     * @param  string $n    name of user
+     * @param  string $col  college name
+     * @param  string $se   M or F
+     * @param  int $mob  10 digit mobile number
+     * @param  string $em   email id of user
+     * @param  string $db   date of birth of user on YYYY-MM-DD format
+     * @param  string $cit  City
+     * @param  boolean $ca if true then registers a campus ambassador
+     * @param  MySQLi $conn database connection object
+     * @return array       index 0 :- 1(success), -1(error);
+     */
+    public function createUser($n,$col,$se,$mob,$em,$db,$cit,$ca,$conn){
         $error = self::validateData($n,$col,$se,$mob,$em,$db,$cit);
         if(isset($error)){
             $arr = array();
@@ -235,19 +247,31 @@ class People{
             $arr[]=$Err;
             return $arr;
         }
-        self::Email($em,$n,$token,$id);
+        self::Email($em,$n,$token,$id,$ca);
         return self::getUser($id);
     }
 
-
-    public function createCampusAmbassador($name,$college,$sex,$mob,$email,$dob,$city,$refkey,$address,$degree,$grad,$things,$leader,$involement,$conn){
-        $returnArray = self::getUser($name,$college,$sex,$mob,$email,$dob,$city,$conn);
+    /**
+     * Registers a new campus ambassador
+     * @param  string $name       name of user
+     * @param  string $college    college name
+     * @param  string $sex        M or F
+     * @param  int $mob        10 digit mobile number
+     * @param  string $email      email id of user
+     * @param  string $dob        date of birth of user on YYYY-MM-DD format
+     * @param  string $city       City
+     * @param  string $address    Address
+     * @param  string $degree     Degree (B.Tech. etc.)
+     * @param  int $grad       Graduation Year
+     * @param  string $leader     Response for leaderShip in college
+     * @param  string $involement Response for participation in anwesha in the past
+     * @param  MySQLi $conn       database connection object
+     * @return array             index 0 :- 1(success), -1(error);
+     */
+    public function createCampusAmbassador($name,$college,$sex,$mob,$email,$dob,$city,$address,$degree,$grad,$leader,$involement,$conn){
+        $returnArray = self::createUser($name,$college,$sex,$mob,$email,$dob,$city,true,$conn);
         if($returnArray[0]==-1){
-            $error = "Problem in Registering the user.";
-            $arr = array();
-            $arr[]=-1;
-            $arr[]=$error;
-            return $arr;
+            return $returnArray;
         }
 
         $pid = $returnArray[1]['pId'];
@@ -266,10 +290,22 @@ class People{
         return $returnArray;
 
     }
-
-    public function Email($emailId,$name,$link,$id)
+    /**
+     * Sends email for verification
+     * @param string $emailId Email Id to be verified
+     * @param string $name    Name of user
+     * @param string $link    Token to be sent for verification
+     * @param int $id      Anwesha Id for registered user
+     * @param boolean $CA      if true then link is for CampusAmbassador
+     */
+    public function Email($emailId,$name,$link,$id,$ca)
     {
         $baseURL = '';
+        if ($ca){
+            $baseURL = $baseURL . 'verifyCampusAmbassador/';
+        } else {
+            $baseURL = $baseURL . 'verifyUser/';
+        }
         $link = $baseURL . '' . $id . '/' . $link;
         // mail($to,$subject,$message);
         $message = "Hi $name,\nThank you for registering for Anwesha2k16. Your Registered Id is : ANW$id. To complete your registration, you need to verify your email account. Click here for email verification link: $link .\nIn case you have any registration related queries feel free to contact Aditya Gupta(+918292337923) or Arindam Banerjee(+919472472543) or drop an email to registration@anwesha.info. You can also visit our website http://2016.anwesha.info/ for more information.\nThank You.\nRegistration Desk\nAnwesha 2k16";
