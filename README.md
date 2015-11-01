@@ -34,8 +34,8 @@
 
 ## DEADLINE
 - [ ] Campus Ambassador Completion - 2 Nov 2015
-- [ ] User Registration Completion - 9 Nov 2015
-- [ ] Event Page Completion - 9 Nov 2015
+- [ ] User Registration Completion - 4 Nov 2015
+- [ ] Event Page Completion - 4 Nov 2015
 - [ ] User Login - 16 Nov 2015
 - [ ] Events Registration - 16 Nov 2015
 - [ ] re-captcha on each page - 16 Nov 2015
