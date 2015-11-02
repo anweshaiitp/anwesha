@@ -37,6 +37,7 @@
       angular.bootstrap(document, ['anwesha']);
     });
 
+    var globalErr = "";
     function Status() {
     	this.error = false;
     	this.state = "";
@@ -79,10 +80,22 @@
 		self.events = {};
 		this.init = function () {
 			return $http.get( base_url ).then( function( response ){
+				if ( response.data[0] == 1 ){
+					response.data[1].forEach(function(element,A,idx){
+						self.events[element['eveName']] = element;
+					});
+					console.log(self.events);
+				}else{
+					globalErr = response.data[0];
+				}
 				console.log(response.data);
 			},function( errorResponse ) {
-
+				globalErr = errorResponse;
+				console.log(errorResponse);
 			} );
+		}
+		this.getSubEvents = function( code ) {
+
 		}
 	}
 
@@ -116,6 +129,7 @@
 	myApplication.controller( 'eventCtrl', ['$scope', '$http', 'Events', function($scope,$http,$events){
 		this.events = "Hi there";
 		$events.init($http);
+		this.events = $events.events;
 	} ] );
 
 	/*myApplication.config(function($routeProvider) {
