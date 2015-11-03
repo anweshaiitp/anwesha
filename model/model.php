@@ -251,7 +251,7 @@ class People{
             return $arr;
         }
         self::Email($em,$n,$token,$id,$ca);
-        return self::getUser($id);
+        return self::getUser($id,$conn);
     }
 
     /**
