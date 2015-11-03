@@ -1,4 +1,4 @@
-<?php 
+<?php
 require('model/model.php');
 require('dbConnection.php');
 
