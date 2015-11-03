@@ -310,7 +310,7 @@ class People{
         }
         $link = $baseURL . '' . $id . '/' . $link;
         // mail($to,$subject,$message);
-        $message = "Hi $name,\nThank you for registering for Anwesha2k16. Your Registered Id is : ANW$id. To complete your registration, you need to verify your email account. Click here for email verification link: $link .\nIn case you have any registration related queries feel free to contact Aditya Gupta(+918292337923) or Arindam Banerjee(+919472472543) or drop an email to registration@anwesha.info. You can also visit our website http://2016.anwesha.info/ for more information.\nThank You.\nRegistration Desk\nAnwesha 2k16";
+        $message = "Hi $name,<br>Thank you for registering for Anwesha2k16. Your Registered Id is : <b>ANW$id</b>. To complete your registration, you need to verify your email account. Click <a href = \"$link\">here</a> for email verification.<br>In case you have any registration related queries feel free to contact Aditya Gupta(+918292337923) or Arindam Banerjee(+919472472543) or drop an email to <i>registration@anwesha.info</i>. You can also visit our website <i>http://2016.anwesha.info/</i> for more information.<br>Thank You.<br>Registration Desk<br>Anwesha 2k16";
         $subject = "Email Verification, Anwesha2k16";
 
         require('resources/PHPMailer/PHPMailerAutoload.php');
@@ -335,8 +335,8 @@ class People{
         $mail->addAddress($emailId, $name);     // Add a recipient
         // $mail->addAddress('ellen@example.com');               // Name is optional
         $mail->addReplyTo('registration@anwesha.info', 'Registration & Planning Team');
-        $mail->addCC('guptaaditya.13@gmail.com');
-        $mail->addBCC('guptaaditya.1995@yahoo.co.in');
+        // $mail->addCC('guptaaditya.13@gmail.com');
+        // $mail->addBCC('registration@anwesha.info');
 
         // $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
         // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
@@ -344,14 +344,14 @@ class People{
 
         $mail->Subject = $subject;
         $mail->Body    = $message;
-        $mail->AltBody = $message;
-
-        if(!$mail->send()) {
-            echo 'Message could not be sent.';
-            echo 'Mailer Error: ' . $mail->ErrorInfo;
-        } else {
-            echo 'Message has been sent';
-        }
+        $mail->AltBody = "Hi $name,\nThank you for registering for Anwesha2k16. Your Registered Id is : ANW$id. To complete your registration, you need to verify your email account. Click here for email verification link: $link .\nIn case you have any registration related queries feel free to contact Aditya Gupta(+918292337923) or Arindam Banerjee(+919472472543) or drop an email to registration@anwesha.info. You can also visit our website http://2016.anwesha.info/ for more information.\nThank You.\nRegistration Desk\nAnwesha 2k16";;
+        $mail->send();
+        // if(!$mail->send()) {
+        //     echo 'Message could not be sent.';
+        //     echo 'Mailer Error: ' . $mail->ErrorInfo;
+        // } else {
+        //     echo 'Message has been sent';
+        // }
     }
 
     /**
