@@ -24,7 +24,8 @@
 - [ ] Write registration for particular Event.
 - [ ] Write group registration.
 - [ ] Suggest list of colleges, cities, states. __FRONTEND!__
-- [ ] ~~__Use PHPMailer__~~
+- [x] Use PHPMailer
+- [ ] ~~Create a nice looking HTML page for email~~
 - [ ] ~~Scheduling (Fontend + backend).~~
 - [ ] ~~OTP!~~
 - [ ] Write backend for registration of Femina Miss India.
