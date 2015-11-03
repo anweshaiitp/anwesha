@@ -141,7 +141,7 @@ class People{
      * @return array       array
      */
     public function getUser($id,$conn){
-        $sql = " SELECT * FROM People WHERE id = $id";
+        $sql = " SELECT * FROM People WHERE pId = $id";
         $result = mysqli_query($conn, $sql);
         if(!$result || mysqli_num_rows($result)!=1){
             $error = "Problem in displaying result for Anwesha ID";
@@ -219,7 +219,7 @@ class People{
 
         $time = time() ;
 
-        $sqlInsert = "INSERT INTO People(name,pId,college,sex,mobile,email,dob,city,feePaid,confirm,time) VALUES ('$n', $id, '$col', '$se', '$mob', '$em', '$db', '$cit', 0, 0,$time)";
+        $sqlInsert = "INSERT INTO People(name,pId,college,sex,mobile,email,dob,city,feePaid,confirm) VALUES ('$n', $id, '$col', '$se', '$mob', '$em', '$db', '$cit', 0, 0)";
 
         $result = mysqli_query($conn,$sqlInsert);
         if(!$result){
