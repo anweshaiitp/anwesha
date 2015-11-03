@@ -251,7 +251,7 @@ class People{
             return $arr;
         }
         self::Email($em,$n,$token,$id,$ca);
-        return self::getUser($id);
+        return self::getUser($id, $conn);
     }
 
     /**
@@ -278,7 +278,6 @@ class People{
         }
 
         $pid = $returnArray[1]['pId'];
-
         $sql = "INSERT INTO `anwesha`.`CampusAmberg` (`pId`, `refKey`, `address`, `degree`, `grad`, `leader`, `involvement`) VALUES ($pid, '0', '$address', '$degree', $grad, '$leader', '$involvement')";
 
         $result = mysqli_query($conn, $sql);
@@ -311,9 +310,48 @@ class People{
         }
         $link = $baseURL . '' . $id . '/' . $link;
         // mail($to,$subject,$message);
-        $message = "Hi $name,\nThank you for registering for Anwesha2k16. Your Registered Id is : ANW$id. To complete your registration, you need to verify your email account. Click here for email verification link: $link .\nIn case you have any registration related queries feel free to contact Aditya Gupta(+918292337923) or Arindam Banerjee(+919472472543) or drop an email to registration@anwesha.info. You can also visit our website http://2016.anwesha.info/ for more information.\nThank You.\nRegistration Desk\nAnwesha 2k16";
+        $message = "Hi $name,<br>Thank you for registering for Anwesha2k16. Your Registered Id is : <b>ANW$id</b>. To complete your registration, you need to verify your email account. Click <a href = \"$link\">here</a> for email verification.<br>In case you have any registration related queries feel free to contact Aditya Gupta(+918292337923) or Arindam Banerjee(+919472472543) or drop an email to <i>registration@anwesha.info</i>. You can also visit our website <i>http://2016.anwesha.info/</i> for more information.<br>Thank You.<br>Registration Desk<br>Anwesha 2k16";
         $subject = "Email Verification, Anwesha2k16";
-        mail($emailId,$subject,$message);
+
+        require('resources/PHPMailer/PHPMailerAutoload.php');
+
+        $mail = new PHPMailer;
+
+        // 0 = off (for production use)
+        // 1 = client messages
+        // 2 = client and server messages
+        // 3 = verbose debug output
+        $mail->SMTPDebug = 0;
+
+        $mail->isSMTP();                                      // Set mailer to use SMTP
+        $mail->Host = 'lnx36.securehostdns.com';  // Specify main and backup SMTP servers
+        $mail->SMTPAuth = true;                               // Enable SMTP authentication
+        $mail->Username = 'registration@anwesha.info';                 // SMTP username
+        $mail->Password = 'anw_reg_2015_codered';                           // SMTP password
+        $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
+        $mail->Port = 465;                                    // TCP port to connect to
+
+        $mail->setFrom('registration@anwesha.info', 'Anwesha Registration & Planning Team');
+        $mail->addAddress($emailId, $name);     // Add a recipient
+        // $mail->addAddress('ellen@example.com');               // Name is optional
+        $mail->addReplyTo('registration@anwesha.info', 'Registration & Planning Team');
+        // $mail->addCC('guptaaditya.13@gmail.com');
+        // $mail->addBCC('registration@anwesha.info');
+
+        // $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+        // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+        $mail->isHTML(true);                                  // Set email format to HTML
+
+        $mail->Subject = $subject;
+        $mail->Body    = $message;
+        $mail->AltBody = "Hi $name,\nThank you for registering for Anwesha2k16. Your Registered Id is : ANW$id. To complete your registration, you need to verify your email account. Click here for email verification link: $link .\nIn case you have any registration related queries feel free to contact Aditya Gupta(+918292337923) or Arindam Banerjee(+919472472543) or drop an email to registration@anwesha.info. You can also visit our website http://2016.anwesha.info/ for more information.\nThank You.\nRegistration Desk\nAnwesha 2k16";;
+        $mail->send();
+        // if(!$mail->send()) {
+        //     echo 'Message could not be sent.';
+        //     echo 'Mailer Error: ' . $mail->ErrorInfo;
+        // } else {
+        //     echo 'Message has been sent';
+        // }
     }
 
     /**
@@ -342,7 +380,7 @@ class People{
 
         $sqlUpdate = "UPDATE People SET confirm = 1 WHERE pId = $id";
         $result = mysqli_query($conn, $sqlUpdate);
-        if(!result){
+        if(!$result){
             $error = "Some Internal Error Occured - Please try again.";
             $arr = array();
             $arr[] = -1;
@@ -351,7 +389,7 @@ class People{
         }
         $sqlUpdate = "UPDATE LoginTable SET csrfToken = ''";
         $result = mysqli_query($conn, $sqlUpdate);
-        if(!result){
+        if(!$result){
             $error = "Some Internal Error Occured - Please try again.";
             $arr = array();
             $arr[] = -1;

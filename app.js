@@ -37,6 +37,7 @@
       angular.bootstrap(document, ['anwesha']);
     });
 
+    var globalErr = "";
     function Status() {
     	this.error = false;
     	this.state = "";
@@ -60,28 +61,51 @@
         /**
          * Set details of user on this object
          * @param string name of user
-         * @param int level of user
-         * @param int tscore total score of user
-         * @param int lscore level score of user
          */
         this.setDetails = function(name,level,tscore,lscore ){
             self.username = name;
-            self.level = level;
-            self.tscore = tscore;
-            self.lscore = lscore;
         }
     }
 
     myApplication.service( 'User', ['$http', User] );
+
+	/**
+	 * Defining the service for events
+	 * @param {object} $http http servie
+	 */
+	function Events( $http ) {
+		var self = this;
+
+		var base_url = 'events/';
+		self.events = {};
+		this.init = function () {
+			return $http.get( base_url ).then( function( response ){
+				if ( response.data[0] == 1 ){
+					response.data[1].forEach(function(element,A,idx){
+						self.events[element['eveName']] = element;
+					});
+					console.log(self.events);
+				}else{
+					globalErr = response.data[0];
+				}
+				console.log(response.data);
+			},function( errorResponse ) {
+				globalErr = errorResponse;
+				console.log(errorResponse);
+			} );
+		}
+		this.getSubEvents = function( code ) {
+
+		}
+	}
+
+	myApplication.service( 'Events', ['$http', Events] );
 
     myApplication.controller( 'UserCtrl',['User','$scope','$http', function($user,$scope,$http){
 		var self = this;
 
 		this.init = function () {
 			$user.init().then( function( response ) {
-                /*$scope.username = $user.username;
-                $scope.level = $user.level;
-                $scope.tscore = $user.tscore;*/
                 $scope.user = $user;
             },function(errorResponse){
 			} );
@@ -94,23 +118,33 @@
 	    this.init();
 	} ] );
 
-	myApplication.controller( 'testCtrl', ['$scope', function($scope){
-		this.x = "Hi there";
+	myApplication.controller( 'DefaultCtrl', ['$scope', function($scope){
+		var self = this;
+		this.isEvents = false;
+		this.showEvents = function() {
+			self.isEvents = true;
+		}
+	} ] );
+
+	myApplication.controller( 'eventCtrl', ['$scope', '$http', 'Events', function($scope,$http,$events){
+		this.events = "Hi there";
+		$events.init($http);
+		this.events = $events.events;
 	} ] );
 
 	/*myApplication.config(function($routeProvider) {
 	$routeProvider
 
-	    // route for the home page
+	     //route for the home page
 	    .when('/', {
-	        templateUrl : 'pages/questionlist.html',
-	        controller  : 'QuestionListCtrl'
+	        templateUrl : 'view/index.html',
+	        controller  : 'DefaultCtrl'
 	    })
 
 	    // route for question page
-	    .when('/questions/:id', {
-	    	templateUrl : 'pages/question.html',
-	    	controller  : 'QuestionCtrl'
+	    .when('/events', {
+	    	templateUrl : 'view/event.html',
+	    	controller  : 'eventCtrl'
 	    })
 	});*/
 })();

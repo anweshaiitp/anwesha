@@ -8,10 +8,11 @@
 	<link rel="stylesheet" href="assets/css/all.css">
 	<link rel="stylesheet" href="assets/css/team.css">
 	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="assets/css/eventsmain.css">
 
 
 	<script src='assets/js/jquery.min.js'></script>
-	<script src="assets/js/scroll.js"></script>
+	<!--<script src="assets/js/scroll.js"></script>-->
 	<script src="assets/js/load.js"></script>
 
 
@@ -34,7 +35,7 @@ $(function(){
 
 </head>
 
-<body>
+<body ng-controller="DefaultCtrl as dctrl">
 <!--<h1 ng-controller="testCtrl as u">
 	{{u.x}}
 </h1>-->
@@ -200,7 +201,7 @@ $(function(){
 		<ul>
 			<div id="inpage">
 				<a href="#intro"><li><img class="ico" src="images/icons/home.png"> Home</li></a>
-				<a class="sliding" href="#events"><li><img class="ico" src="images/icons/events.png"> Events</li></a>
+				<a class="sliding" href="#" ng-click="dctrl.showEvents()"><li><img class="ico" src="images/icons/events.png"> Events</li></a>
 			</div>
 				<a href="#comingsoon" onclick="document.body.style.overflow='hidden';document.getElementById('comingsoon').style.display='block';document.getElementById('fade').style.display='block';"><li><img class="ico" src="images/icons/schedule.png"> Schedule</li></a>
 				<a href="#comingsoon" onclick="document.body.style.overflow='hidden';document.getElementById('comingsoon').style.display='block';document.getElementById('fade').style.display='block'"><li><img class="ico" src="images/icons/pronites.png">Pronites</li></a>
@@ -227,6 +228,9 @@ $(function(){
 	<a target="_blank" href="https://www.youtube.com/user/AnweshaIITP"><img src="images/social/Youtube-icon.png"></a>
 </div-->
 <div class="cover"></div>
+<div class="eventsHome" ng-show="dctrl.isEvents" ng-include="'view/event.html'">
+
+</div>
 <script>
 		$(document).ready(function(){
 			$('#logo').animate({},0).delay(3000).animate({'opacity':0.9},2500,function(){

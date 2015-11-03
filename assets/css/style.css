@@ -13,6 +13,7 @@ font-size:4em;
 position:fixed;
 top:1em;
 left:1em;
+z-index: 3;
 }
 #nav{
 position:fixed;
@@ -1051,3 +1052,5 @@ background:#efefef;
     background:black;
     z-index:2;
 }
+
+

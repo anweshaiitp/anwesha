@@ -3,6 +3,48 @@ require('model/model.php');
 require('dbConnection.php');
 
 $conn = mysqli_connect(SERVER_ADDRESS,USER_NAME,PASSWORD,DATABASE);
+$name = null;
+$college = null;
+$sex = null;
+$mobile = null;
+$email = null;
+$dob = null;
+$city = null;
+if(!(isset($_POST['name']) && !empty($_POST['name']))){
+	header('Content-type:application/json');
+	echo json_encode(array(-1,array('Missing index in POST request : ' . 'name')));
+	die();
+}
+if(!(isset($_POST['college']) && !empty($_POST['college']))){
+	header('Content-type:application/json');
+	echo json_encode(array(-1,array('Missing index in POST request : ' . 'college')));
+	die();
+}
+if(!(isset($_POST['sex']) && !empty($_POST['sex']))){
+	header('Content-type:application/json');
+	echo json_encode(array(-1,array('Missing index in POST request : ' . 'sex')));
+	die();
+}
+if(!(isset($_POST['mobile']) && !empty($_POST['mobile']))){
+	header('Content-type:application/json');
+	echo json_encode(array(-1,array('Missing index in POST request : ' . 'mobile')));
+	die();
+}
+if(!(isset($_POST['email']) && !empty($_POST['email']))){
+	header('Content-type:application/json');
+	echo json_encode(array(-1,array('Missing index in POST request : ' . 'email')));
+	die();
+}
+if(!(isset($_POST['dob']) && !empty($_POST['dob']))){
+	header('Content-type:application/json');
+	echo json_encode(array(-1,array('Missing index in POST request : ' . 'dob')));
+	die();
+}
+if(!(isset($_POST['city']) && !empty($_POST['city']))){
+	header('Content-type:application/json');
+	echo json_encode(array(-1,array('Missing index in POST request : ' . 'city')));
+	die();
+}
 $name = $_POST['name'];
 $college = $_POST['college'];
 $sex = $_POST['sex'];

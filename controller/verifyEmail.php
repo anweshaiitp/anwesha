@@ -4,10 +4,10 @@ require('dbConnection.php');
 
 $conn = mysqli_connect(SERVER_ADDRESS,USER_NAME,PASSWORD,DATABASE);
 
-$id = $group[1];
-$token = $group[2];
-$verification = People::verifyEmail($id,$token);
+$id = $match[1];
+$token = $match[2];
+$verification = People::verifyEmail($id,$token,$conn);
 mysqli_close($conn);
 header('Content-type: application/json');
-echo json_encode($result);
+echo json_encode($verification);
 ?>
