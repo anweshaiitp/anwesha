@@ -331,7 +331,7 @@ class People{
         $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
         $mail->Port = 465;                                    // TCP port to connect to
 
-        $mail->setFrom('registration@anwesha.info', 'Mailer');
+        $mail->setFrom('registration@anwesha.info', 'Anwesha Registration & Planning Team');
         $mail->addAddress($emailId, $name);     // Add a recipient
         // $mail->addAddress('ellen@example.com');               // Name is optional
         $mail->addReplyTo('registration@anwesha.info', 'Registration & Planning Team');
