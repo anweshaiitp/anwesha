@@ -11,6 +11,7 @@
 - For populating database import __migrations/data.sql__ in mysql ~~OR run __migrations/migrate.php__~~
 - For generating random anwesha ID run __migration/randomID.php__
 - Use can change the caching time by updating $cache_time variable in the specific controller. Current cache time is 60 second.
+- For removing cached files - delete contents of /cache/ folder (/cache/*.hmtl)
 
 ## TODO
 - [ ] Write setupdb.php.
@@ -19,8 +20,8 @@
 - [ ] Testing Registration (User/Campus Ambassador).
 - [x] Testing Events Details.
 - [ ] Testing Events Details [With Image rendering].
-- [ ] Add caching to Events.
-- [ ] Write fb register backend and frontend.
+- [x] Add caching to Events.
+- [ ] Write fb/twitter/google/github register backend and frontend.
 - [ ] Add __re-captcha__ on registration page.
 - [ ] Login for users.
 - [ ] Write registration for particular Event.
