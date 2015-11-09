@@ -360,7 +360,7 @@ class People{
      * @param string $token     Confirmation Token
      */
     public function verifyEmail($id,$token,$conn){
-        $sql = "SELECT * FROM LoginTable WHERE pId = $id";
+        $sql = "SELECT * FROM People NATURAL JOIN LoginTable WHERE pId = $id";
         $result = mysqli_query($conn, $sql);
         if(!$result || mysqli_num_rows($result)!=1){
             $error = "No such User - Invalid Link";
@@ -377,7 +377,8 @@ class People{
             $arr[] = $error;
             return $arr;
         }
-
+        $name = $row['name'];
+        $email = $row['email'];
         $sqlUpdate = "UPDATE People SET confirm = 1 WHERE pId = $id";
         $result = mysqli_query($conn, $sqlUpdate);
         if(!$result){
@@ -398,6 +399,19 @@ class People{
         }
         $arr = array();
         $arr[]=1;
+        $randPass=Auth::randomPassword();                                                  //vinay edit
+        $sqlUpdate = "UPDATE LoginTable SET password = sha('$randPass')";                         //vinay edit
+         $result = mysqli_query($conn, $sqlUpdate);
+        if(!$result){
+            $error = "Some Internal Error Occured - Please try again.";
+            $arr = array();
+            $arr[] = -1;
+            $arr[] = $error;
+            return $arr;
+        }
+
+        Auth::passEmail($email,$name,$randPass,$id);                                                                 //vinay edit
+        $arr[]=$randPass;                                                                  //vinay edit
         return $arr;
 
 
@@ -477,6 +491,82 @@ class Events{
         return $arr;
     }
 
+}
+
+
+/**
+* 
+*/
+class Auth
+{
+    /**
+     * @return string
+     * generates a random string.
+     */
+    public function randomPassword() {
+        $len=8;
+        $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+        $pass = ''; //remember to declare $pass as an array
+        $alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
+        for ($i = 0; $i < $len; $i++) {
+            $n = rand(0, $alphaLength);
+            $pass = $pass . $alphabet[$n];
+        }
+        return $pass; //turn the array into a string
+    }
+
+  /**
+     * Sends email for password
+     * @param string $emailId       password is send to this email id
+     * @param string $name          Name of user
+     * @param string $randPass      random generated string
+     * @param int    $id               Anwesha Id for registered user
+     */
+    public function passEmail($emailId,$name,$randPass,$id) {
+        // mail($to,$subject,$message);
+        $message = "Hi $name,<br>Thank you for registering for Anwesha2k16. Your Registered Id is : <b>ANW$id</b>.<br>Your temporary auto generated password is : <b>$randPass</b><br>You can change the password after login.<br>In case you have any registration related queries feel free to contact Aditya Gupta(+918292337923) or Arindam Banerjee(+919472472543) or drop an email to <i>registration@anwesha.info</i>. You can also visit our website <i>http://2016.anwesha.info/</i> for more information.<br>Thank You.<br>Registration Desk<br>Anwesha 2k16";
+        $subject = "AnweshaID Password, Anwesha2k16";
+
+        require('resources/PHPMailer/PHPMailerAutoload.php');
+
+        $mail = new PHPMailer;
+
+        // 0 = off (for production use)
+        // 1 = client messages
+        // 2 = client and server messages
+        // 3 = verbose debug output
+        $mail->SMTPDebug = 0;
+
+        $mail->isSMTP();                                      // Set mailer to use SMTP
+        $mail->Host = 'lnx36.securehostdns.com';  // Specify main and backup SMTP servers
+        $mail->SMTPAuth = true;                               // Enable SMTP authentication
+        $mail->Username = 'registration@anwesha.info';                 // SMTP username
+        $mail->Password = 'anw_reg_2015_codered';                           // SMTP password
+        $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
+        $mail->Port = 465;                                    // TCP port to connect to
+
+        $mail->setFrom('registration@anwesha.info', 'Anwesha Registration & Planning Team');
+        $mail->addAddress($emailId, $name);     // Add a recipient
+        // $mail->addAddress('ellen@example.com');               // Name is optional
+        $mail->addReplyTo('registration@anwesha.info', 'Registration & Planning Team');
+        // $mail->addCC('guptaaditya.13@gmail.com');
+        // $mail->addBCC('registration@anwesha.info');
+
+        // $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+        // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+        $mail->isHTML(true);                                  // Set email format to HTML
+
+        $mail->Subject = $subject;
+        $mail->Body    = $message;
+        $mail->AltBody = "Hi $name,\nThank you for registering for Anwesha2k16. Your Registered Id is : ANW$id.\nYour temporary auto generated password is : $randPass\nYou can change the password after loging in.\nIn case you have any registration related queries feel free to contact Aditya Gupta(+918292337923) or Arindam Banerjee(+919472472543) or drop an email to registration@anwesha.info. You can also visit our website http://2016.anwesha.info/ for more information.\nThank You.\nRegistration & Planning Team\nAnwesha 2k16";
+        $mail->send();
+        // if(!$mail->send()) {
+        //     echo 'Message could not be sent.';
+        //     echo 'Mailer Error: ' . $mail->ErrorInfo;
+        // } else {
+        //     echo 'Message has been sent';
+        // }
+    }
 }
 
 ?>
