@@ -1,4 +1,4 @@
-<?php 
+<?php
 require('model/model.php');
 require('dbConnection.php');
 
@@ -19,7 +19,7 @@ mysqli_close($conn);
 header('Content-type: application/json');
 ob_start('ob_gzhandler');
 
-echo stripslashes(json_encode($subEvents, JSON_UNESCAPED_UNICODE));
+echo json_encode($subEvents);
 $file = fopen($filename,'w');
 fwrite($file,ob_get_contents());
 fclose($file);

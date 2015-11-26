@@ -1,0 +1,170 @@
+[26-Oct-2015 17:23:56 Asia/Kolkata] PHP Warning:  require(/home/anwesha/public_html/dev/campusambassadorautoload.php): failed to open stream: No such file or directory in /home/anwesha/public_html/dev/campusambassador/index.php on line 3
+[26-Oct-2015 17:23:56 Asia/Kolkata] PHP Fatal error:  require(): Failed opening required '/home/anwesha/public_html/dev/campusambassadorautoload.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/anwesha/public_html/dev/campusambassador/index.php on line 3
+[26-Oct-2015 17:26:09 Asia/Kolkata] PHP Warning:  require(/home/anwesha/public_html/dev/campusambassadorautoload.php): failed to open stream: No such file or directory in /home/anwesha/public_html/dev/campusambassador/index.php on line 3
+[26-Oct-2015 17:26:09 Asia/Kolkata] PHP Fatal error:  require(): Failed opening required '/home/anwesha/public_html/dev/campusambassadorautoload.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/anwesha/public_html/dev/campusambassador/index.php on line 3
+[26-Oct-2015 17:26:10 Asia/Kolkata] PHP Warning:  require(/home/anwesha/public_html/dev/campusambassadorautoload.php): failed to open stream: No such file or directory in /home/anwesha/public_html/dev/campusambassador/index.php on line 3
+[26-Oct-2015 17:26:10 Asia/Kolkata] PHP Fatal error:  require(): Failed opening required '/home/anwesha/public_html/dev/campusambassadorautoload.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/anwesha/public_html/dev/campusambassador/index.php on line 3
+[26-Oct-2015 17:26:11 Asia/Kolkata] PHP Warning:  require(/home/anwesha/public_html/dev/campusambassadorautoload.php): failed to open stream: No such file or directory in /home/anwesha/public_html/dev/campusambassador/index.php on line 3
+[26-Oct-2015 17:26:11 Asia/Kolkata] PHP Fatal error:  require(): Failed opening required '/home/anwesha/public_html/dev/campusambassadorautoload.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/anwesha/public_html/dev/campusambassador/index.php on line 3
+[26-Oct-2015 17:38:18 Asia/Kolkata] PHP Fatal error:  Uncaught exception 'Facebook\FacebookSDKException' with message 'You must provide or set a default application id.' in /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookSession.php:320
+Stack trace:
+#0 /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookRedirectLoginHelper.php(75): Facebook\FacebookSession::_getTargetAppId(NULL)
+#1 /home/anwesha/public_html/dev/campusambassador/index.php(50): Facebook\FacebookRedirectLoginHelper->__construct('http://packetco...')
+#2 {main}
+  thrown in /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookSession.php on line 320
+[26-Oct-2015 17:38:30 Asia/Kolkata] PHP Fatal error:  Uncaught exception 'Facebook\FacebookSDKException' with message 'You must provide or set a default application id.' in /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookSession.php:320
+Stack trace:
+#0 /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookRedirectLoginHelper.php(75): Facebook\FacebookSession::_getTargetAppId(NULL)
+#1 /home/anwesha/public_html/dev/campusambassador/index.php(50): Facebook\FacebookRedirectLoginHelper->__construct('http://packetco...')
+#2 {main}
+  thrown in /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookSession.php on line 320
+[26-Oct-2015 17:38:31 Asia/Kolkata] PHP Fatal error:  Uncaught exception 'Facebook\FacebookSDKException' with message 'You must provide or set a default application id.' in /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookSession.php:320
+Stack trace:
+#0 /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookRedirectLoginHelper.php(75): Facebook\FacebookSession::_getTargetAppId(NULL)
+#1 /home/anwesha/public_html/dev/campusambassador/index.php(50): Facebook\FacebookRedirectLoginHelper->__construct('http://packetco...')
+#2 {main}
+  thrown in /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookSession.php on line 320
+[26-Oct-2015 17:38:49 Asia/Kolkata] PHP Fatal error:  Uncaught exception 'Facebook\FacebookSDKException' with message 'You must provide or set a default application id.' in /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookSession.php:320
+Stack trace:
+#0 /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookRedirectLoginHelper.php(75): Facebook\FacebookSession::_getTargetAppId(NULL)
+#1 /home/anwesha/public_html/dev/campusambassador/index.php(50): Facebook\FacebookRedirectLoginHelper->__construct('http://packetco...')
+#2 {main}
+  thrown in /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookSession.php on line 320
+[26-Oct-2015 17:42:50 Asia/Kolkata] PHP Fatal error:  Uncaught exception 'Facebook\FacebookAuthorizationException' with message 'This authorization code has been used.' in /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookRequestException.php:104
+Stack trace:
+#0 /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookRequest.php(280): Facebook\FacebookRequestException::create('{"error":{"mess...', Object(stdClass), 400)
+#1 /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookRedirectLoginHelper.php(190): Facebook\FacebookRequest->execute()
+#2 /home/anwesha/public_html/dev/campusambassador/index.php(51): Facebook\FacebookRedirectLoginHelper->getSessionFromRedirect()
+#3 {main}
+  thrown in /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookRequestException.php on line 104
+[26-Oct-2015 17:43:00 Asia/Kolkata] PHP Fatal error:  Call to undefined function getBirthday() in /home/anwesha/public_html/dev/campusambassador/index.php on line 61
+[26-Oct-2015 17:45:18 Asia/Kolkata] PHP Fatal error:  Call to a member function api() on a non-object in /home/anwesha/public_html/dev/campusambassador/index.php on line 63
+[26-Oct-2015 17:45:42 Asia/Kolkata] PHP Fatal error:  Uncaught exception 'Facebook\FacebookAuthorizationException' with message 'This authorization code has been used.' in /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookRequestException.php:104
+Stack trace:
+#0 /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookRequest.php(280): Facebook\FacebookRequestException::create('{"error":{"mess...', Object(stdClass), 400)
+#1 /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookRedirectLoginHelper.php(190): Facebook\FacebookRequest->execute()
+#2 /home/anwesha/public_html/dev/campusambassador/index.php(51): Facebook\FacebookRedirectLoginHelper->getSessionFromRedirect()
+#3 {main}
+  thrown in /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookRequestException.php on line 104
+[26-Oct-2015 18:11:19 Asia/Kolkata] PHP Fatal error:  Uncaught exception 'Facebook\FacebookAuthorizationException' with message 'This authorization code has been used.' in /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookRequestException.php:104
+Stack trace:
+#0 /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookRequest.php(280): Facebook\FacebookRequestException::create('{"error":{"mess...', Object(stdClass), 400)
+#1 /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookRedirectLoginHelper.php(190): Facebook\FacebookRequest->execute()
+#2 /home/anwesha/public_html/dev/campusambassador/index.php(51): Facebook\FacebookRedirectLoginHelper->getSessionFromRedirect()
+#3 {main}
+  thrown in /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookRequestException.php on line 104
+[26-Oct-2015 18:14:49 Asia/Kolkata] PHP Fatal error:  Uncaught exception 'Facebook\FacebookAuthorizationException' with message 'This authorization code has been used.' in /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookRequestException.php:104
+Stack trace:
+#0 /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookRequest.php(280): Facebook\FacebookRequestException::create('{"error":{"mess...', Object(stdClass), 400)
+#1 /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookRedirectLoginHelper.php(190): Facebook\FacebookRequest->execute()
+#2 /home/anwesha/public_html/dev/campusambassador/index.php(51): Facebook\FacebookRedirectLoginHelper->getSessionFromRedirect()
+#3 {main}
+  thrown in /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookRequestException.php on line 104
+[26-Oct-2015 18:18:48 Asia/Kolkata] PHP Fatal error:  Class 'Facebook\GraphLocation' not found in /home/anwesha/public_html/dev/campusambassador/lib/Facebook/GraphUser.php on line 147
+[26-Oct-2015 18:19:10 Asia/Kolkata] PHP Fatal error:  Class 'Facebook\GraphLocation' not found in /home/anwesha/public_html/dev/campusambassador/lib/Facebook/GraphUser.php on line 147
+[26-Oct-2015 18:19:40 Asia/Kolkata] PHP Fatal error:  Class 'Facebook\GraphLocation' not found in /home/anwesha/public_html/dev/campusambassador/lib/Facebook/GraphUser.php on line 147
+[26-Oct-2015 18:35:28 Asia/Kolkata] PHP Fatal error:  Class 'Facebook\GraphLocation' not found in /home/anwesha/public_html/dev/campusambassador/lib/Facebook/GraphUser.php on line 147
+[26-Oct-2015 18:44:35 Asia/Kolkata] PHP Fatal error:  Uncaught exception 'Facebook\FacebookAuthorizationException' with message 'This authorization code has expired.' in /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookRequestException.php:104
+Stack trace:
+#0 /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookRequest.php(280): Facebook\FacebookRequestException::create('{"error":{"mess...', Object(stdClass), 400)
+#1 /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookRedirectLoginHelper.php(190): Facebook\FacebookRequest->execute()
+#2 /home/anwesha/public_html/dev/campusambassador/index.php(51): Facebook\FacebookRedirectLoginHelper->getSessionFromRedirect()
+#3 {main}
+  thrown in /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookRequestException.php on line 104
+[26-Oct-2015 19:27:39 Asia/Kolkata] PHP Parse error:  syntax error, unexpected 'http' (T_STRING), expecting ',' or ';' in /home/anwesha/public_html/dev/campusambassador/index.php on line 126
+[26-Oct-2015 19:27:46 Asia/Kolkata] PHP Parse error:  syntax error, unexpected 'http' (T_STRING), expecting ',' or ';' in /home/anwesha/public_html/dev/campusambassador/index.php on line 126
+[26-Oct-2015 19:28:20 Asia/Kolkata] PHP Parse error:  syntax error, unexpected 'http' (T_STRING), expecting ',' or ';' in /home/anwesha/public_html/dev/campusambassador/index.php on line 126
+[26-Oct-2015 19:28:40 Asia/Kolkata] PHP Parse error:  syntax error, unexpected 'http' (T_STRING), expecting ',' or ';' in /home/anwesha/public_html/dev/campusambassador/index.php on line 126
+[26-Oct-2015 19:29:41 Asia/Kolkata] PHP Parse error:  syntax error, unexpected 'http' (T_STRING), expecting ',' or ';' in /home/anwesha/public_html/dev/campusambassador/index.php on line 171
+[26-Oct-2015 19:29:45 Asia/Kolkata] PHP Parse error:  syntax error, unexpected 'http' (T_STRING), expecting ',' or ';' in /home/anwesha/public_html/dev/campusambassador/index.php on line 171
+[26-Oct-2015 19:30:45 Asia/Kolkata] PHP Parse error:  syntax error, unexpected 'http' (T_STRING), expecting ',' or ';' in /home/anwesha/public_html/dev/campusambassador/index.php on line 190
+[26-Oct-2015 19:32:32 Asia/Kolkata] PHP Parse error:  syntax error, unexpected 'http' (T_STRING), expecting ',' or ';' in /home/anwesha/public_html/dev/campusambassador/index.php on line 171
+[26-Oct-2015 19:32:36 Asia/Kolkata] PHP Parse error:  syntax error, unexpected 'http' (T_STRING), expecting ',' or ';' in /home/anwesha/public_html/dev/campusambassador/index.php on line 171
+[26-Oct-2015 19:32:37 Asia/Kolkata] PHP Parse error:  syntax error, unexpected 'http' (T_STRING), expecting ',' or ';' in /home/anwesha/public_html/dev/campusambassador/index.php on line 171
+[26-Oct-2015 19:32:42 Asia/Kolkata] PHP Parse error:  syntax error, unexpected 'http' (T_STRING), expecting ',' or ';' in /home/anwesha/public_html/dev/campusambassador/index.php on line 171
+[26-Oct-2015 19:33:48 Asia/Kolkata] PHP Parse error:  syntax error, unexpected 'http' (T_STRING), expecting ',' or ';' in /home/anwesha/public_html/dev/campusambassador/index.php on line 190
+[26-Oct-2015 19:34:09 Asia/Kolkata] PHP Parse error:  syntax error, unexpected 'http' (T_STRING), expecting ',' or ';' in /home/anwesha/public_html/dev/campusambassador/index.php on line 190
+[26-Oct-2015 19:34:37 Asia/Kolkata] PHP Parse error:  syntax error, unexpected 'http' (T_STRING), expecting ',' or ';' in /home/anwesha/public_html/dev/campusambassador/index.php on line 190
+[26-Oct-2015 19:34:43 Asia/Kolkata] PHP Parse error:  syntax error, unexpected 'http' (T_STRING), expecting ',' or ';' in /home/anwesha/public_html/dev/campusambassador/index.php on line 190
+[26-Oct-2015 19:34:54 Asia/Kolkata] PHP Parse error:  syntax error, unexpected 'http' (T_STRING), expecting ',' or ';' in /home/anwesha/public_html/dev/campusambassador/index.php on line 190
+[26-Oct-2015 19:35:10 Asia/Kolkata] PHP Parse error:  syntax error, unexpected 'http' (T_STRING), expecting ',' or ';' in /home/anwesha/public_html/dev/campusambassador/index.php on line 190
+[26-Oct-2015 19:35:37 Asia/Kolkata] PHP Parse error:  syntax error, unexpected 'http' (T_STRING), expecting ',' or ';' in /home/anwesha/public_html/dev/campusambassador/index.php on line 190
+[26-Oct-2015 20:34:50 Asia/Kolkata] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/anwesha/public_html/dev/campusambassador/index.php:269) in /home/anwesha/public_html/dev/campusambassador/index.php on line 274
+[26-Oct-2015 21:14:34 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '<' in /home/anwesha/public_html/dev/campusambassador/index.php on line 215
+[26-Oct-2015 21:14:37 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '<' in /home/anwesha/public_html/dev/campusambassador/index.php on line 215
+[26-Oct-2015 21:14:39 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '<' in /home/anwesha/public_html/dev/campusambassador/index.php on line 215
+[26-Oct-2015 21:14:45 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '<' in /home/anwesha/public_html/dev/campusambassador/index.php on line 215
+[26-Oct-2015 21:15:00 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '<' in /home/anwesha/public_html/dev/campusambassador/index.php on line 215
+[26-Oct-2015 21:17:49 Asia/Kolkata] PHP Fatal error:  Uncaught exception 'Facebook\FacebookAuthorizationException' with message 'This authorization code has been used.' in /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookRequestException.php:104
+Stack trace:
+#0 /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookRequest.php(280): Facebook\FacebookRequestException::create('{"error":{"mess...', Object(stdClass), 400)
+#1 /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookRedirectLoginHelper.php(190): Facebook\FacebookRequest->execute()
+#2 /home/anwesha/public_html/dev/campusambassador/index.php(197): Facebook\FacebookRedirectLoginHelper->getSessionFromRedirect()
+#3 {main}
+  thrown in /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookRequestException.php on line 104
+[26-Oct-2015 21:24:29 Asia/Kolkata] PHP Fatal error:  Uncaught exception 'Facebook\FacebookAuthorizationException' with message 'This authorization code has been used.' in /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookRequestException.php:104
+Stack trace:
+#0 /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookRequest.php(280): Facebook\FacebookRequestException::create('{"error":{"mess...', Object(stdClass), 400)
+#1 /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookRedirectLoginHelper.php(190): Facebook\FacebookRequest->execute()
+#2 /home/anwesha/public_html/dev/campusambassador/index.php(197): Facebook\FacebookRedirectLoginHelper->getSessionFromRedirect()
+#3 {main}
+  thrown in /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookRequestException.php on line 104
+[26-Oct-2015 21:49:00 Asia/Kolkata] PHP Fatal error:  Uncaught exception 'Facebook\FacebookAuthorizationException' with message 'This authorization code has expired.' in /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookRequestException.php:104
+Stack trace:
+#0 /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookRequest.php(280): Facebook\FacebookRequestException::create('{"error":{"mess...', Object(stdClass), 400)
+#1 /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookRedirectLoginHelper.php(190): Facebook\FacebookRequest->execute()
+#2 /home/anwesha/public_html/dev/campusambassador/index.php(188): Facebook\FacebookRedirectLoginHelper->getSessionFromRedirect()
+#3 {main}
+  thrown in /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookRequestException.php on line 104
+[26-Oct-2015 21:53:12 Asia/Kolkata] PHP Fatal error:  Class 'Facebook\GraphLocation' not found in /home/anwesha/public_html/dev/campusambassador/lib/Facebook/GraphUser.php on line 147
+[26-Oct-2015 21:54:45 Asia/Kolkata] PHP Fatal error:  Uncaught exception 'Facebook\FacebookAuthorizationException' with message 'This authorization code has been used.' in /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookRequestException.php:104
+Stack trace:
+#0 /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookRequest.php(280): Facebook\FacebookRequestException::create('{"error":{"mess...', Object(stdClass), 400)
+#1 /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookRedirectLoginHelper.php(190): Facebook\FacebookRequest->execute()
+#2 /home/anwesha/public_html/dev/campusambassador/index.php(189): Facebook\FacebookRedirectLoginHelper->getSessionFromRedirect()
+#3 {main}
+  thrown in /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookRequestException.php on line 104
+[27-Oct-2015 21:52:18 Asia/Kolkata] PHP Fatal error:  Uncaught exception 'Facebook\FacebookAuthorizationException' with message 'This authorization code has expired.' in /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookRequestException.php:104
+Stack trace:
+#0 /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookRequest.php(280): Facebook\FacebookRequestException::create('{"error":{"mess...', Object(stdClass), 400)
+#1 /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookRedirectLoginHelper.php(190): Facebook\FacebookRequest->execute()
+#2 /home/anwesha/public_html/dev/campusambassador/index.php(189): Facebook\FacebookRedirectLoginHelper->getSessionFromRedirect()
+#3 {main}
+  thrown in /home/anwesha/public_html/dev/campusambassador/lib/Facebook/FacebookRequestException.php on line 104
+[29-Oct-2015 23:38:37 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '}' in /home/anwesha/public_html/dev/campusambassador/index.php on line 150
+[29-Oct-2015 23:38:44 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '}' in /home/anwesha/public_html/dev/campusambassador/index.php on line 150
+[29-Oct-2015 23:43:10 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '}' in /home/anwesha/public_html/dev/campusambassador/index.php on line 150
+[29-Oct-2015 23:43:32 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '}' in /home/anwesha/public_html/dev/campusambassador/index.php on line 150
+[29-Oct-2015 23:43:34 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '}' in /home/anwesha/public_html/dev/campusambassador/index.php on line 150
+[29-Oct-2015 23:45:19 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '}' in /home/anwesha/public_html/dev/campusambassador/index.php on line 150
+[29-Oct-2015 23:45:34 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '}' in /home/anwesha/public_html/dev/campusambassador/index.php on line 150
+[29-Oct-2015 23:46:23 Asia/Kolkata] PHP Warning:  mysql_query(): Access denied for user 'root'@'localhost' (using password: NO) in /home/anwesha/public_html/dev/campusambassador/index.php on line 147
+[29-Oct-2015 23:46:23 Asia/Kolkata] PHP Warning:  mysql_query(): A link to the server could not be established in /home/anwesha/public_html/dev/campusambassador/index.php on line 147
+[29-Oct-2015 23:54:29 Asia/Kolkata] PHP Parse error:  syntax error, unexpected ')' in /home/anwesha/public_html/dev/campusambassador/index.php on line 159
+[29-Oct-2015 23:55:20 Asia/Kolkata] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/anwesha/public_html/dev/campusambassador/index.php on line 150
+[30-Oct-2015 00:00:13 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/anwesha/public_html/dev/campusambassador/index.php on line 149
+[30-Oct-2015 00:06:59 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/anwesha/public_html/dev/campusambassador/index.php on line 149
+[30-Oct-2015 00:07:21 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/anwesha/public_html/dev/campusambassador/index.php on line 149
+[30-Oct-2015 00:08:52 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/anwesha/public_html/dev/campusambassador/index.php on line 149
+[30-Oct-2015 00:15:06 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/anwesha/public_html/dev/campusambassador/index.php on line 149
+[30-Oct-2015 00:15:11 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/anwesha/public_html/dev/campusambassador/index.php on line 149
+[30-Oct-2015 00:15:14 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/anwesha/public_html/dev/campusambassador/index.php on line 149
+[30-Oct-2015 17:41:17 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/anwesha/public_html/dev/campusambassador/index.php on line 149
+[30-Oct-2015 17:41:43 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/anwesha/public_html/dev/campusambassador/index.php on line 149
+[30-Oct-2015 17:42:09 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/anwesha/public_html/dev/campusambassador/index.php on line 149
+[30-Oct-2015 19:05:55 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/anwesha/public_html/dev/campusambassador/index.php on line 150
+[30-Oct-2015 19:13:36 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/anwesha/public_html/dev/campusambassador/index.php on line 150
+[30-Oct-2015 19:13:39 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/anwesha/public_html/dev/campusambassador/index.php on line 150
+[30-Oct-2015 19:16:16 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/anwesha/public_html/dev/campusambassador/index.php on line 150
+[30-Oct-2015 19:16:41 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/anwesha/public_html/dev/campusambassador/index.php on line 151
+[30-Oct-2015 19:19:34 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/anwesha/public_html/dev/campusambassador/index.php on line 149
+[30-Oct-2015 19:22:35 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/anwesha/public_html/dev/campusambassador/index.php on line 149
+[31-Oct-2015 12:55:05 Asia/Kolkata] PHP Warning:  mysql_query(): Access denied for user 'root'@'localhost' (using password: NO) in /home/anwesha/public_html/dev/campusambassador/index.php on line 147
+[31-Oct-2015 12:55:05 Asia/Kolkata] PHP Warning:  mysql_query(): A link to the server could not be established in /home/anwesha/public_html/dev/campusambassador/index.php on line 147
+[31-Oct-2015 12:58:13 Asia/Kolkata] PHP Catchable fatal error:  Object of class mysqli_result could not be converted to string in /home/anwesha/public_html/dev/campusambassador/index.php on line 150
+[31-Oct-2015 13:56:56 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '&&' (T_BOOLEAN_AND), expecting ',' or ')' in /home/anwesha/public_html/dev/campusambassador/confirmation.php on line 2
+[31-Oct-2015 13:57:10 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '&&' (T_BOOLEAN_AND), expecting ',' or ')' in /home/anwesha/public_html/dev/campusambassador/confirmation.php on line 2
+[31-Oct-2015 14:54:18 Asia/Kolkata] PHP Fatal error:  Call to a member function query() on a non-object in /home/anwesha/public_html/dev/campusambassador/confirmation.php on line 29
+[01-Nov-2015 17:16:47 Asia/Kolkata] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/anwesha/public_html/2016/campusambassador/confirmation.php on line 33
+[01-Nov-2015 17:16:57 Asia/Kolkata] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/anwesha/public_html/2016/campusambassador/confirmation.php on line 35
+[01-Nov-2015 17:24:22 Asia/Kolkata] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/anwesha/public_html/2016/campusambassador/confirmation.php on line 28

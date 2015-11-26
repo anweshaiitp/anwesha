@@ -72,7 +72,7 @@
 	</div>
 
 
-<div id="archives" ng-show="dctrl.isArchives" ng-click="dctrl.isArchives=false">
+<div id="archives" ng-if="dctrl.isArchives" ng-show="dctrl.isArchives" ng-click="dctrl.isArchives=false">
 	<div class="content">
 		<h2>Archives</h2>
 		<ul class="box">
@@ -139,9 +139,9 @@
 	</div>
 </div>
 
-<div id="teamload" ng-show="dctrl.isTeam" ng-include="'view/team.html'">
+<div id="teamload" ng-if="dctrl.isTeam" ng-show="dctrl.isTeam" ng-include="'view/team.html'">
 </div>
-<div id="sponsorsload" ng-show="dctrl.isSponsors" ng-include="'view/sponsors.html'">
+<div id="sponsorsload" ng-if="dctrl.isSponsors" ng-show="dctrl.isSponsors" ng-include="'view/sponsors.html'">
 </div>
 <div id="galleryload" class="lightbox">
 </div>
