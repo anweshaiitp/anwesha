@@ -1,11 +1,14 @@
 <div class="events" ng-controller="eventCtrl as ectrl">
-	<div class="side-nav">
+	<div class="main-events">
 		<ul>
-			<a href="#" ng-show="ectrl.events.code" ng-click="ectrl.getSubEvents('events/','')"><li>Back</li></a>
-			<a href="#"><li ng-repeat="(ename,eobj) in ectrl.events.sub" ng-click="ectrl.getSubEvents(eobj['path'],ename)">{{ename}}</li></a>
+			<a href="#"><li ng-repeat="(ename,eobj) in ectrl.events.sub" ng-click="ectrl.showEvent(ename,0)">{{ename}}</li></a>
 		</ul>
 	</div>
-	<div class="main-content">
-		{{ectrl.details}}
+	<ul class="base-events-list">
+		<a href="#"><li ng-repeat="(ename,obj) in ectrl.sub_events.sub" ng-click="ectrl.showEvent(ename,1)" ng-class="ectrl.sub_events.hasSub == 1?'category':'base_event'">{{ename}}</li></a>
+	</ul>
+	<div class="base-event-details" ng-repeat="(ename,obj) in ectrl.sub_events.sub" ng-show="ectrl.sub_events.hasSub == 0">
+		<h3>{{ename}}</h3>
+		{{obj.details}}
 	</div>
 </div>

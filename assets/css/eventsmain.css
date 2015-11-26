@@ -6,20 +6,31 @@
     width:100%;
     background:black;
     z-index:4;
+    color:white;
 }
 .events .side-nav{
     height:100%;
     width:200px;
     left:0;
 }
-.side-nav ul{
-    width:100%;
-    background:blue;
+
+.events .main-content .base-events-list{
+    left: 0;
+    top: 0;
 }
-.side-nav li{
-    padding: 20px;
-    margin-top:20px;
+
+.base-events-list li{
+    padding:10px;
 }
-.side-nav li:hover{
-    background: rgb(100,100,100);
+
+.events .main-events{
+    position:fixed;
+    top:0;
+    background: cyan;
+}
+.main-events ul{
+    text-align:center;
+}
+.main-events ul li{
+    float:left;
 }

@@ -81,20 +81,81 @@
 		this.init = function () {
 			return $http.get( base_url ).then( function( response ){
 				if ( response.data[0] == 1 ){
+					self.events['sub'] = {};
+					self.events['hasSub'] = 1;
 					response.data[1].forEach(function(element,A,idx){
-						self.events[element['eveName']] = element;
+						self.events['sub'][element['eveName']] = element;
+						var sub_url = base_url + element['eveName'];
+						//console.log(self.events[element['eveName']]);
+						self.events['sub'][element['eveName']]['sub'] = {};
+						//self.events['sub'][element['eveName']]['sub_e'] = {};
+						//self.events[element['eveName']]['curr'] = -1;
+						self.events['sub'][element['eveName']]['hasSub'] = 0;
+						self.getSubEvents_1( sub_url, self.events['sub'][element['eveName']] );
 					});
-					console.log(self.events);
+					self.currEvent = {};
+					self.path = [];
+					//console.log(self.events);
 				}else{
 					globalErr = response.data[0];
 				}
-				console.log(response.data);
+				//console.log(response.data);
 			},function( errorResponse ) {
 				globalErr = errorResponse;
 				console.log(errorResponse);
 			} );
 		}
-		this.getSubEvents = function( code ) {
+
+		this.getSubEvents_1 = function( url, cat ) {
+			$http.get( url ).then( function( response ){
+				if ( response.data[0] == 1 ){
+					response.data[1].forEach(function(element,A,idx){
+						element['hasSub'] = 0;
+						var sub_url = base_url + element['eveName'];
+						cat['sub'][element['eveName']] = element;
+						//cat['sub_e'][element['eveName']] = element;
+						//console.log(element['size']);
+						if ( parseInt(element['size']) == 0 ) {
+							cat['hasSub'] = 1;
+							cat['sub'][element['eveName']]['sub'] = {};
+							self.getSubEvents_2( sub_url, cat['sub'][element['eveName']] );
+							//cat['curr'] = -1;
+						}
+					});
+					//console.log(self.events);
+				}else{
+					globalErr = response.data[0];
+				}
+				//console.log(response.data);
+			},function( errorResponse ) {
+				globalErr = errorResponse;
+				console.log(errorResponse);
+			} );
+		}
+
+		this.getSubEvents_2 = function( url, cat ) {
+			$http.get( url ).then( function( response ){
+				if ( response.data[0] == 1 ){
+					response.data[1].forEach(function(element,A,idx){
+						element['hasSub'] = 0;
+						cat['sub'][element['eveName']] = element;
+					});
+				}else{
+					globalErr = response.data[0];
+				}
+				//console.log(response.data);
+			},function( errorResponse ) {
+				globalErr = errorResponse;
+				console.log(errorResponse);
+			} );
+		}
+
+		this.showEvent = function( name, level ) {
+			if ( level == 0 ) {
+				self.currEvent = self.events['sub'][name];
+			} else if ( level == 1 && self.currEvent['hasSub'] == 1 ) {
+				self.currEvent = self.currEvent['sub'][name];
+			}
 
 		}
 	}
@@ -118,34 +179,23 @@
 	    this.init();
 	} ] );
 
-	myApplication.controller( 'DefaultCtrl', ['$scope', function($scope){
+	myApplication.controller( 'DefaultCtrl', ['$scope', '$http', 'Events', function($scope,$http,$events){
 		var self = this;
 		this.isEvents = false;
 		this.showEvents = function() {
 			self.isEvents = true;
+			$events.init($http);
 		}
 	} ] );
 
 	myApplication.controller( 'eventCtrl', ['$scope', '$http', 'Events', function($scope,$http,$events){
-		this.events = "Hi there";
-		$events.init($http);
+		var self = this;
 		this.events = $events.events;
+		this.sub_events = $events.currEvent;
+		this.showEvent = function( name, level ) {
+			$events.showEvent( name, level );
+			self.sub_events = $events.currEvent;
+		}
 	} ] );
-
-	/*myApplication.config(function($routeProvider) {
-	$routeProvider
-
-	     //route for the home page
-	    .when('/', {
-	        templateUrl : 'view/index.html',
-	        controller  : 'DefaultCtrl'
-	    })
-
-	    // route for question page
-	    .when('/events', {
-	    	templateUrl : 'view/event.html',
-	    	controller  : 'eventCtrl'
-	    })
-	});*/
 })();
 
