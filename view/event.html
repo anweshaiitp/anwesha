@@ -8,7 +8,6 @@
 		<a href="#"><li ng-repeat="(ename,obj) in ectrl.sub_events.sub" ng-click="ectrl.showEvent(ename,1)" ng-class="ectrl.sub_events.hasSub == 1?'category':'base_event'">{{ename}}</li></a>
 	</ul>
 	<div class="base-event-details" ng-repeat="(ename,obj) in ectrl.sub_events.sub" ng-show="ectrl.sub_events.hasSub == 0">
-		<h3>{{ename}}</h3>
-		{{obj.details}}
+		<div ng-bind-html="obj.details"></div>
 	</div>
 </div>

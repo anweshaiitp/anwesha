@@ -111,6 +111,7 @@
 			$http.get( url ).then( function( response ){
 				if ( response.data[0] == 1 ){
 					response.data[1].forEach(function(element,A,idx){
+						element['details'] = element['details'].replace(/\"/g, "\"");
 						element['hasSub'] = 0;
 						var sub_url = base_url + element['eveName'];
 						cat['sub'][element['eveName']] = element;
@@ -138,6 +139,7 @@
 			$http.get( url ).then( function( response ){
 				if ( response.data[0] == 1 ){
 					response.data[1].forEach(function(element,A,idx){
+						element['details'] = element['details'].replace(/\"/g, "\"");
 						element['hasSub'] = 0;
 						cat['sub'][element['eveName']] = element;
 					});
@@ -204,13 +206,17 @@
 		}
 	} ] );
 
-	myApplication.controller( 'eventCtrl', ['$scope', '$http', 'Events', function($scope,$http,$events){
+	myApplication.controller( 'eventCtrl', ['$sce', '$http', 'Events', function($sce,$http,$events){
 		var self = this;
 		this.events = $events.events;
 		this.sub_events = $events.currEvent;
 		this.showEvent = function( name, level ) {
 			$events.showEvent( name, level );
 			self.sub_events = $events.currEvent;
+			for ( var e in self.sub_events ) {
+				var eve = self.sub_events[e];
+				eve.details = $sce.trustAsHtml(eve.details);
+			}
 		}
 	} ] );
 })();
