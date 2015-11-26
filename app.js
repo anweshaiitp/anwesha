@@ -182,9 +182,24 @@
 	myApplication.controller( 'DefaultCtrl', ['$scope', '$http', 'Events', function($scope,$http,$events){
 		var self = this;
 		this.isEvents = false;
+		this.isTeam = false;
+		this.isSponsors = false;
+		this.isArchives = false;
 		this.showEvents = function() {
 			self.isEvents = true;
 			$events.init($http);
+		}
+
+		this.showTeam = function() {
+			self.isTeam = true;
+		}
+
+		this.showSponsors = function() {
+			self.isSponsors = true;
+		}
+
+		this.showArchives = function() {
+			self.isArchives = true;
 		}
 	} ] );
 

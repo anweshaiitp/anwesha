@@ -495,7 +495,7 @@ class Events{
 
 
 /**
-* 
+*
 */
 class Auth
 {
