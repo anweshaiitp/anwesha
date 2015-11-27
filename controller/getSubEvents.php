@@ -8,7 +8,6 @@ if(file_exists($filename) && filemtime($filename) + $cache_time > time()){
 	ob_start('ob_gzhandler');
 	header('Content-type: application/json');
 	readfile($filename);
-	// echo filemtime($filename) + $cache_time - time();
 	ob_end_flush();
 	exit();
 }
@@ -20,7 +19,7 @@ mysqli_close($conn);
 header('Content-type: application/json');
 ob_start('ob_gzhandler');
 
-echo json_encode($subEvents);
+echo stripslashes(json_encode($subEvents, JSON_UNESCAPED_UNICODE));
 $file = fopen($filename,'w');
 fwrite($file,ob_get_contents());
 fclose($file);
