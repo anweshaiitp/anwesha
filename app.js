@@ -156,6 +156,7 @@
 		this.showEvent = function( name, level ) {
 			if ( level == 0 ) {
 				self.currEvent = self.events['sub'][name];
+				console.log(self.currEvent);
 			} else if ( level == 1 && self.currEvent['hasSub'] == 1 ) {
 				self.currEvent = self.currEvent['sub'][name];
 			}
@@ -213,9 +214,11 @@
 		this.showEvent = function( name, level ) {
 			$events.showEvent( name, level );
 			self.sub_events = $events.currEvent;
-			for ( var e in self.sub_events ) {
-				var eve = self.sub_events[e];
-				eve.details = $sce.trustAsHtml(eve.details);
+			for ( var e in self.sub_events['sub'] ) {
+				if ( self.sub_events['sub'][e]['details'] ) {
+					var eve = self.sub_events['sub'][e];
+					eve.details = $sce.trustAsHtml(eve.details);
+				}
 			}
 		}
 	} ] );
