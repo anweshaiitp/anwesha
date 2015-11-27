@@ -286,6 +286,10 @@ color:rgba(255,255,255,0.9);
 width:100%;
 height:100%;
 overflow-Y:scroll;
+position: fixed;
+top:0;
+left:0;
+z-index:4;
 }
 #sponsors h1{
 margin:1em;
@@ -399,7 +403,9 @@ height:12em;
 }
 
 #comingsoon{
-background:rgba(0,0,0,0.8)
+background:rgba(0,0,0,0.8);
+z-index:5;
+display: none;
 }
 #comingsoon .content{
 position:absolute;
@@ -412,17 +418,21 @@ border-radius:0.2em;
 padding:2em;
 }
 #comingsoon h2{
-color:rgba(0,180,255,0.8);
+color:rgba(0,180,235,1.0);
 margin:2em;
 text-align:center;
 font-family:bebas;
-font-size:2.5em;
+font-size:3.5em;
 }
 
 #archives{
 background:rgba(0,0,0,0.8);
 width:100%;
 font-family:bebas;
+position:fixed;
+top:0;
+left:0;
+z-index:4;
 }
 #archives .content{
 height:100%;

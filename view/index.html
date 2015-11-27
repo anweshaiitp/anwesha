@@ -15,24 +15,6 @@
 	<!--<script src="assets/js/scroll.js"></script>-->
 	<script src="assets/js/load.js"></script>
 
-
-<!-- script>
-$(function(){
-    var header = $('#nav');
-    $(window).scroll(function(){
-        if($(window).scrollTop() <= 10)){// || header.hover(handlerIn, handlerOut
-       		header.css('visibility', 'visible');
-       		header.css('opacity', '1');
-       		header.css('transition-delay', '0s');
-        } else {
-       		header.css('visibility', 'hidden');
-       		header.css('opacity', '0');
-       		header.css('transition-delay', '0s');
-        }
-    });
-})
-</script -->
-
 </head>
 
 <body ng-controller="DefaultCtrl as dctrl">
@@ -84,37 +66,13 @@ $(function(){
 
 	</div>
 
-	<!--<div id="events">
-		<h1>Events</h1>
-		<div class="container">
-		<table>
-			<tr>
-				<td class="td1"><a href="events/?cat=eco&e=main">Eco</a></td>
-				<td><a href="events/?cat=lit&e=main"><img src="images/150 x 150 lit.jpg"></a></td>
-				<td class="td1"><a href="events/?cat=man&e=main">Management</a></td>
-				<td><a href="events/?cat=tech&e=main"><img src="images/150 x 150 tech.jpg"></a></td>
-				<td class="td1"><a href="events/?cat=cult&e=main">Cultural</a></td>
-			</tr>
-			<tr>
-				<td><a href="events/?cat=eco&e=main"><img src="images/150 x 150 eco.jpg"></a></td>
-				<td class="td1"><a href="events/?cat=lit&e=main">Literary</a></td>
-				<td><a href="events/?cat=man&e=main"><img src="images/150 x 150 man.jpg"></a></td>
-				<td class="td1"><a href="events/?cat=tech&e=main">Technical</a></td>
-				<td><a href="events/?cat=cult&e=main"><img src="images/150 x 150 cult.jpg"></a></td>
-			</tr>
-		</table>
-		</div>
-	</div>-->
-
-
-
 	<div id="footer">
 		<h2>ANWESHA &nbsp;</h2>
 		<p class="left">Designed and Developed by the <a href="#webdev" onclick="document.body.style.overflow='hidden';">Web Design and Development Team</a>.</p>
 	</div>
 
 
-<div onclick="location.href='#';document.body.style.overflow='visible';" id="archives" class="lightbox">
+<div id="archives" ng-show="dctrl.isArchives" ng-click="dctrl.isArchives=false">
 	<div class="content">
 		<h2>Archives</h2>
 		<ul class="box">
@@ -181,19 +139,18 @@ $(function(){
 	</div>
 </div>
 
-<div id="teamload" class="lightbox">
+<div id="teamload" ng-show="dctrl.isTeam" ng-include="'view/team.html'">
 </div>
-<div id="sponsorsload" class="lightbox">
+<div id="sponsorsload" ng-show="dctrl.isSponsors" ng-include="'view/sponsors.html'">
 </div>
 <div id="galleryload" class="lightbox">
 </div>
 
-<div onclick="window.history.back();document.body.style.overflow='visible';document.getElementById('comingsoon').style.display='none';document.getElementById('fade').style.display='none';" id="comingsoon" class="lightbox">
+<div id="comingsoon">
 	<div class="content">
 		<h2>Coming Soon...</h2>
 	</div>
 </div>
-
 
 <div id="navico">
 	<img src="images/links.png" style="width:2.25em;">
@@ -203,12 +160,12 @@ $(function(){
 				<a href="#intro"><li><img class="ico" src="images/icons/home.png"> Home</li></a>
 				<a class="sliding" href="#" ng-click="dctrl.showEvents()"><li><img class="ico" src="images/icons/events.png"> Events</li></a>
 			</div>
-				<a href="#comingsoon" onclick="document.body.style.overflow='hidden';document.getElementById('comingsoon').style.display='block';document.getElementById('fade').style.display='block';"><li><img class="ico" src="images/icons/schedule.png"> Schedule</li></a>
-				<a href="#comingsoon" onclick="document.body.style.overflow='hidden';document.getElementById('comingsoon').style.display='block';document.getElementById('fade').style.display='block'"><li><img class="ico" src="images/icons/pronites.png">Pronites</li></a>
-				<a href="#teamload" onclick="team();document.body.style.overflow='hidden';"><li><img class="ico" src="images/icons/team.png">Our Team</li></a>
-				<a href="#galleryload" onclick="gallery();document.body.style.overflow='hidden';"><li><img class="ico" src="images/icons/gallery.png">Gallery</li></a>
-				<a href="#sponsorsload" onclick="sponsors();document.body.style.overflow='hidden';"><li><img class="ico" src="images/icons/sponsors.png">Sponsors</li></a>
-				<a href="#archives" onclick="document.body.style.overflow='hidden';"><li><img class="ico" src="images/icons/archives.png">Archives</li></a>
+				<a href="#" onclick="showSoon();"><li><img class="ico" src="images/icons/schedule.png"> Schedule</li></a>
+				<a href="#" onclick="showSoon();"><li><img class="ico" src="images/icons/pronites.png">Pronites</li></a>
+				<a href="#" ng-click="dctrl.showTeam()"><li><img class="ico" src="images/icons/team.png">Our Team</li></a>
+				<a href="gallery.html" target="_blank"><li><img class="ico" src="images/icons/gallery.png">Gallery</li></a>
+				<a href="#sponsorsload" ng-click="dctrl.showSponsors()"><li><img class="ico" src="images/icons/sponsors.png">Sponsors</li></a>
+				<a href="#" ng-click="dctrl.showArchives()"><li><img class="ico" src="images/icons/archives.png">Archives</li></a>
 		</ul>
 	</div>
 </div>
