@@ -19,7 +19,13 @@ mysqli_close($conn);
 header('Content-type: application/json');
 ob_start('ob_gzhandler');
 
-echo stripslashes(json_encode($subEvents, JSON_UNESCAPED_UNICODE));
+$res = json_encode($subEvents, JSON_UNESCAPED_SLASHES);
+// $res = preg_replace("/\\\\\"/",'"',$res);
+$res = preg_replace("/\\\\r/","",$res);
+$res = preg_replace("/\\\\n/","",$res);
+$res = preg_replace("/\\\\t/","",$res);
+echo $res;
+
 $file = fopen($filename,'w');
 fwrite($file,ob_get_contents());
 fclose($file);
