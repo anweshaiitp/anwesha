@@ -68,7 +68,7 @@
 
 	<div id="footer">
 		<h2>ANWESHA &nbsp;</h2>
-		<p class="left">Designed and Developed by the <a href="#webdev" onclick="document.body.style.overflow='hidden';">Web Design and Development Team</a>.</p>
+		<p class="left">Designed and Developed by the <a href="#" ng-click="dctrl.showWebTeam()">Web Design and Development Team</a>.</p>
 	</div>
 
 
@@ -97,7 +97,7 @@
 		</ul>
 	</div>
 </div>
-<div onclick="location.href='#footer';document.body.style.overflow='visible';" id="webdev" class="lightbox">
+<div id="webdev" ng-if="dctrl.isWebTeam" ng-show="dctrl.isWebTeam" ng-click="dctrl.isWebTeam=false">
 	<div class="content">
 		<h2>Web Design and Development Team</h2>
 		<ul class="box">

@@ -189,6 +189,7 @@
 		this.isTeam = false;
 		this.isSponsors = false;
 		this.isArchives = false;
+		this.isWebTeam = false;
 		this.showEvents = function() {
 			self.isEvents = true;
 			$events.init($http);
@@ -204,6 +205,10 @@
 
 		this.showArchives = function() {
 			self.isArchives = true;
+		}
+
+		this.showWebTeam = function() {
+			self.isWebTeam = true;
 		}
 	} ] );
 
