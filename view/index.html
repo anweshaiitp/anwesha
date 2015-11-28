@@ -14,10 +14,11 @@
 	<script src='assets/js/jquery.min.js'></script>
 	<!--<script src="assets/js/scroll.js"></script>-->
 	<script src="assets/js/load.js"></script>
+	<style>[ng\:cloak], [ng-cloak], .ng-cloak { display: none !important; } .ng-hide{display: none;}</style>
 
 </head>
 
-<body ng-controller="DefaultCtrl as dctrl">
+<body ng-controller="DefaultCtrl as dctrl" ng-cloak>
 <!--<h1 ng-controller="testCtrl as u">
 	{{u.x}}
 </h1>-->
@@ -72,7 +73,7 @@
 	</div>
 
 
-<div id="archives" ng-if="dctrl.isArchives" ng-show="dctrl.isArchives" ng-click="dctrl.isArchives=false">
+<div id="archives" ng-cloak ng-if="dctrl.isArchives" ng-show="dctrl.isArchives" ng-click="dctrl.isArchives=false">
 	<div class="content">
 		<h2>Archives</h2>
 		<ul class="box">
@@ -97,7 +98,7 @@
 		</ul>
 	</div>
 </div>
-<div id="webdev" ng-if="dctrl.isWebTeam" ng-show="dctrl.isWebTeam" ng-click="dctrl.isWebTeam=false">
+<div id="webdev" ng-cloak ng-if="dctrl.isWebTeam" ng-show="dctrl.isWebTeam" ng-click="dctrl.isWebTeam=false">
 	<div class="content">
 		<h2>Web Design and Development Team</h2>
 		<ul class="box">
@@ -139,9 +140,9 @@
 	</div>
 </div>
 
-<div id="teamload" ng-if="dctrl.isTeam" ng-show="dctrl.isTeam" ng-include="'view/team.html'">
+<div id="teamload" ng-cloak ng-if="dctrl.isTeam" ng-show="dctrl.isTeam" ng-include="'view/team.html'">
 </div>
-<div id="sponsorsload" ng-if="dctrl.isSponsors" ng-show="dctrl.isSponsors" ng-include="'view/sponsors.html'">
+<div id="sponsorsload" ng-cloak ng-if="dctrl.isSponsors" ng-show="dctrl.isSponsors" ng-include="'view/sponsors.html'">
 </div>
 <div id="galleryload" class="lightbox">
 </div>
@@ -185,7 +186,7 @@
 	<a target="_blank" href="https://www.youtube.com/user/AnweshaIITP"><img src="images/social/Youtube-icon.png"></a>
 </div-->
 <div class="cover"></div>
-<div class="eventsHome" ng-show="dctrl.isEvents" ng-include="'view/event.html'">
+<div class="eventsHome" ng-show="dctrl.isEvents" ng-include="'view/event.html'" ng-cloak>
 
 </div>
 <script>
