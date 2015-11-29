@@ -43,6 +43,8 @@ if (preg_match($base . '$@', $url)) {
 	require ('gallery.html');
 } elseif (preg_match($base . 'campusambassador', $url)) {
 	require ('campusambassador/campusambassador.php');
+} elseif (preg_match($base . 'registration@', $url)) {
+	require ('registration.html');
 } else {
 	die('invalid url ' . $url);
 }

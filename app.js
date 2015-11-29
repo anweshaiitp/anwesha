@@ -50,13 +50,21 @@
      */
     function User( $http ){
         var self = this,
-            url = "userdata";
-        this.init = function () {
-            return $http.get( url ).then( function( response ) {
-                    self.setDetails(response.data.username,response.data.level,response.data.t_score,response.data.l_score);
-                },function(errorResponse){
-                   //handle error
-            });
+            url = "userdata",
+            userdata = {},
+            register_url = "user/register/User";
+        this.createUser = function( name, mobile, sex, college, email, dob, city ) {
+        	self.userdata.name = name;
+        	self.userdata.mobile = mobile;
+        	self.userdata.sex = sex;
+        	self.userdata.college = college;
+        	self.userdata.email = email;
+        	self.userdata.dob = dob;
+        	self.userdata.city = city;
+        }
+
+        this.insertUser = function( userdata ) {
+
         }
 
         /**
@@ -168,13 +176,6 @@
 
     myApplication.controller( 'UserCtrl',['User','$scope','$http', function($user,$scope,$http){
 		var self = this;
-
-		this.init = function () {
-			$user.init().then( function( response ) {
-                $scope.user = $user;
-            },function(errorResponse){
-			} );
-		}
 
 		this.refresh = function() {
 			self.init();
