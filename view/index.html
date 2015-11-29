@@ -128,16 +128,23 @@
 		<input class="button" type="submit" value="login">
 	</div>
 </div>
-<div id="register" class="lightbox logreg">
-	<div class="close"><a href="#" onclick="window.history.back();document.body.style.overflow='visible';">&larr;</a></div>
-	<h2>Register</h2>
-	<div class="box">
-		<input class="inp" name="username" type="text" value="Username" onblur="if(this.value == ''){this.value = 'Username';}" onfocus="if (this.value == 'Username') {this.value = '';}">
-		<input class="inp" name="password" type="password" value="Password" onblur="if(this.value == ''){this.value = 'Password';}" onfocus="if (this.value == 'Password') {this.value = '';}">
-		<input class="inp" name="name" type="text" value="Full Name" onblur="if(this.value == ''){this.value = 'Full Name';}" onfocus="if (this.value == 'Full Name') {this.value = '';}">
-		<input class="inp" name="phone" type="text" value="Phone" onblur="if(this.value == ''){this.value = 'Phone';}" onfocus="if (this.value == 'Phone') {this.value = '';}">
-		<input class="button" type="submit" value="Submit">
-	</div>
+<div id="register" class="logreg" ng-controller="UserCtrl as uctrl" ng-show="dctrl.isRegForm" ng-cloak>
+	<h2>Register - Anwesha 2k16</h2>
+	<h3 class="err" ng-bind="uctrl.err"></h3>
+	<form class="box" id="reg_form" ng-show="uctrl.success == 0">
+		<input class="inp" name="name" type="text" value="Full Name" ng-model="uctrl.user.name" ng-focus="uctrl.hideDefault('name','Name')">
+		<input class="inp" name="mobile" type="text" value="Mobile" ng-model="uctrl.user.mobile" ng-focus="uctrl.hideDefault('mobile','Mobile')">
+		<select class="inp" name="sex" ng-model="uctrl.user.sex">
+			<option value="M" style="color:black;" selected>Male</option>
+			<option value="F" style="color:black;">Female</option>
+		</select>
+		<input class="inp" name="college" type="text" value="College" ng-model="uctrl.user.college" ng-focus="uctrl.hideDefault('college','College')">
+		<input class="inp" name="email" type="email" value="Email" ng-model="uctrl.user.email" ng-focus="uctrl.hideDefault('email','Email')">
+		<input class="inp" name="dob" type="text" value="dob" ng-model="uctrl.user.dob" ng-focus="uctrl.hideDefault('dob','YYYY-MM-DD')">
+		<input class="inp" name="city" type="text" value="City" ng-model="uctrl.user.city" ng-focus="uctrl.hideDefault('city','City')">
+		<input class="button" type="submit" value="Submit" ng-click="uctrl.submit()">
+	</form>
+	<h3 class="success" ng-bind="uctrl.success_msg" ng-show = "uctrl.success==1"></h3>
 </div>
 
 <div id="teamload" ng-cloak ng-if="dctrl.isTeam" ng-show="dctrl.isTeam" ng-include="'view/team.html'">

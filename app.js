@@ -38,6 +38,54 @@
       angular.bootstrap(document, ['anwesha']);
     });
 
+    myApplication.factory(
+        "transformRequestAsFormPost",
+        function() {
+            function transformRequest( data, getHeaders ) {
+                var headers = getHeaders();
+                //headers[ "Content-type" ] = "application/x-www-form-urlencoded; charset=utf-8";
+                return( serializeData( data ) );
+            }
+            // Return the factory value.
+            return( transformRequest );
+            // ---
+            // PRVIATE METHODS.
+            // ---
+            // serialize the given Object into a key-value pair string. This
+            // method expects an object and will default to the toString() method.
+            // --
+            // NOTE: This is an atered version of the jQuery.param() method which
+            // will serialize a data collection for Form posting.
+            // --
+            // https://github.com/jquery/jquery/blob/master/src/serialize.js#L45
+            function serializeData( data ) {
+                // If this is not an object, defer to native stringification.
+                if ( ! angular.isObject( data ) ) {
+                    return( ( data == null ) ? "" : data.toString() );
+                }
+                var buffer = [];
+                // Serialize each key in the object.
+                for ( var name in data ) {
+                    if ( ! data.hasOwnProperty( name ) ) {
+                        continue;
+                    }
+                    var value = data[ name ];
+                    buffer.push(
+                        encodeURIComponent( name ) +
+                        "=" +
+                        encodeURIComponent( ( value == null ) ? "" : value )
+                    );
+                }
+                // Serialize the buffer and clean it up for transportation.
+                var source = buffer
+                    .join( "&" )
+                    .replace( /%20/g, "+" )
+                ;
+                return( source );
+            }
+        }
+    );
+
     var globalErr = "";
     function Status() {
     	this.error = false;
@@ -45,28 +93,45 @@
     	this.success = false;
     }
 
-    /**
-     * User service to store user details and update scores
-     */
-    function User( $http ){
-        var self = this,
-            url = "userdata",
-            userdata = {},
-            register_url = "user/register/User";
-        this.createUser = function( name, mobile, sex, college, email, dob, city ) {
-        	self.userdata.name = name;
-        	self.userdata.mobile = mobile;
-        	self.userdata.sex = sex;
-        	self.userdata.college = college;
-        	self.userdata.email = email;
-        	self.userdata.dob = dob;
-        	self.userdata.city = city;
-        }
+	/**
+	 * User service to store user details and update scores
+	 */
+	function User( $http, transformRequestAsFormPost ){
+		var self = this,
+			register_url = "user/register/User";
+		this.userdata = {};
+		this.createUser = function( name, mobile, sex, college, email, dob, city ) {
+			self.userdata.name = name;
+			self.userdata.mobile = mobile;
+			self.userdata.sex = sex;
+			self.userdata.college = college;
+			self.userdata.email = email;
+			self.userdata.dob = dob;
+			self.userdata.city = city;
+			return self.insertUser( self.userdata );
+		}
 
-        this.insertUser = function( userdata ) {
-
-        }
-
+		this.insertUser = function( userdata ) {
+			return $http({
+				method: "post",
+				url: register_url,
+				headers: {'Content-type': 'application/x-www-form-urlencoded;charset=utf-8'},
+				transformRequest: transformRequestAsFormPost,
+				data: {
+					name:userdata.name,
+					mobile: userdata.mobile,
+					sex: userdata.sex,
+					college: userdata.college,
+					email: userdata.email,
+					dob: userdata.dob,
+					city: userdata.city
+				}
+			})/*.then( function( response ) {
+				console.log( response );
+			}, function( errorResponse ) {
+				console.log( errorResponse );
+			} )*/;
+		}
         /**
          * Set details of user on this object
          * @param string name of user
@@ -76,7 +141,7 @@
         }
     }
 
-    myApplication.service( 'User', ['$http', User] );
+    myApplication.service( 'User', ['$http', 'transformRequestAsFormPost',User] );
 
 	/**
 	 * Defining the service for events
@@ -176,12 +241,37 @@
 
     myApplication.controller( 'UserCtrl',['User','$scope','$http', function($user,$scope,$http){
 		var self = this;
+		this.success_msg = "You have successfully registered";
+		this.success = 0;
+		this.err = "";
+		this.user = {};
+		this.user.name = "Name";
+		this.user.mobile = "Mobile";
+		this.user.sex = "M";
+		this.user.college = "College";
+		this.user.email = "Email";
+		this.user.dob = "YYYY/MM/DD";
+		this.user.city = "City";
+		this.submit = function() {
+			$user.createUser( self.user.name, self.user.mobile, self.user.sex, self.user.college, self.user.email, self.user.dob, self.user.city ).then(
+					function( response ) {
+						if ( response.data[0] == -1 ) {
+							self.err = response.data[1];
+						} else {
+							self.error = "";
+							self.success = 1;
+						}
+					}, function( errorResponse ) {
 
-		this.refresh = function() {
-			self.init();
+					}
+				);
 		}
 
-	    this.init();
+		this.hideDefault = function( field, defaultval ) {
+			if ( self.user[field] == defaultval ) {
+				self.user[field] = '';
+			}
+		}
 	} ] );
 
 	myApplication.controller( 'DefaultCtrl', ['$scope', '$http', 'Events', function($scope,$http,$events){
@@ -191,6 +281,7 @@
 		this.isSponsors = false;
 		this.isArchives = false;
 		this.isWebTeam = false;
+		this.isRegForm = false;
 		this.showEvents = function() {
 			self.isEvents = true;
 			$events.init($http);
@@ -210,6 +301,10 @@
 
 		this.showWebTeam = function() {
 			self.isWebTeam = true;
+		}
+
+		this.showRegForm = function() {
+			self.isRegForm = true;
 		}
 	} ] );
 

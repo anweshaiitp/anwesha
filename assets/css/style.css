@@ -989,9 +989,10 @@ top:0;
 bottom:0;
 left:0;
 right:0;
+z-index: 4;
 }
 .logreg h2{
-margin:2em;
+margin:1em;
 text-align:center;
 font-family:bebas;
 font-size:2.5em;
@@ -1030,6 +1031,13 @@ float:right;
 }
 .logreg .button:hover{
 background:#fff;
+}
+.logreg .err{
+    text-align: center;
+    color: red;
+}
+.logreg .success {
+    color: green;
 }
 
 #sponsorsload{
