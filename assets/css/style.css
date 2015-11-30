@@ -131,8 +131,8 @@ font-size:2.5em;
 position:absolute;
 top:50%;
 text-align:center;
-width:100%;
-transform:translate(-2em,-50%);
+margin-left:50%;
+transform:translate(-50%,-50%);
 opacity:0;
 z-index:3;
 }
@@ -150,6 +150,7 @@ width: 8em;
 position:absolute;
 top:2em;
 right:2em;
+z-index:2;
 }
 #intro .button{
 border: 0.1em solid rgba(255,255,255,0.8);
@@ -1038,6 +1039,19 @@ background:#fff;
 }
 .logreg .success {
     color: green;
+}
+.logreg .back {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+}
+.logreg .back img{
+    height:60px;
+}
+.logreg .loader {
+    position: absolute;
+    height:40px;
+    margin: -3em auto;
 }
 
 #sponsorsload{

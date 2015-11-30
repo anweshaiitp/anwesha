@@ -44,6 +44,7 @@
 
 		<div id="reg">
 			<a href="campusambassador/"><div class="button">CAMPUS AMBASSADOR PROGRAMME</div></a>
+			<a href="#"><div class="button" ng-click="dctrl.showRegForm()">Registrations</div></a>
 		</div>
 	</div>
 
@@ -131,7 +132,9 @@
 <div id="register" class="logreg" ng-controller="UserCtrl as uctrl" ng-show="dctrl.isRegForm" ng-cloak>
 	<h2>Register - Anwesha 2k16</h2>
 	<h3 class="err" ng-bind="uctrl.err"></h3>
+	<a href="#" class="back" ng-click="dctrl.isRegForm=false"><img src="images/back.png"></a>
 	<form class="box" id="reg_form" ng-show="uctrl.success == 0">
+	<img class="loader" src="images/loader.gif" ng-show="uctrl.inProgress==1">
 		<input class="inp" name="name" type="text" value="Full Name" ng-model="uctrl.user.name" ng-focus="uctrl.hideDefault('name','Name')">
 		<input class="inp" name="mobile" type="text" value="Mobile" ng-model="uctrl.user.mobile" ng-focus="uctrl.hideDefault('mobile','Mobile')">
 		<select class="inp" name="sex" ng-model="uctrl.user.sex">
@@ -144,7 +147,7 @@
 		<input class="inp" name="city" type="text" value="City" ng-model="uctrl.user.city" ng-focus="uctrl.hideDefault('city','City')">
 		<input class="button" type="submit" value="Submit" ng-click="uctrl.submit()">
 	</form>
-	<h3 class="success" ng-bind="uctrl.success_msg" ng-show = "uctrl.success==1"></h3>
+	<h2 class="success" ng-bind="uctrl.success_msg" ng-show = "uctrl.success==1"></h2>
 </div>
 
 <div id="teamload" ng-cloak ng-if="dctrl.isTeam" ng-show="dctrl.isTeam" ng-include="'view/team.html'">
