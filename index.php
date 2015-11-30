@@ -41,7 +41,7 @@ if (preg_match($base . '$@', $url)) {
 	require ('controller/verifyEmail.php');
 } elseif (preg_match($base . 'gallery.html@', $url)) {
 	require ('gallery.html');
-} elseif (preg_match($base . 'campusambassador', $url)) {
+} elseif (preg_match($base . 'campusambassador@', $url)) {
 	require ('campusambassador/campusambassador.php');
 } elseif (preg_match($base . 'registration@', $url)) {
 	require ('registration.html');
