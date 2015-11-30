@@ -12,37 +12,37 @@ $dob = null;
 $city = null;
 if(!(isset($_POST['name']) && !empty($_POST['name']))){
 	header('Content-type:application/json');
-	echo json_encode(array(-1,array('Missing index in POST request : ' . 'name')));
+	echo json_encode(array(-1,array('Name not given.')));
 	die();
 }
 if(!(isset($_POST['college']) && !empty($_POST['college']))){
 	header('Content-type:application/json');
-	echo json_encode(array(-1,array('Missing index in POST request : ' . 'college')));
+	echo json_encode(array(-1,array('College not given.')));
 	die();
 }
 if(!(isset($_POST['sex']) && !empty($_POST['sex']))){
 	header('Content-type:application/json');
-	echo json_encode(array(-1,array('Missing index in POST request : ' . 'sex')));
+	echo json_encode(array(-1,array('Sex not given.')));
 	die();
 }
 if(!(isset($_POST['mobile']) && !empty($_POST['mobile']))){
 	header('Content-type:application/json');
-	echo json_encode(array(-1,array('Missing index in POST request : ' . 'mobile')));
+	echo json_encode(array(-1,array('Mobile not given.')));
 	die();
 }
 if(!(isset($_POST['email']) && !empty($_POST['email']))){
 	header('Content-type:application/json');
-	echo json_encode(array(-1,array('Missing index in POST request : ' . 'email')));
+	echo json_encode(array(-1,array('Email-id not given.')));
 	die();
 }
 if(!(isset($_POST['dob']) && !empty($_POST['dob']))){
 	header('Content-type:application/json');
-	echo json_encode(array(-1,array('Missing index in POST request : ' . 'dob')));
+	echo json_encode(array(-1,array('Date of Birth not given.')));
 	die();
 }
 if(!(isset($_POST['city']) && !empty($_POST['city']))){
 	header('Content-type:application/json');
-	echo json_encode(array(-1,array('Missing index in POST request : ' . 'city')));
+	echo json_encode(array(-1,array('City not given.')));
 	die();
 }
 $name = $_POST['name'];
