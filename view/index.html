@@ -134,16 +134,16 @@
 	<a href="#" class="back" ng-click="dctrl.isRegForm=false"><img src="images/back.png"></a>
 	<form class="box" id="reg_form" ng-show="uctrl.success == 0">
 	<img class="loader" src="images/spinner-large.gif" ng-show="uctrl.inProgress==1">
-		<input class="inp" name="name" type="text" value="Full Name" ng-model="uctrl.user.name" ng-focus="uctrl.hideDefault('name','Name')">
-		<input class="inp" name="mobile" type="text" value="Mobile" ng-model="uctrl.user.mobile" ng-focus="uctrl.hideDefault('mobile','Mobile')">
+		<input class="inp" name="name" type="text" value="Full Name" ng-model="uctrl.user.name" ng-focus="uctrl.hideDefault('name','Name')" ng-blur="uctrl.showDefault( 'name' )">
+		<input class="inp" name="mobile" type="text" value="Mobile" ng-model="uctrl.user.mobile" ng-focus="uctrl.hideDefault('mobile','Mobile')" ng-blur="uctrl.showDefault( 'mobile' )">
 		<select class="inp" name="sex" ng-model="uctrl.user.sex">
 			<option value="M" style="color:black;" selected>Male</option>
 			<option value="F" style="color:black;">Female</option>
 		</select>
-		<input class="inp" name="college" type="text" value="College" ng-model="uctrl.user.college" ng-focus="uctrl.hideDefault('college','College')">
-		<input class="inp" name="email" type="email" value="Email" ng-model="uctrl.user.email" ng-focus="uctrl.hideDefault('email','Email')">
-		<input class="inp" name="dob" type="text" value="dob" ng-model="uctrl.user.dob" ng-focus="uctrl.hideDefault('dob','YYYY-MM-DD')">
-		<input class="inp" name="city" type="text" value="City" ng-model="uctrl.user.city" ng-focus="uctrl.hideDefault('city','City')">
+		<input class="inp" name="college" type="text" value="College" ng-model="uctrl.user.college" ng-focus="uctrl.hideDefault('college','College')" ng-blur="uctrl.showDefault( 'college' )">
+		<input class="inp" name="email" type="email" value="Email" ng-model="uctrl.user.email" ng-focus="uctrl.hideDefault('email','Email')" ng-blur="uctrl.showDefault( 'email' )">
+		<input class="inp" name="dob" type="text" value="dob" ng-model="uctrl.user.dob" ng-focus="uctrl.hideDefault('dob','YYYY-MM-DD')" ng-blur="uctrl.showDefault( 'dob' )">
+		<input class="inp" name="city" type="text" value="City" ng-model="uctrl.user.city" ng-focus="uctrl.hideDefault('city','City')" ng-blur="uctrl.showDefault( 'city' )">
 		<input class="button" type="submit" value="Submit" ng-click="uctrl.submit()">
 	</form>
 	<h2 class="success" ng-bind="uctrl.success_msg" ng-show = "uctrl.success==1"></h2>

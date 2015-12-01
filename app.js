@@ -241,6 +241,7 @@
 
     myApplication.controller( 'UserCtrl',['User','$scope','$http', function($user,$scope,$http){
 		var self = this;
+		this.fields = {"name":"Name","mobile":"Mobile","sex":"Sex","college":"College","email":"Email","dob":"D.O.B(YYYY-MM-DD)","city":"City"};
 		this.success_msg = "You have successfully registered. Now close this window";
 		this.inProgress = 0;
 		this.success = 0;
@@ -251,7 +252,7 @@
 		this.user.sex = "M";
 		this.user.college = "College";
 		this.user.email = "Email";
-		this.user.dob = "YYYY-MM-DD";
+		this.user.dob = "D.O.B(YYYY-MM-DD)";
 		this.user.city = "City";
 		this.submit = function() {
 			if ( this.inProgress == 0 ) {
@@ -275,8 +276,14 @@
 		}
 
 		this.hideDefault = function( field, defaultval ) {
-			if ( self.user[field] == defaultval ) {
+			if ( self.user[field] == self.fields[field] ) {
 				self.user[field] = '';
+			}
+		}
+
+		this.showDefault = function( field, defaultva ) {
+			if ( self.user[field] == '' ) {
+				self.user[field] = self.fields[field];
 			}
 		}
 	} ] );
