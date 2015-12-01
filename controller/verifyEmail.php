@@ -8,6 +8,7 @@ $id = $match[1];
 $token = $match[2];
 $verification = People::verifyEmail($id,$token,$conn);
 mysqli_close($conn);
-header('Content-type: application/json');
-echo json_encode($verification);
+// header('Content-type: application/json');
+// echo json_encode($verification);
+include('controller/Verify.html');
 ?>
