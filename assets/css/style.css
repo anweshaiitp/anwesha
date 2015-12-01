@@ -1,8 +1,11 @@
+html {
+    height: 100%;
+}
 body{
-background:url(../../images/bg.jpg) no-repeat center center fixed;
--webkit-background-size: cover;
--moz-background-size: cover;
--o-background-size: cover;
+height: 100%;
+background-image: url('../../images/bg.jpg');
+background-position: center center;
+background-attachment: fixed;
 background-size: cover;
 }
 h1{
@@ -118,6 +121,20 @@ radial-gradient(black 15%, transparent 16%) 0.25em 0.25em,
 radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 0.03125em,
 radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0.25em 0.28125em;
 background-size:0.5em 0.5em;
+}
+@media only screen and (min-width: 932px) {
+  body {
+    background-image: url('../../images/bg-med.jpg');
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+}
+#intro .home_bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
 }
 #intro span{
 position:absolute;
@@ -1051,7 +1068,8 @@ background:#fff;
 .logreg .loader {
     position: absolute;
     height:40px;
-    margin: -3em auto;
+    top: 45%;
+    left: 45%;
 }
 
 #sponsorsload{

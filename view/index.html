@@ -14,14 +14,13 @@
 	<script src='assets/js/jquery.min.js'></script>
 	<!--<script src="assets/js/scroll.js"></script>-->
 	<script src="assets/js/load.js"></script>
-	<style>[ng\:cloak], [ng-cloak], .ng-cloak { display: none !important; } .ng-hide{display: none;}</style>
+	<style>
+		[ng\:cloak], [ng-cloak], .ng-cloak { display: none !important; } .ng-hide{display: none;}
+	</style>
 
 </head>
 
 <body ng-controller="DefaultCtrl as dctrl" ng-cloak>
-<!--<h1 ng-controller="testCtrl as u">
-	{{u.x}}
-</h1>-->
 	<div id="intro">
 		<div id="logo"><img src="images/logo-bg.png"></div>
 		<span>THINK.DREAM.LIVE.</span>
@@ -134,7 +133,7 @@
 	<h3 class="err" ng-bind="uctrl.err"></h3>
 	<a href="#" class="back" ng-click="dctrl.isRegForm=false"><img src="images/back.png"></a>
 	<form class="box" id="reg_form" ng-show="uctrl.success == 0">
-	<img class="loader" src="images/loader.gif" ng-show="uctrl.inProgress==1">
+	<img class="loader" src="images/spinner-large.gif" ng-show="uctrl.inProgress==1">
 		<input class="inp" name="name" type="text" value="Full Name" ng-model="uctrl.user.name" ng-focus="uctrl.hideDefault('name','Name')">
 		<input class="inp" name="mobile" type="text" value="Mobile" ng-model="uctrl.user.mobile" ng-focus="uctrl.hideDefault('mobile','Mobile')">
 		<select class="inp" name="sex" ng-model="uctrl.user.sex">

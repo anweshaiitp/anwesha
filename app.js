@@ -251,11 +251,12 @@
 		this.user.sex = "M";
 		this.user.college = "College";
 		this.user.email = "Email";
-		this.user.dob = "YYYY/MM/DD";
+		this.user.dob = "YYYY-MM-DD";
 		this.user.city = "City";
 		this.submit = function() {
-			this.inProgress = 1;
-			$user.createUser( self.user.name, self.user.mobile, self.user.sex, self.user.college, self.user.email, self.user.dob, self.user.city ).then(
+			if ( this.inProgress == 0 ) {
+				this.inProgress = 1;
+				$user.createUser( self.user.name, self.user.mobile, self.user.sex, self.user.college, self.user.email, self.user.dob, self.user.city ).then(
 					function( response ) {
 						if ( response.data[0] == -1 ) {
 							self.err = response.data[1];
@@ -269,6 +270,8 @@
 						this.inProgress = 0;
 					}
 				);
+			}
+
 		}
 
 		this.hideDefault = function( field, defaultval ) {
