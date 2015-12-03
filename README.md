@@ -13,6 +13,22 @@
 - Use can change the caching time by updating $cache_time variable in the specific controller. Current cache time is 60 second.
 - For removing cached files - delete contents of /cache/ folder (/cache/*.hmtl)
 
+### Using Auth:
+
+#### For login:
+- use URL /login/
+- send username and password by POST. index - username, password
+- Response will contain user information. Private key is given in index key.
+- Further communication will take place by using private key and username
+
+#### For user-event-registration:
+- use URL /register/dddd/dd (awnwesha id, event id)
+- add a POST request along with this.
+- generate any word.
+- put it on index 'content'
+- Use equivalent of PHP function has_hmac('sha256', content, privatekey) (salted hash) and put it on index 'hash'
+- send the request
+
 ## TODO
 - [ ] Write setupdb.php.
 - [ ] Write Trigger to clean tables in 4-5 days.
