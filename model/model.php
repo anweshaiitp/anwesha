@@ -388,7 +388,7 @@ class People{
             $arr[] = $error;
             return $arr;
         }
-        $sqlUpdate = "UPDATE LoginTable SET csrfToken = ''";
+        $sqlUpdate = "UPDATE LoginTable SET csrfToken = '' pId = $id";
         $result = mysqli_query($conn, $sqlUpdate);
         if(!$result){
             $error = "Some Internal Error Occured - Please try again.";
@@ -400,7 +400,8 @@ class People{
         $arr = array();
         $arr[]=1;
         $randPass=Auth::randomPassword();                                                  //vinay edit
-        $sqlUpdate = "UPDATE LoginTable SET password = sha('$randPass')";                         //vinay edit
+        $privateKey = Auth::randomPassword();
+        $sqlUpdate = "UPDATE LoginTable SET password = sha('$randPass'), privateKey = sha('$privateKey') where pId = $id";                         //vinay edit
          $result = mysqli_query($conn, $sqlUpdate);
         if(!$result){
             $error = "Some Internal Error Occured - Please try again.";
