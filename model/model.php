@@ -614,7 +614,7 @@ class Auth
         } else {
             $row = mysqli_fetch_assoc($result);
             $privateKey = $row['privateKey'];
-            return array("status": true, "key" : $privateKey, "msg" : "Login Successful!");
+            return array("status"=> true, "key" => $privateKey, "msg" => "Login Successful!");
         }
     }
     /**
@@ -628,11 +628,11 @@ class Auth
         
         $password = sha1($password);
 
-        $sql = "SELECT People.name, People.college, People.sex, People.mobile, People.email, People.dob, People.city, People.feePaid, People.confirm, People.time AS regTime, LoginTable.totalLogin, LoginTable.lastLogin, LoginTable.privateKey AS key FROM People INNER JOIN LoginTable ON People.pId = LoginTable.pid AND LoginTable.password = $password"
+        $sql = "SELECT People.name, People.college, People.sex, People.mobile, People.email, People.dob, People.city, People.feePaid, People.confirm, People.time AS regTime, LoginTable.totalLogin, LoginTable.lastLogin, LoginTable.privateKey AS 'key' FROM People INNER JOIN LoginTable ON People.pId = LoginTable.pId AND People.pId = $userID AND LoginTable.password = '$password'";
 
         $result = mysqli_query($conn,$sql);
         if(!$result OR mysqli_num_rows($result) != 1){
-            return array("status" => false, "msg" = "Invalid credentials");
+            return array("status" => false, "msg" => "Invalid credentials" . $sql);
         } else {
             $row = mysqli_fetch_assoc($result);
             $row["status"] = True;

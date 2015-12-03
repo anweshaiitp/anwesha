@@ -2,10 +2,8 @@
 require('model/model.php');
 require('dbConnection.php');
 
-// $arr = json_decode($_POST['req']);
-$arr = $_POST['req'];
-$userID = $arr['username'];
-$password = $arr['password'];
+$userID = $_POST['username'];
+$password = $_POST['password'];
 
 $conn = mysqli_connect(SERVER_ADDRESS,USER_NAME,PASSWORD,DATABASE);
 

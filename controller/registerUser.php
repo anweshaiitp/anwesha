@@ -3,9 +3,9 @@ require('model/model.php');
 require('dbConnection.php');
 
 // $arr = json_decode($_POST['req']);
-$arr = $_POST['req'];
-$hashContent = $arr["hash"];
-$content = $arr["content"];
+
+$hashContent = $_POST["hash"];
+$content = $_POST["content"];
 $userID = $match[1];
 $eveID = $match[2];
 
