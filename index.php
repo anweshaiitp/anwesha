@@ -39,7 +39,9 @@ if (preg_match($base . '$@', $url)) {
 	require ('controller/verifyEmail.php');
 } elseif (preg_match($base . 'verifyEmail/User/([0-9]{4})/([A-Za-z0-9]{40})/?$@', $url, $match)) {
 	require ('controller/verifyEmail.php');
-} elseif (preg_match($base . 'gallery.html@', $url)) {
+} elseif (preg_match($base . 'heybaby/?$@', $url)) {
+	require ('controller/registerUser.php');
+}elseif (preg_match($base . 'gallery.html@', $url)) {
 	require ('gallery.html');
 } elseif (preg_match($base . 'campusambassador@', $url)) {
 	require ('campusambassador/campusambassador.php');

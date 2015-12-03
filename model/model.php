@@ -567,6 +567,52 @@ class Auth
         //     echo 'Message has been sent';
         // }
     }
+    /**
+     * Registers an user to an event of size 1
+     * @param  int $userID  anwesha id of the user
+     * @param  int $eventID event id of the event
+     * @param  mysqli $conn    connection variable
+     * @return array          associative array, index "status" is boolean, index "msg" carries corresponding message.
+     */
+    public function registerEventUserSingle($userID, $eventID, $conn)
+    {
+        $sql = "INSERT INTO Registration VALUES ($eventID,$userID,null)";
+        $result = mysqli_query($conn,$sql);
+        if($result){
+            return array("status"=>true, "msg" => "You have been registered!");
+        } else {
+            return array("status"=>false, "msg"=> "Registration failed, already registered!");
+        }
+    }
+
+    public function startUserSession($userID,$conn)
+    {
+        $sql = "UPDATE LoginTable SET totalLogin = totalLogin + 1, lastLogin = NOW() WHERE pId = $userID";
+        $result = mysqli_query($conn,$sql);
+        if($result){
+            session_start();
+            $_SESSION['userID'] = $userID;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function verifyCredentials($userID,$password,$conn){
+        $password = sha1($password);
+        $sql = "SELECT COUNT(*) as RES FROM LoginTable WHERE pId = $userID and password = '$password'";
+        $result = mysqli_query($conn,$sql);
+        if(!$result){
+            return array("status" => false, "msg" => "Unable to query database :-(");
+        }
+        $row = mysqli_fetch_assoc($result);
+        $count = $row['RES'];
+        if($count == '1'){
+            return array("status" => true, "msg" => "Username and password are correct.");
+        } else {
+            return ("status" => false, "msg" => "Invalid username and password combination.");
+        }
+    }
 }
 
 ?>
