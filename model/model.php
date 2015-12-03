@@ -490,6 +490,22 @@ class Events{
         $arr[] = $results;
         return $arr;
     }
+    /**
+     * Returns the size of the event.
+     * @param  int $eveID Event id
+     * @param  mysqli $conn  mysqli connection variable
+     * @return int        size of the event. -1 if event does not exist.
+     */
+    public function getEventSize($eveID,$conn)
+    {
+        $sql = "SELECT size FROM Events WHERE eveId = $eveID";
+        $result = mysqli_query($conn,$sql);
+        if(!$result){
+            return -1;
+        }
+        $row = mysqli_fetch_assoc($result);
+        return $row['size'];
+    }
 
 }
 
@@ -572,10 +588,9 @@ class Auth
      * @param  int $userID  anwesha id of the user
      * @param  int $eventID event id of the event
      * @param  mysqli $conn    connection variable
-     * @return array          associative array, index "status" is boolean, index "msg" carries corresponding message.
+     * @return array          associative array, index "status" is boolean, index "msg" carries corresponding message
      */
-    public function registerEventUserSingle($userID, $eventID, $conn)
-    {
+    public function registerEventUserSingle($userID, $eventID, $conn){
         $sql = "INSERT INTO Registration VALUES ($eventID,$userID,null)";
         $result = mysqli_query($conn,$sql);
         if($result){
@@ -584,33 +599,63 @@ class Auth
             return array("status"=>false, "msg"=> "Registration failed, already registered!");
         }
     }
+    /**
+     * Searches the database for user's private key using its public key(username)
+     * @param  int $userID anwesha id of the user
+     * @param  mysqli $conn   connection variable
+     * @return array         associative array. index "status" is boolean, index "key" has usual meaning, index "msg" has te usual meaning.
+     */
+    public function getUserPrivateKey($userID,$conn){
 
-    public function startUserSession($userID,$conn)
-    {
-        $sql = "UPDATE LoginTable SET totalLogin = totalLogin + 1, lastLogin = NOW() WHERE pId = $userID";
+        $sql = "SELECT privateKey FROM LoginTable WHERE pId = $userID";
         $result = mysqli_query($conn,$sql);
-        if($result){
-            session_start();
-            $_SESSION['userID'] = $userID;
+        if(!$result){
+            return array("status"=>false, "key"=>null, "msg" => "User does not exist!");
+        } else {
+            $row = mysqli_fetch_assoc($result);
+            $privateKey = $row['privateKey'];
+            return array("status": true, "key" : $privateKey, "msg" : "Login Successful!");
+        }
+    }
+    /**
+     * Login the user and return its public key.
+     * @param  int $userID   Anwesha Id of the user
+     * @param  string $password password of the user
+     * @param  mysqli $conn     mysqli connection variable
+     * @return array
+     */
+    public function loginUser($userID,$password,$conn){
+        
+        $password = sha1($password);
+
+        $sql = "SELECT People.name, People.college, People.sex, People.mobile, People.email, People.dob, People.city, People.feePaid, People.confirm, People.time AS regTime, LoginTable.totalLogin, LoginTable.lastLogin, LoginTable.privateKey AS key FROM People INNER JOIN LoginTable ON People.pId = LoginTable.pid AND LoginTable.password = $password"
+
+        $result = mysqli_query($conn,$sql);
+        if(!$result OR mysqli_num_rows($result) != 1){
+            return array("status" => false, "msg" = "Invalid credentials");
+        } else {
+            $row = mysqli_fetch_assoc($result);
+            $row["status"] = True;
+            $row["msg"] = "Login Successful";
+            $sql = "UPDATE LoginTable SET totalLogin = totalLogin + 1, lastLogin = NOW() WHERE pId = $userID";
+            $result = mysqli_query($conn,$sql);
+            return $row;
+        }
+
+    }
+    /**
+     * Authenticates that the request was sent by the user after login
+     * @param  string $privateKey    privateKey of the user from the database
+     * @param  string $hashedContent Hashed data received
+     * @param  string $content       Data without hash
+     * @return boolean                if new hashedData matches to the old one the true else false.
+     */
+    public function authenticateRequest($privateKey,$hashedContent,$content){
+        $newHashed = hash_hmac('sha256',$content,$privateKey);
+        if($newHashed == $hashedContent){
             return true;
         } else {
             return false;
-        }
-    }
-
-    public function verifyCredentials($userID,$password,$conn){
-        $password = sha1($password);
-        $sql = "SELECT COUNT(*) as RES FROM LoginTable WHERE pId = $userID and password = '$password'";
-        $result = mysqli_query($conn,$sql);
-        if(!$result){
-            return array("status" => false, "msg" => "Unable to query database :-(");
-        }
-        $row = mysqli_fetch_assoc($result);
-        $count = $row['RES'];
-        if($count == '1'){
-            return array("status" => true, "msg" => "Username and password are correct.");
-        } else {
-            return ("status" => false, "msg" => "Invalid username and password combination.");
         }
     }
 }
