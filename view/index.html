@@ -15,11 +15,44 @@
 
 
 	<script src='assets/js/jquery.min.js'></script>
-	<!--<script src="assets/js/scroll.js"></script>-->
-	<script src="assets/js/load.js"></script>
 	<script src="assets/js/jquery-ui.min.js"></script>
 	<style>
-		[ng\:cloak], [ng-cloak], .ng-cloak { display: none !important; } .ng-hide{display: none;}
+		/*Animation for show/hide*/
+		.ng-hide {
+			transition: all linear .5s;
+			-moz-transition: all linear .5s;
+			-webkit-transition: all linear .5s;
+			-o-transition: all linear .5s;
+			opacity: 0;
+		}
+		.ng-hide-animate {
+			transition: all linear .5s;
+			-moz-transition: all linear .5s;
+			-webkit-transition: all linear .5s;
+			-o-transition: all linear .5s;
+		}
+
+		/*Animation for enter/leave*/
+		.ng-enter {
+			transition: all linear .5s;
+			-moz-transition: all linear .5s;
+			-webkit-transition: all linear .5s;
+			-o-transition: all linear .5s;
+			opacity: 0;
+		}
+		.ng-enter.ng-enter-active {
+			opacity: 1;
+		}
+		.ng-leave {
+			transition: all linear .5s;
+			-moz-transition: all linear .5s;
+			-webkit-transition: all linear .5s;
+			-o-transition: all linear .5s;
+			opacity: 1;
+		}
+		.ng-leave.ng-leave-active {
+			opacity: 0;
+		}
 	</style>
 
 </head>
@@ -77,7 +110,7 @@
 	</div>
 
 
-<div id="archives" ng-cloak ng-if="dctrl.isArchives" ng-show="dctrl.isArchives" ng-click="dctrl.isArchives=false">
+<div id="archives" ng-cloak ng-if="dctrl.isArchives" ng-click="dctrl.isArchives=false">
 	<div class="content">
 		<h2>Archives</h2>
 		<ul class="box">
@@ -102,7 +135,7 @@
 		</ul>
 	</div>
 </div>
-<div id="webdev" ng-cloak ng-if="dctrl.isWebTeam" ng-show="dctrl.isWebTeam" ng-click="dctrl.isWebTeam=false">
+<div id="webdev" ng-cloak ng-if="dctrl.isWebTeam" ng-click="dctrl.isWebTeam=false">
 	<div class="content">
 		<h2>Web Design and Development Team</h2>
 		<ul class="box">
@@ -153,9 +186,9 @@
 	<h2 class="success" ng-bind="uctrl.success_msg" ng-show = "uctrl.success==1"></h2>
 </div>
 
-<div id="teamload" ng-cloak ng-if="dctrl.isTeam" ng-show="dctrl.isTeam" ng-include="'view/team.html'">
+<div id="teamload" ng-cloak ng-if="dctrl.isTeam" ng-include="'view/team.html'">
 </div>
-<div id="sponsorsload" ng-cloak ng-if="dctrl.isSponsors" ng-show="dctrl.isSponsors" ng-include="'view/sponsors.html'">
+<div id="sponsorsload" ng-cloak ng-if="dctrl.isSponsors" ng-include="'view/sponsors.html'">
 </div>
 <div id="galleryload" class="lightbox">
 </div>
@@ -212,13 +245,13 @@
 		$( '#reg_form input[name="dob"]' ).datepicker({
 			changeMonth: true,
 			changeYear: true,
-			dateFormat: "yy-mm-dd"
+			dateFormat: "yy-mm-dd",
+			yearRange: "c-30:c"
 		});
 </script>
 <script src="assets/js/angular.min.js"></script>
 <script src="assets/js/angular-resource.min.js"></script>
-<script src="assets/js/angular-route.min.js"></script>
+<script src="assets/js/angular-animate.min.js"></script>
 <script src="assets/js/angular-sanitize.min.js"></script>
-angular-sanitize.min
 <script src="app.js"></script>
 </body>

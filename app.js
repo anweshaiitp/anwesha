@@ -3,9 +3,9 @@
 	var baseUrl = '/project/anwesha/';
 	// Declare app level module which depends on views, and components
 	var myApplication = angular.module("anwesha", [
-	  'ngRoute',
 	  'ngResource',
-	  'ngSanitize'
+	  'ngSanitize',
+	  'ngAnimate'
 	]);/*.
 	config(['$routeProvider', function($routeProvider) {
 	  $routeProvider.otherwise({redirectTo: '/view1'});

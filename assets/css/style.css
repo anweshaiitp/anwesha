@@ -116,11 +116,6 @@ position:relative;
 width:100%;
 height:100%;
 text-align:center;
-background: radial-gradient(black 15%, transparent 16%) 0 0,
-radial-gradient(black 15%, transparent 16%) 0.25em 0.25em,
-radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 0.03125em,
-radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0.25em 0.28125em;
-background-size:0.5em 0.5em;
 }
 @media only screen and (min-width: 932px) {
   body {
