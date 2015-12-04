@@ -9,11 +9,15 @@
 	<link rel="stylesheet" href="assets/css/team.css">
 	<link rel="stylesheet" href="assets/css/style.css">
 	<link rel="stylesheet" href="assets/css/eventsmain.css">
+	<link rel="stylesheet" href="assets/css/jquery-ui.structure.min.css">
+	<link rel="stylesheet" href="assets/css/jquery-ui.min.css">
+	<link rel="stylesheet" href="assets/css/jquery-ui.theme.min.css">
 
 
 	<script src='assets/js/jquery.min.js'></script>
 	<!--<script src="assets/js/scroll.js"></script>-->
 	<script src="assets/js/load.js"></script>
+	<script src="assets/js/jquery-ui.min.js"></script>
 	<style>
 		[ng\:cloak], [ng-cloak], .ng-cloak { display: none !important; } .ng-hide{display: none;}
 	</style>
@@ -203,6 +207,12 @@
 			$('#logo').animate({},0).delay(3000).animate({'opacity':0.9},2500,function(){
 				$('.cover').fadeOut(1000);
 			});
+		});
+
+		$( '#reg_form input[name="dob"]' ).datepicker({
+			changeMonth: true,
+			changeYear: true,
+			dateFormat: "yy-mm-dd"
 		});
 </script>
 <script src="assets/js/angular.min.js"></script>
