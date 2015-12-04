@@ -265,10 +265,10 @@
 							self.err = "";
 							self.success = 1;
 						}
-						this.inProgress = 0;
+						self.inProgress = 0;
 					}, function( errorResponse ) {
 						console.log( errorResponse );
-						this.inProgress = 0;
+						self.inProgress = 0;
 					}
 				);
 			}
