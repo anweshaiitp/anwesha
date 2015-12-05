@@ -2,14 +2,14 @@
 require('model/model.php');
 require('dbConnection.php');
 
-// $arr = json_decode($_POST['req']);
+$conn = mysqli_connect(SERVER_ADDRESS,USER_NAME,PASSWORD,DATABASE);
 
-$hashContent = $_POST["hash"];
-$content = $_POST["content"];
+require('middleware/authMiddleware.php');
+
+
 $userID = $match[1];
 $eveID = $match[2];
 
-$conn = mysqli_connect(SERVER_ADDRESS,USER_NAME,PASSWORD,DATABASE);
 $size = Events::getEventSize($eveID,$conn);
 if($size == -1){
 	mysqli_close($conn);
@@ -23,17 +23,8 @@ if($size == -1){
 	die();
 }
 
-$res = Auth::getUserPrivateKey($userID,$conn);
-if(!$res["status"]){
-	mysqli_close($conn);
-	header('Content-type: application/json');
-	echo json_encode($res);
-	die();
-}
-$privateKey = $res["key"];
 
-$auth = Auth::authenticateRequest($privateKey,$hashContent,$content);
-$result = Auth::registerEventUserSingle($userID,$eveID,$conn);
+$result = People::registerEventUserSingle($userID,$eveID,$conn);
 mysqli_close($conn);
 header('Content-type: application/json');
 echo json_encode($result);

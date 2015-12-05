@@ -418,6 +418,23 @@ class People{
 
     }
 
+    /**
+     * Registers an user to an event of size 1
+     * @param  int $userID  anwesha id of the user
+     * @param  int $eventID event id of the event
+     * @param  mysqli $conn    connection variable
+     * @return array          associative array, index "status" is boolean, index "msg" carries corresponding message
+     */
+    public function registerEventUserSingle($userID, $eventID, $conn){
+        $sql = "INSERT INTO Registration VALUES ($eventID,$userID,null)";
+        $result = mysqli_query($conn,$sql);
+        if($result){
+            return array("status"=>true, "msg" => "You have been registered!");
+        } else {
+            return array("status"=>false, "msg"=> "Registration failed, already registered!");
+        }
+    }
+
 
 }
 /**
@@ -584,22 +601,7 @@ class Auth
         //     echo 'Message has been sent';
         // }
     }
-    /**
-     * Registers an user to an event of size 1
-     * @param  int $userID  anwesha id of the user
-     * @param  int $eventID event id of the event
-     * @param  mysqli $conn    connection variable
-     * @return array          associative array, index "status" is boolean, index "msg" carries corresponding message
-     */
-    public function registerEventUserSingle($userID, $eventID, $conn){
-        $sql = "INSERT INTO Registration VALUES ($eventID,$userID,null)";
-        $result = mysqli_query($conn,$sql);
-        if($result){
-            return array("status"=>true, "msg" => "You have been registered!");
-        } else {
-            return array("status"=>false, "msg"=> "Registration failed, already registered!");
-        }
-    }
+    
     /**
      * Searches the database for user's private key using its public key(username)
      * @param  int $userID anwesha id of the user
@@ -633,13 +635,15 @@ class Auth
 
         $result = mysqli_query($conn,$sql);
         if(!$result OR mysqli_num_rows($result) != 1){
-            return array("status" => false, "msg" => "Invalid credentials" . $sql);
+            return array("status" => false, "msg" => "Invalid credentials");
         } else {
             $row = mysqli_fetch_assoc($result);
             $row["status"] = True;
             $row["msg"] = "Login Successful";
             $sql = "UPDATE LoginTable SET totalLogin = totalLogin + 1, lastLogin = NOW() WHERE pId = $userID";
             $result = mysqli_query($conn,$sql);
+            session_start();
+            $_SESSION['userID'] = $userID;
             return $row;
         }
 
@@ -653,11 +657,7 @@ class Auth
      */
     public function authenticateRequest($privateKey,$hashedContent,$content){
         $newHashed = hash_hmac('sha256',$content,$privateKey);
-        if($newHashed == $hashedContent){
-            return true;
-        } else {
-            return false;
-        }
+        return md5($newHashed) == md5($hashedContent);
     }
 }
 
