@@ -14,6 +14,7 @@
 - For removing cached files - delete contents of /cache/ folder (/cache/*.hmtl)
 
 ### Using Auth:
+- If accessing from web browser ignore this section(for web browser, session support is there).
 
 #### For login:
 - use URL /login/
