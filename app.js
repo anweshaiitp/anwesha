@@ -108,6 +108,7 @@
 			self.userdata.email = email;
 			self.userdata.dob = dob;
 			self.userdata.city = city;
+			self.userdata.anwId = "";
 			return self.insertUser( self.userdata );
 		}
 
@@ -127,18 +128,12 @@
 					city: userdata.city
 				}
 			})/*.then( function( response ) {
-				console.log( response );
+				console.log(response);
+				self.userdata.anwId = response.data[1].pId;
 			}, function( errorResponse ) {
 				console.log( errorResponse );
 			} )*/;
 		}
-        /**
-         * Set details of user on this object
-         * @param string name of user
-         */
-        this.setDetails = function(name,level,tscore,lscore ){
-            self.username = name;
-        }
     }
 
     myApplication.service( 'User', ['$http', 'transformRequestAsFormPost',User] );
@@ -241,19 +236,20 @@
 
     myApplication.controller( 'UserCtrl',['User','$scope','$http', function($user,$scope,$http){
 		var self = this;
-		this.fields = {"name":"Name","mobile":"Mobile","sex":"Sex","college":"College","email":"Email","dob":"D.O.B(YYYY-MM-DD)","city":"City"};
-		this.success_msg = "You have successfully registered. Now close this window";
+		this.fields = {"name":"Full Name","mobile":"Mobile","sex":"Sex","college":"College","email":"Email","dob":"D.O.B(YYYY-MM-DD)","city":"City"};
 		this.inProgress = 0;
 		this.success = 0;
 		this.err = "";
 		this.user = {};
-		this.user.name = "Name";
+		this.user.name = "Full Name";
 		this.user.mobile = "Mobile";
 		this.user.sex = "M";
 		this.user.college = "College";
 		this.user.email = "Email";
 		this.user.dob = "D.O.B(YYYY-MM-DD)";
 		this.user.city = "City";
+		this.user.anwId = "";
+		//this.success_msg = "You have successfully registered. Your anwesha ID is: " + this.user.anwId +". Now close this window";
 		this.submit = function() {
 			if ( this.inProgress == 0 ) {
 				this.inProgress = 1;
@@ -264,6 +260,10 @@
 						} else {
 							self.err = "";
 							self.success = 1;
+							console.log(response);
+							// set anwesha id
+							$user.userdata.anwId = response.data[1].pId;
+							self.user.anwId = response.data[1].pId;
 						}
 						self.inProgress = 0;
 					}, function( errorResponse ) {

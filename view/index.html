@@ -183,7 +183,9 @@
 		<input class="inp" name="city" type="text" value="City" ng-model="uctrl.user.city" ng-focus="uctrl.hideDefault('city','City')" ng-blur="uctrl.showDefault( 'city' )">
 		<input class="button" type="submit" value="Submit" ng-click="uctrl.submit()">
 	</form>
-	<h2 class="success" ng-bind="uctrl.success_msg" ng-show = "uctrl.success==1"></h2>
+	<h2 class="success" ng-show = "uctrl.success==1">
+		You have successfully registered. Your anwesha ID is: {{uctrl.user.anwId}}. Now close this window
+	</h2>
 </div>
 
 <div id="teamload" ng-cloak ng-if="dctrl.isTeam" ng-include="'view/team.html'">
