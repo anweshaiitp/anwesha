@@ -1,0 +1,112 @@
+.about-container {
+	display: block;
+	padding-top: 150px;
+	background: #0e81b6;
+	width: 100%;
+	overflow: hidden;
+}
+.about {
+	margin: 0 -50px;
+	transform-origin: left center;
+}
+.about:nth-child(odd) {
+	background: #000;
+	-ms-transform: rotate(5deg);
+	-moz-transform: rotate(5deg);
+	-webkit-transform: rotate(5deg);
+	transform: rotate(5deg);
+	margin-top: -200px;
+	box-shadow: 0px -1px 3px rgba(0,0,0,0.4);
+}
+.about:nth-child(even) {
+	background: #0e81b6;
+	-moz-transform: rotate(-5deg);
+	-ms-transform: rotate(-5deg);
+	-o-transform: rotate(-5deg);
+	-webkit-transform: rotate(-5deg);
+	transform: rotate(-5deg);
+	box-shadow: 0px 2px 3px rgba(0,0,0,0.4) inset;
+}
+.about .about-content {
+	margin: 0 auto;
+	text-align: center;
+}
+.about-content h3{
+	font-size: 60px;
+	position: relative;
+	display: inline-block;
+	padding: 10px 30px 8px 30px;
+	height: 80px;
+	line-height: 80px;
+	margin-bottom: 20px;
+	font-family: Bebas;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.9);
+	text-align: center;
+}
+.about:nth-child(odd) .about-content h3{
+	background: #0e81b6;
+	color: #000;
+}
+.about:nth-child(even) .about-content h3{
+	background: #000;
+	color: #0e81b6;
+}
+.about-content h3:before{
+	content: '';
+	width: 0;
+	height: 0;
+	border-top: 38px solid transparent;
+	border-bottom: 60px solid transparent;
+	border-right: 60px solid black;
+	position: absolute;
+	left: -59px;
+	top: 0px;
+}
+.about-content h3:after{
+	content: '';
+	width: 0;
+	height: 0;
+	border-top: 38px solid transparent;
+	border-bottom: 60px solid transparent;
+	border-left: 60px solid black;
+	position: absolute;
+	right: -59px;
+	top: 0px;
+}
+.about:nth-child(odd) .about-content h3:before,
+.about:nth-child(odd) .about-content h3:after{
+	border-right-color: #0e81b6;
+	border-left-color: #0e81b6;
+}
+
+.about-content p{
+	width: 75%;
+	max-width: 500px;
+	margin: 0 auto;
+	font-style: italic;
+	font-size: 24px;
+	line-height: 30px;
+	padding-top: 10px;
+}
+
+.about-content p:first-letter{
+	font-size: 40px;
+	font-family: modeka;
+}
+.about:nth-child(odd) .about-content{
+	transform: rotate(-5deg);
+	color: #0e81b6;
+	padding: 130px 100px 250px 100px;
+}
+.about:nth-child(even) .about-content{
+	transform: rotate(5deg);
+	color: #000;
+	padding: 150px 100px 250px 100px;
+}
+.about-image {
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0.6;
+
+}
