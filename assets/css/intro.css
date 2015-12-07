@@ -110,7 +110,7 @@
 	left: 0;
 	opacity: 0.6;
 	z-index: -1;
-
+	width: 100%;
 }
 .about:nth-child(odd) .about-image {
 	left:-1500px;
