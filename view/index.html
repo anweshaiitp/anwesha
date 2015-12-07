@@ -69,9 +69,9 @@
 			<div class="date-circle-fill"></div>
 			<div class="date-img-circle">Jan
 				<ul>
-					<li class="d1">23</li>
-					<li class="d2">24</li>
-					<li class="d3">25</li>
+					<li class="d1">22</li>
+					<li class="d2">23</li>
+					<li class="d3">24</li>
 				</ul>
 			</div>
 		</div>
@@ -160,7 +160,7 @@
 
 	<div id="footer">
 		<h2>ANWESHA &nbsp;</h2>
-		<p class="left">Designed and Developed by the <a href="#" ng-click="dctrl.showWebTeam()">Web Design and Development Team</a>.</p>
+		<!--<p class="left">Designed and Developed by the <a href="#" ng-click="dctrl.showWebTeam()">Web Design and Development Team</a>.</p>-->
 	</div>
 
 
@@ -293,8 +293,10 @@
 <img class="scroll-down" src="images/button-point-down-large.png">
 <script>
 		$(document).ready(function(){
-			$('#logo').animate({},0).delay(100).animate({'opacity':0.9},2500,function(){
-				$('.cover').fadeOut(1000);
+			$(window).load(function(){
+				$('#logo').animate({},0).delay(100).animate({'opacity':0.9},2500,function(){
+					$('.cover').fadeOut(1000);
+				});
 			});
 			function isScrolledPast(elem)
 			{
