@@ -332,7 +332,9 @@
 			for ( var e in self.sub_events['sub'] ) {
 				if ( self.sub_events['sub'][e]['details'] ) {
 					var eve = self.sub_events['sub'][e];
-					eve.details = $sce.trustAsHtml(eve.details);
+					if ( typeof ( eve.details ) === 'string' ) {
+						eve.details = $sce.trustAsHtml(eve.details);
+					}
 				}
 			}
 		}
