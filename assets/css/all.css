@@ -21,6 +21,11 @@ font-family:"new";
 src:url(../fonts/new.ttf) format("truetype");
 }
 
+@font-face {
+font-family:"droidsans";
+src:url(../fonts/DroidSans.ttf) format("truetype");
+}
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
