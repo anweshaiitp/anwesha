@@ -330,17 +330,35 @@
 		this.events = $events.events;
 		this.sub_events = $events.currEvent;
 		this.showEvent = function( name, level ) {
-			$events.showEvent( name, level );
-
-			for ( var e in self.sub_events['sub'] ) {
-				if ( self.sub_events['sub'][e]['details'] ) {
-					var eve = self.sub_events['sub'][e];
-					if ( typeof ( eve.details ) === 'string' ) {
-						eve.details = $sce.trustAsHtml(eve.details);
+			// a category event
+			console.log(self.sub_events);
+			if ( self.sub_events.hasSub == 1 || level === 0 ) {
+				$events.showEvent( name, level );
+				for ( var e in self.sub_events['sub'] ) {
+					if ( self.sub_events['sub'][e]['details'] ) {
+						var eve = self.sub_events['sub'][e];
+						if ( typeof ( eve.details ) === 'string' ) {
+							eve.details = $sce.trustAsHtml(eve.details);
+						}
 					}
 				}
+				self.sub_events = $events.currEvent;
+				// the logic below is to fade events in an animated manner
+				setTimeout( function(){
+					$( $( '.base-event-details' )[0] ).addClass( 'first-index' );
+					$( '.base-events-list li' ).each( function( index ) {
+						$( this ).click( function() {
+							var $front = $( $( '.base-event-details' )[index] );
+							var t = $( '.first-index' ).addClass( 'second-index' ).removeClass( 'first-index' );
+							console.log(t.attr('class'));
+							$front.css( 'opacity', 0 ).addClass( 'first-index' ).animate( {opacity:1} , 300, function(){
+								$( '.second-index' ).removeClass( 'second-index first-index' );
+							} );
+						console.log(index);
+						} );
+					} );
+				},10 );
 			}
-			self.sub_events = $events.currEvent;
 		}
 	} ] );
 })();
