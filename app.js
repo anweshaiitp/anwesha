@@ -297,8 +297,11 @@
 		this.isWebTeam = false;
 		this.isRegForm = false;
 		this.showEvents = function() {
-			self.isEvents = true;
-			$events.init($http);
+			$events.init($http).then( function( response ) {
+				self.isEvents = true;
+			}, function( errorResponse ) {
+				console.log(errorResponse);
+			} );
 		}
 
 		this.showTeam = function() {
@@ -328,7 +331,7 @@
 		this.sub_events = $events.currEvent;
 		this.showEvent = function( name, level ) {
 			$events.showEvent( name, level );
-			self.sub_events = $events.currEvent;
+
 			for ( var e in self.sub_events['sub'] ) {
 				if ( self.sub_events['sub'][e]['details'] ) {
 					var eve = self.sub_events['sub'][e];
@@ -337,6 +340,7 @@
 					}
 				}
 			}
+			self.sub_events = $events.currEvent;
 		}
 	} ] );
 })();
