@@ -175,3 +175,6 @@ line-height:1.5em;
 .ng-binding{
 cursor:pointer;
 }
+.close {
+	z-index: 8;
+}

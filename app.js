@@ -299,29 +299,38 @@
 		this.showEvents = function() {
 			$events.init($http).then( function( response ) {
 				self.isEvents = true;
+				document.body.style.overflow = 'hidden';
 			}, function( errorResponse ) {
 				console.log(errorResponse);
 			} );
 		}
 
 		this.showTeam = function() {
+			document.body.style.overflow = 'hidden';
 			self.isTeam = true;
 		}
 
 		this.showSponsors = function() {
+			document.body.style.overflow = 'hidden';
 			self.isSponsors = true;
 		}
 
 		this.showArchives = function() {
+			document.body.style.overflow = 'hidden';
 			self.isArchives = true;
 		}
 
 		this.showWebTeam = function() {
+			document.body.style.overflow = 'hidden';
 			self.isWebTeam = true;
 		}
 
 		this.showRegForm = function() {
 			self.isRegForm = true;
+		}
+		this.closeOverlay = function( name ) {
+			self[name] = false;
+			document.body.style.overflow = 'visible';
 		}
 	} ] );
 
