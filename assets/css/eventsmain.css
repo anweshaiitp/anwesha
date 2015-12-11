@@ -59,9 +59,9 @@ background-size:0.5em 0.5em;
 overflow-y:hidden;
 }
 .sidebar ul{
-margin:0.5em;
+margin: 0;
 }
-.sidebar li{
+.sidebar .base_event{
 background:rgba(0,180,255,0.4);
 margin:0.1em;
 padding: 0 0.2em 0 0.2em;
@@ -76,7 +76,7 @@ transform: translateX( -90% );
 -moz-transform: translateX( -90% );
 -o-transform: translateX( -90% );
 }
-.sidebar li:hover{
+.sidebar .base_event:hover{
 background:rgba(0,180,255,0.6);
 transform: translateX( 0% );
 -webkit-transform: translateX( 0% );
@@ -97,41 +97,71 @@ width: 0.4em;
 background-color: rgba(255,255,255,0.2);
 }
 
-.base {
-}
-
 .base-event-details{
-	position: absolute;
-	height: 100%;
-	z-index: 4;
+position: absolute;
+height: 100%;
+z-index: 4;
 margin:0;
-background:rgba(255,255,255,1.0);
 padding:5em;
-font-size:1.4em;
-font-family:droidsans;
+font-size:1.2em;
+line-height:1.4em;
+font-family: lato;
 display: none;
 }
+.base-event-details .details{
+background:rgba(255,255,255,0.8);
+padding:1em;
+border-radius:0.5em;
+margin-bottom:4em;
+}
+.base-event-details p{
+	text-align: center;
+	font-size: 0.9em;
+}
 .base-event-details h2{
-font-family:bebas;
-font-weight:700;
+font-family: lato;
+font-weight:400;
 text-align:center;
 font-size:1.8em;
+line-height:2.0em;
 }
 .base-event-details h3{
-font-family:agency;
-font-weight:700;
+font-family: lato;
+font-weight:400;
 text-align:center;
 font-size:1.4em;
+line-height:1.5em;
 }
 
 .base-event-details ul {
    list-style-type: disc;
    list-style-position: inside;
+   padding: 5px;
+   font-size: 0.9em;
+   padding-left: 1.5em;
 }
 .base-event-details ul ul{
    list-style-type: circle;
    list-style-position: inside;
    margin-left: 15px;
+   padding: 5px;
+   font-size: 0.7em;
+   padding-left: 1.5em;
+}
+.base-event-details ol {
+   list-style-type: disc;
+   list-style-position: inside;
+   padding: 5px;
+   font-size: 0.9em;
+   padding-left: 1.5em;
+}
+.base-event-details ol ol{
+   list-style-type: circle;
+   list-style-position: inside;
+   margin-left: 15px;
+   padding: 5px;
+   font-size: 0.8em;
+   padding-left: 1.5em;
 }
 .second-index {
 	z-index: 5;
@@ -140,4 +170,8 @@ font-size:1.4em;
 .first-index {
 	z-index: 6;
 	display: block;
+}
+
+.ng-binding{
+cursor:pointer;
 }
