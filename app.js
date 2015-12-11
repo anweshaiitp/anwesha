@@ -297,12 +297,17 @@
 		this.isWebTeam = false;
 		this.isRegForm = false;
 		this.showEvents = function() {
-			$events.init($http).then( function( response ) {
+			if ( Object.keys( $events.events ).length === 0 ) {
+				$events.init($http).then( function( response ) {
+					self.isEvents = true;
+					document.body.style.overflow = 'hidden';
+				}, function( errorResponse ) {
+					console.log(errorResponse);
+				} );
+			} else {
 				self.isEvents = true;
 				document.body.style.overflow = 'hidden';
-			}, function( errorResponse ) {
-				console.log(errorResponse);
-			} );
+			}
 		}
 
 		this.showTeam = function() {

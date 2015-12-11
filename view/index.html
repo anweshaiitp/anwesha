@@ -164,7 +164,7 @@
 	</div>
 
 
-<div id="archives" ng-cloak ng-if="dctrl.isArchives" ng-click="dctrl.closeOverlay( 'isArchives' )">
+<div id="archives" ng-cloak ng-if="dctrl.isArchives" class="ini-hide" ng-click="dctrl.closeOverlay( 'isArchives' )">
 	<div class="content">
 		<h2>Archives</h2>
 		<ul class="box">
@@ -189,7 +189,7 @@
 		</ul>
 	</div>
 </div>
-<div id="webdev" ng-cloak ng-if="dctrl.isWebTeam" ng-click="dctrl.isWebTeam=false">
+<div id="webdev" ng-cloak ng-if="dctrl.isWebTeam" ng-click="dctrl.isWebTeam=false" class="ini-hide">
 	<div class="content">
 		<h2>Web Design and Development Team</h2>
 		<ul class="box">
@@ -219,7 +219,7 @@
 		<input class="button" type="submit" value="login">
 	</div>
 </div>
-<div id="register" class="logreg" ng-controller="UserCtrl as uctrl" ng-show="dctrl.isRegForm" ng-cloak>
+<div id="register" class="logreg" class="ini-hide" ng-controller="UserCtrl as uctrl" ng-show="dctrl.isRegForm" ng-cloak>
 	<h2>Register - Anwesha 2k16</h2>
 	<h3 class="err" ng-bind="uctrl.err"></h3>
 	<a href="#" class="back" ng-click="dctrl.isRegForm=false"><img src="images/back.png"></a>
@@ -242,9 +242,9 @@
 	</h2>
 </div>
 
-<div id="teamload" ng-cloak ng-if="dctrl.isTeam" ng-include="'view/team.html'">
+<div id="teamload" ng-cloak ng-if="dctrl.isTeam" ng-include="'view/team.html'" class="ini-hide">
 </div>
-<div id="sponsorsload" ng-cloak ng-if="dctrl.isSponsors" ng-include="'view/sponsors.html'">
+<div id="sponsorsload" ng-cloak ng-if="dctrl.isSponsors" ng-include="'view/sponsors.html'" class="ini-hide">
 </div>
 <div id="galleryload" class="lightbox">
 </div>
@@ -298,6 +298,7 @@
 					$('.cover').fadeOut(1000);
 				});
 			});
+			$( '.ini-hide' ).removeClass( 'ini-hide' );
 			function isScrolledPast(elem)
 			{
 				var $elem = $(elem);

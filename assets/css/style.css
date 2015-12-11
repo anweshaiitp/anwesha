@@ -1107,4 +1107,6 @@ background:#efefef;
     background:black;
     z-index:2;
 }
-
+.ini-hide {
+	display: none;
+}
