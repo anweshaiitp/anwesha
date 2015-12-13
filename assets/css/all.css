@@ -1,10 +1,14 @@
 @font-face{
-font-family: modeka;
-src:url('../fonts/Modeka.otf');
+font-family: arki;
+src:url('../fonts/Arkitech Light.ttf');
 }
 @font-face{
-font-family: lato;
-src:url('../fonts/Lato-Regular.ttf');
+font-family: antipas;
+src:url('../fonts/Antipasto_regular.otf');
+}
+@font-face{
+font-family: modeka;
+src:url('../fonts/Modeka.otf');
 }
 @font-face {
 font-family:agency;
@@ -14,16 +18,6 @@ src:url(../fonts/AgencyFB.ttf) format("truetype");
 @font-face {
 font-family:bebas;
 src:url(../fonts/BebasNeue.ttf) format("truetype");
-}
-
-@font-face {
-font-family:"new";
-src:url(../fonts/new.ttf) format("truetype");
-}
-
-@font-face {
-font-family:"droidsans";
-src:url(../fonts/DroidSans.ttf) format("truetype");
 }
 
 html, body, div, span, applet, object, iframe,

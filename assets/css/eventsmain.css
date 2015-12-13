@@ -47,9 +47,9 @@ height:1em;
 }
 
 .sidebar{
-position:fixed;
+position: absolute;
 left:0;
-top:3em;
+top:4em;
 height:100%;
 text-align:center;
 z-index: 7;
@@ -76,6 +76,7 @@ transform: translateX( -90% );
 -webkit-transform: translateX( -90% );
 -moz-transform: translateX( -90% );
 -o-transform: translateX( -90% );
+border-right: 12px solid #1780CC;
 }
 .sidebar .base_event:hover{
 background:rgba(0,180,255,0.6);
@@ -106,7 +107,7 @@ margin:0;
 padding:5em;
 font-size:1.2em;
 line-height:1.4em;
-font-family: lato;
+font-family: antipas;
 display: none;
 }
 .base-event-details .details{
@@ -120,7 +121,7 @@ margin-bottom:4em;
 	font-size: 0.9em;
 }
 .base-event-details h2{
-font-family: lato;
+font-family: arki;
 font-weight:400;
 text-align:center;
 font-size:1.8em;
@@ -132,6 +133,13 @@ font-weight:400;
 text-align:center;
 font-size:1.4em;
 line-height:1.5em;
+}
+.base-event-details .size, .base-event-details .day{
+font-family: lato;
+font-weight:bold;
+font-size:0.9em;
+line-height:1.5em;
+padding-left: 2em;
 }
 
 .base-event-details ul {
@@ -178,4 +186,9 @@ cursor:pointer;
 }
 .close {
 	z-index: 8;
+   position: fixed;
+   font-size: 3em;
+   font-weight: bold;
+   left: 0.5em;
+   top: -0.1em;
 }

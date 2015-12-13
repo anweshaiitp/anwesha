@@ -988,13 +988,6 @@ display: block;
 -ms-animation: fadeInScale 1.2s ease-in-out;
 animation: fadeInScale 1.2s ease-in-out;
 }
-.close{
-position:fixed;
-float:left;
-font-weight:bold;
-font-size:3em;
-padding:1em;
-}
 .logreg{
 background: rgba(0,108,154,0.8);
 position:absolute;

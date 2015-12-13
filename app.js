@@ -192,8 +192,11 @@
 							//cat['curr'] = -1;
 						}
 					});
-					//console.log(self.events);
 				}else{
+					console.log(cat);
+					if ( Object.keys( cat['sub'] ).length == 0 ) {
+						delete self.events['sub'][cat['eveName']];
+					}
 					globalErr = response.data[0];
 				}
 				//console.log(response.data);
