@@ -1,8 +1,4 @@
 @font-face{
-font-family: arki;
-src:url('../fonts/Arkitech Light.ttf');
-}
-@font-face{
 font-family: antipas;
 src:url('../fonts/Antipasto_regular.otf');
 }
@@ -18,6 +14,10 @@ src:url(../fonts/AgencyFB.ttf) format("truetype");
 @font-face {
 font-family:bebas;
 src:url(../fonts/BebasNeue.ttf) format("truetype");
+}
+@font-face {
+font-family:outlier;
+src:url(../fonts/Outlier.ttf) format("truetype");
 }
 
 html, body, div, span, applet, object, iframe,
