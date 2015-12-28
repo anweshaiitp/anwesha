@@ -43,7 +43,7 @@ if (!$con)
   die('Could not connect: ' . mysql_error());
   }
  
-$sql="INSERT INTO `femina` (id,height,weight,vital,status) VALUES ($id,'$height','$weight','$vital','$status')";
+$sql="INSERT INTO `fmi` (id,height,weight,vital,status) VALUES ($id,'$height','$weight','$vital','$status')";
 
 if (!mysqli_query($con,$sql))
   {
