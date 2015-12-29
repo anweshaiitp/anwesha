@@ -39,7 +39,7 @@ if (preg_match($base . '$@', $url)) {
 	require ('controller/verifyEmail.php');
 } elseif (preg_match($base . 'verifyEmail/User/([0-9]{4})/([A-Za-z0-9]{40})/?$@', $url, $match)) {
 	require ('controller/verifyEmail.php');
-} elseif (preg_match($base . 'register/([0-9]{4})/([0-9]{1,2})/?$@', $url, $match)) {
+} elseif (preg_match($base . 'register/([0-9]{1,2})/?$@', $url, $match)) {
 	require ('controller/registerUser.php');
 } elseif (preg_match($base . 'login/?$@', $url)) {
 	require ('controller/loginUser.php');
