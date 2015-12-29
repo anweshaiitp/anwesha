@@ -449,7 +449,6 @@ class People{
 /**
  *
  */
-
 class Events{
     public function getMainEvents($conn){
         $sql = " SELECT * FROM Events WHERE code = 1";
@@ -648,6 +647,20 @@ class Auth
         }
 
     }
+
+    public function verifyPassword($userId,$password,$conn){
+        $password = sha1($password);
+
+        $sql = "SELECT People.name, People.college, People.sex, People.mobile, People.email, People.dob, People.city, People.feePaid, People.confirm, People.time AS regTime, LoginTable.totalLogin, LoginTable.lastLogin, LoginTable.privateKey AS 'key' FROM People INNER JOIN LoginTable ON People.pId = LoginTable.pId AND People.pId = $userID AND LoginTable.password = '$password'";
+
+        $result = mysqli_query($conn,$sql);
+        if(!$result OR mysqli_num_rows($result) != 1){
+            return false;
+        } else {
+            $row = mysqli_fetch_assoc($result);
+            return true;
+        }
+    }
     /**
      * Authenticates that the request was sent by the user after login
      * @param  string $privateKey    privateKey of the user from the database
@@ -658,6 +671,17 @@ class Auth
     public function authenticateRequest($privateKey,$hashedContent,$content){
         $newHashed = hash_hmac('sha256',$content,$privateKey);
         return md5($newHashed) == md5($hashedContent);
+    }
+
+    public function changePassword($userId, $newPassword, $conn){
+        $password = sha1($newPassword);
+        $sql = "UPDATE LoginTable SET password = '$password' WHERE pId = $userId";
+        $result = mysqli_query($conn,$sql);
+        if(!$result){
+            return false;
+        } else {
+            return true;
+        }
     }
 }
 
