@@ -128,6 +128,29 @@ class People{
         return $error;
     }
 
+    /*
+     *Checks the validity of the Anwesha IDs
+     * @param string $param AnweshaID
+     * @param  MySQLi object $conn variable containing connection details
+     * @return boolean AnweshaID valid or not
+     */
+    public function validateID($param,$conn){
+        if( strlen($param) != 4 ){
+            return -1;
+        }
+
+        $sql = "SELECT COUNT(*) FROM People WHERE pId = $param";
+        $result = mysqli_query($conn,$sql);
+        $row = mysqli_fetch_assoc($result);
+
+        if ( $row['COUNT(*)']==1 ){
+            return 1;
+        } else {
+            return -1;
+        }
+
+    }
+
 
     function IsNullOrEmptyString($val){
         return (!isset($val) || trim($val)==='');
@@ -433,6 +456,127 @@ class People{
         } else {
             return array("status"=>false, "msg"=> "Registration failed, already registered!");
         }
+    }
+
+    public function checkUserEventVacant($ID,$eId,$conn){
+        $sql="SELECT COUNT(*) FROM `Registration` WHERE `eveId` = '$eId' AND `pId` = '$ID'";
+        // var_dump($sql);
+        $result = mysqli_query($conn,$sql);
+        if(!$result){
+            return -1;
+        }
+        $row = mysqli_fetch_assoc($result);
+
+        if ($row['COUNT(*)']!=0) {
+            return -1;
+        }
+        return 1;
+    }
+    /**
+     *
+     *
+     *
+     *
+     *
+     */
+    public function registerGroupEvent($userIDs,$eventID,$groupName,$conn)
+    {
+        //Trim 'ANW' from the IDs
+        for($i=0; $i<count($userIDs); $i++){
+            if($userIDs[$i]!=""){
+                $str = $userIDs[$i];
+                $userIDs[$i] = preg_replace('/[^0-9]/', '', $str);
+            }
+        }
+
+        $size=count($userIDs);
+
+        //Check if size of group is valid.
+        $sqlSize = "SELECT size from Events WHERE eveId = '$eventID'";
+        $result = mysqli_query($conn, $sql);
+        if(!$result || mysqli_num_rows($result)==0){
+            //SHOULD NOT HAPPEN - IF YOU ARE HERE - YOUR'E IN TROUBLE
+            return array("status"=>false, "msg"=> "Some Internal error Occured - Pleas try again later.");
+        }
+        $row = mysqli_fetch_assoc($result);
+        if($row['size'] < $size){
+
+            return array("status"=>false, "msg"=> "The size of the group is more than the allowed size for this event.");
+        }
+
+        sort($userIDs);
+
+        //check validity of IDs provided
+        for($i=0; $i < $size ; $i++) {
+            if(validateID($userIDs[$i],$conn) == -1){
+                return array("status"=>false, "msg"=> "One or more Anwesha IDs are invalid. Please try again!");
+            }
+        }
+
+        //Check repitition in AnweshaIDs
+        for ($i=0; $i < $size-1; $i++) { 
+            if($userIDs[$i] == $userIDs[$i + 1]){
+                return array("status"=>false, "msg"=> "One or more Anwesha IDs are repeated. Try again!");
+            }
+        }
+
+        //check if the user is already registered in this event in another group.
+        for ($i=0; $i < $size; $i++) {
+            if ( checkUserEventVacant($userIDs[$i],$eventID,$conn) == -1) {
+                return array("status"=>false, "msg"=> "User with Anwesha ID $ID is already registered in this event with another group. If this is an error please contact the Registration and Planning Team, Anwesha.");
+            }
+        }
+
+        //By now, we are pretty sure that the given team members can form a
+        //valid team - so lets make the team.
+
+        //First get a grpID and delete it from the table
+        $sql = "SELECT grpId FROM Grpids LIMIT 1";
+        $result = mysqli_query($conn, $sql);
+
+        if(!$result || mysqli_num_rows($result)==0){
+            //SHOULD NOT HAPPEN - IF YOU ARE HERE - YOUR'E IN TROUBLE
+            return array("status"=>false, "msg"=> "Could not get a valid GroupID");
+        }
+
+        $row = mysqli_fetch_assoc($result);
+        $grpId = $row['grpId'];
+
+        $sqlDeletePid="DELETE FROM Grpids WHERE grpId=$grpId";
+        $result = mysqli_query($conn,$sqlDeletePid);
+        if(!$result){
+            //SHOULD NOT HAPPEN - IF YOU ARE HERE - YOUR'E IN TROUBLE
+            //WTF is even happpening ??
+            return array("status"=>false, "msg"=> "An Internal Error Occured... Please try later");
+        }
+
+        //Yosh, now lets insert the members in the tables and we'll be done.
+        for ($i=0; $i < $size; $i++) {
+
+            $sqlInsert = "INSERT INTO Registration(eveId,pId,grpId) VALUES ('$eventID','$userIDs[$i]', '$grpID') ";
+            $result = mysqli_query($conn,$sqlInsert);
+            if(!$result){
+                return array("status"=>false, "msg"=> "An Internal Error Occured while registering... Please try later");
+            }
+
+        }
+
+        //Update GroupRegistration Table
+        $idstr="";
+        for ($i=0; $i < $size ; $i++) { 
+            $idstr=$idstr . $userIDs[$i] . " ";
+        }
+        $sqlInsert = "INSERT INTO GroupRegistration(grpId,eveId,pIds,grpName) VALUES ('$grpID','$eventID','$idstr','$groupName')";
+
+        $result = mysqli_query($conn,$sqlInsert);
+        if(!$result){
+            return array("status"=>false, "msg"=> "An Internal Error Occured While Registering... Please try later");
+        }
+
+        return array("status"=>true, "msg" => "Congratulations !! The group $groupName has been registered.");
+        
+
+
     }
 
 
