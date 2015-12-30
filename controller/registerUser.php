@@ -7,8 +7,8 @@ $conn = mysqli_connect(SERVER_ADDRESS,USER_NAME,PASSWORD,DATABASE);
 require('middleware/authMiddleware.php');
 
 
-$userID = $match[1];
-$eveID = $match[2];
+$userID = $_SESSION['userID'];
+$eveID = $match[1];
 
 $size = Events::getEventSize($eveID,$conn);
 if($size == -1){
