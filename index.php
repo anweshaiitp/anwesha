@@ -43,6 +43,8 @@ if (preg_match($base . '$@', $url)) {
 	require ('controller/registerUser.php');
 } elseif (preg_match($base . 'login/?$@', $url)) {
 	require ('controller/loginUser.php');
+} elseif (preg_match($base . 'changePassword/?$@', $url)) {
+	require ('controller/changePassword.php');
 } elseif (preg_match($base . 'gallery.html@', $url)) {
 	require ('gallery.html');
 } elseif (preg_match($base . 'campusambassador@', $url)) {
