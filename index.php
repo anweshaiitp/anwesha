@@ -41,6 +41,8 @@ if (preg_match($base . '$@', $url)) {
 	require ('controller/verifyEmail.php');
 } elseif (preg_match($base . 'register/([0-9]{1,2})/?$@', $url, $match)) {
 	require ('controller/registerUser.php');
+} elseif (preg_match($base . 'register/group/([0-9]{1,2})/?$@', $url, $match)) {
+	require ('controller/registerGroup.php');
 } elseif (preg_match($base . 'login/?$@', $url)) {
 	require ('controller/loginUser.php');
 } elseif (preg_match($base . 'changePassword/?$@', $url)) {

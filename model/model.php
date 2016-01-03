@@ -479,7 +479,7 @@ class People{
      *
      *
      */
-    public function registerGroupEvent($userIDs,$eventID,$groupName,$conn)
+    public function registerGroupEvent($userIDs,$gsize,$eventID,$groupName,$conn)
     {
         //Trim 'ANW' from the IDs
         for($i=0; $i<count($userIDs); $i++){
@@ -491,16 +491,7 @@ class People{
 
         $size=count($userIDs);
 
-        //Check if size of group is valid.
-        $sqlSize = "SELECT size from Events WHERE eveId = '$eventID'";
-        $result = mysqli_query($conn, $sql);
-        if(!$result || mysqli_num_rows($result)==0){
-            //SHOULD NOT HAPPEN - IF YOU ARE HERE - YOUR'E IN TROUBLE
-            return array("status"=>false, "msg"=> "Some Internal error Occured - Pleas try again later.");
-        }
-        $row = mysqli_fetch_assoc($result);
-        if($row['size'] < $size){
-
+        if($gsize < $size){
             return array("status"=>false, "msg"=> "The size of the group is more than the allowed size for this event.");
         }
 
@@ -508,7 +499,7 @@ class People{
 
         //check validity of IDs provided
         for($i=0; $i < $size ; $i++) {
-            if(validateID($userIDs[$i],$conn) == -1){
+            if(this::validateID($userIDs[$i],$conn) == -1){
                 return array("status"=>false, "msg"=> "One or more Anwesha IDs are invalid. Please try again!");
             }
         }
@@ -825,6 +816,15 @@ class Auth
             return false;
         } else {
             return true;
+        }
+    }
+
+    public function sanitizeID($ID)
+    {
+        if(preg_match('/^ANW([0-9]{4})$/', $ID, $match){
+            return array("status" => true, "key" => $match[1]);
+        } else {
+            return array("status" => false)
         }
     }
 }
