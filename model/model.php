@@ -1,13 +1,13 @@
 <?php
 /**
-*
-*                             PPPPPP                        lll
-*                             PP   PP   eee   oooo  pp pp   lll   eee
-*                             PPPPPP  ee   e oo  oo ppp  pp lll ee   e
-*                             PP      eeeee  oo  oo pppppp  lll eeeee
-*                             PP       eeeee  oooo  pp      lll  eeeee
-*                                                   pp
-*/
+ *
+ *                             PPPPPP                        lll
+ *                             PP   PP   eee   oooo  pp pp   lll   eee
+ *                             PPPPPP  ee   e oo  oo ppp  pp lll ee   e
+ *                             PP      eeeee  oo  oo pppppp  lll eeeee
+ *                             PP       eeeee  oooo  pp      lll  eeeee
+ *                                                   pp
+ */
 
 /**
  * class People cotains information of users registered for anwesha
@@ -120,9 +120,9 @@ class People{
 
     public function validateString($param){
 
-        $error = null;
+        $error = 1;
         if (!preg_match('/^[a-zA-Z0-9.]*$/', $param)) {
-            $error = "Invalid Name";
+            $error = -1;
 
         }
         return $error;
@@ -134,16 +134,18 @@ class People{
      * @param  MySQLi object $conn variable containing connection details
      * @return boolean AnweshaID valid or not
      */
-    public function validateID($param,$conn){
-        if( strlen($param) != 4 ){
-            return -1;
+    public function validateID($userIds,$size,$conn){
+        for($i=0; $i < $size; $i++ ){
+            if( strlen($userIds[$i]) != 4 ){
+                return -1;
+            }
         }
 
-        $sql = "SELECT COUNT(*) FROM People WHERE pId = $param";
+        $sql = "SELECT COUNT(*) FROM People WHERE pId in (".implode(',',$userIds).")";
         $result = mysqli_query($conn,$sql);
         $row = mysqli_fetch_assoc($result);
 
-        if ( $row['COUNT(*)']==1 ){
+        if ( $row['COUNT(*)']==$size ){
             return 1;
         } else {
             return -1;
@@ -425,7 +427,7 @@ class People{
         $randPass=Auth::randomPassword();                                                  //vinay edit
         $privateKey = Auth::randomPassword();
         $sqlUpdate = "UPDATE LoginTable SET password = sha('$randPass'), privateKey = sha('$privateKey') where pId = $id";                         //vinay edit
-         $result = mysqli_query($conn, $sqlUpdate);
+        $result = mysqli_query($conn, $sqlUpdate);
         if(!$result){
             $error = "Some Internal Error Occured - Please try again.";
             $arr = array();
@@ -458,8 +460,15 @@ class People{
         }
     }
 
+    /*
+     * Check if the users are in another group for the same event
+     * @param array(string) $ID userIds of the group members
+     * @param int $eId event id of the event
+     * @param  mysqli $conn    connection variable
+     * @return int 1/-1 if valid/invalid group
+     */
     public function checkUserEventVacant($ID,$eId,$conn){
-        $sql="SELECT COUNT(*) FROM `Registration` WHERE `eveId` = '$eId' AND `pId` = '$ID'";
+        $sql="SELECT COUNT(*) FROM `Registration` WHERE `eveId` = '$eId' AND `pId` in (".implode(',',$ID).")";
         // var_dump($sql);
         $result = mysqli_query($conn,$sql);
         if(!$result){
@@ -473,14 +482,22 @@ class People{
         return 1;
     }
     /**
-     *
-     *
-     *
-     *
-     *
+     * Registers a group to an event of size > 1
+     * @param array(string) $userIDs AnweshaIDs of the group members
+     * @param int $gsize size of the array
+     * @param int $eventID event id of the event
+     * @param string $groupName name of the group
+     * @param  mysqli $conn    connection variable
+     * @return array          associative array, index "status" is boolean, index "msg" carries corresponding message
      */
     public function registerGroupEvent($userIDs,$gsize,$eventID,$groupName,$conn)
     {
+
+        //Check if group name is valid
+        if(this::validateString($grpName)==-1){
+            return array("status"=>false, "msg"=> "Group Name is invalid. It should only consist of alphanumerics.");
+        }
+
         //Trim 'ANW' from the IDs
         for($i=0; $i<count($userIDs); $i++){
             if($userIDs[$i]!=""){
@@ -498,10 +515,8 @@ class People{
         sort($userIDs);
 
         //check validity of IDs provided
-        for($i=0; $i < $size ; $i++) {
-            if(this::validateID($userIDs[$i],$conn) == -1){
-                return array("status"=>false, "msg"=> "One or more Anwesha IDs are invalid. Please try again!");
-            }
+        if(this::validateID($userIDs,$size,$conn) == -1){
+            return array("status"=>false, "msg"=> "One or more Anwesha IDs are invalid. Please try again!");
         }
 
         //Check repitition in AnweshaIDs
@@ -512,10 +527,8 @@ class People{
         }
 
         //check if the user is already registered in this event in another group.
-        for ($i=0; $i < $size; $i++) {
-            if ( checkUserEventVacant($userIDs[$i],$eventID,$conn) == -1) {
-                return array("status"=>false, "msg"=> "User with Anwesha ID $ID is already registered in this event with another group. If this is an error please contact the Registration and Planning Team, Anwesha.");
-            }
+        if ( this::checkUserEventVacant($userIDs,$eventID,$conn) == -1) {
+            return array("status"=>false, "msg"=> "User with Anwesha ID $ID is already registered in this event with another group. If this is an error please contact the Registration and Planning Team, Anwesha.");
         }
 
         //By now, we are pretty sure that the given team members can form a
@@ -542,15 +555,20 @@ class People{
         }
 
         //Yosh, now lets insert the members in the tables and we'll be done.
-        for ($i=0; $i < $size; $i++) {
-
-            $sqlInsert = "INSERT INTO Registration(eveId,pId,grpId) VALUES ('$eventID','$userIDs[$i]', '$grpID') ";
-            $result = mysqli_query($conn,$sqlInsert);
-            if(!$result){
-                return array("status"=>false, "msg"=> "An Internal Error Occured while registering... Please try later");
-            }
-
+        $values = array();
+        foreach ($userIDs as $uId) {
+            $values[] = "('$eventID', '$uId', '$grpID')";
         }
+
+        $values = implode(", ", $values);
+
+
+        $sqlInsert = "INSERT INTO Registration(eveId,pId,grpId) VALUES $values ";
+        $result = mysqli_query($conn,$sqlInsert);
+        if(!$result){
+            return array("status"=>false, "msg"=> "An Internal Error Occured while registering... Please try later");
+        }
+
 
         //Update GroupRegistration Table
         $idstr="";
@@ -565,7 +583,7 @@ class People{
         }
 
         return array("status"=>true, "msg" => "Congratulations !! The group $groupName has been registered.");
-        
+
 
 
     }
@@ -573,14 +591,14 @@ class People{
 
 }
 /**
-*                            EEEEEEE                        tt
-*                            EE      vv   vv   eee  nn nnn  tt     sss
-*                            EEEEE    vv vv  ee   e nnn  nn tttt  s
-*                            EE        vvv   eeeee  nn   nn tt     sss
-*                            EEEEEEE    v     eeeee nn   nn  tttt     s
-*                                                                sss
-*
-*/
+ *                            EEEEEEE                        tt
+ *                            EE      vv   vv   eee  nn nnn  tt     sss
+ *                            EEEEE    vv vv  ee   e nnn  nn tttt  s
+ *                            EE        vvv   eeeee  nn   nn tt     sss
+ *                            EEEEEEE    v     eeeee nn   nn  tttt     s
+ *                                                                sss
+ *
+ */
 /**
  *
  */
@@ -663,8 +681,8 @@ class Events{
 
 
 /**
-*
-*/
+ *
+ */
 class Auth
 {
     /**
@@ -683,7 +701,7 @@ class Auth
         return $pass; //turn the array into a string
     }
 
-  /**
+    /**
      * Sends email for password
      * @param string $emailId       password is send to this email id
      * @param string $name          Name of user
@@ -735,7 +753,7 @@ class Auth
         //     echo 'Message has been sent';
         // }
     }
-    
+
     /**
      * Searches the database for user's private key using its public key(username)
      * @param  int $userID anwesha id of the user
@@ -762,7 +780,7 @@ class Auth
      * @return array
      */
     public function loginUser($userID,$password,$conn){
-        
+
         $password = sha1($password);
 
         $sql = "SELECT People.name, People.college, People.sex, People.mobile, People.email, People.dob, People.city, People.feePaid, People.confirm, People.time AS regTime, LoginTable.totalLogin, LoginTable.lastLogin, LoginTable.privateKey AS 'key' FROM People INNER JOIN LoginTable ON People.pId = LoginTable.pId AND People.pId = $userID AND LoginTable.password = '$password'";
