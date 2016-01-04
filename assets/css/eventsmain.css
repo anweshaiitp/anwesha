@@ -77,6 +77,7 @@ transform: translateX( -90% );
 -moz-transform: translateX( -90% );
 -o-transform: translateX( -90% );
 border-right: 12px solid #1780CC;
+overflow-x: hidden;
 }
 .sidebar .base_event:hover{
 background:rgba(0,180,255,0.6);
