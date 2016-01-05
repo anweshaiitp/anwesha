@@ -22,7 +22,7 @@ if ($loginInfo[0] != 1) {
 }
 mysqli_close($conn);
 $loginInfo = $loginInfo[1];
-if(strlen($loginInfo['csrfToken']) == 0){
+if(is_null($loginInfo['password'])){
 	header('Content-type: application/json');
 	echo json_encode(array("status" => false, "msg" => "Account already verified."));
 	die();

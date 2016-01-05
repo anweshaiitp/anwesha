@@ -804,7 +804,7 @@ class Auth
     public function verifyPassword($userId,$password,$conn){
         $password = sha1($password);
 
-        $sql = "SELECT People.name, People.college, People.sex, People.mobile, People.email, People.dob, People.city, People.feePaid, People.confirm, People.time AS regTime, LoginTable.totalLogin, LoginTable.lastLogin, LoginTable.privateKey AS 'key' FROM People INNER JOIN LoginTable ON People.pId = LoginTable.pId AND People.pId = $userID AND LoginTable.password = '$password'";
+        $sql = "SELECT People.name, People.college, People.sex, People.mobile, People.email, People.dob, People.city, People.feePaid, People.confirm, People.time AS regTime, LoginTable.totalLogin, LoginTable.lastLogin, LoginTable.privateKey AS 'key' FROM People INNER JOIN LoginTable ON People.pId = LoginTable.pId AND People.pId = $userId AND LoginTable.password = '$password'";
 
         $result = mysqli_query($conn,$sql);
         if(!$result OR mysqli_num_rows($result) != 1){
@@ -828,7 +828,8 @@ class Auth
 
     public function changePassword($userId, $newPassword, $conn){
         $password = sha1($newPassword);
-        $sql = "UPDATE LoginTable SET password = '$password' WHERE pId = $userId";
+        $privateKey = sha1(self::randomPassword());
+        $sql = "UPDATE LoginTable SET password = '$password', privateKey = '$privateKey' WHERE pId = $userId";
         $result = mysqli_query($conn,$sql);
         if(!$result){
             return false;
