@@ -821,10 +821,10 @@ class Auth
 
     public function sanitizeID($ID)
     {
-        if(preg_match('/^ANW([0-9]{4})$/', $ID, $match){
+        if(preg_match('/^ANW([0-9]{4})$/', $ID, $match)){
             return array("status" => true, "key" => $match[1]);
         } else {
-            return array("status" => false)
+            return array("status" => false);
         }
     }
 }
