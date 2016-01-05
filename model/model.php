@@ -167,6 +167,28 @@ class People{
         $sql = " SELECT * FROM People WHERE pId = $id";
         $result = mysqli_query($conn, $sql);
         if(!$result || mysqli_num_rows($result)!=1){
+            $error = "Error in displaying result for Anwesha ID";
+            $arr = array();
+            $arr[]=-1;
+            $arr[]=$error;
+            return $arr;
+        }
+        $row = mysqli_fetch_assoc($result);
+        $arr = array();
+        $arr[]=1;
+        $arr[]=$row;
+        return $arr;
+    }
+    /**
+     * parse all details of the user from loginTable
+     * @param  int $id   anwesha id
+     * @param  mysqli $conn connection link
+     * @return array
+     */
+    public function getUserLoginInfo($id,$conn){
+        $sql = " SELECT * FROM LoginTable WHERE pId = $id";
+        $result = mysqli_query($conn, $sql);
+        if(!$result || mysqli_num_rows($result)!=1){
             $error = "Problem in displaying result for Anwesha ID";
             $arr = array();
             $arr[]=-1;
@@ -321,16 +343,12 @@ class People{
      * @param string $name    Name of user
      * @param string $link    Token to be sent for verification
      * @param int $id      Anwesha Id for registered user
-     * @param boolean $CA      if true then link is for CampusAmbassador
+     * @param boolean $ca      if true then link is for CampusAmbassador
      */
-    public function Email($emailId,$name,$link,$id,$ca)
+    public function Email($emailId,$name,$link,$id)
     {
-        $baseURL = '';
-        if ($ca){
-            $baseURL = $baseURL . 'verifyEmail/CampusAmbassador/';
-        } else {
-            $baseURL = $baseURL . 'verifyEmail/User/';
-        }
+        $baseURL = 'http://2016.anwesha.info/';
+        $baseURL = $baseURL . 'verifyEmail/User/';
         $link = $baseURL . '' . $id . '/' . $link;
         // mail($to,$subject,$message);
         $message = "Hi $name,<br>Thank you for registering for Anwesha2k16. Your Registered Id is : <b>ANW$id</b>. To complete your registration, you need to verify your email account. Click <a href = \"$link\">here</a> for email verification.<br>In case you have any registration related queries feel free to contact Aditya Gupta(+918292337923) or Arindam Banerjee(+919472472543) or drop an email to <i>registration@anwesha.info</i>. You can also visit our website <i>http://2016.anwesha.info/</i> for more information.<br>Thank You.<br>Registration Desk<br>Anwesha 2k16";
@@ -818,7 +836,11 @@ class Auth
             return true;
         }
     }
-
+    /**
+     * uses regex to check if anwesha id format is correct or not.
+     * @param  int $ID ANW1234
+     * @return associative array     index status says if format is valid or not, index key has the numeric part of it.
+     */
     public function sanitizeID($ID)
     {
         if(preg_match('/^ANW([0-9]{4})$/', $ID, $match)){
