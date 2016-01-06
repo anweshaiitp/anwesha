@@ -62,7 +62,7 @@ overflow-y:hidden;
 .sidebar ul{
 margin: 0;
 }
-.sidebar .base_event{
+.sidebar .base_event, .sidebar .category{
 background:rgba(0,180,255,0.4);
 margin:0.1em;
 padding: 0 0.2em 0 0.2em;
@@ -79,7 +79,7 @@ transform: translateX( -90% );
 border-right: 12px solid #1780CC;
 overflow-x: hidden;
 }
-.sidebar .base_event:hover{
+.sidebar .base_event:hover, .sidebar .category:hover{
 background:rgba(0,180,255,0.6);
 transform: translateX( 0% );
 -webkit-transform: translateX( 0% );
