@@ -6,9 +6,9 @@ $conn = mysqli_connect(SERVER_ADDRESS,USER_NAME,PASSWORD,DATABASE);
 
 require('middleware/authMiddleware.php');
 
-
 $userID = $_SESSION['userID'];
 $userIDs;
+$name;
 if (isset($_POST['IDs']) && !empty($_POST['IDs']) && is_array($_POST['IDs'])) {
 	$userIDs = $_POST['IDs'];
 } else {
@@ -17,7 +17,8 @@ if (isset($_POST['IDs']) && !empty($_POST['IDs']) && is_array($_POST['IDs'])) {
 	die();
 }
 if (isset($_POST['name']) && !empty($_POST['name'])) {
-	$userIDs = $_POST['IDs'];
+	/* $userIDs = $_POST['IDs']; */
+    $name = $_POST['name'];
 } else {
 	header('Content-type: application/json');
 	echo json_encode(array("status"=>false,"msg"=>"Incomplete request. Team name missing."));
@@ -39,7 +40,7 @@ if($size == -1){
 }
 for ($i=0; $i <count($userIDs) ; $i++) {
 	if(Auth::sanitizeID($userIDs[$i])['status']){
-		$userIDs[$i] = Auth::sanitizeID($userIDs[$i]);	
+		$userIDs[$i] = Auth::sanitizeID($userIDs[$i])['key'];	
 	} else {
 		header('Content-type: application/json');
 		echo json_encode(array("status"=>false,"msg"=>"ID is not valid " . $userIDs[$i]));

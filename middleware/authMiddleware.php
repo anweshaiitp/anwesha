@@ -6,7 +6,7 @@ if(isset($_SESSION['userID'])){
 	$hash = $_POST['hash'];
 	$content = $_POST['content'];
 	$userID = $_POST['userID'];
-	if(preg_match('/^[0-9]{4}$/', $userID){
+	if(preg_match('/^[0-9]{4}$/', $userID)){
 	} else {
 		session_destroy();
 		http_response_code(403);
