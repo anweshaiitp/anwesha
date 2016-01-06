@@ -98,8 +98,10 @@
 	 */
 	function User( $http, transformRequestAsFormPost ){
 		var self = this,
-			register_url = "user/register/User";
+			register_url = "user/register/User",
+			login_url = "login";
 		this.userdata = {};
+		this.user = {};
 		this.createUser = function( name, mobile, sex, college, email, dob, city ) {
 			self.userdata.name = name;
 			self.userdata.mobile = mobile;
@@ -136,8 +138,22 @@
          * Set details of user on this object
          * @param string name of user
          */
-        this.setDetails = function(name,level,tscore,lscore ){
+        this.setDetails = function(name, data ){
             self.username = name;
+            self.user = data;
+        }
+
+        this.loginUser = function( name, password ) {
+        	return $http({
+				method: "post",
+				url: login_url,
+				headers: {'Content-type': 'application/x-www-form-urlencoded;charset=utf-8'},
+				transformRequest: transformRequestAsFormPost,
+				data: {
+					username: name,
+					password: password
+				}
+			});
         }
     }
 
@@ -264,6 +280,51 @@
 						} else {
 							self.err = "";
 							self.success = 1;
+						}
+						this.inProgress = 0;
+					}, function( errorResponse ) {
+						console.log( errorResponse );
+						this.inProgress = 0;
+					}
+				);
+			}
+
+		}
+
+		this.hideDefault = function( field, defaultval ) {
+			if ( self.user[field] == self.fields[field] ) {
+				self.user[field] = '';
+			}
+		}
+
+		this.showDefault = function( field, defaultva ) {
+			if ( self.user[field] == '' ) {
+				self.user[field] = self.fields[field];
+			}
+		}
+	} ] );
+	myApplication.controller( 'LoginCtrl',['User','$scope','$http', function($user,$scope,$http){
+		var self = this;
+		this.fields = {"name":"Name","password":"Password"};
+		this.success_msg = "You have successfully LoggedIn. Now close this window";
+		this.inProgress = 0;
+		this.success = 0;
+		this.err = "";
+		this.user = {};
+		this.user.name = "Name";
+		this.user.password = "Password";
+
+		this.submit = function() {
+			if ( this.inProgress == 0 ) {
+				this.inProgress = 1;
+				$user.loginUser( self.user.name, self.user.password ).then(
+					function( response ) {
+						if ( response.data['status'] == false ) {
+							self.err = response.data['msg'];
+						} else {
+							self.err = "";
+							self.success = 1;
+							$user.setDetails( self.user.name, response.data );
 						}
 						this.inProgress = 0;
 					}, function( errorResponse ) {
