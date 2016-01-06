@@ -196,3 +196,45 @@ cursor:pointer;
 .register-button {
    padding: 0.6em;
 }
+
+#regtext{
+position:fixed;
+bottom:0;
+right:0;
+font-size:2em;
+color:#fff;
+background:#2e88c4;
+border-radius: 0.2em 0 0 0;
+display:block;
+padding:0.2em;
+z-index:999;
+}
+#registration{
+position:fixed;
+bottom:0;
+right:0;
+border-radius:0.2em;
+height:60%;
+width:25%;
+background:rgba(0,0,0,0.8);
+visibility:hidden;
+opacity:0;
+transition:visibility 0s linear 0.5s,opacity 0.5s linear;
+}
+#regtext:hover #registration{
+visibility:visible;
+opacity:0.9;
+transition-delay:0s;
+}
+#registration .inp {
+font-size: 1.2em;
+border: 0;
+border-bottom: 1px solid #ccc;
+background: none;
+border-radius: 0;
+padding: 0.5em;
+margin: 0.5em;
+display: block;
+color: #fff;
+font-family: agency;
+}
