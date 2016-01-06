@@ -210,7 +210,7 @@ class People{
      * @return array       index 0 is 1 or -1, index 1 is array or string.
      */
     public function getEvents($id, $conn){
-        $sql = " SELECT eveId FROM Registration WHERE pId = $id";
+        $sql = "SELECT Events.eveName FROM Registration INNER JOIN Events ON Registration.eveId = Events.eveId AND Registration.pId = $id";
         $result = mysqli_query($conn, $sql);
         if(!$result){
             $arr = array();
@@ -220,7 +220,7 @@ class People{
         $arr = array();
         $results = array();
         while($row = mysqli_fetch_assoc($result)){
-            $results[] = $row['eveId'];
+            $results[] = $row['eveName'];
         }
         $arr[]=1;
         $arr[] = $results;
