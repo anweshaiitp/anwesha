@@ -129,7 +129,7 @@ class People{
     }
 
     /*
-     *Checks the validity of the Anwesha IDs
+     *Checks the validity of the Anwesha IDs and that no IDs are repeated
      * @param string $param AnweshaID
      * @param  MySQLi object $conn variable containing connection details
      * @return boolean AnweshaID valid or not
@@ -487,7 +487,6 @@ class People{
      */
     public function checkUserEventVacant($ID,$eId,$conn){
         $sql="SELECT COUNT(*) FROM `Registration` WHERE `eveId` = '$eId' AND `pId` in (".implode(',',$ID).")";
-        // var_dump($sql);
         $result = mysqli_query($conn,$sql);
         if(!$result){
             return -1;
@@ -512,7 +511,7 @@ class People{
     {
 
         //Check if group name is valid
-        if(this::validateString($grpName)==-1){
+        if(self::validateString($groupName)==-1){
             return array("status"=>false, "msg"=> "Group Name is invalid. It should only consist of alphanumerics.");
         }
 
@@ -533,20 +532,20 @@ class People{
         sort($userIDs);
 
         //check validity of IDs provided
-        if(this::validateID($userIDs,$size,$conn) == -1){
-            return array("status"=>false, "msg"=> "One or more Anwesha IDs are invalid. Please try again!");
+        if(self::validateID($userIDs,$size,$conn) == -1){
+            return array("status"=>false, "msg"=> "One or more Anwesha IDs are invalid or repeated. Please try again!");
         }
 
-        //Check repitition in AnweshaIDs
-        for ($i=0; $i < $size-1; $i++) { 
-            if($userIDs[$i] == $userIDs[$i + 1]){
-                return array("status"=>false, "msg"=> "One or more Anwesha IDs are repeated. Try again!");
-            }
-        }
+        //Check repitition in AnweshaIDs - NOT NEEDED
+        /* for ($i=0; $i < $size-1; $i++) { */ 
+        /*     if($userIDs[$i] == $userIDs[$i + 1]){ */
+        /*         return array("status"=>false, "msg"=> "One or more Anwesha IDs are repeated. Try again!"); */
+        /*     } */
+        /* } */
 
         //check if the user is already registered in this event in another group.
-        if ( this::checkUserEventVacant($userIDs,$eventID,$conn) == -1) {
-            return array("status"=>false, "msg"=> "User with Anwesha ID $ID is already registered in this event with another group. If this is an error please contact the Registration and Planning Team, Anwesha.");
+        if ( self::checkUserEventVacant($userIDs,$eventID,$conn) == -1) {
+            return array("status"=>false, "msg"=> "Some member(s) of this group are already registered in this event with another group. If this is an error please contact the Registration and Planning Team, Anwesha.");
         }
 
         //By now, we are pretty sure that the given team members can form a
@@ -572,10 +571,24 @@ class People{
             return array("status"=>false, "msg"=> "An Internal Error Occured... Please try later");
         }
 
+
+        //Update GroupRegistration Table
+        $idstr="";
+        for ($i=0; $i < $size ; $i++) { 
+            $idstr=$idstr . $userIDs[$i] . " ";
+        }
+        $sqlInsert = "INSERT INTO GroupRegistration(grpId,eveId,pIds,grpName) VALUES ('$grpId','$eventID','$idstr','$groupName')";
+
+        $result = mysqli_query($conn,$sqlInsert);
+        if(!$result){
+            return array("status"=>false, "msg"=> "An Internal Error Occured While Registering... Please try later");
+
+        }        
+        
         //Yosh, now lets insert the members in the tables and we'll be done.
         $values = array();
         foreach ($userIDs as $uId) {
-            $values[] = "('$eventID', '$uId', '$grpID')";
+            $values[] = "('$eventID', '$uId', '$grpId')";
         }
 
         $values = implode(", ", $values);
@@ -588,17 +601,6 @@ class People{
         }
 
 
-        //Update GroupRegistration Table
-        $idstr="";
-        for ($i=0; $i < $size ; $i++) { 
-            $idstr=$idstr . $userIDs[$i] . " ";
-        }
-        $sqlInsert = "INSERT INTO GroupRegistration(grpId,eveId,pIds,grpName) VALUES ('$grpID','$eventID','$idstr','$groupName')";
-
-        $result = mysqli_query($conn,$sqlInsert);
-        if(!$result){
-            return array("status"=>false, "msg"=> "An Internal Error Occured While Registering... Please try later");
-        }
 
         return array("status"=>true, "msg" => "Congratulations !! The group $groupName has been registered.");
 
