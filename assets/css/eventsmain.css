@@ -210,16 +210,19 @@ padding:0.2em;
 z-index:999;
 }
 #registration{
+   font-family:agency;
+   font-size: 0.6em;
+   padding: 0.8em;
 position:fixed;
 bottom:0;
 right:0;
 border-radius:0.2em;
-height:60%;
-width:25%;
+width:30%;
 background:rgba(0,0,0,0.8);
 visibility:hidden;
 opacity:0;
 transition:visibility 0s linear 0.5s,opacity 0.5s linear;
+overflow-y: scroll;
 }
 #regtext:hover #registration{
 visibility:visible;
@@ -227,14 +230,23 @@ opacity:0.9;
 transition-delay:0s;
 }
 #registration .inp {
-font-size: 1.2em;
+font-size: 1.0em;
 border: 0;
 border-bottom: 1px solid #ccc;
 background: none;
 border-radius: 0;
-padding: 0.5em;
+padding: 0.3em;
 margin: 0.5em;
 display: block;
 color: #fff;
 font-family: agency;
+}
+.registered-yes {
+   color: green;
+}
+.registered-no {
+   color: red;
+}
+.group-list {
+   overflow-y: scroll;
 }
