@@ -219,6 +219,7 @@
 	<img class="loader" src="images/spinner-large.gif" ng-show="uctrl.inProgress==1">
 		<input class="inp" name="name" type="text" value="Full Name" ng-model="uctrl.user.name" ng-focus="uctrl.hideDefault('name','Name')" ng-blur="uctrl.showDefault( 'name' )">
 		<input class="inp" name="password" type="password" value="Password" ng-model="uctrl.user.password" ng-focus="uctrl.hideDefault('password','Password')" ng-blur="uctrl.showDefault( 'password' )">
+		<input class="button" type="button" value="Resend email confirmation" ng-click="uctrl.sendEmail()">
 		<input class="button" type="submit" value="Submit" ng-click="uctrl.submit()">
 	</form>
 	<h2 class="success" ng-bind="uctrl.success_msg" ng-show = "uctrl.success==1"></h2>

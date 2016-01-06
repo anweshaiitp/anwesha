@@ -223,6 +223,8 @@ visibility:hidden;
 opacity:0;
 transition:visibility 0s linear 0.5s,opacity 0.5s linear;
 overflow-y: scroll;
+max-height:50%;
+   overflow-y: scroll;
 }
 #regtext:hover #registration{
 visibility:visible;
@@ -248,5 +250,4 @@ font-family: agency;
    color: red;
 }
 .group-list {
-   overflow-y: scroll;
 }

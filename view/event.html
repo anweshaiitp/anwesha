@@ -13,24 +13,23 @@
 				<div class="size" >Team size:<span ng-bind-html="obj.size"></span></div>
 				<div class="day" >Day:<span ng-bind-html="obj.day"></span></div>
 			</div>
+			<div id="regtext" ng-show="ectrl.can_register">
+				Register
+				<div id="registration">
+					<span class="status" ng-class="obj.isRegistered?'registered-yes':'registered-no'" ng-bind="obj.reg_status"></span>
+					<ul class="group-list" ng-show="obj.size!=1">
+						<li ng-repeat="(i,name) in obj.gList">
+							Participant {{i}}:<input type="text" class="inp" ng-model="obj.gList[i]"/>
+						</li>
+						<li>
+							Group Name:<input type="text" class="inp" ng-model="obj.gName"/>
+						</li>
+					</ul>
+					<button class="register-button" ng-click="ectrl.registerEvent(ename,obj)" ng-show="!obj.isRegistered">Register</button>
+				</div>
+			</div>
 
 	</div>
-	</div>
-
-	<div id="regtext" ng-show="ectrl.can_register">
-		Register
-		<div id="registration">
-			<span ng-class="obj.isRegistered?'registered-yes':'registered-no'" ng-bind="obj.reg_status"></span>
-			<ul class="group-list" ng-show="obj.size!=1">
-				<li ng-repeat="(i,name) in obj.gList">
-					Participant - {{i}}:<input type="text" ng-model="obj.gList[i]"/>
-				</li>
-				<li>
-					Group Name:<input type="text" class="inp" ng-model="obj.gName"/>
-				</li>
-			</ul>
-			<button class="register-button" ng-click="ectrl.registerEvent(ename,obj)" ng-show="!obj.isRegistered">Register</button>
-		</div>
 	</div>
 
 	<div class="sidebar">

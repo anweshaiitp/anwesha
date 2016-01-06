@@ -329,22 +329,21 @@
 
 	myApplication.controller( 'LoginCtrl',['User','$scope','$http', function($user,$scope,$http){
 		var self = this;
-		this.fields = {"name":"Name","password":"Password"};
+		this.fields = {"name":"Anwesha ID","password":"Password"};
 		this.success_msg = "You have successfully LoggedIn. Now close this window";
 		this.inProgress = 0;
 		this.success = 0;
 		this.err = "";
 		this.user = {};
-		this.user.name = "Name";
+		this.user.name = "Anwesha ID";
 		this.user.password = "Password";
 
 		this.submit = function() {
-			if ( this.inProgress == 0 ) {
-				this.inProgress = 1;
+			if ( self.inProgress == 0 ) {
+				self.inProgress = 1;
 				$user.loginUser( self.user.name, self.user.password ).then(
 					function( response ) {
 						if ( response.data['status'] == false ) {
-							console.log('hello');
 							self.err = response.data['msg'];
 						} else {
 							self.err = "";
@@ -359,6 +358,23 @@
 				);
 			}
 
+		}
+
+		this.sendEmail = function() {
+			if ( self.inProgress == 0 ) {
+				self.inProgress = 1;
+				return $http({
+					method: "get",
+					url: 'resendEmail/' + self.user.name,
+				}).then( function( response ) {
+					self.err = response.data['msg'];
+					self.inProgress = 0;
+				}, function( errorResponse ) {
+					console.log( errorResponse );
+					self.err = "Cannot send email.";
+					self.inProgress = 0;
+				} );
+			}
 		}
 
 		this.hideDefault = function( field, defaultval ) {
