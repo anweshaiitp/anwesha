@@ -189,7 +189,6 @@
 			.size320, .size583, .size767{display:none !important;}
 			.show767,.show583,.show320{display:block !important;}
 			}
-			}
 		</style>
 		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
 	</head>
