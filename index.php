@@ -41,6 +41,16 @@ if (preg_match($base . '$@', $url)) {
 	require ('controller/verifyEmail.php');
 } elseif (preg_match($base . 'verifyEmail/User/([0-9]{4})/([A-Za-z0-9]{40})/?$@', $url, $match)) {
 	require ('controller/verifyEmail.php');
+} elseif (preg_match($base . 'register/([0-9]{1,2})/?$@', $url, $match)) {
+	require ('controller/registerUser.php');
+} elseif (preg_match($base . 'register/group/([0-9]{1,2})/?$@', $url, $match)) {
+	require ('controller/registerGroup.php');
+} elseif (preg_match($base . 'login/?$@', $url)) {
+	require ('controller/loginUser.php');
+} elseif (preg_match($base . 'changePassword/?$@', $url)) {
+	require ('controller/changePassword.php');
+} elseif (preg_match($base . 'resendEmail/([0-9]{4})/?$@', $url, $match)) {
+	require ('controller/resendVerification.php');
 } elseif (preg_match($base . 'gallery.html@', $url)) {
 	require ('gallery.html');
 } elseif (preg_match($base . 'campusambassador@', $url)) {
@@ -48,6 +58,7 @@ if (preg_match($base . '$@', $url)) {
 } elseif (preg_match($base . 'registration@', $url)) {
 	require ('registration.html');
 } else {
+	http_response_code(404);
 	die('invalid url ' . $url);
 }
 
