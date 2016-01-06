@@ -11,7 +11,7 @@ if (isset($_POST['username']) && !empty($_POST['username']) && isset($_POST['pas
 
 $userID = $_POST['username'];
 $password = $_POST['password'];
-if(preg_match('/^ANW([0-9]{4})$/', $userID, $matches){
+if(preg_match('/^ANW([0-9]{4})$/', $userID, $matches)){
 	$userID = $matches[1];
 } else {
 	// mysqli_close($conn);
@@ -19,7 +19,8 @@ if(preg_match('/^ANW([0-9]{4})$/', $userID, $matches){
 	echo json_encode(array("status" => false, "msg" => "Invalid username"));
 	die();
 }
-if(count($password) > 15 || count($password) < 4){
+echo count($password);
+if(strlen($password) > 15 || strlen($password) < 4){
 	// mysqli_close($conn);
 	header('Content-type: application/json');
 	echo json_encode(array("status" => false, "msg" => "Invalid password"));
