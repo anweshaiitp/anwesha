@@ -203,22 +203,24 @@ class People{
         $arr[]=$row;
         return $arr;
     }
-
+    /**
+     * gives the events in which user is registered
+     * @param  int $id   anwesha id
+     * @param  mysqli $conn mysqli link
+     * @return array       index 0 is 1 or -1, index 1 is array or string.
+     */
     public function getEvents($id, $conn){
-
-        $sql = " SELECT * FROM Registration WHERE id = $id";
+        $sql = " SELECT eveId FROM Registration WHERE pId = $id";
         $result = mysqli_query($conn, $sql);
-        if(!$result || mysqli_num_rows($result)==0){
-            $error = "The user is registered in no Events";
+        if(!$result){
             $arr = array();
             $arr[]=-1;
-            $arr[]=$error;
             return $arr;
         }
         $arr = array();
         $results = array();
         while($row = mysqli_fetch_assoc($result)){
-            $results[] = $row;
+            $results[] = $row['eveId'];
         }
         $arr[]=1;
         $arr[] = $results;
