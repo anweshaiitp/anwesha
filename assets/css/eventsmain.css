@@ -215,7 +215,7 @@ z-index:999;
    padding: 0.8em;
 position:fixed;
 bottom:0;
-right:0;
+right:15px;
 border-radius:0.2em;
 width:30%;
 background:rgba(0,0,0,0.8);
