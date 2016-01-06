@@ -102,6 +102,7 @@
 			login_url = "login";
 		this.userdata = {};
 		this.user = {};
+		this.username = false;
 		this.createUser = function( name, mobile, sex, college, email, dob, city ) {
 			self.userdata.name = name;
 			self.userdata.mobile = mobile;
@@ -216,7 +217,7 @@
 						}
 					});
 				}else{
-					console.log(cat);
+					//console.log(cat);
 					if ( Object.keys( cat['sub'] ).length == 0 ) {
 						delete self.events['sub'][cat['eveName']];
 					}
@@ -250,12 +251,24 @@
 		this.showEvent = function( name, level ) {
 			if ( level == 0 ) {
 				self.currEvent = self.events['sub'][name];
-				console.log(self.currEvent);
+				//console.log(self.currEvent);
 			} else if ( level == 1 && self.currEvent['hasSub'] == 1 ) {
 				self.currEvent = self.currEvent['sub'][name];
 			}
 
 		}
+
+		/*this.refreshEvents = function() {
+			for ( var e in self.currEvent['sub'] ) {
+				if ( $user.username !== false && $user.user['event'].indexOf( e.eveName ) !== -1 ) {
+					eve.isRegistered = true;
+					eve.reg_status = "You have already registered for this event";
+				} else {
+					eve.isRegistered = false;
+					eve.reg_status = "You have not registered for this event";
+				}
+			}
+		}*/
 	}
 
 	myApplication.service( 'Events', ['$http', Events] );
@@ -417,24 +430,41 @@
 		}
 	} ] );
 
-	myApplication.controller( 'eventCtrl', ['$sce', '$http', 'Events', function($sce,$http,$events){
+	myApplication.controller( 'eventCtrl', ['$sce', '$http', 'Events', 'User', function($sce,$http,$events,$user){
 		var self = this;
 		this.events = $events.events;
 		this.sub_events = $events.currEvent;
+		this.can_register = $user.username;
+		this.event_register_url = "register/";
+		this.group_register_url = "register/group/";
 		this.showEvent = function( name, level ) {
 			// a category event
 			//console.log(self.sub_events);
 			if ( self.sub_events.hasSub == 1 || level === 0 ) {
 				$events.showEvent( name, level );
+				self.sub_events = $events.currEvent;
 				for ( var e in self.sub_events['sub'] ) {
 					if ( self.sub_events['sub'][e]['details'] ) {
 						var eve = self.sub_events['sub'][e];
 						if ( typeof ( eve.details ) === 'string' ) {
 							eve.details = $sce.trustAsHtml(eve.details);
+							if ( $user.username !== false && $user.user['event'].indexOf( e.eveName ) !== -1 ) {
+								eve.isRegistered = true;
+								eve.reg_status = "You have already registered for this event";
+							} else {
+								eve.isRegistered = false;
+								eve.reg_status = "You have not registered for this event";
+							}
+							eve.gList ={};
+							eve.gName = "";
+							if ( eve.size > 1 ) {
+								for ( var i = 0;i < eve['size'] - 1; i++ ) {
+									eve.gList[i] = "ANW";
+								}
+							}
 						}
 					}
 				}
-				self.sub_events = $events.currEvent;
 				// the logic below is to fade events in an animated manner
 				setTimeout( function(){
 					$( $( '.base-event-details' )[0] ).addClass( 'first-index' );
@@ -449,6 +479,45 @@
 						} );
 					} );
 				},10 );
+			}
+		}
+
+		this.refreshEvents = function() {
+
+		}
+
+		this.registerEvent = function( eveName, eveObj ) {
+			if ( eveObj.size == 1 ) {
+				return $http({
+					method: "post",
+					url: self.event_register_url + eveObj.eveId,
+				}).then( function( response ) {
+					console.log(response);
+					eveObj.reg_status = response.data['msg'];
+				}, function( errorResponse ) {
+					console.log( errorResponse );
+				} );
+			} else {
+				var list = [];
+				for ( i in eveObj.gList ) {
+					list.push( eveObj.gList[i] );
+				}
+				return $http({
+					method: "post",
+					url: self.group_register_url + eveObj.eveId,
+					// headers: {'Content-type': 'application/x-www-form-urlencoded;charset=utf-8'},
+					// transformRequest: transformRequestAsFormPost,
+					data: {
+						IDs: list,
+						name: eveObj.gName
+					}
+				}).then( function( response ) {
+					console.log(response);
+					eveObj.reg_status = response.data['msg'];
+				}, function( errorResponse ) {
+					console.log( errorResponse );
+				} );
+				console.log( eveObj.gList );
 			}
 		}
 	} ] );

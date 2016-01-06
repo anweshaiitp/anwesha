@@ -1,24 +1,28 @@
-<?php 
+<?php
 require('model/model.php');
 require('dbConnection.php');
 
 $conn = mysqli_connect(SERVER_ADDRESS,USER_NAME,PASSWORD,DATABASE);
-
+// var_dump($_POST);
 require('middleware/authMiddleware.php');
 
 $userID = $_SESSION['userID'];
+$json = file_get_contents('php://input');
+$POST = (array)json_decode($json);
+// var_dump($POST);
 $userIDs;
 $name;
-if (isset($_POST['IDs']) && !empty($_POST['IDs']) && is_array($_POST['IDs'])) {
-	$userIDs = $_POST['IDs'];
+if (isset($POST['IDs']) && !empty($POST['IDs']) && is_array($POST['IDs'])) {
+	$userIDs = $POST['IDs'];
 } else {
 	header('Content-type: application/json');
 	echo json_encode(array("status"=>false,"msg"=>"Incomplete request. IDs missing."));
 	die();
 }
-if (isset($_POST['name']) && !empty($_POST['name'])) {
+// var_dump($userIDs);
+if (isset($POST['name']) && !empty($POST['name'])) {
 	/* $userIDs = $_POST['IDs']; */
-    $name = $_POST['name'];
+    $name = $POST['name'];
 } else {
 	header('Content-type: application/json');
 	echo json_encode(array("status"=>false,"msg"=>"Incomplete request. Team name missing."));
@@ -29,7 +33,7 @@ $eveID = $match[1];
 $size = Events::getEventSize($eveID,$conn);
 if($size == -1){
 	mysqli_close($conn);
-	header('Content-type: application/json');	
+	header('Content-type: application/json');
 	echo json_encode(array("status"=>false, "msg"=>"Event does not exist!"));
 	die();
 } elseif ($size == 1) {
@@ -40,7 +44,7 @@ if($size == -1){
 }
 for ($i=0; $i <count($userIDs) ; $i++) {
 	if(Auth::sanitizeID($userIDs[$i])['status']){
-		$userIDs[$i] = Auth::sanitizeID($userIDs[$i])['key'];	
+		$userIDs[$i] = Auth::sanitizeID($userIDs[$i])['key'];
 	} else {
 		header('Content-type: application/json');
 		echo json_encode(array("status"=>false,"msg"=>"ID is not valid " . $userIDs[$i]));

@@ -193,3 +193,6 @@ cursor:pointer;
    left: 0.5em;
    top: -0.1em;
 }
+.register-button {
+   padding: 0.6em;
+}
