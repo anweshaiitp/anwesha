@@ -100,9 +100,9 @@
 		var self = this,
 			register_url = "user/register/User",
 			login_url = "login";
-		this.userdata = {};
-		this.user = {};
-		this.username = false;
+		self.userdata = {};
+		self.user = {};
+		self.username = false;
 		this.createUser = function( name, mobile, sex, college, email, dob, city ) {
 			self.userdata.name = name;
 			self.userdata.mobile = mobile;
@@ -166,11 +166,12 @@
 	 * Defining the service for events
 	 * @param {object} $http http servie
 	 */
-	function Events( $http ) {
+	function Events( $http, $user ) {
 		var self = this;
 
 		var base_url = 'events/';
 		self.events = {};
+		self.data = {'can_register':false};
 		this.init = function () {
 			return $http.get( base_url ).then( function( response ){
 				if ( response.data[0] == 1 ){
@@ -258,20 +259,33 @@
 
 		}
 
-		/*this.refreshEvents = function() {
-			for ( var e in self.currEvent['sub'] ) {
-				if ( $user.username !== false && $user.user['event'].indexOf( e.eveName ) !== -1 ) {
-					eve.isRegistered = true;
-					eve.reg_status = "You have already registered for this event";
-				} else {
-					eve.isRegistered = false;
-					eve.reg_status = "You have not registered for this event";
+		this.refreshEvents = function() {
+			if ( self.currEvent ) {
+				for ( var e in self.currEvent['sub'] ) {
+					if ( self.currEvent['sub'][e]['size'] > 0 ) {
+						var eve = self.currEvent['sub'][e];
+						if ( $user.username !== false && $user.user['event'].indexOf( e.eveName ) !== -1 ) {
+							eve.isRegistered = true;
+							eve.reg_status = "You have already registered for this event";
+						} else {
+							eve.isRegistered = false;
+							eve.reg_status = "You have not registered for this event";
+						}
+						eve.gList ={};
+						eve.gName = "";
+						if ( eve.size > 1 ) {
+							for ( var i = 0;i < eve['size'] - 1; i++ ) {
+								eve.gList[i] = "ANW";
+							}
+						}
+					}
 				}
 			}
-		}*/
+			self.data.can_register = true;
+		}
 	}
 
-	myApplication.service( 'Events', ['$http', Events] );
+	myApplication.service( 'Events', ['$http', 'User', Events] );
 
     myApplication.controller( 'UserCtrl',['User','$scope','$http', function($user,$scope,$http){
 		var self = this;
@@ -327,7 +341,7 @@
 		}
 	} ] );
 
-	myApplication.controller( 'LoginCtrl',['User','$scope','$http', function($user,$scope,$http){
+	myApplication.controller( 'LoginCtrl',['User','$scope','$http', 'Events', function($user,$scope,$http,$events){
 		var self = this;
 		this.fields = {"name":"Anwesha ID","password":"Password"};
 		this.success_msg = "You have successfully LoggedIn. Now close this window";
@@ -349,6 +363,7 @@
 							self.err = "";
 							self.success = 1;
 							$user.setDetails( self.user.name, response.data );
+							$events.refreshEvents();
 						}
 						self.inProgress = 0;
 					}, function( errorResponse ) {
@@ -450,7 +465,7 @@
 		var self = this;
 		this.events = $events.events;
 		this.sub_events = $events.currEvent;
-		this.can_register = $user.username;
+		this.data = $events.data;
 		this.event_register_url = "register/";
 		this.group_register_url = "register/group/";
 		this.showEvent = function( name, level ) {
@@ -496,10 +511,6 @@
 					} );
 				},10 );
 			}
-		}
-
-		this.refreshEvents = function() {
-
 		}
 
 		this.registerEvent = function( eveName, eveObj ) {

@@ -209,7 +209,7 @@ display:block;
 padding:0.2em;
 z-index:999;
 }
-#registration{
+#registration, #no-registration{
    font-family:agency;
    font-size: 0.6em;
    padding: 0.8em;
@@ -226,7 +226,10 @@ overflow-y: scroll;
 max-height:50%;
    overflow-y: scroll;
 }
-#regtext:hover #registration{
+#no-registration {
+   cursor: pointer;
+}
+#regtext:hover #registration,#regtext:hover #no-registration{
 visibility:visible;
 opacity:0.9;
 transition-delay:0s;

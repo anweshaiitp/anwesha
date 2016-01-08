@@ -13,9 +13,10 @@
 				<div class="size" >Team size:<span ng-bind-html="obj.size"></span></div>
 				<div class="day" >Day:<span ng-bind-html="obj.day"></span></div>
 			</div>
-			<div id="regtext" ng-show="ectrl.can_register">
+			<div id="regtext">
 				Register
-				<div id="registration">
+				<div id="no-registration" ng-show="!ectrl.data.can_register" ng-click="dctrl.showLogForm()">Login first, to register for events</div>
+				<div id="registration" ng-show="ectrl.data.can_register">
 					<span class="status" ng-class="obj.isRegistered?'registered-yes':'registered-no'" ng-bind="obj.reg_status"></span>
 					<ul class="group-list" ng-show="obj.size!=1">
 						<li ng-repeat="(i,name) in obj.gList">
