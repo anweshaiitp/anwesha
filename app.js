@@ -459,9 +459,13 @@
 			self[name] = false;
 			document.body.style.overflow = 'visible';
 		}
+
+		$scope.$on( 'closeOverlay', function(event,name) {
+			self.closeOverlay( name );
+		} );
 	} ] );
 
-	myApplication.controller( 'eventCtrl', ['$sce', '$http', 'Events', 'User', function($sce,$http,$events,$user){
+	myApplication.controller( 'eventCtrl', ['$sce', '$http', 'Events', 'User', '$scope', function($sce,$http,$events,$user,$scope){
 		var self = this;
 		this.events = $events.events;
 		this.sub_events = $events.currEvent;
@@ -510,6 +514,15 @@
 						} );
 					} );
 				},10 );
+			}
+		}
+
+		// very hacky!
+		this.backEvent = function() {
+			if ( self.sub_events['code'] == 'Technical' ) {
+				self.sub_events = $events.events['sub']['Technical'];
+			} else {
+				$scope.$emit( 'closeOverlay', 'isEvents' );
 			}
 		}
 

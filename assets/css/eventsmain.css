@@ -72,10 +72,10 @@ font-size:1.5em;
 line-height:1.75em;
 position:relative;
 transition: all linear 0.2s;
-transform: translateX( -90% );
--webkit-transform: translateX( -90% );
--moz-transform: translateX( -90% );
--o-transform: translateX( -90% );
+transform: translateX( -80% );
+-webkit-transform: translateX( -80% );
+-moz-transform: translateX( -80% );
+-o-transform: translateX( -80% );
 border-right: 12px solid #1780CC;
 overflow-x: hidden;
 }
