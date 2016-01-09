@@ -473,10 +473,18 @@
 		this.data = $events.data;
 		this.event_register_url = "register/";
 		this.group_register_url = "register/group/";
+		this.currCat = '';
+
+		this.isCurrCat = function( ename ) {
+			return ename == self.currCat;
+		}
 		this.showEvent = function( name, level ) {
 			// a category event
 			//console.log(self.sub_events);
 			if ( self.sub_events.hasSub == 1 || level === 0 ) {
+				if ( level == 0 ) {
+					self.currCat = name;
+				}
 				$events.showEvent( name, level );
 				self.sub_events = $events.currEvent;
 				for ( var e in self.sub_events['sub'] ) {

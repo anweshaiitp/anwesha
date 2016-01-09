@@ -3,7 +3,7 @@
 
 	<div class="main-events topbar">
 		<ul>
-			<li ng-repeat="(ename,eobj) in ectrl.events.sub" ng-click="ectrl.showEvent(ename,0)" ng-bind="ename"></li>
+			<li ng-repeat="(ename,eobj) in ectrl.events.sub" ng-click="ectrl.showEvent(ename,0)" ng-bind="ename" ng-class="ectrl.isCurrCat(ename)?'curr-cat':''"></li>
 		</ul>
 	</div>
 	<div class="base">

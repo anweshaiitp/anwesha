@@ -39,6 +39,9 @@ display:inline;
 color:#fff;
 -webkit-transition: all 0.5s linear;
 }
+.topbar li.curr-cat {
+   background: rgb(251,103,103);
+}
 .topbar li:hover{
 text-decoration:underline;
 }
