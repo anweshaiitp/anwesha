@@ -5,14 +5,14 @@
 
 	<title>Anwesha '16</title>
 
-	<link rel="stylesheet" href="assets/css/all.css">
-	<link rel="stylesheet" href="assets/css/team.css">
-	<link rel="stylesheet" href="assets/css/style.css">
-	<link rel="stylesheet" href="assets/css/eventsmain.css">
-	<link rel="stylesheet" href="assets/css/intro.css">
-	<link rel="stylesheet" href="assets/css/jquery-ui.structure.min.css">
-	<link rel="stylesheet" href="assets/css/jquery-ui.min.css">
-	<link rel="stylesheet" href="assets/css/jquery-ui.theme.min.css">
+	<link rel="stylesheet" href="<?php echo auto_version('assets/css/all.css'); ?>">
+	<link rel="stylesheet" href="<?php echo auto_version('assets/css/team.css'); ?>">
+	<link rel="stylesheet" href="<?php echo auto_version('assets/css/style.css'); ?>">
+	<link rel="stylesheet" href="<?php echo auto_version('assets/css/eventsmain.css'); ?>">
+	<link rel="stylesheet" href="<?php echo auto_version('assets/css/intro.css'); ?>">
+	<link rel="stylesheet" href="<?php echo auto_version('assets/css/jquery-ui.structure.min.css'); ?>">
+	<link rel="stylesheet" href="<?php echo auto_version('assets/css/jquery-ui.min.css'); ?>">
+	<link rel="stylesheet" href="<?php echo auto_version('assets/css/jquery-ui.theme.min.css'); ?>">
 
 
 	<script src='assets/js/jquery.min.js'></script>
@@ -354,6 +354,20 @@
 <script src="assets/js/angular-resource.min.js"></script>
 <script src="assets/js/angular-animate.min.js"></script>
 <script src="assets/js/angular-sanitize.min.js"></script>
-<script src="app.js"></script>
+<?php 
+/**
+ *  Given a file, i.e. /css/base.css, replaces it with a string containing the
+ *  file's mtime, i.e. /css/base.1221534296.css.
+ *  
+ *  @param $file  The file to be loaded.  Must be an absolute path (i.e.
+ *                starting with slash).
+ */
+function auto_version($file)
+{
+  $mtime = filemtime($file);
+  return $file."?=" . $mtime;
+}
+ ?>
+<script src="<?php echo auto_version('app.js'); ?>"></script>
 </body>
 </html>
