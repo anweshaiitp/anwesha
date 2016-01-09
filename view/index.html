@@ -62,7 +62,7 @@
 <body ng-controller="DefaultCtrl as dctrl" ng-cloak>
 	<div id="intro">
 		<div id="logo"><img src="images/logo-bg.png"></div>
-		<span>THINK.DREAM.LIVE.</span>
+		<span><div style="border:rgba(255,255,255,0.6) solid 0.1em;border-radius:0.4em;display:block;padding:0.5em;margin:0.5em;width:14em;font-size:0.5em;"><marquee>Event registrations are open. Login to register for the events.</marquee></div><div>THINK.DREAM.LIVE.</div></span>
 
 		<div class="date gray show static">
 			<div class="date-circle"></div>
@@ -163,33 +163,81 @@
 		<h2>ANWESHA &nbsp;</h2>
 		<!--<p class="left">Designed and Developed by the <a href="#" ng-click="dctrl.showWebTeam()">Web Design and Development Team</a>.</p>-->
 	</div>
-
-
 <div id="archives" ng-cloak ng-if="dctrl.isArchives" class="ini-hide" ng-click="dctrl.closeOverlay( 'isArchives' )">
 	<div class="content">
-		<h2>Archives</h2>
-		<ul class="box">
-			<li>
-				<a target="_blank" href="http://2015.anwesha.info">
-					<img src="images/2015.jpg" />
-					<span class="details"><span>2015</span></span>
-				</a>
-			</li>
-			<li>
-				<a target="_blank" href="http://2014.anwesha.info">
-					<img src="images/2014.jpg" />
-					<span class="details"><span>2014</span></span>
-				</a>
-			</li>
-			<li>
-				<a target="_blank" href="http://2013.anwesha.info">
-					<img src="images/2013.jpg" />
-					<span class="details"><span>2013</span></span>
-				</a>
-			</li>
-		</ul>
+		<h2>Accommodation Policy</h2>
+
+
+<ul>
+	<li>
+	<p>Accommodation will be provided only to the students who have a valid Student ID Card and Anwesha&#39;16 ID.</p>
+	</li>
+	<li>
+	<p>Students who need accommodation should give their basic details to their respective campus ambassadors.</p>
+	</li>
+	<li>
+	<p>Campus ambassadors should send the list of students who require accommodation to Team Anwesha&#39;16 on or before 16th January.</p>
+	</li>
+	<li>
+	<p>To avail discounts and get assured accommodation, students are recommended to make prior payment though our online portal, or through their respective campus ambassadors.</p>
+	</li>
+	<li>
+	<p>Entry will be only through the &#39;Gate 1&#39; of IIT Patna, all other gates will be closed for entry.</p>
+	</li>
+	<li>
+	<p>All student participants must carry their valid College photo ID card. Students without valid photo identity card will not be allowed inside the campus during Anwesha&#39;16.</p>
+	</li>
+	<li>
+	<p>Those carrying laptops and other valuable items will have to declare their belongings at the main gate and Registration Desk of Anwesha&#39;16 through the form provided to them at the gate. Your belongings will be checked on your way out of IIT Patna and those who fail to produce their earlier mentioned declarations may have their belongings impounded.</p>
+	</li>
+	<li>
+	<p>When you arrive at IIT Patna, you will have to come to registration desk. Your place of stay will be allotted then.</p>
+	</li>
+	<li>
+	<p>Accommodation would be strictly on first come first serve basis.</p>
+	</li>
+	<li>
+	<p>Priority will be given to students who have a longer duration of stay.</p>
+	</li>
+	<li>
+	<p>We shall provide you with mattresses, pillows, and a blanket. However, you are encouraged to carry your own blanket as well.</p>
+	</li>
+	<li>
+	<p>Accommodation will be given only after it has been confirmed by the Hospitality Group Members.</p>
+	</li>
+	<li>
+	<p>Students can avail accommodation facilities from 21th January 8:00 am to 25th January, 2016, 10:00 am.</p>
+	</li>
+	<li>
+	<p>All those that don&rsquo;t have confirmed accommodation inside the campus will not be allowed to use the accommodation facilities.</p>
+	</li>
+	<li>
+	<p>Proper checks would be made to avoid any illegal stay. Any one failing to produce their receipts of accommodation would be heavily fined and may face legal actions.</p>
+	</li>
+	<li>
+	<p>Carrying alcohol, drugs, sharp objects and explosives of any kind is strictly prohibited inside the campus. Any other item if deemed unsafe will be confiscated.</p>
+	</li>
+	<li>
+	<p>Vehicles will not be allowed beyond parking lot near Gate 1.</p>
+	</li>
+	<li>
+	<p>Anwesha&#39;16 and IIT Patna will not be responsible for any kind of mishaps and damage that may occur through the duration of stay for Anwesha&#39;16.</p>
+	</li>
+	<li>
+	<p>Charges for accommodation are ____.</p>
+	</li>
+	<li>
+	<p>In case of any discrepancies, decisions made by Hospitality committee will be final and bonding.</p>
+	</li>
+</ul>
+
+
+
+
 	</div>
 </div>
+
+
 <div id="webdev" ng-cloak ng-if="dctrl.isWebTeam" ng-click="dctrl.isWebTeam=false" class="ini-hide">
 	<div class="content">
 		<h2>Web Design and Development Team</h2>
@@ -273,7 +321,7 @@
 				<a href="#" ng-click="dctrl.showTeam()"><li><img class="ico" src="images/icons/team.png">Our Team</li></a>
 				<a href="gallery.html" target="_blank"><li><img class="ico" src="images/icons/gallery.png">Gallery</li></a>
 				<a href="#sponsorsload" ng-click="dctrl.showSponsors()"><li><img class="ico" src="images/icons/sponsors.png">Sponsors</li></a>
-				<a href="#" ng-click="dctrl.showArchives()"><li><img class="ico" src="images/icons/archives.png">Archives</li></a>
+				<a href="#" ng-click="dctrl.showArchives()"><li><img class="ico" src="images/icons/archives.png">Accommodation</li></a>
 		</ul>
 	</div>
 </div>
@@ -293,7 +341,7 @@
 	<a target="_blank" href="https://www.youtube.com/user/AnweshaIITP"><img src="images/social/Youtube-icon.png"></a>
 </div-->
 <div class="cover"></div>
-<div class="eventsHome" ng-show="dctrl.isEvents" ng-if="dctrl.isEvents" ng-include="'view/event.html'" ng-cloak>
+<div class="eventsHome" ng-show="dctrl.isEvents" ng-if="dctrl.isEvents" ng-include="'view/event.html?v=123'" ng-cloak>
 </div>
 <img class="scroll-down" src="images/button-point-down-large.png">
 <script>
@@ -354,20 +402,14 @@
 <script src="assets/js/angular-resource.min.js"></script>
 <script src="assets/js/angular-animate.min.js"></script>
 <script src="assets/js/angular-sanitize.min.js"></script>
-<?php 
-/**
- *  Given a file, i.e. /css/base.css, replaces it with a string containing the
- *  file's mtime, i.e. /css/base.1221534296.css.
- *  
- *  @param $file  The file to be loaded.  Must be an absolute path (i.e.
- *                starting with slash).
- */
+<?php
 function auto_version($file)
 {
-  $mtime = filemtime($file);
-  return $file."?=" . $mtime;
+	$mtime = filemtime($file);
+	return $file."?=" . $mtime;
 }
- ?>
+?>
 <script src="<?php echo auto_version('app.js'); ?>"></script>
+
 </body>
 </html>
