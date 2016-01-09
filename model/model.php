@@ -417,7 +417,92 @@ class People{
 
     }
 
+    /**
+    * send user new passwd and update new csrfToken 
+    * return newly generated password
+    * @param int $id      Anwesha Id for registered user
+    * @param string $token     Confirmation Token
+    */
+    public function forgotPassword($id,$conn){
 
+       $sql = "SELECT * FROM People NATURAL JOIN LoginTable WHERE pId = $id";
+       $result = mysqli_query($conn, $sql);
+
+       if(!$result || mysqli_num_rows($result)!=1){
+           $error = "No such User - Invalid Link";
+           $arr = array();
+           $arr[] = -1;
+           $arr[] = $error;
+
+           return $arr;
+        }
+  
+        $row = mysqli_fetch_assoc($result);
+        $name = $row['name'];
+        $email = $row['email'];
+  
+        $randPasswd=Auth::randomPassword();
+        $sqlUpdate = "UPDATE LoginTable SET csrfToken = sha('$randPasswd)''WHERE pId = $id";
+ 
+        $arr = array();
+        $arr[]=$randPasswd;
+        $result = mysqli_query($conn, $sqlUpdate);
+ 
+        if(!$result){
+           $error = "Some Internal Error Occured - Please try again.";
+           $arr = array();
+           $arr[] = -1;
+           $arr[] = $error;
+
+           return $arr;
+        }
+ 
+        Auth::passEmail($email,$name,$randPasswd,$id); 
+
+        return $arr;
+   }
+
+   /**
+     * Verfies the sent user's reset password
+     * @param int $id      Anwesha Id for registered user
+     * @param string $token  Reset Password enterd by user that was sent to email id
+     */
+    public function checkResetPassword($id,$token,$conn){
+        $sql = "SELECT * FROM People NATURAL JOIN LoginTable WHERE pId = $id";
+        $result = mysqli_query($conn, $sql);
+        if(!$result || mysqli_num_rows($result)!=1){
+            $error = "No such User - Invalid Link";
+            $arr = array();
+            $arr[] = -1;
+            $arr[] = $error;
+            return $arr;
+        }
+        $row = mysqli_fetch_assoc($result);
+        if(strcmp($token,$row['csrfToken'])!=0){
+            $error = "Invalid Link or Link Expired";
+            $arr = array();
+            $arr[] = -1;
+            $arr[] = $error;
+            return $arr;
+        }
+        $name = $row['name'];
+        $email = $row['email'];
+        
+        $sqlUpdate = "UPDATE LoginTable SET csrfToken = '' WHERE pId = $id";
+        $result = mysqli_query($conn, $sqlUpdate);
+        if(!$result){
+            $error = "Some Internal Error Occured - Please try again.";
+            $arr = array();
+            $arr[] = -1;
+            $arr[] = $error;
+            return $arr;
+        }
+        $arr = array();
+        $arr[]=1;
+        
+        return $arr;
+
+    }
 }
 /**
 *                            EEEEEEE                        tt
