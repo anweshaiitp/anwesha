@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Anwesha - Reset Password</title>
+	<style>
+		body{
+			background:#efefef;
+			overflow-x:hidden;
+		}
+		.box{
+			position:absolute;
+			left:50%;
+			top:50%;
+			transform:translate(-50%,-50%);
+			background:#fff;
+			width:40%;
+			padding:1em;
+			box-shadow: 0.5em 0.5em 0.25em #888888;
+			border-radius:0.5em;
+		}
+		#anwlogo{
+			position:absolute;
+			top:0;
+			left:0;
+			padding:0.5em;
+			width:5em;
+		}
+		#iitplogo{
+			position:absolute;
+			bottom:0;
+			right:0;
+			padding:0.5em;
+			width:5em;
+		}
+	</style>
+</head>
+<body>
+<a href="http://2016.anwesha.info"><img id="anwlogo" src="http://2016.anwesha.info/images/logo-icon.png"></a>
+<a href="http://iitp.ac.in"><img id="iitplogo" src="http://2016.anwesha.info/images/80x80xiitp_logo.png.pagespeed.ic.lT8byNYLqW.png"></a>
+<div class="box">
+<?php 
+if ($verification[0] = -1){
+	echo "Your registration for password Reset was unsuccessfull. If you think this is an error, contact the administrator.";
+} else {
+	echo "Your registration for password Reset has been successfully completed! <br> Please check the mail sent to your Email Id for the new password ";
+	} ?>
+
+<br>
+
+</div>
+<b></b>
+</body>
+</html>
