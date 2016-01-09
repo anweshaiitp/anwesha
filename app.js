@@ -206,6 +206,7 @@
 					response.data[1].forEach(function(element,A,idx){
 						element['details'] = element['details'].replace(/\"/g, "\"");
 						element['hasSub'] = 0;
+						//console.log(element['eveName']);
 						var sub_url = base_url + element['eveName'];
 						cat['sub'][element['eveName']] = element;
 						//cat['sub_e'][element['eveName']] = element;
@@ -520,7 +521,8 @@
 		// very hacky!
 		this.backEvent = function() {
 			if ( self.sub_events['code'] == 'Technical' ) {
-				self.sub_events = $events.events['sub']['Technical'];
+				$events.currEvent = $events.events['sub']['Technical'];
+				self.sub_events = $events.currEvent;
 			} else {
 				$scope.$emit( 'closeOverlay', 'isEvents' );
 			}

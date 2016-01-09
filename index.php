@@ -31,7 +31,7 @@ if (preg_match($base . '$@', $url)) {
 	require ('controller/events.php');
 } elseif (preg_match($base . 'allEvents/?$@', $url)) {
 	require ('controller/allEvents.php');
-} elseif (preg_match($base . 'events/([A-Za-z]+)/?$@', $url, $match)) {
+} elseif (preg_match($base . 'events/([A-Za-z&-]+)/?$@', $url, $match)) {
 	require ('controller/getSubEvents.php');
 } elseif (preg_match($base . 'user/register/User/?$@', $url)) {
 	require ('controller/userRegistration.php');
