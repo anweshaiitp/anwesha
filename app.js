@@ -555,7 +555,7 @@
 				for ( i in list ) {
 					var id = list[i];
 					if ( id == 'ANW' ) {
-						list[i] = '';
+						list.splice( i, 1 );
 					}
 				}
 				return $http({
