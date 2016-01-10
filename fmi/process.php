@@ -8,6 +8,7 @@ if(isset($_POST['Id']) && !empty($_POST['Id']) && isset($_POST['Feet']) && !empt
 } else {
 	die('Submitted form was incomplete. Abort.');
 }
+ $mysqli = new mysqli(SERVER_ADDRESS,USER_NAME,PASSWORD,DATABASE);
 // $name = $_POST['fname']." ".$_POST['mname']." ".$_POST['lname'];
 // $dob = $_POST['Day']."/".$_POST['Month']."/".$_POST['Year'];
 $id = $_POST['Id'];
@@ -43,9 +44,14 @@ if (!$con)
   die('Could not connect: ' . mysql_error());
   }
  
-$sql="INSERT INTO `fmi` (id,height,weight,vital,status) VALUES ($id,'$height','$weight','$vital','$status')";
+$sql=$mysqli->prepare("INSERT INTO `fmi` (id,height,weight,vital,status) VALUES (:id,:height,:weight,:vital,:status)");
+$sql->bindValue(':id',$id);
+$sql->bindValue(':height',$height);
+$sql->bindValue(':weight',$weight);
+$sql->bindValue(':vital',$vital);
+$sql->bindValue(':status',$status);
 
-if (!mysqli_query($con,$sql))
+if (!$sql->execute())
   {
   	mysqli_close($con);
   die('Error: Anwesha ID does not exist.');
