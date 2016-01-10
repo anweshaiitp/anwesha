@@ -10,7 +10,7 @@ require('middleware/authMiddleware.php');
 
 session_destroy();
 
-echo json_encode(array("status" => true, "msg" => "Successfully Log Out"));
+echo json_encode(array("status" => true, "msg" => "Successfully Logged Out"));
 
 ?>
 
