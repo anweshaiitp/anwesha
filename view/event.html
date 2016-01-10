@@ -19,6 +19,7 @@
 				<div id="registration" ng-show="ectrl.data.can_register">
 					<span class="status" ng-class="obj.isRegistered?'registered-yes':'registered-no'" ng-bind="obj.reg_status"></span>
 					<ul class="group-list" ng-show="obj.size!=1">
+					You will be registered for the group automatically, enter other participant's names
 						<li ng-repeat="(i,name) in obj.gList">
 							Participant {{i}}:<input type="text" class="inp" ng-model="obj.gList[i]"/>
 						</li>

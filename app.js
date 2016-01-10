@@ -552,6 +552,12 @@
 				for ( i in eveObj.gList ) {
 					list.push( eveObj.gList[i] );
 				}
+				for ( i in list ) {
+					var id = list[i];
+					if ( id == 'ANW' ) {
+						list[i] = '';
+					}
+				}
 				return $http({
 					method: "post",
 					url: self.group_register_url + eveObj.eveId,
