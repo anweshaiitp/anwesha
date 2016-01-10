@@ -550,12 +550,8 @@
 			} else {
 				var list = [];
 				for ( i in eveObj.gList ) {
-					list.push( eveObj.gList[i] );
-				}
-				for ( i in list ) {
-					var id = list[i];
-					if ( id == 'ANW' ) {
-						list.splice( i, 1 );
+					if ( eveObj.gList[i] !== 'ANW' ) {
+						list.push( eveObj.gList[i] );
 					}
 				}
 				return $http({
