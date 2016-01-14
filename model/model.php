@@ -654,6 +654,88 @@ class People{
     }
 
 
+    /*
+     *Checks the validity of the Anwesha IDs and that no IDs are repeated
+     * @param string $param AnweshaID
+     * @param  MySQLi object $conn variable containing connection details
+     * @return boolean AnweshaID valid or not
+     */
+    public function validateAnweshaID($id,$conn){
+        if( strlen($id) != 4 ){
+            return -1;
+        }
+
+        $sql = "SELECT COUNT(*) FROM People WHERE pId = '$id'";
+        $result = mysqli_query($conn,$sql);
+        $row = mysqli_fetch_assoc($result);
+
+        if ( $row['COUNT(*)']==1 ){
+            return 1;
+        } else {
+            return -1;
+        }
+
+    }
+
+
+    public function requestAccomodation($id,$dates,$conn)
+    {
+        
+        if($id!=""){
+            $str = $id;
+            $id = preg_replace('/[^0-9]/', '', $str);
+        }
+        $size=count($dates);
+
+        sort($dates);
+
+        if(self::validateAnweshaID($id,$conn)==-1){
+            return array("status"=>false, "msg"=> "Anwesha ID inavalid.");
+        }
+
+        $valDates = array();
+
+        if(array_search('21',$dates) !== false){
+            $valDates[] = 1;
+        }else {
+            $valDates[] = 0;
+        }
+        if(array_search('22',$dates) !== false){
+            $valDates[] = 1;
+        }else {
+            $valDates[] = 0;
+        }
+        if(array_search('23',$dates) !== false){
+            $valDates[] = 1;
+        }else {
+            $valDates[] = 0;
+        }
+        if(array_search('24',$dates) !== false){
+            $valDates[] = 1;
+        }else {
+            $valDates[] = 0;
+        }
+        if(array_search('25',$dates) !== false){
+            $valDates[] = 1;
+        }else {
+            $valDates[] = 0;
+        }
+        if(array_search('26',$dates) !== false){
+            $valDates[] = 1;
+        }else {
+            $valDates[] = 0;
+        }
+
+        $sql = "INSERT INTO Accomodation values ($id,".implode(',',$userIds).")";
+        $result = mysqli_query($conn,$sql);
+
+        if (!$result){
+            return array("status"=>false, "msg"=> "Ther was some error while arranging for accomodation. Please try again later.");
+        } else {
+            return array("status"=>true, "msg"=> "Your accomodation details have been recorded. We hope you have a great stay.");
+        }
+    }
+
 }
 /**
  *                            EEEEEEE                        tt
