@@ -463,6 +463,48 @@ class People{
 
     }
 
+    public function sendEventRegistrationEmail($userID,$eveID,$conn)
+    {
+        $user = People::getUser($userID,$conn);
+        $sql = "SELECT eveName FROM Events WHERE eveId = $eveID";
+        $result = mysqli_query($conn,$sql);
+        $row = mysqli_fetch_assoc($result);
+        $eveName = $row['eveName'];
+        $name = $user[1]['name'];
+        $emailId = $user[1]['email'];
+        // mail($to,$subject,$message);
+        $message = "Hi $name,<br>You have been registered for event<b> $eveName.</b> Thank You! <br>In case you have any registration related queries feel free to contact Aditya Gupta(+918292337923) or Arindam Banerjee(+919472472543) or drop an email to <i>registration@anwesha.info</i>. You can also visit our website <i>http://2016.anwesha.info/</i> for more information.<br><br>Registration Desk<br>Anwesha 2k16";
+        $subject = "$eveName Registration Anwesha2k16";
+
+        require('resources/PHPMailer/PHPMailerAutoload.php');
+
+        $mail = new PHPMailer;
+        $mail->SMTPDebug = 0;
+        $mail->isSMTP();                                      // Set mailer to use SMTP
+        $mail->Host = 'lnx36.securehostdns.com';  // Specify main and backup SMTP servers
+        $mail->SMTPAuth = true;                               // Enable SMTP authentication
+        $mail->Username = 'registration@anwesha.info';                 // SMTP username
+        $mail->Password = 'anw_reg_2015_codered';                           // SMTP password
+        $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
+        $mail->Port = 465;                                    // TCP port to connect to
+        $mail->setFrom('registration@anwesha.info', 'Anwesha Registration & Planning Team');
+        $mail->addAddress($emailId, $name);     // Add a recipient
+        // $mail->addAddress('ellen@example.com');               // Name is optional
+        $mail->addReplyTo('registration@anwesha.info', 'Registration & Planning Team');
+        // $mail->addCC('guptaaditya.13@gmail.com');
+        // $mail->addBCC('registration@anwesha.info');
+
+        // $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+        // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+        $mail->isHTML(true);                                  // Set email format to HTML
+
+        $mail->Subject = $subject;
+        $mail->Body    = $message;
+        $mail->AltBody = "Hi $name,\nYou have been registered for event $eveName. Thank You!\nIn case you have any registration related queries feel free to contact Aditya Gupta(+918292337923) or Arindam Banerjee(+919472472543) or drop an email to registration@anwesha.info. You can also visit our website http://2016.anwesha.info/ for more information.\nRegistration Desk\nAnwesha 2k16";;
+        $mail->send();
+
+    }
+
     /**
      * Registers an user to an event of size 1
      * @param  int $userID  anwesha id of the user
@@ -474,6 +516,7 @@ class People{
         $sql = "INSERT INTO Registration VALUES ($eventID,$userID,null)";
         $result = mysqli_query($conn,$sql);
         if($result){
+            self::sendEventRegistrationEmail($userID,$eventID,$conn);
             return array("status"=>true, "msg" => "You have been registered!");
         } else {
             return array("status"=>false, "msg"=> "Registration failed, already registered!");

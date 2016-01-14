@@ -5,7 +5,9 @@ require('dbConnection.php');
 $conn = mysqli_connect(SERVER_ADDRESS,USER_NAME,PASSWORD,DATABASE);
 // var_dump($_POST);
 require('middleware/authMiddleware.php');
-
+$x = var_dump('php://input');
+echo (json_encode($x));
+die();
 $userID = $_SESSION['userID'];
 $json = file_get_contents('php://input');
 $POST = (array)json_decode($json);
