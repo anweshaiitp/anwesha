@@ -1,0 +1,195 @@
+/*
+ * Wrapper
+ *
+ * The wrapper is used to position site content when the sidebar_home is toggled. We
+ * use an outter wrap to position the sidebar_home without interferring with the
+ * regular page content.
+ */
+
+.wrap {
+  position: relative;
+  width: 100%;
+}
+/*
+ * Sidebar_home
+ *
+ * The sidebar_home is the drawer, the item we are toggling with our handy hamburger
+ * button in the corner of the page.
+ *
+ * This particular sidebar_home implementation was inspired by Chris Coyier's
+ * "Offcanvas Menu with CSS Target" article, and the checkbox variation from the
+ * comments by a reader. It modifies both implementations to continue using the
+ * checkbox (no change in URL means no polluted browser history), but this uses
+ * `position` for the menu to avoid some potential content reflow issues.
+ *
+ * Source: http://css-tricks.com/off-canvas-menu-with-css-target/#comment-207504
+ */
+
+/* Style and "hide" the sidebar_home */
+.sidebar_home {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: -14rem;
+  width: 14rem;
+  visibility: hidden;
+  overflow-y: auto;
+  /*font-family: "PT Sans", Helvetica, Arial, sans-serif;*/
+  font-family: agency;
+  font-size: 25px; /* 15px */
+  color: rgba(255,255,255,.6);
+  background-color: #202020;
+  -webkit-transition: all .3s ease-in-out;
+          transition: all .3s ease-in-out;
+}
+@media (min-width: 30em) {
+  .sidebar_home {
+    font-size: 25px; /* 14px */
+  }
+}
+
+/* Sidebar_home content */
+.sidebar_home a {
+  font-weight: normal;
+  color: #fff;
+}
+.sidebar_home-item {
+  padding: 14px;
+}
+.sidebar_home-item p:last-child {
+  margin-bottom: 0;
+}
+
+/* Sidebar_home nav */
+.sidebar_home-nav {
+  border-bottom: 1px solid rgba(255,255,255,.1);
+}
+.sidebar_home-nav-item {
+  display: block;
+  padding: 14px;
+  border-top: 1px solid rgba(255,255,255,.1);
+  transition: all .3s;
+  -moz-transition: all .3s;
+  -webkit-transition: all .3s;
+  -o-transition: all .3s;
+}
+.sidebar_home-nav-item.active,
+a.sidebar_home-nav-item:hover,
+a.sidebar_home-nav-item:focus {
+  background-color: rgb(251,103,103);
+   color: black;
+}
+
+@media (min-width: 48em) {
+  .sidebar_home-item {
+    padding: 1.5rem;
+  }
+  .sidebar_home-nav-item {
+    padding-left:  1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+/* Hide the sidebar_home checkbox that we toggle with `.sidebar_home-toggle` */
+.sidebar_home-checkbox {
+  position: absolute;
+  opacity: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+/* Style the `label` that we use to target the `.sidebar_home-checkbox` */
+.sidebar_home-toggle {
+  position: absolute;
+  top:  .8rem;
+  left: 1rem;
+  display: block;
+  padding: .75rem .75rem;
+  color: #505050;
+  background-color: #fff;
+  border-radius: .25rem;
+  cursor: pointer;
+}
+
+.sidebar_home-toggle:before {
+  display: inline-block;
+  width: 1rem;
+  height: .75rem;
+  content: "";
+  background-image: -webkit-linear-gradient(to bottom, #555, #555 20%, #fff 20%, #fff 40%, #555 40%, #555 60%, #fff 60%, #fff 80%, #555 80%, #555 100%);
+  background-image:    -moz-linear-gradient(to bottom, #555, #555 20%, #fff 20%, #fff 40%, #555 40%, #555 60%, #fff 60%, #fff 80%, #555 80%, #555 100%);
+  background-image:     -ms-linear-gradient(to bottom, #555, #555 20%, #fff 20%, #fff 40%, #555 40%, #555 60%, #fff 60%, #fff 80%, #555 80%, #555 100%);
+  background-image:         linear-gradient(to bottom, #555, #555 20%, #fff 20%, #fff 40%, #555 40%, #555 60%, #fff 60%, #fff 80%, #555 80%, #555 100%);
+}
+
+.sidebar_home-toggle:active,
+#sidebar_home-checkbox:focus ~ .sidebar_home-toggle,
+#sidebar_home-checkbox:checked ~ .sidebar_home-toggle {
+  color: #fff;
+  background-color: #555;
+}
+
+.sidebar_home-toggle:active:before,
+#sidebar_home-checkbox:focus ~ .sidebar_home-toggle:before,
+#sidebar_home-checkbox:checked ~ .sidebar_home-toggle:before {
+  background-image: -webkit-linear-gradient(to bottom, #fff, #fff 20%, #555 20%, #555 40%, #fff 40%, #fff 60%, #555 60%, #555 80%, #fff 80%, #fff 100%);
+  background-image:    -moz-linear-gradient(to bottom, #fff, #fff 20%, #555 20%, #555 40%, #fff 40%, #fff 60%, #555 60%, #555 80%, #fff 80%, #fff 100%);
+  background-image:     -ms-linear-gradient(to bottom, #fff, #fff 20%, #555 20%, #555 40%, #fff 40%, #fff 60%, #555 60%, #555 80%, #fff 80%, #fff 100%);
+  background-image:         linear-gradient(to bottom, #fff, #fff 20%, #555 20%, #555 40%, #fff 40%, #fff 60%, #555 60%, #555 80%, #fff 80%, #fff 100%);
+}
+
+@media (min-width: 30.1em) {
+  .sidebar_home-toggle {
+    position: fixed;
+  }
+}
+
+@media print {
+  .sidebar_home-toggle {
+    display: none;
+  }
+}
+
+/* Slide effect
+ *
+ * Handle the sliding effects of the sidebar_home and content in one spot, seperate
+ * from the default styles.
+ *
+ * As an a heads up, we don't use `transform: translate3d()` here because when
+ * mixed with `position: fixed;` for the sidebar_home toggle, it creates a new
+ * containing block. Put simply, the fixed sidebar_home toggle behaves like
+ * `position: absolute;` when transformed.
+ *
+ * Read more about it at http://meyerweb.com/eric/thoughts/2011/09/12/.
+ */
+
+.wrap,
+.sidebar_home,
+.sidebar_home-toggle {
+  -webkit-backface-visibility: hidden;
+      -ms-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+.wrap,
+.sidebar_home-toggle {
+  -webkit-transition: -webkit-transform .3s ease-in-out;
+          transition: transform .3s ease-in-out;
+}
+
+#sidebar_home-checkbox:checked + .sidebar_home {
+  z-index: 3;
+  visibility: visible;
+}
+#sidebar_home-checkbox:checked ~ .sidebar_home,
+#sidebar_home-checkbox:checked ~ .wrap,
+#sidebar_home-checkbox:checked ~ .sidebar_home-toggle {
+  -webkit-transform: translateX(14rem);
+      -ms-transform: translateX(14rem);
+          transform: translateX(14rem);
+}
+
+.sidebar_home .ico{
+height:1.75em;
+padding:0 0.5em;
+}
