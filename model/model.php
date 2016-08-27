@@ -93,9 +93,10 @@ class People{
      * @param  string $em  emailId
      * @param  string $db  date of birth
      * @param  string $cit city
+     * @param  string $rc Referral Code
      * @return string      if null then no errors, else returns the error.
      */
-    public function validateData($n,$col,$se,$mob,$em,$db,$cit){
+    public function validateData($n,$col,$se,$mob,$em,$db,$cit,$rc){
 
         $error = null;
         if (strlen($n)<6 || strlen($n) > 40){
@@ -114,6 +115,8 @@ class People{
             $error = "Invalid D.O.B".$db;
         }  else if (!preg_match('/^[a-zA-Z0-9.@]*$/', $cit)) {
             $error = "Invalid City";
+        }  else if (!preg_match('/^[a-zA-Z0-9]{0,10}$/', $rc)) {
+            $error = "Invalid Referral Code";
         }
         return $error;
     }
@@ -240,11 +243,12 @@ class People{
      * @param  string $db   date of birth of user on YYYY-MM-DD format
      * @param  string $cit  City
      * @param  boolean $ca if true then registers a campus ambassador
+     * @param  string $rc   Referral Code
      * @param  MySQLi $conn database connection object
      * @return array       index 0 :- 1(success), -1(error);
      */
-    public function createUser($n,$col,$se,$mob,$em,$db,$cit,$ca,$conn){
-        $error = self::validateData($n,$col,$se,$mob,$em,$db,$cit);
+    public function createUser($n,$col,$se,$mob,$em,$db,$cit,$ca,$rc,$conn){
+        $error = self::validateData($n,$col,$se,$mob,$em,$db,$cit,$rc);
         if(isset($error)){
             $arr = array();
             $arr[]=-1;
@@ -268,7 +272,7 @@ class People{
 
         $time = time() ;
 
-        $sqlInsert = "INSERT INTO People(name,pId,college,sex,mobile,email,dob,city,feePaid,confirm) VALUES ('$n', $id, '$col', '$se', '$mob', '$em', '$db', '$cit', 0, 0)";
+        $sqlInsert = "INSERT INTO People(name,pId,college,sex,mobile,email,dob,city,refcode,feePaid,confirm) VALUES ('$n', $id, '$col', '$se', '$mob', '$em', '$db', '$cit', '$rc', 0, 0)";
 
         $result = mysqli_query($conn,$sqlInsert);
         if(!$result){
@@ -321,7 +325,7 @@ class People{
      * @return array             index 0 :- 1(success), -1(error);
      */
     public function createCampusAmbassador($name,$college,$sex,$mob,$email,$dob,$city,$address,$degree,$grad,$leader,$involement,$conn){
-        $returnArray = self::createUser($name,$college,$sex,$mob,$email,$dob,$city,true,$conn);
+        $returnArray = self::createUser($name,$college,$sex,$mob,$email,$dob,$city,"",true,$conn);
         if($returnArray[0]==-1){
             return $returnArray;
         }
@@ -473,20 +477,22 @@ class People{
         $name = $user[1]['name'];
         $emailId = $user[1]['email'];
         // mail($to,$subject,$message);
-        $message = "Hi $name,<br>You have been registered for event<b> $eveName.</b> Thank You! <br>In case you have any registration related queries feel free to contact Aditya Gupta(+918292337923) or Arindam Banerjee(+919472472543) or drop an email to <i>registration@anwesha.info</i>. You can also visit our website <i>http://2016.anwesha.info/</i> for more information.<br><br>Registration Desk<br>Anwesha 2k16";
-        $subject = "$eveName Registration Anwesha2k16";
+        $message = "Hi $name,<br>You have been registered for event<b> $eveName.</b> Thank You! <br>In case you have any registration related queries feel free to contact Aditya Gupta(+918292337923) or Arindam Banerjee(+919472472543) or drop an email to <i>registration@anwesha.info</i>. You can also visit our website <i>http://2016.anwesha.info/</i> for more information.<br><br>Registration Desk<br>Anwesha 2k17";
+        $subject = "$eveName Registration Anwesha2k17";
 
         require('resources/PHPMailer/PHPMailerAutoload.php');
+        require('emailCredential.php');
 
         $mail = new PHPMailer;
         $mail->SMTPDebug = 0;
         $mail->isSMTP();                                      // Set mailer to use SMTP
-        $mail->Host = 'lnx36.securehostdns.com';  // Specify main and backup SMTP servers
-        $mail->SMTPAuth = true;                               // Enable SMTP authentication
-        $mail->Username = 'registration@anwesha.info';                 // SMTP username
-        $mail->Password = 'anw_reg_2015_codered';                           // SMTP password
-        $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
-        $mail->Port = 465;                                    // TCP port to connect to
+        $mail->Host = MAIL_HOST;  // Specify main and backup SMTP servers
+        $mail->SMTPAuth = MAIL_SMTP_AUTH;                               // Enable SMTP authentication
+        $mail->Username = MAIL_USERNAME;                 // SMTP username
+        $mail->Password = MAIL_PASSWORD;                           // SMTP password
+        $mail->SMTPSecure = MAIL_SMTP_SECURE;                            // Enable TLS encryption, `ssl` also accepted
+        $mail->Port = MAIL_PORT;                                    // TCP port to connect to
+        
         $mail->setFrom('registration@anwesha.info', 'Anwesha Registration & Planning Team');
         $mail->addAddress($emailId, $name);     // Add a recipient
         // $mail->addAddress('ellen@example.com');               // Name is optional
@@ -500,7 +506,7 @@ class People{
 
         $mail->Subject = $subject;
         $mail->Body    = $message;
-        $mail->AltBody = "Hi $name,\nYou have been registered for event $eveName. Thank You!\nIn case you have any registration related queries feel free to contact Aditya Gupta(+918292337923) or Arindam Banerjee(+919472472543) or drop an email to registration@anwesha.info. You can also visit our website http://2016.anwesha.info/ for more information.\nRegistration Desk\nAnwesha 2k16";;
+        $mail->AltBody = "Hi $name,\nYou have been registered for event $eveName. Thank You!\nIn case you have any registration related queries feel free to contact Aditya Gupta(+918292337923) or Arindam Banerjee(+919472472543) or drop an email to registration@anwesha.info. You can also visit our website http://2017.anwesha.info/ for more information.\nRegistration Desk\nAnwesha 2k17";;
         $mail->send();
 
     }

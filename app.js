@@ -103,7 +103,7 @@
 		self.userdata = {};
 		self.user = {};
 		self.username = false;
-		this.createUser = function( name, mobile, sex, college, email, dob, city ) {
+		this.createUser = function( name, mobile, sex, college, email, dob, city, refcode ) {
 			self.userdata.name = name;
 			self.userdata.mobile = mobile;
 			self.userdata.sex = sex;
@@ -111,6 +111,7 @@
 			self.userdata.email = email;
 			self.userdata.dob = dob;
 			self.userdata.city = city;
+			self.userdata.refcode = refcode;
 			self.userdata.anwId = "";
 			return self.insertUser( self.userdata );
 		}
@@ -302,12 +303,13 @@
 		this.user.email = "Email";
 		this.user.dob = "D.O.B(YYYY-MM-DD)";
 		this.user.city = "City";
+		this.user.refcode = "Ref. Code";
 		this.user.anwId = "";
 		//this.success_msg = "You have successfully registered. Your anwesha ID is: " + this.user.anwId +". Now close this window";
 		this.submit = function() {
 			if ( this.inProgress == 0 ) {
 				this.inProgress = 1;
-				$user.createUser( self.user.name, self.user.mobile, self.user.sex, self.user.college, self.user.email, self.user.dob, self.user.city ).then(
+				$user.createUser( self.user.name, self.user.mobile, self.user.sex, self.user.college, self.user.email, self.user.dob, self.user.city, self.user.refcode ).then(
 					function( response ) {
 						if ( response.data[0] == -1 ) {
 							self.err = response.data[1];

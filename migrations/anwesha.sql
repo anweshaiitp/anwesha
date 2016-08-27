@@ -101,6 +101,7 @@ CREATE TABLE IF NOT EXISTS `People` (
   `email` varchar(60) DEFAULT NULL,
   `dob` date DEFAULT NULL,
   `city` varchar(15) DEFAULT NULL,
+  `refcode` varchar(15) DEFAULT NULL,
   `feePaid` int(4) DEFAULT NULL,
   `confirm` int(1) NOT NULL,
   `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
