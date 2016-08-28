@@ -3,11 +3,9 @@
 }
 #biglogo{
     background-image: url('images/biglogo.png');
-        background-position: center;
-       
+    background-position: center;
     width:100%;
     opacity: .7;
-    background-size: 100%;
     background-repeat: no-repeat;
     height:100%;
     position:fixed;
@@ -21,7 +19,6 @@
 #pirateboy{
     height:30%;
     position:fixed;
-    
     right:10;
     opacity:0.7;
     z-index:-1;

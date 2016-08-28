@@ -7,14 +7,18 @@
 }
  #pirateboy{
  	top:7px;
+    display:none;
 	 transform: scale(.5);
  }
- .coolk{	
+.coolk{	
     	transition: box-shadow 0.3s ease-in-out;
     
-    }.coolk:focus{
+}.coolk:focus{
     box-shadow:#FFFFFF 0 0 5px;
     background:rgba(245, 245, 245,1);
     color:#000000;
 
+}
+#biglogo{
+    background-size:auto 80%;
 }
