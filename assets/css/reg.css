@@ -1,0 +1,111 @@
+*{
+    font-family: 'Atma', cursive;
+}
+#biglogo{
+    background-image: url('images/biglogo.png');
+        background-position: center;
+       
+    width:100%;
+    opacity: .7;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:-1;
+}
+#myloader{
+    display:none;
+}
+#pirateboy{
+    height:30%;
+    position:fixed;
+    
+    right:10;
+    opacity:0.7;
+    z-index:-1;
+}
+#backg{
+    position:fixed;
+    z-index: -2;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+ background-image:url('images/hugebg.png');
+ background-size: cover;
+ background-position: center;
+    /*
+background: #2e2e2e; 
+background: -moz-radial-gradient(circle, #2e2e2e , #000000); 
+ background: -webkit-radial-gradient(circle, #2e2e2e , #000000);
+
+background: radial-gradient(circle, #2e2e2e , #000000);
+*/
+}
+#header {
+    /*text-shadow: #750f0f 0 0 65px;*/
+    margin-top: 30px;
+    text-transform: uppercase;
+    font-family: 'Exo', sans-serif !important;
+    color: #1489bb;
+}
+#genderLabel{
+    border:0px;
+
+     margin: 20px;
+     
+     cursor:pointer;
+     border-radius: 10px;
+     margin: 5px;
+     font-size: 30px;
+     padding-top: 7px;
+     padding-right: 20px;
+     padding-bottom: 7px;
+     padding-left: 20px;
+            
+     margin-left: auto;
+     margin-right: auto; 
+}
+.inputbabe{
+	 margin: 20px;
+     border-radius:10px;
+     
+     cursor:pointer;
+     border-radius: 10px;
+     margin: 5px;
+     font-size: 30px;
+     padding-top: 7px;
+     padding-right: 20px;
+     padding-bottom: 7px;
+     padding-left: 20px;
+         
+     border:0px;
+     box-shadow:#FFFFFF 0 0 5px;     
+     margin-left: auto;
+     margin-right: auto; 
+}
+.coolk{
+    color: cornsilk;
+    background: rgba(0, 0, 0, 0.7);
+    
+     
+}
+.cooll{
+    background:#cc3333;
+    color:#000000;
+}
+#mainForm{
+    
+    border-radius: 15px;
+    margin-top: 20px;
+    color:white;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    background: rgba(20, 66, 106, 0.29);
+     border:0px;
+     box-shadow:#000000 0 0 20px;
+     
+}
+

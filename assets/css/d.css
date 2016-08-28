@@ -1,0 +1,23 @@
+#mainForm{
+	width:500px !important;
+	
+
+}
+.inputbabe{
+    		
+    	}
+    .coolk{	
+    	transition: background 0.3s ease-in-out,color 0.3s ease-in-out;
+    
+    }.coolk:focus{
+    background:rgba(245, 245, 245,1);
+    color:#000000;
+    outline:none;
+
+}
+  #header{
+  	font-size: 90px;
+  }
+ #pirateboy{
+ 	bottom:10;
+ }

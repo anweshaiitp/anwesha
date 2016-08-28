@@ -25,6 +25,8 @@ $base = '@^'. $mat[1] ;
 
 if (preg_match($base . '$@', $url)) {
 	require ('view/index.html');
+} elseif (preg_match($base . 'register/$@', $url)) {
+	require ('view/userRegistrationFront.php');
 } elseif ( preg_match($base .'cssLoader/home/?$@', $url, $match ) ) {
 	require ('controller/cssLoader.php');
 } elseif ( preg_match($base .'events/?$@', $url, $match ) ) {
