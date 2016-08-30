@@ -25,8 +25,8 @@ $base = '@^'. $mat[1] ;
 
 if (preg_match($base . '$@', $url)) {
 	require ('view/index.html');
-} elseif (preg_match($base . 'register/$@', $url)) {
-	require ('view/userRegistrationFront.php');
+} elseif (preg_match($base . 'register/?$@', $url)) {
+	require ('view/userRegistration.php');
 } elseif ( preg_match($base .'cssLoader/home/?$@', $url, $match ) ) {
 	require ('controller/cssLoader.php');
 } elseif ( preg_match($base .'events/?$@', $url, $match ) ) {
@@ -53,12 +53,6 @@ if (preg_match($base . '$@', $url)) {
 	require ('controller/changePassword.php');
 } elseif (preg_match($base . 'resendEmail/([0-9]{4})/?$@', $url, $match)) {
 	require ('controller/resendVerification.php');
-} elseif (preg_match($base . 'gallery.html@', $url)) {
-	require ('gallery.html');
-} elseif (preg_match($base . 'campusambassador@', $url)) {
-	require ('campusambassador/campusambassador.php');
-} elseif (preg_match($base . 'registration@', $url)) {
-	require ('registration.html');
 } else {
 	http_response_code(404);
 	die('invalid url ' . $url);

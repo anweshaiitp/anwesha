@@ -2,11 +2,11 @@
 <head>
 	<title>Registration</title>
 	<meta charset="utf-8">
-	<link rel="shortcut icon" href="../favicon.ico">
+	<link rel="shortcut icon" href="favicon.ico">
  	<meta name="theme-color" content="#16627a">
- 	<link rel="stylesheet" href="../assets/css/reg.css" />
- 	<link rel="stylesheet" media="only screen and (min-width: 995px)" href="../assets/css/d.css" />
- 	<link rel="stylesheet" media="only screen and (max-width: 994px)" href="../assets/css/m.css" />
+ 	<link rel="stylesheet" href="assets/css/reg.css" />
+ 	<link rel="stylesheet" media="only screen and (min-width: 995px)" href="assets/css/d.css" />
+ 	<link rel="stylesheet" media="only screen and (max-width: 994px)" href="assets/css/m.css" />
  	<meta name="viewport" content="width=device-width, initial-scale=1">
  	<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js'></script>
  	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
@@ -77,7 +77,7 @@
 
 				//ajax send
 				if(nr!=1){$("#myloader").fadeIn();
-				$.post("../user/register/User/",
+				$.post("user/register/User/",
     						{        						
        						name: name,
         					email: email,
@@ -92,7 +92,7 @@
     						function(data, status){
         					//alert("Data: " + data + "\nStatus: " + status);
         					if(status=='success'){$("#myloader").fadeOut();
-        						if(data='1,[object Object]'){
+        						if(data=='1,[object Object]'){
         							$("#mainForm").html('<h1>Registered!</h1>An activation link has been sent to '+ email+'<br>');
         							$("#mainForm").css('background','#5FAB22');
         						}else{
@@ -161,7 +161,7 @@
 
 <center>
 <div id="backg"></div>
-<h1 id="header">Registration</h1><img src="../images/reg/ajax-loader.gif" width="30px" id="myloader">
+<h1 id="header">Registration</h1><img src="images/reg/ajax-loader.gif" width="30px" id="myloader">
 		<div id="mainForm">
 			
 			<form   action="javascript:">
@@ -174,21 +174,24 @@
 						<option value="n"  selected>Select</option>
     					<option value="M">Male</option>
     					<option value="F">Female</option>
-    					<option value="o">Other</option>    
-  				</select><br>
+    			</select><br>
   				
 				<input type="text" class="inputbabe coolk" data="City" value="City" id="city" style="text-transform: capitalize">
 				<input type="text" class="inputbabe coolk" data="Reference Code"
-				 value="<?PHP if(isset($_GET['refid'])){echo $_GET['refid'].'" disabled';}
-				 		else{echo'Reference Code"';}?>
-				  id="refid" >
+				 placeholder="Reference Code" value=
+				 <?php 
+				 		if(isset($_GET['refid']))
+				 			echo '"'.$_GET['refid'].'" disabled';
+				 		else
+				 			echo '""';
+				 ?> id="refid" >
 				  <br>
 				<button id="submit" class="inputbabe">Register!</button>
 		</form>
 		</div>
 	
 </center>
-<img src="../images/reg/pirate.png" id="pirateboy">
+<img src="images/reg/pirate.png" id="pirateboy">
 
 <div id="biglogo"></div>
 </body>
