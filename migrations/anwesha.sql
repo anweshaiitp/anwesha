@@ -155,7 +155,8 @@ ALTER TABLE `LoginTable`
 -- Indexes for table `People`
 --
 ALTER TABLE `People`
-  ADD PRIMARY KEY (`pId`);
+  ADD PRIMARY KEY (`pId`),
+  ADD UNIQUE (`email`);
 
 --
 -- Indexes for table `Registration`
