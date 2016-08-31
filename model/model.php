@@ -363,6 +363,7 @@ class People{
         $subject = "Email Verification, Anwesha2k16";
 
         require('resources/PHPMailer/PHPMailerAutoload.php');
+        require('emailCredential.php');
 
         $mail = new PHPMailer;
 
@@ -373,12 +374,12 @@ class People{
         $mail->SMTPDebug = 0;
 
         $mail->isSMTP();                                      // Set mailer to use SMTP
-        $mail->Host = 'lnx36.securehostdns.com';  // Specify main and backup SMTP servers
-        $mail->SMTPAuth = true;                               // Enable SMTP authentication
-        $mail->Username = 'registration@anwesha.info';                 // SMTP username
-        $mail->Password = 'anw_reg_2015_codered';                           // SMTP password
-        $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
-        $mail->Port = 465;                                    // TCP port to connect to
+	$mail->Host = MAIL_HOST;  // Specify main and backup SMTP servers
+        $mail->SMTPAuth = MAIL_SMTP_AUTH;                               // Enable SMTP authentication
+        $mail->Username = MAIL_USERNAME;                 // SMTP username
+        $mail->Password = MAIL_PASSWORD;                           // SMTP password
+        $mail->SMTPSecure = MAIL_SMTP_SECURE;                            // Enable TLS encryption, `ssl` also accepted
+        $mail->Port = MAIL_PORT;                                    // TCP port to connect to
 
         $mail->setFrom('registration@anwesha.info', 'Anwesha Registration & Planning Team');
         $mail->addAddress($emailId, $name);     // Add a recipient
@@ -867,6 +868,7 @@ class Auth
         $subject = "AnweshaID Password, Anwesha2k16";
 
         require('resources/PHPMailer/PHPMailerAutoload.php');
+	require('emailCredential.php');
 
         $mail = new PHPMailer;
 
@@ -877,13 +879,12 @@ class Auth
         $mail->SMTPDebug = 0;
 
         $mail->isSMTP();                                      // Set mailer to use SMTP
-        $mail->Host = 'lnx36.securehostdns.com';  // Specify main and backup SMTP servers
-        $mail->SMTPAuth = true;                               // Enable SMTP authentication
-        $mail->Username = 'registration@anwesha.info';                 // SMTP username
-        $mail->Password = 'anw_reg_2015_codered';                           // SMTP password
-        $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
-        $mail->Port = 465;                                    // TCP port to connect to
-
+        $mail->Host = MAIL_HOST;  // Specify main and backup SMTP servers
+        $mail->SMTPAuth = MAIL_SMTP_AUTH;                               // Enable SMTP authentication
+        $mail->Username = MAIL_USERNAME;                 // SMTP username
+        $mail->Password = MAIL_PASSWORD;                           // SMTP password
+        $mail->SMTPSecure = MAIL_SMTP_SECURE;                            // Enable TLS encryption, `ssl` also accepted
+        $mail->Port = MAIL_PORT;                                    // TCP port to connect to
         $mail->setFrom('registration@anwesha.info', 'Anwesha Registration & Planning Team');
         $mail->addAddress($emailId, $name);     // Add a recipient
         // $mail->addAddress('ellen@example.com');               // Name is optional

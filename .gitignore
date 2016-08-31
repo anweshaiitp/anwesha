@@ -1,2 +1,4 @@
 /cache/*.html
 .htaccess
+emailCredential.php
+dbConnection.php
