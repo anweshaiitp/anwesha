@@ -276,7 +276,7 @@ class People{
 
         $result = mysqli_query($conn,$sqlInsert);
         if(!$result){
-            $Err = 'Problem in Creating new registration - Maybe mobile number already in use.';
+            $Err = 'Problem in Creating new registration - Maybe mobile number or email id already in use.';
             $arr = array();
             $arr[]=-1;
             $arr[]=$Err;
@@ -355,12 +355,13 @@ class People{
      */
     public function Email($emailId,$name,$link,$id)
     {
-        $baseURL = 'http://2016.anwesha.info/';
+        require('defines.php');
+        $baseURL = $ANWESHA_URL;
         $baseURL = $baseURL . 'verifyEmail/User/';
         $link = $baseURL . '' . $id . '/' . $link;
         // mail($to,$subject,$message);
-        $message = "Hi $name,<br>Thank you for registering for Anwesha2k16. Your Registered Id is : <b>ANW$id</b>. To complete your registration, you need to verify your email account. Click <a href = \"$link\">here</a> for email verification.<br>In case you have any registration related queries feel free to contact Aditya Gupta(+918292337923) or Arindam Banerjee(+919472472543) or drop an email to <i>registration@anwesha.info</i>. You can also visit our website <i>http://2016.anwesha.info/</i> for more information.<br>Thank You.<br>Registration Desk<br>Anwesha 2k16";
-        $subject = "Email Verification, Anwesha2k16";
+        $message = "Hi $name,<br>Thank you for registering for $ANWESHA_YEAR. Your Registered Id is : <b>ANW$id</b>. To complete your registration, you need to verify your email account. Click <a href = \"$link\">here</a> for email verification.<br>In case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to <i>$ANWESHA_REG_EMAIL</i>. You can also visit our website <i>$ANWESHA_URL</i> for more information.<br>Thank You.<br>Registration Desk<br>$ANWESHA_YEAR";
+        $subject = "Email Verification, $ANWESHA_YEAR";
 
         require('resources/PHPMailer/PHPMailerAutoload.php');
         require('emailCredential.php');
@@ -374,19 +375,19 @@ class People{
         $mail->SMTPDebug = 0;
 
         $mail->isSMTP();                                      // Set mailer to use SMTP
-	$mail->Host = MAIL_HOST;  // Specify main and backup SMTP servers
+        $mail->Host = MAIL_HOST;  // Specify main and backup SMTP servers
         $mail->SMTPAuth = MAIL_SMTP_AUTH;                               // Enable SMTP authentication
         $mail->Username = MAIL_USERNAME;                 // SMTP username
         $mail->Password = MAIL_PASSWORD;                           // SMTP password
         $mail->SMTPSecure = MAIL_SMTP_SECURE;                            // Enable TLS encryption, `ssl` also accepted
         $mail->Port = MAIL_PORT;                                    // TCP port to connect to
 
-        $mail->setFrom('registration@anwesha.info', 'Anwesha Registration & Planning Team');
+        $mail->setFrom($ANWESHA_REG_EMAIL, 'Anwesha Registration & Planning Team');
         $mail->addAddress($emailId, $name);     // Add a recipient
         // $mail->addAddress('ellen@example.com');               // Name is optional
-        $mail->addReplyTo('registration@anwesha.info', 'Registration & Planning Team');
+        $mail->addReplyTo($ANWESHA_REG_EMAIL, 'Registration & Planning Team');
         // $mail->addCC('guptaaditya.13@gmail.com');
-        // $mail->addBCC('registration@anwesha.info');
+        // $mail->addBCC($ANWESHA_YEAR);
 
         // $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
         // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
@@ -394,7 +395,7 @@ class People{
 
         $mail->Subject = $subject;
         $mail->Body    = $message;
-        $mail->AltBody = "Hi $name,\nThank you for registering for Anwesha2k16. Your Registered Id is : ANW$id. To complete your registration, you need to verify your email account. Click here for email verification link: $link .\nIn case you have any registration related queries feel free to contact Aditya Gupta(+918292337923) or Arindam Banerjee(+919472472543) or drop an email to registration@anwesha.info. You can also visit our website http://2016.anwesha.info/ for more information.\nThank You.\nRegistration Desk\nAnwesha 2k16";;
+        $mail->AltBody = "Hi $name,\nThank you for registering for $ANWESHA_YEAR. Your Registered Id is : ANW$id. To complete your registration, you need to verify your email account. Click here for email verification link: $link .\nIn case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to <i>$ANWESHA_REG_EMAIL</i>. You can also visit our website $ANWESHA_URL for more information.\nThank You.\nRegistration Desk\n$ANWESHA_YEAR";;
         $mail->send();
         // if(!$mail->send()) {
         //     echo 'Message could not be sent.';
@@ -470,6 +471,7 @@ class People{
 
     public function sendEventRegistrationEmail($userID,$eveID,$conn)
     {
+        require('defines.php');
         $user = People::getUser($userID,$conn);
         $sql = "SELECT eveName FROM Events WHERE eveId = $eveID";
         $result = mysqli_query($conn,$sql);
@@ -478,8 +480,8 @@ class People{
         $name = $user[1]['name'];
         $emailId = $user[1]['email'];
         // mail($to,$subject,$message);
-        $message = "Hi $name,<br>You have been registered for event<b> $eveName.</b> Thank You! <br>In case you have any registration related queries feel free to contact Aditya Gupta(+918292337923) or Arindam Banerjee(+919472472543) or drop an email to <i>registration@anwesha.info</i>. You can also visit our website <i>http://2016.anwesha.info/</i> for more information.<br><br>Registration Desk<br>Anwesha 2k17";
-        $subject = "$eveName Registration Anwesha2k17";
+        $message = "Hi $name,<br>You have been registered for event<b> $eveName.</b> Thank You! <br>In case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to <i>$ANWESHA_YEAR</i>. You can also visit our website <i>$ANWESHA_URL</i> for more information.<br><br>Registration Desk<br>$ANWESHA_YEAR";
+        $subject = "$eveName Registration $ANWESHA_YEAR";
 
         require('resources/PHPMailer/PHPMailerAutoload.php');
         require('emailCredential.php');
@@ -494,12 +496,12 @@ class People{
         $mail->SMTPSecure = MAIL_SMTP_SECURE;                            // Enable TLS encryption, `ssl` also accepted
         $mail->Port = MAIL_PORT;                                    // TCP port to connect to
         
-        $mail->setFrom('registration@anwesha.info', 'Anwesha Registration & Planning Team');
+        $mail->setFrom($ANWESHA_YEAR, 'Anwesha Registration & Planning Team');
         $mail->addAddress($emailId, $name);     // Add a recipient
         // $mail->addAddress('ellen@example.com');               // Name is optional
-        $mail->addReplyTo('registration@anwesha.info', 'Registration & Planning Team');
+        $mail->addReplyTo($ANWESHA_YEAR, 'Registration & Planning Team');
         // $mail->addCC('guptaaditya.13@gmail.com');
-        // $mail->addBCC('registration@anwesha.info');
+        // $mail->addBCC($ANWESHA_YEAR);
 
         // $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
         // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
@@ -507,7 +509,7 @@ class People{
 
         $mail->Subject = $subject;
         $mail->Body    = $message;
-        $mail->AltBody = "Hi $name,\nYou have been registered for event $eveName. Thank You!\nIn case you have any registration related queries feel free to contact Aditya Gupta(+918292337923) or Arindam Banerjee(+919472472543) or drop an email to registration@anwesha.info. You can also visit our website http://2017.anwesha.info/ for more information.\nRegistration Desk\nAnwesha 2k17";;
+        $mail->AltBody = "Hi $name,\nYou have been registered for event $eveName. Thank You!\nIn case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to $ANWESHA_YEAR. You can also visit our website http://2017.anwesha.info/ for more information.\nRegistration Desk\nAnwesha 2k17";;
         $mail->send();
 
     }
@@ -864,8 +866,9 @@ class Auth
      */
     public function passEmail($emailId,$name,$randPass,$id) {
         // mail($to,$subject,$message);
-        $message = "Hi $name,<br>Thank you for registering for Anwesha2k16. Your Registered Id is : <b>ANW$id</b>.<br>Your temporary auto generated password is : <b>$randPass</b><br>You can change the password after login.<br>In case you have any registration related queries feel free to contact Aditya Gupta(+918292337923) or Arindam Banerjee(+919472472543) or drop an email to <i>registration@anwesha.info</i>. You can also visit our website <i>http://2016.anwesha.info/</i> for more information.<br>Thank You.<br>Registration Desk<br>Anwesha 2k16";
-        $subject = "AnweshaID Password, Anwesha2k16";
+        require('defines.php');
+        $message = "Hi $name,<br>Thank you for registering for $ANWESHA_YEAR. Your Registered Id is : <b>ANW$id</b>.<br>Your temporary auto generated password is : <b>$randPass</b><br>You can change the password after login.<br>In case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to <i>$ANWESHA_YEAR</i>. You can also visit our website <i>$ANWESHA_URL</i> for more information.<br>Thank You.<br>Registration Desk<br>$ANWESHA_YEAR";
+        $subject = "AnweshaID Password, $ANWESHA_YEAR";
 
         require('resources/PHPMailer/PHPMailerAutoload.php');
 	require('emailCredential.php');
@@ -885,12 +888,12 @@ class Auth
         $mail->Password = MAIL_PASSWORD;                           // SMTP password
         $mail->SMTPSecure = MAIL_SMTP_SECURE;                            // Enable TLS encryption, `ssl` also accepted
         $mail->Port = MAIL_PORT;                                    // TCP port to connect to
-        $mail->setFrom('registration@anwesha.info', 'Anwesha Registration & Planning Team');
+        $mail->setFrom($ANWESHA_YEAR, 'Anwesha Registration & Planning Team');
         $mail->addAddress($emailId, $name);     // Add a recipient
         // $mail->addAddress('ellen@example.com');               // Name is optional
-        $mail->addReplyTo('registration@anwesha.info', 'Registration & Planning Team');
+        $mail->addReplyTo($ANWESHA_YEAR, 'Registration & Planning Team');
         // $mail->addCC('guptaaditya.13@gmail.com');
-        // $mail->addBCC('registration@anwesha.info');
+        // $mail->addBCC($ANWESHA_YEAR);
 
         // $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
         // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
@@ -898,7 +901,7 @@ class Auth
 
         $mail->Subject = $subject;
         $mail->Body    = $message;
-        $mail->AltBody = "Hi $name,\nThank you for registering for Anwesha2k16. Your Registered Id is : ANW$id.\nYour temporary auto generated password is : $randPass\nYou can change the password after loging in.\nIn case you have any registration related queries feel free to contact Aditya Gupta(+918292337923) or Arindam Banerjee(+919472472543) or drop an email to registration@anwesha.info. You can also visit our website http://2016.anwesha.info/ for more information.\nThank You.\nRegistration & Planning Team\nAnwesha 2k16";
+        $mail->AltBody = "Hi $name,\nThank you for registering for $ANWESHA_YEAR. Your Registered Id is : ANW$id.\nYour temporary auto generated password is : $randPass\nYou can change the password after loging in.\nIn case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to $ANWESHA_YEAR. You can also visit our website $ANWESHA_URL for more information.\nThank You.\nRegistration & Planning Team\n$ANWESHA_YEAR";
         $mail->send();
         // if(!$mail->send()) {
         //     echo 'Message could not be sent.';

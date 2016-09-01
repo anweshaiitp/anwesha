@@ -96,9 +96,10 @@
         						if(String(data).charAt(0)=='1'){
         							$("#mainForm").html('<h1>Registered!</h1>An activation link has been sent to '+ email+'<br>');
         							$("#mainForm").css('background','#5FAB22');
+        							$("#error").fadeOut();
         						}else{
         							$("#error").fadeIn();
-        							$("#error").html('<h3>ERROR</h3><br>'+data);
+        							$("#error").html('<h5>ERROR</h5><br>'+data);
 								}
      
         					}else{$("#myloader").fadeOut();
@@ -164,7 +165,7 @@
 <center>
 <div id="backg"></div>
 <h1 id="header">Registration</h1><img src="images/reg/ajax-loader.gif" width="30px" id="myloader">
-		<div id="error" style="display:none;box-radius:5px;box-shadow:#000000 0 0 10px;background:#6fce2d;padding:20px;font-size:30px;margin:10px">An error occured</div>
+		<div id="error" style="display:none;box-radius:5px;box-shadow:#000000 0 0 10px;background:#6fce2d;padding:20px;font-size:20px;margin:10px">An error occured</div>
 		<div id="mainForm">
 			
 			<form   action="javascript:">
