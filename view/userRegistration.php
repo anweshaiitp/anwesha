@@ -40,6 +40,7 @@
 	  				}
 	}
 		$(document).ready(function(){ 
+			$("#error").css('width',$("#mainForm").width());
 			$("#datepicker").keydown(function(e){e.preventDefault();});
 			$("#submit").click(function(){
 				$(".inputbabe").removeClass("cooll");
@@ -92,18 +93,23 @@
     						function(data, status){
         					//alert("Data: " + data + "\nStatus: " + status);
         					if(status=='success'){$("#myloader").fadeOut();
-        						if(data=='1,[object Object]'){
+        						if(String(data).charAt(0)=='1'){
         							$("#mainForm").html('<h1>Registered!</h1>An activation link has been sent to '+ email+'<br>');
         							$("#mainForm").css('background','#5FAB22');
         						}else{
         							$("#mainForm").css('background','rgba(162, 29, 29,0.5)');
-        							$("#mainForm").html('<h1>Error!</h1> '+ data+'<br>');
-        						}
+        							$("#error").html('<h3>ERROR</h3><br>'+data);
+								}
         						
         						
         						
          					
-        					}
+        					}else{$("#myloader").fadeOut();
+
+        							$("#error").fadeIn();
+        							$("#error").html('An error occured.<br> Please try again.');
+
+        						}
     			});}//end of if condition and post method
 				nr=0;
 			});
@@ -162,6 +168,7 @@
 <center>
 <div id="backg"></div>
 <h1 id="header">Registration</h1><img src="images/reg/ajax-loader.gif" width="30px" id="myloader">
+		<div id="error" style="display:none;box-radius:5px;box-shadow:#000000 0 0 10px;background:#6fce2d;padding:20px;font-size:30px;margin:10px">An error occured</div>
 		<div id="mainForm">
 			
 			<form   action="javascript:">
