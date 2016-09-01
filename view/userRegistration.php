@@ -97,15 +97,11 @@
         							$("#mainForm").html('<h1>Registered!</h1>An activation link has been sent to '+ email+'<br>');
         							$("#mainForm").css('background','#5FAB22');
         						}else{
-        							$("#mainForm").css('background','rgba(162, 29, 29,0.5)');
+        							$("#error").fadeIn();
         							$("#error").html('<h3>ERROR</h3><br>'+data);
 								}
-        						
-        						
-        						
-         					
+     
         					}else{$("#myloader").fadeOut();
-
         							$("#error").fadeIn();
         							$("#error").html('An error occured.<br> Please try again.');
 
