@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,12 +35,12 @@
 	</style>
 </head>
 <body>
-<a href="http://201.anwesha.info"><img id="anwlogo" src="http://2017.anwesha.info/images/logo-icon.png"></a>
-<a href="http://iitp.ac.in"><img id="iitplogo" src="http://2017.anwesha.info/images/80x80xiitp_logo.png.pagespeed.ic.lT8byNYLqW.png"></a>
+<a href="http://2017.anwesha.info"><img id="anwlogo" src="http://2017.anwesha.info/images/logo-icon.png"></a>
+<a href="http://iitp.ac.in"><img id="iitplogo" src="http://www.iitp.ac.in/images/logo_about.jpg"></a>
 <div class="box">
 <?php 
 if ($verification[0] == 1){
-	echo "Your registration for Anwesha2k17 has been successfully completed! <br> Your automatically generated password : " . $verification[1];
+	echo "Your registration for Anwesha2k17 has been successfully completed! <br> Your automatically generated password : " . $verification[1] . "<br> Please store it somewhere safe.";
 } else {
 	echo "Your registration for Anwesha2k17 was not successfull. If you think this is an error, contact the administrator. " . $verification[1];
 	} ?>

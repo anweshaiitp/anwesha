@@ -83,6 +83,7 @@ CREATE TABLE IF NOT EXISTS `Grpids` (
 CREATE TABLE IF NOT EXISTS `LoginTable` (
   `pId` int(4) DEFAULT NULL,
   `password` char(40) DEFAULT NULL,
+  `privateKey` char(40) DEFAULT NULL,
   `csrfToken` char(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
