@@ -336,9 +336,9 @@ class People{
         $grad = mysqli_real_escape_string($conn,$grad);
         $leader = mysqli_real_escape_string($conn,$leader);
         $involvement = mysqli_real_escape_string($conn,$involvement);
-      
+
         $pid = $returnArray[1]['pId'];
-        $sql = "INSERT INTO `anwesha`.`CampusAmberg` (`pId`, `refKey`, `address`, `degree`, `grad`, `leader`, `involvement`) VALUES ($pid, '0', '$address', '$degree', '$grad', '$leader', '$involvement')";
+        $sql = "INSERT INTO `CampusAmberg` (`pId`, `refKey`, `address`, `degree`, `grad`, `leader`, `involvement`) VALUES ($pid, '0', '$address', '$degree', '$grad', '$leader', '$involvement')";
 
         $result = mysqli_query($conn, $sql);
         if(!$result){
