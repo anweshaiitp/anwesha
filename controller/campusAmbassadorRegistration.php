@@ -3,6 +3,8 @@ require('model/model.php');
 require('dbConnection.php');
 
 $name = null;
+$refcode = "";
+
 if(isset($_POST['name']) && !empty($_POST['name'])){
 	$name = $_POST['name'];	
 } else {
@@ -146,8 +148,12 @@ if(isset($_POST['involvement']) && !empty($_POST['involvement'])){
 	die();
 }
 
+if(isset($_POST['referalcode'])) {
+	$refcode = $_POST['referalcode'];
+}
+
 $conn = mysqli_connect(SERVER_ADDRESS,USER_NAME,PASSWORD,DATABASE);
-$result = People::createCampusAmbassador($name,$college,$sex,$mobile,$email,$dob,$city,$address,$degree,$graduation,$responsibility,$involvement,$conn);
+$result = People::createCampusAmbassador($name,$college,$sex,$mobile,$email,$dob,$city,$address,$degree,$graduation,$responsibility,$involvement,$refcode,$conn);
 mysqli_close($conn);
 header('Content-type: application/json');
 echo json_encode($result);

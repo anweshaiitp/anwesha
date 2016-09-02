@@ -99,7 +99,7 @@ class People{
     public function validateData($n,$col,$se,$mob,$em,$db,$cit,$rc){
 
         $error = null;
-        if (strlen($n)<6 || strlen($n) > 40){
+        if (strlen($n)<4 || strlen($n) > 40){
             $error = 'Username is too long or too short';
         }  else if (!preg_match('/^[a-zA-Z0-9.\s]*$/', $n)) {
             $error = "Invalid Name";
@@ -115,8 +115,8 @@ class People{
             $error = "Invalid D.O.B".$db;
         }  else if (!preg_match('/^[a-zA-Z0-9.@]*$/', $cit)) {
             $error = "Invalid City";
-        }  else if (!preg_match('/^[a-zA-Z0-9]{0,10}$/', $rc)) {
-            $error = "Invalid Referral Code";
+        }  else if (!preg_match('/^([0-9]{4}|)$/', trim($rc))) {
+            $error = "Invalid Referral $rc Code";
         }
         return $error;
     }
@@ -320,18 +320,25 @@ class People{
      * @param  string $degree     Degree (B.Tech. etc.)
      * @param  int $grad       Graduation Year
      * @param  string $leader     Response for leaderShip in college
-     * @param  string $involement Response for participation in anwesha in the past
+     * @param  string $involvement Response for participation in anwesha in the past
+     * @param  string $rc         RefferalCode
      * @param  MySQLi $conn       database connection object
      * @return array             index 0 :- 1(success), -1(error);
      */
-    public function createCampusAmbassador($name,$college,$sex,$mob,$email,$dob,$city,$address,$degree,$grad,$leader,$involement,$conn){
-        $returnArray = self::createUser($name,$college,$sex,$mob,$email,$dob,$city,"",true,$conn);
+    public function createCampusAmbassador($name,$college,$sex,$mob,$email,$dob,$city,$address,$degree,$grad,$leader,$involvement,$rc,$conn){
+        $returnArray = self::createUser($name,$college,$sex,$mob,$email,$dob,$city,true,$rc,$conn);
         if($returnArray[0]==-1){
             return $returnArray;
         }
-
+        // Escaping String
+        $address = mysqli_real_escape_string($conn,$address);
+        $degree = mysqli_real_escape_string($conn,$degree);
+        $grad = mysqli_real_escape_string($conn,$grad);
+        $leader = mysqli_real_escape_string($conn,$leader);
+        $involvement = mysqli_real_escape_string($conn,$involvement);
+      
         $pid = $returnArray[1]['pId'];
-        $sql = "INSERT INTO `anwesha`.`CampusAmberg` (`pId`, `refKey`, `address`, `degree`, `grad`, `leader`, `involvement`) VALUES ($pid, '0', '$address', '$degree', $grad, '$leader', '$involvement')";
+        $sql = "INSERT INTO `anwesha`.`CampusAmberg` (`pId`, `refKey`, `address`, `degree`, `grad`, `leader`, `involvement`) VALUES ($pid, '0', '$address', '$degree', '$grad', '$leader', '$involvement')";
 
         $result = mysqli_query($conn, $sql);
         if(!$result){

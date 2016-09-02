@@ -4,9 +4,9 @@
 	<meta charset="utf-8">
 	<link rel="shortcut icon" href="favicon.ico">
  	<meta name="theme-color" content="#16627a">
- 	<link rel="stylesheet" href="assets/css/reg.css" />
- 	<link rel="stylesheet" media="only screen and (min-width: 995px)" href="assets/css/d.css" />
- 	<link rel="stylesheet" media="only screen and (max-width: 994px)" href="assets/css/m.css" />
+ 	<link rel="stylesheet" href="../assets/css/reg.css" />
+ 	<link rel="stylesheet" media="only screen and (min-width: 995px)" href="../assets/css/d.css" />
+ 	<link rel="stylesheet" media="only screen and (max-width: 994px)" href="../assets/css/m.css" />
  	<meta name="viewport" content="width=device-width, initial-scale=1">
  	<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js'></script>
  	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
@@ -52,7 +52,7 @@
 				var dob=$("#datepicker").val();
 				var sex=$("#gender").val();
 				var city=$("#city").val();
-				var refid='';
+				var refid=$("#refcode").val();
 				if(name=='' || name== null || name==$("#name").attr('data')){nr=1;
 					$("#name").removeClass("coolk");
 	  				$("#name").addClass("cooll");}
@@ -74,7 +74,6 @@
 	  			if(city=='' || city== null || city==$("#city").attr('data')){nr=1;
 					$("#city").removeClass("coolk");
 	  				$("#city").addClass("cooll");}	
-	  			if($("#refcode").val()==$("#refcode").attr('data') || $("#refcode").val()=='' || $("#refcode").val()==null){ refid=null }else{refid=$("#refid").val()}
 
 				//ajax send
 				if(nr!=1){$("#myloader").fadeIn();
@@ -164,7 +163,7 @@
 
 <center>
 <div id="backg"></div>
-<h1 id="header">Registration</h1><img src="images/reg/ajax-loader.gif" width="30px" id="myloader">
+<h1 id="header">Registration</h1><img src="../images/reg/ajax-loader.gif" width="30px" id="myloader">
 		<div id="error" style="display:none;box-radius:5px;box-shadow:#000000 0 0 10px;background:#6fce2d;padding:20px;font-size:20px;margin:10px">An error occured</div>
 		<div id="mainForm">
 			
@@ -181,21 +180,21 @@
     			</select><br>
   				
 				<input type="text" class="inputbabe coolk" data="City" value="City" id="city" style="text-transform: capitalize">
-				<input type="text" class="inputbabe coolk" data="Reference Code"
+				<input type="text" class="inputbabe coolk"
 				 placeholder="Reference Code" value=
 				 <?php 
-				 		if(isset($_GET['refid']))
-				 			echo '"'.$_GET['refid'].'" disabled';
+				 		if(isset($match[1]) && !empty($match[1]))
+				 			echo '"'.$match[1].'" disabled';
 				 		else
 				 			echo '""';
-				 ?> id="refid" >
+				 ?> id="refcode" >
 				  <br>
 				<button id="submit" class="inputbabe">Register!</button>
 		</form>
 		</div>
 	
 </center>
-<img src="images/reg/pirate.png" id="pirateboy">
+<img src="../images/reg/pirate.png" id="pirateboy">
 
 <div id="biglogo"></div>
 </body>
