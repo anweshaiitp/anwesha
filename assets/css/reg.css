@@ -1,6 +1,9 @@
 *{
     font-family: 'Atma', cursive;
 }
+body{
+	
+}
 #biglogo{
     background-image: url('images/biglogo.png');
     background-position: center;
