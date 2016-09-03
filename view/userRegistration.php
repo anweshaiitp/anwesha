@@ -77,7 +77,7 @@
 
 				//ajax send
 				if(nr!=1){$("#myloader").fadeIn();
-				$.post("user/register/User/",
+				$.post("../user/register/User/",
     						{        						
        						name: name,
         					email: email,

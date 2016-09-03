@@ -1,12 +1,38 @@
-.container{
-	display:block;
-	margin:auto;
-	width:75%;
-	background: url(../images/old-paper-lowres.jpg) no-repeat center center; 
+*{
+	font-size:30px !important;
+}
+#cahead{
+	font-family: Arial !important;
+	font-size:70px;
+	color: #ffffff !important;
+}
+#message{
+	padding:20px;
+	font-size: 40px;
+	color:black;
+	background:#da1d09;
+	font-family: Arial !important;
+	display: none;
+}
+#bg{font-family: Arial !important;
+	position:fixed;
+	z-index: -1;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	background: url("../../images/board.jpg") no-repeat center center; 
+	background-repeat: no-repeat;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
-	background-size: cover;
+	background-size: cover !important;
+}
+.container{
+	display:block;
+	margin:auto;
+	width:55%;
+	
 }
 
 .container input,textarea{
@@ -15,7 +41,7 @@
 	padding:0.5em;
 	border: 0;
 	border-bottom: 1px solid #ccc;
-	width: 19em;
+	width:90%;
 	background:rgba(255,255,255,.8);
 }
 

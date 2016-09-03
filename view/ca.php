@@ -10,15 +10,74 @@ if(isset($match[1]))
 <html>
 	<head>
 		<title>Campus Ambassador Registration Form</title>
+		<link rel="stylesheet" media="only screen and (max-width: 994px)" href="../assets/css/m_ca.css" />
 		<link rel="stylesheet" href="../assets/css/campusambassador.css">
-	</head>
-	<body background="../images/board.jpg">
-		<center><h4>Campus Ambassador Registration Form</h4></center>
-		<div class="container">
+		<meta name="viewport" content="width=device-width, initial-scale=1"><script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js'></script>
+		<script>
+		$(document).ready(function(){
+			$("#submit").click(function(){
+				var name=$("[name='name']").val();
+		var email=$("[name='email']").val();
+		var college=$("[name='college']").val();
+		var degree=$("[name='degree']").val();
+		var city=$("[name='city']").val();
+		var graduation=$("[name='graduation']").val();
+		var address=$("[name='address']").val();
+		var dob=$("[name='dob']").val();
+		var mobile=$("[name='mobile']").val();
+		var sex=$("[name='sex']").val();
+		var responsibility=$("[name='responsibility']").val();
+		var involvement=$("[name='involvement']").val();
+		var referalcode=$("[name='referalcode']").val();
+		$.post("../user/register/CampusAmbassador/",
+    						{        						
+       						name: name,
+        					email: email,
+        					college: college,
+        					degree: degree,
+        					city:city,
+        					graduation:graduation,
+        					address:address,
+        					dob:dob,
+        					mobile:mobile,
+        					sex:sex,
+        					responsibility:responsibility,
+        					involvement:involvement,
+        					referalcode:referalcode
+    						},
+    						function(data, status){
+        					//alert("Data: " + data + "\nStatus: " + status);
+        					if(status=='success'){//$("#myloader").fadeOut();
+        					var result= String(data).split(',')
+        						if(result[0]=='1'){
+        							$(".container").html('<div id="message"><center>Success<br>'+result[1]+'</center></div>');
+        							$("#message").css('background','#5FAB22');
+        						}else{
+        							$("#message").fadeIn();
+        							$("#message").html('<center>Error<br>'+result[1]+'</center>');
+								}
+     
+        					}else{//$("#myloader").fadeOut();
+        							$("#message").fadeIn();
+        							$("#message").html('An error occured.<br> Please try again.');
 
-			<p style='text-align:center;color:#ff0000;'><?php echo $error; ?></p><br />
-			<p style='text-align:center;color:#33ff33;'><?php echo $success; ?></p><br />
-			<form action="../user/register/CampusAmbassador/" method="post">
+        						}
+    			});
+			});
+		});
+		
+		</script>
+	</head>
+	<body>
+		<div id="bg"></div>
+		<center><h4 id="cahead">Campus Ambassador Registration Form</h4></center>
+		
+		<div class="container">
+		<!--
+			<p style='text-align:center;color:#ff0000;'><?php echo $error; ?></p>
+			<p style='text-align:center;color:#33ff33;'><?php echo $success; ?></p><br />-->
+			<div id="message"><center></center></div>
+			<form action="javascript:" method="post">
 				<input placeholder="Full Name" name="name" type="text" value="">
 				<input placeholder="College" name="college" type="text" value="">
 				<input placeholder="City" name="city" type="text" value="">
