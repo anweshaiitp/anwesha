@@ -48,13 +48,15 @@ if(isset($match[1]))
     						function(data, status){
         					//alert("Data: " + data + "\nStatus: " + status);
         					if(status=='success'){//$("#myloader").fadeOut();
-        					var result= String(data).split(',')
-        						if(result[0]=='1'){
-        							$(".container").html('<div id="message"><center>Success<br>'+result[1]+'</center></div>');
+        					console.log(data);
+
+        						if(data[0]==1){
+        							$(".container").html('<div id="message"><center>Registration Successful<br>An activation link has been sent to your email.</center></div>');
+        							$("#message").fadeIn();
         							$("#message").css('background','#5FAB22');
         						}else{
         							$("#message").fadeIn();
-        							$("#message").html('<center>Error<br>'+result[1]+'</center>');
+        							$("#message").html('<center>Error<br>'+data[1]+'</center>');
 								}
      
         					}else{//$("#myloader").fadeOut();
@@ -62,7 +64,8 @@ if(isset($match[1]))
         							$("#message").html('An error occured.<br> Please try again.');
 
         						}
-    			});
+        						document.getElementById('message').scrollIntoView();
+    			},"json");
 			});
 		});
 		
