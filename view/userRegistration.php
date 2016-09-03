@@ -90,15 +90,17 @@
         					refcode:refid
     						},
     						function(data, status){
+    							var AJAXresponse = String(data).split(',');
         					//alert("Data: " + data + "\nStatus: " + status);
         					if(status=='success'){$("#myloader").fadeOut();
-        						if(String(data).charAt(0)=='1'){
+        					
+        						if(AJAXresponse[0]=='1'){
         							$("#mainForm").html('<h1>Registered!</h1>An activation link has been sent to '+ email+'<br>');
         							$("#mainForm").css('background','#5FAB22');
         							$("#error").fadeOut();
         						}else{
         							$("#error").fadeIn();
-        							$("#error").html('<h5>ERROR</h5><br>'+data);
+        							$("#error").html('<h5>ERROR</h5><br>'+AJAXresponse[1]);
 								}
      
         					}else{$("#myloader").fadeOut();
