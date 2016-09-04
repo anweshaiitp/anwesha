@@ -28,6 +28,7 @@ if(isset($match[1]))
 		var sex=$("[name='sex']").val();
 		var responsibility=$("[name='responsibility']").val();
 		var involvement=$("[name='involvement']").val();
+		var threethings=$("[name='threethings']").val();
 		var referalcode=$("[name='referalcode']").val();
 		$.post("../user/register/CampusAmbassador/",
     						{        						
@@ -43,6 +44,7 @@ if(isset($match[1]))
         					sex:sex,
         					responsibility:responsibility,
         					involvement:involvement,
+        					threethings:threethings,
         					referalcode:referalcode
     						},
     						function(data, status){
@@ -91,9 +93,7 @@ if(isset($match[1]))
 				<input placeholder="Mobile" name="mobile" pattern="[789]\d{9}" title="Invalid Mobile Number" type="text" value="">
 				<input placeholder="DOB (yyyy-mm-dd)" name="dob" pattern="\d{4}-\d{2}-\d{2}" class="datepicker" title="Invalid Date Format(yyyy-mm-dd)" value="">
 				<input placeholder="Sex(M/F)" name="sex" type="text" pattern="[MF]" value="">
-				<!--
 				<textarea placeholder="Tell us 3 things you would do as a Campus Ambassador of Anwesha '17." name="threethings" rows="10"></textarea>
-				-->
 				<textarea placeholder="Have you held any position of responsibility in your college? If yes, please explain." name="responsibility" rows="10"></textarea>
 				<textarea placeholder="Have you been a part of one or more previous editions of Anwesha? If yes, please explain." name="involvement" rows="10"></textarea>
 				<input placeholder="Refered by someone?" name="referalcode" type="text" value="<?php echo $referalcode; ?>" <?php if(!empty($referalcode)) echo "disabled"; ?>>

@@ -147,13 +147,24 @@ if(isset($_POST['involvement']) && !empty($_POST['involvement'])){
 	echo json_encode($arr);
 	die();
 }
+$threethings = null;
+if(isset($_POST['threethings']) && !empty($_POST['threethings'])){
+	$threethings = $_POST['threethings'];	
+} else {
+	header('Content-type: application/json');
+	$arr = array();
+	$arr[] = -1;
+	$arr[] = 'Missing parameter in the request : threethings';
+	echo json_encode($arr);
+	die();
+}
 
 if(isset($_POST['referalcode'])) {
 	$refcode = $_POST['referalcode'];
 }
 
 $conn = mysqli_connect(SERVER_ADDRESS,USER_NAME,PASSWORD,DATABASE);
-$result = People::createCampusAmbassador($name,$college,$sex,$mobile,$email,$dob,$city,$address,$degree,$graduation,$responsibility,$involvement,$refcode,$conn);
+$result = People::createCampusAmbassador($name,$college,$sex,$mobile,$email,$dob,$city,$address,$degree,$graduation,$responsibility,$involvement,$threethings,$refcode,$conn);
 mysqli_close($conn);
 header('Content-type: application/json');
 echo json_encode($result);

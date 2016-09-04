@@ -321,11 +321,12 @@ class People{
      * @param  int $grad       Graduation Year
      * @param  string $leader     Response for leaderShip in college
      * @param  string $involvement Response for participation in anwesha in the past
+     * @param  string $threethings Three Things like to do as CA
      * @param  string $rc         RefferalCode
      * @param  MySQLi $conn       database connection object
      * @return array             index 0 :- 1(success), -1(error);
      */
-    public function createCampusAmbassador($name,$college,$sex,$mob,$email,$dob,$city,$address,$degree,$grad,$leader,$involvement,$rc,$conn){
+    public function createCampusAmbassador($name,$college,$sex,$mob,$email,$dob,$city,$address,$degree,$grad,$leader,$involvement,$threethings,$rc,$conn){
         $returnArray = self::createUser($name,$college,$sex,$mob,$email,$dob,$city,true,$rc,$conn);
         if($returnArray[0]==-1){
             return $returnArray;
@@ -336,9 +337,10 @@ class People{
         $grad = mysqli_real_escape_string($conn,$grad);
         $leader = mysqli_real_escape_string($conn,$leader);
         $involvement = mysqli_real_escape_string($conn,$involvement);
+        $threethings =  mysqli_real_escape_string($conn,$threethings);
 
         $pid = $returnArray[1]['pId'];
-        $sql = "INSERT INTO `CampusAmberg` (`pId`, `refKey`, `address`, `degree`, `grad`, `leader`, `involvement`) VALUES ($pid, '0', '$address', '$degree', '$grad', '$leader', '$involvement')";
+        $sql = "INSERT INTO `CampusAmberg` (`pId`, `refKey`, `address`, `degree`, `grad`, `leader`, `involvement`,`threethings`) VALUES ($pid, '0', '$address', '$degree', '$grad', '$leader', '$involvement','$threethings')";
 
         $result = mysqli_query($conn, $sql);
         if(!$result){

@@ -33,7 +33,8 @@ CREATE TABLE IF NOT EXISTS `CampusAmberg` (
   `degree` varchar(30) NOT NULL,
   `grad` int(4) NOT NULL,
   `leader` text NOT NULL,
-  `involvement` text NOT NULL
+  `involvement` text NOT NULL,
+  `threethings` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
