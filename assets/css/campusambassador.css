@@ -1,10 +1,19 @@
 *{
-	font-size:30px !important;
+	font-size:26px;
+	font-family: Raleway;
 }
 #cahead{
-	font-family: Arial !important;
-	font-size:70px;
-	color: #ffffff !important;
+
+
+
+text-shadow: 0px 10px 5px rgba(0,0,0,0.1),
+                 5px 10px 5px rgba(0,0,0,0.05);
+                
+margin: 42px;
+	font-size:59px;
+	color: #fff !important;
+	    text-transform: uppercase;
+		
 }
 #message{
 	padding:20px;
@@ -27,6 +36,7 @@
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover !important;
+	background: linear-gradient(to bottom, rgb(182, 202, 211) 0%, rgb(89, 131, 143) 38%, rgb(32, 79, 85) 77%, rgb(13, 60, 68) 100%);
 }
 .container{
 	display:block;
@@ -40,11 +50,44 @@
 	margin:0.5em auto;
 	padding:0.5em;
 	border: 0;
-	border-bottom: 1px solid #ccc;
+	outline:none;
 	width:90%;
-	background:rgba(255,255,255,.8);
+	background:rgba(255,255,255,1);
+	border-radius:3px;
+	transition: background .2s ease-in-out, box-shadow .2s ease-in;
+	
+}
+::-webkit-input-placeholder{
+	color:black;
+}
+.container:focus,input:focus,textarea:focus{
+    background-color: rgb(55,191,189);
+    color: white !important;
+	transition:all .3 ease-in-out;
+	box-shadow: 0px 0px 20px #212121 inset;
+	border-radius:3px 3px 0px 0px;
+}
+:focus::-webkit-input-placeholder{
+	color:white;
 }
 
 #submit{
-	background:rgba(0,180,255,.8);
+	margin-top:50px;
+	width:50%;
+	background:#66bb6a;
+	transition:all .3s ease-in-out;
+}
+#submit:hover{
+	transform:scale(1.2);
+	box-shadow
+	transition:all .3s ease-in-out;
+}
+form{
+	background-color: rgba(27,36,24,1);
+    padding:20px 10px;
+    border-radius: 5px;
+    margin-bottom:50px;
+	box-shadow:0 0 10px rgba(0, 0, 0, 1);
+	position: relative;
+}
 }
