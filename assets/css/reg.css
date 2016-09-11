@@ -2,7 +2,7 @@
     font-family: 'Atma', cursive;
 }
 body{
-	backgrund:#000000;
+	background:#000000;
 }
 #biglogo{
     background-image: url('images/biglogo.png');
@@ -117,4 +117,3 @@ background: radial-gradient(circle, #2e2e2e , #000000);
      box-shadow:#000000 0 0 20px;
      
 }
-

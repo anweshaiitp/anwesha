@@ -91,9 +91,15 @@ if(isset($match[1]))
 	</head>
 	<body><center><div id="backg"></div>
 
+<<<<<<< HEAD
 		
 		<h4 id="header" style="margin-bottom:10px">Campus Ambassador Registration Form</h4>
 		
+=======
+		
+		<h4 id="header" style="margin-bottom:10px">Campus Ambassador Registration Form</h4>
+		
+>>>>>>> 05f7e8383b3ffe12109d5fa4b013c4c1a3058c33
 		<div id="mainForm" >
 		<!--
 			<p style='text-align:center;color:#ff0000;'><?php echo $error; ?></p>
@@ -122,4 +128,3 @@ if(isset($match[1]))
 <div id="biglogo"></div>
 	</center></body>
 </html>
-
