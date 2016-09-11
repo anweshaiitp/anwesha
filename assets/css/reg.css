@@ -68,18 +68,27 @@ background: radial-gradient(circle, #2e2e2e , #000000);
      margin-left: auto;
      margin-right: auto; 
 }
+#message{
+    padding:20px;
+    font-size: 20px;
+    width:70%;
+    color:black;
+    background:#da1d09;
+    font-family: Arial !important;
+    display: none;
+}
 .inputbabe{
 	 margin: 20px;
-     border-radius:10px;
+     border-radius:7px;
      
      cursor:pointer;
      border-radius: 10px;
      margin: 5px;
-     font-size: 30px;
-     padding-top: 7px;
-     padding-right: 20px;
-     padding-bottom: 7px;
-     padding-left: 20px;
+     font-size: 27px;
+     padding-top: 3px;
+     padding-right: 10px;
+     padding-bottom: 3px;
+     padding-left: 10px;
          
      border:0px;
      box-shadow:#FFFFFF 0 0 5px;     
