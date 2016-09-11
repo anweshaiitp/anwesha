@@ -7,6 +7,8 @@
 <link rel="stylesheet" href="assets/css/star_style.css">
 <link rel="icon" type="image/gif" href="favicon.ico" />
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/TweenMax.min.js"></script>
 <script>
@@ -152,7 +154,7 @@ $( function() {
 </script>
 </head>
 
-<body>
+<body ng-controller="DefaultCtrl as dctrl" ng-cloak>
 	<canvas id="star-sky"></canvas>
 
 	<div id="intro">
