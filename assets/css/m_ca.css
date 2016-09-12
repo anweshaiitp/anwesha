@@ -1,9 +1,4 @@
-#message{
-	width:90% !important;
-}
-.container{
-	width:100% !important;
-}
-#cahead{
-	font-size:30px;
-}
+#mainForm{
+    		width:90%;
+    		left:5%;
+    	}
