@@ -159,9 +159,8 @@
     @import 'https://fonts.googleapis.com/css?family=Atma';
 
     	#mainForm{
-    		width:90%;
-    		left:5%;
-    	}
+			width:500px;
+		}
 
 </style>
 </head>
@@ -200,7 +199,7 @@
 		</div>
 	
 </center>
-<img src="../images/reg/pirate.png" id="pirateboy">
+
 
 <div id="biglogo"></div>
 </body>
