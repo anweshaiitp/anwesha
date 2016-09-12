@@ -77,7 +77,7 @@
 
 				//ajax send
 				if(nr!=1){$("#myloader").fadeIn();
-				$.post("user/register/User/",
+				$.post("../user/register/User/",
     						{        						
        						name: name,
         					email: email,
@@ -90,23 +90,29 @@
         					refcode:refid
     						},
     						function(data, status){
-        					//alert("Data: " + data + "\nStatus: " + status);
+							var AJAXresponse = data;
         					if(status=='success'){$("#myloader").fadeOut();
-        						if(String(data).charAt(0)=='1'){
+        					
+        						if(AJAXresponse[0]==1){
         							$("#mainForm").html('<h1>Registered!</h1>An activation link has been sent to '+ email+'<br>');
         							$("#mainForm").css('background','#5FAB22');
+    								document.getElementById('mainForm').scrollIntoView();
+								
         							$("#error").fadeOut();
         						}else{
         							$("#error").fadeIn();
-        							$("#error").html('<h5>ERROR</h5><br>'+data);
+        							$("#error").html('<h5>ERROR</h5><br>'+AJAXresponse[1]);
+        							document.getElementById('error').scrollIntoView();
 								}
      
         					}else{$("#myloader").fadeOut();
         							$("#error").fadeIn();
         							$("#error").html('An error occured.<br> Please try again.');
+    								document.getElementById('error').scrollIntoView();
+								
 
         						}
-    			});}//end of if condition and post method
+    			},"json");}//end of if condition and post method
 				nr=0;
 			});
 			$("#datepicker").val("DOB");

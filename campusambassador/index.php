@@ -196,7 +196,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 	<link rel="stylesheet" href="../assets/css/all.css">
 	<link rel="stylesheet" href="../assets/css/campusambassador.css">
-
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
 <script>
 function check(iden,deft){
 	if (document.getElementById(iden).value == '') {document.getElementById(iden).style.color='#548acd';document.getElementById(iden).value = deft;}
