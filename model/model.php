@@ -96,7 +96,7 @@ class People{
      * @param  string $rc Referral Code
      * @return string      if null then no errors, else returns the error.
      */
-    public function validateData($n,$col,$se,$mob,$em,$db,$cit,$rc){
+    public function validateData($n,$col,&$se,$mob,$em,$db,$cit,$rc){
 
         $error = null;
         if (strlen($n)<4 || strlen($n) > 40){
@@ -105,7 +105,7 @@ class People{
             $error = "Invalid Name";
         }  else if (!preg_match('/^[a-zA-Z0-9.\s]*$/', $col)) {
             $error = "Invalid College Name";
-        }  else if ($se!='M' && $se!='F') {
+        }  else if (!preg_match('/^[MFmf]$/', $se)) {
             $error = "Invalid Sex";
         }  else if (!preg_match('/^[789][0-9]{9}$/', $mob)) {
             $error = "Invalid Mobile Number ";
@@ -118,6 +118,7 @@ class People{
         }  else if (!preg_match('/^([0-9]{4}|)$/', trim($rc))) {
             $error = "Invalid Referral $rc Code";
         }
+        $se = strtoupper($se);
         return $error;
     }
 
@@ -179,6 +180,7 @@ class People{
             return $arr;
         }
         $row = mysqli_fetch_assoc($result);
+
         $arr = array();
         $arr[]=1;
         $arr[]=$row;
@@ -276,7 +278,7 @@ class People{
 
         $result = mysqli_query($conn,$sqlInsert);
         if(!$result){
-            $Err = 'Problem in Creating new registration - Maybe mobile number or email id already in use.';
+            $Err = 'Problem in Creating new registration - Maybe email id already in use.';
             $arr = array();
             $arr[]=-1;
             $arr[]=$Err;

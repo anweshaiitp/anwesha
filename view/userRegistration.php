@@ -40,7 +40,7 @@
 	  				}
 	}
 		$(document).ready(function(){ 
-			$("#error").css('width',$("#mainForm").width());
+			//$("#error").css('width',$("#mainForm").width());
 			$("#datepicker").keydown(function(e){e.preventDefault();});
 			$("#submit").click(function(){
 				$(".inputbabe").removeClass("cooll");
@@ -169,7 +169,7 @@
 <center>
 <div id="backg"></div>
 <h1 id="header">Registration</h1><img src="../images/reg/ajax-loader.gif" width="30px" id="myloader">
-		<div id="error" style="display:none;box-radius:5px;box-shadow:#000000 0 0 10px;background:#6fce2d;padding:20px;font-size:20px;margin:10px">An error occured</div>
+		<div id="error" style="width:-moz-fit-content;display:none;box-radius:5px;box-shadow:#000000 0 0 10px;background:#6fce2d;padding:20px;font-size:20px;margin:10px">An error occured</div>
 		<div id="mainForm">
 			
 			<form   action="javascript:">

@@ -33,6 +33,7 @@ if(isset($match[1]))
 		var involvement=$("[name='involvement']").val();
 		var threethings=$("[name='threethings']").val();
 		var referalcode=$("[name='referalcode']").val();
+		console.log("Request Send");
 		$.post("../user/register/CampusAmbassador/",
     						{        						
        						name: name,
@@ -51,28 +52,38 @@ if(isset($match[1]))
         					referalcode:referalcode
     						},
     						function(data, status){
-        					//alert("Data: " + data + "\nStatus: " + status);
+        					console.log("Response");
+        					console.log("Data: " + data + "\nStatus: " + status);
         					if(status=='success'){//$("#myloader").fadeOut();
-        					console.log(data);
+        						console.log(data);
 
         						if(data[0]==1){
-        							$(".container").html('<div id="message"><center>Registration Successful<br>An activation link has been sent to your email.</center></div>');
+        							$("#message").html('<center>Registration Successful<br>An activation link has been sent to your email.</center>');
         							$("#message").fadeIn();
         							$("#message").css('background','#5FAB22');
+        							$("#form_fill").fadeOut();
         						}else{
         							$("#message").fadeIn();
         							$("#message").html('<center>Error<br>'+data[1]+'</center>');
 								}
+								$('html, body').animate({
+								        scrollTop: $("#header").offset().top
+								    }, 500);
      
         					}else{//$("#myloader").fadeOut();
         							$("#message").fadeIn();
         							$("#message").html('An error occured.<br> Please try again.');
+        							$('html, body').animate({
+								        scrollTop: $("#header").offset().top
+								    }, 500);
+								    console.log("Failed "+data);
 
         						}
         						$('html, body').animate({
         scrollTop: $("#header").offset().top
     }, 500);
     			},"json");
+
 			});
 		});
 		
@@ -90,15 +101,16 @@ if(isset($match[1]))
 		</style>
 	</head>
 	<body><center><div id="backg"></div>
-		<h4 id="header" style="margin-bottom:10px">Campus Ambassador Registration Form</h4>
-		
+
+		<h4 id="header" style="margin-bottom:10px;font-size:25px">Campus Ambassador Registration Form</h4>
 		<h4 id="header" style="margin-bottom:10px">Campus Ambassador Registration Form</h4>
 		<div id="mainForm" >
 		<!--
 			<p style='text-align:center;color:#ff0000;'><?php echo $error; ?></p>
 			<p style='text-align:center;color:#33ff33;'><?php echo $success; ?></p><br />-->
 			<div id="message"><center></center></div>
-			<form action="javascript:" method="post">
+
+			<form action="javascript:" method="post" id="form_fill" accept-charset="UTF-8">
 				<input placeholder="Full Name" class="inputbabe coolk" name="name" type="text" value="">
 				<input placeholder="College" class="inputbabe coolk" name="college" type="text" value="">
 				<input placeholder="City" class="inputbabe coolk" name="city" type="text" value="">
@@ -108,7 +120,7 @@ if(isset($match[1]))
 				<input placeholder="Email" class="inputbabe coolk" name="email" type="text" value="">
 				<input placeholder="Mobile" class="inputbabe coolk" name="mobile" pattern="[789]\d{9}" title="Invalid Mobile Number" type="text" value="">
 				<input placeholder="DOB (yyyy-mm-dd)" class="inputbabe coolk" name="dob" pattern="\d{4}-\d{2}-\d{2}" class="datepicker" class="inputbabe coolk" title="Invalid Date Format(yyyy-mm-dd)" value="">
-				<input placeholder="Sex(M/F)" class="inputbabe coolk" name="sex" type="text" pattern="[MF]" value="">
+				<input placeholder="Sex(M/F)" class="inputbabe coolk" name="sex" type="text" pattern="[MFmf]" value="">
 				<textarea placeholder="Tell us 3 things you would do as a Campus Ambassador of Anwesha '17." class="inputbabe coolk" name="threethings" rows="10"></textarea>
 				<textarea placeholder="Have you held any position of responsibility in your college? If yes, please explain." class="inputbabe coolk" name="responsibility" rows="10"></textarea>
 				<textarea placeholder="Have you been a part of one or more previous editions of Anwesha? If yes, please explain." class="inputbabe coolk" name="involvement" rows="10"></textarea>
