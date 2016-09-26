@@ -1,5 +1,5 @@
 <?php
-//ini_set( "display_errors", 0); 
+ini_set( "display_errors", 0); 
 /**
 * New request lands in this class. After that it is routed accordingly to the respective controller.
 * Also provides basic functions for loading models.
@@ -28,7 +28,7 @@ if (preg_match($base . '$@', $url)) {
 	require ('view/stars.html');
 } elseif (preg_match($base . 'register/([0-9]{4}|)$@', $url, $match)) {
 	require ('view/userRegistration.php');
-} elseif (preg_match($base . 'auditions/([0-9]{4}|)$@', $url, $match)) {
+} elseif (preg_match($base . 'auditions/$@', $url, $match)) {
 	require ('view/multiCityAuditions.html');
 } elseif (preg_match($base . 'ca/([0-9]{4}|)$@', $url, $match)) {
 	require ('view/ca.php');
