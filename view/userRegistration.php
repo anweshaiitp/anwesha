@@ -101,7 +101,7 @@
         							$("#error").fadeOut();
         						}else{
         							$("#error").fadeIn();
-        							$("#error").html('<h5>ERROR</h5><br>'+AJAXresponse[1]);
+        							$("#error").html('<h5>ERROR</h5>'+AJAXresponse[1]);
         							document.getElementById('error').scrollIntoView();
 								}
      
