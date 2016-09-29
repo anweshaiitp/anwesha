@@ -60,6 +60,9 @@ class People{
     var $feePaid;
     /**
      * [$confirm description]
+     * 0 - Unconfirmed
+     * 1 - User Confirmed
+     * 2 - Confirmed as CampusAmbassador
      * @var [type]
      */
     var $confirm;
@@ -295,7 +298,7 @@ class People{
             return $arr;
         }
         $token = sha1(base64_encode((openssl_random_pseudo_bytes(15))));
-        $sqlInsert = "INSERT INTO LoginTable(pId,password,csrfToken) VALUES ($id,NULL,'$token')";
+        $sqlInsert = "INSERT INTO LoginTable(pId,password,csrfToken,type) VALUES ($id,NULL,'$token',1)";
 
         $result = mysqli_query($conn,$sqlInsert);
         if(!$result){
@@ -305,7 +308,10 @@ class People{
             $arr[]=$Err;
             return $arr;
         }
-        self::Email($em,$n,$token,$id,$ca);
+        if(!$ca) {
+            // Mail will be send from Campus Ambassador
+            self::Email($em,$n,$token,$id,$ca);
+        }
         return self::getUser($id, $conn);
     }
 
@@ -353,9 +359,86 @@ class People{
             return $arr;
         }
 
+        $token = sha1(base64_encode((openssl_random_pseudo_bytes(15))));
+        $sqlUpdateTokenType = "UPDATE LoginTable SET type = 2,csrfToken='$token' WHERE pId = $pid";
+
+        $result = mysqli_query($conn,$sqlUpdateTokenType);
+        if(!$result){
+            $Err = 'Problem in Generating Confirmation Token for CampusAmbassador. Contact Registration team for help.';
+            $arr = array();
+            $arr[]=-1;
+            $arr[]=$Err;
+            return $arr;
+        }
+        self::Email($email,$name,$token,$pid,true);
         return $returnArray;
 
     }
+
+    /**
+     * Switch normal User to campus ambassador
+     * @param  string $anwid      Anwesha ID
+     * @param  string $email      email id of user  [Local Verification]
+     * @param  string $address    Address
+     * @param  string $degree     Degree (B.Tech. etc.)
+     * @param  int $grad       Graduation Year
+     * @param  string $leader     Response for leaderShip in college
+     * @param  string $involvement Response for participation in anwesha in the past
+     * @param  string $threethings Three Things like to do as CA
+     * @param  MySQLi $conn       database connection object
+     * @return array             index 0 :- 1(success), -1(error);
+     */
+    public function switchCampusAmbassador($anwid,$email,$address,$degree,$grad,$leader,$involvement,$threethings,$conn){
+        $thisUser = self::getUser($anwid, $conn);
+        if($thisUser[0]==-1){
+            return $thisUser;
+        }
+        if(strcmp($email,$thisUser[1]['email'])!=0){
+            $error = "Email not matching with given AnweshaID";
+            $arr = array();
+            $arr[]=-1;
+            $arr[]=$error;
+            return $arr;
+        }
+        
+        // Escaping String
+        $address = mysqli_real_escape_string($conn,$address);
+        $degree = mysqli_real_escape_string($conn,$degree);
+        $grad = mysqli_real_escape_string($conn,$grad);
+        $leader = mysqli_real_escape_string($conn,$leader);
+        $involvement = mysqli_real_escape_string($conn,$involvement);
+        $threethings =  mysqli_real_escape_string($conn,$threethings);
+
+        $pid = $thisUser[1]['pId'];
+        $name = $thisUser[1]['name'];
+
+        $sql = "INSERT INTO `CampusAmberg` (`pId`, `refKey`, `address`, `degree`, `grad`, `leader`, `involvement`,`threethings`) VALUES ($pid, '0', '$address', '$degree', '$grad', '$leader', '$involvement','$threethings')";
+
+        $result = mysqli_query($conn, $sql);
+        if(!$result){
+            $error = "Could not switch to Campus Ambassador";
+            $arr = array();
+            $arr[]=-1;
+            $arr[]=$error;
+            return $arr;
+        }
+        
+        $token = sha1(base64_encode((openssl_random_pseudo_bytes(15))));
+        $sqlUpdateTokenType = "UPDATE LoginTable SET type = 2,csrfToken='$token' WHERE pId = $pid";
+
+        $result = mysqli_query($conn,$sqlUpdateTokenType);
+        if(!$result){
+            $Err = 'Problem in Generating Confirmation Token for CampusAmbassador. Contact Registration team for help.';
+            $arr = array();
+            $arr[]=-1;
+            $arr[]=$Err;
+            return $arr;
+        }
+        self::Email($email,$name,$token,$pid,true);
+        return $thisUser;
+
+    }
+
     /**
      * Sends email for verification
      * @param string $emailId Email Id to be verified
@@ -364,7 +447,7 @@ class People{
      * @param int $id      Anwesha Id for registered user
      * @param boolean $ca      if true then link is for CampusAmbassador
      */
-    public function Email($emailId,$name,$link,$id)
+    public function Email($emailId,$name,$link,$id,$ca)
     {
         require('defines.php');
         $baseURL = $ANWESHA_URL;
@@ -439,9 +522,23 @@ class People{
             $arr[] = $error;
             return $arr;
         }
+
+        $confirmationType = $row['type'];
+        if(!($confirmationType == 1 || $confirmationType == 2)) {
+            $error = "Unexpected Error!, Verifing Confirmation Type. Please contact Registration Team";
+            $arr = array();
+            $arr[] = -1;
+            $arr[] = $error;
+            return $arr;
+        }
+        $passwordAlreadySet = false;
+        if(!($row['password']== NULL || empty($row['password'])))
+            $passwordAlreadySet = true;
+            
+
         $name = $row['name'];
         $email = $row['email'];
-        $sqlUpdate = "UPDATE People SET confirm = 1 WHERE pId = $id";
+        $sqlUpdate = "UPDATE People SET confirm = $confirmationType WHERE pId = $id";
         $result = mysqli_query($conn, $sqlUpdate);
         if(!$result){
             $error = "Some Internal Error Occured - Please try again.";
@@ -450,7 +547,7 @@ class People{
             $arr[] = $error;
             return $arr;
         }
-        $sqlUpdate = "UPDATE LoginTable SET csrfToken = '' WHERE pId = $id";
+        $sqlUpdate = "UPDATE LoginTable SET csrfToken = '', type = 0 WHERE pId = $id";
         $result = mysqli_query($conn, $sqlUpdate);
         if(!$result){
             $error = "Some Internal Error Occured - Please try again.";
@@ -461,16 +558,20 @@ class People{
         }
         $arr = array();
         $arr[]=1;
-        $randPass=Auth::randomPassword();                                                  //vinay edit
-        $privateKey = Auth::randomPassword();
-        $sqlUpdate = "UPDATE LoginTable SET password = sha('$randPass'), privateKey = sha('$privateKey') where pId = $id";                         //vinay edit
-        $result = mysqli_query($conn, $sqlUpdate);
-        if(!$result){
-            $error = "Some Internal Error Occured - Please try again.";
-            $arr = array();
-            $arr[] = -1;
-            $arr[] = $error;
-            return $arr;
+        $randPass = "[Same as Old One]";
+
+        if(!$passwordAlreadySet) {
+            $randPass=Auth::randomPassword();                                                  //vinay edit
+            $privateKey = Auth::randomPassword();
+            $sqlUpdate = "UPDATE LoginTable SET password = sha('$randPass'), privateKey = sha('$privateKey') where pId = $id";                         //vinay edit
+            $result = mysqli_query($conn, $sqlUpdate);
+            if(!$result){
+                $error = "Some Internal Error Occured - Please try again.";
+                $arr = array();
+                $arr[] = -1;
+                $arr[] = $error;
+                return $arr;
+            }
         }
 
         Auth::passEmail($email,$name,$randPass,$id);                                                                 //vinay edit

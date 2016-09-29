@@ -81,12 +81,16 @@ CREATE TABLE IF NOT EXISTS `Grpids` (
 -- Table structure for table `LoginTable`
 --
 
+-- type
+--  1  Normal User
+--  2  Campus Ambassador
 CREATE TABLE IF NOT EXISTS `LoginTable` (
   `pId` int(4) DEFAULT NULL,
   `password` char(40) DEFAULT NULL,
   `privateKey` char(40) DEFAULT NULL,
-  `csrfToken` char(40) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `csrfToken` char(40) DEFAULT NULL,
+  `type` int(4) DEFAULT NULL
+  ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -105,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `People` (
   `city` varchar(15) DEFAULT NULL,
   `refcode` varchar(15) DEFAULT NULL,
   `feePaid` int(4) DEFAULT NULL,
-  `confirm` int(1) NOT NULL,
+  `confirm` int(2) NOT NULL,
   `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

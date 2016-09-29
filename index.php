@@ -32,6 +32,8 @@ if (preg_match($base . '$@', $url)) {
 	require ('view/multiCityAuditions.html');
 } elseif (preg_match($base . 'ca/([0-9]{4}|)$@', $url, $match)) {
 	require ('view/ca.php');
+} elseif (preg_match($base . 'switchca/$@', $url, $match)) {
+	require ('view/switchca.php');
 // } elseif ( preg_match($base .'cssLoader/home/?$@', $url, $match ) ) {
 // 	require ('controller/cssLoader.php');
 // } elseif ( preg_match($base .'events/?$@', $url, $match ) ) {
@@ -44,6 +46,8 @@ if (preg_match($base . '$@', $url)) {
 	require ('controller/userRegistration.php');
 } elseif (preg_match($base . 'user/register/CampusAmbassador/?$@', $url)) {
 	require ('controller/campusAmbassadorRegistration.php');
+} elseif (preg_match($base . 'user/switch/CampusAmbassador/?$@', $url)) {
+	require ('controller/campusAmbassadorSwitching.php');
 } elseif (preg_match($base . 'verifyEmail/CampusAmbassador/([0-9]{4})/([A-Za-z0-9]{40})/?$@', $url, $match)) {
 	require ('controller/verifyEmail.php');
 } elseif (preg_match($base . 'verifyEmail/User/([0-9]{4})/([A-Za-z0-9]{40})/?$@', $url, $match)) {
