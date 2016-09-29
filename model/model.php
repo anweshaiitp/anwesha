@@ -440,6 +440,27 @@ class People{
     }
 
     /**
+     * In case of Emergency
+     * Sends Verification mail to all those who have not confirmed
+     * Need in case,after fixing mass bug on mail system 
+     * @param  MySQLi $conn       database connection object
+     */
+    public function sendVerificationMailToAll($conn) {
+        $sql = "SELECT * FROM People NATURAL JOIN LoginTable WHERE type > 0 ";
+        $result = mysqli_query($conn, $sql);
+        if(!$result){
+            while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+                $email = $row['email'];
+                $name = $row['name'];
+                $token = $row['csrfToken'];
+                $pid = $row['pId'];
+                self::Email($email,$name,$token,$pid);
+                printf("Send Email to %s\n", $email);
+            }
+        }
+    }
+
+    /**
      * Sends email for verification
      * @param string $emailId Email Id to be verified
      * @param string $name    Name of user
