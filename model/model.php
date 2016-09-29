@@ -445,20 +445,23 @@ class People{
      * Need in case,after fixing mass bug on mail system 
      * @param  MySQLi $conn       database connection object
      */
-    public function sendVerificationMailToAll($conn) {
+    public static function sendVerificationMailToAll($conn) {
         $sql = "SELECT * FROM People NATURAL JOIN LoginTable WHERE type > 0 ";
         $result = mysqli_query($conn, $sql);
-        if(!$result){
-            while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+        if($result){
+            while ($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
                 $email = $row['email'];
                 $name = $row['name'];
                 $token = $row['csrfToken'];
                 $pid = $row['pId'];
-                self::Email($email,$name,$token,$pid);
-                printf("Send Email to %s\n", $email);
+                People::Email($email,$name,$token,$pid,false);
+                echo "Email send to ". $email . "\n";
             }
+        } else {
+                echo "Error in Query Execution";
         }
     }
+
 
     /**
      * Sends email for verification
@@ -468,7 +471,7 @@ class People{
      * @param int $id      Anwesha Id for registered user
      * @param boolean $ca      if true then link is for CampusAmbassador
      */
-    public function Email($emailId,$name,$link,$id,$ca)
+    public static function Email($emailId,$name,$link,$id,$ca)
     {
         require('defines.php');
         $baseURL = $ANWESHA_URL;
