@@ -359,7 +359,8 @@ class People{
             return $arr;
         }
 
-        $sqlUpdateTokenType = "UPDATE LoginTable SET type = 2 WHERE pId = $pid";
+        $token = sha1(base64_encode((openssl_random_pseudo_bytes(15))));
+        $sqlUpdateTokenType = "UPDATE LoginTable SET type = 2,csrfToken='$token' WHERE pId = $pid";
 
         $result = mysqli_query($conn,$sqlUpdateTokenType);
         if(!$result){
