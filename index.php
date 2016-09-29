@@ -30,6 +30,8 @@ if (preg_match($base . '$@', $url)) {
 	require ('view/userRegistration.php');
 } elseif (preg_match($base . 'auditions/$@', $url, $match)) {
 	require ('view/multiCityAuditions.html');
+} elseif (preg_match($base . 'auditions/linefollow/$@', $url, $match)) {
+	require ('view/linefollow.html');
 } elseif (preg_match($base . 'ca/([0-9]{4}|)$@', $url, $match)) {
 	require ('view/ca.php');
 } elseif (preg_match($base . 'switchca/$@', $url, $match)) {
