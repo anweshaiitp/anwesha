@@ -36,8 +36,7 @@
   position: fixed;
   display:none;
   width:90%;
-  overflow-y: inherit;
-  height:90%;
+  
   top:5%;
   left:5%;
 }
@@ -72,13 +71,15 @@ $(document).ready(function(){
         return '<center><h1>Mr & Miss Anwesha</h1></center><ul><li>It is an individual event.</li><li>Winners selected from the Multi-City Auditions will directly go in the final round.</li><li>Apart from exciting prizes and certificates, Winners in the Auditions will be earning crucial points for their colleges for Anwesha Trophy.</li><li>Any person coming for the auditions is eligible to take part in this contest.</li><li>There will be two rounds in all - Ramp Walk and Questionnaire.</li><li>In a given round, total score will be given to performance in that round alone.</li><li>In any round, equal importance will be given to show as well as substance.</li><li>Any kind of vulgarity leads to disqualification.</li><li>Rules may change without any prior notice.</li></ul>';
       }
       else if(dat=='data5'){
-        return '<center><h1>Mind Benders</h1></center><ul><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul>';
+        return '<center><h1>Mind Benders</h1>"You have the power over your mind - realize this, and you will find strength<br> So, get ready to knock your brains and prove the genius in you in this mind bending rendezvous"<br><br><h1>RULES:</center></h1><ul><li>This is a team event. You can participate as a team of two members.</li><li>The event will be in form of pen-paper quiz, it will consist of single choice correct, multiple choice correct and paragraph questions.</li><li>The event will be of 1 hr.</li><li>Participants are required to bring their own pen and paper for rough work.</li><li>Students of different institutions can form a team.</li><li>The judgement of the organizers will be final.</li>Questions:- 40-50<br>Time:- 1 hour<br>For any queries, mail us at <a href="mailto:tech.anwesha17@gmail.com">tech.anwesha17@gmail.com</a>';
       }
       else if(dat=='data6'){
-        return '<center><h1>Line Follower</h1></center><ul><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul>';
+        window.open('linefollow/','_blank');
+        return'';
+        closepop();
       }
       else if(dat=='data7'){
-        return '<center><h1>ELECTRO EXQUIZITE</h1></center><ul><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul>';
+        return '<center><h1>Electro-Exquisite</h1></center>If you can’t resist yourself from taking a reading whenever you see some electronics stuff,<br>If everyone around you feels shorted by your capacitance to speak about electronic gadgets,<br>If you think your intelligence get forward biased every time an electronic question is induced to you, then it is the event for you.<br><h1>Rules</h1><ul><li>It is better to have a team of two, if you found no one you can participate alone too.</li><li>Policies regarding the point distribution and other aspects would be ruled by the organizer in cases of any conflict.</li><li>Use of mobilephones is not allowed.</li><li>In case of any confusion the decision of organizers is final.</li></ul><br>MCQ Questions : 30 questions<br> Time Limit : 30 minutes<br> Total 30 points.<br><br><br>Prepare yourself for the event and get ready for the unlimited fun and amazing experience.';
       }
       else{
         return '<center><h1>Weird!</h1></center>'; 
@@ -288,7 +289,7 @@ $(document).ready(function(){
           <div class="one_half">
             <h3 class="heading font-x1" style="font-size: 2em">Mind Benders</h3>
             <p>Is solving riddles a regular part of your leasuire time? Then it is going to be a cakewalk for you. The brain twisting puzzles are waitning to meet you. Are you ready for this mind bending rendezvous?</p>
-            <!--<footer><span class="call" href="#" placeholder="data5">Read More &raquo;</span></footer> -->
+            <footer><span class="call" href="#" placeholder="data5">Read More &raquo;</span></footer> 
           </div>
         </article>
       </li>
@@ -298,7 +299,7 @@ $(document).ready(function(){
           <div class="one_half">
             <h3 class="heading font-x1" style="font-size: 2em">Line follower</h3>
             <p>Do you find yourself in the technical world of robotics? Anwesha is here to patron your endavour through line follower.</p>
-            <!--<footer><span class="call" href="#" placeholder="data6">Read More &raquo;</span></footer> -->
+            <footer><span class="call" href="#" placeholder="data6">Read More &raquo;</span></footer> 
           </div>
         </article>
       </li>
@@ -309,7 +310,7 @@ $(document).ready(function(){
           <div class="">
             <h3 class="heading font-x1" style="font-size: 2em">Electro Exquizite</h3>
             <p class="elec">Have you got a pep for the electric world? Then bring out the current within you to the ultimate electric quiz-Electro Exquizite</p>
-            <!--<footer><span class="call" href="#" placeholder="data7">Read More &raquo;</span></footer> -->
+            <footer><span class="call" href="#" placeholder="data7">Read More &raquo;</span></footer> 
           </div>
         </article>
       </li>
