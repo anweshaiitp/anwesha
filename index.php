@@ -64,6 +64,10 @@ if (preg_match($base . '$@', $url)) {
 	require ('controller/changePassword.php');
 } elseif (preg_match($base . 'resendEmail/([0-9]{4})/?$@', $url, $match)) {
 	require ('controller/resendVerification.php');
+
+
+} elseif (preg_match($base . 'download_records/(.*)$@', $url, $match)) {
+	require ('controller/download_records.php');
 } else {
 	http_response_code(404);
 	die('invalid url ' . $url);
