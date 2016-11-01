@@ -1,5 +1,5 @@
 <?php
-// ini_set( "display_errors", 0); 
+ini_set( "display_errors", 0); 
 /**
 * New request lands in this class. After that it is routed accordingly to the respective controller.
 * Also provides basic functions for loading models.
