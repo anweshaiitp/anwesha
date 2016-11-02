@@ -28,6 +28,10 @@ if (preg_match($base . '$@', $url)) {
 	require ('view/stars.html');
 } elseif (preg_match($base . 'register/([0-9]{4}|)$@', $url, $match)) {
 	require ('view/userRegistration.php');
+} elseif (preg_match($base . 'leaderboard/api/?$@', $url, $match)) {
+	require ('controller/leaderboardback.php');
+} elseif (preg_match($base . 'leaderboard/?$@', $url, $match)) {
+	require ('view/leaderboard.php');
 } elseif (preg_match($base . 'auditions/$@', $url, $match)) {
 	require ('view/multiCityAuditions.html');
 } elseif (preg_match($base . 'auditions/linefollow/$@', $url, $match)) {
