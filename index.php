@@ -25,7 +25,7 @@ preg_match('@(.*)index.php(.*)$@', $_SERVER['PHP_SELF'], $mat );
 $base = '@^'. $mat[1] ;
 
 if (preg_match($base . '$@', $url)) {
-	require ('view/stars.html');
+	require ('view/index.html');
 } elseif (preg_match($base . 'register/([0-9]{4}|)$@', $url, $match)) {
 	require ('view/userRegistration.php');
 } elseif (preg_match($base . 'leaderboard/api/?$@', $url, $match)) {

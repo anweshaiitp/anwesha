@@ -72,7 +72,7 @@ font-size:1.5em;
 
 
 body {
-	background:url("../img/medieval-ship-entering-island-fantasy.jpg") no-repeat center center fixed; 
+	background:url("../../images/medieval-ship-entering-island-fantasy.jpg") no-repeat center center fixed; 
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -331,7 +331,7 @@ button:hover, button:active, button:focus {
 	width: 110%;
 	height: 100%;
 	color: #000;
-	background: url("../img/maps.png");
+	background: url("../../images/maps.png");
 	-webkit-transform: skewX(-20deg);
 	transform: skewX(-20deg);
 	-o-text-overflow: clip;
@@ -363,8 +363,6 @@ button:hover, button:active, button:focus {
 	font-size:1.4em;
 	text-align:center;
 }
-
-
 
 
 
