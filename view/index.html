@@ -82,11 +82,21 @@
 		<div id="register" class="lightbox logreg">
 			<div class="close"><a href="#" onclick="document.body.style.overflow='visible';">X</a></div>
 			<h2>Register</h2>
-			<div class="box">
+				<div class="box" style="overflow-y:scroll; overflow-x:hidden; height:400px;">
 				<input class="inp" name="username" type="text" value="Username" onblur="if(this.value == ''){this.value = 'Username';}" onfocus="if (this.value == 'Username') {this.value = '';}">
 				<input class="inp" name="password" type="password" value="Password" onblur="if(this.value == ''){this.value = 'Password';}" onfocus="if (this.value == 'Password') {this.value = '';}">
 				<input class="inp" name="name" type="text" value="Full Name" onblur="if(this.value == ''){this.value = 'Full Name';}" onfocus="if (this.value == 'Full Name') {this.value = '';}">
 				<input class="inp" name="phone" type="text" value="Phone" onblur="if(this.value == ''){this.value = 'Phone';}" onfocus="if (this.value == 'Phone') {this.value = '';}">
+                <input class="inp" name="email" type="text" value="Email" onblur="if(this.value == ''){this.value = 'email';}" onfocus="if (this.value == 'email') {this.value = '';}">
+                <input class="inp" name="DOB" type="date" value="dob" onblur="if(this.value == ''){this.value = 'dob';}" onfocus="if (this.value == 'dob') {this.value = '';}">
+                <span class="inp" id="genderLabel" style="border:0px">Gender:</span>
+                <select id="gender" data="n" value="Gender" class="inp">
+                    <option value="n" selected>Select</option>
+                    <option value="M" onblur="if(this.value == ''){this.value = 'Male';}" onfocus="if (this.value == 'Male') {this.value = '';}" >Male</option>
+                    <option value="F">Female</option>
+                </select>
+                <input class="inp" name="city" type="text" value="City" onblur="if(this.value == ''){this.value = 'city';}" onfocus="if (this.value == 'city') {this.value = '';}">
+                <input class="inp" name="ref" type="text" value="Reference Code" onblur="if(this.value == ''){this.value = 'ref';}" onfocus="if (this.value == 'ref') {this.value = '';}">
 				<input class="button" type="submit" value="Submit">
 			</div>
 		</div>
