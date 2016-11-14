@@ -1,21 +1,23 @@
 ﻿<?php
 	$referalcode = "";
-
+	session_start();
 	//Works to be done by frontend after loading
-	$todo  = "";
+	$todo  = null;
 	$todo_args  = array();
 	if(isset($match[1]) && $match[1]=="register") {
-		$todo = 'bregister';
+		$todo = 'register';
 		if(isset($match[2]))
+			$_SESSION['refcode']=$match[2];
 			$referalcode = $match[2];
 	}
 	else if(isset($match[1]) && $match[1]=="ca") {
-		$todo = 'bregister_ca';
+		$todo = 'register_ca';
 		if(isset($match[2]))
+			$_SESSION['refcode']=$match[2];
 			$referalcode = $match[2];
 	}
 	else if(isset($match[1]) && $match[1]=="leaderboard")
-		$todo = 'bleaderboard';
+		$todo = 'leaderboard';
 
 ?>
 <!DOCTYPE html>
@@ -23,7 +25,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Anwesha '17</title>
-
+<!-- <?php echo $match[2] ;?> -->
 		<link rel="stylesheet" href="assets/css/style.css">
 		<link rel="icon" href="favicon.ico" type="image/x-icon" />
 
@@ -31,8 +33,16 @@
 		<script src='assets/js/jquery.transit.min.js'></script>
 		<script type="text/javascript">
 			$(document).ready(function(){
+				//<?PHP if(isset($match[2])){ echo'$("#refcode").val("'.$match[2].'").delay(2000);';} ?>
 				var i;
-				
+				<?php  $path= "//{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
+					if(isset($todo)){
+					$locarr=explode("/$todo", $path);
+
+						echo "window.location='$locarr[0]#$todo';";
+
+					}
+				?>
 				$.post("leaderboard/api/",
     						{	},
     						function(data, status){
@@ -109,13 +119,10 @@
 								    console.log("Failed "+data);
 
         						}
-        						$('html, body').animate({
-        scrollTop: $("#header").offset().top
-    }, 500);
     			},"json");
 
 			});//regular reg
-    			
+
     			$("#submitreg").click(function(){
 				
 				var name=$("#name").val();
@@ -138,18 +145,19 @@
         					email:email,
         					dob:dob,
         					city:city,
-        					refcode:refid
+        					refcode:<?PHP if(isset($_SESSION['refcode'])){ echo $_SESSION['refcode'];}else{echo'refid';} ?>
     						},
     						function(data, status){
 							var AJAXresponse = data;
         					if(status=='success'){
-        					
+        					alert(data);
         						if(AJAXresponse[0]==1){
-        							$("#register").html('<h1>Registered!</h1>An activation link has been sent to '+ email+'<br>');
-        							$("#register").css('background','#5FAB22');
-    								document.getElementById('register').scrollIntoView();
+        							$("#boxreg").html('<h1>Registered!</h1>An activation link has been sent to '+ email+'<br>');
+        							$("#error").html('<h1>Registered!</h1>An activation link has been sent to '+ email+'<br>');
+        							$("#boxreg").css('background','#5FAB22');
+    								document.getElementById('boxreg').scrollIntoView();
 								
-        							$("#error").fadeOut();
+        							// $("#error").fadeOut();
         						}else{
         							$("#error").fadeIn();
         							$("#error").html('<h5>ERROR</h5>'+AJAXresponse[1]);
@@ -249,7 +257,7 @@
 			<div class="close"><a href="#" onclick="document.body.style.overflow='visible';">X</a></div>
 			<h2>Register</h2>
 			
-				<div class="box" style="overflow-y:scroll; overflow-x:hidden; height:400px;">
+				<div id="boxreg" class="box" style="overflow-y:scroll; overflow-x:hidden; height:400px;">
 				<!--input class="inp"  name="username" type="text" placeholder="Username" onblur="if(this.value == ''){this.value = 'Username';}" onfocus="if (this.value == 'Username') {this.value = '';}"-->
 				<!--input class="inp" id="" name="password" type="password" placeholder="Password" onblur="if(this.value == ''){this.value = 'Password';}" onfocus="if (this.value == 'Password') {this.value = '';}"-->
 				<input class="inp" name="name" id="name" type="text" placeholder="Full Name" onblur="if(this.value == ''){this.value = 'Full Name';}" onfocus="if (this.value == 'Full Name') {this.value = '';}">
@@ -259,7 +267,10 @@
                 <input class="inp" id="datepicker" name="DOB" type="date" placeholder="DOB" onblur="if(this.value == ''){this.value = 'dob';}" onfocus="if (this.value == 'dob') {this.value = '';}">
                 <input id="gender" placeholder="Sex(M/F)" class="inp"  name="sex" type="text" pattern="[MFmf]" value="" >
 				<input id="city" class="inp" name="city" type="text" placeholder="City" onblur="if(this.value == ''){this.value = 'city';}" onfocus="if (this.value == 'city') {this.value = '';}">
-                <input id="refcode" class="inp" name="ref" type="text" placeholder="Reference Code" value="<?php  echo $referalcode; ?>" <?php if(!empty($referalcode)) echo "disabled"; ?> onblur="if(this.value == ''){this.value = 'ref';}" onfocus="if (this.value == 'ref') {this.value = '';}">
+				<?php if(!isset($_SESSION['refcode'])){echo '
+                <input id="refcode" class="inp" name="ref" type="text" placeholder="Reference Code">';}
+                else {echo '<font color="white">REF ID:';echo $_SESSION['refcode']."</font>"; };
+                 ?>
                 <div id="error" style="width:-moz-fit-content;display:none;box-radius:5px;box-shadow:#000000 0 0 10px;background:#6fce2d;padding:20px;font-size:20px;margin:10px">An error occured</div>
 				<input class="button" type="submit" id="submitreg" value="Submit">
 			</div>
@@ -286,7 +297,7 @@
 				<textarea placeholder="Tell us 3 things you would do as a Campus Ambassador of Anwesha &lsquo;17." class="inp" id="cathreethings" name="threethings" rows="10"></textarea>
 				<textarea placeholder="Have you held any position of responsibility in your college? If yes, please explain." class="inp" id="caresponsibility" name="responsibility" rows="10"></textarea>
 				<textarea placeholder="Have you been a part of one or more previous editions of Anwesha? If yes, please explain." class="inp" id="cainvolvement" name="involvement" rows="10"></textarea>
-				<input placeholder="Refered by someone?" id="careferalcode" name="referalcode" class="inp"  type="text" value="<?php echo $referalcode; ?>" <?php if(!empty($referalcode)) echo "disabled"; ?> ><br>
+				<input placeholder="Refered by someone?" id="careferalcode" name="referalcode" class="inp"  type="text" value="<?php echo $_SESSION['refcode']; ?>" <?php if(!empty($referalcode)) echo "disabled"; ?> ><br>
 				<center><div id="messagew" style="color: red !important;"></div></center>
 				<input id="submitca" class="inp" type="submit" value="Submit">
 				
@@ -333,17 +344,7 @@
 
 
 		<script src="assets/js/index.js"></script>	
-		<script type="text/javascript">
-			function afterload() {
-				<?php
-				if(!empty($todo)) {
-				?>
-					$(<?php echo "\"#$todo\"" ?>).click();
-				<?php
-				}
-				?>
-			}
-			afterload();
-		</script>
+		
+
 	</body>
 </html>
