@@ -114,8 +114,58 @@
     }, 500);
     			},"json");
 
-			});
+			});//regular reg
+    			
+    			$("#submitreg").click(function(){
+				
+				var name=$("#name").val();
+				var email=$("#email").val();				
+				var college=$("#college").val();
+				var mobile=$("#mobilekn").val();
+				var dob=$("#datepicker").val();
+				var sex=$("#gender").val();
+				var city=$("#city").val();
+				var refid=$("#refcode").val();
+				
+				//ajax send
+				$.post("user/register/User/",
+    						{        						
+       						name: name,
+        					email: email,
+        					college: college,
+        					sex:sex,
+        					mobile:mobile,
+        					email:email,
+        					dob:dob,
+        					city:city,
+        					refcode:refid
+    						},
+    						function(data, status){
+							var AJAXresponse = data;
+        					if(status=='success'){
+        					
+        						if(AJAXresponse[0]==1){
+        							$("#register").html('<h1>Registered!</h1>An activation link has been sent to '+ email+'<br>');
+        							$("#register").css('background','#5FAB22');
+    								document.getElementById('register').scrollIntoView();
+								
+        							$("#error").fadeOut();
+        						}else{
+        							$("#error").fadeIn();
+        							$("#error").html('<h5>ERROR</h5>'+AJAXresponse[1]);
+        							document.getElementById('error').scrollIntoView();
+								}
+     
+        					}else{
+        							$("#error").fadeIn();
+        							$("#error").html('An error occured.<br> Please try again.');
+    								document.getElementById('error').scrollIntoView();
+								
 
+        						}
+    			},"json");
+				
+			});
 			});
 
 		
@@ -198,17 +248,20 @@
 		<div id="register" class="lightbox logreg">
 			<div class="close"><a href="#" onclick="document.body.style.overflow='visible';">X</a></div>
 			<h2>Register</h2>
+			
 				<div class="box" style="overflow-y:scroll; overflow-x:hidden; height:400px;">
-				<input class="inp" name="username" type="text" placeholder="Username" onblur="if(this.value == ''){this.value = 'Username';}" onfocus="if (this.value == 'Username') {this.value = '';}">
-				<input class="inp" name="password" type="password" placeholder="Password" onblur="if(this.value == ''){this.value = 'Password';}" onfocus="if (this.value == 'Password') {this.value = '';}">
-				<input class="inp" name="name" type="text" placeholder="Full Name" onblur="if(this.value == ''){this.value = 'Full Name';}" onfocus="if (this.value == 'Full Name') {this.value = '';}">
-				<input class="inp" name="phone" type="text" placeholder="Phone" onblur="if(this.value == ''){this.value = 'Phone';}" onfocus="if (this.value == 'Phone') {this.value = '';}">
-                <input class="inp" name="email" type="text" placeholder="Email" onblur="if(this.value == ''){this.value = 'email';}" onfocus="if (this.value == 'email') {this.value = '';}">
-                <input class="inp" name="DOB" type="date" placeholder="DOB" onblur="if(this.value == ''){this.value = 'dob';}" onfocus="if (this.value == 'dob') {this.value = '';}">
-                <input placeholder="Sex(M/F)" class="inp"  name="sex" type="text" pattern="[MFmf]" value="" >
-				<input class="inp" name="city" type="text" placeholder="City" onblur="if(this.value == ''){this.value = 'city';}" onfocus="if (this.value == 'city') {this.value = '';}">
-                <input class="inp" name="ref" type="text" placeholder="Reference Code" value="<?php  echo $referalcode; ?>" <?php if(!empty($referalcode)) echo "disabled"; ?> onblur="if(this.value == ''){this.value = 'ref';}" onfocus="if (this.value == 'ref') {this.value = '';}">
-				<input class="button" type="submit" value="Submit">
+				<!--input class="inp"  name="username" type="text" placeholder="Username" onblur="if(this.value == ''){this.value = 'Username';}" onfocus="if (this.value == 'Username') {this.value = '';}"-->
+				<!--input class="inp" id="" name="password" type="password" placeholder="Password" onblur="if(this.value == ''){this.value = 'Password';}" onfocus="if (this.value == 'Password') {this.value = '';}"-->
+				<input class="inp" name="name" id="name" type="text" placeholder="Full Name" onblur="if(this.value == ''){this.value = 'Full Name';}" onfocus="if (this.value == 'Full Name') {this.value = '';}">
+				<input class="inp" name="phone" type="text" placeholder="Phone" id="mobilekn" onblur="if(this.value == ''){this.value = 'Phone';}" onfocus="if (this.value == 'Phone') {this.value = '';}">
+                <input class="inp" name="email" type="text" placeholder="Email" id="email" onblur="if(this.value == ''){this.value = 'email';}" onfocus="if (this.value == 'email') {this.value = '';}">
+                <input class="inp" name="college" type="text" placeholder="College" id="college" onblur="if(this.value == ''){this.value = 'College';}" onfocus="if (this.value == 'College') {this.value = '';}">
+                <input class="inp" id="datepicker" name="DOB" type="date" placeholder="DOB" onblur="if(this.value == ''){this.value = 'dob';}" onfocus="if (this.value == 'dob') {this.value = '';}">
+                <input id="gender" placeholder="Sex(M/F)" class="inp"  name="sex" type="text" pattern="[MFmf]" value="" >
+				<input id="city" class="inp" name="city" type="text" placeholder="City" onblur="if(this.value == ''){this.value = 'city';}" onfocus="if (this.value == 'city') {this.value = '';}">
+                <input id="refcode" class="inp" name="ref" type="text" placeholder="Reference Code" value="<?php  echo $referalcode; ?>" <?php if(!empty($referalcode)) echo "disabled"; ?> onblur="if(this.value == ''){this.value = 'ref';}" onfocus="if (this.value == 'ref') {this.value = '';}">
+                <div id="error" style="width:-moz-fit-content;display:none;box-radius:5px;box-shadow:#000000 0 0 10px;background:#6fce2d;padding:20px;font-size:20px;margin:10px">An error occured</div>
+				<input class="button" type="submit" id="submitreg" value="Submit">
 			</div>
 		</div>
 
