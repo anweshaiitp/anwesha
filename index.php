@@ -24,10 +24,8 @@ $url = $_SERVER['REQUEST_URI'];
 preg_match('@(.*)index.php(.*)$@', $_SERVER['PHP_SELF'], $mat );
 $base = '@^'. $mat[1] ;
 
-if (preg_match($base . '$@', $url)) {
-	require ('view/index.html');
-} elseif (preg_match($base . 'register/([0-9]{4}|)$@', $url, $match)) {
-	require ('view/userRegistration.php');
+if (preg_match($base . '(ca|register|)_?([0-9]{4}|)$@', $url, $match)) {
+	require ('view/index.php');
 } elseif (preg_match($base . 'leaderboard/api/?$@', $url, $match)) {
 	require ('controller/leaderboardback.php');
 } elseif (preg_match($base . 'leaderboard/?$@', $url, $match)) {
@@ -36,8 +34,6 @@ if (preg_match($base . '$@', $url)) {
 	require ('view/multiCityAuditions.html');
 } elseif (preg_match($base . 'auditions/linefollow/$@', $url, $match)) {
 	require ('view/linefollow.html');
-} elseif (preg_match($base . 'ca/([0-9]{4}|)$@', $url, $match)) {
-	require ('view/ca.php');
 } elseif (preg_match($base . 'switchca/$@', $url, $match)) {
 	require ('view/switchca.php');
 // } elseif ( preg_match($base .'cssLoader/home/?$@', $url, $match ) ) {

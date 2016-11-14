@@ -1,4 +1,24 @@
-﻿<!DOCTYPE html>
+﻿<?php
+	$referalcode = "";
+
+	//Works to be done by frontend after loading
+	$todo  = "";
+	$todo_args  = array();
+	if(isset($match[1]) && $match[1]=="register") {
+		$todo = 'bregister';
+		if(isset($match[2]))
+			$referalcode = $match[2];
+	}
+	else if(isset($match[1]) && $match[1]=="ca") {
+		$todo = 'bregister_ca';
+		if(isset($match[2]))
+			$referalcode = $match[2];
+	}
+	else if(isset($match[1]) && $match[1]=="leaderboard")
+		$todo = 'bleaderboard';
+
+?>
+<!DOCTYPE html>
 <html >
 	<head>
 		<meta charset="UTF-8">
@@ -96,6 +116,8 @@ myDiv.scrollTop = 0;
 
 			});
 			});
+
+		
 		</script>
 		<meta property="og:image" content="http://2016.anwesha.info/images/preview.png" />
 		<link rel="shortcut icon" href="favicon.ico">
@@ -112,9 +134,9 @@ myDiv.scrollTop = 0;
 
 		<div id="intro">
 			<ul class="links">
-				<a href="#login"><li>Registration</li></a>
-				<a href="#register"><li>Campus Ambassador</li></a>
-                <a href="#leaderboard"><li>Campus Ambassador Leaderboard</li></a>
+				<a id='bregister' href="#register"><li>Registration</li></a>
+				<a id='bregister_ca' href="#register_ca"><li>Campus Ambassador</li></a>
+                <a id='bleaderboard' href="#leaderboard"><li>Campus Ambassador Leaderboard</li></a>
 			</ul>
 
             
@@ -145,10 +167,9 @@ myDiv.scrollTop = 0;
 		
 		</div>
         
-   
-		<button id="expand-navigation">-</button>
-
+		<button id="expand-navigation" style='visibility:hidden'>-</button>
 		<section class="wrapper opened">
+		<!--
 			<ul>
 				<li><a href="#galleryload" onclick="gallery();">Pics</a></li>
 				<li><a href="#">Spons</a></li>
@@ -156,11 +177,11 @@ myDiv.scrollTop = 0;
 				<li><a href="#">Social</a></li>
 				<li><a href="#">Team</a></li>
 			</ul>
+		-->
 		</section>
 
+
 		<div class="overlay on-overlay"></div>
-
-
 
 		<div id="preloader">
 			<div class="bg"></div>
@@ -173,8 +194,24 @@ myDiv.scrollTop = 0;
 			</div>
 		</div>
 
-
 		<div id="register" class="lightbox logreg">
+			<div class="close"><a href="#" onclick="document.body.style.overflow='visible';">X</a></div>
+			<h2>Register</h2>
+				<div class="box" style="overflow-y:scroll; overflow-x:hidden; height:400px;">
+				<input class="inp" name="username" type="text" placeholder="Username" onblur="if(this.value == ''){this.value = 'Username';}" onfocus="if (this.value == 'Username') {this.value = '';}">
+				<input class="inp" name="password" type="password" placeholder="Password" onblur="if(this.value == ''){this.value = 'Password';}" onfocus="if (this.value == 'Password') {this.value = '';}">
+				<input class="inp" name="name" type="text" placeholder="Full Name" onblur="if(this.value == ''){this.value = 'Full Name';}" onfocus="if (this.value == 'Full Name') {this.value = '';}">
+				<input class="inp" name="phone" type="text" placeholder="Phone" onblur="if(this.value == ''){this.value = 'Phone';}" onfocus="if (this.value == 'Phone') {this.value = '';}">
+                <input class="inp" name="email" type="text" placeholder="Email" onblur="if(this.value == ''){this.value = 'email';}" onfocus="if (this.value == 'email') {this.value = '';}">
+                <input class="inp" name="DOB" type="date" placeholder="DOB" onblur="if(this.value == ''){this.value = 'dob';}" onfocus="if (this.value == 'dob') {this.value = '';}">
+                <input placeholder="Sex(M/F)" class="inp"  name="sex" type="text" pattern="[MFmf]" value="" >
+				<input class="inp" name="city" type="text" placeholder="City" onblur="if(this.value == ''){this.value = 'city';}" onfocus="if (this.value == 'city') {this.value = '';}">
+                <input class="inp" name="ref" type="text" placeholder="Reference Code" value="<?php  echo $referalcode; ?>" <?php if(!empty($referalcode)) echo "disabled"; ?> onblur="if(this.value == ''){this.value = 'ref';}" onfocus="if (this.value == 'ref') {this.value = '';}">
+				<input class="button" type="submit" value="Submit">
+			</div>
+		</div>
+
+		<div id="register_ca" class="lightbox logreg">
 			<div class="close"><a href="#" onclick="document.body.style.overflow='visible';">X</a></div>
 			<h2>Register</h2>
 
@@ -192,10 +229,10 @@ myDiv.scrollTop = 0;
 				<input placeholder="Mobile" class="inp" coolk" name="mobile" pattern="[789]\d{9}" title="Invalid Mobile Number" type="text" value="">
 				<input placeholder="DOB (yyyy-mm-dd)" class="inp" coolk" name="dob" pattern="\d{4}-\d{2}-\d{2}" class="datepicker" class="inp" coolk" title="Invalid Date Format(yyyy-mm-dd)" value="">
 				<input placeholder="Sex(M/F)" class="inp" coolk" name="sex" type="text" pattern="[MFmf]" value="">
-				<textarea placeholder="Tell us 3 things you would do as a Campus Ambassador of Anwesha '17." class="inp" coolk" name="threethings" rows="10"></textarea>
+				<textarea placeholder="Tell us 3 things you would do as a Campus Ambassador of Anwesha &lsquo;17." class="inp" coolk" name="threethings" rows="10"></textarea>
 				<textarea placeholder="Have you held any position of responsibility in your college? If yes, please explain." class="inp" coolk" name="responsibility" rows="10"></textarea>
 				<textarea placeholder="Have you been a part of one or more previous editions of Anwesha? If yes, please explain." class="inp" coolk" name="involvement" rows="10"></textarea>
-				<input placeholder="Refered by someone?" name="referalcode" class="inp" coolk" type="text" value="<?php echo $referalcode; ?>" <?php if(!empty($referalcode)) echo "disabled"; ?>><br>
+				<input placeholder="Refered by someone?" name="referalcode" class="inp" coolk" type="text" value="<?php echo $referalcode; ?>" <?php if(!empty($referalcode)) echo "disabled"; ?> ><br>
 				<center><div id="messagew" style="color: red !important;"></div></center>
 				<input id="submit" class="inp" " type="submit" value="Submit">
 				
@@ -242,5 +279,17 @@ myDiv.scrollTop = 0;
 
 
 		<script src="assets/js/index.js"></script>	
+		<script type="text/javascript">
+			function afterload() {
+				<?php
+				if(!empty($todo)) {
+				?>
+					$(<?php echo "\"#$todo\"" ?>).click();
+				<?php
+				}
+				?>
+			}
+			afterload();
+		</script>
 	</body>
 </html>
