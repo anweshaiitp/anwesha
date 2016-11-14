@@ -46,21 +46,23 @@
 
         						}
     			},"json");
-    			$("#submit").click(function(){
-				var name=$("[name='name']").val();
-		var email=$("[name='email']").val();
-		var college=$("[name='college']").val();
-		var degree=$("[name='degree']").val();
-		var city=$("[name='city']").val();
-		var graduation=$("[name='graduation']").val();
-		var address=$("[name='address']").val();
-		var dob=$("[name='dob']").val();
-		var mobile=$("[name='mobile']").val();
-		var sex=$("[name='sex']").val();
-		var responsibility=$("[name='responsibility']").val();
-		var involvement=$("[name='involvement']").val();
-		var threethings=$("[name='threethings']").val();
-		var referalcode=$("[name='referalcode']").val();
+
+    			//ajax for ca
+    			$("#submitca").click(function(){ 
+				var name=$("#caname").val();
+		var email=$("#caemail").val();
+		var college=$("#cacollege").val();
+		var degree=$("#cadegree").val();
+		var city=$("#cacity").val();
+		var graduation=$("#cagraduation").val();
+		var address=$("#caaddress").val();
+		var dob=$("#cadob").val();
+		var mobile=$("#camobile").val();
+		var sex=$("#casex").val();
+		var responsibility=$("#caresponsibility").val();
+		var involvement=$("#cainvolvement").val();
+		var threethings=$("#cathreethings").val();
+		var referalcode=$("#careferalcode").val();
 		console.log("Request Send");
 		$.post("user/register/CampusAmbassador/",
     						{        						
@@ -86,35 +88,34 @@
         						console.log(data);
 
         						if(data[0]==1){
-        							$("#message").html('<center>Registration Successful<br>An activation link has been sent to your email.</center>');
-        							$("#message").fadeIn();
-        							$("#message").css('background','#5FAB22');
+        							$("#messagew").html('<center>Registration Successful<br>An activation link has been sent to your email.</center>');
+        							$("#messagew").fadeIn();
+        							$("#messagew").css('background','#5FAB22');
         							$("#form_fill").fadeOut();
         						}else{
-        							$("#message").fadeIn();
         							$("#messagew").fadeIn();
         							$("#messagew").html('<center>Error<br>'+data[1]+'</center>');
-        							$("#message").html('<center>Error<br>'+data[1]+'</center>');
 								}
 								$('html, body').animate({
 								        scrollTop: $("#header").offset().top
 								    }, 500);
      
         					}else{//$("#myloader").fadeOut();
-        							$("#message").fadeIn();
-        							$("#message").html('An error occured.<br> Please try again.');
+        							$("#messagew").fadeIn();alert('data nahi aaya');
+        							$("#messagew").html('An error occured.<br> Please try again.');
         							$('html, body').animate({
 								        scrollTop: $("#header").offset().top
 								    }, 500);
 								    console.log("Failed "+data);
 
         						}
-        	var myDiv = document.getElementById('box');
-myDiv.innerHTML = variableLongText;
-myDiv.scrollTop = 0;
+        						$('html, body').animate({
+        scrollTop: $("#header").offset().top
+    }, 500);
     			},"json");
 
 			});
+
 			});
 
 		
@@ -219,22 +220,22 @@ myDiv.scrollTop = 0;
 				<div id="message" style="color: red !important;"></div></center>
 
 			<form action="javascript:" method="post" id="form_fill" accept-charset="UTF-8">
-				<input placeholder="Full Name" class="inp" coolk" name="name" type="text" value="">
-				<input placeholder="College" class="inp" coolk" name="college" type="text" value="">
-				<input placeholder="City" class="inp" coolk" name="city" type="text" value="">
-				<input placeholder="Degree" class="inp" coolk" name="degree" type="text" value="">
-				<input placeholder="Year of Graduation" class="inp" coolk" name="graduation" type="text" value="">
-				<textarea placeholder="Address" class="inp" coolk" name="address" rows="10"></textarea>
-				<input placeholder="Email" class="inp" coolk" name="email" type="text" value="">
-				<input placeholder="Mobile" class="inp" coolk" name="mobile" pattern="[789]\d{9}" title="Invalid Mobile Number" type="text" value="">
-				<input placeholder="DOB (yyyy-mm-dd)" class="inp" coolk" name="dob" pattern="\d{4}-\d{2}-\d{2}" class="datepicker" class="inp" coolk" title="Invalid Date Format(yyyy-mm-dd)" value="">
-				<input placeholder="Sex(M/F)" class="inp" coolk" name="sex" type="text" pattern="[MFmf]" value="">
-				<textarea placeholder="Tell us 3 things you would do as a Campus Ambassador of Anwesha &lsquo;17." class="inp" coolk" name="threethings" rows="10"></textarea>
-				<textarea placeholder="Have you held any position of responsibility in your college? If yes, please explain." class="inp" coolk" name="responsibility" rows="10"></textarea>
-				<textarea placeholder="Have you been a part of one or more previous editions of Anwesha? If yes, please explain." class="inp" coolk" name="involvement" rows="10"></textarea>
-				<input placeholder="Refered by someone?" name="referalcode" class="inp" coolk" type="text" value="<?php echo $referalcode; ?>" <?php if(!empty($referalcode)) echo "disabled"; ?> ><br>
+				<input placeholder="Full Name" id="caname" class="inp"  name="name" type="text" value="">
+				<input placeholder="College" class="inp" id="cacollege" name="college" type="text" value="">
+				<input placeholder="City" class="inp" id="cacity" name="city" type="text" value="">
+				<input placeholder="Degree" class="inp" id="cadegree" name="degree" type="text" value="">
+				<input placeholder="Year of Graduation" class="inp" id="cagraduation" name="graduation" type="text" value="">
+				<textarea placeholder="Address" class="inp" id="caaddress" name="address" rows="10"></textarea>
+				<input placeholder="Email" class="inp" id="caemail" name="email" type="text" value="">
+				<input placeholder="Mobile" class="inp" id="camobile" name="mobile" pattern="[789]\d{9}" title="Invalid Mobile Number" type="text" value="">
+				<input placeholder="DOB (yyyy-mm-dd)" class="inp" id="cadob" name="dob" pattern="\d{4}-\d{2}-\d{2}" class="datepicker" class="inp"  title="Invalid Date Format(yyyy-mm-dd)" value="">
+				<input placeholder="Sex(M/F)" class="inp" id="casex" name="sex" type="text" pattern="[MFmf]" value="">
+				<textarea placeholder="Tell us 3 things you would do as a Campus Ambassador of Anwesha &lsquo;17." class="inp" id="cathreethings" name="threethings" rows="10"></textarea>
+				<textarea placeholder="Have you held any position of responsibility in your college? If yes, please explain." class="inp" id="caresponsibility" name="responsibility" rows="10"></textarea>
+				<textarea placeholder="Have you been a part of one or more previous editions of Anwesha? If yes, please explain." class="inp" id="cainvolvement" name="involvement" rows="10"></textarea>
+				<input placeholder="Refered by someone?" id="careferalcode" name="referalcode" class="inp"  type="text" value="<?php echo $referalcode; ?>" <?php if(!empty($referalcode)) echo "disabled"; ?> ><br>
 				<center><div id="messagew" style="color: red !important;"></div></center>
-				<input id="submit" class="inp" " type="submit" value="Submit">
+				<input id="submitca" class="inp" type="submit" value="Submit">
 				
 			</form>
 			</div>
