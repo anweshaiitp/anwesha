@@ -90,20 +90,21 @@
         						console.log(data);
 
         						if(data[0]==1){
-        							$("#messagew").html('<center>Registration Successful<br>An activation link has been sent to your email.</center>');
-        							$("#messagew").fadeIn();
-        							$("#messagew").css('background','#5FAB22');
-        							$("#form_fill").fadeOut();
+        							$("#form_fill").html('<div style="width:500px;"><center></br>Registration Successful</br>===================</br></br>An activation link has been sent to your email.<br>'+email+'</center></div></br></br>');
+        							//$("#messagew").fadeIn();
+        							$("#form_fill").css('background','#5FAB22');
+        							//$("#form_fill").fadeOut();
+
         						}else{
         							$("#messagew").fadeIn();
-        							$("#messagew").html('<center>Error<br>'+data[1]+'</center>');
+        							$("#messagew").html('<center>'+data[1]+'</center>');
 								}
 								$('html, body').animate({
 								        scrollTop: $("#header").offset().top
 								    }, 500);
      
         					}else{//$("#myloader").fadeOut();
-        							$("#messagew").fadeIn();alert('data nahi aaya');
+        							$("#messagew").fadeIn();
         							$("#messagew").html('An error occured.<br> Please try again.');
         							$('html, body').animate({
 								        scrollTop: $("#header").offset().top
@@ -142,17 +143,16 @@
     						function(data, status){
 							var AJAXresponse = data;
         					if(status=='success'){
-        					alert(data);
         						if(AJAXresponse[0]==1){
-        							$("#boxreg").html('<h1>Registered!</h1>An activation link has been sent to '+ email+'<br>');
-        							$("#error").html('<h1>Registered!</h1>An activation link has been sent to '+ email+'<br>');
+        							$("#boxreg").html('<div style="width:500px"><h1>Registered!<br>==============<br></h1><br>An activation link has been sent to<br>'+ email+'<br><div>');
+        							//$("#error").html('<h1>Registered!</h1>An activation link has been sent to '+ email+'<br>');
         							$("#boxreg").css('background','#5FAB22');
     								document.getElementById('boxreg').scrollIntoView();
 								
         							// $("#error").fadeOut();
         						}else{
         							$("#error").fadeIn();
-        							$("#error").html('<h5>ERROR</h5>'+AJAXresponse[1]);
+        							$("#error").html(''+AJAXresponse[1]+'');
         							document.getElementById('error').scrollIntoView();
 								}
      
@@ -188,6 +188,8 @@
 				<a id='bregister' href="#register"><li>Registration</li></a>
 				<a id='bregister_ca' href="#register_ca"><li>Campus Ambassador</li></a>
                 <a id='bleaderboard' href="#leaderboard"><li>Campus Ambassador Leaderboard</li></a>
+				<br>
+			    <a href="auditions/"><li>MultiCity</li></a>
 			</ul>
 
             
@@ -252,42 +254,42 @@
 				<div id="boxreg" class="box" style="overflow-y:scroll; overflow-x:hidden; height:400px;">
 				<!--input class="inp"  name="username" type="text" placeholder="Username" onblur="if(this.value == ''){this.value = 'Username';}" onfocus="if (this.value == 'Username') {this.value = '';}"-->
 				<!--input class="inp" id="" name="password" type="password" placeholder="Password" onblur="if(this.value == ''){this.value = 'Password';}" onfocus="if (this.value == 'Password') {this.value = '';}"-->
-				<input class="inp" name="name" id="name" type="text" placeholder="Full Name" onblur="if(this.value == ''){this.value = 'Full Name';}" onfocus="if (this.value == 'Full Name') {this.value = '';}">
-				<input class="inp" name="phone" type="text" placeholder="Phone" id="mobilekn" onblur="if(this.value == ''){this.value = 'Phone';}" onfocus="if (this.value == 'Phone') {this.value = '';}">
-                <input class="inp" name="email" type="text" placeholder="Email" id="email" onblur="if(this.value == ''){this.value = 'email';}" onfocus="if (this.value == 'email') {this.value = '';}">
-                <input class="inp" name="college" type="text" placeholder="College" id="college" onblur="if(this.value == ''){this.value = 'College';}" onfocus="if (this.value == 'College') {this.value = '';}">
-                <input class="inp" id="datepicker" name="DOB" type="date" placeholder="DOB" onblur="if(this.value == ''){this.value = 'dob';}" onfocus="if (this.value == 'dob') {this.value = '';}">
+				<input class="inp" name="name" id="name" type="text" placeholder="Full Name" pattern="[a-zA-Z0-9.\s]{4,40}" title='Alpha Numberic Character of 4 to 40 length'>
+				<input class="inp" name="phone" type="text" placeholder="Phone" id="mobilekn" pattern="[789][0-9]{9}" title='Valid 10 Digits Mobile Number' >
+                <input class="inp" name="email" type="email" placeholder="Email" id="email" title="Invalid Email">
+                <input class="inp" name="college" type="text" placeholder="College" id="college" pattern="[a-zA-Z0-9.\s]*" title='Invalid College Name'>
+                <input class="inp" id="datepicker" name="DOB" type="text" placeholder="DOB (yyyy-mm-dd)"  pattern="\d{4}-\d{2}-\d{2}" class="datepicker" class="inp"  title="Invalid Date Format(yyyy-mm-dd)"  >
                 <input id="gender" placeholder="Sex(M/F)" class="inp"  name="sex" type="text" pattern="[MFmf]" value="" >
-				<input id="city" class="inp" name="city" type="text" placeholder="City" onblur="if(this.value == ''){this.value = 'city';}" onfocus="if (this.value == 'city') {this.value = '';}">
-				<input id="refcode" class="inp" name="ref" type="text" placeholder="Reference Code" value="<?php if(isset($referalcode)) echo $referalcode; ?>" <?php if(!empty($referalcode)) echo "disabled"; ?>>
-                <div id="error" style="width:-moz-fit-content;display:none;box-radius:5px;box-shadow:#000000 0 0 10px;background:#6fce2d;padding:20px;font-size:20px;margin:10px">An error occured</div>
+				<input id="city" class="inp" name="city" type="text" placeholder="City" patten='^[a-zA-Z0-9.@]*' title="Invalid City" >
+				<input id="refcode" class="inp" name="ref" type="text" placeholder="Reference Code" pattern='([0-9]{4})|()' title="Invalid Ref Number" value="<?php if(isset($referalcode)) echo $referalcode; ?>" <?php if(!empty($referalcode)) echo "disabled"; ?>>
+                <div id="error" style="width:auto;display:none;box-radius:5px;box-shadow:#000000 0 0 10px;background:#6fce2d;padding:20px;font-size:20px;margin:10px">An error occured</div>
 				<input class="button" type="submit" id="submitreg" value="Submit">
 			</div>
 		</div>
 
 		<div id="register_ca" class="lightbox logreg">
 			<div class="close"><a href="#" onclick="document.body.style.overflow='visible';">X</a></div>
-			<h2>Register</h2>
+			<h2>Campus Ambassador<br> Registrations</h2>
 
 			<div class="box" id="box"><center>
 				<div id="message" style="color: red !important;"></div></center>
 
 			<form action="javascript:" method="post" id="form_fill" accept-charset="UTF-8">
-				<input placeholder="Full Name" id="caname" class="inp"  name="name" type="text" value="">
-				<input placeholder="College" class="inp" id="cacollege" name="college" type="text" value="">
-				<input placeholder="City" class="inp" id="cacity" name="city" type="text" value="">
+				<input placeholder="Full Name" id="caname" class="inp"  name="name" type="text" value="" pattern="[a-zA-Z0-9.\s]{4,40}" title='Alpha Numberic Character of 4 to 40 length'>
+				<input placeholder="College" class="inp" id="cacollege" name="college" type="text" value="" pattern="[a-zA-Z0-9.\s]*" title='Invalid College Name'>
+				<input placeholder="City" class="inp" id="cacity" name="city" type="text" value="" patten='^[a-zA-Z0-9.@]*' title="Invalid City" >
 				<input placeholder="Degree" class="inp" id="cadegree" name="degree" type="text" value="">
 				<input placeholder="Year of Graduation" class="inp" id="cagraduation" name="graduation" type="text" value="">
 				<textarea placeholder="Address" class="inp" id="caaddress" name="address" rows="10"></textarea>
-				<input placeholder="Email" class="inp" id="caemail" name="email" type="text" value="">
+				<input placeholder="Email" class="inp" id="caemail" name="email" type="email" value="" title="Invalid Email ID">
 				<input placeholder="Mobile" class="inp" id="camobile" name="mobile" pattern="[789]\d{9}" title="Invalid Mobile Number" type="text" value="">
 				<input placeholder="DOB (yyyy-mm-dd)" class="inp" id="cadob" name="dob" pattern="\d{4}-\d{2}-\d{2}" class="datepicker" class="inp"  title="Invalid Date Format(yyyy-mm-dd)" value="">
 				<input placeholder="Sex(M/F)" class="inp" id="casex" name="sex" type="text" pattern="[MFmf]" value="">
 				<textarea placeholder="Tell us 3 things you would do as a Campus Ambassador of Anwesha &lsquo;17." class="inp" id="cathreethings" name="threethings" rows="10"></textarea>
 				<textarea placeholder="Have you held any position of responsibility in your college? If yes, please explain." class="inp" id="caresponsibility" name="responsibility" rows="10"></textarea>
 				<textarea placeholder="Have you been a part of one or more previous editions of Anwesha? If yes, please explain." class="inp" id="cainvolvement" name="involvement" rows="10"></textarea>
-				<input placeholder="Refered by someone?" id="careferalcode" name="referalcode" class="inp"  type="text" value="<?php if(isset($referalcode)) echo $referalcode; ?>" <?php if(!empty($referalcode)) echo "disabled"; ?> ><br>
-				<center><div id="messagew" style="color: red !important;"></div></center>
+				<input placeholder="Refered by someone?" id="careferalcode" name="referalcode" class="inp"  type="text" pattern='([0-9]{4})|()' title="Invalid Ref Number" value="<?php if(isset($referalcode)) echo $referalcode; ?>" <?php if(!empty($referalcode)) echo "disabled"; ?> ><br>
+				<center><div id="messagew" style="width:auto;display:none;box-radius:5px;box-shadow:#000000 0 0 10px;background:#6fce2d;padding:20px;font-size:20px;margin:10px"></div></center>
 				<input id="submitca" class="inp" type="submit" value="Submit">
 				
 			</form>
@@ -298,8 +300,8 @@
 			<div class="close"><a href="#" onclick="document.body.style.overflow='visible';">X</a></div>
 			<h2>Login</h2>
 			<div class="box">
-				<input class="inp" name="username" type="text" value="Username" onblur="if(this.value == ''){this.value = 'Username';}" onfocus="if (this.value == 'Username') {this.value = '';}">
-				<input class="inp" name="password" type="password" value="Password" onblur="if(this.value == ''){this.value = 'Password';}" onfocus="if (this.value == 'Password') {this.value = '';}">
+				<input class="inp" name="username" type="text" value="Username" >
+				<input class="inp" name="password" type="password" value="Password" >
 				<input class="button" type="submit" value="login">
 			</div>
 		</div>

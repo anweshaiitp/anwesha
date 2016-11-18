@@ -115,7 +115,7 @@ class People{
         }  else if (!filter_var($em, FILTER_VALIDATE_EMAIL)) {
             $error = "Invalid Email-ID";
         }  else if (DateTime::createFromFormat('Y-m-d', $db) == FALSE) {
-            $error = "Invalid D.O.B".$db;
+            $error = "Invalid D.O.B [".$db."]";
         }  else if (!preg_match('/^[a-zA-Z0-9.@]*$/', $cit)) {
             $error = "Invalid City";
         }  else if (!preg_match('/^([0-9]{4}|)$/', trim($rc))) {
@@ -281,7 +281,7 @@ class People{
 
         $result = mysqli_query($conn,$sqlInsert);
         if(!$result){
-            $Err = 'Problem in Creating new registration - Maybe email id already in use.';
+            $Err = 'Error! Maybe EmailId is already in use.';
             $arr = array();
             $arr[]=-1;
             $arr[]=$Err;
