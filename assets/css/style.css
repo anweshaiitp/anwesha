@@ -71,13 +71,7 @@ font-size:1.5em;
 
 
 
-body {
-	background:url("../../images/medieval-ship-entering-island-fantasy.jpg") no-repeat center center fixed; 
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-}
+
 
 * {
 	box-sizing: border-box;

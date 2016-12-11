@@ -28,6 +28,15 @@
 
 		<script src='assets/js/jquery.min.js'></script>
 		<script src='assets/js/jquery.transit.min.js'></script>
+		<style type="text/css">
+			body {
+				background:url("images/test/window.png") no-repeat center center fixed; 
+				-webkit-background-size: cover;
+				-moz-background-size: cover;
+				-o-background-size: cover;
+				background-size: cover;
+			}
+		</style>
 		<script type="text/javascript">
 			$(document).ready(function(){
 				<?php 
