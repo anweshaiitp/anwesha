@@ -25,20 +25,169 @@
 <!-- <?php echo $match[2] ;?> -->
 		<link rel="stylesheet" href="assets/css/style.css">
 		<link rel="icon" href="favicon.ico" type="image/x-icon" />
-
+		<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+		<script type = "text/javascript" 
+         src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		
+      <script type = "text/javascript" 
+         src = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+		
+  <script src="//code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
 		<script src='assets/js/jquery.min.js'></script>
 		<script src='assets/js/jquery.transit.min.js'></script>
 		<style type="text/css">
-			body {
+		
+		html, body { height: 100%; width: 100%; margin: 0; }
+			.window {
+				/*pointer-events: none;*/
+				position: absolute;
+				left:0;
+				width:100% !important;
+				height:100% !important;
+				top:0;
+				z-index:0 !important;
 				background:url("images/test/window.png") no-repeat center center fixed; 
 				-webkit-background-size: cover;
 				-moz-background-size: cover;
 				-o-background-size: cover;
 				background-size: cover;
 			}
+			.window2 {
+				pointer-events: none;
+				position: absolute;
+				left:0;
+				width:100% !important;
+				height:100% !important;
+				top:0;
+				display: none;
+				z-index:4 !important;
+
+				background:url("images/test/window.png") no-repeat center center fixed; 
+				-webkit-background-size: cover;
+				-moz-background-size: cover;
+				-o-background-size: cover;
+				background-size: cover;
+			}
+			.sea{
+				background:url("images/sea.gif") no-repeat center center fixed; 
+				-webkit-background-size: cover;
+				-moz-background-size: cover;
+				-o-background-size: cover;
+				background-size: cover;
+				z-index: -2;
+				position: absolute;
+				top:0;
+				left: 0;
+				width:100%;
+				height:100%;
+				background-size: cover;
+			}
+			.clwrap{
+
+				width: 100%;
+				height: 100%;
+				position: relative;
+			}
+			.clubs{
+				position: absolute;
+  				top: 0;
+  				bottom: 0;
+  				left:0;
+  				right:0;
+  				margin: auto;
+  				width:600px;
+  				height:250px;
+				/*background-color: #000000;*/
+				display: block;
+			    margin: auto;
+				z-index: 3 !important;
+			}
+
+			.backbtn,.backbtn2,.list{
+   				 margin: 0.5em;
+    			 background: rgba(255, 255, 255, 0.6);
+   				 font-family: bebas;
+   				 padding: 20px;
+   				 /* width: 75%; */
+   				 font-size: 2em;
+   				 border-radius: 40px;
+   				 cursor: pointer;
+  				 transition: background .5s;
+			}
+			.backbtn:hover,.backbtn2:hover,.list:hover{
+				background:rgba(88, 214, 103, 0.6);
+			}
+
+			#leftlist{
+				display: none;
+				text-align: right;	
+				left:0;
+				position: absolute;
+
+			}
+			#rightlist{
+				display: none;
+				right:0;
+				position: absolute;
+			}
+			.backbtn{
+				position: absolute;
+				top:20px;
+				left:20px;
+				display: none;
+				height: 70px !important;
+				width:200px !important;
+			}
+			.backbtn2{
+				position: absolute;
+				top:110px;
+				left:20px;
+				display: none;
+				height: 70px !important;
+				width:200px !important;
+				
+			}
 		</style>
+
+		 <script type = "text/javascript" language = "javascript">
+   		
+         $(document).ready(function() {
+         	function toggleli(){
+         		$("#leftlist").toggle( "slide");
+               $("#rightlist").toggle( "slide");
+         	}
+            $("#eventsbtn").click(function(){
+            	$("#intro").hide();
+            	$(".window2").fadeIn("slow",toggleli());
+            	$(".backbtn").fadeIn().delay(1000);
+              
+            });
+			$(".backbtn").click(function(){
+				$("#intro").show();
+				$(".backbtn").fadeOut();
+				$(".window2").fadeOut("slow",toggleli());
+			});
+			$(".list").click(function(){
+				$(".overlay ").fadeIn("fast");
+				$(".backbtn2").fadeIn().delay(1000);
+							
+				toggleli();
+
+			});
+			$(".backbtn2").click(function(){
+				$(".backbtn2").fadeOut();
+				$(".overlay ").fadeOut();
+				toggleli();
+
+			});
+
+         });
+			
+      </script>
+ 
 		<script type="text/javascript">
 			$(document).ready(function(){
+
 				<?php 
 					if(isset($todo)){
 						echo "window.location='#$todo';";
@@ -190,15 +339,37 @@
 	</head>
 
 	<body>
+		<div class="window2"></div>
+		<div class="window"></div>
+		<button class="backbtn">< Back to home</button>
+		<button class="backbtn2">< Events</button>
+		<div class="sea"></div>
+		<div class="clwrap">
+			<div class="clubs">
+				<ul id="leftlist">
+				<a href="#"><li class="list">NJACK</li></a>
+				<a href="#"><li class="list">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sparkonics</li></a>
+				<a href="#"><li class="list">NJACK2</li></a>
 
+				</ul>
+				<ul id="rightlist">
+				<a href="#"><li class="list">NJACK3</li></a>
+				<a href="#"><li class="list">ACE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li></a>
+				<a href="#"><li class="list">NJACK4</li></a>
 
+				</ul>
+
+			</div>
+		</div>
 		<div id="intro">
 			<ul class="links">
 				<a id='bregister' href="#register"><li>Registration</li></a>
 				<a id='bregister_ca' href="#register_ca"><li>Campus Ambassador</li></a>
                 <a id='bleaderboard' href="#leaderboard"><li>Campus Ambassador Leaderboard</li></a>
+				<a href="#" id="eventsbtn"><li>Events</li></a>
 				<br>
 			    <a href="auditions/"><li>MultiCity</li></a>
+
 			</ul>
 
             
@@ -244,7 +415,7 @@
 
 
 		<div class="overlay on-overlay"></div>
-
+		
 		<div id="preloader">
 			<div class="bg"></div>
 			<div class="logo">
