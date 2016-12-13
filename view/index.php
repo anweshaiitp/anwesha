@@ -68,6 +68,16 @@
 				-o-background-size: cover;
 				background-size: cover;
 			}
+			.blankbg{
+				position: absolute;
+				left:0;
+				width:100% !important;
+				height:100% !important;
+				top:0;
+				display: none;
+				z-index:5!important;
+				background-color: #000000;
+			}
 			.sea{
 				background:url("images/sea.gif") no-repeat center center fixed; 
 				-webkit-background-size: cover;
@@ -135,6 +145,7 @@
 				top:20px;
 				left:20px;
 				display: none;
+				z-index:6;
 				height: 70px !important;
 				width:200px !important;
 			}
@@ -143,6 +154,7 @@
 				top:110px;
 				left:20px;
 				display: none;
+				z-index:6;
 				height: 70px !important;
 				width:200px !important;
 				
@@ -150,7 +162,7 @@
 		</style>
 
 		 <script type = "text/javascript" language = "javascript">
-   		
+   			var ev=0;
          $(document).ready(function() {
          	function toggleli(){
          		$("#leftlist").toggle( "slide");
@@ -165,18 +177,30 @@
 			$(".backbtn").click(function(){
 				$("#intro").show();
 				$(".backbtn").fadeOut();
-				$(".window2").fadeOut("slow",toggleli());
+				
+				
+            	if(ev==1){
+            		$(".blankbg ").fadeOut();
+            		$(".backbtn2").fadeOut();
+            		$(".window2").fadeOut("fast");
+					// toggleli();
+
+            	}else{
+            		$(".window2").fadeOut("slow",toggleli());
+            	}
+
 			});
 			$(".list").click(function(){
-				$(".overlay ").fadeIn("fast");
+				$(".blankbg ").fadeIn("fast");
 				$(".backbtn2").fadeIn().delay(1000);
-							
+				ev=1;
 				toggleli();
 
 			});
 			$(".backbtn2").click(function(){
+				ev=0;
 				$(".backbtn2").fadeOut();
-				$(".overlay ").fadeOut();
+				$(".blankbg ").fadeOut();
 				toggleli();
 
 			});
@@ -339,10 +363,11 @@
 	</head>
 
 	<body>
+		<div class="blankbg"></div>
 		<div class="window2"></div>
 		<div class="window"></div>
 		<button class="backbtn">< Back to home</button>
-		<button class="backbtn2">< Events</button>
+		<button class="backbtn2">< Events home</button>
 		<div class="sea"></div>
 		<div class="clwrap">
 			<div class="clubs">
