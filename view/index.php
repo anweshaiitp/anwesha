@@ -75,8 +75,10 @@
 				height:100% !important;
 				top:0;
 				display: none;
-				z-index:5!important;
-				background-color: #000000;
+				z-index:5!important; /* For Safari 5.1 to 6.0 */
+			    background: -webkit-radial-gradient(#2f3030 0%,#000000 40%);
+			    background: -o-radial-gradient(#2f3030 0%,#000000 40%);
+			    background: radial-gradient(#2f3030 0%,#000000 40%); /* For Opera 11.1 to 12.0 */ /* For Firefox 3.6 to 15 */ /* Standard syntax */
 			}
 			.sea{
 				background:url("images/sea.gif") no-repeat center center fixed; 
@@ -111,6 +113,7 @@
 				display: block;
 			    margin: auto;
 				z-index: 3 !important;
+
 			}
 
 			.backbtn,.backbtn2,.list{
@@ -123,6 +126,7 @@
    				 border-radius: 40px;
    				 cursor: pointer;
   				 transition: background .5s;
+  				 box-shadow: 0 -10px 0 rgba(0, 0, 0, 0.1) inset;
 			}
 			.backbtn:hover,.backbtn2:hover,.list:hover{
 				background:rgba(88, 214, 103, 0.6);
@@ -159,11 +163,89 @@
 				width:200px !important;
 				
 			}
+			
+			#navbar{
+				/*margin: auto;*/
+  				/*display: inline;*/
+  				 display: table;
+    			margin: 0 auto;
+  				/*position: absolute;
+  				top:0;*/
+			}
+			#sidebar{
+				position: absolute; 
+				top:230px;
+				left:10px;
+				/*background-color: #FFFFFF;*/
+				width:300px;
+				height:500px;
+			}
+			.ph-button {
+				border-style: solid;
+				margin:20px;
+    			border-width: 0px 0px 3px;
+    			box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+    			color: #FFFFFF;	   
+    			border-radius: 6px;
+    			cursor: pointer;
+    			display: inline-block;
+    			font-style: normal;
+    			overflow: hidden;
+    			text-align: center;
+    			text-decoration: none;
+    			text-overflow: ellipsis;
+    			transition: all 200ms ease-in-out 0s;
+    			white-space: nowrap;	
+    			font-family: "Gotham Rounded A","Gotham Rounded B",Helvetica,Arial,sans-serif;
+    			font-weight: 700;	
+    			padding: 19px 39px 18px;
+    			font-size: 18px;
+    			opacity: 1;
+  				transition: opacity .3s,box-shadow .3s;
+			}
+			.ph-button:hover{
+				opacity: 0.7;
+    			box-shadow: 0 0px 50px rgba(255, 255, 255, 0.7);
+			}
+			
+			.ph-btn-blue {
+		 		border-color: #326E99;
+    			background-color: #3F8ABF;
+				margin-top: 50px !important;
+			}
+			.ph-btn-green {
+				margin-top:5px !important;
+				margin-bottom:5px !important;
+				border-color: #3AC162;
+				background-color: #5FCF80;
+			}
 		</style>
 
 		 <script type = "text/javascript" language = "javascript">
    			var ev=0;
+   			var cl=0;
          $(document).ready(function() {
+         	var category;
+			function view_sbar(category){ //alert(cl);
+				if(category!=1){
+					$("#sbl1").fadeOut("fast");
+				}else{$("#sbl1").fadeIn("slow");}
+
+				if(category!=2){
+					$("#sbl2").fadeOut("fast");
+				}else{$("#sbl2").fadeIn("slow");}
+
+				if(category!=3){
+					$("#sbl3").fadeOut("fast");
+				}else{$("#sbl3").fadeIn("slow");}
+
+				if(category!=4){
+					$("#sbl4").fadeOut("fast");
+				}else{$("#sbl4").fadeIn("slow");}
+			}
+         	$.fn.slideFadeToggle  = function(speed, easing, callback) {
+        return this.animate({opacity: 'toggle', height: 'toggle'}, speed, easing, callback);
+			}; 
          	function toggleli(){
          		$("#leftlist").toggle( "slide");
                $("#rightlist").toggle( "slide");
@@ -180,7 +262,8 @@
 				
 				
             	if(ev==1){
-            		$(".blankbg ").fadeOut();
+            		// $(".blankbg ").fadeOut();
+            		$(".blankbg ").slideFadeToggle();
             		$(".backbtn2").fadeOut();
             		$(".window2").fadeOut("fast");
 					// toggleli();
@@ -191,7 +274,8 @@
 
 			});
 			$(".list").click(function(){
-				$(".blankbg ").fadeIn("fast");
+				// $(".blankbg ").fadeIn("fast");
+				 $(".blankbg ").slideFadeToggle();
 				$(".backbtn2").fadeIn().delay(1000);
 				ev=1;
 				toggleli();
@@ -200,18 +284,23 @@
 			$(".backbtn2").click(function(){
 				ev=0;
 				$(".backbtn2").fadeOut();
-				$(".blankbg ").fadeOut();
+				// $(".blankbg ").fadeOut();
+				 $(".blankbg ").slideFadeToggle();
 				toggleli();
 
 			});
-
+			$(".navbtn").click(function(){
+				var cat=$(this).attr('data');
+				// alert(cat);
+				view_sbar(cat);
+			});
          });
 			
       </script>
  
 		<script type="text/javascript">
 			$(document).ready(function(){
-
+				
 				<?php 
 					if(isset($todo)){
 						echo "window.location='#$todo';";
@@ -363,7 +452,40 @@
 	</head>
 
 	<body>
-		<div class="blankbg"></div>
+		<div class="blankbg">
+			<div id="navbar">
+        			<a href='#' data="1" class=' navbtn ph-button ph-btn-blue'>Cat1</a>
+        			<a href='#' data=2 class=' navbtn ph-button ph-btn-blue'>Cat2</a>
+        			<a href='#' data=3 class=' navbtn ph-button ph-btn-blue'>Cat3</a>
+        			<a href='#' data=4 class=' navbtn ph-button ph-btn-blue'>Cat4</a>
+			</div>
+			<div id="sidebar">
+				<div class="sblist" id="sbl1" style="display:none">
+					<a href='#' class='ph-button ph-btn-green'>Event1</a>
+        			<a href='#' class='ph-button ph-btn-green'>Event2</a>
+        			<a href='#' class='ph-button ph-btn-green'>Event3</a>
+        			<a href='#' class='ph-button ph-btn-green'>Event4</a>
+				</div>
+				<div class="sblist" id="sbl2" style="display:none">
+					<a href='#' class='ph-button ph-btn-green'>Event1</a>
+        			<br><a href='#' class='ph-button ph-btn-green'>Event2</a>
+        			<br><a href='#' class='ph-button ph-btn-green'>Event3</a>
+        			<br><a href='#' class='ph-button ph-btn-green'>Event4</a>
+				</div>
+				<div class="sblist" id="sbl3" style="display:none">
+					<a href='#' class='ph-button ph-btn-green'>Event1</a>
+        			<br><a href='#' class='ph-button ph-btn-green'>Event2</a>
+        			<br><a href='#' class='ph-button ph-btn-green'>Event3</a>
+        			<br><a href='#' class='ph-button ph-btn-green'>Event4</a>
+				</div>
+				<div class="sblist" id="sbl4" style="display:none">
+					<a href='#' class='ph-button ph-btn-green'>Event1</a>
+        			<br><a href='#' class='ph-button ph-btn-green'>Event2</a>
+        			<br><a href='#' class='ph-button ph-btn-green'>Event3</a>
+        			<br><a href='#' class='ph-button ph-btn-green'>Event4</a>
+				</div>
+			</div>
+		</div>
 		<div class="window2"></div>
 		<div class="window"></div>
 		<button class="backbtn">< Back to home</button>
@@ -372,15 +494,15 @@
 		<div class="clwrap">
 			<div class="clubs">
 				<ul id="leftlist">
-				<a href="#"><li class="list">NJACK</li></a>
-				<a href="#"><li class="list">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sparkonics</li></a>
-				<a href="#"><li class="list">NJACK2</li></a>
+				<a href="#"><li class="list" onclick="cl=1">NJACK</li></a>
+				<a href="#"><li class="list" onclick="cl=2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sparkonics</li></a>
+				<a href="#"><li class="list" onclick="cl=3">NJACK2</li></a>
 
 				</ul>
 				<ul id="rightlist">
-				<a href="#"><li class="list">NJACK3</li></a>
-				<a href="#"><li class="list">ACE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li></a>
-				<a href="#"><li class="list">NJACK4</li></a>
+				<a href="#"><li class="list" onclick="cl=4">NJACK3</li></a>
+				<a href="#"><li class="list" onclick="cl=5">ACE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li></a>
+				<a href="#"><li class="list" onclick="cl=6">NJACK4</li></a>
 
 				</ul>
 
