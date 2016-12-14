@@ -1,5 +1,6 @@
 <?php
 ini_set( "display_errors", 0); 
+ini_set('zlib_output_compression','On');
 /**
 * New request lands in this class. After that it is routed accordingly to the respective controller.
 * Also provides basic functions for loading models.
@@ -38,12 +39,12 @@ if (preg_match($base . '(ca|register|)_?([0-9]{4}|)$@', $url, $match)) {
 	require ('view/switchca.php');
 // } elseif ( preg_match($base .'cssLoader/home/?$@', $url, $match ) ) {
 // 	require ('controller/cssLoader.php');
-// } elseif ( preg_match($base .'events/?$@', $url, $match ) ) {
-	// require ('controller/events.php');
-// } elseif (preg_match($base . 'allEvents/?$@', $url)) {
-// 	require ('controller/allEvents.php');
-// } elseif (preg_match($base . 'events/([A-Za-z&-]+)/?$@', $url, $match)) {
-// 	require ('controller/getSubEvents.php');
+} elseif ( preg_match($base .'events/?$@', $url, $match ) ) {
+	require ('controller/events.php');
+} elseif (preg_match($base . 'allEvents/?$@', $url)) {
+	require ('controller/allEvents.php');
+} elseif (preg_match($base . 'events/([0-9]{1,3})/?$@', $url, $match)) {
+	require ('controller/getSubEvents.php');
 } elseif (preg_match($base . 'user/register/User/?$@', $url)) {
 	require ('controller/userRegistration.php');
 } elseif (preg_match($base . 'user/register/CampusAmbassador/?$@', $url)) {
