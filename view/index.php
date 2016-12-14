@@ -71,14 +71,22 @@
 			.blankbg{
 				position: absolute;
 				left:0;
+				top:0;
 				width:100% !important;
 				height:100% !important;
-				top:0;
 				display: none;
-				z-index:5!important; /* For Safari 5.1 to 6.0 */
-			    background: -webkit-radial-gradient(#2f3030 0%,#000000 40%);
+				z-index:5!important; 
+			}
+			#bgofblankbg{
+				position: fixed;
+				left:0;
+				top:0;
+				width:100% !important;
+				height:100% !important;
+				background: -webkit-radial-gradient(#2f3030 0%,#000000 40%);
 			    background: -o-radial-gradient(#2f3030 0%,#000000 40%);
-			    background: radial-gradient(#2f3030 0%,#000000 40%); /* For Opera 11.1 to 12.0 */ /* For Firefox 3.6 to 15 */ /* Standard syntax */
+			    background: radial-gradient(#2f3030 0%,#000000 40%);
+				
 			}
 			.sea{
 				background:url("images/sea.gif") no-repeat center center fixed; 
@@ -145,22 +153,26 @@
 				position: absolute;
 			}
 			.backbtn{
-				position: absolute;
+   				 padding: 10px !important;
+				font-size: 1.25em !important;
 				top:20px;
 				left:20px;
 				display: none;
 				z-index:6;
-				height: 70px !important;
-				width:200px !important;
+				height: 50px !important;
+  				 position: fixed;
+				width:150px !important;
 			}
 			.backbtn2{
-				position: absolute;
-				top:110px;
+				font-size: 1.25em !important;
+   				 padding: 10px !important;
+				top:80px;
 				left:20px;
 				display: none;
 				z-index:6;
-				height: 70px !important;
-				width:200px !important;
+				height: 50px !important;
+  				 position: fixed;
+				width:150px !important;
 				
 			}
 			
@@ -173,12 +185,22 @@
   				top:0;*/
 			}
 			#sidebar{
-				position: absolute; 
-				top:230px;
+				position: fixed; 
+				top:170px;
 				left:10px;
 				/*background-color: #FFFFFF;*/
-				width:300px;
+				width:250px;
 				height:500px;
+			}
+			#mainarea{
+				position: absolute;
+    			top: 170px;
+    			left: 250px;
+    			/* float: right; */
+    			/*background-color: #FFFFFF;*/
+    			z-index: 6;
+    			/*height: 10000px;*/
+    			width: 300px;
 			}
 			.ph-button {
 				border-style: solid;
@@ -225,6 +247,20 @@
    			var ev=0;
    			var cl=0;
          $(document).ready(function() {
+         	$.get( "php1.php", function( data ) {
+				  $( "#sbl1" ).html( data );
+			});
+			$.get( "php2.php", function( data ) {
+				  $( "#sbl3" ).html( data );
+			});
+			$.get( "php3.php", function( data ) {
+				  $( "#sbl3" ).html( data );
+			});
+			$.get( "php4.php", function( data ) {
+				  $( "#sbl4" ).html( data );
+			});
+         	var wwidth=$(window).width();
+         	$("#mainarea").width(wwidth-270);
          	var category;
 			function view_sbar(category){ //alert(cl);
 				if(category!=1){
@@ -277,6 +313,7 @@
 				// $(".blankbg ").fadeIn("fast");
 				 $(".blankbg ").slideFadeToggle();
 				$(".backbtn2").fadeIn().delay(1000);
+				view_sbar(cl);
 				ev=1;
 				toggleli();
 
@@ -293,6 +330,9 @@
 				var cat=$(this).attr('data');
 				// alert(cat);
 				view_sbar(cat);
+			});
+			$(".sidebtn").click(function(){
+				$("#mainarea").html($(this).attr("placeholder"));
 			});
          });
 			
@@ -453,6 +493,7 @@
 
 	<body>
 		<div class="blankbg">
+			<div id="bgofblankbg"></div>
 			<div id="navbar">
         			<a href='#' data="1" class=' navbtn ph-button ph-btn-blue'>Cat1</a>
         			<a href='#' data=2 class=' navbtn ph-button ph-btn-blue'>Cat2</a>
@@ -461,30 +502,31 @@
 			</div>
 			<div id="sidebar">
 				<div class="sblist" id="sbl1" style="display:none">
-					<a href='#' class='ph-button ph-btn-green'>Event1</a>
+					<a href='#' class='sidebtn ph-button ph-btn-green'>Event1</a>
         			<a href='#' class='ph-button ph-btn-green'>Event2</a>
         			<a href='#' class='ph-button ph-btn-green'>Event3</a>
         			<a href='#' class='ph-button ph-btn-green'>Event4</a>
 				</div>
 				<div class="sblist" id="sbl2" style="display:none">
-					<a href='#' class='ph-button ph-btn-green'>Event1</a>
-        			<br><a href='#' class='ph-button ph-btn-green'>Event2</a>
-        			<br><a href='#' class='ph-button ph-btn-green'>Event3</a>
-        			<br><a href='#' class='ph-button ph-btn-green'>Event4</a>
+					<a href='#' class='ph-button ph-btn-green'>Event5</a>
+        			<br><a href='#' class='ph-button ph-btn-green'>Event6</a>
+        			<br><a href='#' class='ph-button ph-btn-green'>Event7</a>
+        			<br><a href='#' class='ph-button ph-btn-green'>Event8</a>
 				</div>
 				<div class="sblist" id="sbl3" style="display:none">
-					<a href='#' class='ph-button ph-btn-green'>Event1</a>
-        			<br><a href='#' class='ph-button ph-btn-green'>Event2</a>
-        			<br><a href='#' class='ph-button ph-btn-green'>Event3</a>
-        			<br><a href='#' class='ph-button ph-btn-green'>Event4</a>
+					<a href='#' class='ph-button ph-btn-green'>Event9</a>
+        			<br><a href='#' class='ph-button ph-btn-green'>Event10</a>
+        			<br><a href='#' class='ph-button ph-btn-green'>Event11</a>
+        			<br><a href='#' class='ph-button ph-btn-green'>Event12</a>
 				</div>
 				<div class="sblist" id="sbl4" style="display:none">
-					<a href='#' class='ph-button ph-btn-green'>Event1</a>
-        			<br><a href='#' class='ph-button ph-btn-green'>Event2</a>
-        			<br><a href='#' class='ph-button ph-btn-green'>Event3</a>
-        			<br><a href='#' class='ph-button ph-btn-green'>Event4</a>
+					<a href='#' class='ph-button ph-btn-green'>Event13</a>
+        			<br><a href='#' class='ph-button ph-btn-green'>Event14</a>
+        			<br><a href='#' class='ph-button ph-btn-green'>Event15</a>
+        			<br><a href='#' class='ph-button ph-btn-green'>Event16</a>
 				</div>
 			</div>
+			<div id="mainarea"></div>
 		</div>
 		<div class="window2"></div>
 		<div class="window"></div>
@@ -494,15 +536,15 @@
 		<div class="clwrap">
 			<div class="clubs">
 				<ul id="leftlist">
-				<a href="#"><li class="list" onclick="cl=1">NJACK</li></a>
-				<a href="#"><li class="list" onclick="cl=2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sparkonics</li></a>
-				<a href="#"><li class="list" onclick="cl=3">NJACK2</li></a>
+				<a href="#"><li class="list" onclick="cl=1">Cat1</li></a>
+				<a href="#"><li class="list" onclick="cl=2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cat2</li></a>
+				<!-- <a href="#"><li class="list" onclick="cl=3">NJACK2</li></a> -->
 
 				</ul>
 				<ul id="rightlist">
-				<a href="#"><li class="list" onclick="cl=4">NJACK3</li></a>
-				<a href="#"><li class="list" onclick="cl=5">ACE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li></a>
-				<a href="#"><li class="list" onclick="cl=6">NJACK4</li></a>
+				<a href="#"><li class="list" onclick="cl=3">Cat3</li></a>
+				<a href="#"><li class="list" onclick="cl=4">Cat4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li></a>
+				<!-- <a href="#"><li class="list" onclick="cl=6">NJACK4</li></a> -->
 
 				</ul>
 
