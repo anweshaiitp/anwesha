@@ -20,6 +20,7 @@
 <!DOCTYPE html>
 <html >
 	<head>
+		<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
 		<meta charset="UTF-8">
 		<title>Anwesha '17</title>
 <!-- <?php echo $match[2] ;?> -->
@@ -88,6 +89,7 @@
 			    background: radial-gradient(#2f3030 0%,#000000 40%);
 				
 			}
+			
 			.sea{
 				background:url("images/sea.gif") no-repeat center center fixed; 
 				-webkit-background-size: cover;
@@ -103,7 +105,7 @@
 				background-size: cover;
 			}
 			.clwrap{
-
+				display: none;
 				width: 100%;
 				height: 100%;
 				position: relative;
@@ -118,7 +120,7 @@
   				width:600px;
   				height:250px;
 				/*background-color: #000000;*/
-				display: block;
+				display: none;
 			    margin: auto;
 				z-index: 3 !important;
 
@@ -175,7 +177,10 @@
 				width:150px !important;
 				
 			}
-			
+			#mainarea{
+				font-family: bebas;
+
+			}
 			#navbar{
 				/*margin: auto;*/
   				/*display: inline;*/
@@ -241,6 +246,20 @@
 				border-color: #3AC162;
 				background-color: #5FCF80;
 			}
+			#eve_cover{
+				box-shadow: 0 0 30px #FFFFFF;
+				/*display: table;*/
+				vertical-align: middle;
+				width:100%;
+				height:300px;
+				background-size: cover;
+				/*position: absolute;*/
+				/*opacity: 0.8;*/
+				/*background-color: #FFFFFF;*/
+			}
+			#headwrap{
+				vertical-align: middle;
+			}
 		</style>
 
 		 <script type = "text/javascript" language = "javascript">
@@ -249,6 +268,34 @@
    			var TEC_CODE = 0;
    			var events_data;
          $(document).ready(function() {
+         	var imgurl;
+         	function eve_coverswitch(imgurl){
+         		
+         		if(imgurl!=""){
+         			var ppurl="url(";
+         			ppurl +=imgurl;
+         			ppurl +=")";
+         			$("#eve_cover").css("background-image",ppurl);
+         			// alert(imgurl);
+         			// alert(ppurl);	
+         			// $("#eve_cover").animate({opacity:'0.8'});
+
+         		}
+         	}
+         	function emptyresp(){
+         		
+				$('#eve_name').text("");
+				$('#eve_tagline').text("");
+				$('#eve_date').text("");
+				$('#eve_time').text("");
+				$('#eve_venue').text("");
+				$('#eve_organisers').text("");
+				$('#eve_short_desc').text("");
+				$('#eve_long_desc').text("");
+				$('#eve_icon').attr("src","");
+				eve_coverswitch("");
+				// $('#eve_cover').css("src","");
+         	}
          	$.get( "allEvents/", function(data, status){
 							console.log("Event Status : "+data[0]);
 
@@ -295,6 +342,7 @@
 					
 					$( "#sbl" ).empty();
 					console.log("Event Cleared");
+					emptyresp();
 					//$( "#sbl" ).append( "<a href='#' class='ph-button ph-btn-green'>Test</a>" );
 					
 					for (var i = 0; i < events_data.length; i++) {
@@ -334,7 +382,9 @@
 						$('#eve_short_desc').text(eve['short_desc']);
 						$('#eve_long_desc').text(eve['long_desc']);
 						$('#eve_icon').attr("src",eve['icon_url']);
-						$('#eve_cover').attr("src",eve['cover_url']);
+						// $('#eve_cover').attr("src",eve['cover_url']);
+						eve_coverswitch(eve['cover_url']);
+
 					});
 					
 				
@@ -348,6 +398,8 @@
                $("#rightlist").toggle( "slide");
          	}
             $("#eventsbtn").click(function(){
+            	$(".clwrap").fadeIn();
+            	$(".clubs").fadeIn();
             	$("#intro").hide();
             	$(".window2").fadeIn("slow",toggleli());
             	$(".backbtn").fadeIn().delay(1000);
@@ -356,7 +408,8 @@
 			$(".backbtn").click(function(){
 				$("#intro").show();
 				$(".backbtn").fadeOut();
-				
+				$(".clwrap").fadeOut();
+            	$(".clubs").fadeOut();
 				
             	if(ev==1){
             		// $(".blankbg ").fadeOut();
@@ -388,6 +441,7 @@
 			});
 			$(".backbtn2").click(function(){
 				ev=0;
+				emptyresp();
 				$(".backbtn2").fadeOut();
 				// $(".blankbg ").fadeOut();
 				 $(".blankbg ").slideFadeToggle();
@@ -573,46 +627,53 @@
 				</div>
 			</div>
 			<div id="mainarea" style='color:white'>
-				<p id='eve_name'>
+				<center>
+			<div id="eve_cover">
+				<span id="headwrap" style=""><br><br><br><br>
+				<span id="headwr" style="display: inline">
+				<img src="" style="height: 50px;display: inline;" placeholder="Icon" id='eve_icon'>&nbsp;&nbsp;&nbsp;&nbsp;
+				<h1 id='eve_name' style="font-size: 5em;display: inline;margin-bottom: 10px;text-shadow: 0 0 10px #29d816">
 					Event Name
-				</p>
-				<p id='eve_tagline'>
+				</h1></span><br>
+				<span id='eve_tagline' style="font-size: 1.5em;margin-bottom: 30px;font-style: italic;">
 					Event TagLine
-				</p>
-				<p id='eve_date'>
-					DATE
-				</p>
-				<p id='eve_time'>
-					TIME
-				</p>
-				<p id='eve_venue'>
-					VENUE
-				</p>
-				<div id='eve_organisers_head'>
-					Organisers 
-					<div id='eve_organisers'>
-						<p>Organiser 1 (9741852963)</p>
-						<p>Organiser 2 (9852451262)</p>
-						<p>Organiser 3 (9965235245)</p>
-					</div>
+				</span>
+				</span>
 				</div>
+				<!-- <div id="dummyspace" style="width:100%;height:300px"></div> -->
+				<br><br><br><br>Date:
+				<span id='eve_date' style="font-size: 2em;">
+					DATE
+				</span><br><br><br>Time:
+				<span id='eve_time' style="font-size: 2em;">
+					TIME
+				</span><br><br><br>Venue:
+				<span id='eve_venue' style="font-size: 2em;">
+					VENUE
+				</span><br><br><br>
+				<div id='eve_organisers_head'>
+					Organisers :
+					<ol id='eve_organisers' style="font-size: 2em;">
+						<li>Organiser 1 (9741852963)</li>
+						<li>Organiser 2 (9852451262)</li>
+						<li>Organiser 3 (9965235245)</li>
+					</ol>
+				</div><br><br><br>
 
-				<img src="" placeholder="Cover Image" id='eve_cover'>
-				<img src="" placeholder="Icon" id='eve_icon'>
 
 				
 
 
-				<p id='eve_short_desc'>
+				<span id='eve_short_desc' style="font-size: 2em;">
 					Event Short Desc
-				</p>
-				<p id='eve_long_desc'>
+				</span><br><br><br>
+				<span id='eve_long_desc' style="font-size: 2em;">
 					Event Long Desc
-				</p>
-				
+				</span>
+				<br><br><br><br><br><br>
 
 
-
+			</center>
 			</div>
 		</div>
 		<div class="window2"></div>
