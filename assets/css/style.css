@@ -256,7 +256,7 @@ button:hover, button:active, button:focus {
 	right: 0;
 	z-index: 2;
 	display: none;
-	/*opacity: 0;*/
+	opacity: 0;
 	transition: all 0.3s ease;
 	pointer-events: none;
 }
