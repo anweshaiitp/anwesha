@@ -124,7 +124,7 @@
 
 			}
 
-			.backbtn,.backbtn2,.list{
+			.backbtn,.backbtn2,.mainevent{
    				 margin: 0.5em;
     			 background: rgba(255, 255, 255, 0.6);
    				 font-family: bebas;
@@ -136,7 +136,7 @@
   				 transition: background .5s;
   				 box-shadow: 0 -10px 0 rgba(0, 0, 0, 0.1) inset;
 			}
-			.backbtn:hover,.backbtn2:hover,.list:hover{
+			.backbtn:hover,.backbtn2:hover,.mainevent:hover{
 				background:rgba(88, 214, 103, 0.6);
 			}
 
@@ -246,38 +246,99 @@
 		 <script type = "text/javascript" language = "javascript">
    			var ev=0;
    			var cl=0;
+   			var TEC_CODE = 0;
+   			var events_data;
          $(document).ready(function() {
-         	$.get( "php1.php", function( data ) {
-				  $( "#sbl1" ).html( data );
-			});
-			$.get( "php2.php", function( data ) {
-				  $( "#sbl3" ).html( data );
-			});
-			$.get( "php3.php", function( data ) {
-				  $( "#sbl3" ).html( data );
-			});
-			$.get( "php4.php", function( data ) {
-				  $( "#sbl4" ).html( data );
-			});
+         	$.get( "allEvents/", function(data, status){
+							console.log("Event Status : "+data[0]);
+
+        					if(status=='success'){
+    							events_data = data[1];
+    							console.log("Events Data Updated");
+
+
+
+    							//Addition Init
+    							$( "#navbar" ).empty();
+    							for (var i = 0; i < events_data.length; i++) {
+    								if(events_data[i]['code']==TEC_CODE) {
+    									//Technical Added
+    									console.log("Tech :"+events_data[i]['eveName']);
+    									$( "#navbar" ).append( "	<a href='#' data='"+events_data[i]['eveId']+"' class=' navbtn ph-button ph-btn-blue'>"+events_data[i]['eveName']+"</a>" );
+									}
+    							};
+
+    							$(".navbtn").click(function(){
+									var cat=$(this).attr('data');
+									console.log("Event Code :"+cat);
+									view_sbar(cat);
+								});
+    							
+    						}
+    						else
+    							console.log("Unable to get Events Data");
+			},"json");
+			
          	var wwidth=$(window).width();
          	$("#mainarea").width(wwidth-270);
          	var category;
+         	var last_sbar_cat=-1;
 			function view_sbar(category){ //alert(cl);
-				if(category!=1){
-					$("#sbl1").fadeOut("fast");
-				}else{$("#sbl1").fadeIn("slow");}
+				if(last_sbar_cat==category)
+					return;
+				last_sbar_cat = category;
+				if(category == -1) {
+					$("#sbl").fadeOut("fadeOut");
+					return;
+				}
+				$("#sbl").fadeOut("fadeOut",function(){
+					
+					$( "#sbl" ).empty();
+					console.log("Event Cleared");
+					//$( "#sbl" ).append( "<a href='#' class='ph-button ph-btn-green'>Test</a>" );
+					
+					for (var i = 0; i < events_data.length; i++) {
+						if(events_data[i]['code']==category) {
+							var e_name = events_data[i]['eveName'];
+							var ev_id = events_data[i]['eveId'];
 
-				if(category!=2){
-					$("#sbl2").fadeOut("fast");
-				}else{$("#sbl2").fadeIn("slow");}
+							$( "#sbl" ).append( "<a href='#' data-evid='"+ev_id+"' class='sbl-item ph-button ph-btn-green'>"+e_name+"</a>" );
+							console.log("Event Added "+ev_id);
+						}
+					};
 
-				if(category!=3){
-					$("#sbl3").fadeOut("fast");
-				}else{$("#sbl3").fadeIn("slow");}
+					$("#sbl").fadeIn("slow");
 
-				if(category!=4){
-					$("#sbl4").fadeOut("fast");
-				}else{$("#sbl4").fadeIn("slow");}
+
+					$(".sbl-item").click(function(){
+						var cat=$(this).attr('data-evid');
+						console.log("Event to Display :"+cat);
+						//alert("Open "+cat);
+						var eve;
+						for (var i = 0; i < events_data.length; i++)
+						if(events_data[i]['eveId']==cat) {
+							console.log("Found");
+							eve = events_data[i];
+							break;
+						}
+						//Update Event in Frontend
+
+						//Need to Hide if Don't Exists 
+						
+						$('#eve_name').text(eve['eveName']);
+						$('#eve_tagline').text(eve['tagline']);
+						$('#eve_date').text(eve['date']);
+						$('#eve_time').text(eve['time']);
+						$('#eve_venue').text(eve['venue']);
+						$('#eve_organisers').text(eve['organisers']);
+						$('#eve_short_desc').text(eve['short_desc']);
+						$('#eve_long_desc').text(eve['long_desc']);
+						$('#eve_icon').attr("src",eve['icon_url']);
+						$('#eve_cover').attr("src",eve['cover_url']);
+					});
+					
+				
+				});
 			}
          	$.fn.slideFadeToggle  = function(speed, easing, callback) {
         return this.animate({opacity: 'toggle', height: 'toggle'}, speed, easing, callback);
@@ -309,11 +370,18 @@
             	}
 
 			});
-			$(".list").click(function(){
+			$(".mainevent").click(function(){
 				// $(".blankbg ").fadeIn("fast");
-				 $(".blankbg ").slideFadeToggle();
+				$(".blankbg ").slideFadeToggle();
 				$(".backbtn2").fadeIn().delay(1000);
-				view_sbar(cl);
+				if(cl==0) {
+					//For For TECHNICAL
+					$("#navbar").css("display","table");
+					view_sbar(-1);
+				} else {
+					$("#navbar").hide();
+					view_sbar(cl);
+				}
 				ev=1;
 				toggleli();
 
@@ -326,14 +394,10 @@
 				toggleli();
 
 			});
-			$(".navbtn").click(function(){
-				var cat=$(this).attr('data');
-				// alert(cat);
-				view_sbar(cat);
-			});
-			$(".sidebtn").click(function(){
-				$("#mainarea").html($(this).attr("placeholder"));
-			});
+			
+			// $(".sidebtn").click(function(){
+			// 	$("#mainarea").html($(this).attr("placeholder"));
+			// });
          });
 			
       </script>
@@ -351,7 +415,7 @@
     						function(data, status){
 							var AJAXresponse = data;
         					if(status=='success'){
-        						for (i = 0;AJAXresponse[i]['name']; i++) {
+        						for (i = 0;i<AJAXresponse.length; i++) {
     									$("tbody").append("<tr><td>"+AJAXresponse[i]['name']+"</td><td>"+AJAXresponse[i]['score']+"</td></tr>");
 								}
 
@@ -481,7 +545,7 @@
 
 		
 		</script>
-		<meta property="og:image" content="http://2016.anwesha.info/images/preview.png" />
+		<meta property="og:image" content="images/preview.png" />
 		<link rel="shortcut icon" href="favicon.ico">
 		<style type="text/css">
 			#datagrida,.box{
@@ -501,32 +565,55 @@
         			<a href='#' data=4 class=' navbtn ph-button ph-btn-blue'>Cat4</a>
 			</div>
 			<div id="sidebar">
-				<div class="sblist" id="sbl1" style="display:none">
-					<a href='#' class='sidebtn ph-button ph-btn-green'>Event1</a>
+				<div class="sblist" id="sbl" style="display:none">
+					<a href='#' class='ph-button ph-btn-green'>Event1</a>
         			<a href='#' class='ph-button ph-btn-green'>Event2</a>
         			<a href='#' class='ph-button ph-btn-green'>Event3</a>
         			<a href='#' class='ph-button ph-btn-green'>Event4</a>
 				</div>
-				<div class="sblist" id="sbl2" style="display:none">
-					<a href='#' class='ph-button ph-btn-green'>Event5</a>
-        			<br><a href='#' class='ph-button ph-btn-green'>Event6</a>
-        			<br><a href='#' class='ph-button ph-btn-green'>Event7</a>
-        			<br><a href='#' class='ph-button ph-btn-green'>Event8</a>
-				</div>
-				<div class="sblist" id="sbl3" style="display:none">
-					<a href='#' class='ph-button ph-btn-green'>Event9</a>
-        			<br><a href='#' class='ph-button ph-btn-green'>Event10</a>
-        			<br><a href='#' class='ph-button ph-btn-green'>Event11</a>
-        			<br><a href='#' class='ph-button ph-btn-green'>Event12</a>
-				</div>
-				<div class="sblist" id="sbl4" style="display:none">
-					<a href='#' class='ph-button ph-btn-green'>Event13</a>
-        			<br><a href='#' class='ph-button ph-btn-green'>Event14</a>
-        			<br><a href='#' class='ph-button ph-btn-green'>Event15</a>
-        			<br><a href='#' class='ph-button ph-btn-green'>Event16</a>
-				</div>
 			</div>
-			<div id="mainarea"></div>
+			<div id="mainarea" style='color:white'>
+				<p id='eve_name'>
+					Event Name
+				</p>
+				<p id='eve_tagline'>
+					Event TagLine
+				</p>
+				<p id='eve_date'>
+					DATE
+				</p>
+				<p id='eve_time'>
+					TIME
+				</p>
+				<p id='eve_venue'>
+					VENUE
+				</p>
+				<div id='eve_organisers_head'>
+					Organisers 
+					<div id='eve_organisers'>
+						<p>Organiser 1 (9741852963)</p>
+						<p>Organiser 2 (9852451262)</p>
+						<p>Organiser 3 (9965235245)</p>
+					</div>
+				</div>
+
+				<img src="" placeholder="Cover Image" id='eve_cover'>
+				<img src="" placeholder="Icon" id='eve_icon'>
+
+				
+
+
+				<p id='eve_short_desc'>
+					Event Short Desc
+				</p>
+				<p id='eve_long_desc'>
+					Event Long Desc
+				</p>
+				
+
+
+
+			</div>
 		</div>
 		<div class="window2"></div>
 		<div class="window"></div>
@@ -536,15 +623,15 @@
 		<div class="clwrap">
 			<div class="clubs">
 				<ul id="leftlist">
-				<a href="#"><li class="list" onclick="cl=1">Cat1</li></a>
-				<a href="#"><li class="list" onclick="cl=2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cat2</li></a>
-				<!-- <a href="#"><li class="list" onclick="cl=3">NJACK2</li></a> -->
+				<a href="#"><li class="mainevent" onclick="cl=1">Cultural</li></a>
+				<a href="#"><li class="mainevent" onclick="cl=2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arts & Welfare</li></a>
+				<!-- <a href="#"><li class="mainevent" onclick="cl=3">NJACK2</li></a> -->
 
 				</ul>
 				<ul id="rightlist">
-				<a href="#"><li class="list" onclick="cl=3">Cat3</li></a>
-				<a href="#"><li class="list" onclick="cl=4">Cat4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li></a>
-				<!-- <a href="#"><li class="list" onclick="cl=6">NJACK4</li></a> -->
+				<a href="#"><li class="mainevent" onclick="cl=0">Technical</li></a>
+				<a href="#"><li class="mainevent" onclick="cl=4">None&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li></a>
+				<!-- <a href="#"><li class="mainevent" onclick="cl=6">NJACK4</li></a> -->
 
 				</ul>
 

@@ -896,7 +896,7 @@ class People{
  */
 class Events{
     public function getMainEvents($conn){
-        $sql = " SELECT * FROM Events WHERE code = 1";
+        $sql = " SELECT * FROM Events WHERE code = -1";
         $result = mysqli_query($conn, $sql);
         $arr = array();
         if(!$result || mysqli_num_rows($result)==0){
