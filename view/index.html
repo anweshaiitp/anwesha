@@ -1,21 +1,18 @@
-﻿<!DOCTYPE html>
-<html >
+
+<!DOCTYPE html>
+<html  lang="en" class="no-js">
 	<head>
-		<meta charset="UTF-8">
+        <meta charset="UTF-8" />
+        <link rel="shortcut icon" href="../favicon.ico"> 
+        <script src="assets/js/modernizr.custom.js"></script>
 		<title>Anwesha '17</title>
 		<link rel="stylesheet" href="assets/css/style.css">
-		<link rel="icon" href="favicon.ico" type="image/x-icon" />
-
 		<script src='assets/js/jquery.min.js'></script>
 		<script src='assets/js/jquery.transit.min.js'></script>
-
-		<meta property="og:image" content="http://2016.anwesha.info/images/preview.png" />
-		<link rel="shortcut icon" href="favicon.ico">
+		<meta property="og:image" content="http://2016.anwesha.info/images/preview.png" />	
 	</head>
 
 	<body>
-
-
 		<div id="intro">
 			<ul class="links">
 				<a href="#login"><li>Registration</li></a>
@@ -23,7 +20,7 @@
                 <a href="#leaderboard"><li>Campus Ambassador Leaderboard</li></a>
 			</ul>
 
-            
+          
            
 			<div id="date">
 				<div id="glass">
@@ -39,6 +36,7 @@
 
 		<div class="parallelogram">
 			<div class="content">
+
 				<h1>ABOUT ANWESHA</h1>
 				 ANWESHA is the annual social and cultural festival of IIT Patna. It marks days of absolute ecstasy,
              providing the budding artists a competing platform in diverse fields such as music, dance, theater, 
@@ -81,23 +79,97 @@
 
 		<div id="register" class="lightbox logreg">
 			<div class="close"><a href="#" onclick="document.body.style.overflow='visible';">X</a></div>
+
 			<h2>Register</h2>
-				<div class="box" style="overflow-y:scroll; overflow-x:hidden; height:400px;">
-				<input class="inp" name="username" type="text" value="Username" onblur="if(this.value == ''){this.value = 'Username';}" onfocus="if (this.value == 'Username') {this.value = '';}">
-				<input class="inp" name="password" type="password" value="Password" onblur="if(this.value == ''){this.value = 'Password';}" onfocus="if (this.value == 'Password') {this.value = '';}">
-				<input class="inp" name="name" type="text" value="Full Name" onblur="if(this.value == ''){this.value = 'Full Name';}" onfocus="if (this.value == 'Full Name') {this.value = '';}">
-				<input class="inp" name="phone" type="text" value="Phone" onblur="if(this.value == ''){this.value = 'Phone';}" onfocus="if (this.value == 'Phone') {this.value = '';}">
-                <input class="inp" name="email" type="text" value="Email" onblur="if(this.value == ''){this.value = 'email';}" onfocus="if (this.value == 'email') {this.value = '';}">
-                <input class="inp" name="DOB" type="date" value="dob" onblur="if(this.value == ''){this.value = 'dob';}" onfocus="if (this.value == 'dob') {this.value = '';}">
-                <span class="inp" id="genderLabel" style="border:0px">Gender:</span>
-                <select id="gender" data="n" value="Gender" class="inp">
-                    <option value="n" selected>Select</option>
-                    <option value="M" onblur="if(this.value == ''){this.value = 'Male';}" onfocus="if (this.value == 'Male') {this.value = '';}" >Male</option>
-                    <option value="F">Female</option>
-                </select>
-                <input class="inp" name="city" type="text" value="City" onblur="if(this.value == ''){this.value = 'city';}" onfocus="if (this.value == 'city') {this.value = '';}">
-                <input class="inp" name="ref" type="text" value="Reference Code" onblur="if(this.value == ''){this.value = 'ref';}" onfocus="if (this.value == 'ref') {this.value = '';}">
-				<input class="button" type="submit" value="Submit">
+            <div id="rForm">
+                <div>
+                    <!-- Top Navigation -->
+
+                    <section>
+                        <form id="theForm" class="simform" autocomplete="off">
+                            <div class="simform-inner">
+                                <ol class="questions">
+                                    <li>
+                                        <span><label for="q1">Username</label></span>
+                                        <input id="q1" name="q1" type="text" />
+
+                                    </li>
+                                    <li>
+                                        <span><label for="q2">Password</label></span>
+                                        <input id="q2" name="q2" type="password" />
+                                    </li>
+                                    <li>
+                                        <span><label for="q2">Fullname</label></span>
+                                        <input id="q2" name="q2" type="text" />
+                                    </li>
+                                    <li>
+                                        <span><label for="q3">Phone</label></span>
+                                        <input id="q3" name="q3" type="number" />
+                                    </li>
+                                    <li>
+                                        <span><label for="q4">E-mail</label></span>
+                                        <input id="q4" name="q4" type="email" />
+                                    </li>
+                                    <li>
+                                        <span><label for="q5">DOB</label></span>
+                                        <input id="q5" name="q5" type="date" />
+                                    </li>
+                                    <li>
+                                        <span><label for="q6">Gender(M/L)</label></span>
+                                        <input id="q6" name="q6" type="text" />
+                                    </li>
+                                    <li>
+                                        <span><label for="q7">City</label></span>
+                                        <input id="q7" name="q7" type="text" />
+                                    </li>
+                                    <li>
+                                        <span><label for="q8">Reference Number</label></span>
+                                        <input id="q8" name="q8" type="number" />
+                                    </li>
+                                
+                                </ol><!-- /questions -->
+                                <button class="submit" type="submit">Send answers</button>
+                                <div class="controls">
+                                    <button class="next"></button>
+                                    <div class="progress"></div>
+                                    <span class="number">
+                                        <span class="number-current"></span>
+                                        <span class="number-total"></span>
+                                    </span>
+                                    <span class="error-message"></span>
+                                </div><!-- / controls -->
+                            </div><!-- /simform-inner -->
+                            <span class="final-message"></span>
+                        </form><!-- /simform -->
+                    </section>
+
+                </div>
+                <script src="assets/js/classie.js"></script>
+                <script src="assets/js/stepsForm.js"></script>
+                <script>
+			var theForm = document.getElementById( 'theForm' );
+
+			new stepsForm( theForm, {
+				onSubmit : function( form ) {
+					// hide form
+					classie.addClass( theForm.querySelector( '.simform-inner' ), 'hide' );
+
+					/*
+					form.submit()
+					or
+					AJAX request (maybe show loading indicator while we don't have an answer..)
+					*/
+
+					// let's just simulate something...
+					var messageEl = theForm.querySelector( '.final-message' );
+					messageEl.innerHTML = 'Thank you! We\'ll be in touch.';
+					classie.addClass( messageEl, 'show' );
+				}
+			} );
+                </script>
+            </div>
+				
+			
 			</div>
 		</div>
 
