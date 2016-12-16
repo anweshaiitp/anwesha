@@ -253,6 +253,7 @@
 				width:100%;
 				height:300px;
 				background-size: cover;
+				background-color: #000000;
 				/*position: absolute;*/
 				/*opacity: 0.8;*/
 				/*background-color: #FFFFFF;*/
@@ -276,10 +277,14 @@
          			ppurl +=imgurl;
          			ppurl +=")";
          			$("#eve_cover").css("background-image",ppurl);
+					$("#eve_cover").css("box-shadow","0 0 30px #FFFFFF");
          			// alert(imgurl);
          			// alert(ppurl);	
          			// $("#eve_cover").animate({opacity:'0.8'});
 
+         		}else{
+         			$("#eve_cover").css("background-image","");
+					$("#eve_cover").css("box-shadow","0 0 0 #FFFFFF");
          		}
          	}
          	function emptyresp(){
@@ -316,6 +321,7 @@
     							};
 
     							$(".navbtn").click(function(){
+    								$("#mainarea").fadeOut();
 									var cat=$(this).attr('data');
 									console.log("Event Code :"+cat);
 									view_sbar(cat);
@@ -384,7 +390,7 @@
 						$('#eve_icon').attr("src",eve['icon_url']);
 						// $('#eve_cover').attr("src",eve['cover_url']);
 						eve_coverswitch(eve['cover_url']);
-
+						$("#mainarea").fadeIn();
 					});
 					
 				
@@ -424,6 +430,7 @@
 
 			});
 			$(".mainevent").click(function(){
+				$("#mainarea").hide();/*to fix initial dummy text display on selecting category*/
 				// $(".blankbg ").fadeIn("fast");
 				$(".blankbg ").slideFadeToggle();
 				$(".backbtn2").fadeIn().delay(1000);
@@ -685,7 +692,7 @@
 			<div class="clubs">
 				<ul id="leftlist">
 				<a href="#"><li class="mainevent" onclick="cl=1">Cultural</li></a>
-				<a href="#"><li class="mainevent" onclick="cl=2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arts & Welfare</li></a>
+				<a href="#"><li class="mainevent" onclick="cl=3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arts & Welfare</li></a>
 				<!-- <a href="#"><li class="mainevent" onclick="cl=3">NJACK2</li></a> -->
 
 				</ul>

@@ -1,4 +1,4 @@
-@font-face {
+s@font-face {
 font-family:"agency";
 src:url(../fonts/AgencyFB.ttf) format("truetype");
 }
@@ -327,7 +327,7 @@ button:hover, button:active, button:focus {
 	width: 110%;
 	height: 100%;
 	color: #000;
-	background: url("../../images/maps.png");
+	background: url("../../images/maxresdefault.jpg");
 	-webkit-transform: skewX(-20deg);
 	transform: skewX(-20deg);
 	-o-text-overflow: clip;
