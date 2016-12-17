@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 	$referalcode = null;
 	//Works to be done by frontend after loading
 	$todo  = null;
@@ -20,6 +20,7 @@
 <!DOCTYPE html>
 <html >
 	<head>
+		<!-- To make responsive -->
 		<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
 		<meta charset="UTF-8">
 		<title>Anwesha '17</title>
@@ -179,7 +180,7 @@
 			}
 			#mainarea{
 				font-family: bebas;
-
+				box-shadow: 0 0 50px #4c4d4f;
 			}
 			#navbar{
 				/*margin: auto;*/
@@ -205,7 +206,7 @@
     			/*background-color: #FFFFFF;*/
     			z-index: 6;
     			/*height: 10000px;*/
-    			width: 300px;
+    			width: calc(100% - 270px);
 			}
 			.ph-button {
 				border-style: solid;
@@ -247,7 +248,7 @@
 				background-color: #5FCF80;
 			}
 			#eve_cover{
-				box-shadow: 0 0 30px #FFFFFF;
+				/*box-shadow: 0 0 30px #FFFFFF;*/
 				/*display: table;*/
 				vertical-align: middle;
 				width:100%;
@@ -272,19 +273,20 @@
          	var imgurl;
          	function eve_coverswitch(imgurl){
          		
-         		if(imgurl!=""){
+         		if(imgurl=="" || imgurl==null){
+         			$("#eve_cover").css("background-image","");
+					// $("#eve_cover").css("box-shadow","0 0 0 #FFFFFF");
+         			
+         		}else{
          			var ppurl="url(";
          			ppurl +=imgurl;
          			ppurl +=")";
          			$("#eve_cover").css("background-image",ppurl);
-					$("#eve_cover").css("box-shadow","0 0 30px #FFFFFF");
+					// $("#eve_cover").css("box-shadow","0 0 30px #FFFFFF");
          			// alert(imgurl);
          			// alert(ppurl);	
          			// $("#eve_cover").animate({opacity:'0.8'});
 
-         		}else{
-         			$("#eve_cover").css("background-image","");
-					$("#eve_cover").css("box-shadow","0 0 0 #FFFFFF");
          		}
          	}
          	function emptyresp(){
@@ -331,9 +333,6 @@
     						else
     							console.log("Unable to get Events Data");
 			},"json");
-			
-         	var wwidth=$(window).width();
-         	$("#mainarea").width(wwidth-270);
          	var category;
          	var last_sbar_cat=-1;
 			function view_sbar(category){ //alert(cl);
@@ -431,6 +430,7 @@
 			});
 			$(".mainevent").click(function(){
 				$("#mainarea").hide();/*to fix initial dummy text display on selecting category*/
+
 				// $(".blankbg ").fadeIn("fast");
 				$(".blankbg ").slideFadeToggle();
 				$(".backbtn2").fadeIn().delay(1000);
@@ -444,6 +444,9 @@
 				}
 				ev=1;
 				toggleli();
+				/*simulating click for default event*/
+				// $('#navbar:first').trigger( "click" );
+				// $('#sbl:first').delay(500).click();
 
 			});
 			$(".backbtn2").click(function(){
@@ -611,7 +614,7 @@
 		<style type="text/css">
 			#datagrida,.box{
 				overflow-y: scroll;
-				height:300px;
+				height:60%;
 			}
 		</style>
 	</head>
@@ -636,7 +639,7 @@
 			<div id="mainarea" style='color:white'>
 				<center>
 			<div id="eve_cover">
-				<span id="headwrap" style=""><br><br><br><br>
+				<span id="headwrap" style=""><br><br><br><br><br>
 				<span id="headwr" style="display: inline">
 				<img src="" style="height: 50px;display: inline;" placeholder="Icon" id='eve_icon'>&nbsp;&nbsp;&nbsp;&nbsp;
 				<h1 id='eve_name' style="font-size: 5em;display: inline;margin-bottom: 10px;text-shadow: 0 0 10px #29d816">
@@ -692,13 +695,13 @@
 			<div class="clubs">
 				<ul id="leftlist">
 				<a href="#"><li class="mainevent" onclick="cl=1">Cultural</li></a>
-				<a href="#"><li class="mainevent" onclick="cl=3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arts & Welfare</li></a>
+				<a href="#"><li class="mainevent" onclick="cl=2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arts & Welfare</li></a>
 				<!-- <a href="#"><li class="mainevent" onclick="cl=3">NJACK2</li></a> -->
 
 				</ul>
 				<ul id="rightlist">
-				<a href="#"><li class="mainevent" onclick="cl=0">Technical</li></a>
-				<a href="#"><li class="mainevent" onclick="cl=4">None&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li></a>
+				<a href="#"><li class="mainevent" onclick="cl=0">Technical&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li></a>
+				<!-- <a href="#"><li class="mainevent" onclick="cl=4">None&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li></a> -->
 				<!-- <a href="#"><li class="mainevent" onclick="cl=6">NJACK4</li></a> -->
 
 				</ul>
