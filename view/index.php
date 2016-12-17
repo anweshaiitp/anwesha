@@ -267,7 +267,7 @@
 			}
 			#headwrap{
 				vertical-align: middle;
-			}
+			}			
 		</style>
 
 		 <script type = "text/javascript" language = "javascript">
@@ -619,7 +619,8 @@
 		<link rel="shortcut icon" href="favicon.ico">
 		<style type="text/css">
 			#datagrida,.box{
-				overflow-y: scroll;
+				box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.49);
+				overflow-y: auto;
 				height:60%;
 			}
 		</style>
@@ -748,7 +749,7 @@
 		<div class="parallelogram">
 			<div class="content">
 
-				<h1>ABOUT ANWESHA</h1>
+				<h1>ABOUT ANWESHA</h1><br>
 				 ANWESHA is the annual social and cultural festival of IIT Patna. It marks days of absolute ecstasy,
              providing the budding artists a competing platform in diverse fields such as music, dance, theater, 
             photography, literature, fine arts, quizzing and debating. Anwesha is an avenue to be comforted from the
