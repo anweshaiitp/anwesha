@@ -211,7 +211,7 @@
     			top: 170px;
     			left: 250px;
     			z-index: 6;
-    			width: calc(100% - 270px);
+    			width: calc(80% - 270px);
     			height:calc(100% - 170px);
 			}
 			.ph-button {
