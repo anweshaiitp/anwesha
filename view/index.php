@@ -389,10 +389,18 @@
 						$('#eve_date').text(eve['date']);
 						$('#eve_time').text(eve['time']);
 						$('#eve_venue').text(eve['venue']);
-						$('#eve_organisers').text(eve['organisers']);
 						$('#eve_short_desc').text(eve['short_desc']);
 						$('#eve_long_desc').text(eve['long_desc']);
 						$('#eve_icon').attr("src",eve['icon_url']);
+						// $('#eve_organisers').text(eve['organisers']);
+						var orgarr = eve['organisers'];
+						var orgnrs = orgarr.split("#");
+						for (i=0;i<orgnrs.length;i++)
+						{
+							$('#eve_organisers').append("<li>"+orgnrs[i]+"</li>");
+						}
+						orgarr=null;
+						orgnrs=null;
 						// $('#eve_cover').attr("src",eve['cover_url']);
 						eve_coverswitch(eve['cover_url']);
 						$("#mainarea").fadeIn();
@@ -747,6 +755,7 @@
 		</div>
 
 		<div class="parallelogram">
+		<span id="tag" style="position:absolute;bottom:10px;left:10px;font-family:vinque;font-size: 1.7em;">About</span>
 			<div class="content">
 
 				<h1>ABOUT ANWESHA</h1><br>
