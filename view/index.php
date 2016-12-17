@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 	$referalcode = null;
 	//Works to be done by frontend after loading
 	$todo  = null;
@@ -18,14 +18,24 @@
 
 ?>
 <!DOCTYPE html>
-<html >
+<html lang="en" class="no-js">
 	<head>
-		<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
-		<meta charset="UTF-8">
+
+
+  <meta charset="UTF-8" />
+        <link rel="shortcut icon" href="../favicon.ico"> 
+        <script src="assets/js/modernizr.custom.js"></script>
 		<title>Anwesha '17</title>
-<!-- <?php echo $match[2] ;?> -->
 		<link rel="stylesheet" href="assets/css/style.css">
-		<link rel="icon" href="favicon.ico" type="image/x-icon" />
+		
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+<!-- <?php echo $match[2] ;?> -->
+
++		<link rel="icon" href="favicon.ico" type="image/x-icon" />
+		<script src='assets/js/jquery.min.js'></script>
+		<script src='assets/js/jquery.transit.min.js'></script>	
 		<script src="//code.jquery.com/jquery-1.12.4.js"></script>
 		<script type = "text/javascript" 
          src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -543,57 +553,6 @@
         						}
     			},"json");
 
-			});//regular reg
-
-    			$("#submitreg").click(function(){
-				
-				var name=$("#name").val();
-				var email=$("#email").val();				
-				var college=$("#college").val();
-				var mobile=$("#mobilekn").val();
-				var dob=$("#datepicker").val();
-				var sex=$("#gender").val();
-				var city=$("#city").val();
-				var refid=$("#refcode").val();
-				
-				//ajax send
-				$.post("user/register/User/",
-    						{        						
-       						name: name,
-        					email: email,
-        					college: college,
-        					sex:sex,
-        					mobile:mobile,
-        					email:email,
-        					dob:dob,
-        					city:city,
-        					refcode:refid
-    						},
-    						function(data, status){
-							var AJAXresponse = data;
-        					if(status=='success'){
-        						if(AJAXresponse[0]==1){
-        							$("#boxreg").html('<div style="width:500px"><h1>Registered!<br>==============<br></h1><br>An activation link has been sent to<br>'+ email+'<br><div>');
-        							//$("#error").html('<h1>Registered!</h1>An activation link has been sent to '+ email+'<br>');
-        							$("#boxreg").css('background','#5FAB22');
-    								document.getElementById('boxreg').scrollIntoView();
-								
-        							// $("#error").fadeOut();
-        						}else{
-        							$("#error").fadeIn();
-        							$("#error").html(''+AJAXresponse[1]+'');
-        							document.getElementById('error').scrollIntoView();
-								}
-     
-        					}else{
-        							$("#error").fadeIn();
-        							$("#error").html('An error occured.<br> Please try again.');
-    								document.getElementById('error').scrollIntoView();
-								
-
-        						}
-    			},"json");
-				
 			});
 			});
 
@@ -767,20 +726,150 @@
 		<div id="register" class="lightbox logreg">
 			<div class="close"><a href="#" onclick="document.body.style.overflow='visible';">X</a></div>
 			<h2>Register</h2>
+	
 			
-				<div id="boxreg" class="box" style="overflow-y:scroll; overflow-x:hidden; height:400px;">
+		<div id="boxreg" class="box" style="overflow-y:scroll; overflow-x:hidden; height:400px; width:800px; padding:10px;">
 				<!--input class="inp"  name="username" type="text" placeholder="Username" onblur="if(this.value == ''){this.value = 'Username';}" onfocus="if (this.value == 'Username') {this.value = '';}"-->
-				<!--input class="inp" id="" name="password" type="password" placeholder="Password" onblur="if(this.value == ''){this.value = 'Password';}" onfocus="if (this.value == 'Password') {this.value = '';}"-->
-				<input class="inp" name="name" id="name" type="text" placeholder="Full Name" pattern="[a-zA-Z0-9.\s]{4,40}" title='Alpha Numberic Character of 4 to 40 length'>
-				<input class="inp" name="phone" type="text" placeholder="Phone" id="mobilekn" pattern="[789][0-9]{9}" title='Valid 10 Digits Mobile Number' >
-                <input class="inp" name="email" type="email" placeholder="Email" id="email" title="Invalid Email">
-                <input class="inp" name="college" type="text" placeholder="College" id="college" pattern="[a-zA-Z0-9.\s]*" title='Invalid College Name'>
-                <input class="inp" id="datepicker" name="DOB" type="text" placeholder="DOB (yyyy-mm-dd)"  pattern="\d{4}-\d{2}-\d{2}" class="datepicker" class="inp"  title="Invalid Date Format(yyyy-mm-dd)"  >
-                <input id="gender" placeholder="Sex(M/F)" class="inp"  name="sex" type="text" pattern="[MFmf]" value="" >
-				<input id="city" class="inp" name="city" type="text" placeholder="City" patten='^[a-zA-Z0-9.@]*' title="Invalid City" >
-				<input id="refcode" class="inp" name="ref" type="text" placeholder="Reference Code" pattern='([0-9]{4})|()' title="Invalid Ref Number" value="<?php if(isset($referalcode)) echo $referalcode; ?>" <?php if(!empty($referalcode)) echo "disabled"; ?>>
+				<!--input class="inp" id="" name="password" type="password" placeholder="Password" onblur="if(this.value == ''){this.value = 'Password';}" onfocus="if (this.value == 'Password') {this.value = '';}"-->		
+				 <div id="rForm">
+                
+                    <!-- Top Navigation -->
+
+                    <section>
+                        <form id="theForm" class="simform" autocomplete="off">
+                            <div class="simform-inner">
+                                <ol class="questions">
+                                  <li>
+                                        <span><label for="q1">Fullname</label></span>
+                                   
+										<input name="q1" id="q1" type="text" placeholder="Full name" pattern="[a-zA-Z0-9.\s]{4,40}" title='Alpha Numberic Character of 4 to 40 length'>
+                                    </li>
+                                    <li>
+                                        <span><label for="q2">Phone</label></span>
+                                    
+										<input  name="q2" type="text" placeholder="Phone" id="q2" pattern="[789][0-9]{9}" title='Valid 10 Digits Mobile Number' >
+                                    </li>
+                                    <li>
+                                        <span><label for="q3">E-mail</label></span>
+                                        
+										 <input  name="q3" type="email" placeholder="Email" id="q3" title="Invalid Email">
+                                    </li>
+									     <li>
+                                        <span><label for="q4">College</label></span>
+                                        
+										  <input  name="q4" type="text" placeholder="College" id="q4" pattern="[a-zA-Z0-9.\s]*" title='Invalid College Name'>
+                                    </li>
+                                    <li>
+                                        <span><label for="q5">DOB</label></span>
+                                       
+										  <input  id="q5" name="q5" type="text" placeholder="DOB (yyyy-mm-dd)"  pattern="\d{4}-\d{2}-\d{2}" class="datepicker" class="inp"  title="Invalid Date Format(yyyy-mm-dd)"  >
+                                    </li>
+                                    <li>
+                                        <span><label for="q6">Gender(M/L)</label></span>
+                                       
+										<input id="q6" placeholder="Sex(M/F)"   name="q6" type="text" pattern="[MFmf]" value="" >
+                                    </li>
+                                    <li>
+                                        <span><label for="q7">City</label></span>
+                                        
+											<input id="q7" name="q7" type="text" placeholder="City" patten='^[a-zA-Z0-9.@]*' title="Invalid City" >
+                                    </li>
+                                    <li>
+                                        <span><label for="q8">Reference Number</label></span>
+                                       
+										<input id="q8"  name="q8" type="text" placeholder="Reference Code" pattern='([0-9]{4})|()' title="Invalid Ref Number" value="<?php if(isset($referalcode)) echo $referalcode; ?>" <?php if(!empty($referalcode)) echo "disabled"; ?>>
+                                    </li>
+                                
+                                </ol><!-- /questions -->
+                              
+								<input class="button submit" type="submit" id="submitreg" value="Submit">
+                                <div class="controls">
+                                  	<input class="button submit" type="submit" id="submitreg" value="Submit">
+                                    <div class="progress"></div><button class="next">next</button>
+                                    <span class="number">
+                                        <span class="number-current"></span>
+                                        <span class="number-total"></span>
+                                    </span>
+                                    <span class="error-message"></span>
+                                </div><!-- / controls -->
+                            </div><!-- /simform-inner -->
+                            <span class="final-message"></span>
+                        </form><!-- /simform -->
+                    </section>
+
+                </div>
+                <script src="assets/js/classie.js"></script>
+                <script src="assets/js/stepsForm.js"></script>
+                <script>
+			var theForm = document.getElementById( 'theForm' );
+
+			new stepsForm( theForm, {
+				onSubmit : function( form ) {
+					// hide form
+					classie.addClass( theForm.querySelector( '.simform-inner' ), 'hide' );
+
+					/*
+					form.submit()
+					or
+					AJAX request (maybe show loading indicator while we don't have an answer..)
+					*/
+					//regular reg
+
+    			$("#submitreg").click(function(){	
+				var name=$("#q1").val();
+				var email=$("#q2").val();				
+				var college=$("#q3").val();
+				var mobile=$("#q4").val();
+				var dob=$("#q5").val();
+				var sex=$("#q6").val();
+				var city=$("#q7").val();
+				var refid=$("#q8").val();
+				
+				//ajax send
+				$.post("user/register/User/",
+    						{        						
+       						name: name,
+        					email: email,
+        					college: college,
+        					sex:sex,
+        					mobile:mobile,
+        					email:email,
+        					dob:dob,
+        					city:city,
+        					refcode:refid
+    						},
+    						function(data, status){
+							var AJAXresponse = data;
+        					if(status=='success'){
+        						if(AJAXresponse[0]==1){
+        							$("#boxreg").html('<div style="width:500px"><h1>Registered!<br>==============<br></h1><br>An activation link has been sent to<br>'+ email+'<br><div>');
+        							//$("#error").html('<h1>Registered!</h1>An activation link has been sent to '+ email+'<br>');
+        							$("#boxreg").css('background','#5FAB22');
+    								document.getElementById('boxreg').scrollIntoView();
+								
+        							// $("#error").fadeOut();
+        						}else{
+        							$("#error").fadeIn();
+        							$("#error").html(''+AJAXresponse[1]+'');
+        							document.getElementById('error').scrollIntoView();
+								}
+     
+        					}else{
+        							$("#error").fadeIn();
+        							$("#error").html('An error occured.<br> Please try again.');
+    								document.getElementById('error').scrollIntoView();
+								
+
+        						}
+    			},"json");
+				
+			});
+				
+				}
+			} );
+                </script>			
                 <div id="error" style="width:auto;display:none;box-radius:5px;box-shadow:#000000 0 0 10px;background:#6fce2d;padding:20px;font-size:20px;margin:10px">An error occured</div>
-				<input class="button" type="submit" id="submitreg" value="Submit">
+			
 			</div>
 		</div>
 
