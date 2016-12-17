@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `CampusAmberg` (
 
 
 CREATE TABLE `Events` (
-  `eveId` int(3) NOT NULL AUTO_INCREMENT,
+  `eveId` int(3) NOT NULL,
   `eveName` varchar(35) DEFAULT NULL,
   `fee` int(4) DEFAULT NULL,
   `day` int(1) DEFAULT NULL,
@@ -152,7 +152,7 @@ CREATE TABLE IF NOT EXISTS `Registration` (
 -- Indexes for table `Events`
 --
 ALTER TABLE `Events`
-  ADD PRIMARY KEY (`eveId`);
+  ADD PRIMARY KEY AUTO_INCREMENT (`eveId`);
 
 --
 -- Indexes for table `GroupRegistration`
