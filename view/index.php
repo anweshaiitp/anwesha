@@ -198,7 +198,7 @@
 				font-family: bebas;
 				box-shadow: 0 0 50px #4c4d4f;
 				position: absolute;
-    			top: 170px;
+    			top: 120px;
     			left: 250px;
     			/* float: right; */
     			/*background-color: #FFFFFF;*/
@@ -245,7 +245,8 @@
 			.ph-btn-blue {
 		 		border-color: #326E99;
     			background-color: #3F8ABF;
-				margin-top: 50px !important;
+				margin-top: 30px !important;
+				margin-bottom: 10px !important;
 			}
 			.ph-btn-green {
 				margin-top:5px !important;
@@ -330,6 +331,7 @@
 
     							$(".navbtn").click(function(){
     								$("#mainarea").fadeOut();
+    								$("#mainareaalt").fadeIn();
 									var cat=$(this).attr('data');
 									console.log("Event Code :"+cat);
 									view_sbar(cat);
@@ -394,16 +396,19 @@
 						$('#eve_icon').attr("src",eve['icon_url']);
 						// $('#eve_organisers').text(eve['organisers']);
 						var orgarr = eve['organisers'];
-						var orgnrs = orgarr.split("#");
-						for (i=0;i<orgnrs.length;i++)
-						{
-							$('#eve_organisers').append("<li>"+orgnrs[i]+"</li>");
-						}
+						if(orgarr!=null){						
+							var orgnrs = orgarr.split("#");
+							for (i=0;i<orgnrs.length;i++)
+							{
+								$('#eve_organisers').append("<li>"+orgnrs[i]+"</li>");
+							}
 						orgarr=null;
 						orgnrs=null;
+						}
 						// $('#eve_cover').attr("src",eve['cover_url']);
 						eve_coverswitch(eve['cover_url']);
 						$("#mainarea").fadeIn();
+						$("#mainareaalt").fadeOut();
 					});
 					
 				
@@ -421,7 +426,7 @@
             	$(".clubs").fadeIn();
             	$("#intro").hide();
             	$(".window2").fadeIn("slow",toggleli());
-            	$(".backbtn").fadeIn().delay(1000);
+            	$(".backbtn").fadeIn();
               
             });
 			$(".backbtn").click(function(){
@@ -444,10 +449,10 @@
 			});
 			$(".mainevent").click(function(){
 				$("#mainarea").hide();/*to fix initial dummy text display on selecting category*/
-
+				$("#mainareaalt").fadeIn();
 				// $(".blankbg ").fadeIn("fast");
 				$(".blankbg ").slideFadeToggle();
-				$(".backbtn2").fadeIn().delay(1000);
+				$(".backbtn2").fadeIn();
 				if(cl==0) {
 					//For For TECHNICAL
 					$("#navbar").css("display","table");
