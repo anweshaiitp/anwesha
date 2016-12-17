@@ -178,10 +178,6 @@
 				width:150px !important;
 				
 			}
-			#mainarea{
-				font-family: bebas;
-				box-shadow: 0 0 50px #4c4d4f;
-			}
 			#navbar{
 				/*margin: auto;*/
   				/*display: inline;*/
@@ -199,6 +195,8 @@
 				height:500px;
 			}
 			#mainarea{
+				font-family: bebas;
+				box-shadow: 0 0 50px #4c4d4f;
 				position: absolute;
     			top: 170px;
     			left: 250px;
@@ -207,6 +205,14 @@
     			z-index: 6;
     			/*height: 10000px;*/
     			width: calc(100% - 270px);
+			}
+			#mainareaalt{
+				position: absolute;
+    			top: 170px;
+    			left: 250px;
+    			z-index: 6;
+    			width: calc(100% - 270px);
+    			height:calc(100% - 170px);
 			}
 			.ph-button {
 				border-style: solid;
@@ -635,6 +641,12 @@
         			<a href='#' class='ph-button ph-btn-green'>Event3</a>
         			<a href='#' class='ph-button ph-btn-green'>Event4</a>
 				</div>
+			</div>
+			<div id="mainareaalt" style='color:white'>
+			<center>	
+				<img src="images/logo.png" alt="" height="200px"><br><br>
+				<h1 style="font-family: bebas;font-size: 5em;"><i>Events</i></h1>
+			</center>
 			</div>
 			<div id="mainarea" style='color:white'>
 				<center>
