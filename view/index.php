@@ -689,11 +689,11 @@
 				</span><br><br><br>
 				<div id='eve_organisers_head'>
 					Organisers :
-					<ol id='eve_organisers' style="font-size: 2em;">
+					<ul id='eve_organisers' type="none" style="font-size: 2em;">
 						<li>Organiser 1 (9741852963)</li>
 						<li>Organiser 2 (9852451262)</li>
 						<li>Organiser 3 (9965235245)</li>
-					</ol>
+					</ul>
 				</div><br><br><br>
 
 
