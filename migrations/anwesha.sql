@@ -43,14 +43,23 @@ CREATE TABLE IF NOT EXISTS `CampusAmberg` (
 -- Table structure for table `Events`
 --
 
-CREATE TABLE IF NOT EXISTS `Events` (
-  `eveId` int(3) NOT NULL DEFAULT '0',
+
+CREATE TABLE `Events` (
+  `eveId` int(3) NOT NULL,
   `eveName` varchar(35) DEFAULT NULL,
   `fee` int(4) DEFAULT NULL,
   `day` int(1) DEFAULT NULL,
   `size` int(2) DEFAULT NULL,
   `code` int(3) NOT NULL,
-  `details` text NOT NULL
+  `tagline` varchar(100) DEFAULT NULL,
+  `date` varchar(15) DEFAULT NULL,
+  `time` varchar(15) DEFAULT NULL,
+  `venue` varchar(50) DEFAULT NULL,
+  `organisers` varchar(400) DEFAULT NULL,
+  `short_desc` varchar(200) DEFAULT NULL,
+  `long_desc` text,
+  `cover_url` varchar(100) DEFAULT NULL,
+  `icon_url` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -143,7 +152,7 @@ CREATE TABLE IF NOT EXISTS `Registration` (
 -- Indexes for table `Events`
 --
 ALTER TABLE `Events`
-  ADD PRIMARY KEY (`eveId`);
+  ADD PRIMARY KEY AUTO_INCREMENT (`eveId`);
 
 --
 -- Indexes for table `GroupRegistration`

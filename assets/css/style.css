@@ -1,4 +1,4 @@
-@font-face {
+s@font-face {
 font-family:"agency";
 src:url(../fonts/AgencyFB.ttf) format("truetype");
 }
@@ -71,13 +71,7 @@ font-size:1.5em;
 
 
 
-body {
-	background:url("../../images/medieval-ship-entering-island-fantasy.jpg") no-repeat center center fixed; 
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-}
+
 
 * {
 	box-sizing: border-box;
@@ -254,13 +248,14 @@ button:hover, button:active, button:focus {
 .overlay {
 	width: 100%;
 	height: 100%;
-	background-color: rgba(0,0,0,0.6);
+	background-color: rgba(0,0,0,0.8);
 	position: fixed;
 	top: 0;
 	bottom: 0;
 	left: 0;
 	right: 0;
 	z-index: 2;
+	display: none;
 	opacity: 0;
 	transition: all 0.3s ease;
 	pointer-events: none;
@@ -268,7 +263,7 @@ button:hover, button:active, button:focus {
 
 .overlay.on-overlay {
 	opacity: 1;
-	pointer-events: auto;
+	/*pointer-events: auto;*/
 }
 
 
@@ -301,9 +296,10 @@ button:hover, button:active, button:focus {
 	position:absolute;
 	left:0;
 	top:0;
+	/*pointer-events: none;*/
 	width:100%;
 	height:100%;
-	background:#efefef;
+	/*background:#efefef;*/
 }
 
 #intro .links{
@@ -331,13 +327,24 @@ button:hover, button:active, button:focus {
 	width: 110%;
 	height: 100%;
 	color: #000;
-	background: url("../../images/maps.png");
+	background: url("../../images/maxresdefault.jpg");
 	-webkit-transform: skewX(-20deg);
 	transform: skewX(-20deg);
 	-o-text-overflow: clip;
 	text-overflow: clip;
-	transition: all linear 0.75s;
-}
+	/*transition: all linear 0.75s;*/
+	-webkit-transition: all 1000ms cubic-bezier(0.815, 0.185, 0.215, 1); /* older webkit */
+-webkit-transition: all 1000ms cubic-bezier(0.815, 0.185, 0.215, 1.400); 
+   -moz-transition: all 1000ms cubic-bezier(0.815, 0.185, 0.215, 1.400); 
+     -o-transition: all 1000ms cubic-bezier(0.815, 0.185, 0.215, 1.400); 
+        transition: all 1000ms cubic-bezier(0.815, 0.185, 0.215, 1.400); /* custom */
+
+-webkit-transition-timing-function: cubic-bezier(0.815, 0.185, 0.215, 1); /* older webkit */
+-webkit-transition-timing-function: cubic-bezier(0.815, 0.185, 0.215, 1.400); 
+   -moz-transition-timing-function: cubic-bezier(0.815, 0.185, 0.215, 1.400); 
+     -o-transition-timing-function: cubic-bezier(0.815, 0.185, 0.215, 1.400); 
+        transition-timing-function: cubic-bezier(0.815, 0.185, 0.215, 1.400); /* custom */
+            }
 .parallelogram:hover{
 	left:0;
 }
@@ -347,21 +354,26 @@ button:hover, button:active, button:focus {
 	position:relative;
 	-webkit-transform: skewX(20deg);
 	transform: skewX(20deg);
-	margin:auto 20%;
-	width:50%;
 	max-height:100%;
-	overflow-y:scroll;
 	font-family:vinque;
 	line-height:1.4em;
 	text-align:center;
+	overflow-y: auto;
+	font-size: 1.7em !important;
+	margin: auto;
+    width: 60%;
+	text-shadow: 0 0 5px #FFFFFF;
 }
 .parallelogram h1{
 	background:rgba(0,0,0,0.6);
-	color:#caa860;
+	/*color:#caa860;*/
 	padding:1em;
 	margin:0.5em;
 	font-size:1.4em;
 	text-align:center;
+	border-radius: 20px;
+	display: inline-block;
+	color:#ffa33e !important;
 }
 
 
@@ -544,4 +556,337 @@ background:#efefef;
 }
 ::-webkit-scrollbar-thumb:window-inactive {
 background: #000;
+}
+
+
+
+
+/*component css*/
+.simform {
+	position: relative;
+	margin: 0 auto;
+	padding: 2em 0;
+	max-width: 860px;
+	width: 100%; 
+	text-align: left;
+	font-size: 2.5em;
+}
+
+.simform .submit {
+	display: none;
+}
+
+/* Question list style */
+.simform ol {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	position: relative;
+	-webkit-transition: height 0.4s;
+	transition: height 0.4s;
+}
+
+.simform ol:before {
+	content: '';
+	background-color: rgba(255, 255, 255, 0.2);
+    opacity:0.4;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 2.35em;
+}
+
+.questions li {
+    font-family:"Agency";
+	z-index: 100;
+	position: relative;
+	visibility: hidden;
+	height: 0;
+	-webkit-transition: visibility 0s 0.4s, height 0s 0.4s;
+	transition: visibility 0s 0.4s, height 0s 0.4s;
+}
+
+.questions li.current,
+.no-js .questions li {
+	visibility: visible;
+	height: auto;
+	-webkit-transition: none;
+	transition: none;
+}
+
+/* Labels */
+.questions li > span {
+	display: block;
+	overflow: hidden;
+}
+
+.questions li > span label {
+	display: block;
+	-webkit-transition: -webkit-transform 0.4s;
+	transition: transform 0.4s;
+	-webkit-transform: translateY(-100%);
+	transform: translateY(-100%);
+}
+
+.questions li.current > span label,
+.no-js .questions li > span label {
+	-webkit-transition: none;
+	transition: none;
+	-webkit-transform: translateY(0);
+	transform: translateY(0);
+}
+
+.show-next .questions li.current > span label {
+	-webkit-animation: moveUpFromDown 0.4s both;
+	animation: moveUpFromDown 0.4s both;
+}
+
+@-webkit-keyframes moveUpFromDown {
+	from { -webkit-transform: translateY(100%); }
+	to { -webkit-transform: translateY(0); }
+}
+
+@keyframes moveUpFromDown {
+	from { -webkit-transform: translateY(100%); transform: translateY(100%); }
+	to { -webkit-transform: translateY(0); transform: translateY(0); }
+}
+
+/* Input field */
+.questions input {
+    
+	display: block;
+	margin: 0.3em 0 0 0;
+	padding: 0.5em 1em 0.5em 0.7em;
+	width: calc(100% - 2em);
+	border: none;
+	background: transparent;
+    
+	color: rgba(255,255,255,0.6);
+	font-size: 1em;
+    font-family:"Agency";
+	line-height: 1;
+	opacity: 0.7;
+	-webkit-transition: opacity 0.3s;
+	transition: opacity 0.3s;
+}
+
+.questions .current input,
+.no-js .questions input {
+	opacity: 1;
+}
+
+.questions input:focus,
+.simform button:focus {
+	outline: none;
+}
+
+/* Next question button */
+.next {
+	position: absolute;
+	right: 0;
+	/*bottom: 2.15em; /* padding-bottom of form plus progress bar height */
+	display: block;
+	padding: 0;
+	width: 2em;
+	height: 2em;
+	border: none;
+	background: none;
+	color: rgba(0,0,0,0.4);
+	text-align: center;
+	opacity: 0;
+	z-index: 100;
+	cursor: pointer;
+	-webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+	transition: transform 0.3s, opacity 0.3s;
+	-webkit-transform: translateX(-20%);
+	transform: translateX(-20%);
+	pointer-events: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.next:hover {
+	color: rgba(0,0,0,0.5);
+}
+
+.next::after {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	content: "\e600";
+	text-transform: none;
+	font-weight: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-family: 'icomoon';
+	line-height: 2;
+	speak: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.next.show {
+	opacity: 1;
+	-webkit-transform: translateX(0);
+	transform: translateX(0);
+	pointer-events: auto;
+}
+
+/* Progress bar */
+.simform .progress {
+	width: 0%;
+	height: 0.15em;
+	background: rgba(0,0,0,0.8);
+	-webkit-transition: width 0.4s ease-in-out;
+	transition: width 0.4s ease-in-out;
+}
+
+.simform .progress::before {
+	position: absolute;
+	top: auto;
+	width: 100%;
+	height: inherit;
+	background: rgba(0,0,0,0.05);
+	content: '';
+}
+
+/* Number indicator */
+.simform .number {
+	position: absolute;
+	right: 0;
+	overflow: hidden;
+	margin: 0.4em 0;
+	width: 3em;
+	font-weight: 700;
+	font-size: 0.6em;
+      font-family:"KaushanScript-Regular";
+}
+
+.simform .number:after {
+	position: absolute;
+	left: 50%;
+	content: '/';
+	opacity: 0.4;
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+
+.simform .number span {
+	float: right;
+	width: 40%;
+	text-align: center;
+}
+
+.simform .number .number-current {
+	float: left;
+}
+
+.simform .number-next {
+	position: absolute;
+	left: 0;
+}
+
+.simform.show-next .number-current {
+	-webkit-transition: -webkit-transform 0.4s;
+	transition: transform 0.4s;
+	-webkit-transform: translateY(-100%);
+	transform: translateY(-100%);
+}
+
+.simform.show-next .number-next {
+	-webkit-animation: moveUpFromDown 0.4s both;
+	animation: moveUpFromDown 0.4s both;
+}
+
+/* Error and final message */
+.simform .error-message,
+.simform .final-message {
+	position: absolute;
+	visibility: hidden;
+	opacity: 0;
+	-webkit-transition: opacity 0.4s;
+	transition: opacity 0.4s;
+      font-family:"Agency";
+}
+
+.simform .error-message {
+	padding: 0.4em 3.5em 0 0;
+	width: 100%;
+	color: #ddd;
+	font-style: italic;
+	font-size: 0.7em;
+      font-family:"Agency";
+}
+
+.final-message {
+	top: 50%;
+	left: 0;
+	padding: 0.5em;
+	width: 100%;
+	text-align: center;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+      font-family:"KaushanScript-Regular";
+}
+
+.error-message.show,
+.final-message.show {
+	visibility: visible;
+	opacity: 1;
+}
+
+.final-message.show {
+	-webkit-transition-delay: 0.5s;
+	transition-delay: 0.5s;
+}
+
+/* Final hiding of form / showing message */
+.simform-inner.hide {
+	visibility: hidden;
+	opacity: 0;
+	-webkit-transition: opacity 0.3s, visibility 0s 0.3s;
+	transition: opacity 0.3s, visibility 0s 0.3s;
+}
+
+/* No JS Fallback */
+.no-js .simform {
+	font-size: 1.75em;
+}
+
+.no-js .questions li {
+	padding: 0 0 2em;
+}
+
+.no-js .simform .submit {
+	display: block;
+	float: right;
+	padding: 10px 20px;
+	border: none;
+	background: rgba(0,0,0,0.3);
+	color: rgba(0,0,0,0.4);
+}
+
+.no-js .simform .controls {
+	display: none;
+}
+
+/* Remove IE clear cross */
+input[type=text]::-ms-clear {
+    display: none;
+}
+
+/* Adjust form for smaller screens */
+@media screen and (max-width: 44.75em) {
+	.simform {
+		font-size: 1.8em;
+	}
+}
+
+@media screen and (max-width: 33.5625em) {
+	.simform {
+		font-size: 1.2em;
+          font-family:"KaushanScript-Regular";
+	}
 }
