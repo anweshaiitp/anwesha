@@ -277,6 +277,11 @@
    			var TEC_CODE = 0;
    			var events_data;
          $(document).ready(function() {
+         	function preloadImage(imageurl)
+			{
+    			var img=new Image();
+    			img.src=imageurl;
+			}
          	var imgurl;
          	function eve_coverswitch(imgurl){
          		
@@ -317,6 +322,10 @@
     							events_data = data[1];
     							console.log("Events Data Updated");
 
+						//try to preload coverpic and icon pic
+						for (var i = 0; i < events_data.length; i++){
+						preloadImage(events_data[i]['cover_url']);
+						preloadImage(events_data[i]['icon_url']);}
 
 
     							//Addition Init
@@ -382,6 +391,7 @@
 							eve = events_data[i];
 							break;
 						}
+						
 						//Update Event in Frontend
 
 						//Need to Hide if Don't Exists 
