@@ -21,7 +21,10 @@
 <html >
 	<head>
 		<!-- To make responsive -->
-		<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="assets/css/mobile.css" media="only screen and (max-width: 960px)">
+		<link rel="stylesheet" href="assets/css/desktop.css" media="only screen and (min-width: 960px)">
+		<meta name="theme-color" content="#e0a772">
 		<meta charset="UTF-8">
 		<title>Anwesha '17</title>
 <!-- <?php echo $match[2] ;?> -->
@@ -48,7 +51,7 @@
 				height:100% !important;
 				top:0;
 				z-index:0 !important;
-				background:url("images/test/window.png") no-repeat center center fixed; 
+				background:url("images/windownew.png") no-repeat center center fixed; 
 				-webkit-background-size: cover;
 				-moz-background-size: cover;
 				-o-background-size: cover;
@@ -64,7 +67,7 @@
 				display: none;
 				z-index:4 !important;
 
-				background:url("images/test/window.png") no-repeat center center fixed; 
+				background:url("images/windownew.png") no-repeat center center fixed; 
 				-webkit-background-size: cover;
 				-moz-background-size: cover;
 				-o-background-size: cover;
@@ -163,7 +166,7 @@
 				display: none;
 				z-index:6;
 				height: 40px !important;
-  				 position: fixed;
+  				 
 				width:100px !important;
 			}
 			.backbtn2{
@@ -174,49 +177,38 @@
 				display: none;
 				z-index:6;
 				height: 40px !important;
-  				 position: fixed;
+  				 
 				width:100px !important;
 				
 			}
 			#navbar{
 				/*margin: auto;*/
   				/*display: inline;*/
-  				position: fixed;
   				z-index: 8;
   				 /*display: table;*/
     			/*margin: 0 auto;*/
-    			margin: 0 0 0 -10%;
-    left:50%;
+    			
   				/*position: absolute;
   				top:0;*/
 			}
 			#sidebar{
-				position: fixed; 
-				top:135px;
-				left:10px;
-				/*background-color: #FFFFFF;*/
-				width:180px;
-				height:500px;
 			}
 			#mainarea{
 				font-family: bebas;
 				box-shadow: 0 0 50px #4c4d4f;
 				position: absolute;
-    			top: 120px;
-    			left: 220px;
+    			
     			/* float: right; */
     			/*background-color: #FFFFFF;*/
     			z-index: 6;
     			/*height: 10000px;*/
-    			width: calc(100% - 240px);
+    			
 			}
 			#mainareaalt{
 				position: absolute;
-    			top: 170px;
-    			left: 250px;
+    			
     			z-index: 6;
-    			width: calc(80% - 270px);
-    			height:calc(100% - 170px);
+    			
 			}
 			.ph-button {
 				border-style: solid;
@@ -249,15 +241,13 @@
 			.ph-btn-blue {
 		 		border-color: #326E99;
     			background-color: #3F8ABF;
-				margin-top: 30px !important;
-				margin-bottom: 10px !important;
+				
 			}
 			.ph-btn-green {
 				margin-top:5px !important;
 				margin-bottom:5px !important;
 				border-color: #3AC162;
 				background-color: #5FCF80;
-				width:100%;
 			}
 			#eve_cover{
 				/*box-shadow: 0 0 30px #FFFFFF;*/
@@ -282,6 +272,7 @@
    			var TEC_CODE = 0;
    			var events_data;
          $(document).ready(function() {
+         	
          	function preloadImage(imageurl)
 			{
     			var img=new Image();
@@ -300,7 +291,9 @@
          			ppurl +=imgurl;
          			ppurl +=")";
          			$("#eve_cover").css("background-image",ppurl);
-         			$("#eve_name").css("font-size","5em");
+         			if($(window).width()>960){
+         			$("#eve_name").css("font-size","5em");}
+         			else{$("#eve_name").css("font-size","3em");}
          			$('#eve_cover').css("height","300px");
          		}
          	}
@@ -386,7 +379,7 @@
 							var e_name = events_data[i]['eveName'];
 							var ev_id = events_data[i]['eveId'];
 
-							$( "#sbl" ).append( "<li href='#' data-evid='"+ev_id+"' class='sbl-item ph-button ph-btn-green'>"+e_name+"</li>" );
+							$( "#sbl" ).append( "<a href='#' data-evid='"+ev_id+"' class='sbl-item ph-button ph-btn-green'>"+e_name+"</a>" );
 							console.log("Event Added "+ev_id);
 						}
 					};
@@ -452,13 +445,14 @@
             	$("#intro").hide();
             	$(".window2").fadeIn("slow",toggleli());
             	$(".backbtn").fadeIn();
-              
+            	$("#preloader").hide();
             });
 			$(".backbtn").click(function(){
 				$("#intro").show();
 				$(".backbtn").fadeOut();
 				$(".clwrap").fadeOut();
             	$(".clubs").fadeOut();
+            	$("#preloader").show();
 				
             	if(ev==1){
             		// $(".blankbg ").fadeOut();
@@ -473,6 +467,7 @@
 
 			});
 			$(".mainevent").click(function(){
+				
 				$("#mainarea").hide();/*to fix initial dummy text display on selecting category*/
 				$("#mainareaalt").fadeIn();
 				// $(".blankbg ").fadeIn("fast");
@@ -482,9 +477,20 @@
 					//For For TECHNICAL
 					$("#navbar").css("display","table");
 					view_sbar(-1);
+					if($(window).width()<960){         			
+         				$("#sidebar").css("top","300px");
+         				$("#mainarea").css("top","360px");
+         				$("#mainareaalt").css("top","360px");
+         			}
 				} else {
 					$("#navbar").hide();
 					view_sbar(cl);
+					if($(window).width()<960){
+						$("#sidebar").css("top","115px");
+         				$("#mainarea").css("top","195px");
+         				$("#mainareaalt").css("top","195px");
+         			}
+        			
 				}
 				ev=1;
 				toggleli();
@@ -673,13 +679,13 @@
         			<a href='#' data=3 class=' navbtn ph-button ph-btn-blue'>Cat3</a>
         			<a href='#' data=4 class=' navbtn ph-button ph-btn-blue'>Cat4</a>
 			</div>
-			<div id="sidebar"><ul>
+			<div id="sidebar">
 				<div class="sblist" id="sbl" style="display:none">
 					<a href='#' class='ph-button ph-btn-green'>Event1</a>
         			<a href='#' class='ph-button ph-btn-green'>Event2</a>
         			<a href='#' class='ph-button ph-btn-green'>Event3</a>
         			<a href='#' class='ph-button ph-btn-green'>Event4</a>
-				</div></ul>
+				</div>
 			</div>
 			<div id="mainareaalt" style='color:white'>
 			<center>	
@@ -746,7 +752,7 @@
 			<div class="clubs">
 				<ul id="leftlist">
 				<a href="#"><li class="mainevent" onclick="cl=1">Cultural</li></a>
-				<a href="#"><li class="mainevent" onclick="cl=2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arts & Welfare</li></a>
+				<a href="#"><li class="mainevent" onclick="cl=2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arts &amp; Welfare</li></a>
 				<!-- <a href="#"><li class="mainevent" onclick="cl=3">NJACK2</li></a> -->
 
 				</ul>
