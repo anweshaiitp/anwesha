@@ -1,0 +1,44 @@
+.parallelogram .content{
+	font-size: 1.7em !important;
+}
+#date{
+	right:2em;
+}
+#navbar{
+	margin: 0 0 0 -10%;
+	left:50%;
+  	position: fixed;
+
+}
+#mainarea{
+	top: 120px;
+	left: 220px;
+	width: calc(100% - 240px);
+	
+}
+#mainareaalt{
+	width: calc(80% - 270px);
+    height:calc(100% - 170px);
+	top: 170px;
+	left: 250px;
+}
+#sidebar{
+	position: fixed;
+	width:180px;
+	height:500px;
+	top:135px;
+	left:10px;
+}
+.ph-btn-green{
+	width:100%;
+}
+.backbtn{
+	position: fixed;
+}
+.backbtn2{
+	position: fixed;
+}
+.ph-btn-blue{
+	margin-top: 30px !important;
+	margin-bottom: 10px !important;
+}
