@@ -157,41 +157,45 @@
 			}
 			.backbtn{
    				 padding: 10px !important;
-				font-size: 1.25em !important;
+				font-size: 1em !important;
 				top:20px;
 				left:20px;
 				display: none;
 				z-index:6;
-				height: 50px !important;
+				height: 40px !important;
   				 position: fixed;
-				width:150px !important;
+				width:100px !important;
 			}
 			.backbtn2{
-				font-size: 1.25em !important;
+				font-size: 1em !important;
    				 padding: 10px !important;
-				top:80px;
+				top:65px;
 				left:20px;
 				display: none;
 				z-index:6;
-				height: 50px !important;
+				height: 40px !important;
   				 position: fixed;
-				width:150px !important;
+				width:100px !important;
 				
 			}
 			#navbar{
 				/*margin: auto;*/
   				/*display: inline;*/
-  				 display: table;
-    			margin: 0 auto;
+  				position: fixed;
+  				z-index: 8;
+  				 /*display: table;*/
+    			/*margin: 0 auto;*/
+    			margin: 0 0 0 -10%;
+    left:50%;
   				/*position: absolute;
   				top:0;*/
 			}
 			#sidebar{
 				position: fixed; 
-				top:170px;
+				top:135px;
 				left:10px;
 				/*background-color: #FFFFFF;*/
-				width:250px;
+				width:180px;
 				height:500px;
 			}
 			#mainarea{
@@ -199,12 +203,12 @@
 				box-shadow: 0 0 50px #4c4d4f;
 				position: absolute;
     			top: 120px;
-    			left: 250px;
+    			left: 220px;
     			/* float: right; */
     			/*background-color: #FFFFFF;*/
     			z-index: 6;
     			/*height: 10000px;*/
-    			width: calc(100% - 270px);
+    			width: calc(100% - 240px);
 			}
 			#mainareaalt{
 				position: absolute;
@@ -216,7 +220,7 @@
 			}
 			.ph-button {
 				border-style: solid;
-				margin:20px;
+				margin:10px;
     			border-width: 0px 0px 3px;
     			box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
     			color: #FFFFFF;	   
@@ -232,7 +236,7 @@
     			white-space: nowrap;	
     			font-family: "Gotham Rounded A","Gotham Rounded B",Helvetica,Arial,sans-serif;
     			font-weight: 700;	
-    			padding: 19px 39px 18px;
+    			padding: 12px ;
     			font-size: 18px;
     			opacity: 1;
   				transition: opacity .3s,box-shadow .3s;
@@ -253,6 +257,7 @@
 				margin-bottom:5px !important;
 				border-color: #3AC162;
 				background-color: #5FCF80;
+				width:100%;
 			}
 			#eve_cover{
 				/*box-shadow: 0 0 30px #FFFFFF;*/
@@ -261,7 +266,7 @@
 				width:100%;
 				height:300px;
 				background-size: cover;
-				background-color: #000000;
+				/*background-color: #000000;*/
 				/*position: absolute;*/
 				/*opacity: 0.8;*/
 				/*background-color: #FFFFFF;*/
@@ -288,18 +293,27 @@
          		if(imgurl=="" || imgurl==null){
          			$("#eve_cover").css("background-image","");
 					// $("#eve_cover").css("box-shadow","0 0 0 #FFFFFF");
-         			
+         			$("#eve_name").css("font-size","3em");
+         			$('#eve_cover').css("height","");
          		}else{
          			var ppurl="url(";
          			ppurl +=imgurl;
          			ppurl +=")";
          			$("#eve_cover").css("background-image",ppurl);
-					// $("#eve_cover").css("box-shadow","0 0 30px #FFFFFF");
-         			// alert(imgurl);
-         			// alert(ppurl);	
-         			// $("#eve_cover").animate({opacity:'0.8'});
-
+         			$("#eve_name").css("font-size","5em");
+         			$('#eve_cover').css("height","300px");
          		}
+         	}
+         	function eve_iconswitch(icourl){
+         		if(icourl=="" || icourl==null){
+         			$("#eve_icon").hide();
+         			
+         		}else{
+         			$("#eve_icon").show();
+         			$("#eve_icon").attr("src",icourl);
+				}
+
+         		// $('#eve_icon').attr("src",eve['icon_url']);
          	}
          	function emptyresp(){
          		
@@ -311,7 +325,7 @@
 				$('#eve_organisers').text("");
 				$('#eve_short_desc').text("");
 				$('#eve_long_desc').text("");
-				$('#eve_icon').attr("src","");
+				eve_iconswitch("");
 				eve_coverswitch("");
 				// $('#eve_cover').css("src","");
          	}
@@ -372,7 +386,7 @@
 							var e_name = events_data[i]['eveName'];
 							var ev_id = events_data[i]['eveId'];
 
-							$( "#sbl" ).append( "<a href='#' data-evid='"+ev_id+"' class='sbl-item ph-button ph-btn-green'>"+e_name+"</a>" );
+							$( "#sbl" ).append( "<li href='#' data-evid='"+ev_id+"' class='sbl-item ph-button ph-btn-green'>"+e_name+"</li>" );
 							console.log("Event Added "+ev_id);
 						}
 					};
@@ -403,7 +417,8 @@
 						$('#eve_venue').text(eve['venue']);
 						$('#eve_short_desc').text(eve['short_desc']);
 						$('#eve_long_desc').text(eve['long_desc']);
-						$('#eve_icon').attr("src",eve['icon_url']);
+						// $('#eve_icon').attr("src",eve['icon_url']);
+						eve_iconswitch(eve['icon_url']);
 						// $('#eve_organisers').text(eve['organisers']);
 						var orgarr = eve['organisers'];
 						if(orgarr!=null){						
@@ -658,13 +673,13 @@
         			<a href='#' data=3 class=' navbtn ph-button ph-btn-blue'>Cat3</a>
         			<a href='#' data=4 class=' navbtn ph-button ph-btn-blue'>Cat4</a>
 			</div>
-			<div id="sidebar">
+			<div id="sidebar"><ul>
 				<div class="sblist" id="sbl" style="display:none">
 					<a href='#' class='ph-button ph-btn-green'>Event1</a>
         			<a href='#' class='ph-button ph-btn-green'>Event2</a>
         			<a href='#' class='ph-button ph-btn-green'>Event3</a>
         			<a href='#' class='ph-button ph-btn-green'>Event4</a>
-				</div>
+				</div></ul>
 			</div>
 			<div id="mainareaalt" style='color:white'>
 			<center>	
@@ -779,7 +794,8 @@
             photography, literature, fine arts, quizzing and debating. Anwesha is an avenue to be comforted from the
              routine life and to embrace the fun and frolic embedded with tantalizing professional performances from India
              along with an addressal to the social responsibility with its underlying social theme.
-				<br><br><br>
+				<br>
+				<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/r-qROBBWy5Q" frameborder="0" allowfullscreen></iframe> -->
 			</div>
 		
 		</div>
