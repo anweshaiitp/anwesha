@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 	$referalcode = null;
 	//Works to be done by frontend after loading
 	$todo  = null;
@@ -20,6 +20,7 @@
 <!DOCTYPE html>
 <html >
 	<head>
+		<!-- To make responsive -->
 		<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
 		<meta charset="UTF-8">
 		<title>Anwesha '17</title>
@@ -177,10 +178,6 @@
 				width:150px !important;
 				
 			}
-			#mainarea{
-				font-family: bebas;
-
-			}
 			#navbar{
 				/*margin: auto;*/
   				/*display: inline;*/
@@ -198,14 +195,24 @@
 				height:500px;
 			}
 			#mainarea{
+				font-family: bebas;
+				box-shadow: 0 0 50px #4c4d4f;
 				position: absolute;
-    			top: 170px;
+    			top: 120px;
     			left: 250px;
     			/* float: right; */
     			/*background-color: #FFFFFF;*/
     			z-index: 6;
     			/*height: 10000px;*/
-    			width: 300px;
+    			width: calc(100% - 270px);
+			}
+			#mainareaalt{
+				position: absolute;
+    			top: 170px;
+    			left: 250px;
+    			z-index: 6;
+    			width: calc(80% - 270px);
+    			height:calc(100% - 170px);
 			}
 			.ph-button {
 				border-style: solid;
@@ -238,7 +245,8 @@
 			.ph-btn-blue {
 		 		border-color: #326E99;
     			background-color: #3F8ABF;
-				margin-top: 50px !important;
+				margin-top: 30px !important;
+				margin-bottom: 10px !important;
 			}
 			.ph-btn-green {
 				margin-top:5px !important;
@@ -247,19 +255,20 @@
 				background-color: #5FCF80;
 			}
 			#eve_cover{
-				box-shadow: 0 0 30px #FFFFFF;
+				/*box-shadow: 0 0 30px #FFFFFF;*/
 				/*display: table;*/
 				vertical-align: middle;
 				width:100%;
 				height:300px;
 				background-size: cover;
+				background-color: #000000;
 				/*position: absolute;*/
 				/*opacity: 0.8;*/
 				/*background-color: #FFFFFF;*/
 			}
 			#headwrap{
 				vertical-align: middle;
-			}
+			}			
 		</style>
 
 		 <script type = "text/javascript" language = "javascript">
@@ -268,14 +277,24 @@
    			var TEC_CODE = 0;
    			var events_data;
          $(document).ready(function() {
+         	function preloadImage(imageurl)
+			{
+    			var img=new Image();
+    			img.src=imageurl;
+			}
          	var imgurl;
          	function eve_coverswitch(imgurl){
          		
-         		if(imgurl!=""){
+         		if(imgurl=="" || imgurl==null){
+         			$("#eve_cover").css("background-image","");
+					// $("#eve_cover").css("box-shadow","0 0 0 #FFFFFF");
+         			
+         		}else{
          			var ppurl="url(";
          			ppurl +=imgurl;
          			ppurl +=")";
          			$("#eve_cover").css("background-image",ppurl);
+					// $("#eve_cover").css("box-shadow","0 0 30px #FFFFFF");
          			// alert(imgurl);
          			// alert(ppurl);	
          			// $("#eve_cover").animate({opacity:'0.8'});
@@ -303,6 +322,10 @@
     							events_data = data[1];
     							console.log("Events Data Updated");
 
+						//try to preload coverpic and icon pic
+						for (var i = 0; i < events_data.length; i++){
+						preloadImage(events_data[i]['cover_url']);
+						preloadImage(events_data[i]['icon_url']);}
 
 
     							//Addition Init
@@ -316,6 +339,8 @@
     							};
 
     							$(".navbtn").click(function(){
+    								$("#mainarea").fadeOut();
+    								$("#mainareaalt").fadeIn();
 									var cat=$(this).attr('data');
 									console.log("Event Code :"+cat);
 									view_sbar(cat);
@@ -325,9 +350,6 @@
     						else
     							console.log("Unable to get Events Data");
 			},"json");
-			
-         	var wwidth=$(window).width();
-         	$("#mainarea").width(wwidth-270);
          	var category;
          	var last_sbar_cat=-1;
 			function view_sbar(category){ //alert(cl);
@@ -369,6 +391,7 @@
 							eve = events_data[i];
 							break;
 						}
+						
 						//Update Event in Frontend
 
 						//Need to Hide if Don't Exists 
@@ -378,13 +401,24 @@
 						$('#eve_date').text(eve['date']);
 						$('#eve_time').text(eve['time']);
 						$('#eve_venue').text(eve['venue']);
-						$('#eve_organisers').text(eve['organisers']);
 						$('#eve_short_desc').text(eve['short_desc']);
 						$('#eve_long_desc').text(eve['long_desc']);
 						$('#eve_icon').attr("src",eve['icon_url']);
+						// $('#eve_organisers').text(eve['organisers']);
+						var orgarr = eve['organisers'];
+						if(orgarr!=null){						
+							var orgnrs = orgarr.split("#");
+							for (i=0;i<orgnrs.length;i++)
+							{
+								$('#eve_organisers').append("<li>"+orgnrs[i]+"</li>");
+							}
+						orgarr=null;
+						orgnrs=null;
+						}
 						// $('#eve_cover').attr("src",eve['cover_url']);
 						eve_coverswitch(eve['cover_url']);
-
+						$("#mainarea").fadeIn();
+						$("#mainareaalt").fadeOut();
 					});
 					
 				
@@ -402,7 +436,7 @@
             	$(".clubs").fadeIn();
             	$("#intro").hide();
             	$(".window2").fadeIn("slow",toggleli());
-            	$(".backbtn").fadeIn().delay(1000);
+            	$(".backbtn").fadeIn();
               
             });
 			$(".backbtn").click(function(){
@@ -424,9 +458,11 @@
 
 			});
 			$(".mainevent").click(function(){
+				$("#mainarea").hide();/*to fix initial dummy text display on selecting category*/
+				$("#mainareaalt").fadeIn();
 				// $(".blankbg ").fadeIn("fast");
 				$(".blankbg ").slideFadeToggle();
-				$(".backbtn2").fadeIn().delay(1000);
+				$(".backbtn2").fadeIn();
 				if(cl==0) {
 					//For For TECHNICAL
 					$("#navbar").css("display","table");
@@ -437,6 +473,9 @@
 				}
 				ev=1;
 				toggleli();
+				/*simulating click for default event*/
+				// $('#navbar:first').trigger( "click" );
+				// $('#sbl:first').delay(500).click();
 
 			});
 			$(".backbtn2").click(function(){
@@ -603,8 +642,9 @@
 		<link rel="shortcut icon" href="favicon.ico">
 		<style type="text/css">
 			#datagrida,.box{
-				overflow-y: scroll;
-				height:300px;
+				box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.49);
+				overflow-y: auto;
+				height:60%;
 			}
 		</style>
 	</head>
@@ -626,10 +666,16 @@
         			<a href='#' class='ph-button ph-btn-green'>Event4</a>
 				</div>
 			</div>
+			<div id="mainareaalt" style='color:white'>
+			<center>	
+				<img src="images/logo.png" alt="" height="200px"><br><br>
+				<h1 style="font-family: bebas;font-size: 5em;"><i>Events</i></h1>
+			</center>
+			</div>
 			<div id="mainarea" style='color:white'>
 				<center>
 			<div id="eve_cover">
-				<span id="headwrap" style=""><br><br><br><br>
+				<span id="headwrap" style=""><br><br><br><br><br>
 				<span id="headwr" style="display: inline">
 				<img src="" style="height: 50px;display: inline;" placeholder="Icon" id='eve_icon'>&nbsp;&nbsp;&nbsp;&nbsp;
 				<h1 id='eve_name' style="font-size: 5em;display: inline;margin-bottom: 10px;text-shadow: 0 0 10px #29d816">
@@ -653,11 +699,11 @@
 				</span><br><br><br>
 				<div id='eve_organisers_head'>
 					Organisers :
-					<ol id='eve_organisers' style="font-size: 2em;">
+					<ul id='eve_organisers' type="none" style="font-size: 2em;">
 						<li>Organiser 1 (9741852963)</li>
 						<li>Organiser 2 (9852451262)</li>
 						<li>Organiser 3 (9965235245)</li>
-					</ol>
+					</ul>
 				</div><br><br><br>
 
 
@@ -690,8 +736,8 @@
 
 				</ul>
 				<ul id="rightlist">
-				<a href="#"><li class="mainevent" onclick="cl=0">Technical</li></a>
-				<a href="#"><li class="mainevent" onclick="cl=4">None&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li></a>
+				<a href="#"><li class="mainevent" onclick="cl=0">Technical&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li></a>
+				<!-- <a href="#"><li class="mainevent" onclick="cl=4">None&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li></a> -->
 				<!-- <a href="#"><li class="mainevent" onclick="cl=6">NJACK4</li></a> -->
 
 				</ul>
@@ -724,9 +770,10 @@
 		</div>
 
 		<div class="parallelogram">
+		<span id="tag" style="position:absolute;bottom:10px;left:10px;font-family:vinque;font-size: 1.7em;">About</span>
 			<div class="content">
 
-				<h1>ABOUT ANWESHA</h1>
+				<h1>ABOUT ANWESHA</h1><br>
 				 ANWESHA is the annual social and cultural festival of IIT Patna. It marks days of absolute ecstasy,
              providing the budding artists a competing platform in diverse fields such as music, dance, theater, 
             photography, literature, fine arts, quizzing and debating. Anwesha is an avenue to be comforted from the
