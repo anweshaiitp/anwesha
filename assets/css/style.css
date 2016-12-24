@@ -328,6 +328,7 @@ button:hover, button:active, button:focus {
 	height: 100%;
 	color: #000;
 	background: url("../../images/maxresdefault.jpg");
+	box-shadow: 0 0 30px rgba(196, 150, 7, 0.86);
 	-webkit-transform: skewX(-20deg);
 	transform: skewX(-20deg);
 	-o-text-overflow: clip;
@@ -359,7 +360,7 @@ button:hover, button:active, button:focus {
 	line-height:1.4em;
 	text-align:center;
 	overflow-y: auto;
-	font-size: 1.7em !important;
+	/*font-size: 1.7em !important;*/
 	margin: auto;
     width: 60%;
 	text-shadow: 0 0 5px #FFFFFF;
@@ -393,7 +394,6 @@ button:hover, button:active, button:focus {
 #date{
 	position:absolute;
 	top:2em;
-	right:2em;
 	border: solid rgba(255,255,255,0.8) 0.2em;
 	border-radius:0.5em;
 	display:table;
