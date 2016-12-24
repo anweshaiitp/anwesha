@@ -539,7 +539,6 @@ button:hover, button:active, button:focus {
 	border-radius: 0.2em;
 	background: #efefef;
 	color: #000;
-	float:right;
 }
 .logreg .button:hover{
 	background:#fff;

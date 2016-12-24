@@ -543,6 +543,9 @@
 
     			//ajax for ca
     			$("#submitca").click(function(){ 
+    				$("#submitca").fadeOut("fast",function(){ 
+    					$(".smloader").fadeIn();
+    				 });
 				var name=$("#caname").val();
 		var email=$("#caemail").val();
 		var college=$("#cacollege").val();
@@ -579,6 +582,9 @@
         					console.log("Response");
         					console.log("Data: " + data + "\nStatus: " + status);
         					if(status=='success'){//$("#myloader").fadeOut();
+        					$("#submitca").fadeIn("fast",function(){ 
+    							$(".smloader").fadeOut();
+    				 		});
         						console.log(data);
 
         						if(data[0]==1){
@@ -609,7 +615,9 @@
 			});//regular reg
 
     			$("#submitreg").click(function(){
-				
+				$("#submitreg").fadeOut("fast",function(){ 
+    					$(".smloader2").fadeIn();
+    				 });
 				var name=$("#name").val();
 				var email=$("#email").val();				
 				var college=$("#college").val();
@@ -635,6 +643,9 @@
     						function(data, status){
 							var AJAXresponse = data;
         					if(status=='success'){
+        						$("#submitreg").fadeIn("fast",function(){ 
+    							$(".smloader2").fadeOut("fast");
+    				 		});
         						if(AJAXresponse[0]==1){
         							$("#boxreg").html('<div style="width:500px"><h1>Registered!<br>==============<br></h1><br>An activation link has been sent to<br>'+ email+'<br><div>');
         							//$("#error").html('<h1>Registered!</h1>An activation link has been sent to '+ email+'<br>');
@@ -852,7 +863,8 @@
 				<input id="city" class="inp" name="city" type="text" placeholder="City" patten='^[a-zA-Z0-9.@]*' title="Invalid City" >
 				<input id="refcode" class="inp" name="ref" type="text" placeholder="Reference Code" pattern='([0-9]{4})|()' title="Invalid Ref Number" value="<?php if(isset($referalcode)) echo $referalcode; ?>" <?php if(!empty($referalcode)) echo "disabled"; ?>>
                 <div id="error" style="width:auto;display:none;box-radius:5px;box-shadow:#000000 0 0 10px;background:#6fce2d;padding:20px;font-size:20px;margin:10px">An error occured</div>
-				<input class="button" type="submit" id="submitreg" value="Submit">
+                <img src="images/spinner-large.gif" style="width:30px;height:30px;display:none" class="smloader2">
+				<input class="button inp" type="submit" id="submitreg" value="Submit" style="width:100%">
 			</div>
 		</div>
 
@@ -879,6 +891,7 @@
 				<textarea placeholder="Have you been a part of one or more previous editions of Anwesha? If yes, please explain." class="inp" id="cainvolvement" name="involvement" rows="10"></textarea>
 				<input placeholder="Refered by someone?" id="careferalcode" name="referalcode" class="inp"  type="text" pattern='([0-9]{4})|()' title="Invalid Ref Number" value="<?php if(isset($referalcode)) echo $referalcode; ?>" <?php if(!empty($referalcode)) echo "disabled"; ?> ><br>
 				<center><div id="messagew" style="width:auto;display:none;box-radius:5px;box-shadow:#000000 0 0 10px;background:#6fce2d;padding:20px;font-size:20px;margin:10px"></div></center>
+				<img src="images/spinner-large.gif" style="width:30px;height:30px;display:none" class="smloader">
 				<input id="submitca" class="inp" type="submit" value="Submit">
 				
 			</form>
