@@ -285,16 +285,16 @@
          			$("#eve_cover").css("background-image","");
 					// $("#eve_cover").css("box-shadow","0 0 0 #FFFFFF");
          			$("#eve_name").css("font-size","3em");
-         			$('#eve_cover').css("height","");
+         			$('#eve_cover').css("height","150px");
          		}else{
          			var ppurl="url(";
          			ppurl +=imgurl;
          			ppurl +=")";
+         			$('#eve_cover').css("height","300px");
          			$("#eve_cover").css("background-image",ppurl);
          			if($(window).width()>960){
          			$("#eve_name").css("font-size","5em");}
          			else{$("#eve_name").css("font-size","3em");}
-         			$('#eve_cover').css("height","300px");
          		}
          	}
          	function eve_iconswitch(icourl){
@@ -477,10 +477,12 @@
 					//For For TECHNICAL
 					$("#navbar").css("display","table");
 					view_sbar(-1);
-					if($(window).width()<960){         			
-         				$("#sidebar").css("top","300px");
-         				$("#mainarea").css("top","360px");
-         				$("#mainareaalt").css("top","360px");
+					if($(window).width()<960){
+						var sbtop=120 + $("#navbar").height();
+						var matop=70 + sbtop;
+						$("#sidebar").css("top",sbtop);
+         				$("#mainarea").css("top",matop);
+         				$("#mainareaalt").css("top",matop);
          			}
 				} else {
 					$("#navbar").hide();
@@ -708,7 +710,7 @@
 				</span>
 				</div>
 				<!-- <div id="dummyspace" style="width:100%;height:300px"></div> -->
-				<br><br><br><br>Date:
+				<br><br><br>Date:
 				<span id='eve_date' style="font-size: 2em;">
 					DATE
 				</span><br><br><br>Time:
