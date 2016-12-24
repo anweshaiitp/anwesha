@@ -291,6 +291,7 @@
          			var ppurl="url(";
          			ppurl +=imgurl;
          			ppurl +=")";
+         			$('#eve_cover').css("height","300px");
          			$("#eve_cover").css("background-image",ppurl);
          			if($(window).width()>960){
          			$("#eve_name").css("font-size","5em");}
@@ -477,10 +478,10 @@
 					//For For TECHNICAL
 					$("#navbar").css("display","table");
 					view_sbar(-1);
-					if($(window).width()<960){         			
-         				var sbtop=120 + $("#navbar").height();
-         				var matop=70 + sbtop;
-         				$("#sidebar").css("top",sbtop);
+					if($(window).width()<960){
+						var sbtop=120 + $("#navbar").height();
+						var matop=70 + sbtop;
+						$("#sidebar").css("top",sbtop);
          				$("#mainarea").css("top",matop);
          				$("#mainareaalt").css("top",matop);
          			}
@@ -710,7 +711,7 @@
 				</span>
 				</div>
 				<!-- <div id="dummyspace" style="width:100%;height:300px"></div> -->
-				<br><br><br><br>Date:
+				<br><br><br>Date:
 				<span id='eve_date' style="font-size: 2em;">
 					DATE
 				</span><br><br><br>Time:
