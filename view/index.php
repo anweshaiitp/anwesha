@@ -167,7 +167,7 @@
 				z-index:6;
 				height: 40px !important;
   				 
-				width:100px !important;
+				width:120px !important;
 			}
 			.backbtn2{
 				font-size: 1em !important;
@@ -178,7 +178,7 @@
 				z-index:6;
 				height: 40px !important;
   				 
-				width:100px !important;
+				width:120px !important;
 				
 			}
 			#navbar{
