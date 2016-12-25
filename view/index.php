@@ -159,7 +159,7 @@
 				position: absolute;
 			}
 			.backbtn{
-   				 padding: 10px !important;
+   				 padding: 12px !important;
 				font-size: 1em !important;
 				top:20px;
 				left:20px;
@@ -171,7 +171,7 @@
 			}
 			.backbtn2{
 				font-size: 1em !important;
-   				 padding: 10px !important;
+   				 padding: 12px !important;
 				top:65px;
 				left:20px;
 				display: none;
@@ -267,6 +267,9 @@
 		</style>
 
 		 <script type = "text/javascript" language = "javascript">
+		 	$(".swingimage").click(function(){
+		 		$("#eventsbtn").click();
+		 	});
    			var ev=0;
    			var cl=0;
    			var TEC_CODE = 0;
@@ -441,6 +444,14 @@
                $("#rightlist").toggle( "slide");
          	}
             $("#eventsbtn").click(function(){
+            	$(".clwrap").fadeIn();
+            	$(".clubs").fadeIn();
+            	$("#intro").hide();
+            	$(".window2").fadeIn("slow",toggleli());
+            	$(".backbtn").fadeIn();
+            	$("#preloader").hide();
+            });
+            $(".swingimage").click(function(){
             	$(".clwrap").fadeIn();
             	$(".clubs").fadeIn();
             	$("#intro").hide();
@@ -784,7 +795,7 @@
 				<a id='bregister' href="#register"><li>Registration</li></a>
 				<a id='bregister_ca' href="#register_ca"><li>Campus Ambassador</li></a>
                 <a id='bleaderboard' href="#leaderboard"><li>Campus Ambassador Leaderboard</li></a>
-				<a href="#" id="eventsbtn"><li>Events</li></a>
+				<a href="#" id="eventsbtn" style=""><li>Events</li></a>
 				<br>
 			    <a href="auditions/"><li>MultiCity</li></a>
 
@@ -802,6 +813,7 @@
 					Jan 27 28 29
 				</div>
 			</div>
+			<img class="swingimage" src="images/anchor_events.png" />
 		</div>
 
 		<div class="parallelogram">
