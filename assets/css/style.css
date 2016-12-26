@@ -370,7 +370,40 @@ button:hover, button:active, button:focus {
 	left:0;
 }
 
-.datagrid table { border-collapse: collapse; text-align: left; width: 100%; opacity:0.8; } .datagrid {font: normal 12px/150% Arial, Helvetica, sans-serif; background: #fff; overflow: hidden; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; }.datagrid table td, .datagrid table th { padding: 10px 20px; }.datagrid table thead th {background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #000E14), color-stop(1, #75757F) );background:-moz-linear-gradient( center top, #000E14 5%, #75757F 100% );filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#000E14', endColorstr='#75757F');background-color:#000E14; color:#FFFFFF; font-size: 15px; font-weight: bold; border-left: 0px solid #0070A8; } .datagrid table thead th:first-child { border: none; }.datagrid table tbody td { color: #00496B; font-size: 12px;font-weight: normal; }.datagrid table tbody td:first-child { border-left: none; }.datagrid table tbody tr:last-child td { border-bottom: none; }
+.datagrid table {
+	border-collapse: collapse;
+	text-align: left;
+	width: 100%;
+	opacity:0.8;
+}
+#datagrid_wrap{
+	height:400px;
+}
+#datagrida{
+	height:100% !important;
+}
+.datagrid {
+	height:60%;
+	font: normal 12px/150% Arial, Helvetica, sans-serif;
+	background: #fff;
+	overflow: hidden;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px; }
+.datagrid table td, .datagrid table th { padding: 10px 20px; }
+.datagrid table thead th {
+		background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #000E14), color-stop(1, #75757F) );
+		background:-moz-linear-gradient( center top, #000E14 5%, #75757F 100% );
+		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#000E14', endColorstr='#75757F');
+		background-color:#000E14;
+		color:#FFFFFF;
+		font-size: 15px;
+		font-weight: bold;
+		border-left: 0px solid #0070A8; }
+.datagrid table thead th:first-child { border: none; }
+.datagrid table tbody td { color: #00496B; font-size: 12px;font-weight: normal; }
+.datagrid table tbody td:first-child { border-left: none; }
+.datagrid table tbody tr:last-child td { border-bottom: none; }
 .parallelogram .content{
 	position:relative;
 	-webkit-transform: skewX(20deg);
