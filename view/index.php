@@ -21,7 +21,10 @@
 <html >
 	<head>
 		<!-- To make responsive -->
-		<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="assets/css/mobile.css" media="only screen and (max-width: 960px)">
+		<link rel="stylesheet" href="assets/css/desktop.css" media="only screen and (min-width: 960px)">
+		<meta name="theme-color" content="#e0a772">
 		<meta charset="UTF-8">
 		<title>Anwesha '17</title>
 <!-- <?php echo $match[2] ;?> -->
@@ -48,7 +51,7 @@
 				height:100% !important;
 				top:0;
 				z-index:0 !important;
-				background:url("images/test/window.png") no-repeat center center fixed; 
+				background:url("images/windownew.png") no-repeat center center fixed; 
 				-webkit-background-size: cover;
 				-moz-background-size: cover;
 				-o-background-size: cover;
@@ -64,7 +67,7 @@
 				display: none;
 				z-index:4 !important;
 
-				background:url("images/test/window.png") no-repeat center center fixed; 
+				background:url("images/windownew.png") no-repeat center center fixed; 
 				-webkit-background-size: cover;
 				-moz-background-size: cover;
 				-o-background-size: cover;
@@ -156,67 +159,60 @@
 				position: absolute;
 			}
 			.backbtn{
-   				 padding: 10px !important;
-				font-size: 1.25em !important;
+   				 padding: 12px !important;
+				font-size: 1em !important;
 				top:20px;
 				left:20px;
 				display: none;
 				z-index:6;
-				height: 50px !important;
-  				 position: fixed;
-				width:150px !important;
+				height: 40px !important;
+  				 
+				width:120px !important;
 			}
 			.backbtn2{
-				font-size: 1.25em !important;
-   				 padding: 10px !important;
-				top:80px;
+				font-size: 1em !important;
+   				 padding: 12px !important;
+				top:65px;
 				left:20px;
 				display: none;
 				z-index:6;
-				height: 50px !important;
-  				 position: fixed;
-				width:150px !important;
+				height: 40px !important;
+  				 
+				width:120px !important;
 				
 			}
 			#navbar{
 				/*margin: auto;*/
   				/*display: inline;*/
-  				 display: table;
-    			margin: 0 auto;
+  				z-index: 8;
+  				 /*display: table;*/
+    			/*margin: 0 auto;*/
+    			
   				/*position: absolute;
   				top:0;*/
 			}
 			#sidebar{
-				position: fixed; 
-				top:170px;
-				left:10px;
-				/*background-color: #FFFFFF;*/
-				width:250px;
-				height:500px;
 			}
 			#mainarea{
 				font-family: bebas;
 				box-shadow: 0 0 50px #4c4d4f;
 				position: absolute;
-    			top: 120px;
-    			left: 250px;
+    			
     			/* float: right; */
     			/*background-color: #FFFFFF;*/
     			z-index: 6;
     			/*height: 10000px;*/
-    			width: calc(100% - 270px);
+    			
 			}
 			#mainareaalt{
 				position: absolute;
-    			top: 170px;
-    			left: 250px;
+    			
     			z-index: 6;
-    			width: calc(80% - 270px);
-    			height:calc(100% - 170px);
+    			
 			}
 			.ph-button {
 				border-style: solid;
-				margin:20px;
+				margin:10px;
     			border-width: 0px 0px 3px;
     			box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
     			color: #FFFFFF;	   
@@ -232,7 +228,7 @@
     			white-space: nowrap;	
     			font-family: "Gotham Rounded A","Gotham Rounded B",Helvetica,Arial,sans-serif;
     			font-weight: 700;	
-    			padding: 19px 39px 18px;
+    			padding: 12px ;
     			font-size: 18px;
     			opacity: 1;
   				transition: opacity .3s,box-shadow .3s;
@@ -245,8 +241,7 @@
 			.ph-btn-blue {
 		 		border-color: #326E99;
     			background-color: #3F8ABF;
-				margin-top: 30px !important;
-				margin-bottom: 10px !important;
+				
 			}
 			.ph-btn-green {
 				margin-top:5px !important;
@@ -261,7 +256,7 @@
 				width:100%;
 				height:300px;
 				background-size: cover;
-				background-color: #000000;
+				/*background-color: #000000;*/
 				/*position: absolute;*/
 				/*opacity: 0.8;*/
 				/*background-color: #FFFFFF;*/
@@ -272,11 +267,15 @@
 		</style>
 
 		 <script type = "text/javascript" language = "javascript">
+		 	$(".swingimage").click(function(){
+		 		$("#eventsbtn").click();
+		 	});
    			var ev=0;
    			var cl=0;
    			var TEC_CODE = 0;
    			var events_data;
          $(document).ready(function() {
+         	
          	function preloadImage(imageurl)
 			{
     			var img=new Image();
@@ -288,18 +287,30 @@
          		if(imgurl=="" || imgurl==null){
          			$("#eve_cover").css("background-image","");
 					// $("#eve_cover").css("box-shadow","0 0 0 #FFFFFF");
-         			
+         			$("#eve_name").css("font-size","3em");
+         			$('#eve_cover').css("height","150px");
          		}else{
+         			$('#eve_cover').css("height","300px");
          			var ppurl="url(";
          			ppurl +=imgurl;
          			ppurl +=")";
+         			$('#eve_cover').css("height","300px");
          			$("#eve_cover").css("background-image",ppurl);
-					// $("#eve_cover").css("box-shadow","0 0 30px #FFFFFF");
-         			// alert(imgurl);
-         			// alert(ppurl);	
-         			// $("#eve_cover").animate({opacity:'0.8'});
-
+         			if($(window).width()>960){
+         			$("#eve_name").css("font-size","5em");}
+         			else{$("#eve_name").css("font-size","3em");}
          		}
+         	}
+         	function eve_iconswitch(icourl){
+         		if(icourl=="" || icourl==null){
+         			$("#eve_icon").hide();
+         			
+         		}else{
+         			$("#eve_icon").show();
+         			$("#eve_icon").attr("src",icourl);
+				}
+
+         		// $('#eve_icon').attr("src",eve['icon_url']);
          	}
          	function emptyresp(){
          		
@@ -311,7 +322,7 @@
 				$('#eve_organisers').text("");
 				$('#eve_short_desc').text("");
 				$('#eve_long_desc').text("");
-				$('#eve_icon').attr("src","");
+				eve_iconswitch("");
 				eve_coverswitch("");
 				// $('#eve_cover').css("src","");
          	}
@@ -403,7 +414,8 @@
 						$('#eve_venue').text(eve['venue']);
 						$('#eve_short_desc').text(eve['short_desc']);
 						$('#eve_long_desc').text(eve['long_desc']);
-						$('#eve_icon').attr("src",eve['icon_url']);
+						// $('#eve_icon').attr("src",eve['icon_url']);
+						eve_iconswitch(eve['icon_url']);
 						// $('#eve_organisers').text(eve['organisers']);
 						var orgarr = eve['organisers'];
 						if(orgarr!=null){						
@@ -437,13 +449,22 @@
             	$("#intro").hide();
             	$(".window2").fadeIn("slow",toggleli());
             	$(".backbtn").fadeIn();
-              
+            	$("#preloader").hide();
+            });
+            $(".swingimage").click(function(){
+            	$(".clwrap").fadeIn();
+            	$(".clubs").fadeIn();
+            	$("#intro").hide();
+            	$(".window2").fadeIn("slow",toggleli());
+            	$(".backbtn").fadeIn();
+            	$("#preloader").hide();
             });
 			$(".backbtn").click(function(){
 				$("#intro").show();
 				$(".backbtn").fadeOut();
 				$(".clwrap").fadeOut();
             	$(".clubs").fadeOut();
+            	$("#preloader").show();
 				
             	if(ev==1){
             		// $(".blankbg ").fadeOut();
@@ -458,6 +479,7 @@
 
 			});
 			$(".mainevent").click(function(){
+				
 				$("#mainarea").hide();/*to fix initial dummy text display on selecting category*/
 				$("#mainareaalt").fadeIn();
 				// $(".blankbg ").fadeIn("fast");
@@ -467,9 +489,22 @@
 					//For For TECHNICAL
 					$("#navbar").css("display","table");
 					view_sbar(-1);
+					if($(window).width()<960){
+						var sbtop=120 + $("#navbar").height();
+						var matop=70 + sbtop;
+						$("#sidebar").css("top",sbtop);
+         				$("#mainarea").css("top",matop);
+         				$("#mainareaalt").css("top",matop);
+         			}
 				} else {
 					$("#navbar").hide();
 					view_sbar(cl);
+					if($(window).width()<960){
+						$("#sidebar").css("top","115px");
+         				$("#mainarea").css("top","195px");
+         				$("#mainareaalt").css("top","195px");
+         			}
+        			
 				}
 				ev=1;
 				toggleli();
@@ -519,6 +554,9 @@
 
     			//ajax for ca
     			$("#submitca").click(function(){ 
+    				$("#submitca").fadeOut("fast",function(){ 
+    					$(".smloader").fadeIn();
+    				 });
 				var name=$("#caname").val();
 		var email=$("#caemail").val();
 		var college=$("#cacollege").val();
@@ -555,6 +593,9 @@
         					console.log("Response");
         					console.log("Data: " + data + "\nStatus: " + status);
         					if(status=='success'){//$("#myloader").fadeOut();
+        					$("#submitca").fadeIn("fast",function(){ 
+    							$(".smloader").fadeOut();
+    				 		});
         						console.log(data);
 
         						if(data[0]==1){
@@ -585,7 +626,9 @@
 			});//regular reg
 
     			$("#submitreg").click(function(){
-				
+				$("#submitreg").fadeOut("fast",function(){ 
+    					$(".smloader2").fadeIn();
+    				 });
 				var name=$("#name").val();
 				var email=$("#email").val();				
 				var college=$("#college").val();
@@ -611,6 +654,9 @@
     						function(data, status){
 							var AJAXresponse = data;
         					if(status=='success'){
+        						$("#submitreg").fadeIn("fast",function(){ 
+    							$(".smloader2").fadeOut("fast");
+    				 		});
         						if(AJAXresponse[0]==1){
         							$("#boxreg").html('<div style="width:500px"><h1>Registered!<br>==============<br></h1><br>An activation link has been sent to<br>'+ email+'<br><div>');
         							//$("#error").html('<h1>Registered!</h1>An activation link has been sent to '+ email+'<br>');
@@ -687,7 +733,7 @@
 				</span>
 				</div>
 				<!-- <div id="dummyspace" style="width:100%;height:300px"></div> -->
-				<br><br><br><br>Date:
+				<br><br><br>Date:
 				<span id='eve_date' style="font-size: 2em;">
 					DATE
 				</span><br><br><br>Time:
@@ -731,7 +777,7 @@
 			<div class="clubs">
 				<ul id="leftlist">
 				<a href="#"><li class="mainevent" onclick="cl=1">Cultural</li></a>
-				<a href="#"><li class="mainevent" onclick="cl=2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arts & Welfare</li></a>
+				<a href="#"><li class="mainevent" onclick="cl=2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arts &amp; Welfare</li></a>
 				<!-- <a href="#"><li class="mainevent" onclick="cl=3">NJACK2</li></a> -->
 
 				</ul>
@@ -749,7 +795,7 @@
 				<a id='bregister' href="#register"><li>Registration</li></a>
 				<a id='bregister_ca' href="#register_ca"><li>Campus Ambassador</li></a>
                 <a id='bleaderboard' href="#leaderboard"><li>Campus Ambassador Leaderboard</li></a>
-				<a href="#" id="eventsbtn"><li>Events</li></a>
+				<a href="#" id="eventsbtn" style=""><li>Events</li></a>
 				<br>
 			    <a href="auditions/"><li>MultiCity</li></a>
 
@@ -767,6 +813,7 @@
 					Jan 27 28 29
 				</div>
 			</div>
+			<img class="swingimage" src="images/anchor_events.png" />
 		</div>
 
 		<div class="parallelogram">
@@ -779,7 +826,8 @@
             photography, literature, fine arts, quizzing and debating. Anwesha is an avenue to be comforted from the
              routine life and to embrace the fun and frolic embedded with tantalizing professional performances from India
              along with an addressal to the social responsibility with its underlying social theme.
-				<br><br><br>
+				<br>
+				<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/r-qROBBWy5Q" frameborder="0" allowfullscreen></iframe> -->
 			</div>
 		
 		</div>
@@ -827,7 +875,8 @@
 				<input id="city" class="inp" name="city" type="text" placeholder="City" patten='^[a-zA-Z0-9.@]*' title="Invalid City" >
 				<input id="refcode" class="inp" name="ref" type="text" placeholder="Reference Code" pattern='([0-9]{4})|()' title="Invalid Ref Number" value="<?php if(isset($referalcode)) echo $referalcode; ?>" <?php if(!empty($referalcode)) echo "disabled"; ?>>
                 <div id="error" style="width:auto;display:none;box-radius:5px;box-shadow:#000000 0 0 10px;background:#6fce2d;padding:20px;font-size:20px;margin:10px">An error occured</div>
-				<input class="button" type="submit" id="submitreg" value="Submit">
+                <img src="images/spinner-large.gif" style="width:30px;height:30px;display:none" class="smloader2">
+				<input class="button inp" type="submit" id="submitreg" value="Submit" style="width:100%">
 			</div>
 		</div>
 
@@ -854,6 +903,7 @@
 				<textarea placeholder="Have you been a part of one or more previous editions of Anwesha? If yes, please explain." class="inp" id="cainvolvement" name="involvement" rows="10"></textarea>
 				<input placeholder="Refered by someone?" id="careferalcode" name="referalcode" class="inp"  type="text" pattern='([0-9]{4})|()' title="Invalid Ref Number" value="<?php if(isset($referalcode)) echo $referalcode; ?>" <?php if(!empty($referalcode)) echo "disabled"; ?> ><br>
 				<center><div id="messagew" style="width:auto;display:none;box-radius:5px;box-shadow:#000000 0 0 10px;background:#6fce2d;padding:20px;font-size:20px;margin:10px"></div></center>
+				<img src="images/spinner-large.gif" style="width:30px;height:30px;display:none" class="smloader">
 				<input id="submitca" class="inp" type="submit" value="Submit">
 				
 			</form>

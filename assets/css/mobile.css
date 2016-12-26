@@ -1,0 +1,82 @@
+.parallelogram .content{
+	font-size: 1em !important;
+}
+#intro .links{
+	top: 25% !important;
+    left: 45% !important;
+	transform: translateY(-50%) !important;
+	transform: translateX(-50%) !important;
+}
+#date{
+	left: 50% !important;
+	transform: translateX(-50%) !important;
+}
+.logreg .box{
+	width: 90% !important;
+
+}
+.inp{
+	width:90% !important;
+}
+.logreg h2{
+	margin-top: 2em !important;
+	margin-bottom: 1em !important;
+	margin-left: 1em !important;
+	margin-right: 1em !important;
+	
+}
+.lightbox .close{
+    top: -0.45em;
+}
+.mainevent{
+	font-size: 1.2em !important;
+}
+.clubs{
+	width: 100% !important;
+}
+#navbar{
+	height:50px;
+	width:100%;
+	position: absolute;
+	overflow-x: auto;
+	top:115px;
+	left:0px !important;
+	/*white-space: nowrap;*/
+
+}
+#mainarea{
+	top:350px;
+	left:0;
+}
+#mainareaalt{
+	top: 350px;
+	left: 0px;
+	width:100%;
+}
+#sidebar{
+	width:100%;
+	top:310px;
+}
+body{
+	background-color: #000000;
+}
+.ph-button{
+	display: inline-block;
+
+}
+.ph-btn-blue{
+	margin-top: 5px !important;
+	margin-bottom: 5px !important;
+}
+#eve_name{
+	font-size: 3em !important;
+}
+#mainarea{
+	width:98% !important;
+}
+.text{
+font-size: 2em !important;
+}
+.swingimage{
+	display: none;
+}

@@ -68,10 +68,30 @@ b{
 font-weight:700;
 font-size:1.5em;
 }
-
-
-
-
+@-webkit-keyframes swinging{
+    0%{-webkit-transform: rotate(10deg);}
+    50%{-webkit-transform: rotate(-5deg)}
+    100%{-webkit-transform: rotate(10deg);}
+}
+ 
+@keyframes swinging{
+    0%{transform: rotate(10deg);}
+    50%{transform: rotate(-5deg)}
+    100%{transform: rotate(10deg);}
+}
+ 
+.swingimage{	
+	cursor: pointer;
+    right: 230px;
+    height: 30%;
+	position: absolute;
+	top: 90px;
+    right: 230px;
+    -webkit-transform-origin: 50% 0;
+    transform-origin: 50% 0;
+    -webkit-animation: swinging 3.5s ease-in-out forwards infinite;
+    animation: swinging 3.5s ease-in-out forwards infinite;
+}
 
 * {
 	box-sizing: border-box;
@@ -90,7 +110,7 @@ width:100%;
 	position:fixed;
 	left:0;top:0;
 	width:100%;height:100%;
-	background:rgba(0,0,0,0.8);
+	background:rgba(0,0,0,1);
 }
 #preloader .logo{
 	position:fixed;
@@ -328,6 +348,7 @@ button:hover, button:active, button:focus {
 	height: 100%;
 	color: #000;
 	background: url("../../images/maxresdefault.jpg");
+	box-shadow: 0 0 30px rgba(196, 150, 7, 0.86);
 	-webkit-transform: skewX(-20deg);
 	transform: skewX(-20deg);
 	-o-text-overflow: clip;
@@ -359,7 +380,7 @@ button:hover, button:active, button:focus {
 	line-height:1.4em;
 	text-align:center;
 	overflow-y: auto;
-	font-size: 1.7em !important;
+	/*font-size: 1.7em !important;*/
 	margin: auto;
     width: 60%;
 	text-shadow: 0 0 5px #FFFFFF;
@@ -393,7 +414,6 @@ button:hover, button:active, button:focus {
 #date{
 	position:absolute;
 	top:2em;
-	right:2em;
 	border: solid rgba(255,255,255,0.8) 0.2em;
 	border-radius:0.5em;
 	display:table;
@@ -539,7 +559,6 @@ button:hover, button:active, button:focus {
 	border-radius: 0.2em;
 	background: #efefef;
 	color: #000;
-	float:right;
 }
 .logreg .button:hover{
 	background:#fff;
