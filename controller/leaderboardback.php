@@ -11,7 +11,7 @@ if ($result=mysqli_query($conn,$sql))
 	{   
     $name = $row[0];
     $scoree=$row[2];
-    $rlist  = array('score' => $scoree,'name' => ucwords($name));
+    $rlist[]  = array('score' => $scoree,'name' => ucwords($name));
 	}
 
   mysqli_free_result($result);
