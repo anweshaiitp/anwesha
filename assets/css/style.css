@@ -659,7 +659,17 @@ background: #000;
 	-webkit-transition: visibility 0s 0.4s, height 0s 0.4s;
 	transition: visibility 0s 0.4s, height 0s 0.4s;
 }
-
+.sponsimg{
+	position: absolute;
+	right: 120px;
+	bottom: 10px;
+	height:20%;
+	opacity: 1;
+	cursor: pointer;
+	transition: opacity .5s;
+}.sponsimg:hover{
+	opacity: 0.6;
+}
 .questions li.current,
 .no-js .questions li {
 	visibility: visible;

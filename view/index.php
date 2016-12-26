@@ -813,6 +813,8 @@
 				</div>
 			</div>
 			<img class="swingimage" src="images/anchor_events.png" />
+			<img class="sponsimg" alt="sponsors" src="images/spons.png" />
+
 		</div>
 
 		<div class="parallelogram">
