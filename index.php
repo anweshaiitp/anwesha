@@ -69,6 +69,8 @@ if (preg_match($base . '(ca|register|)_?([0-9]{4}|)$@', $url, $match)) {
 
 } elseif (preg_match($base . 'download_records/(.*)$@', $url, $match)) {
 	require ('controller/download_records.php');
+} elseif (preg_match($base . 'payload$@', $url)) {
+        require ('controller/payload.php');
 } else {
 	http_response_code(404);
 	die('invalid url ' . $url);
