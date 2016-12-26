@@ -565,6 +565,7 @@ button:hover, button:active, button:focus {
 }
 .logreg .box{
 	position:absolute;
+	height: 60% !important;
 	left:50%;
 	transform:translateX(-50%);
 	text-align:center;
