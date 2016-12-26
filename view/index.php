@@ -882,7 +882,7 @@
 
 		<div id="register_ca" class="lightbox logreg">
 			<div class="close"><a href="#" onclick="document.body.style.overflow='visible';">X</a></div>
-			<h2>Campus Ambassador<br> Registrations</h2>
+			<h2>Campus Ambassador<br> Registration</h2>
 
 			<div class="box" id="box"><center>
 				<div id="message" style="color: red !important;"></div></center>
