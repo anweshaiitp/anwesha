@@ -1,3 +1,0 @@
-From https://github.com/anweshaiitp/anwesha
- * branch            master     -> FETCH_HEAD
-Already up-to-date.
