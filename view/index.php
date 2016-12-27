@@ -727,6 +727,31 @@
 	</head>
 
 	<body>
+		<script type="text/javascript">
+		function addStackOnBackWood(countwoodstack) {
+			if(countwoodstack>=10)
+				return;
+			var $new = $('<div>&nbsp;</div>');
+			$new.hide();
+			$new.css('background-image', "url('images/wood_plank.jpg')");
+			$new.css('height', "64px");
+			$new.css('background-position', "0px -"+(countwoodstack*64)+"px");
+
+			
+			$('#back_wood').append($new);
+			$new.show({'duration':100,'direction': "down",'easing':'swing','complete':function() {
+				addStackOnBackWood(countwoodstack+1);
+			}});
+		}
+		function stackWoodStacks() {
+			$('#back_wood').empty();
+			addStackOnBackWood(0);
+		}
+		function clearWoodStacks() {
+			$('#back_wood').empty();
+		}
+
+		</script>
 		<div class="blankbg">
 			<div id="bgofblankbg"></div>
 			<div id="navbar">
@@ -823,6 +848,9 @@
 			</div>
 		</div>
 		<div id="intro">
+			<div id='back_wood' style='text-align:center'>
+			</div>
+		
 			<ul class="links">
 				<a id='bregister' href="#register"><li>Registration</li></a>
 				<a id='bregister_ca' href="#register_ca"><li>Campus Ambassador</li></a>
@@ -846,7 +874,7 @@
 				</div>
 			</div>
 			<img class="swingimage" src="images/anchor_events.png" />
-			<img class="sponsimg" alt="sponsors" src="images/spons.png" />
+			<img class="sponsimg" alt="sponsors" src="images/spons.png" onclick="stackWoodStacks();" />
 
 		</div>
 
