@@ -369,16 +369,7 @@
 						preloadImage(events_data[i]['cover_url']);
 						preloadImage(events_data[i]['icon_url']);}
 
-    							
-
-    							$(".navbtn").click(function(){
-    								$("#mainarea").fadeOut();
-    								$("#mainareaalt").fadeIn();
-									var cat=$(this).attr('data');
-									console.log("Event Code :"+cat);
-									view_sbar(cat);
-								});
-    							
+    							    							
     						}
     						else
     							console.log("Unable to get Events Data");
@@ -510,7 +501,7 @@
 				$(".backbtn2").fadeIn();
 				if(cl==TEC_CODE || cl==CULT_CODE ) {
 					//For TECH_CODE or CULT_CODE
-					
+					console.log("Clicked "+cl);
 					$( "#navbar" ).empty();
 					for (var i = 0; i < events_data.length; i++) {
 						if(events_data[i]['code']==cl) {
@@ -519,6 +510,14 @@
 							$( "#navbar" ).append( "	<a href='#' data='"+events_data[i]['eveId']+"' class=' navbtn ph-button ph-btn-blue'>"+events_data[i]['eveName']+"</a>" );
 						}
 					};
+
+					$(".navbtn").click(function(){
+						$("#mainarea").fadeOut();
+						$("#mainareaalt").fadeIn();
+						var cat=$(this).attr('data');
+						console.log("Event Code :"+cat);
+						view_sbar(cat);
+					});
 
 					$("#navbar").css("display","table");
 					view_sbar(-1);
