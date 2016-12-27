@@ -193,15 +193,22 @@
 				width:120px !important;
 			}
 			#navbar{
-				/*margin: auto;*/
-  				/*display: inline;*/
-  				z-index: 8;
+				
+  				
   				 /*display: table;*/
     			/*margin: 0 auto;*/
-    			
   				/*position: absolute;
   				top:0;*/
 			}
+			/*#NavWrap{
+				background-color: #000000;
+				box-shadow: 0 0 60px #000000;
+				z-index: 8;
+				position: fixed;
+				top:0;
+				left:0;
+				width:100%;
+			}*/
 			#sidebar{
 			}
 			#mainarea{
@@ -288,6 +295,12 @@
 			}
 			#RuleBtn:hover{
 				background:rgba(88, 214, 103, 0.6);
+			}
+			#contenthere img {
+				height: 100px;
+				border-radius: 12px;
+				border: 2px #000000 solid;
+				box-shadow: 0 0 30px #3f8abf;
 			}
 		</style>
 
@@ -746,8 +759,10 @@
 				return true;
 		}
 		function addStackOnBackWood(countwoodstack) {
-			if(checkstackheight())
+			if(checkstackheight()){
+				$("#contenthere").fadeIn();
 				return;
+			}
 			var $new = $('<div>&nbsp;</div>');
 			$new.hide();
 			$new.css('background-image', "url('images/wood_plank.jpg')");
@@ -761,14 +776,15 @@
 			}});
 		}
 		function stackWoodStacks() {
+			var htmldata="<center><div id='contenthere' style='position:absolute;top:0;left:1%;overflow-y:auto;width:98%;text-align:center;display: none;z-index:9'><h1 style='font-size:5em;font-family:bebas;text-shadow:0 0 10px #3f8abf'>Sponsors</h1><br><br><p><img src='images/sponsors/ruban.png'><br><br><br><img src='images/sponsors/biharlogo.jpg'><br><br><br><img src='images/sponsors/tdigital.jpg' ></p></div></center>"
 			$(".backbtn3").fadeIn();
 			// $('#back_wood').empty();
 			$("#back_wood").show();
 			$("body").css("overflow-y","hidden");
 			addStackOnBackWood(0);
-			$("#back_wood").append("<center><div id='contenthere' style='position:absolute;top:0;left:1%;overflow-y:auto;width:98%;text-align:center;display: none;'></div></center>");
+			$("#back_wood").append(htmldata);
 			$("#contenthere").height($(window).height());
-			$("#contenthere").fadeIn();
+			
 
 		}
 		function clearWoodStacks() {
@@ -781,12 +797,15 @@
 		</script>
 		<div class="blankbg">
 			<div id="bgofblankbg"></div>
+			<div class="NavWrap" style="width: 100%;
+    z-index: 8;
+    background-color: black;box-shadow: 0 0 50px #000000">
 			<div id="navbar">
         			<a href='#' data="1" class=' navbtn ph-button ph-btn-blue'>Cat1</a>
         			<a href='#' data=2 class=' navbtn ph-button ph-btn-blue'>Cat2</a>
         			<a href='#' data=3 class=' navbtn ph-button ph-btn-blue'>Cat3</a>
         			<a href='#' data=4 class=' navbtn ph-button ph-btn-blue'>Cat4</a>
-			</div>
+			</div></div>
 			<div id="sidebar">
 				<div class="sblist" id="sbl" style="display:none">
 					<a href='#' class='ph-button ph-btn-green'>Event1</a>
@@ -816,19 +835,19 @@
 				</span>
 				</div>
 				<!-- <div id="dummyspace" style="width:100%;height:300px"></div> -->
-				<br><br><br><span style="font-size: 2em">Date:</span>
-				<span id='eve_date' style="font-size: 2em;">
+				<br><br><br><span style="font-size: 1.8em">Date:</span>
+				<span id='eve_date' style="font-size: 1.8em;">
 					DATE
-				</span><br><br><br><span style="font-size: 2em">Time:</span>
-				<span id='eve_time' style="font-size: 2em;">
+				</span><br><br><br><span style="font-size: 1.8em">Time:</span>
+				<span id='eve_time' style="font-size: 1.8em;">
 					TIME
-				</span><br><br><br><span style="font-size: 2em">Venue:</span>
-				<span id='eve_venue' style="font-size: 2em;">
+				</span><br><br><br><span style="font-size: 1.8em">Venue:</span>
+				<span id='eve_venue' style="font-size: 1.8em;">
 					VENUE
 				</span><br><br><br>
 				<div id='eve_organisers_head'>
-					<span style="font-size: 2em">Organisers :</span>
-					<ul id='eve_organisers' type="none" style="font-size: 2em;">
+					<span style="font-size: 1.8em">Organisers :</span>
+					<ul id='eve_organisers' type="none" style="font-size: 1.8em">
 						<li>Organiser 1 (9741852963)</li>
 						<li>Organiser 2 (9852451262)</li>
 						<li>Organiser 3 (9965235245)</li>

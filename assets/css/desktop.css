@@ -6,9 +6,11 @@
 }
 #navbar{
 	margin: 0 0 0 -10%;
-	left:50%;
-  	position: fixed;
+	left:30%;
 
+}
+.NavWrap{
+	position: fixed;
 }
 #mainarea{
 	top: 120px;

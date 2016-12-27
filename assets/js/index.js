@@ -48,6 +48,8 @@ jQuery(window).load(function() {
 	} else {
 		$('.logo').delay(1000).transition({ x: '0%', y: '100%' });
 		$(".parallelogram").delay(1000).css("z-index","2");
+		$(".sponsimg").delay(1000).css("z-index","2");
+
 	}
 	
 })
