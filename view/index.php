@@ -690,7 +690,6 @@
 			#datagrida,.box{
 				box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.49);
 				overflow-y: auto;
-				height:60%;
 			}
 		</style>
 	</head>
@@ -814,6 +813,8 @@
 				</div>
 			</div>
 			<img class="swingimage" src="images/anchor_events.png" />
+			<img class="sponsimg" alt="sponsors" src="images/spons.png" />
+
 		</div>
 
 		<div class="parallelogram">
@@ -925,7 +926,7 @@
             <h2>LEADERBOARD</h2>
             <center>
                 <div style="width:50%; align-content:center;">
-                    <div class="datagrid">
+                    <div class="datagrid" id="datagrid_wrap">
                         <div class="datagrid" id="datagrida">
 
                             <table>
