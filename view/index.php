@@ -763,7 +763,7 @@
 				
 
 
-				<span id='eve_short_desc' style="font-size: 1.2em;text-align:justify;text-justify: inter-word;">
+				<span id='eve_short_desc' style="font-size: 1.2em;">
 					Event Short Desc
 				</span><br><br><br>
 				<span id='eve_long_desc' style="font-size: 1.2em;text-align:justify;text-justify: inter-word;">

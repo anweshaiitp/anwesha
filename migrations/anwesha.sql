@@ -56,10 +56,11 @@ CREATE TABLE `Events` (
   `time` varchar(15) DEFAULT NULL,
   `venue` varchar(50) DEFAULT NULL,
   `organisers` varchar(400) DEFAULT NULL,
-  `short_desc` varchar(200) DEFAULT NULL,
+  `short_desc` varchar(400) DEFAULT NULL,
   `long_desc` text,
   `cover_url` varchar(100) DEFAULT NULL,
-  `icon_url` varchar(100) DEFAULT NULL
+  `icon_url` varchar(100) DEFAULT NULL,
+  `rules_url` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -119,7 +120,8 @@ CREATE TABLE IF NOT EXISTS `People` (
   `refcode` varchar(15) DEFAULT NULL,
   `feePaid` int(4) DEFAULT NULL,
   `confirm` int(2) NOT NULL,
-  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `iitp` INT(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
