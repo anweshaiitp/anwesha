@@ -130,7 +130,7 @@
 
 			}
 
-			.backbtn,.backbtn2,.mainevent{
+			.backbtn,.backbtn2,.backbtn3,.mainevent{
    				 margin: 0.5em;
     			 background: rgba(255, 255, 255, 0.6);
    				 font-family: bebas;
@@ -142,7 +142,7 @@
   				 transition: background .5s;
   				 box-shadow: 0 -10px 0 rgba(0, 0, 0, 0.1) inset;
 			}
-			.backbtn:hover,.backbtn2:hover,.mainevent:hover{
+			.backbtn:hover,.backbtn2:hover,.backbtn3:hover,.mainevent:hover{
 				background:rgba(88, 214, 103, 0.6);
 			}
 
@@ -180,6 +180,17 @@
   				 
 				width:120px !important;
 				
+			}
+			.backbtn3{
+				padding: 12px !important;
+				font-size: 1em !important;
+				top:20px;
+				left:20px;
+				display: none;
+				z-index:6;
+				height: 40px !important;
+  				 
+				width:120px !important;
 			}
 			#navbar{
 				/*margin: auto;*/
@@ -728,8 +739,12 @@
 
 	<body>
 		<script type="text/javascript">
+		function checkstackheight(){
+			if ($("#back_wood").height()> $(window).height())
+				return true;
+		}
 		function addStackOnBackWood(countwoodstack) {
-			if(countwoodstack>=10)
+			if(checkstackheight())
 				return;
 			var $new = $('<div>&nbsp;</div>');
 			$new.hide();
@@ -744,11 +759,21 @@
 			}});
 		}
 		function stackWoodStacks() {
-			$('#back_wood').empty();
+			$(".backbtn3").fadeIn();
+			// $('#back_wood').empty();
+			$("#back_wood").show();
+			$("body").css("overflow-y","hidden");
 			addStackOnBackWood(0);
+			$("#back_wood").append("<center><div id='contenthere' style='position:absolute;top:0;left:1%;overflow-y:auto;width:98%;text-align:center;display: none;'></div></center>");
+			$("#contenthere").height($(window).height());
+			$("#contenthere").fadeIn();
+
 		}
 		function clearWoodStacks() {
-			$('#back_wood').empty();
+			$("#back_wood").slideUp(500,function(){
+				$('#back_wood').empty();
+			});
+			
 		}
 
 		</script>
@@ -829,6 +854,7 @@
 		<div class="window2"></div>
 		<div class="window"></div>
 		<button class="backbtn">< Back to home</button>
+		<button class="backbtn3" onclick="clearWoodStacks();$(this).fadeOut();">< Back to home</button>
 		<button class="backbtn2">< Events home</button>
 		<div class="sea"></div>
 		<div class="clwrap">
@@ -847,9 +873,11 @@
 
 			</div>
 		</div>
-		<div id="intro">
-			<div id='back_wood' style='text-align:center'>
+		<div id='back_wood' style='position:absolute;width:100%;text-align:center;z-index: 4'>
+		
 			</div>
+		<div id="intro">
+			
 		
 			<ul class="links">
 				<a id='bregister' href="#register"><li>Registration</li></a>
