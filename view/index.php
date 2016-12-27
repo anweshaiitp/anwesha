@@ -737,7 +737,7 @@
 		<div class="blankbg">
 			<div id="bgofblankbg"></div>
 			<div class="NavWrap" style="width: 100%;
-    z-index: 6;
+    z-index: 8;
     background-color: black;box-shadow: 0 0 50px #000000">
 			<div id="navbar">
         			<a href='#' data="1" class=' navbtn ph-button ph-btn-blue'>Cat1</a>
