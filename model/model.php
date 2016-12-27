@@ -190,6 +190,20 @@ class People{
         return $arr;
     }
     /**
+     * Check if User is a CampusAmbassador
+     * @param  int $id   anwesha id of user
+     * @param  MySQLi object $conn variable containing connection details
+     * @return isCampusAmbassador
+     */
+    public function checkIfCampusAmbassador($id,$conn){
+        $sql = "SELECT 1 FROM CampusAmberg WHERE pId = $id";
+        $result = mysqli_query($conn, $sql);
+        if(!$result || mysqli_num_rows($result)!=1){
+            return false;
+        }
+        return true;
+    }
+    /**
      * parse all details of the user from loginTable
      * @param  int $id   anwesha id
      * @param  mysqli $conn connection link
@@ -400,7 +414,7 @@ class People{
             $arr[]=$error;
             return $arr;
         }
-        
+
         // Escaping String
         $address = mysqli_real_escape_string($conn,$address);
         $degree = mysqli_real_escape_string($conn,$degree);
@@ -411,7 +425,15 @@ class People{
 
         $pid = $thisUser[1]['pId'];
         $name = $thisUser[1]['name'];
-
+        
+        if(self::checkIfCampusAmbassador($pid,$conn)) {
+            $error = "Already a Campus Ambassador!";
+            $arr = array();
+            $arr[]=-1;
+            $arr[]=$error;
+            return $arr;
+        }
+      
         $sql = "INSERT INTO `CampusAmberg` (`pId`, `refKey`, `address`, `degree`, `grad`, `leader`, `involvement`,`threethings`) VALUES ($pid, '0', '$address', '$degree', '$grad', '$leader', '$involvement','$threethings')";
 
         $result = mysqli_query($conn, $sql);

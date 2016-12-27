@@ -333,9 +333,17 @@
 
          		// $('#eve_icon').attr("src",eve['icon_url']);
          	}
+         	function getHTMLText(text) {
+         		if(text==null)
+         			return "";
+         		text = text.replace(/[\u00A0-\u9999<>\&]/gim, function(i) {
+				   return '&#'+i.charCodeAt(0)+';';
+				});
+				text = text.replace(/\n\n/g,"</br></p><p></br>").replace(/\n/g,"</br>");
+         		return "<p></br>"+text+"</br></p>";
+         	}
          	function emptyresp(){
-         		
-				$('#eve_name').text("");
+         		$('#eve_name').text("");
 				$('#eve_tagline').text("");
 				$('#eve_date').text("");
 				$('#eve_time').text("");
@@ -430,12 +438,12 @@
 						//Need to Hide if Don't Exists 
 						
 						$('#eve_name').text(eve['eveName']);
-						$('#eve_tagline').text(eve['tagline']);
+						$('#eve_tagline').html(getHTMLText(eve['tagline']));
 						$('#eve_date').text(eve['date']);
 						$('#eve_time').text(eve['time']);
-						$('#eve_venue').text(eve['venue']);
-						$('#eve_short_desc').text(eve['short_desc']);
-						$('#eve_long_desc').text(eve['long_desc']);
+						$('#eve_venue').html(getHTMLText(eve['venue']));
+						$('#eve_short_desc').html(getHTMLText(eve['short_desc']));
+						$('#eve_long_desc').html(getHTMLText(eve['long_desc']));
 						eve_rulefill(eve['rule_url']);
 						// $('#eve_icon').attr("src",eve['icon_url']);
 						eve_iconswitch(eve['icon_url']);
@@ -740,7 +748,7 @@
 				<h1 style="font-family: bebas;font-size: 5em;"><i>Events</i></h1>
 			</center>
 			</div>
-			<div id="mainarea" style='color:white'>
+			<div id="mainarea" style='color:white;padding:2em'>
 				<center>
 			<div id="eve_cover">
 				<span id="headwrap" style=""><br><br><br><br><br>
@@ -780,10 +788,10 @@
 				
 
 
-				<span id='eve_short_desc' style="font-size: 2em;">
+				<span id='eve_short_desc' style="font-size: 1.2em;">
 					Event Short Desc
 				</span><br><br><br>
-				<span id='eve_long_desc' style="font-size: 2em;">
+				<span id='eve_long_desc' style="font-size: 1.2em;text-align:justify;text-justify: inter-word;">
 					Event Long Desc
 				</span>
 				<br><br><br><br><br><br>
