@@ -776,7 +776,7 @@
 			}});
 		}
 		function stackWoodStacks() {
-			var htmldata="<center><div id='contenthere' style='position:absolute;top:0;left:1%;overflow-y:auto;width:98%;text-align:center;display: none;z-index:9'><h1 style='font-size:5em;font-family:bebas;text-shadow:0 0 10px #3f8abf'>Sponsors</h1><br><br><p><img src='images/sponsors/ruban.png'><br><br><br><img src='images/sponsors/biharlogo.jpg'><br><br><br><img src='images/sponsors/tdigital.jpg' ></p></div></center>"
+			var htmldata="<center><div id='contenthere' style='position:absolute;top:0;left:1%;overflow-y:auto;width:98%;text-align:center;display: none;z-index:9'><h1 style='font-size:5em;font-family:bebas;text-shadow:0 0 10px #3f8abf'>Sponsors</h1><br><br><h2 style='font-size:5em;font-family:bebas;text-shadow:0 0 10px #3f8abf'>Power sponsor</h2><br><br><p><img src='images/sponsors/ruban.png'><br><br><h2 style='font-size:5em;font-family:bebas;text-shadow:0 0 10px #3f8abf'>Associate sponsor</h2><br><br><br><img src='images/sponsors/biharlogo.jpg'><br><br><br><img src='images/sponsors/tdigital.jpg' ></p></div></center>"
 			$(".backbtn3").fadeIn();
 			// $('#back_wood').empty();
 			$("#back_wood").show();
