@@ -801,6 +801,7 @@
 		function clearWoodStacks() {
 			$("#back_wood").slideUp(500,function(){
 				$('#back_wood').empty();
+				$("body").css("overflow-y","auto");
 			});
 			
 		}
