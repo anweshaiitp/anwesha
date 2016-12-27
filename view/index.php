@@ -289,6 +289,12 @@
 			#RuleBtn:hover{
 				background:rgba(88, 214, 103, 0.6);
 			}
+			#contenthere img {
+				height: 100px;
+				border-radius: 12px;
+				border: 2px #000000 solid;
+				box-shadow: 0 0 30px #3f8abf;
+			}
 		</style>
 
 		 <script type = "text/javascript" language = "javascript">
@@ -744,8 +750,10 @@
 				return true;
 		}
 		function addStackOnBackWood(countwoodstack) {
-			if(checkstackheight())
+			if(checkstackheight()){
+				$("#contenthere").fadeIn();
 				return;
+			}
 			var $new = $('<div>&nbsp;</div>');
 			$new.hide();
 			$new.css('background-image', "url('images/wood_plank.jpg')");
@@ -759,14 +767,15 @@
 			}});
 		}
 		function stackWoodStacks() {
+			var htmldata="<center><div id='contenthere' style='position:absolute;top:0;left:1%;overflow-y:auto;width:98%;text-align:center;display: none;z-index:9'><h1 style='font-size:5em;font-family:bebas;text-shadow:0 0 10px #3f8abf'>Sponsors</h1><br><br><p><img src='images/sponsors/ruban.png'><br><br><br><img src='images/sponsors/biharlogo.jpg'><br><br><br><img src='images/sponsors/tdigital.jpg' ></p></div></center>"
 			$(".backbtn3").fadeIn();
 			// $('#back_wood').empty();
 			$("#back_wood").show();
 			$("body").css("overflow-y","hidden");
 			addStackOnBackWood(0);
-			$("#back_wood").append("<center><div id='contenthere' style='position:absolute;top:0;left:1%;overflow-y:auto;width:98%;text-align:center;display: none;'></div></center>");
+			$("#back_wood").append(htmldata);
 			$("#contenthere").height($(window).height());
-			$("#contenthere").fadeIn();
+			
 
 		}
 		function clearWoodStacks() {
