@@ -182,15 +182,22 @@
 				
 			}
 			#navbar{
-				/*margin: auto;*/
-  				/*display: inline;*/
-  				z-index: 8;
+				
+  				
   				 /*display: table;*/
     			/*margin: 0 auto;*/
-    			
   				/*position: absolute;
   				top:0;*/
 			}
+			/*#NavWrap{
+				background-color: #000000;
+				box-shadow: 0 0 60px #000000;
+				z-index: 8;
+				position: fixed;
+				top:0;
+				left:0;
+				width:100%;
+			}*/
 			#sidebar{
 			}
 			#mainarea{
@@ -729,12 +736,15 @@
 	<body>
 		<div class="blankbg">
 			<div id="bgofblankbg"></div>
+			<div class="NavWrap" style="width: 100%;
+    z-index: 6;
+    background-color: black;box-shadow: 0 0 50px #000000">
 			<div id="navbar">
         			<a href='#' data="1" class=' navbtn ph-button ph-btn-blue'>Cat1</a>
         			<a href='#' data=2 class=' navbtn ph-button ph-btn-blue'>Cat2</a>
         			<a href='#' data=3 class=' navbtn ph-button ph-btn-blue'>Cat3</a>
         			<a href='#' data=4 class=' navbtn ph-button ph-btn-blue'>Cat4</a>
-			</div>
+			</div></div>
 			<div id="sidebar">
 				<div class="sblist" id="sbl" style="display:none">
 					<a href='#' class='ph-button ph-btn-green'>Event1</a>
