@@ -833,19 +833,19 @@
 				</span>
 				</div>
 				<!-- <div id="dummyspace" style="width:100%;height:300px"></div> -->
-				<br><br><br><span style="font-size: 2em">Date:</span>
-				<span id='eve_date' style="font-size: 2em;">
+				<br><br><br><span style="font-size: 1.8em">Date:</span>
+				<span id='eve_date' style="font-size: 1.8em;">
 					DATE
-				</span><br><br><br><span style="font-size: 2em">Time:</span>
-				<span id='eve_time' style="font-size: 2em;">
+				</span><br><br><br><span style="font-size: 1.8em">Time:</span>
+				<span id='eve_time' style="font-size: 1.8em;">
 					TIME
-				</span><br><br><br><span style="font-size: 2em">Venue:</span>
-				<span id='eve_venue' style="font-size: 2em;">
+				</span><br><br><br><span style="font-size: 1.8em">Venue:</span>
+				<span id='eve_venue' style="font-size: 1.8em;">
 					VENUE
 				</span><br><br><br>
 				<div id='eve_organisers_head'>
-					<span style="font-size: 2em">Organisers :</span>
-					<ul id='eve_organisers' type="none" style="font-size: 2em;">
+					<span style="font-size: 1.8em">Organisers :</span>
+					<ul id='eve_organisers' type="none" style="font-size: 1.8em">
 						<li>Organiser 1 (9741852963)</li>
 						<li>Organiser 2 (9852451262)</li>
 						<li>Organiser 3 (9965235245)</li>
