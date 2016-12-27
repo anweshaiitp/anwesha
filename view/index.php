@@ -776,14 +776,15 @@
 			}});
 		}
 		function stackWoodStacks() {
-			var htmldata="<center><div id='contenthere' style='position:absolute;top:0;left:1%;overflow-y:auto;width:98%;text-align:center;display: none;z-index:9'><h1 style='font-size:5em;font-family:bebas;text-shadow:0 0 10px #3f8abf'>Sponsors</h1><br><br><h2 style='font-size:5em;font-family:bebas;text-shadow:0 0 10px #3f8abf'>Power sponsor</h2><br><br><p><img src='images/sponsors/ruban.png'><br><br><h2 style='font-size:5em;font-family:bebas;text-shadow:0 0 10px #3f8abf'>Associate sponsor</h2><br><br><br><img src='images/sponsors/biharlogo.jpg'><br><br><br><img src='images/sponsors/tdigital.jpg' ></p></div></center>"
+			var htmldata="<center><div id='contenthere' style='position:absolute;top:0;left:1%;overflow-y:auto;width:98%;text-align:center;display: none;z-index:9'><h1 style='font-size:5em;font-family:bebas;text-shadow:0 0 10px #3f8abf'>Sponsors</h1><br><br><h2 style='font-size:3em;font-family:bebas;'>Power sponsor</h2><br><br><p><img src='images/sponsors/ruban.png'><br><br><h2 style='font-size:3em;font-family:bebas;'>Associate sponsor</h2><br><br><br><img src='images/sponsors/biharlogo.jpg'><br><br><br><img src='images/sponsors/tdigital.jpg' ></p><br><br><br></div></center>"
 			$(".backbtn3").fadeIn();
 			// $('#back_wood').empty();
 			$("#back_wood").show();
 			$("body").css("overflow-y","hidden");
 			addStackOnBackWood(0);
 			$("#back_wood").append(htmldata);
-			$("#contenthere").height($(window).height());
+			var sponsh=$(window).height()- $(".backbtn3").top()-60;
+			$("#contenthere").height(sponsh);
 			
 
 		}
