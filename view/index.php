@@ -284,6 +284,7 @@
    			var ev=0;
    			var cl=0;
    			var TEC_CODE = 0;
+   			var CULT_CODE = 1;
    			var events_data;
          $(document).ready(function() {
 			function eve_rulefill(rbookurl){
@@ -368,16 +369,7 @@
 						preloadImage(events_data[i]['cover_url']);
 						preloadImage(events_data[i]['icon_url']);}
 
-
-    							//Addition Init
-    							$( "#navbar" ).empty();
-    							for (var i = 0; i < events_data.length; i++) {
-    								if(events_data[i]['code']==TEC_CODE) {
-    									//Technical Added
-    									console.log("Tech :"+events_data[i]['eveName']);
-    									$( "#navbar" ).append( "	<a href='#' data='"+events_data[i]['eveId']+"' class=' navbtn ph-button ph-btn-blue'>"+events_data[i]['eveName']+"</a>" );
-									}
-    							};
+    							
 
     							$(".navbtn").click(function(){
     								$("#mainarea").fadeOut();
@@ -472,7 +464,7 @@
 			}; 
          	function toggleli(){
          		$("#leftlist").toggle( "slide");
-               $("#rightlist").toggle( "slide");
+            	$("#rightlist").toggle( "slide");
          	}
             $("#eventsbtn").click(function(){
             	$(".clwrap").fadeIn();
@@ -516,8 +508,18 @@
 				// $(".blankbg ").fadeIn("fast");
 				$(".blankbg ").slideFadeToggle();
 				$(".backbtn2").fadeIn();
-				if(cl==0) {
-					//For For TECHNICAL
+				if(cl==TEC_CODE || cl==CULT_CODE ) {
+					//For TECH_CODE or CULT_CODE
+					
+					$( "#navbar" ).empty();
+					for (var i = 0; i < events_data.length; i++) {
+						if(events_data[i]['code']==cl) {
+							//Technical Added
+							console.log("Tech or Cult["+cl+"] :"+events_data[i]['eveName']);
+							$( "#navbar" ).append( "	<a href='#' data='"+events_data[i]['eveId']+"' class=' navbtn ph-button ph-btn-blue'>"+events_data[i]['eveName']+"</a>" );
+						}
+					};
+
 					$("#navbar").css("display","table");
 					view_sbar(-1);
 					if($(window).width()<960){
