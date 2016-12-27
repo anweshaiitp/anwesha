@@ -296,6 +296,7 @@
    			var cl=0;
    			var TEC_CODE = 0;
    			var CULT_CODE = 1;
+   			var AnW_CODE = 2;
    			var events_data;
          $(document).ready(function() {
 			function eve_rulefill(rbookurl){
@@ -368,6 +369,7 @@
 				eve_coverswitch("");
 				// $('#eve_cover').css("src","");
          	}
+         	console.log("Attempt allEvents");	
          	$.get( "allEvents/", function(data, status){
 							console.log("Event Status : "+data[0]);
 
@@ -510,8 +512,8 @@
 				// $(".blankbg ").fadeIn("fast");
 				$(".blankbg ").slideFadeToggle();
 				$(".backbtn2").fadeIn();
-				if(cl==TEC_CODE || cl==CULT_CODE ) {
-					//For TECH_CODE or CULT_CODE
+				if(cl==TEC_CODE || cl==CULT_CODE || cl==AnW_CODE ) {
+					//For TECH_CODE or CULT_CODE or AnW_CODE
 					console.log("Clicked "+cl);
 					$( "#navbar" ).empty();
 					for (var i = 0; i < events_data.length; i++) {
