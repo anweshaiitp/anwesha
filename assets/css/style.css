@@ -82,11 +82,10 @@ font-size:1.5em;
  
 .swingimage{	
 	cursor: pointer;
-    right: 230px;
+    right: 203px;
     height: 30%;
 	position: absolute;
 	top: 90px;
-    right: 230px;
     -webkit-transform-origin: 50% 0;
     transform-origin: 50% 0;
     -webkit-animation: swinging 3.5s ease-in-out forwards infinite;

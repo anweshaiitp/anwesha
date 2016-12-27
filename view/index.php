@@ -263,18 +263,39 @@
 			}
 			#headwrap{
 				vertical-align: middle;
-			}			
+			}
+			#RuleBtn{
+				margin: 20px;
+    			 background: rgba(255, 255, 255, 0.6);
+   				 font-family: bebas;
+   				 padding: 10px;
+   				 font-size: 2em;
+   				 border-radius: 10px;
+   				 cursor: pointer;
+  				 transition: background .5s;
+  				 box-shadow: 0 -10px 0 rgba(0, 0, 0, 0.1) inset;
+			}
+			#RuleBtn:hover{
+				background:rgba(88, 214, 103, 0.6);
+			}
 		</style>
 
 		 <script type = "text/javascript" language = "javascript">
-		 	$(".swingimage").click(function(){
-		 		$("#eventsbtn").click();
-		 	});
    			var ev=0;
    			var cl=0;
    			var TEC_CODE = 0;
    			var events_data;
          $(document).ready(function() {
+			function eve_rulefill(rbookurl){
+					
+					if(rbookurl=="" || rbookurl==null){
+						$("#RuleBtn").attr("href","");
+						$("#RuleBtn").hide();
+					} else {
+						$("#RuleBtn").attr("href",rbookurl);
+						$("#RuleBtn").show();
+					}
+				}
          	
          	function preloadImage(imageurl)
 			{
@@ -322,6 +343,7 @@
 				$('#eve_organisers').text("");
 				$('#eve_short_desc').text("");
 				$('#eve_long_desc').text("");
+				eve_rulefill("");
 				eve_iconswitch("");
 				eve_coverswitch("");
 				// $('#eve_cover').css("src","");
@@ -414,6 +436,7 @@
 						$('#eve_venue').text(eve['venue']);
 						$('#eve_short_desc').text(eve['short_desc']);
 						$('#eve_long_desc').text(eve['long_desc']);
+						eve_rulefill(eve['rule_url']);
 						// $('#eve_icon').attr("src",eve['icon_url']);
 						eve_iconswitch(eve['icon_url']);
 						// $('#eve_organisers').text(eve['organisers']);
@@ -732,24 +755,26 @@
 				</span>
 				</div>
 				<!-- <div id="dummyspace" style="width:100%;height:300px"></div> -->
-				<br><br><br>Date:
+				<br><br><br><span style="font-size: 2em">Date:</span>
 				<span id='eve_date' style="font-size: 2em;">
 					DATE
-				</span><br><br><br>Time:
+				</span><br><br><br><span style="font-size: 2em">Time:</span>
 				<span id='eve_time' style="font-size: 2em;">
 					TIME
-				</span><br><br><br>Venue:
+				</span><br><br><br><span style="font-size: 2em">Venue:</span>
 				<span id='eve_venue' style="font-size: 2em;">
 					VENUE
 				</span><br><br><br>
 				<div id='eve_organisers_head'>
-					Organisers :
+					<span style="font-size: 2em">Organisers :</span>
 					<ul id='eve_organisers' type="none" style="font-size: 2em;">
 						<li>Organiser 1 (9741852963)</li>
 						<li>Organiser 2 (9852451262)</li>
 						<li>Organiser 3 (9965235245)</li>
 					</ul>
 				</div><br><br><br>
+				<a href="" id="RuleBtn" target="_blank">Rulebook</a>
+				<br><br><br><br><br>
 
 
 				
@@ -778,11 +803,10 @@
 				<a href="#"><li class="mainevent" onclick="cl=1">Cultural</li></a>
 				<a href="#"><li class="mainevent" onclick="cl=2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arts &amp; Welfare</li></a>
 				<!-- <a href="#"><li class="mainevent" onclick="cl=3">NJACK2</li></a> -->
-
 				</ul>
 				<ul id="rightlist">
 				<a href="#"><li class="mainevent" onclick="cl=0">Technical&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li></a>
-				<!-- <a href="#"><li class="mainevent" onclick="cl=4">None&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li></a> -->
+				<a href="#"><li class="mainevent" onclick="cl=3">Management</li></a>
 				<!-- <a href="#"><li class="mainevent" onclick="cl=6">NJACK4</li></a> -->
 
 				</ul>
@@ -820,7 +844,6 @@
 		<div class="parallelogram">
 		<span id="tag" style="position:absolute;bottom:10px;left:10px;font-family:vinque;font-size: 1.7em;">About</span>
 			<div class="content">
-
 				<h1>ABOUT ANWESHA</h1><br>
 				 ANWESHA is the annual social and cultural festival of IIT Patna. It marks days of absolute ecstasy,
              providing the budding artists a competing platform in diverse fields such as music, dance, theater, 
