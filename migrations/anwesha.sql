@@ -174,6 +174,12 @@ ALTER TABLE `People`
   ADD UNIQUE (`email`);
 
 --
+-- Indexes for table `CampusAmberg`
+--
+ALTER TABLE `CampusAmberg`
+  ADD UNIQUE (`pId`);
+
+--
 -- Indexes for table `Registration`
 --
 ALTER TABLE `Registration`
