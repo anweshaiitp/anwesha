@@ -31,9 +31,8 @@
 .mainevent{
 	font-size: 1.2em !important;
 }
-.clubs{
-	width: 100% !important;
-}
+
+
 #navbar{
 	height:50px;
 	width:100%;
@@ -43,6 +42,16 @@
 	left:0px !important;
 	/*white-space: nowrap;*/
 
+}
+@media only screen and (max-width: 571px) {
+    .clubs{
+		width: 100%;
+	}
+}
+@media only screen and (min-width: 571px) {
+    .clubs{
+		width: 70%;
+	}
 }
 #mainarea{
 	top:350px;
