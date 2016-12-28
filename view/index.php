@@ -313,6 +313,10 @@
 				display: none;
 				z-index:9;
 			}
+			.links li{
+				    background-image: url(images/planck.jpg);
+				    color: rgba(255, 255, 255, 0.8);
+			}
 		</style>
 		<script>
 		$(document).ready(function() {
