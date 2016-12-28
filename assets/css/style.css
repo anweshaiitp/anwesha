@@ -333,10 +333,10 @@ button:hover, button:active, button:focus {
 	/*background:rgba(255,255,255,0.6);*/
 	padding:0.5em; 
 	border-radius:0.1em;
-	transition: background-color .5s,color .5s;
+	transition: opacity .5s,color .5s;
 }
 #intro .links li:hover{
-	background-color: rgba(255,255,255,0.8);
+	opacity: 0.7;
 	color:rgba(0, 0, 0, 1);
 }
 

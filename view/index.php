@@ -95,18 +95,14 @@
 			}
 			
 			.sea{
-				background:url("images/sea.gif") no-repeat center center fixed; 
-				-webkit-background-size: cover;
-				-moz-background-size: cover;
-				-o-background-size: cover;
-				background-size: cover;
+				background:url("images/sea.gif") no-repeat center center fixed;
+				background-size: auto 100%; 
 				z-index: -2;
 				position: absolute;
 				top:0;
 				left: 0;
 				width:100%;
 				height:100%;
-				background-size: cover;
 			}
 			.clwrap{
 				display: none;
@@ -132,7 +128,7 @@
 
 			.backbtn,.backbtn2,.backbtn3,.mainevent{
    				 margin: 0.5em;
-    			 background: rgba(255, 255, 255, 0.6);
+    			 background-color: rgba(255, 255, 255, 0.6);
    				 font-family: bebas;
    				 padding: 20px;
    				 /* width: 75%; */
@@ -145,7 +141,10 @@
 			.backbtn:hover,.backbtn2:hover,.backbtn3:hover,.mainevent:hover{
 				background:rgba(88, 214, 103, 0.6);
 			}
-
+			.mainevent{
+				background-image: url('images/lightwood.jpg');
+				box-shadow: 0 0px 22px rgba(0, 0, 0, 0.7) inset !important;
+			}
 			#leftlist{
 				display: none;
 				text-align: right;	
@@ -316,6 +315,8 @@
 			.links li{
 				    background-image: url(images/planck.jpg);
 				    color: rgba(255, 255, 255, 0.8);
+				    box-shadow: 0 0 20px #000000 inset;
+    
 			}
 		</style>
 		<script>
