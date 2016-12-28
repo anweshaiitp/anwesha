@@ -817,7 +817,7 @@
 		}
 		</script>
 		<audio id="bgaudio" style="display: none" autoplay>
-  			 <source src="assets/bgaudio.mp3" volume="0.3" type="audio/mpeg">
+  			 <!--<source src="assets/bgaudio.mp3" volume="0.3" type="audio/mpeg">-->
   		</audio>
 		<div class="blankbg">
 			<div id="bgofblankbg"></div>
