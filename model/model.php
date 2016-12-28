@@ -937,7 +937,8 @@ class Events{
     }
 
     public function getAllEvents($conn){
-        $sql = "SELECT * FROM Events";
+        mysqli_set_charset($conn,"utf8");
+	$sql = "SELECT * FROM Events";
         $result = mysqli_query($conn, $sql);
         $arr = array();
         if(!$result || mysqli_num_rows($result)==0){
