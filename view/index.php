@@ -314,7 +314,12 @@
 				z-index:9;
 			}
 		</style>
-
+		<script>
+		$(document).ready(function() {
+			var audio = document.getElementById("bgaudio");
+ 			 audio.volume = 0.2;
+		});
+		</script>
 		 <script type = "text/javascript" language = "javascript">
    			var ev=0;
    			var cl=0;
@@ -323,8 +328,7 @@
    			var AnW_CODE = 2;
    			var events_data;
          $(document).ready(function() {
-         	var audio = document.getElementById("myaudio");
- 			 audio.volume = 0.2;
+         	
 			function eve_rulefill(rbookurl){
 					
 					if(rbookurl=="" || rbookurl==null){
@@ -808,7 +812,7 @@
 			
 		}
 		</script>
-		<audio id="audio" style="display: none" autoplay>
+		<audio id="bgaudio" style="display: none" autoplay>
   			 <source src="assets/bgaudio.mp3" volume="0.3" type="audio/mpeg">
   		</audio>
 		<div class="blankbg">
