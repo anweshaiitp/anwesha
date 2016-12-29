@@ -668,7 +668,8 @@
 					Jan 27 28 29
 				</div>
 			</div>
-			<img class="swingimage" src="images/anchor_events.png" />
+			<div id="swingwrap"><img class="swingimage" src="images/anchor_events.png" /></div>
+			
 			<img class="sponsimg" alt="sponsors" src="images/spons.png" onclick="stackWoodStacks();" />
 
 		</div>
