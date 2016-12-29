@@ -1240,7 +1240,6 @@ html, body { height: 100%; width: 100%; margin: 0; }
 	background:rgba(88, 214, 103, 0.6);
 }
 #contenthere img {
-	height: 100px;
 	border-radius: 12px;
 	border: 2px #000000 solid;
 	box-shadow: 0 0 30px #3f8abf;
