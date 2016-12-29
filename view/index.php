@@ -42,6 +42,7 @@
 		<script src='assets/js/jquery.transit.min.js'></script>
 		<script>
 		$(document).ready(function() {
+
 			var audio = document.getElementById("bgaudio");
  			 audio.volume = 0.2;
 		});
@@ -54,7 +55,14 @@
    			var AnW_CODE = 2;
    			var events_data;
          $(document).ready(function() {
-         	
+         	 if(location.hash=="#events"){
+         	 	$("#clwrap").fadeIn();
+            	$(".clubs").fadeIn();
+            	$("#intro").hide();
+            	$(".window2").fadeIn("slow",toggleli());
+            	$(".backbtn").fadeIn();
+            	$("#preloader").hide();
+         	 }
 			function eve_rulefill(rbookurl){
 					
 					if(rbookurl=="" || rbookurl==null){
@@ -228,7 +236,7 @@
             	$("#rightlist").toggle( "slide");
          	}
             $("#eventsbtn").click(function(){
-            	$(".clwrap").fadeIn();
+            	$("#clwrap").fadeIn();
             	$(".clubs").fadeIn();
             	$("#intro").hide();
             	$(".window2").fadeIn("slow",toggleli());
@@ -236,7 +244,7 @@
             	$("#preloader").hide();
             });
             $(".swingimage").click(function(){
-            	$(".clwrap").fadeIn();
+            	$("#clwrap").fadeIn();
             	$(".clubs").fadeIn();
             	$("#intro").hide();
             	$(".window2").fadeIn("slow",toggleli());
@@ -246,7 +254,7 @@
 			$(".backbtn").click(function(){
 				$("#intro").show();
 				$(".backbtn").fadeOut();
-				$(".clwrap").fadeOut();
+				$("#clwrap").fadeOut();
             	$(".clubs").fadeOut();
             	$("#preloader").show();
 				
@@ -625,7 +633,7 @@
 		<button class="backbtn3" onclick="clearWoodStacks();$(this).fadeOut();">< Back to home</button>
 		<button class="backbtn2">< Events home</button>
 		<div class="sea"></div>
-		<div class="clwrap">
+		<div id="clwrap">
 			<div class="clubs">
 				<ul id="leftlist">
 				<a href="#"><li class="mainevent" onclick="cl=1">Cultural</li></a>
@@ -651,7 +659,7 @@
 				<a id='bregister' href="#register"><li>Registration</li></a>
 				<a id='bregister_ca' href="#register_ca"><li>Campus Ambassador</li></a>
                 <a id='bleaderboard' href="#leaderboard"><li>Campus Ambassador Leaderboard</li></a>
-				<a href="#" id="eventsbtn" style=""><li>Events</li></a>
+				<a href="#clwrap" id="eventsbtn" style=""><li>Events</li></a>
 				<br>
 			    <a href="auditions/"><li>MultiCity</li></a>
 
