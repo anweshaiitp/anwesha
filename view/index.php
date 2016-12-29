@@ -201,6 +201,7 @@
 						eve_iconswitch(eve['icon_url']);
 						// $('#eve_organisers').text(eve['organisers']);
 						var orgarr = eve['organisers'];
+						$('#eve_organisers').empty();
 						if(orgarr!=null){						
 							var orgnrs = orgarr.split("#");
 							for (i=0;i<orgnrs.length;i++)
