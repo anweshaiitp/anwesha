@@ -95,3 +95,6 @@ font-size: 2em !important;
 #secondlogo{
 	width: 100%;
 }
+#back_wood{
+	position: fixed !important;
+}
