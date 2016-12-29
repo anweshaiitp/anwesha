@@ -55,13 +55,13 @@
    			var AnW_CODE = 2;
    			var events_data;
          $(document).ready(function() {
-         	 if(location.hash=="#events"){
+         	if(location.hash=="#events"){
          	 	$("#clwrap").fadeIn();
             	$(".clubs").fadeIn();
             	$("#intro").hide();
             	$(".window2").fadeIn("slow",toggleli());
             	$(".backbtn").fadeIn();
-            	$("#preloader").hide();
+            	// $("#preloader").hide();
          	 }
 			function eve_rulefill(rbookurl){
 					
@@ -659,7 +659,7 @@
 				<a id='bregister' href="#register"><li>Registration</li></a>
 				<a id='bregister_ca' href="#register_ca"><li>Campus Ambassador</li></a>
                 <a id='bleaderboard' href="#leaderboard"><li>Campus Ambassador Leaderboard</li></a>
-				<a href="#clwrap" id="eventsbtn" style=""><li>Events</li></a>
+				<a href="#events" id="eventsbtn" style=""><li>Events</li></a>
 				<br>
 			    <a href="auditions/"><li>MultiCity</li></a>
 
