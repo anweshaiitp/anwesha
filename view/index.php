@@ -564,7 +564,7 @@
   		<!-- </div> -->
         <div id="teams" class="lightboxnew" style="box-shadow: 0 0 50px rgba(156, 156, 156, 0.71) inset">
         <button id="backbtn4"><a href="#">< Back to home</a></button>
-        <div class="container" style="overflow-y: auto;height: 100%;">
+        <div class="container" style=" width:100%;overflow-y: auto;height: 100%;">
         	<div class="row">
         		<center><br><br>
         		<h1 style="color:#FFFFFF;font-size:5em;font-family: bebas;">Teams</h1>
