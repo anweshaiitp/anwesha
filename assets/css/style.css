@@ -669,7 +669,7 @@ keyframes line {
 	animation: fadeInNew .6s ease-out;*/
 }
 
-#teams:target ~ #intro,#teams:target ~ .parallelogram,#teams:target ~ #preloader,#teams:target ~ .sponsimg  {
+#teams:target ~ .window,#teams:target ~ .sea,#teams:target ~ #intro,#teams:target ~ .parallelogram,#teams:target ~ #preloader,#teams:target ~ .sponsimg  {
     -webkit-animation: remove 1500ms cubic-bezier(0.955, 0.375, 0.000, 0.780); 
    -moz-animation: remove 1500ms cubic-bezier(0.955, 0.375, 0.000, 0.780); 
      -o-animation: remove 1500ms cubic-bezier(0.955, 0.375, 0.000, 0.780); 
