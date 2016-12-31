@@ -1658,6 +1658,9 @@
 				<div class="text">
 					Jan 27 28 29
 				</div>
+				<div class="hidden-count">
+					bla
+				</div>
 			</div>
 			<div id="swingwrap"><img class="swingimage" src="images/combined.png" /></div>
 			
