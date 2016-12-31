@@ -1402,6 +1402,20 @@ html, body { height: 100%; width: 100%; margin: 0; }
 #RuleBtn:hover{
 	background:rgba(88, 214, 103, 0.6);
 }
+#regbtn{
+	margin: 20px;
+     background: rgba(255, 255, 255, 0.6);
+   	 font-family: bebas;
+   	 padding: 10px;
+   	 font-size: 2em;
+   	 border-radius: 10px;
+   	 cursor: pointer;
+  	 transition: background .5s;
+  	 box-shadow: 0 -10px 0 rgba(0, 0, 0, 0.1) inset;
+}
+#regbtn:hover{
+	background:rgba(88, 214, 103, 0.6);
+}
 #contenthere img {
 	border-radius: 12px;
 	border: 2px #000000 solid;

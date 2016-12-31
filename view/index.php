@@ -62,6 +62,9 @@
    			var AnW_CODE = 2;
    			var events_data;
          $(document).ready(function() {
+         	$("#regbtn").click(function(){
+         		$.get( "register/"+$(this).attr("placeholder")+"/")
+         	});
          	if(location.hash=="#events"){
          	 	$("#clwrap").fadeIn();
             	$(".clubs").fadeIn();
@@ -135,6 +138,8 @@
 				$('#eve_organisers').text("");
 				$('#eve_short_desc').text("");
 				$('#eve_long_desc').text("");
+				$('#regbtn').attr("placeholder","");
+				
 				eve_rulefill("");
 				eve_iconswitch("");
 				eve_coverswitch("");
@@ -207,6 +212,7 @@
 						$('#eve_name').text(eve['eveName']);
 						$('#eve_tagline').html(getHTMLText(eve['tagline']));
 						$('#eve_date').text(eve['date']);
+						$('#regbtn').attr("placeholder",eve['eveId']);
 						$('#eve_time').text(eve['time']);
 						$('#eve_venue').html(getHTMLText(eve['venue']));
 						$('#eve_short_desc').html(getHTMLText(eve['short_desc']));
@@ -1559,6 +1565,8 @@
 					</ul>
 				</div><br><br><br>
 				<a href="" id="RuleBtn" target="_blank">Rulebook</a>
+				<a id="regbtn" placeholder="" >Register for Event</a>
+
 				<br><br><br><br><br>
 
 
