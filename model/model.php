@@ -1252,7 +1252,7 @@ class Auth
         
         require('defines.php');
         $baseURL = $ANWESHA_URL;
-        $url = $baseURL . "resetpassword/$userId/$token";
+        $url = $baseURL . "resetpassword/$userId/$token/";
         
         $emailContent = "Hi $name,</br>We received a request to Reset to Anwesha Password. To reset your password Please click <a href='$url'>here</a>.</br></br>In case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to $ANWESHA_REG_EMAIL. You can also visit our website $ANWESHA_URL for more information.</br></br>Thank You.</br>Registration & Planning Team</br>$ANWESHA_YEAR";
         People::EmailWithText($em,"Anwesha Password Reset",$emailContent);
