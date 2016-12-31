@@ -22,11 +22,9 @@
 <html >
 	<head>
 		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<!-- jQuery library -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
 		<!-- Latest compiled JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<!-- To make responsive -->
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="assets/css/mobile.css" media="only screen and (max-width: 960px)">
@@ -38,16 +36,19 @@
 <!-- <?php echo $match[2] ;?> -->
 		<link rel="stylesheet" href="assets/css/style.css">
 		<link rel="icon" href="favicon.ico" type="image/x-icon" />
-		<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+		<!-- <script src="//code.jquery.com/jquery-1.12.4.js"></script> -->
 		<script type = "text/javascript" 
          src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		
       <script type = "text/javascript" 
          src = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
 		
-  <script src="//code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
-		<script src='assets/js/jquery.min.js'></script>
+  <!-- <script src="//code.jquery.com/ui/1.12.0/jquery-ui.js"></script> -->
+		<!-- <script src='assets/js/jquery.min.js'></script> -->
 		<script src='assets/js/jquery.transit.min.js'></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 		<script>
 		$(document).ready(function() {
 
@@ -1638,6 +1639,7 @@
 		
 			<ul class="links">
 				<a href="#login" id="loginbtn" style=""><li>Login</li></a>
+				<a  id="logoutbtn" style="display: none"><li>LogOut</li></a>
 				<a id='bregister' href="#register"><li>Registration</li></a>
 				<a id='bregister_ca' href="#register_ca"><li>Campus Ambassador</li></a>
                 <a id='bleaderboard' href="#leaderboard"><li>Campus Ambassador Leaderboard</li></a>
@@ -1786,6 +1788,32 @@
 			</style>
 			<script>
 				$(document).ready(function(){
+					$("#logoutbtn").click(function(){
+
+        					$.post("logout/",
+								{},
+								function(data, status){
+									console.log("Response");
+	                            	console.log("Data: " + data + "\nStatus: " + status);
+	                                if(status=='success'){
+	                                	if(data['status']==1 || data['status']===true) {
+											$("#modhead").css("color","green");
+											$("#logoutbtn").fadeOut();
+											$("#loginbtn").fadeIn();
+											var isLoggedIn = false;
+											var logged_name = "";
+	                                	} else {
+                                			$("#modhead").css("color","red");
+	                                	}
+	                                	$("#modhead").html(data['msg']);
+				        					
+	                                } else {
+	                                	$("#modhead").text("Trouble reaching server");
+                                			$("#modhead").css("color","red");
+	                                }
+								},"json");
+						$("#myModal").modal();
+					});
 					var onresetpassORresendEmail = function(){$("#loginerror").empty();
 						console.log("Clicked to "+$(this).attr("placeholder"));
 						$("#loginsubmit").fadeOut();
@@ -1943,6 +1971,7 @@
 			$("#userarea").show("fast");
 			isLoggedIn = true;
 			$("#loginbtn").hide("fast");
+			$("#logoutbtn").show("fast");
 
 		}
 		function uilogin_name(name) {
@@ -1962,6 +1991,18 @@
 		
 			
 		</script>
-
+	 <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="modhead">Modal Header</h4>
+        <a type="button" style="float:right" class="btn btn-default" data-dismiss="modal">Close</a>
+        </div>
+      </div>
+      
+    </div>
+  </div>
 	</body>
 </html>
