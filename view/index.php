@@ -1747,8 +1747,8 @@
 					onfocus="if (this.value == 'password') {this.value = '';}" /><center>
                 <img src="images/spinner-large.gif" style="width:30px;height:30px;display:none" class="logingif"></center>
 				<input class="button" type="submit" id="loginsubmit" value="LogIn!">
-				<a id="loganchor" placeholder="reset">Reset Password</a><br>
-				<a id="loganchor" placeholder="resend">Resend Confirmation mail</a>
+				<a id="loganchor" class="loganchor" placeholder="reset">Reset Password</a><br>
+				<a id="loganchor" class="loganchor" placeholder="resend">Resend Confirmation mail</a>
 			<style>
 				#loganchor{
 					cursor: pointer;
@@ -1760,7 +1760,7 @@
 			</style>
 			<script>
 				$(document).ready(function(){
-					$("#loganchor").click(function(){$("#loginerror").empty();
+					$(".loganchor").click(function(){$("#loginerror").empty();
 
 						var username=$(".loginname").val();
          				if (username=='' || username==null || username=="AnweshaID"){
