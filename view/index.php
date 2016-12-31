@@ -1789,7 +1789,7 @@
 					var onresetpassORresendEmail = function(){$("#loginerror").empty();
 						console.log("Clicked to "+$(this).attr("placeholder"));
 						$("#loginsubmit").fadeOut();
-						$(".loginname").fadeOut();
+						$(".loginpswd").fadeOut();
 						var username=$(".loginname").val();
          				if (username=='' || username==null || username=="AnweshaID"){
         					$("#loginerror").text("Please enter AnweshaID to proceed");
