@@ -1773,7 +1773,7 @@
 
 
                                     //Post ajax goes here
-                                    
+                                    //callback
 
                                     //if login succeeds you can use the following  ccommented lines of code:
 
