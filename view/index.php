@@ -20,12 +20,19 @@
 <!DOCTYPE html>
 <html >
 	<head>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<!-- Latest compiled JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<!-- To make responsive -->
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="assets/css/mobile.css" media="only screen and (max-width: 960px)">
 		<link rel="stylesheet" href="assets/css/desktop.css" media="only screen and (min-width: 960px)">
 		<meta name="theme-color" content="#e0a772">
 		<meta charset="UTF-8">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 		<title>Anwesha '17</title>
 <!-- <?php echo $match[2] ;?> -->
 		<link rel="stylesheet" href="assets/css/style.css">
@@ -547,9 +554,952 @@
 			
 		}
 		</script>
+
+
 		<audio id="bgaudio" style="display: none" autoplay>
   			 <!--<source src="assets/bgaudio.mp3" volume="0.3" type="audio/mpeg">-->
   		</audio>
+  		<!-- <div style="width:100%;height: 100%;display: none;background-color: rgba(0,0,0,0.7);" id="teams"> -->
+  			
+  		<!-- </div> -->
+        <div id="teams" class="lightboxnew" style="box-shadow: 0 0 50px rgba(156, 156, 156, 0.71) inset">
+        <button id="backbtn4"><a href="#">< Back</a></button>
+        <div class="container" style=" width:100%;overflow-y: auto;height: 100%;">
+        	<div class="row">
+        		<center><br><br>
+        		<h1 style="color:#FFFFFF;font-size:5em;font-family: bebas;">Teams</h1>
+        	</div><br>
+        	<br>
+        	<style>
+				/* entire container, keeps perspective */
+				.flip-container {
+					perspective: 1000px;
+				}
+				/* flip the pane when hovered */
+				.flip-container:hover .flipper, .flip-container.hover .flipper {
+						transform: rotateY(180deg);
+					}
+				
+				/* flip speed goes here */
+				.flipper {
+					transition: 0.6s;
+					transform-style: preserve-3d;
+				
+					position: relative;
+				}
+				
+				/* hide back of pane during swap */
+				.pplfront, .pplback {
+					backface-visibility: hidden;
+				
+					position: absolute;
+					top: 0;
+					left: 0;
+				}
+
+				/* front pane, placed above back */
+				.pplfront {
+					z-index: 2;
+					/* for firefox 31 */
+					transform: rotateY(0deg);
+				}
+				
+				/* back, initially hidden pane */
+				.pplback {
+					transform: rotateY(180deg);
+				}
+        		.name{
+        			float:bottom;
+        			bottom: 0;
+        			position: relative;
+        			text-align: center;
+        			font-family: bebas;
+        			font-size: 2em;
+					margin:10px;
+        		}
+        		.pplfront{
+        			width:200px;
+        			height:210px;
+        			/*background-color: #FFFF00;*/
+        			background-size: cover;
+        			box-shadow:0 0 50px rgba(156, 156, 156, 0.71) inset;
+
+        		}
+        		.pplback{
+        			display: table;
+        			width:200px;
+        			height:210px;
+        			background-color: rgba(104, 73, 149, 0.76);
+        			background-image: url('images/logo-500.png');
+        			background-size: cover;
+        			box-shadow:0 0 50px rgba(156, 156, 156, 0.71);
+        		}
+        		.pplbox{
+        			width:200px;
+        			height:220px;
+        			/*box-shadow:0 0 50px rgba(156, 156, 156, 0.71)*/
+
+        		}
+        		.desig{
+        			font-family: bebas;
+        			font-size: 3em;
+        			width:100%;
+        			text-align: center;
+        		}
+        		.contactinfo{
+        			margin:auto;
+					font-size:1.5em;
+					font-family: 'Open Sans', sans-serif;
+					
+        		}
+        		.linkedin{
+        			text-decoration:none; 
+        			cursor: pointer;
+        		}
+        	</style>
+        	<div class="row">
+        		<div class="col-sm-12">
+        			<center>
+        			<!-- designation -->
+        				<span class="desig" >Overall Fest Coordinator</span>
+   						<br>
+        			<!-- image -->
+
+						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+							<div class="pplfront" style="background-image: url('images/team/festcoord.jpg')">
+									<!-- front content -->
+								</div>
+								<div class="pplback">
+									<div class="contactinfo"><br><br>
+										<span class="phoneno">9708000578</span><br><br>
+										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
+																				
+									</div>
+									<!-- back content -->
+								</div>
+							</div>
+						</div>
+
+        			<!-- /image -->
+        			<br>
+        			<!-- name -->
+        			<span class="name" >Abhinay Paladugu</span>
+        			</center>
+        		</div>
+        	</div>
+        			<center>
+					<hr width="80%">
+   						<br>
+
+        	<span class="desig" >Marketing and Sponsorship</span>
+        			</center>
+
+			<div class="row">
+
+        		<div class="col-sm-6">
+        			<center>
+        				
+        			<!-- image -->
+
+						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+							<div class="pplfront" style="background-image: url('images/team/festcoord.jpg')">
+									<!-- front content -->
+								</div>
+								<div class="pplback">
+									<div class="contactinfo"><br><br>
+										<span class="phoneno">9708000578</span><br><br>
+										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
+																				
+									</div>
+									<!-- back content -->
+								</div>
+							</div>
+						</div>
+
+        			<!-- /image -->
+        			<br>
+        			<!-- name -->
+        			<span class="name" >Abhinay Paladugu</span>
+        			</center>
+        		</div>
+
+        		<div class="col-sm-6">
+        			<center>
+        			<!-- image -->
+
+						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+							<div class="pplfront" style="background-image: url('images/team/default.jpg')">
+									<!-- front content -->
+								</div>
+								<div class="pplback">
+									<div class="contactinfo"><br><br>
+										<span class="phoneno">9006703625</span><br><br>
+										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
+																				
+									</div>
+									<!-- back content -->
+								</div>
+							</div>
+						</div>
+
+        			<!-- /image -->
+        			<br>
+        			<!-- name -->
+        			<span class="name" >Suresh Raja</span>
+        			</center>
+        		</div>
+
+        		
+        	</div>
+
+
+			<center>
+					<hr width="80%">
+   						<br>
+
+        	<span class="desig" >Registration Planning and Security</span>
+        			</center>
+			
+			<div class="row">
+
+        		<div class="col-sm-4">
+        			<center>
+        				
+        			<!-- image -->
+
+						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+							<div class="pplfront" style="background-image: url('images/team/default.jpg')">
+									<!-- front content -->
+								</div>
+								<div class="pplback">
+									<div class="contactinfo"><br><br>
+										<span class="phoneno">9006743067</span><br><br>
+										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
+																				
+									</div>
+									<!-- back content -->
+								</div>
+							</div>
+						</div>
+
+        			<!-- /image -->
+        			<br>
+        			<!-- name -->
+        			<span class="name" >Vivek Kumar</span>
+        			</center>
+        		</div>
+				<div class="col-sm-4">
+        			<center>
+        				
+        			<!-- image -->
+
+						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+							<div class="pplfront" style="background-image: url('images/team/default.jpg')">
+									<!-- front content -->
+								</div>
+								<div class="pplback">
+									<div class="contactinfo"><br><br>
+										<span class="phoneno">9709318262</span><br><br>
+										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
+																				
+									</div>
+									<!-- back content -->
+								</div>
+							</div>
+						</div>
+
+        			<!-- /image -->
+        			<br>
+        			<!-- name -->
+        			<span class="name" >Utkarsh Singh</span>
+        			</center>
+        		</div>
+        		<div class="col-sm-4">
+        			<center>
+        			<!-- image -->
+
+						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+							<div class="pplfront" style="background-image: url('images/team/default.jpg')">
+									<!-- front content -->
+								</div>
+								<div class="pplback">
+									<div class="contactinfo"><br><br>
+										<span class="phoneno">96310 99947</span><br><br>
+										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
+																				
+									</div>
+									<!-- back content -->
+								</div>
+							</div>
+						</div>
+
+        			<!-- /image -->
+        			<br>
+        			<!-- name -->
+        			<span class="name" >Ankit Chahal</span>
+        			</center>
+        		</div>
+
+        		
+        	</div>
+			
+
+
+			<center>
+					<hr width="80%">
+   						<br>
+
+        	<span class="desig" >Media &amp; Public Relations</span>
+        	</center>
+
+
+			<div class="row">
+
+        		<div class="col-sm-4">
+        			<center>
+        				
+        			<!-- image -->
+
+						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+							<div class="pplfront" style="background-image: url('images/team/default.jpg')">
+									<!-- front content -->
+								</div>
+								<div class="pplback">
+									<div class="contactinfo"><br><br>
+										<span class="phoneno">9709309693</span><br><br>
+										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
+																				
+									</div>
+									<!-- back content -->
+								</div>
+							</div>
+						</div>
+
+        			<!-- /image -->
+        			<br>
+        			<!-- name -->
+        			<span class="name" >Prateek Sharma</span>
+        			</center>
+        		</div>
+				<div class="col-sm-4">
+        			<center>
+        				
+        			<!-- image -->
+
+						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+							<div class="pplfront" style="background-image: url('images/team/default.jpg')">
+									<!-- front content -->
+								</div>
+								<div class="pplback">
+									<div class="contactinfo"><br><br>
+										<span class="phoneno">9006703052</span><br><br>
+										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
+																				
+									</div>
+									<!-- back content -->
+								</div>
+							</div>
+						</div>
+
+        			<!-- /image -->
+        			<br>
+        			<!-- name -->
+        			<span class="name" >Lakhan Aggrawal</span>
+        			</center>
+        		</div>
+        		<div class="col-sm-4">
+        			<center>
+        			<!-- image -->
+
+						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+							<div class="pplfront" style="background-image: url('images/team/default.jpg')">
+									<!-- front content -->
+								</div>
+								<div class="pplback">
+									<div class="contactinfo"><br><br>
+										<span class="phoneno">9631089163</span><br><br>
+										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
+																				
+									</div>
+									<!-- back content -->
+								</div>
+							</div>
+						</div>
+
+        			<!-- /image -->
+        			<br>
+        			<!-- name -->
+        			<span class="name" >Bhagyashri Verma</span>
+        			</center>
+        		</div>
+
+        		
+        	</div>
+
+			<center>
+					<hr width="80%">
+   						<br>
+
+        	<span class="desig" >Technical</span>
+        	</center>
+			
+
+
+			<div class="row">
+
+        		<div class="col-sm-6">
+        			<center>
+        				
+        			<!-- image -->
+
+						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+							<div class="pplfront" style="background-image: url('images/team/default.jpg')">
+									<!-- front content -->
+								</div>
+								<div class="pplback">
+									<div class="contactinfo"><br><br>
+										<span class="phoneno">9401982501</span><br><br>
+										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
+																				
+									</div>
+									<!-- back content -->
+								</div>
+							</div>
+						</div>
+
+        			<!-- /image -->
+        			<br>
+        			<!-- name -->
+        			<span class="name" >Hitesh Golchha</span>
+        			</center>
+        		</div>
+
+        		<div class="col-sm-6">
+        			<center>
+        			<!-- image -->
+
+						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+							<div class="pplfront" style="background-image: url('images/team/default.jpg')">
+									<!-- front content -->
+								</div>
+								<div class="pplback">
+									<div class="contactinfo"><br><br>
+										<span class="phoneno">9006704106</span><br><br>
+										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
+																				
+									</div>
+									<!-- back content -->
+								</div>
+							</div>
+						</div>
+
+        			<!-- /image -->
+        			<br>
+        			<!-- name -->
+        			<span class="name" >Abhishek Jaiswal</span>
+        			</center>
+        		</div>
+
+        		
+        	</div>
+			
+
+			<center>
+					<hr width="80%">
+   						<br>
+
+        	<span class="desig" >Cultural</span>
+        	</center>
+			
+
+
+			<div class="row">
+
+        		<div class="col-sm-6">
+        			<center>
+        				
+        			<!-- image -->
+
+						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+							<div class="pplfront" style="background-image: url('images/team/default.jpg')">
+									<!-- front content -->
+								</div>
+								<div class="pplback">
+									<div class="contactinfo"><br><br>
+										<span class="phoneno">8571831933</span><br><br>
+										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
+																				
+									</div>
+									<!-- back content -->
+								</div>
+							</div>
+						</div>
+
+        			<!-- /image -->
+        			<br>
+        			<!-- name -->
+        			<span class="name" >Gopal Kumar </span>
+        			</center>
+        		</div>
+
+        		<div class="col-sm-6">
+        			<center>
+        			<!-- image -->
+
+						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+							<div class="pplfront" style="background-image: url('images/team/default.jpg')">
+									<!-- front content -->
+								</div>
+								<div class="pplback">
+									<div class="contactinfo"><br><br>
+										<span class="phoneno">9631112601</span><br><br>
+										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
+																				
+									</div>
+									<!-- back content -->
+								</div>
+							</div>
+						</div>
+
+        			<!-- /image -->
+        			<br>
+        			<!-- name -->
+        			<span class="name" >Srimann Nannapaneni</span>
+        			</center>
+        		</div>
+
+        		
+        	</div>
+			
+
+
+			<center>
+					<hr width="80%">
+   						<br>
+
+        	<span class="desig" >Arts  &amp; Welfare</span>
+        	</center>
+
+
+			<div class="row">
+
+        		<div class="col-sm-4">
+        			<center>
+        				
+        			<!-- image -->
+
+						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+							<div class="pplfront" style="background-image: url('images/team/default.jpg')">
+									<!-- front content -->
+								</div>
+								<div class="pplback">
+									<div class="contactinfo"><br><br>
+										<span class="phoneno">95235 44530</span><br><br>
+										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
+																				
+									</div>
+									<!-- back content -->
+								</div>
+							</div>
+						</div>
+
+        			<!-- /image -->
+        			<br>
+        			<!-- name -->
+        			<span class="name" >Raghu Ram Reddy</span>
+        			</center>
+        		</div>
+				<div class="col-sm-4">
+        			<center>
+        				
+        			<!-- image -->
+
+						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+							<div class="pplfront" style="background-image: url('images/team/default.jpg')">
+									<!-- front content -->
+								</div>
+								<div class="pplback">
+									<div class="contactinfo"><br><br>
+										<span class="phoneno">7783078560</span><br><br>
+										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
+																				
+									</div>
+									<!-- back content -->
+								</div>
+							</div>
+						</div>
+
+        			<!-- /image -->
+        			<br>
+        			<!-- name -->
+        			<span class="name" >Abhishek Sourabh </span>
+        			</center>
+        		</div>
+        		<div class="col-sm-4">
+        			<center>
+        			<!-- image -->
+
+						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+							<div class="pplfront" style="background-image: url('images/team/default.jpg')">
+									<!-- front content -->
+								</div>
+								<div class="pplback">
+									<div class="contactinfo"><br><br>
+										<span class="phoneno">9494946566</span><br><br>
+										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
+																				
+									</div>
+									<!-- back content -->
+								</div>
+							</div>
+						</div>
+
+        			<!-- /image -->
+        			<br>
+        			<!-- name -->
+        			<span class="name" >Sathya Prakash</span>
+        			</center>
+        		</div>
+
+        		
+        	</div>
+
+			
+
+			<center>
+					<hr width="80%">
+   						<br>
+
+        	<span class="desig" >Hospitality</span>
+        	</center>
+
+
+			<div class="row">
+
+        		<div class="col-sm-3">
+        			<center>
+        				
+        			<!-- image -->
+
+						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+							<div class="pplfront" style="background-image: url('images/team/default.jpg')">
+									<!-- front content -->
+								</div>
+								<div class="pplback">
+									<div class="contactinfo"><br><br>
+										<span class="phoneno">9006703087</span><br><br>
+										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
+																				
+									</div>
+									<!-- back content -->
+								</div>
+							</div>
+						</div>
+
+        			<!-- /image -->
+        			<br>
+        			<!-- name -->
+        			<span class="name" >Vishvesh Rai </span>
+        			</center>
+        		</div>
+				<div class="col-sm-3">
+        			<center>
+        				
+        			<!-- image -->
+
+						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+							<div class="pplfront" style="background-image: url('images/team/default.jpg')">
+									<!-- front content -->
+								</div>
+								<div class="pplback">
+									<div class="contactinfo"><br><br>
+										<span class="phoneno">9631112451</span><br><br>
+										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
+																				
+									</div>
+									<!-- back content -->
+								</div>
+							</div>
+						</div>
+
+        			<!-- /image -->
+        			<br>
+        			<!-- name -->
+        			<span class="name" >Pranjali Sharma </span>
+        			</center>
+        		</div>
+        		<div class="col-sm-3">
+        			<center>
+        			<!-- image -->
+
+						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+							<div class="pplfront" style="background-image: url('images/team/default.jpg')">
+									<!-- front content -->
+								</div>
+								<div class="pplback">
+									<div class="contactinfo"><br><br>
+										<span class="phoneno"> 9470731600</span><br><br>
+										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
+																				
+									</div>
+									<!-- back content -->
+								</div>
+							</div>
+						</div>
+
+        			<!-- /image -->
+        			<br>
+        			<!-- name -->
+        			<span class="name" >Sushant Kumar </span>
+        			</center>
+        		</div>
+        		<div class="col-sm-3">
+        			<center>
+        			<!-- image -->
+
+						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+							<div class="pplfront" style="background-image: url('images/team/default.jpg')">
+									<!-- front content -->
+								</div>
+								<div class="pplback">
+									<div class="contactinfo"><br><br>
+										<span class="phoneno">  9869438819‬</span><br><br>
+										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
+																				
+									</div>
+									<!-- back content -->
+								</div>
+							</div>
+						</div>
+
+        			<!-- /image -->
+        			<br>
+        			<!-- name -->
+        			<span class="name" >Shreyas Patil</span>
+        			</center>
+        		</div>
+
+        		
+        	</div>
+
+			
+			
+
+			<center>
+					<hr width="80%">
+   						<br>
+
+        	<span class="desig" >Creatives &amp; Design</span>
+        	</center>
+
+
+			<div class="row">
+
+        		<div class="col-sm-4">
+        			<center>
+        				
+        			<!-- image -->
+
+						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+							<div class="pplfront" style="background-image: url('images/team/default.jpg')">
+									<!-- front content -->
+								</div>
+								<div class="pplback">
+									<div class="contactinfo"><br><br>
+										<span class="phoneno"> 8987040707</span><br><br>
+										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
+																				
+									</div>
+									<!-- back content -->
+								</div>
+							</div>
+						</div>
+
+        			<!-- /image -->
+        			<br>
+        			<!-- name -->
+        			<span class="name" >Snehan Shourya</span>
+        			</center>
+        		</div>
+				<div class="col-sm-4">
+        			<center>
+        				
+        			<!-- image -->
+
+						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+							<div class="pplfront" style="background-image: url('images/team/default.jpg')">
+									<!-- front content -->
+								</div>
+								<div class="pplback">
+									<div class="contactinfo"><br><br>
+										<span class="phoneno">8969303835</span><br><br>
+										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
+																				
+									</div>
+									<!-- back content -->
+								</div>
+							</div>
+						</div>
+
+        			<!-- /image -->
+        			<br>
+        			<!-- name -->
+        			<span class="name" >Subramaniyam Shankar</span>
+        			</center>
+        		</div>
+        		<div class="col-sm-4">
+        			<center>
+        			<!-- image -->
+
+						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+							<div class="pplfront" style="background-image: url('images/team/default.jpg')">
+									<!-- front content -->
+								</div>
+								<div class="pplback">
+									<div class="contactinfo"><br><br>
+										<span class="phoneno">8889558326</span><br><br>
+										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
+																				
+									</div>
+									<!-- back content -->
+								</div>
+							</div>
+						</div>
+
+        			<!-- /image -->
+        			<br>
+        			<!-- name -->
+        			<span class="name" >Manish Madugula</span>
+        			</center>
+        		</div>
+
+        		
+        	</div>
+			
+
+						<center>
+					<hr width="80%">
+   						<br>
+
+        	<span class="desig" >Web and App Dev</span>
+        	</center>
+
+
+			<div class="row">
+
+        		<div class="col-sm-4">
+        			<center>
+        				
+        			<!-- image -->
+
+						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+							<div class="pplfront" style="background-image: url('images/team/default.jpg')">
+									<!-- front content -->
+								</div>
+								<div class="pplback">
+									<div class="contactinfo"><br><br>
+										<span class="phoneno"> 9473480014</span><br><br>
+										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
+																				
+									</div>
+									<!-- back content -->
+								</div>
+							</div>
+						</div>
+
+        			<!-- /image -->
+        			<br>
+        			<!-- name -->
+        			<span class="name" >Gagan Kumar</span>
+        			</center>
+        		</div>
+				<div class="col-sm-4">
+        			<center>
+        				
+        			<!-- image -->
+
+						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+							<div class="pplfront" style="background-image: url('images/team/default.jpg')">
+									<!-- front content -->
+								</div>
+								<div class="pplback">
+									<div class="contactinfo"><br><br>
+										<span class="phoneno">9006703524</span><br><br>
+										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
+																				
+									</div>
+									<!-- back content -->
+								</div>
+							</div>
+						</div>
+
+        			<!-- /image -->
+        			<br>
+        			<!-- name -->
+        			<span class="name" >Zenin Easa</span>
+        			</center>
+        		</div>
+        		<div class="col-sm-4">
+        			<center>
+        			<!-- image -->
+
+						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+							<div class="pplfront" style="background-image: url('images/team/default.jpg')">
+									<!-- front content -->
+								</div>
+								<div class="pplback">
+									<div class="contactinfo"><br><br>
+										<span class="phoneno">9631089106</span><br><br>
+										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
+																				
+									</div>
+									<!-- back content -->
+								</div>
+							</div>
+						</div>
+
+        			<!-- /image -->
+        			<br>
+        			<!-- name -->
+        			<span class="name" >Abhishek Kumar</span>
+        			</center>
+        		</div>
+
+        		
+        	</div>
+
+
+		<br><br><br><br><br>
+
+        </div>
+  		</center>
+  		</div>
 		<div class="blankbg">
 			<div id="bgofblankbg"></div>
 			<div class="NavWrap" style="width: 100%;
@@ -656,11 +1606,10 @@
 			
 		
 			<ul class="links">
-				<a id='blogin' href="#login"><li>Login</li></a>
 				<a id='bregister' href="#register"><li>Registration</li></a>
-				<br>
 				<a id='bregister_ca' href="#register_ca"><li>Campus Ambassador</li></a>
                 <a id='bleaderboard' href="#leaderboard"><li>Campus Ambassador Leaderboard</li></a>
+				<a href="#teams" id="teamsbtn" style=""><li>Teams</li></a>
 				<a href="#events" id="eventsbtn" style=""><li>Events</li></a>
 				<br>
 			    <a href="auditions/"><li>MultiCity</li></a>
@@ -678,11 +1627,8 @@
 				<div class="text">
 					Jan 27 28 29
 				</div>
-				<div class="hidden">
-					bla
-				</div>
 			</div>
-			<div id="swingwrap"><img class="swingimage" src="images/anchor_events.png" /></div>
+			<div id="swingwrap"><img class="swingimage" src="images/combined.png" /></div>
 			
 			<img class="sponsimg" alt="sponsors" src="images/spons.png" onclick="stackWoodStacks();" />
 
@@ -747,7 +1693,7 @@
 				<input id="refcode" class="inp" name="ref" type="text" placeholder="Reference Code" pattern='([0-9]{4})|()' title="Invalid Ref Number" value="<?php if(isset($referalcode)) echo $referalcode; ?>" <?php if(!empty($referalcode)) echo "disabled"; ?>>
                 <div id="error" style="width:auto;display:none;box-radius:5px;box-shadow:#000000 0 0 10px;background:#6fce2d;padding:20px;font-size:20px;margin:10px">An error occured</div>
                 <img src="images/spinner-large.gif" style="width:30px;height:30px;display:none" class="smloader2">
-				<input class="button inp" type="submit" id="submitreg" value="Register" style="width:100%">
+				<input class="button inp" type="submit" id="submitreg" value="Submit" style="width:100%">
 			</div>
 		</div>
 
@@ -785,9 +1731,9 @@
 			<div class="close"><a href="#" onclick="document.body.style.overflow='visible';">X</a></div>
 			<h2>Login</h2>
 			<div class="box">
-				<input class="inp" name="username" type="text" placeholder="Username" >
-				<input class="inp" name="password" type="password" placeholder="Password" >
-				<input class="button" type="submit" value="Login">
+				<input class="inp" name="username" type="text" value="Username" >
+				<input class="inp" name="password" type="password" value="Password" >
+				<input class="button" type="submit" value="login">
 			</div>
 		</div>
 
