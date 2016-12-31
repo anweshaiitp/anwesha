@@ -22,11 +22,9 @@
 <html >
 	<head>
 		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<!-- jQuery library -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
 		<!-- Latest compiled JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<!-- To make responsive -->
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="assets/css/mobile.css" media="only screen and (max-width: 960px)">
@@ -38,16 +36,19 @@
 <!-- <?php echo $match[2] ;?> -->
 		<link rel="stylesheet" href="assets/css/style.css">
 		<link rel="icon" href="favicon.ico" type="image/x-icon" />
-		<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+		<!-- <script src="//code.jquery.com/jquery-1.12.4.js"></script> -->
 		<script type = "text/javascript" 
          src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		
       <script type = "text/javascript" 
          src = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
 		
-  <script src="//code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
-		<script src='assets/js/jquery.min.js'></script>
+  <!-- <script src="//code.jquery.com/ui/1.12.0/jquery-ui.js"></script> -->
+		<!-- <script src='assets/js/jquery.min.js'></script> -->
 		<script src='assets/js/jquery.transit.min.js'></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 		<script>
 		$(document).ready(function() {
 
@@ -573,10 +574,11 @@
 			position:absolute;
 			z-index: 1;
 			top: 0px;
-			right: -10px;
+			right: 0px;
 			-moz-border-radius:10px;  /* for Firefox */
 			-webkit-border-radius:10px; /* for Webkit-Browsers */
-			border-radius:10px; /* regular */
+			border-bottom-left-radius: :10px;
+			border-top-left-radius: :10px;
 			background-color: rgba(255,255,255,0.6);
 			color: black;
 			padding: 10px;
@@ -1638,10 +1640,11 @@
 		
 			<ul class="links">
 				<a href="#login" id="loginbtn" style=""><li>Login</li></a>
+				<a  id="logoutbtn" style="display: none"><li>LogOut</li></a>
 				<a id='bregister' href="#register"><li>Registration</li></a>
 				<a id='bregister_ca' href="#register_ca"><li>Campus Ambassador</li></a>
                 <a id='bleaderboard' href="#leaderboard"><li>Campus Ambassador Leaderboard</li></a>
-				<a href="#teams" id="teamsbtn" style=""><li>Teams</li></a>
+				<!--<a href="#teams" id="teamsbtn" style=""><li>Teams</li></a>-->
 				<a href="#events" id="eventsbtn" style=""><li>Events</li></a>
 			    <a href="auditions/"><li>MultiCity</li></a>
 
@@ -1786,8 +1789,39 @@
 			</style>
 			<script>
 				$(document).ready(function(){
+					$("#logoutbtn").click(function(){
+
+        					$.post("logout/",
+								{},
+								function(data, status){
+									console.log("Response");
+	                            	console.log("Data: " + data + "\nStatus: " + status);
+	                                if(status=='success'){
+	                                	if(data['status']==1 || data['status']===true) {
+	                                		uilogout();
+											$("#modhead").css("color","green");
+											$("#logoutbtn").fadeOut();
+											$("#loginbtn").fadeIn();
+											var isLoggedIn = false;
+											var logged_name = "";
+											$("#loginbtn").css("display","block");			
+
+	                                	} else {
+                                			$("#modhead").css("color","red");
+	                                	}
+	                                	$("#modhead").html(data['msg']);
+				        					
+	                                } else {
+	                                	$("#modhead").text("Trouble reaching server");
+                                			$("#modhead").css("color","red");
+	                                }
+								},"json");
+						$("#myModal").modal();
+					});
 					var onresetpassORresendEmail = function(){$("#loginerror").empty();
-						console.log("Clicked!");
+						console.log("Clicked to "+$(this).attr("placeholder"));
+						$("#loginsubmit").fadeOut();
+						$(".loginpswd").fadeOut();
 						var username=$(".loginname").val();
          				if (username=='' || username==null || username=="AnweshaID"){
         					$("#loginerror").text("Please enter AnweshaID to proceed");
@@ -1807,8 +1841,7 @@
 	                                if(status=='success'){
 	                                	if(data[0]==1) {
 	                                		$(".loginpswd").fadeOut();
-											$("#loginsubmit").fadeOut();
-											$(".loginname").fadeOut();
+											
 											$(".loginhead").css("color","green");
 	                                	} else {
                                 			$(".loginhead").css("color","yellow");
@@ -1866,19 +1899,21 @@
 
                                     //if login succeeds you can use the following  ccommented lines of code:
                                     $("#loginerror").empty();
-        							if(data['status']) {
+        							if(data['status']===true || data['status']==1) {
                                     	$(".loginhead").css("color","green");
                                     	uilogin_name(data['name']);
                                     	$("#login").delay(1000).fadeOut(1000,function(){
                                     		window.location.hash ='#';
-                                    });
+
+                                    	});
+                                    	$("#login input").fadeOut();
+        								$("#loginbtn").fadeOut();
         							} else {
                                     	$(".loginhead").css("color","yellow");
         								
                                     }
                                     $(".loginhead").text(data['msg']);
-                                    $("#login input").fadeOut();
-        							$("#loginbtn").fadeOut();
+                                    
         							
      
                                 }else{
@@ -1940,6 +1975,18 @@
 			$("#userarea").show("fast");
 			isLoggedIn = true;
 			$("#loginbtn").hide("fast");
+			$("#logoutbtn").show("fast");
+			$("#logoutbtn").css("display","block");
+
+		}
+		function uilogout() {
+			console.log("UI Logged OUT ");
+			$("#userarea_name").empty();
+			$("#userarea").hide();
+			isLoggedIn = false;
+			$("#loginbtn").show("fast");
+			$("#loginbtn").css("display","block");			
+			$("#logoutbtn").hide("fast");
 
 		}
 		function uilogin_name(name) {
@@ -1959,6 +2006,18 @@
 		
 			
 		</script>
-
+	 <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="modhead">Modal Header</h4>
+        <a type="button" style="float:right" class="btn btn-default" data-dismiss="modal">Close</a>
+        </div>
+      </div>
+      
+    </div>
+  </div>
 	</body>
 </html>
