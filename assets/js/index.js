@@ -52,18 +52,6 @@ jQuery(window).load(function() {
 		$(".sponsimg").delay(1000).css("z-index","2");
 
 	}
-
-	var Today 	= new Date();
-	var z1 = DayDiff(Today);
-
-	if(z1>1)
-		$('.hidden').html(z1+" days to go...");
-	else if(z1==1)
-		$('.hidden').html(z1+" day to go...");
-	else if(z1>-3)
-		$('.hidden').html("The game is on!");
-	else
-		$('.hidden').html("Hope to see you next year!");
 	 
 })
 
@@ -72,12 +60,3 @@ function gallery(){
 $('#galleryload').load('gallery.html');
 }
 
-
-function DayDiff(CurrentDate){
-	var TYear=CurrentDate.getFullYear();
-    var TDay=new Date("January, 27, 2017");
-    TDay.getFullYear(TYear);
-    var DayCount=(TDay-CurrentDate)/(1000*60*60*24);
-    DayCount=Math.round(DayCount); 
-    return(DayCount);
-}
