@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	$referalcode = null;
 	//Works to be done by frontend after loading
 	$todo  = null;
@@ -63,7 +64,9 @@
    			var events_data;
          $(document).ready(function() {
          	$("#regbtn").click(function(){
-         		$.get( "register/"+$(this).attr("placeholder")+"/");
+         		$.getJSON( "register/"+$(this).attr("placeholder")+"/",function(data) {
+         			alert(data['msg']);
+         		});
          	});
          	if(location.hash=="#events"){
          	 	$("#clwrap").fadeIn();
@@ -504,7 +507,6 @@
 				
 			});
 			});
-
 		
 		</script>
 		<meta property="og:image" content="images/preview.png" />
@@ -514,10 +516,14 @@
 				box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.49);
 				overflow-y: auto;
 			}
+
 		</style>
 	</head>
 
 	<body>
+		<div id='userarea'>
+			Welcome <span id='userarea_name'></span>!
+		</div>
 		<script type="text/javascript">
 		function checkstackheight(){
 			if ($("#back_wood").height()> $(window).height())
@@ -559,7 +565,24 @@
 			});
 			
 		}
+		
 		</script>
+		
+		<style type="text/css">
+		#userarea{
+			position:absolute;
+			z-index: 1;
+			top: 0px;
+			right: -10px;
+			-moz-border-radius:10px;  /* for Firefox */
+			-webkit-border-radius:10px; /* for Webkit-Browsers */
+			border-radius:10px; /* regular */
+			background-color: rgba(255,255,255,0.6);
+			color: black;
+			padding: 10px;
+			padding-right: 15px;
+			}
+		</style>
 
 
 		<audio id="bgaudio" style="display: none" autoplay>
@@ -1842,6 +1865,7 @@
                                     $("#loginerror").empty();
         							if(data['status']) {
                                     	$(".loginhead").css("color","green");
+                                    	uilogin_name(data['name']);
                                     	$("#login").delay(1000).fadeOut(1000,function(){
                                     		window.location.hash ='#';
                                     });
@@ -1896,7 +1920,42 @@
 		</div>
 
 		<script src="assets/js/index.js"></script>	
+		<script type="text/javascript">
+		var isLoggedIn = false;
+		var logged_name = "";
+
+		<?php
+		if(isset($_SESSION['user_name'])) {
+			echo "logged_name='".$_SESSION["user_name"]."';";
+			echo "isLoggedIn= true;";
+		}
+		?>
+		$("#userarea").hide();
+		function uilogin() {
+			console.log("UI Logged IN : "+logged_name);
+			$("#userarea_name").text(logged_name);
+			$("#userarea").show("fast");
+			isLoggedIn = true;
+			$("#loginbtn").hide("fast");
+
+		}
+		function uilogin_name(name) {
+			logged_name=name;
+			uilogin();
+		}
+		if(isLoggedIn) {
+			uilogin();
+		}
+		function uilogout() {
+
+			console.log("UI Logged Out : "+logged_name);
+			isLoggedIn = false;
+			$("#loginbtn").show("fast");
+			$("#userarea").hide("fast");
+		}
 		
+			
+		</script>
 
 	</body>
 </html>

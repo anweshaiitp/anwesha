@@ -32,9 +32,5 @@ if(isset($_SESSION['userID'])){
 		die();
 	}
 	$_SESSION['userID'] = $userID;
-} else{
-	session_destroy();
-	http_response_code(400);
-	die();
 }
 ?>

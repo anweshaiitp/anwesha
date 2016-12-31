@@ -4,9 +4,15 @@ require('dbConnection.php');
 
 $conn = mysqli_connect(SERVER_ADDRESS,USER_NAME,PASSWORD,DATABASE);
 
+
 require('middleware/authMiddleware.php');
 
-
+if(!isset($_SESSION['userID'])) {
+	mysqli_close($conn);
+	header('Content-type: application/json');	
+	echo json_encode(array("status"=>false, "msg"=>"Please Login First"));
+	die();
+}
 $userID = $_SESSION['userID'];
 $eveID = $match[1];
 

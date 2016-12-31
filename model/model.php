@@ -1184,7 +1184,7 @@ class Auth
 
         $password = sha1($password);
 
-        $sql = "SELECT People.name, People.college, People.sex, People.mobile, People.email, People.dob, People.city, People.feePaid, People.confirm, People.time AS regTime, LoginTable.totalLogin, LoginTable.lastLogin, LoginTable.privateKey AS 'key' FROM People INNER JOIN LoginTable ON People.pId = LoginTable.pId AND People.pId = $userID AND LoginTable.password = '$password'";
+        $sql = "SELECT People.name as name, People.college, People.sex, People.mobile, People.email, People.dob, People.city, People.feePaid, People.confirm, People.time AS regTime, LoginTable.totalLogin, LoginTable.lastLogin, LoginTable.privateKey AS 'key' FROM People INNER JOIN LoginTable ON People.pId = LoginTable.pId AND People.pId = $userID AND LoginTable.password = '$password'";
 
         $result = mysqli_query($conn,$sql);
         if(!$result OR mysqli_num_rows($result) != 1){
@@ -1197,6 +1197,7 @@ class Auth
             $result = mysqli_query($conn,$sql);
             session_start();
             $_SESSION['userID'] = $userID;
+            $_SESSION['user_name'] =  $row['name'];
             return $row;
         }
 
