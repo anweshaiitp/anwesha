@@ -1797,6 +1797,7 @@
 	                            	console.log("Data: " + data + "\nStatus: " + status);
 	                                if(status=='success'){
 	                                	if(data['status']==1 || data['status']===true) {
+	                                		uilogout();
 											$("#modhead").css("color","green");
 											$("#logoutbtn").fadeOut();
 											$("#loginbtn").fadeIn();
@@ -1972,6 +1973,17 @@
 			isLoggedIn = true;
 			$("#loginbtn").hide("fast");
 			$("#logoutbtn").show("fast");
+			$("#logoutbtn").css("display","block");
+
+		}
+		function uilogout() {
+			console.log("UI Logged OUT ");
+			$("#userarea_name").empty();
+			$("#userarea").hide();
+			isLoggedIn = false;
+			$("#loginbtn").show("fast");
+			$("#loginbtn").css("display","block");			
+			$("#logoutbtn").hide("fast");
 
 		}
 		function uilogin_name(name) {
