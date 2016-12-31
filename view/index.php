@@ -1803,6 +1803,8 @@
 											$("#loginbtn").fadeIn();
 											var isLoggedIn = false;
 											var logged_name = "";
+											$("#loginbtn").css("display","block");			
+
 	                                	} else {
                                 			$("#modhead").css("color","red");
 	                                	}
