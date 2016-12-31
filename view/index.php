@@ -1787,7 +1787,9 @@
 			<script>
 				$(document).ready(function(){
 					var onresetpassORresendEmail = function(){$("#loginerror").empty();
-						console.log("Clicked!");
+						console.log("Clicked to "+$(this).attr("placeholder"));
+						$("#loginsubmit").fadeOut();
+						$(".loginname").fadeOut();
 						var username=$(".loginname").val();
          				if (username=='' || username==null || username=="AnweshaID"){
         					$("#loginerror").text("Please enter AnweshaID to proceed");
@@ -1807,8 +1809,7 @@
 	                                if(status=='success'){
 	                                	if(data[0]==1) {
 	                                		$(".loginpswd").fadeOut();
-											$("#loginsubmit").fadeOut();
-											$(".loginname").fadeOut();
+											
 											$(".loginhead").css("color","green");
 	                                	} else {
                                 			$(".loginhead").css("color","yellow");
