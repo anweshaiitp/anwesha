@@ -1728,13 +1728,78 @@
 		</div>
 
 		<div id="login" class="loginlightbox">
-			<div class="loginexit"><a href="#" onclick="document.body.style.overflow='visible';">x</a></div>
-			<h2 style="font-size: 2em;">Login</h2>
-			<span id="loginerror"></span>
-				<input class="inp" name="username" type="text" value="Username" >
-				<input class="inp" name="password" type="password" value="Password" >
+			<div class="loginexit"><a onclick="window.location.hash ='#';document.body.style.overflow='visible';" style="cursor: pointer">x</a></div>
+			<h2 style="font-size: 2em;" class="loginhead">Login</h2>
+			<span id="loginerror" style="color:red;padding:5px;"></span>
+				<input class="inp loginname" name="username" type="text" value="AnweshaID"
+					onblur="if (this.value == '') {this.value = 'AnweshaID';}"
+					onfocus="if (this.value == 'AnweshaID') {this.value = '';}" />
+				<input class="inp loginpswd" name="password" type="password" value="password"
+					onblur="if (this.value == '') {this.value = 'password';}"
+					onfocus="if (this.value == 'password') {this.value = '';}" /><center>
+                <img src="images/spinner-large.gif" style="width:30px;height:30px;display:none" class="logingif"></center>
 				<input class="button" type="submit" id="loginsubmit" value="LogIn!">
-			
+			<script>
+				$(document).ready(function(){
+					$("#loginsubmit").click(function(){$("#loginerror").empty();//initiaize error display
+						$(".logingif").fadeIn();
+						$("#loginsubmit").fadeOut();
+						//ajax
+						var username=$(".loginname").val();
+        				var password=$(".loginpswd").val();
+        				if (username=='' || username==null || username=="AnweshaID"){
+        					$("#loginerror").text("Username can't be empty / default");
+            				$(".logingif").fadeOut();
+            				$("#loginsubmit").fadeIn();
+        				} else if (password=='' || password ==null || password== "password"){
+        					$("#loginerror").text("Password can't be empty / default");
+            				$(".logingif").fadeOut();
+            				$("#loginsubmit").fadeIn();
+        				}else{
+        				console.log("Login Data Sent;");
+        				console.log("Username : "+ username+";");
+        		$.post("/login/",
+                            {                    
+                            username: username,
+                            password: password
+                            },
+                            function(data, status){
+                            console.log("Response");
+                            console.log("Data: " + data + "\nStatus: " + status);
+                                if(status=='success'){
+                                    $(".logingif").fadeOut();
+                                    $("#loginsubmit").fadeIn();
+                                    console.log(data);
+
+
+                                    //Post ajax goes here
+                                    
+
+                                    //if login succeeds you can use the following  ccommented lines of code:
+
+                                    //$("#loginerror").empty();
+        							//$(".loginhead").css("color","green");
+        							//$("#login input").fadeOut();
+        							//$("#loginbtn").fadeOut();
+        							//$(".loginhead").text("Successfully logged in!");
+                                    //$("#login").delay(1000).fadeOut(1000,function(){
+                                    //		window.location.hash ='#';
+                                    //});
+     
+                                }else{
+                                    $(".logingif").fadeOut();
+                                    $("#loginsubmit").fadeIn();
+                                    $("#loginerror").html('An error occured.<br> Please try again.');
+                                    console.log("Failed "+data);
+
+                                }
+                        }
+        ,"json");}
+        		
+     
+					});
+				});
+			</script>
 		</div>
 
         <div id="leaderboard" class="lightbox logreg">

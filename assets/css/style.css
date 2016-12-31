@@ -1351,19 +1351,26 @@ html, body { height: 100%; width: 100%; margin: 0; }
 #headwrap{
 	vertical-align: middle;
 }
-.loginexit{
-	color:white;
-	font-size: 15px;
-	   position: absolute;
-    background: red;
-    border-radius:10px;
-    color: white;
-    width:20px;
-    height:20px;
-	padding:3px;
-    top: -10px;
-    right: -10px;
-	box-shadow: 0 0 10px #FFFFFF;
+
+@-webkit-keyframes loginEnter {
+  0% {  opacity: 0;top:-20%; }
+  100% { opacity: 1;top:20px; }
+}
+@-moz-keyframes loginEnter {
+  0% {  opacity: 0;top:-20%; }
+  100% {  opacity: 1;top:20px; }
+}
+@-o-keyframes loginEnter {
+  0% {  opacity: 0;top:-20%; }
+  100% {  opacity: 1;top:20px; }
+}
+@-ms-keyframes loginEnter {
+  0% {  opacity: 0;top:-20%; }
+  100% {  opacity: 1;top:20px; }
+}
+@keyframes loginEnter {
+  0% {  opacity: 0;top:-20%; }
+  100% {  opacity: 1;top:20px; }
 }
 #loginsubmit{
 	color:#FFFFFF;

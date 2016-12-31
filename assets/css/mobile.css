@@ -1,8 +1,49 @@
+.loginlightbox:target{
+	display: block;
+	top:20px;
+	width:100%;
+	position: fixed;
+	left: :2.5%;
+	padding:30px;
+    background-color: rgba(0,0,0,0.8);
+    color: #FFFFFF;
+    font-size: 20px;
+    text-align: center;
+    font-family: bebas;
+    box-shadow: 0 0 30px #5e5e5e;
+    -webkit-animation: loginEnter 1000ms cubic-bezier(0.815, 0.185, 0.215, 1); /* older webkit */
+-webkit-animation: loginEnter 1000ms cubic-bezier(0.815, 0.185, 0.215, 1.400); 
+   -moz-animation: loginEnter 1000ms cubic-bezier(0.815, 0.185, 0.215, 1.400); 
+     -o-animation: loginEnter 1000ms cubic-bezier(0.815, 0.185, 0.215, 1.400); 
+        animation: loginEnter 1000ms cubic-bezier(0.815, 0.185, 0.215, 1.400); /* custom */
+
+-webkit-animation-timing-function: cubic-bezier(0.815, 0.185, 0.215, 1); /* older webkit */
+-webkit-animation-timing-function: cubic-bezier(0.815, 0.185, 0.215, 1.400); 
+   -moz-animation-timing-function: cubic-bezier(0.815, 0.185, 0.215, 1.400); 
+     -o-animation-timing-function: cubic-bezier(0.815, 0.185, 0.215, 1.400); 
+        animation-timing-function: cubic-bezier(0.815, 0.185, 0.215, 1.400); /* custom */
+}
+
+.loginexit{
+	color:white;
+	font-size: 15px;
+	   position: absolute;
+    background: red;
+    border-radius:10px;
+    color: white;
+    width:20px;
+    height:20px;
+	padding:3px;
+    top: 10px;
+    right: 20px;
+	box-shadow: 0 0 10px #FFFFFF;
+}
+
 .parallelogram .content{
 	font-size: 1em !important;
 }
 #intro .links{
-	top: 25% !important;
+	top: 15% !important;
     left: 45% !important;
 	transform: translateY(-50%) !important;
 	transform: translateX(-50%) !important;
