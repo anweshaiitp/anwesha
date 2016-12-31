@@ -1762,9 +1762,6 @@
 		<div id="galleryload" class="lightbox">
 		</div>
 
-       
-
-
 		<script src="assets/js/index.js"></script>	
 		
 
