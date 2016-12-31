@@ -1866,15 +1866,15 @@
 
                                     //if login succeeds you can use the following  ccommented lines of code:
                                     $("#loginerror").empty();
-        							if(data['status']==true || data['status']==1) {
+        							if(data['status']===true || data['status']==1) {
                                     	$(".loginhead").css("color","green");
                                     	uilogin_name(data['name']);
                                     	$("#login").delay(1000).fadeOut(1000,function(){
                                     		window.location.hash ='#';
 
-                                    });
+                                    	});
                                     	$("#login input").fadeOut();
-        							$("#loginbtn").fadeOut();
+        								$("#loginbtn").fadeOut();
         							} else {
                                     	$(".loginhead").css("color","yellow");
         								
