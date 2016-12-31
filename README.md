@@ -35,9 +35,9 @@
 - [ ] Write Trigger to clean tables in 4-5 days.
 - [ ] ~~Write backend for Campus Ambassador.~~(See below)
 - [ ] Testing Registration (User/Campus Ambassador).
-- [x] Testing Events Details.
+- [ ] Testing Events Details.
 - [ ] Testing Events Details [With Image rendering].
-- [x] Add caching to Events.
+- [ ] Add caching to Events.
 - [ ] Write fb/twitter/google/github register backend and frontend.
 - [ ] Add __re-captcha__ on registration page.
 - [ ] Login for users.
@@ -54,12 +54,4 @@
 - [ ] Fee payment portal.
 
 ## DEADLINE
-- [ ] ~~Campus Ambassador Completion - 2 Nov 2015~~(Campus ambassador is already up, kindly migrate the data from the table using a script or get it done manually)
-- [ ] User Registration Completion - 4 Nov 2015
-- [ ] Event Page Completion - 4 Nov 2015
-- [ ] User Login - 16 Nov 2015
-- [ ] Events Registration - 16 Nov 2015
-- [ ] re-captcha on each page - 16 Nov 2015
-- [ ] FB Registration & Login - 16 Nov 2015
-- [ ] FB Integration - 7 Dec 2015
-- [ ] Login page for Core & Organising Committee - 14 Dec 2015
+- [ ] None
