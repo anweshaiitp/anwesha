@@ -1,5 +1,16 @@
-.parallelogram .content{
-	font-size: 1.7em !important;
+.loginlightbox:target{
+	display: block;
+	top:20px;
+	width:300px;
+	padding:30px;
+	margin-left: 20px;
+    background-color: rgba(0,0,0,0.6);
+    color: #FFFFFF;
+    font-size: 20px;
+    text-align: center;
+    font-family: bebas;
+    border-radius: 10px;
+    box-shadow: 0 0 30px #5e5e5e;
 }
 #date{
 	right:2em;

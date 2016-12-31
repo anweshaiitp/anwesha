@@ -1606,12 +1606,12 @@
 			
 		
 			<ul class="links">
+				<a href="#login" id="loginbtn" style=""><li>Login</li></a>
 				<a id='bregister' href="#register"><li>Registration</li></a>
 				<a id='bregister_ca' href="#register_ca"><li>Campus Ambassador</li></a>
                 <a id='bleaderboard' href="#leaderboard"><li>Campus Ambassador Leaderboard</li></a>
 				<a href="#teams" id="teamsbtn" style=""><li>Teams</li></a>
 				<a href="#events" id="eventsbtn" style=""><li>Events</li></a>
-				<br>
 			    <a href="auditions/"><li>MultiCity</li></a>
 
 			</ul>
@@ -1727,14 +1727,14 @@
 			</div>
 		</div>
 
-		<div id="login" class="lightbox logreg">
-			<div class="close"><a href="#" onclick="document.body.style.overflow='visible';">X</a></div>
-			<h2>Login</h2>
-			<div class="box">
+		<div id="login" class="loginlightbox">
+			<div class="loginexit"><a href="#" onclick="document.body.style.overflow='visible';">x</a></div>
+			<h2 style="font-size: 2em;">Login</h2>
+			<span id="loginerror"></span>
 				<input class="inp" name="username" type="text" value="Username" >
 				<input class="inp" name="password" type="password" value="Password" >
-				<input class="button" type="submit" value="login">
-			</div>
+				<input class="button" type="submit" id="loginsubmit" value="LogIn!">
+			
 		</div>
 
         <div id="leaderboard" class="lightbox logreg">
