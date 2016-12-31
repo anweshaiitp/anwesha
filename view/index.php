@@ -63,7 +63,7 @@
    			var events_data;
          $(document).ready(function() {
          	$("#regbtn").click(function(){
-         		$.get( "register/"+$(this).attr("placeholder")+"/")
+         		$.get( "register/"+$(this).attr("placeholder")+"/");
          	});
          	if(location.hash=="#events"){
          	 	$("#clwrap").fadeIn();
@@ -1747,8 +1747,34 @@
 					onfocus="if (this.value == 'password') {this.value = '';}" /><center>
                 <img src="images/spinner-large.gif" style="width:30px;height:30px;display:none" class="logingif"></center>
 				<input class="button" type="submit" id="loginsubmit" value="LogIn!">
+				<a id="loganchor" placeholder="reset">Reset Password</a><br>
+				<a id="loganchor" placeholder="resend">Resend Confirmation mail</a>
+			<style>
+				#loganchor{
+					cursor: pointer;
+					font-size: 0.7em;
+					padding: 1px !important;
+					margin: 1px !important;
+
+				}
+			</style>
 			<script>
 				$(document).ready(function(){
+					$("#loganchor").click(function(){$("#loginerror").empty();
+
+						var username=$(".loginname").val();
+         				if (username=='' || username==null || username=="AnweshaID"){
+        					$("#loginerror").text("Please enter AnweshaID to proceed");
+            				
+        				} else{
+        					$(".loginpswd").fadeOut();
+							$("#loginsubmit").fadeOut();
+							$(".loginname").fadeOut();
+							$.get("/"+ $(this).attr("placeholder")+"/"+username);
+        					$(".loginhead").text("Request sent to email!");
+        					$(".loginhead").css("color","green");
+        				}
+					});
 					$("#loginsubmit").click(function(){$("#loginerror").empty();//initiaize error display
 						$(".logingif").fadeIn();
 						$("#loginsubmit").fadeOut();
@@ -1763,6 +1789,7 @@
         					$("#loginerror").text("Password can't be empty / default");
             				$(".logingif").fadeOut();
             				$("#loginsubmit").fadeIn();
+        					
         				}else{
         				console.log("Login Data Sent;");
         				console.log("Username : "+ username+";");

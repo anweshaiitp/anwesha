@@ -2,7 +2,9 @@
 	display: block;
 	top:20px;
 	width:300px;
-	padding:30px;
+	padding:20px;
+	padding-bottom:10px !important;
+
 	margin-left: 20px;
     background-color: rgba(0,0,0,0.6);
     color: #FFFFFF;
