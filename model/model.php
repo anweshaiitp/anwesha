@@ -225,6 +225,7 @@ class People{
         $arr[]=$row;
         return $arr;
     }
+    
     /**
      * gives the events in which user is registered
      * @param  int $id   anwesha id
@@ -546,6 +547,46 @@ class People{
     }
 
     /**
+     * Sends email 
+     * @param string $emailId Email Id
+     * @param string $title    title
+     * @param string $content  Content To send
+     */
+    public static function Email($emailId,$title,$content)
+    {
+        require('defines.php');
+        require('resources/PHPMailer/PHPMailerAutoload.php');
+        require('emailCredential.php');
+
+        $mail = new PHPMailer;
+
+        // 0 = off (for production use)
+        // 1 = client messages
+        // 2 = client and server messages
+        // 3 = verbose debug output
+        $mail->SMTPDebug = 0;
+
+        $mail->isSMTP();                                      // Set mailer to use SMTP
+        $mail->Host = MAIL_HOST;  // Specify main and backup SMTP servers
+        $mail->SMTPAuth = MAIL_SMTP_AUTH;                               // Enable SMTP authentication
+        $mail->Username = MAIL_USERNAME;                 // SMTP username
+        $mail->Password = MAIL_PASSWORD;                           // SMTP password
+        $mail->SMTPSecure = MAIL_SMTP_SECURE;                            // Enable TLS encryption, `ssl` also accepted
+        $mail->Port = MAIL_PORT;                                    // TCP port to connect to
+
+        $mail->setFrom($ANWESHA_REG_EMAIL, 'Anwesha Registration & Planning Team');
+        $mail->addAddress($emailId);
+        $mail->addReplyTo($ANWESHA_REG_EMAIL, 'Registration & Planning Team');
+        $mail->isHTML(true);                                  // Set email format to HTML
+
+        $mail->Subject = $title;
+        $mail->Body    = $content;
+        $mail->AltBody = $content;;
+        $mail->send();
+   
+    }
+
+    /**
      * Verfies the user registraion
      * @param int $id      Anwesha Id for registered user
      * @param string $token     Confirmation Token
@@ -622,6 +663,59 @@ class People{
 
         Auth::passEmail($email,$name,$randPass,$id);                                                                 //vinay edit
         $arr[]=$randPass;                                                                  //vinay edit
+        return $arr;
+
+
+    }
+
+    /**
+     * Change the password reset token and set Password
+     * @param int $id      Anwesha Id for registered user
+     * @param string $token     Confirmation Token
+     * @param string $pass   New Password
+     */
+    public function changePasswordResetToken($id,$token,$pass,$conn){
+        $sql = "SELECT csrfToken,type FROM LoginTable WHERE pId = '$id'";
+        $result = mysqli_query($conn, $sql);
+        if(!$result || mysqli_num_rows($result)!=1){
+            $error = "No such User - Invalid Link";
+            $arr = array();
+            $arr[] = -1;
+            $arr[] = $error;
+            return $arr;
+        }
+        $row = mysqli_fetch_assoc($result);
+        if(strcmp($token,$row['csrfToken'])!=0){
+            $error = "Invalid Link or Link Expired";
+            $arr = array();
+            $arr[] = -1;
+            $arr[] = $error;
+            return $arr;
+        }
+
+        $confirmationType = $row['type'];
+        if(!($confirmationType == 3)) {
+            $error = "Unexpected Error! in Resetting Password. Please contact Registration Team";
+            $arr = array();
+            $arr[] = -1;
+            $arr[] = $error;
+            return $arr;
+        }
+        
+
+        $sqlUpdate = "UPDATE LoginTable SET password = sha('$pass'), privateKey = sha('$pass'),csrfToken = '',type=0 where pId = '$id'";
+        $result = mysqli_query($conn, $sqlUpdate);
+        if(!$result){
+            $error = "Some Internal Error Occured - Please try again.";
+            $arr = array();
+            $arr[] = -1;
+            $arr[] = $error;
+            return $arr;
+        }
+    
+        $arr = array();
+        $arr[] = 1;
+        $arr[] = "Password Updated";
         return $arr;
 
 
@@ -1130,6 +1224,44 @@ class Auth
             return true;
         }
     }
+
+    public function forgetPassword($userId,$conn){
+        $sql = "SELECT name,email FROM LoginTable WHERE pId = $userID";
+        $result = mysqli_query($conn,$sql);
+        if(!$result OR mysqli_num_rows($result) != 1 ){
+            $Err = 'Invalid AnweshaID';
+            $arr = array();
+            $arr[]=-1;
+            $arr[]=$Err;
+            return $arr;
+        } 
+        $name = $result['name'];
+        $em = $result['email'];
+        
+        $token = sha1(base64_encode((openssl_random_pseudo_bytes(15))));
+        $sqlUpdate = "UPDATE LoginTable set csrfToken='$token',type=3 where $pId='$userId' and type=0;";
+
+        $result = mysqli_query($conn,$sqlUpdate);
+        if(!$result OR mysqli_affected_rows($result)!=1){
+            $Err = 'Please verify your email-id first.';
+            $arr = array();
+            $arr[]=-1;
+            $arr[]=$Err;
+            return $arr;
+        }
+        
+        require('defines.php');
+        $baseURL = $ANWESHA_URL;
+        $url = $baseURL . "resetpassword/$userId/$token";
+        
+        $emailContent = "Hi $name,\nWe received a request to Reset to Anwesha Password. To continue please click <a href='$em'>here</a>.\n\nIn case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to $ANWESHA_REG_EMAIL. You can also visit our website $ANWESHA_URL for more information.\nThank You.\nRegistration & Planning Team\n$ANWESHA_YEAR";
+        self::Email($em,"Anwesha Password Reset",$emailContent);
+        $arr = array();
+        $arr[]=-1;
+        $arr[]="Please check your email on $em";
+        return $arr;
+    }
+
     /**
      * Authenticates that the request was sent by the user after login
      * @param  string $privateKey    privateKey of the user from the database

@@ -1757,8 +1757,9 @@
             				$("#loginsubmit").fadeIn();
         				}else{
         				console.log("Login Data Sent;");
-        				console.log("Username : "+ username+";");
-        		$.post("/login/",
+        				console.log("Username : "+ username+"");
+
+        		$.post("login/",
                             {                    
                             username: username,
                             password: password
@@ -1776,15 +1777,20 @@
                                     
 
                                     //if login succeeds you can use the following  ccommented lines of code:
-
-                                    //$("#loginerror").empty();
-        							//$(".loginhead").css("color","green");
-        							//$("#login input").fadeOut();
-        							//$("#loginbtn").fadeOut();
-        							//$(".loginhead").text("Successfully logged in!");
-                                    //$("#login").delay(1000).fadeOut(1000,function(){
-                                    //		window.location.hash ='#';
-                                    //});
+                                    $("#loginerror").empty();
+        							if(data['status']) {
+                                    	$(".loginhead").css("color","green");
+                                    	$("#login").delay(1000).fadeOut(1000,function(){
+                                    		window.location.hash ='#';
+                                    });
+        							} else {
+                                    	$(".loginhead").css("color","yellow");
+        								
+                                    }
+                                    $(".loginhead").text(data['msg']);
+                                    $("#login input").fadeOut();
+        							$("#loginbtn").fadeOut();
+        							
      
                                 }else{
                                     $(".logingif").fadeOut();
