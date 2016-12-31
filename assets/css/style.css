@@ -1,4 +1,4 @@
-s@font-face {
+@font-face {
 font-family:"agency";
 src:url(../fonts/AgencyFB.ttf) format("truetype");
 }
@@ -478,9 +478,21 @@ button:hover, button:active, button:focus {
 	top:2em;
 	border: solid rgba(255,255,255,0.8) 0.2em;
 	border-radius:0.5em;
-	display:table;
 	padding:0.75em;
 }
+#date .hidden-count{
+	display:none;
+	color:#fff;
+	font-family:bebas;
+	font-size: 1.5em;
+	text-align:center;
+	margin-top:0.5em;
+	transition: all linear 0.25s;
+}
+#date:hover .hidden-count{
+	display:block;
+}
+
 .text{
 	display:table-cell;
 	color:#fff;
