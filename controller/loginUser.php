@@ -11,7 +11,7 @@ if (isset($_POST['username']) && !empty($_POST['username']) && isset($_POST['pas
 
 $userID = $_POST['username'];
 $password = $_POST['password'];
-if(preg_match('/^ANW([0-9]{4})$/', $userID, $matches)){
+if(preg_match('/^[Aa][Nn][Ww]([0-9]{4})$/', $userID, $matches)){
 	$userID = $matches[1];
 } else {
 	// mysqli_close($conn);
