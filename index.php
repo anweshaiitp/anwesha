@@ -55,12 +55,14 @@ if (preg_match($base . '(ca|register|)_?([0-9]{4}|)$@', $url, $match)) {
 	require ('controller/verifyEmail.php');
 } elseif (preg_match($base . 'verifyEmail/User/([0-9]{4})/([A-Za-z0-9]{40})/?$@', $url, $match)) {
 	require ('controller/verifyEmail.php');
-// } elseif (preg_match($base . 'register/([0-9]{1,2})/?$@', $url, $match)) {
-// 	require ('controller/registerUser.php');
+} elseif (preg_match($base . 'register/([0-9]{1,3})/?$@', $url, $match)) {
+	require ('controller/registerUser.php');
 // } elseif (preg_match($base . 'register/group/([0-9]{1,2})/?$@', $url, $match)) {
 // 	require ('controller/registerGroup.php');
-// } elseif (preg_match($base . 'login/?$@', $url)) {
-// 	require ('controller/loginUser.php');
+} elseif (preg_match($base . 'login/?$@', $url)) {
+	require ('controller/loginUser.php');
+} elseif (preg_match($base . 'logout/?$@', $url)) {
+	require ('controller/logout.php');
 } elseif (preg_match($base . 'changePassword/?$@', $url)) {
 	require ('controller/changePassword.php');
 } elseif (preg_match($base . 'resendEmail/([0-9]{4})/?$@', $url, $match)) {

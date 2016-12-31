@@ -16,10 +16,15 @@ if($size == -1){
 	header('Content-type: application/json');	
 	echo json_encode(array("status"=>false, "msg"=>"Event does not exist!"));
 	die();
+} elseif ($size == -10) {
+	mysqli_close($conn);
+	header('Content-type: application/json');
+	echo json_encode(array("status"=>false,"msg"=>"Registration not required!"));
+	die();
 } elseif ($size != 1) {
 	mysqli_close($conn);
 	header('Content-type: application/json');
-	echo json_encode(array("status"=>false,"msg"=>"Registration not allowed!"));
+	echo json_encode(array("status"=>false,"msg"=>"Single User Registration not allowed!"));
 	die();
 }
 

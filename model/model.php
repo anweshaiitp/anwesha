@@ -638,7 +638,7 @@ class People{
         $name = $user[1]['name'];
         $emailId = $user[1]['email'];
         // mail($to,$subject,$message);
-        $message = "Hi $name,<br>You have been registered for event<b> $eveName.</b> Thank You! <br>In case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to <i>$ANWESHA_YEAR</i>. You can also visit our website <i>$ANWESHA_URL</i> for more information.<br><br>Registration Desk<br>$ANWESHA_YEAR";
+        $message = "Hi $name,<br>You have been registered for event<b> $eveName.</b> Thank You! <br>In case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to <i>$ANWESHA_REG_EMAIL</i>. You can also visit our website <i>$ANWESHA_URL</i> for more information.<br><br>Registration Desk<br>$ANWESHA_YEAR";
         $subject = "$eveName Registration $ANWESHA_YEAR";
 
         require('resources/PHPMailer/PHPMailerAutoload.php');
@@ -667,7 +667,7 @@ class People{
 
         $mail->Subject = $subject;
         $mail->Body    = $message;
-        $mail->AltBody = "Hi $name,\nYou have been registered for event $eveName. Thank You!\nIn case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to $ANWESHA_YEAR. You can also visit our website http://2017.anwesha.info/ for more information.\nRegistration Desk\nAnwesha 2k17";;
+        $mail->AltBody = "Hi $name,\nYou have been registered for event $eveName. Thank You!\nIn case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to $ANWESHA_REG_EMAIL. You can also visit our website http://2017.anwesha.info/ for more information.\nRegistration Desk\nAnwesha 2k17";;
         $mail->send();
 
     }
@@ -1026,7 +1026,7 @@ class Auth
     public function passEmail($emailId,$name,$randPass,$id) {
         // mail($to,$subject,$message);
         require('defines.php');
-        $message = "Hi $name,<br>Thank you for registering for $ANWESHA_YEAR. Your Registered Id is : <b>ANW$id</b>.<br>Your temporary auto generated password is : <b>$randPass</b><br>You can change the password after login.<br>In case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to <i>$ANWESHA_YEAR</i>. You can also visit our website <i>$ANWESHA_URL</i> for more information.<br>Thank You.<br>Registration Desk<br>$ANWESHA_YEAR";
+        $message = "Hi $name,<br>Thank you for registering for $ANWESHA_YEAR. Your Registered Id is : <b>ANW$id</b>.<br>Your temporary auto generated password is : <b>$randPass</b><br>You can change the password after login.<br>In case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to <i>$ANWESHA_REG_EMAIL</i>. You can also visit our website <i>$ANWESHA_URL</i> for more information.<br>Thank You.<br>Registration Desk<br>$ANWESHA_YEAR";
         $subject = "AnweshaID Password, $ANWESHA_YEAR";
 
         require('resources/PHPMailer/PHPMailerAutoload.php');
@@ -1060,7 +1060,7 @@ class Auth
 
         $mail->Subject = $subject;
         $mail->Body    = $message;
-        $mail->AltBody = "Hi $name,\nThank you for registering for $ANWESHA_YEAR. Your Registered Id is : ANW$id.\nYour temporary auto generated password is : $randPass\nYou can change the password after loging in.\nIn case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to $ANWESHA_YEAR. You can also visit our website $ANWESHA_URL for more information.\nThank You.\nRegistration & Planning Team\n$ANWESHA_YEAR";
+        $mail->AltBody = "Hi $name,\nThank you for registering for $ANWESHA_YEAR. Your Registered Id is : ANW$id.\nYour temporary auto generated password is : $randPass\nYou can change the password after loging in.\nIn case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to $ANWESHA_REG_EMAIL. You can also visit our website $ANWESHA_URL for more information.\nThank You.\nRegistration & Planning Team\n$ANWESHA_YEAR";
         $mail->send();
         // if(!$mail->send()) {
         //     echo 'Message could not be sent.';

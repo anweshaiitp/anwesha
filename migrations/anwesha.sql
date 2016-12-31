@@ -99,7 +99,9 @@ CREATE TABLE IF NOT EXISTS `LoginTable` (
   `password` char(40) DEFAULT NULL,
   `privateKey` char(40) DEFAULT NULL,
   `csrfToken` char(40) DEFAULT NULL,
-  `type` int(4) DEFAULT NULL
+  `type` int(4) DEFAULT NULL,
+  `totalLogin` INT NOT NULL DEFAULT '0',
+  `lastLogin` DATE NULL DEFAULT NULL
   ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -209,8 +211,9 @@ ALTER TABLE `LoginTable`
 --
 ALTER TABLE `Registration`
   ADD CONSTRAINT `eveId_Events_Registration` FOREIGN KEY (`eveId`) REFERENCES `Events` (`eveId`),
-  ADD CONSTRAINT `pId_People_Registration` FOREIGN KEY (`pId`) REFERENCES `People` (`pId`);
-
+  ADD CONSTRAINT `pId_People_Registration` FOREIGN KEY (`pId`) REFERENCES `People` (`pId`),
+  ADD PRIMARY KEY(eveId,pId);
+  
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
