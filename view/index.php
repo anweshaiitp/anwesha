@@ -574,10 +574,11 @@
 			position:absolute;
 			z-index: 1;
 			top: 0px;
-			right: -10px;
+			right: 0px;
 			-moz-border-radius:10px;  /* for Firefox */
 			-webkit-border-radius:10px; /* for Webkit-Browsers */
-			border-radius:10px; /* regular */
+			border-bottom-left-radius: :10px;
+			border-top-left-radius: :10px;
 			background-color: rgba(255,255,255,0.6);
 			color: black;
 			padding: 10px;
