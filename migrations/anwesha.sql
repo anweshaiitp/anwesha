@@ -94,7 +94,7 @@ CREATE TABLE IF NOT EXISTS `Grpids` (
 -- type
 --  1  Normal User
 --  2  Campus Ambassador
---  3  Password Reset
+
 CREATE TABLE IF NOT EXISTS `LoginTable` (
   `pId` int(4) DEFAULT NULL,
   `password` char(40) DEFAULT NULL,

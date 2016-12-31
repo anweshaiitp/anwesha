@@ -552,7 +552,7 @@ class People{
      * @param string $title    title
      * @param string $content  Content To send
      */
-    public static function Email($emailId,$title,$content)
+    public static function EmailWithText($emailId,$title,$content)
     {
         require('defines.php');
         require('resources/PHPMailer/PHPMailerAutoload.php');
@@ -602,7 +602,7 @@ class People{
             return $arr;
         }
         $row = mysqli_fetch_assoc($result);
-        if(strcmp($token,$row['csrfToken'])!=0){
+        if(empty($token) || strcmp($token,$row['csrfToken'])!=0){
             $error = "Invalid Link or Link Expired";
             $arr = array();
             $arr[] = -1;
@@ -675,7 +675,7 @@ class People{
      * @param string $pass   New Password
      */
     public function changePasswordResetToken($id,$token,$pass,$conn){
-        $sql = "SELECT csrfToken,type FROM LoginTable WHERE pId = '$id'";
+        $sql = "SELECT csrfToken FROM LoginTable WHERE pId = '$id'";
         $result = mysqli_query($conn, $sql);
         if(!$result || mysqli_num_rows($result)!=1){
             $error = "No such User - Invalid Link";
@@ -685,17 +685,8 @@ class People{
             return $arr;
         }
         $row = mysqli_fetch_assoc($result);
-        if(strcmp($token,$row['csrfToken'])!=0){
+        if(empty($token) || strcmp($token,$row['csrfToken'])!=0){
             $error = "Invalid Link or Link Expired";
-            $arr = array();
-            $arr[] = -1;
-            $arr[] = $error;
-            return $arr;
-        }
-
-        $confirmationType = $row['type'];
-        if(!($confirmationType == 3)) {
-            $error = "Unexpected Error! in Resetting Password. Please contact Registration Team";
             $arr = array();
             $arr[] = -1;
             $arr[] = $error;
@@ -703,7 +694,7 @@ class People{
         }
         
 
-        $sqlUpdate = "UPDATE LoginTable SET password = sha('$pass'), privateKey = sha('$pass'),csrfToken = '',type=0 where pId = '$id'";
+        $sqlUpdate = "UPDATE LoginTable SET password = sha('$pass'), privateKey = sha('$pass'),csrfToken = '' where pId = '$id'";
         $result = mysqli_query($conn, $sqlUpdate);
         if(!$result){
             $error = "Some Internal Error Occured - Please try again.";
@@ -715,7 +706,7 @@ class People{
     
         $arr = array();
         $arr[] = 1;
-        $arr[] = "Password Updated";
+        $arr[] = "Password changed successfully.";
         return $arr;
 
 
@@ -1226,24 +1217,33 @@ class Auth
     }
 
     public function forgetPassword($userId,$conn){
-        $sql = "SELECT name,email FROM LoginTable WHERE pId = $userID";
+        $sql = "SELECT name,email,type FROM People P JOIN LoginTable LT on LT.pId=P.pId WHERE P.pId = $userId";
         $result = mysqli_query($conn,$sql);
         if(!$result OR mysqli_num_rows($result) != 1 ){
-            $Err = 'Invalid AnweshaID';
+            $Err = 'Invalid AnweshaID ';
             $arr = array();
             $arr[]=-1;
             $arr[]=$Err;
             return $arr;
         } 
-        $name = $result['name'];
-        $em = $result['email'];
+        $row = mysqli_fetch_assoc($result);
+        $name = $row['name'];
+        $em = $row['email'];
+        $type = $row['type'];
+        if ($type!=0) {
+            $Err = 'Please verify your email-id first.';
+            $arr = array();
+            $arr[]=-1;
+            $arr[]=$Err;
+            return $arr;
+        }
         
         $token = sha1(base64_encode((openssl_random_pseudo_bytes(15))));
-        $sqlUpdate = "UPDATE LoginTable set csrfToken='$token',type=3 where $pId='$userId' and type=0;";
+        $sqlUpdate = "UPDATE LoginTable set csrfToken='$token' where pId='$userId';";
 
         $result = mysqli_query($conn,$sqlUpdate);
-        if(!$result OR mysqli_affected_rows($result)!=1){
-            $Err = 'Please verify your email-id first.';
+        if(!$result){
+            $Err = 'Unexpected Error. Please contact Registration Desk';
             $arr = array();
             $arr[]=-1;
             $arr[]=$Err;
@@ -1254,11 +1254,11 @@ class Auth
         $baseURL = $ANWESHA_URL;
         $url = $baseURL . "resetpassword/$userId/$token";
         
-        $emailContent = "Hi $name,\nWe received a request to Reset to Anwesha Password. To continue please click <a href='$em'>here</a>.\n\nIn case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to $ANWESHA_REG_EMAIL. You can also visit our website $ANWESHA_URL for more information.\nThank You.\nRegistration & Planning Team\n$ANWESHA_YEAR";
-        self::Email($em,"Anwesha Password Reset",$emailContent);
+        $emailContent = "Hi $name,</br>We received a request to Reset to Anwesha Password. To reset your password Please click <a href='$url'>here</a>.</br></br>In case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to $ANWESHA_REG_EMAIL. You can also visit our website $ANWESHA_URL for more information.</br></br>Thank You.</br>Registration & Planning Team</br>$ANWESHA_YEAR";
+        People::EmailWithText($em,"Anwesha Password Reset",$emailContent);
         $arr = array();
-        $arr[]=-1;
-        $arr[]="Please check your email on $em";
+        $arr[]=1;
+        $arr[]="Please check for new email on $em";
         return $arr;
     }
 

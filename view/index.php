@@ -1747,10 +1747,10 @@
 					onfocus="if (this.value == 'password') {this.value = '';}" /><center>
                 <img src="images/spinner-large.gif" style="width:30px;height:30px;display:none" class="logingif"></center>
 				<input class="button" type="submit" id="loginsubmit" value="LogIn!">
-				<a id="loganchor" placeholder="reset">Reset Password</a><br>
-				<a id="loganchor" placeholder="resend">Resend Confirmation mail</a>
+				<a class="loganchor" placeholder="reset">Reset Password</a><br>
+				<a class="loganchor" placeholder="resend">Resend Confirmation mail</a>
 			<style>
-				#loganchor{
+				.loganchor{
 					cursor: pointer;
 					font-size: 0.7em;
 					padding: 1px !important;
@@ -1760,21 +1760,48 @@
 			</style>
 			<script>
 				$(document).ready(function(){
-					$("#loganchor").click(function(){$("#loginerror").empty();
-
+					var onresetpassORresendEmail = function(){$("#loginerror").empty();
+						console.log("Clicked!");
 						var username=$(".loginname").val();
          				if (username=='' || username==null || username=="AnweshaID"){
         					$("#loginerror").text("Please enter AnweshaID to proceed");
             				
         				} else{
-        					$(".loginpswd").fadeOut();
-							$("#loginsubmit").fadeOut();
-							$(".loginname").fadeOut();
-							$.get("/"+ $(this).attr("placeholder")+"/"+username);
-        					$(".loginhead").text("Request sent to email!");
-        					$(".loginhead").css("color","green");
+        					if(!(/^([Aa][Nn][Ww][0-9]{4})$/.test(username))) {
+        						$(".loginhead").css("color","yellow");
+                        		$(".loginhead").text("Incorrect Anw ID");
+        					}else
+        					$.post(""+ $(this).attr("placeholder")+"/"+username,
+								{
+
+								},
+								function(data, status){
+									console.log("Response");
+	                            	console.log("Data: " + data + "\nStatus: " + status);
+	                                if(status=='success'){
+	                                	if(data[0]==1) {
+	                                		$(".loginpswd").fadeOut();
+											$("#loginsubmit").fadeOut();
+											$(".loginname").fadeOut();
+											$(".loginhead").css("color","green");
+	                                	} else {
+                                			$(".loginhead").css("color","yellow");
+	                                	}
+	                                	$(".loginhead").text(data[1]);
+				        					
+	                                }else 
+	                                	{
+	                                		$(".loginhead").css("color","yellow");
+	                                		$(".loginhead").text("Error!");
+	                                	}
+				        				
+                                 	
+								},"json"
+								);
+        					
         				}
-					});
+					};
+					$(".loganchor").click(onresetpassORresendEmail);
 					$("#loginsubmit").click(function(){$("#loginerror").empty();//initiaize error display
 						$(".logingif").fadeIn();
 						$("#loginsubmit").fadeOut();
