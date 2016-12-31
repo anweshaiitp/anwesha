@@ -66,7 +66,17 @@
          $(document).ready(function() {
          	$("#regbtn").click(function(){
          		$.getJSON( "register/"+$(this).attr("placeholder")+"/",function(data) {
-         			alert(data['msg']);
+         			// alert(data['msg']
+					$("#modhead").html(data['msg']);
+					if(data['status']===true || data['status']==1){
+
+        			$("#modhead").css("color","green");
+					$("#myModal").modal();
+					} else {
+
+        			$("#modhead").css("color","red");
+					$("#myModal").modal();
+					}
          		});
          	});
          	if(location.hash=="#events"){
