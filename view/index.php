@@ -66,7 +66,17 @@
          $(document).ready(function() {
          	$("#regbtn").click(function(){
          		$.getJSON( "register/"+$(this).attr("placeholder")+"/",function(data) {
-         			alert(data['msg']);
+         			// alert(data['msg']
+					$("#modhead").html(data['msg']);
+					if(data['status']===true || data['status']==1){
+
+        			$("#modhead").css("color","green");
+					$("#myModal").modal();
+					} else {
+
+        			$("#modhead").css("color","red");
+					$("#myModal").modal();
+					}
          		});
          	});
          	if(location.hash=="#events"){
@@ -1804,19 +1814,24 @@
 											$("#loginbtn").fadeIn();
 											var isLoggedIn = false;
 											var logged_name = "";
-											$("#loginbtn").css("display","block");			
+											$("#loginbtn").css("display","block");	
+	                                	$("#modhead").html(data['msg']);
+
+											$("#myModal").modal();
 
 	                                	} else {
+	                                	$("#modhead").html(data['msg']);
+
+											$("#myModal").modal();
                                 			$("#modhead").css("color","red");
 	                                	}
-	                                	$("#modhead").html(data['msg']);
-				        					
 	                                } else {
 	                                	$("#modhead").text("Trouble reaching server");
                                 			$("#modhead").css("color","red");
+										$("#myModal").modal();
+                                			
 	                                }
 								},"json");
-						$("#myModal").modal();
 					});
 					var onresetpassORresendEmail = function(){$("#loginerror").empty();
 						console.log("Clicked to "+$(this).attr("placeholder"));
