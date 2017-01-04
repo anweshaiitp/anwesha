@@ -109,9 +109,12 @@
 								</div>
 								<div class="pplback">
 									<div class="contactinfo"><br><br>
-										<span class="phoneno">9708000578</span><br><br>
-										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
-																				
+										<span class="phoneno">+91 9708000578</span><br><br>
+										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
+										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
+										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<a href="https://www.facebook.com/abhinay.paladugu" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
+										</div>										
 									</div>
 									<!-- back content -->
 								</div>
@@ -146,9 +149,12 @@
 								</div>
 								<div class="pplback">
 									<div class="contactinfo"><br><br>
-										<span class="phoneno">9708000578</span><br><br>
-										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
-																				
+										<span class="phoneno">+91 9708000578</span><br><br>
+										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
+										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
+										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<a href="https://www.facebook.com/abhinay.paladugu" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
+										</div>										
 									</div>
 									<!-- back content -->
 								</div>
@@ -173,9 +179,12 @@
 								</div>
 								<div class="pplback">
 									<div class="contactinfo"><br><br>
-										<span class="phoneno">9006703625</span><br><br>
-										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
-																				
+										<span class="phoneno">+91 9006703625</span><br><br>
+										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
+										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
+										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<a href="https://www.facebook.com/suresh.raja.355744" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
+										</div>										
 									</div>
 									<!-- back content -->
 								</div>
@@ -214,9 +223,12 @@
 								</div>
 								<div class="pplback">
 									<div class="contactinfo"><br><br>
-										<span class="phoneno">9006743067</span><br><br>
-										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
-																				
+										<span class="phoneno">+91 9006743067</span><br><br>
+										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
+										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
+										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<a href="https://www.facebook.com/profile.php?id=100011051835826" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
+										</div>										
 									</div>
 									<!-- back content -->
 								</div>
@@ -241,9 +253,12 @@
 								</div>
 								<div class="pplback">
 									<div class="contactinfo"><br><br>
-										<span class="phoneno">9709318262</span><br><br>
-										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
-																				
+										<span class="phoneno">+91 9709318262</span><br><br>
+										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
+										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
+										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<a href="https://www.facebook.com/utkarsh29" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
+										</div>										
 									</div>
 									<!-- back content -->
 								</div>
@@ -267,9 +282,12 @@
 								</div>
 								<div class="pplback">
 									<div class="contactinfo"><br><br>
-										<span class="phoneno">96310 99947</span><br><br>
-										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
-																				
+										<span class="phoneno">+91 9631099947</span><br><br>
+										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
+										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
+										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<a href="https://www.facebook.com/ankit.chahal.739" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
+										</div>										
 									</div>
 									<!-- back content -->
 								</div>
@@ -310,9 +328,12 @@
 								</div>
 								<div class="pplback">
 									<div class="contactinfo"><br><br>
-										<span class="phoneno">9709309693</span><br><br>
-										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
-																				
+										<span class="phoneno">+91 9709309693</span><br><br>
+										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
+										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
+										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<a href="https://www.facebook.com/prateek.sharma.18400700" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
+										</div>										
 									</div>
 									<!-- back content -->
 								</div>
@@ -337,9 +358,12 @@
 								</div>
 								<div class="pplback">
 									<div class="contactinfo"><br><br>
-										<span class="phoneno">9006703052</span><br><br>
-										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
-																				
+										<span class="phoneno">+91 9006703052</span><br><br>
+										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
+										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
+										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<a href="https://www.facebook.com/lakhan.aggrawal" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
+										</div>										
 									</div>
 									<!-- back content -->
 								</div>
@@ -363,9 +387,12 @@
 								</div>
 								<div class="pplback">
 									<div class="contactinfo"><br><br>
-										<span class="phoneno">9631089163</span><br><br>
-										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
-																				
+										<span class="phoneno">+91 9631089163</span><br><br>
+										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
+										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
+										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<a href="https://www.facebook.com/bhagyashri.verma.9" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
+										</div>										
 									</div>
 									<!-- back content -->
 								</div>
@@ -405,9 +432,12 @@
 								</div>
 								<div class="pplback">
 									<div class="contactinfo"><br><br>
-										<span class="phoneno">9401982501</span><br><br>
-										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
-																				
+										<span class="phoneno">+91 9401982501</span><br><br>
+										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
+										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
+										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<a href="https://www.facebook.com/hitesh.golchha.35" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
+										</div>										
 									</div>
 									<!-- back content -->
 								</div>
@@ -432,9 +462,12 @@
 								</div>
 								<div class="pplback">
 									<div class="contactinfo"><br><br>
-										<span class="phoneno">9006704106</span><br><br>
-										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
-																				
+										<span class="phoneno">+91 9006704106</span><br><br>
+										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
+										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
+										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<a href="https://www.facebook.com/abhishek.jaiswal.9400984" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
+										</div>										
 									</div>
 									<!-- back content -->
 								</div>
@@ -475,9 +508,12 @@
 								</div>
 								<div class="pplback">
 									<div class="contactinfo"><br><br>
-										<span class="phoneno">8571831933</span><br><br>
-										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
-																				
+										<span class="phoneno">+91 8571831933</span><br><br>
+										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
+										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
+										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<a href="https://www.facebook.com/gopal10sep" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
+										</div>										
 									</div>
 									<!-- back content -->
 								</div>
@@ -502,9 +538,12 @@
 								</div>
 								<div class="pplback">
 									<div class="contactinfo"><br><br>
-										<span class="phoneno">9631112601</span><br><br>
-										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
-																				
+										<span class="phoneno">+91 9631112601</span><br><br>
+										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
+										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
+										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<a href="https://www.facebook.com/srimaan.nannapaneni" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
+										</div>										
 									</div>
 									<!-- back content -->
 								</div>
@@ -545,9 +584,12 @@
 								</div>
 								<div class="pplback">
 									<div class="contactinfo"><br><br>
-										<span class="phoneno">95235 44530</span><br><br>
-										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
-																				
+										<span class="phoneno">+91 9523544530</span><br><br>
+										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
+										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
+										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<a href="https://www.facebook.com/raghuram.maya" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
+										</div>										
 									</div>
 									<!-- back content -->
 								</div>
@@ -572,9 +614,12 @@
 								</div>
 								<div class="pplback">
 									<div class="contactinfo"><br><br>
-										<span class="phoneno">7783078560</span><br><br>
-										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
-																				
+										<span class="phoneno">+91 7783078560</span><br><br>
+										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
+										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
+										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<a href="" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
+										</div>										
 									</div>
 									<!-- back content -->
 								</div>
@@ -598,9 +643,12 @@
 								</div>
 								<div class="pplback">
 									<div class="contactinfo"><br><br>
-										<span class="phoneno">9494946566</span><br><br>
-										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
-																				
+										<span class="phoneno">+91 9494946566</span><br><br>
+										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
+										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
+										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<a href="" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
+										</div>										
 									</div>
 									<!-- back content -->
 								</div>
@@ -641,9 +689,12 @@
 								</div>
 								<div class="pplback">
 									<div class="contactinfo"><br><br>
-										<span class="phoneno">9006703087</span><br><br>
-										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
-																				
+										<span class="phoneno">+91 9006703087</span><br><br>
+										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
+										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
+										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<a href="https://www.facebook.com/vishvesh.rai.9?fref=ts" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
+										</div>										
 									</div>
 									<!-- back content -->
 								</div>
@@ -668,9 +719,12 @@
 								</div>
 								<div class="pplback">
 									<div class="contactinfo"><br><br>
-										<span class="phoneno">9631112451</span><br><br>
-										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
-																				
+										<span class="phoneno">+91 9631112451</span><br><br>
+										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
+										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
+										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<a href="https://www.facebook.com/pranjali.sharma.583" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
+										</div>										
 									</div>
 									<!-- back content -->
 								</div>
@@ -694,9 +748,12 @@
 								</div>
 								<div class="pplback">
 									<div class="contactinfo"><br><br>
-										<span class="phoneno"> 9470731600</span><br><br>
-										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
-																				
+										<span class="phoneno">+91 9470731600</span><br><br>
+										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
+										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
+										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<a href="https://www.facebook.com/mithu987654321" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
+										</div>										
 									</div>
 									<!-- back content -->
 								</div>
@@ -720,9 +777,12 @@
 								</div>
 								<div class="pplback">
 									<div class="contactinfo"><br><br>
-										<span class="phoneno">  9869438819‬</span><br><br>
-										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
-																				
+										<span class="phoneno">+91 9869438819‬</span><br><br>
+										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
+										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
+										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<a href="https://www.facebook.com/shreyas.patil.5203" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
+										</div>										
 									</div>
 									<!-- back content -->
 								</div>
@@ -764,9 +824,12 @@
 								</div>
 								<div class="pplback">
 									<div class="contactinfo"><br><br>
-										<span class="phoneno"> 8987040707</span><br><br>
-										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
-																				
+										<span class="phoneno">+91 8987040707</span><br><br>
+										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
+										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
+										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<a href="https://www.facebook.com/snehan.shourya" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
+										</div>										
 									</div>
 									<!-- back content -->
 								</div>
@@ -791,9 +854,12 @@
 								</div>
 								<div class="pplback">
 									<div class="contactinfo"><br><br>
-										<span class="phoneno">8969303835</span><br><br>
-										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
-																				
+										<span class="phoneno">+91 8969303835</span><br><br>
+										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
+										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
+										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<a href="https://www.facebook.com/subramaniyam.shankar1996" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
+										</div>										
 									</div>
 									<!-- back content -->
 								</div>
@@ -817,9 +883,12 @@
 								</div>
 								<div class="pplback">
 									<div class="contactinfo"><br><br>
-										<span class="phoneno">8889558326</span><br><br>
-										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
-																				
+										<span class="phoneno">+91 8889558326</span><br><br>
+										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
+										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
+										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<a href="https://www.facebook.com/manish2296lion" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
+										</div>										
 									</div>
 									<!-- back content -->
 								</div>
@@ -859,9 +928,12 @@
 								</div>
 								<div class="pplback">
 									<div class="contactinfo"><br><br>
-										<span class="phoneno"> 9473480014</span><br><br>
-										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
-																				
+										<span class="phoneno">+91 9473480014</span><br><br>
+										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
+										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
+										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<a href="https://www.facebook.com/scopeInfinity" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
+										</div>										
 									</div>
 									<!-- back content -->
 								</div>
@@ -886,9 +958,12 @@
 								</div>
 								<div class="pplback">
 									<div class="contactinfo"><br><br>
-										<span class="phoneno">9006703524</span><br><br>
-										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
-																				
+										<span class="phoneno">+91 9006703524</span><br><br>
+										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
+										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
+										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<a href="https://www.facebook.com/zenineasa" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
+										</div>										
 									</div>
 									<!-- back content -->
 								</div>
@@ -912,9 +987,12 @@
 								</div>
 								<div class="pplback">
 									<div class="contactinfo"><br><br>
-										<span class="phoneno">9631089106</span><br><br>
-										<a href="#"  class="linkedin" style="" target="_bl"><b>LinkedIn</b></a>
-																				
+										<span class="phoneno">+91 9631089106</span><br><br>
+										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
+										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
+										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<a href="" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
+										</div>										
 									</div>
 									<!-- back content -->
 								</div>
