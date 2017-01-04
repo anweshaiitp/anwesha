@@ -603,6 +603,7 @@
   		<!-- <div style="width:100%;height: 100%;display: none;background-color: rgba(0,0,0,0.7);" id="teams"> -->
   			
   		<!-- </div> -->
+  		<!-- teams section shifted to seperate file as it took up a major part of the index file, making it cumbersome to scroll everytime -->
         <?php include_once('teams.php'); ?>
         <div class="window2"></div>
 		<div class="window"></div>
