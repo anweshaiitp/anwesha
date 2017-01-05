@@ -243,7 +243,7 @@
 							var orgnrs = orgarr.split("#");
 							for (i=0;i<orgnrs.length;i++)
 							{
-								$('#eve_organisers').append("<li>"+orgnrs[i]+"</li>");
+								$('#eve_organisers').append("<li>"+orgnrs[i]+"</li><br>");
 							}
 						orgarr=null;
 						orgnrs=null;
@@ -659,7 +659,7 @@
 				</span><br><br><span style="font-size: 1.8em">Venue:</span>
 				<span id='eve_venue' style="font-size: 1.8em;">
 					VENUE
-				</span><br>
+				</span><br><br>
 				<div id='eve_organisers_head'>
 					<span style="font-size: 1.8em">Organisers :</span>
 					<ul id='eve_organisers' type="none" style="font-size: 1.8em">
@@ -719,7 +719,7 @@
 				<a id='bregister' href="#register"><li>Registration</li></a>
 				<a id='bregister_ca' href="#register_ca"><li>Campus Ambassador</li></a>
                 <a id='bleaderboard' href="#leaderboard"><li>Campus Ambassador Leaderboard</li></a>
-				<a href="#teams" id="teamsbtn" style=""><li>Teams</li></a>
+				<a href="#teams" id="teamsbtn" style="display: none"><li>Teams</li></a>
 				<a href="#events" id="eventsbtn" style=""><li>Events</li></a>
 			    <a href="auditions/"><li>MultiCity</li></a>
 
@@ -802,7 +802,7 @@
                 <input class="inp" id="datepicker" name="DOB" type="text" placeholder="DOB (yyyy-mm-dd)"  pattern="\d{4}-\d{2}-\d{2}" class="datepicker" class="inp"  title="Invalid Date Format(yyyy-mm-dd)"  >
                 <input id="gender" placeholder="Sex(M/F)" class="inp"  name="sex" type="text" pattern="[MFmf]" value="" >
 				<input id="city" class="inp" name="city" type="text" placeholder="City" patten='^[a-zA-Z0-9.@]*' title="Invalid City" >
-				<input id="refcode" class="inp" name="ref" type="text" placeholder="Reference Code" pattern='([0-9]{4})|()' title="Invalid Ref Number" value="<?php if(isset($referalcode)) echo $referalcode; ?>" <?php if(!empty($referalcode)) echo "disabled"; ?>>
+				<input id="refcode" class="inp" name="ref" type="number" placeholder="Reference Code" pattern='([0-9]{4})|()' title="Invalid Ref Number" value="<?php if(isset($referalcode)) echo $referalcode; ?>" <?php if(!empty($referalcode)) echo "disabled"; ?>>
                 <div id="error" style="width:auto;display:none;box-radius:5px;box-shadow:#000000 0 0 10px;background:#6fce2d;padding:20px;font-size:20px;margin:10px">An error occured</div>
                 <img src="images/spinner-large.gif" style="width:30px;height:30px;display:none" class="smloader2">
 				<input class="button inp" type="submit" id="submitreg" value="Submit" style="width:100%">
@@ -830,7 +830,7 @@
 				<textarea placeholder="Tell us 3 things you would do as a Campus Ambassador of Anwesha &lsquo;17." class="inp" id="cathreethings" name="threethings" rows="10"></textarea>
 				<textarea placeholder="Have you held any position of responsibility in your college? If yes, please explain." class="inp" id="caresponsibility" name="responsibility" rows="10"></textarea>
 				<textarea placeholder="Have you been a part of one or more previous editions of Anwesha? If yes, please explain." class="inp" id="cainvolvement" name="involvement" rows="10"></textarea>
-				<input placeholder="Refered by someone?" id="careferalcode" name="referalcode" class="inp"  type="text" pattern='([0-9]{4})|()' title="Invalid Ref Number" value="<?php if(isset($referalcode)) echo $referalcode; ?>" <?php if(!empty($referalcode)) echo "disabled"; ?> ><br>
+				<input placeholder="Refered by someone?" id="careferalcode" name="referalcode" class="inp"  type="number" pattern='([0-9]{4})|()' title="Invalid Ref Number" value="<?php if(isset($referalcode)) echo $referalcode; ?>" <?php if(!empty($referalcode)) echo "disabled"; ?> ><br>
 				<center><div id="messagew" style="width:auto;display:none;box-radius:5px;box-shadow:#000000 0 0 10px;background:#6fce2d;padding:20px;font-size:20px;margin:10px"></div></center>
 				<img src="images/spinner-large.gif" style="width:30px;height:30px;display:none" class="smloader">
 				<input id="submitca" class="inp" type="submit" value="Submit">
