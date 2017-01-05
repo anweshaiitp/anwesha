@@ -111,6 +111,7 @@
 					// $("#eve_cover").css("box-shadow","0 0 0 #FFFFFF");
          			$("#eve_name").css("font-size","3em");
          			$('#eve_cover').css("height","70px");
+         			$("#extrabr").hide();
          		}else{
          			$('#eve_cover').css("height","300px");
          			var ppurl="url(";
@@ -120,7 +121,8 @@
          			$("#eve_cover").css("background-image",ppurl);
          			if($(window).width()>960){
          			$("#eve_name").css("font-size","5em");}
-         			else{$("#eve_name").css("font-size","3em");}
+         			$("#extrabr").show();
+         			
          		}
          	}
          	function eve_iconswitch(icourl){
@@ -605,6 +607,82 @@
   		<!-- </div> -->
   		<!-- teams section shifted to seperate file as it took up a major part of the index file, making it cumbersome to scroll everytime -->
         <?php include_once('teams.php'); ?>
+
+		<div class="blankbg">
+			<div id="bgofblankbg"></div>
+			<div class="NavWrap" style="width: 100%;
+    z-index: 8;
+    background-color: black;box-shadow: 0 0 50px #000000">
+			<div id="navbar">
+        			<a href='#' data="1" class=' navbtn ph-button ph-btn-blue'>Cat1</a>
+        			<a href='#' data=2 class=' navbtn ph-button ph-btn-blue'>Cat2</a>
+        			<a href='#' data=3 class=' navbtn ph-button ph-btn-blue'>Cat3</a>
+        			<a href='#' data=4 class=' navbtn ph-button ph-btn-blue'>Cat4</a>
+			</div></div>
+			<div id="sidebar">
+				<div class="sblist" id="sbl" style="display:none">
+					<a href='#' class='ph-button ph-btn-green'>Event1</a>
+        			<a href='#' class='ph-button ph-btn-green'>Event2</a>
+        			<a href='#' class='ph-button ph-btn-green'>Event3</a>
+        			<a href='#' class='ph-button ph-btn-green'>Event4</a>
+				</div>
+			</div>
+			<div id="mainareaalt" style='color:white'>
+			<center>	
+				<img src="images/logo.png" alt="" height="200px"><br><br>
+				<h1 style="font-family: bebas;font-size: 5em;"><i>Events</i></h1>
+			</center>
+			</div>
+			<div id="mainarea" style='color:white;padding:2em'>
+				<center>
+			<div id="eve_cover">
+				<span id="headwrap" style=""><br><span id="extrabr"><br><br><br><br></span>
+				<span id="headwr" style="display: inline">
+				<img src="" style="height: 50px;display: inline;" placeholder="Icon" id='eve_icon'>&nbsp;&nbsp;&nbsp;&nbsp;
+				<h1 id='eve_name' style="font-size: 5em;display: inline;margin-bottom: 10px;text-shadow: 0 0 10px #29d816">
+					Event Name
+				</h1></span><br>
+				<span id='eve_tagline' style="font-size: 1.5em;margin-bottom: 30px;font-style: italic;">
+					Event TagLine
+				</span>
+				</span>
+				</div>
+				<!-- <div id="dummyspace" style="width:100%;height:300px"></div> -->
+				<br><br><br><span style="font-size: 1.8em">Date:</span>
+				<span id='eve_date' style="font-size: 1.8em;">
+					DATE
+				</span><br><br><span style="font-size: 1.8em">Time:</span>
+				<span id='eve_time' style="font-size: 1.8em;">
+					TIME
+				</span><br><br><span style="font-size: 1.8em">Venue:</span>
+				<span id='eve_venue' style="font-size: 1.8em;">
+					VENUE
+				</span><br>
+				<div id='eve_organisers_head'>
+					<span style="font-size: 1.8em">Organisers :</span>
+					<ul id='eve_organisers' type="none" style="font-size: 1.8em">
+						<li>Organiser 1 (9741852963)</li>
+						<li>Organiser 2 (9852451262)</li>
+						<li>Organiser 3 (9965235245)</li>
+					</ul>
+				</div><br>
+				<a href="" id="RuleBtn" target="_blank">Rulebook</a><br>
+				<a id="regbtn" placeholder="" >Register for Event</a>
+
+				<br><br>
+
+				<span id='eve_short_desc' style="font-size: 1.5em;">
+					Event Short Desc
+				</span><br>
+				<span id='eve_long_desc' style="font-size: 1.5em;text-align:justify;text-justify: inter-word;">
+					Event Long Desc
+				</span>
+				<br><br><br><br><br><br>
+
+
+			</center>
+			</div>
+		</div>
         <div class="window2"></div>
 		<div class="window"></div>
 		<button class="backbtn">< Back to home</button>
@@ -639,7 +717,7 @@
 				<a id='bregister' href="#register"><li>Registration</li></a>
 				<a id='bregister_ca' href="#register_ca"><li>Campus Ambassador</li></a>
                 <a id='bleaderboard' href="#leaderboard"><li>Campus Ambassador Leaderboard</li></a>
-				<!--<a href="#teams" id="teamsbtn" style=""><li>Teams</li></a>-->
+				<!-- <a href="#teams" id="teamsbtn" style=""><li>Teams</li></a> -->
 				<a href="#events" id="eventsbtn" style=""><li>Events</li></a>
 			    <a href="auditions/"><li>MultiCity</li></a>
 

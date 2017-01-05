@@ -1457,3 +1457,9 @@ html, body { height: 100%; width: 100%; margin: 0; }
 	display: none;
 
 }
+#eve_short_desc p{
+	width:100%;
+	padding-left: 100px;
+	padding-right: 100px;
+}
+
