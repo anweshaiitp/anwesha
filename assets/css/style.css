@@ -1139,9 +1139,10 @@ html, body { height: 100%; width: 100%; margin: 0; }
 	top:0;
 	width:100% !important;
 	height:100% !important;
-	background: -webkit-radial-gradient(#2f3030 0%,#000000 40%);
-			 background: -o-radial-gradient(#2f3030 0%,#000000 40%);
-			 background: radial-gradient(#2f3030 0%,#000000 40%);
+	background: #44A08D;
+    background: -webkit-linear-gradient(to right, #44A08D , #093637);
+    background: linear-gradient(to right, #44A08D , #093637);
+        
 				
 }
 			
