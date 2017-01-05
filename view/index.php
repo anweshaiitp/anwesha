@@ -669,12 +669,12 @@
 				<a href="" id="RuleBtn" target="_blank">Rulebook</a><br>
 				<a id="regbtn" placeholder="" >Register for Event</a>
 
-				<br><br><br><br><br>
+				<br><br>
 
-				<span id='eve_short_desc' style="font-size: 1.2em;">
+				<span id='eve_short_desc' style="font-size: 1.5em;">
 					Event Short Desc
-				</span><br><br><br>
-				<span id='eve_long_desc' style="font-size: 1.2em;text-align:justify;text-justify: inter-word;">
+				</span><br>
+				<span id='eve_long_desc' style="font-size: 1.5em;text-align:justify;text-justify: inter-word;">
 					Event Long Desc
 				</span>
 				<br><br><br><br><br><br>
