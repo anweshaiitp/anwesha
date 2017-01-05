@@ -79,13 +79,18 @@
 					}
          		});
          	});
-         	if(location.hash=="#events"){
+         	var hashloc=location.hash;
+         	var urieventid=null;
+         	if(hashloc=="#events"){
          	 	$("#clwrap").fadeIn();
             	$(".clubs").fadeIn();
             	$("#intro").hide();
             	$(".window2").fadeIn("slow",toggleli());
             	$(".backbtn").fadeIn();
             	// $("#preloader").hide();
+         	 } else if (hashloc.substring(1,6)=="event"){
+         	 	 urieventid = hashloc.replace("#event","");
+         	 	 // alert(urieventid);
          	 }
 			function eve_rulefill(rbookurl){
 					
@@ -255,6 +260,38 @@
 					});
 					
 				
+				});
+			}
+			if(urieventid!=null){//alert(urieventid);
+				// alert(events_data[urieventid]['eveName']);
+				$.get( "allEvents/", function(data, status){
+							console.log("Event Status : "+data[0]);
+
+        					if(status=='success'){
+    							events_data = data[1];
+    						}
+
+				for (var i = 0; i < events_data.length; i++)
+						if(events_data[i]['eveId']==urieventid) {
+							console.log("Found");
+							eve = events_data[i];
+							break;
+						}
+						var urieventcode=eve['code'];
+						// alert(urieventcode);
+						$(".swingimage").click();	
+						if(urieventcode==2){
+							$("[placeholder='tech']").click();	
+							setTimeout(function(){
+								 $("[data='"+urieventcode+"']").click();
+								
+							},500);
+							setTimeout(function(){
+									console.log("Click: [data-evid='"+urieventcode+"']");
+									$("[data-evid='"+urieventid+"']").click();
+								},1000);
+							// $("[data='"+urieventcode+"']").click();
+						}
 				});
 			}
          	$.fn.slideFadeToggle  = function(speed, easing, callback) {
@@ -694,13 +731,13 @@
 		<div id="clwrap">
 			<div class="clubs">
 				<ul id="leftlist">
-				<a href="#"><li class="mainevent" onclick="cl=1">Cultural</li></a>
-				<a href="#"><li class="mainevent" onclick="cl=2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arts &amp; Welfare</li></a>
+				<a href="#"><li class="mainevent" onclick="cl=1" placeholder="cult">Cultural</li></a>
+				<a href="#"><li class="mainevent" onclick="cl=2" placeholder="arts">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arts &amp; Welfare</li></a>
 				<!-- <a href="#"><li class="mainevent" onclick="cl=3">NJACK2</li></a> -->
 				</ul>
 				<ul id="rightlist">
-				<a href="#"><li class="mainevent" onclick="cl=0">Technical&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li></a>
-				<a href="#"><li class="mainevent" onclick="cl=3">Management</li></a>
+				<a href="#"><li class="mainevent" onclick="cl=0" placeholder="tech">Technical&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li></a>
+				<a href="#"><li class="mainevent" onclick="cl=3" placeholder="manage">Management</li></a>
 				<!-- <a href="#"><li class="mainevent" onclick="cl=6">NJACK4</li></a> -->
 
 				</ul>
