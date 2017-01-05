@@ -206,7 +206,7 @@
 							var e_name = events_data[i]['eveName'];
 							var ev_id = events_data[i]['eveId'];
 
-							$( "#sbl" ).append( "<a href='#' data-evid='"+ev_id+"' class='sbl-item ph-button ph-btn-green'>"+e_name+"</a>" );
+							$( "#sbl" ).append( "<a href='#event"+ev_id+"' data-evid='"+ev_id+"' class='sbl-item ph-button ph-btn-green'>"+e_name+"</a>" );
 							console.log("Event Added "+ev_id);
 						}
 					};
