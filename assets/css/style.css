@@ -1225,10 +1225,12 @@ html, body { height: 100%; width: 100%; margin: 0; }
 	background-image: url('../../images/lightwood.jpg');
 	box-shadow: 0 0px 22px rgba(0, 0, 0, 0.7) inset !important;
 	opacity: 1;
-	transition: opacity .5s,box-shadow .5s;
+	/*width:250px;*/
+	transition: box-shadow .5s;
 }.mainevent:hover{
-	opacity: 0.6;
-	box-shadow: 0 0px 22px rgba(0, 0, 0, 0.7)  ;
+	/*opacity: 0.6;*/
+	/*width:300px;*/
+	box-shadow: 0 0px 50px rgba(0, 0, 0, 0.7) inset !important;
 }
 #leftlist{
 	display: none;
@@ -1460,3 +1462,9 @@ html, body { height: 100%; width: 100%; margin: 0; }
 	display: none;
 
 }
+#eve_short_desc p{
+	width:100%;
+	padding-left: 100px;
+	padding-right: 100px;
+}
+
