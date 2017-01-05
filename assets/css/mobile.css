@@ -23,7 +23,9 @@
      -o-animation-timing-function: cubic-bezier(0.815, 0.185, 0.215, 1.400); 
         animation-timing-function: cubic-bezier(0.815, 0.185, 0.215, 1.400); /* custom */
 }
-
+#glass .text{
+	font-size: 2em !important;
+}
 .loginexit{
 	color:white;
 	font-size: 15px;
