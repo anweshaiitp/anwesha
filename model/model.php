@@ -296,7 +296,7 @@ class People{
 
         $result = mysqli_query($conn,$sqlInsert);
         if(!$result){
-            $Err = 'Error! Maybe EmailId is already in use.';
+            $Err = 'Error! Maybe EmailId is already in use. #'.alog(mysqli_error($conn));
             $arr = array();
             $arr[]=-1;
             $arr[]=$Err;
@@ -306,7 +306,7 @@ class People{
         $sqlDeletePid="DELETE FROM Pids WHERE pId=$id";
         $result = mysqli_query($conn,$sqlDeletePid);
         if(!$result){
-            $Err='An Internal Error Occured... Please try later';
+            $Err='An Internal Error Occured... Please try later. #'.alog(mysqli_error($conn));
             $arr = array();
             $arr[]=-1;
             $arr[]=$Err;
@@ -317,7 +317,7 @@ class People{
 
         $result = mysqli_query($conn,$sqlInsert);
         if(!$result){
-            $Err = 'Problem in Creating login Id. Contact Registration team for help.';
+            $Err = 'Problem in Creating login Id. Contact Registration team for help. #'.alog(mysqli_error($conn));
             $arr = array();
             $arr[]=-1;
             $arr[]=$Err;
@@ -367,7 +367,7 @@ class People{
 
         $result = mysqli_query($conn, $sql);
         if(!$result){
-            $error = "Could not register the Campus Ambassador";
+            $error = "Could not register the Campus Ambassador, #".alog(mysqli_error($conn));
             $arr = array();
             $arr[]=-1;
             $arr[]=$error;
@@ -379,7 +379,7 @@ class People{
 
         $result = mysqli_query($conn,$sqlUpdateTokenType);
         if(!$result){
-            $Err = 'Problem in Generating Confirmation Token for CampusAmbassador. Contact Registration team for help.';
+            $Err = 'Problem in Generating Confirmation Token for CampusAmbassador. Contact Registration team for help. #'.alog(mysqli_error($conn));
             $arr = array();
             $arr[]=-1;
             $arr[]=$Err;
@@ -439,7 +439,7 @@ class People{
 
         $result = mysqli_query($conn, $sql);
         if(!$result){
-            $error = "Could not switch to Campus Ambassador";
+            $error = "Could not switch to Campus Ambassador. #".alog(mysqli_error($conn));;
             $arr = array();
             $arr[]=-1;
             $arr[]=$error;
@@ -451,7 +451,7 @@ class People{
 
         $result = mysqli_query($conn,$sqlUpdateTokenType);
         if(!$result){
-            $Err = 'Problem in Generating Confirmation Token for CampusAmbassador. Contact Registration team for help.';
+            $Err = 'Problem in Generating Confirmation Token for CampusAmbassador. Contact Registration team for help. #'.alog(mysqli_error($conn));
             $arr = array();
             $arr[]=-1;
             $arr[]=$Err;
@@ -595,7 +595,7 @@ class People{
         $sql = "SELECT * FROM People NATURAL JOIN LoginTable WHERE pId = $id";
         $result = mysqli_query($conn, $sql);
         if(!$result || mysqli_num_rows($result)!=1){
-            $error = "No such User - Invalid Link";
+            $error = "No such User - Invalid Link #".$id;
             $arr = array();
             $arr[] = -1;
             $arr[] = $error;
@@ -603,7 +603,7 @@ class People{
         }
         $row = mysqli_fetch_assoc($result);
         if(empty($token) || strcmp($token,$row['csrfToken'])!=0){
-            $error = "Invalid Link or Link Expired";
+            $error = "Invalid Link or Link Expired. #".$id;
             $arr = array();
             $arr[] = -1;
             $arr[] = $error;
@@ -612,7 +612,7 @@ class People{
 
         $confirmationType = $row['type'];
         if(!($confirmationType == 1 || $confirmationType == 2)) {
-            $error = "Unexpected Error!, Verifing Confirmation Type. Please contact Registration Team";
+            $error = "Unexpected Error!, Verifing Confirmation Type. Please contact Registration Team. #".$id;
             $arr = array();
             $arr[] = -1;
             $arr[] = $error;
@@ -628,7 +628,7 @@ class People{
         $sqlUpdate = "UPDATE People SET confirm = $confirmationType WHERE pId = $id";
         $result = mysqli_query($conn, $sqlUpdate);
         if(!$result){
-            $error = "Some Internal Error Occured - Please try again.";
+            $error = "Some Internal Error Occured - Please try again. #".alog(mysqli_error($conn));
             $arr = array();
             $arr[] = -1;
             $arr[] = $error;
@@ -637,7 +637,7 @@ class People{
         $sqlUpdate = "UPDATE LoginTable SET csrfToken = '', type = 0 WHERE pId = $id";
         $result = mysqli_query($conn, $sqlUpdate);
         if(!$result){
-            $error = "Some Internal Error Occured - Please try again.";
+            $error = "Some Internal Error Occured - Please try again. #".alog(mysqli_error($conn));
             $arr = array();
             $arr[] = -1;
             $arr[] = $error;
@@ -653,7 +653,7 @@ class People{
             $sqlUpdate = "UPDATE LoginTable SET password = sha('$randPass'), privateKey = sha('$privateKey') where pId = $id";                         //vinay edit
             $result = mysqli_query($conn, $sqlUpdate);
             if(!$result){
-                $error = "Some Internal Error Occured - Please try again.";
+                $error = "Some Internal Error Occured - Please try again. #".alog(mysqli_error($conn));
                 $arr = array();
                 $arr[] = -1;
                 $arr[] = $error;
@@ -678,7 +678,7 @@ class People{
         $sql = "SELECT csrfToken FROM LoginTable WHERE pId = '$id'";
         $result = mysqli_query($conn, $sql);
         if(!$result || mysqli_num_rows($result)!=1){
-            $error = "No such User - Invalid Link";
+            $error = "No such User - Invalid Link #$id";
             $arr = array();
             $arr[] = -1;
             $arr[] = $error;
@@ -686,7 +686,7 @@ class People{
         }
         $row = mysqli_fetch_assoc($result);
         if(empty($token) || strcmp($token,$row['csrfToken'])!=0){
-            $error = "Invalid Link or Link Expired";
+            $error = "Invalid Link or Link Expired #id";
             $arr = array();
             $arr[] = -1;
             $arr[] = $error;
@@ -697,7 +697,7 @@ class People{
         $sqlUpdate = "UPDATE LoginTable SET password = sha('$pass'), privateKey = sha('$pass'),csrfToken = '' where pId = '$id'";
         $result = mysqli_query($conn, $sqlUpdate);
         if(!$result){
-            $error = "Some Internal Error Occured - Please try again.";
+            $error = "Some Internal Error Occured - Please try again. #".alog(mysqli_error($conn));
             $arr = array();
             $arr[] = -1;
             $arr[] = $error;
@@ -771,7 +771,7 @@ class People{
             self::sendEventRegistrationEmail($userID,$eventID,$conn);
             return array("status"=>true, "msg" => "You have been registered!");
         } else {
-            return array("status"=>false, "msg"=> "Registration failed, already registered!");
+            return array("status"=>false, "msg"=> "Registration failed, already registered! #".alog(mysqli_error($conn)));
         }
     }
 
@@ -854,7 +854,7 @@ class People{
 
         if(!$result || mysqli_num_rows($result)==0){
             //SHOULD NOT HAPPEN - IF YOU ARE HERE - YOUR'E IN TROUBLE
-            return array("status"=>false, "msg"=> "Could not get a valid GroupID");
+            return array("status"=>false, "msg"=> "Could not get a valid GroupID #".alog("BT\t".mysqli_error($conn)));
         }
 
         $row = mysqli_fetch_assoc($result);
@@ -865,7 +865,7 @@ class People{
         if(!$result){
             //SHOULD NOT HAPPEN - IF YOU ARE HERE - YOUR'E IN TROUBLE
             //WTF is even happpening ??
-            return array("status"=>false, "msg"=> "An Internal Error Occured... Please try later");
+            return array("status"=>false, "msg"=> "An Internal Error Occured... Please try later #".alog("BT\t".mysqli_error($conn)));
         }
 
 
@@ -878,7 +878,7 @@ class People{
 
         $result = mysqli_query($conn,$sqlInsert);
         if(!$result){
-            return array("status"=>false, "msg"=> "An Internal Error Occured While Registering... Please try later");
+            return array("status"=>false, "msg"=> "An Internal Error Occured While Registering... Please try later #".alog(mysqli_error($conn)));
 
         }        
         
@@ -894,7 +894,7 @@ class People{
         $sqlInsert = "INSERT INTO Registration(eveId,pId,grpId) VALUES $values ";
         $result = mysqli_query($conn,$sqlInsert);
         if(!$result){
-            return array("status"=>false, "msg"=> "An Internal Error Occured while registering... Please try later");
+            return array("status"=>false, "msg"=> "An Internal Error Occured while registering... Please try later #".alog(mysqli_error($conn)));
         }
 
 
@@ -982,7 +982,7 @@ class People{
         $result = mysqli_query($conn,$sql);
 
         if (!$result){
-            return array("status"=>false, "msg"=> "Ther was some error while arranging for accomodation. Please try again later.");
+            return array("status"=>false, "msg"=> "Ther was some error while arranging for accomodation. Please try again later. #".alog(mysqli_error($conn)));
         } else {
             return array("status"=>true, "msg"=> "Your accomodation details have been recorded. We hope you have a great stay.");
         }
@@ -1022,8 +1022,8 @@ class Events{
     }
 
     public function getAllEvents($conn){
-        mysqli_set_charset($conn,"utf8");
-	$sql = "SELECT * FROM Events";
+    mysqli_set_charset($conn,"utf8");
+    $sql = "SELECT * FROM Events";
         $result = mysqli_query($conn, $sql);
         $arr = array();
         if(!$result || mysqli_num_rows($result)==0){
@@ -1244,7 +1244,7 @@ class Auth
 
         $result = mysqli_query($conn,$sqlUpdate);
         if(!$result){
-            $Err = 'Unexpected Error. Please contact Registration Desk';
+            $Err = 'Unexpected Error. Please contact Registration Desk# '.alog(mysqli_error($conn));
             $arr = array();
             $arr[]=-1;
             $arr[]=$Err;

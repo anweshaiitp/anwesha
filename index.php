@@ -21,6 +21,8 @@ class Routing
 
 }
 
+require('global.php');
+
 $url = $_SERVER['REQUEST_URI'];
 preg_match('@(.*)index.php(.*)$@', $_SERVER['PHP_SELF'], $mat );
 $base = '@^'. $mat[1] ;
