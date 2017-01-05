@@ -850,7 +850,7 @@
 					onblur="if (this.value == '') {this.value = 'password';}"
 					onfocus="if (this.value == 'password') {this.value = '';}" /><center>
                 <img src="images/spinner-large.gif" style="width:30px;height:30px;display:none" class="logingif"></center>
-				<input class="button" type="submit" id="loginsubmit" value="LogIn!">
+				<input class="button" type="submit" id="loginsubmit" value="LogIn!"><br>
 				<a class="loganchor" placeholder="reset">Reset Password</a><br>
 				<a class="loganchor" placeholder="resend">Resend Confirmation mail</a>
 			<style>
