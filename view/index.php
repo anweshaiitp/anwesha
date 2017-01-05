@@ -122,7 +122,7 @@
          			if($(window).width()>960){
          			$("#eve_name").css("font-size","5em");}
          			$("#extrabr").show();
-         			else{$("#eve_name").css("font-size","3em");}
+         			
          		}
          	}
          	function eve_iconswitch(icourl){
