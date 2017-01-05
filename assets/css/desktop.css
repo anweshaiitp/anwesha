@@ -48,6 +48,13 @@
 	left:30%;
 
 }
+
+#eve_short_desc p{
+	width:100%;
+	padding-left: 100px;
+	padding-right: 100px;
+}
+
 .NavWrap{
 	position: fixed;
 }
