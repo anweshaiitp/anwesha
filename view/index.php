@@ -262,7 +262,7 @@
 				
 				});
 			}
-			if(urieventid!=null){//alert(urieventid);
+			if(urieventid!=null){//alert(urieventid); //kochikame
 				// alert(events_data[urieventid]['eveName']);
 				$.get( "allEvents/", function(data, status){
 							console.log("Event Status : "+data[0]);
@@ -277,21 +277,39 @@
 							eve = events_data[i];
 							break;
 						}
-						var urieventcode=eve['code'];
-						// alert(urieventcode);
-						$(".swingimage").click();	
-						if(urieventcode==2){
+						var urieventprcode=eve['code'];
+						var evepcat=null;
+						if(events_data[i]['eveId']==urieventprcode) {
+							console.log("Found");
+							eve = events_data[i];
+							
+						}
+						evepcat=eve['code'];
+						// urieventprcode is the blue tab/club it belongs to
+						// alert(urieventprcode);
+						$(".swingimage").click();
+						if(evepcat==0){
 							$("[placeholder='tech']").click();	
-							setTimeout(function(){
-								 $("[data='"+urieventcode+"']").click();
+							
+							// $("[data='"+urieventprcode+"']").click();
+						}else if(evepcat==1){
+							$("[placeholder='cult']").click();	
+
+						}else if(evepcat==2){
+							$("[placeholder='arts']").click();	
+							
+						}else if(evepcat==3){
+							
+							$("[placeholder='manage']").click();	
+						}
+						setTimeout(function(){
+								 $("[data='"+urieventprcode+"']").click();
 								
 							},500);
 							setTimeout(function(){
-									console.log("Click: [data-evid='"+urieventcode+"']");
+									console.log("Click: [data-evid='"+urieventprcode+"']");
 									$("[data-evid='"+urieventid+"']").click();
 								},1000);
-							// $("[data='"+urieventcode+"']").click();
-						}
 				});
 			}
          	$.fn.slideFadeToggle  = function(speed, easing, callback) {
