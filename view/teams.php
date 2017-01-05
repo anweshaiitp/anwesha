@@ -58,7 +58,7 @@
         			height:210px;
         			/*background-color: #FFFF00;*/
         			background-size: cover;
-        			box-shadow:0 0 70px rgba(156, 156, 156, 0.71);
+        			box-shadow:0 0 70px rgba(69, 162, 234, 0.87);
 
         		}
         		.pplback{
