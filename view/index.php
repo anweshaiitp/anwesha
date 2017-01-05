@@ -440,7 +440,7 @@
         						console.log(data);
 
         						if(data[0]==1){
-        							$("#form_fill").html('<div style="width:500px;"><center></br>Registration Successful</br>===================</br></br>An activation link has been sent to your email.<br>'+email+'</center></div></br></br>');
+        							$("#form_fill").html('<div style="width:100%;"><center></br>Registration Successful</br></br>An activation link has been sent to your email.<br>'+email+'</center></div></br></br>');
         							//$("#messagew").fadeIn();
         							$("#form_fill").css('background','#5FAB22');
         							//$("#form_fill").fadeOut();
@@ -499,7 +499,7 @@
     							$(".smloader2").fadeOut("fast");
     				 		});
         						if(AJAXresponse[0]==1){
-        							$("#boxreg").html('<div style="width:500px"><h1>Registered!<br>==============<br></h1><br>An activation link has been sent to<br>'+ email+'<br><div>');
+        							$("#boxreg").html('<div style="width:100%"><h1>Registered!<br></h1><br>An activation link has been sent to<br>'+ email+'<br><div>');
         							//$("#error").html('<h1>Registered!</h1>An activation link has been sent to '+ email+'<br>');
         							$("#boxreg").css('background','#5FAB22');
     								document.getElementById('boxreg').scrollIntoView();
