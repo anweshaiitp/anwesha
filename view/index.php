@@ -279,14 +279,16 @@
 						}
 						var urieventprcode=eve['code'];
 						var evepcat=null;
+				for (var i = 0; i < events_data.length; i++)		
 						if(events_data[i]['eveId']==urieventprcode) {
-							console.log("Found");
+							console.log("Found"+events_data[i]['code']);
 							eve = events_data[i];
-							
+							break;
 						}
 						evepcat=eve['code'];
 						// urieventprcode is the blue tab/club it belongs to
 						// alert(urieventprcode);
+						console.log(evepcat);
 						$(".swingimage").click();
 						if(evepcat==0){
 							$("[placeholder='tech']").click();	
