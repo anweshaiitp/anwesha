@@ -58,7 +58,7 @@
         			height:210px;
         			/*background-color: #FFFF00;*/
         			background-size: cover;
-        			box-shadow:0 0 50px rgba(156, 156, 156, 0.71) inset;
+        			box-shadow:0 0 70px rgba(156, 156, 156, 0.71);
 
         		}
         		.pplback{
@@ -101,7 +101,6 @@
         				<span class="desig" >Overall Fest Coordinator</span>
    						<br>
         			<!-- image -->
-
 						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
 							<div class="flipper">
 							<div class="pplfront" style="background-image: url('images/team/festcoord.jpg')">
@@ -112,7 +111,7 @@
 										<span class="phoneno">+91 9708000578</span><br><br>
 										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
 										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
-										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<a href="https://in.linkedin.com/in/abhinay-paladugu-239220b8"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
 										<a href="https://www.facebook.com/abhinay.paladugu" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
 										</div>										
 									</div>
@@ -152,7 +151,7 @@
 										<span class="phoneno">+91 9708000578</span><br><br>
 										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
 										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
-										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<a href="https://in.linkedin.com/in/abhinay-paladugu-239220b8"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
 										<a href="https://www.facebook.com/abhinay.paladugu" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
 										</div>										
 									</div>
@@ -174,7 +173,7 @@
 
 						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
 							<div class="flipper">
-							<div class="pplfront" style="background-image: url('images/team/default.jpg')">
+							<div class="pplfront" style="background-image: url('images/team/sureshb.jpg')">
 									<!-- front content -->
 								</div>
 								<div class="pplback">
@@ -182,7 +181,7 @@
 										<span class="phoneno">+91 9006703625</span><br><br>
 										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
 										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
-										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<a href="https://in.linkedin.com/in/suresh-raja-36596aa6"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
 										<a href="https://www.facebook.com/suresh.raja.355744" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
 										</div>										
 									</div>
@@ -218,7 +217,7 @@
 
 						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
 							<div class="flipper">
-							<div class="pplfront" style="background-image: url('images/team/default.jpg')">
+							<div class="pplfront" style="background-image: url('images/team/Vivekk.jpg')">
 									<!-- front content -->
 								</div>
 								<div class="pplback">
@@ -226,7 +225,7 @@
 										<span class="phoneno">+91 9006743067</span><br><br>
 										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
 										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
-										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<!-- <a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a> -->
 										<a href="https://www.facebook.com/profile.php?id=100011051835826" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
 										</div>										
 									</div>
@@ -248,7 +247,7 @@
 
 						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
 							<div class="flipper">
-							<div class="pplfront" style="background-image: url('images/team/default.jpg')">
+							<div class="pplfront" style="background-image: url('images/team/utkarsh.jpg')">
 									<!-- front content -->
 								</div>
 								<div class="pplback">
@@ -256,7 +255,7 @@
 										<span class="phoneno">+91 9709318262</span><br><br>
 										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
 										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
-										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<a href="https://www.linkedin.com/in/utkarsh-singh-653783aa/"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
 										<a href="https://www.facebook.com/utkarsh29" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
 										</div>										
 									</div>
@@ -277,7 +276,7 @@
 
 						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
 							<div class="flipper">
-							<div class="pplfront" style="background-image: url('images/team/default.jpg')">
+							<div class="pplfront" style="background-image: url('images/team/Ankitch.jpg')">
 									<!-- front content -->
 								</div>
 								<div class="pplback">
@@ -285,7 +284,7 @@
 										<span class="phoneno">+91 9631099947</span><br><br>
 										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
 										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
-										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<a href="https://www.linkedin.com/in/ankitchahal"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
 										<a href="https://www.facebook.com/ankit.chahal.739" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
 										</div>										
 									</div>
@@ -323,7 +322,7 @@
 
 						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
 							<div class="flipper">
-							<div class="pplfront" style="background-image: url('images/team/default.jpg')">
+							<div class="pplfront" style="background-image: url('images/team/Prateeks.jpg')">
 									<!-- front content -->
 								</div>
 								<div class="pplback">
@@ -331,7 +330,7 @@
 										<span class="phoneno">+91 9709309693</span><br><br>
 										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
 										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
-										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<!-- <a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a> -->
 										<a href="https://www.facebook.com/prateek.sharma.18400700" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
 										</div>										
 									</div>
@@ -353,7 +352,7 @@
 
 						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
 							<div class="flipper">
-							<div class="pplfront" style="background-image: url('images/team/default.jpg')">
+							<div class="pplfront" style="background-image: url('images/team/lakhan.jpg')">
 									<!-- front content -->
 								</div>
 								<div class="pplback">
@@ -361,7 +360,7 @@
 										<span class="phoneno">+91 9006703052</span><br><br>
 										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
 										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
-										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<a href="https://www.linkedin.com/in/lakhan-aggrawal-4b1959115"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
 										<a href="https://www.facebook.com/lakhan.aggrawal" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
 										</div>										
 									</div>
@@ -382,7 +381,7 @@
 
 						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
 							<div class="flipper">
-							<div class="pplfront" style="background-image: url('images/team/default.jpg')">
+							<div class="pplfront" style="background-image: url('images/team/bhagyashri.jpg')">
 									<!-- front content -->
 								</div>
 								<div class="pplback">
@@ -390,7 +389,7 @@
 										<span class="phoneno">+91 9631089163</span><br><br>
 										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
 										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
-										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<a href="https://www.linkedin.com/in/bhagyav/"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
 										<a href="https://www.facebook.com/bhagyashri.verma.9" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
 										</div>										
 									</div>
@@ -427,7 +426,7 @@
 
 						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
 							<div class="flipper">
-							<div class="pplfront" style="background-image: url('images/team/default.jpg')">
+							<div class="pplfront" style="background-image: url('images/team/hitesh.jpg')">
 									<!-- front content -->
 								</div>
 								<div class="pplback">
@@ -435,7 +434,7 @@
 										<span class="phoneno">+91 9401982501</span><br><br>
 										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
 										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
-										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<a href="https://www.linkedin.com/in/hitesh-golchha-a122a010b/"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
 										<a href="https://www.facebook.com/hitesh.golchha.35" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
 										</div>										
 									</div>
@@ -457,7 +456,7 @@
 
 						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
 							<div class="flipper">
-							<div class="pplfront" style="background-image: url('images/team/default.jpg')">
+							<div class="pplfront" style="background-image: url('images/team/AbhishekJ.jpg')">
 									<!-- front content -->
 								</div>
 								<div class="pplback">
@@ -465,7 +464,7 @@
 										<span class="phoneno">+91 9006704106</span><br><br>
 										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
 										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
-										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<a href="https://www.linkedin.com/in/curious4life/"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
 										<a href="https://www.facebook.com/abhishek.jaiswal.9400984" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
 										</div>										
 									</div>
@@ -503,7 +502,7 @@
 
 						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
 							<div class="flipper">
-							<div class="pplfront" style="background-image: url('images/team/default.jpg')">
+							<div class="pplfront" style="background-image: url('images/team/gopal.jpg')">
 									<!-- front content -->
 								</div>
 								<div class="pplback">
@@ -511,7 +510,7 @@
 										<span class="phoneno">+91 8571831933</span><br><br>
 										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
 										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
-										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<a href="https://www.linkedin.com/in/gkciitp/"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
 										<a href="https://www.facebook.com/gopal10sep" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
 										</div>										
 									</div>
@@ -541,7 +540,7 @@
 										<span class="phoneno">+91 9631112601</span><br><br>
 										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
 										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
-										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<!-- <a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a> -->
 										<a href="https://www.facebook.com/srimaan.nannapaneni" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
 										</div>										
 									</div>
@@ -579,7 +578,7 @@
 
 						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
 							<div class="flipper">
-							<div class="pplfront" style="background-image: url('images/team/default.jpg')">
+							<div class="pplfront" style="background-image: url('images/team/raghu.jpg')">
 									<!-- front content -->
 								</div>
 								<div class="pplback">
@@ -587,7 +586,7 @@
 										<span class="phoneno">+91 9523544530</span><br><br>
 										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
 										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
-										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<!-- <a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a> -->
 										<a href="https://www.facebook.com/raghuram.maya" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
 										</div>										
 									</div>
@@ -609,7 +608,7 @@
 
 						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
 							<div class="flipper">
-							<div class="pplfront" style="background-image: url('images/team/default.jpg')">
+							<div class="pplfront" style="background-image: url('images/team/abhisheks.jpg')">
 									<!-- front content -->
 								</div>
 								<div class="pplback">
@@ -617,7 +616,7 @@
 										<span class="phoneno">+91 7783078560</span><br><br>
 										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
 										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
-										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<!-- <a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a> -->
 										<a href="" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
 										</div>										
 									</div>
@@ -684,7 +683,7 @@
 
 						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
 							<div class="flipper">
-							<div class="pplfront" style="background-image: url('images/team/default.jpg')">
+							<div class="pplfront" style="background-image: url('images/team/vishvesh.jpg')">
 									<!-- front content -->
 								</div>
 								<div class="pplback">
@@ -692,7 +691,7 @@
 										<span class="phoneno">+91 9006703087</span><br><br>
 										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
 										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
-										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<!-- <a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a> -->
 										<a href="https://www.facebook.com/vishvesh.rai.9?fref=ts" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
 										</div>										
 									</div>
@@ -714,7 +713,7 @@
 
 						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
 							<div class="flipper">
-							<div class="pplfront" style="background-image: url('images/team/default.jpg')">
+							<div class="pplfront" style="background-image: url('images/team/pranjali.jpg')">
 									<!-- front content -->
 								</div>
 								<div class="pplback">
@@ -722,7 +721,7 @@
 										<span class="phoneno">+91 9631112451</span><br><br>
 										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
 										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
-										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<a href="https://www.linkedin.com/in/pranjali-sharma-2388b7b0/"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
 										<a href="https://www.facebook.com/pranjali.sharma.583" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
 										</div>										
 									</div>
@@ -743,7 +742,7 @@
 
 						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
 							<div class="flipper">
-							<div class="pplfront" style="background-image: url('images/team/default.jpg')">
+							<div class="pplfront" style="background-image: url('images/team/sushant.jpg')">
 									<!-- front content -->
 								</div>
 								<div class="pplback">
@@ -751,7 +750,7 @@
 										<span class="phoneno">+91 9470731600</span><br><br>
 										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
 										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
-										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<!-- <a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a> -->
 										<a href="https://www.facebook.com/mithu987654321" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
 										</div>										
 									</div>
@@ -780,7 +779,7 @@
 										<span class="phoneno">+91 9869438819‬</span><br><br>
 										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
 										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
-										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<!-- <a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a> -->
 										<a href="https://www.facebook.com/shreyas.patil.5203" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
 										</div>										
 									</div>
@@ -819,7 +818,7 @@
 
 						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
 							<div class="flipper">
-							<div class="pplfront" style="background-image: url('images/team/default.jpg')">
+							<div class="pplfront" style="background-image: url('images/team/snehan.jpg')">
 									<!-- front content -->
 								</div>
 								<div class="pplback">
@@ -827,7 +826,7 @@
 										<span class="phoneno">+91 8987040707</span><br><br>
 										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
 										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
-										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<!-- <a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a> -->
 										<a href="https://www.facebook.com/snehan.shourya" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
 										</div>										
 									</div>
@@ -849,7 +848,7 @@
 
 						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
 							<div class="flipper">
-							<div class="pplfront" style="background-image: url('images/team/default.jpg')">
+							<div class="pplfront" style="background-image: url('images/team/Subramaniyam.jpg')">
 									<!-- front content -->
 								</div>
 								<div class="pplback">
@@ -857,7 +856,7 @@
 										<span class="phoneno">+91 8969303835</span><br><br>
 										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
 										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
-										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<!-- <a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a> -->
 										<a href="https://www.facebook.com/subramaniyam.shankar1996" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
 										</div>										
 									</div>
@@ -878,7 +877,7 @@
 
 						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
 							<div class="flipper">
-							<div class="pplfront" style="background-image: url('images/team/default.jpg')">
+							<div class="pplfront" style="background-image: url('images/team/Manish.jpg')">
 									<!-- front content -->
 								</div>
 								<div class="pplback">
@@ -886,7 +885,7 @@
 										<span class="phoneno">+91 8889558326</span><br><br>
 										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
 										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
-										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<a href="https://in.linkedin.com/in/manish-madugula-2966a9129"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
 										<a href="https://www.facebook.com/manish2296lion" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
 										</div>										
 									</div>
@@ -923,7 +922,7 @@
 
 						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
 							<div class="flipper">
-							<div class="pplfront" style="background-image: url('images/team/default.jpg')">
+							<div class="pplfront" style="background-image: url('images/team/gagan.jpg')">
 									<!-- front content -->
 								</div>
 								<div class="pplback">
@@ -931,7 +930,7 @@
 										<span class="phoneno">+91 9473480014</span><br><br>
 										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
 										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
-										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<a href="https://www.linkedin.com/in/scopeinfinity"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
 										<a href="https://www.facebook.com/scopeInfinity" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
 										</div>										
 									</div>
@@ -953,7 +952,7 @@
 
 						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
 							<div class="flipper">
-							<div class="pplfront" style="background-image: url('images/team/default.jpg')">
+							<div class="pplfront" style="background-image: url('images/team/zenin.jpg')">
 									<!-- front content -->
 								</div>
 								<div class="pplback">
@@ -961,7 +960,7 @@
 										<span class="phoneno">+91 9006703524</span><br><br>
 										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
 										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
-										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<a href="https://www.linkedin.com/in/zenineasa/"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
 										<a href="https://www.facebook.com/zenineasa" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
 										</div>										
 									</div>
@@ -982,7 +981,7 @@
 
 						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
 							<div class="flipper">
-							<div class="pplfront" style="background-image: url('images/team/default.jpg')">
+							<div class="pplfront" style="background-image: url('images/team/abhishekk.jpg')">
 									<!-- front content -->
 								</div>
 								<div class="pplback">
@@ -990,8 +989,8 @@
 										<span class="phoneno">+91 9631089106</span><br><br>
 										<span class="emailid"><a href="mailto:@iitp.ac.in"></a></span>
 										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
-										<a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
-										<a href="" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
+										<!-- <a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a> -->
+										<a href="https://www.facebook.com/abhirocks089" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
 										</div>										
 									</div>
 									<!-- back content -->
@@ -1015,4 +1014,3 @@
         </div>
   		</center>
   		</div>
-  		
