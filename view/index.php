@@ -207,7 +207,6 @@
 							var ev_id = events_data[i]['eveId'];
 
 							$( "#sbl" ).append( "<a href='#' data-evid='"+ev_id+"' class='sbl-item ph-button ph-btn-green'>"+e_name+"</a>" );
-							window.location.hash = '#'+ev_id;
 							console.log("Event Added "+ev_id);
 						}
 					};
@@ -216,6 +215,8 @@
 
 
 					$(".sbl-item").click(function(){
+						window.location.hash = '#'+cat;
+
 						var cat=$(this).attr('data-evid');
 						console.log("Event to Display :"+cat);
 						//alert("Open "+cat);
