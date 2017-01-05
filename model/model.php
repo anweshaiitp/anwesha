@@ -501,7 +501,11 @@ class People{
         $baseURL = $baseURL . 'verifyEmail/User/';
         $link = $baseURL . '' . $id . '/' . $link;
         // mail($to,$subject,$message);
-        $message = "Hi $name,<br>Thank you for registering for $ANWESHA_YEAR. Your Registered Id is : <b>ANW$id</b>. To complete your registration, you need to verify your email account. Click <a href = \"$link\">here</a> for email verification.<br>In case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to <i>$ANWESHA_REG_EMAIL</i>. You can also visit our website <i>$ANWESHA_URL</i> for more information.<br>Thank You.<br>Registration Desk<br>$ANWESHA_YEAR";
+        $message = "Hi $name,<br>Thank you for registering for $ANWESHA_YEAR. Your Registered Id is : <b>ANW$id</b>. To complete your registration, you need to verify your email account. Click <a href = \"$link\">here</a> for email verification.<br>";
+        $ca_shareurl = $ANWESHA_URL . 'register_' . $id;
+        if($ca)
+            $message = $message."<br>Your Referal Code is last <i>four digits</i> of your AnweshaID. Or you can also share <a href='$ca_shareurl'>$ca_shareurl</a> for other people registration.<br>";
+        $message = $message . "In case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to <i>$ANWESHA_REG_EMAIL</i>. You can also visit our website <i>$ANWESHA_URL</i> for more information.<br>Thank You.<br>Registration Desk<br>$ANWESHA_YEAR";
         $subject = "Email Verification, $ANWESHA_YEAR";
 
         require('resources/PHPMailer/PHPMailerAutoload.php');
@@ -536,7 +540,11 @@ class People{
 
         $mail->Subject = $subject;
         $mail->Body    = $message;
-        $mail->AltBody = "Hi $name,\nThank you for registering for $ANWESHA_YEAR. Your Registered Id is : ANW$id. To complete your registration, you need to verify your email account. Click here for email verification link: $link .\nIn case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to <i>$ANWESHA_REG_EMAIL</i>. You can also visit our website $ANWESHA_URL for more information.\nThank You.\nRegistration Desk\n$ANWESHA_YEAR";;
+        $altBody = "Hi $name,\nThank you for registering for $ANWESHA_YEAR. Your Registered Id is : ANW$id. To complete your registration, you need to verify your email account. Click here for email verification link: $link .\n";
+        if($ca)
+            $altBody = $altBody."<br>Your Referal Code is last four digits of your AnweshaID. Or you can also share $ca_shareurl for other people registration.<br>";
+        $altBody = $altBody . "In case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to <i>$ANWESHA_REG_EMAIL</i>. You can also visit our website $ANWESHA_URL for more information.\nThank You.\nRegistration Desk\n$ANWESHA_YEAR";
+        $mail->AltBody = $altBody;
         $mail->send();
         // if(!$mail->send()) {
         //     echo 'Message could not be sent.';
