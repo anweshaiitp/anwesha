@@ -230,7 +230,7 @@
 						$('#eve_date').text(eve['date']);
 						$('#regbtn').attr("placeholder",eve['eveId']);
 						$('#eve_time').text(eve['time']);
-						$('#eve_venue').html(getHTMLText(eve['venue']));
+						$('#eve_venue').html(eve['venue']);
 						$('#eve_short_desc').html(getHTMLText(eve['short_desc']));
 						$('#eve_long_desc').html(getHTMLText(eve['long_desc']));
 						eve_rulefill(eve['rule_url']);
