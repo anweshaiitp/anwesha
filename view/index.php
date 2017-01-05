@@ -290,18 +290,25 @@
 						// alert(urieventprcode);
 						console.log(evepcat);
 						$(".swingimage").click();
-						if(evepcat==0){
+						if(evepcat=="0"){
+							cl=0;
 							$("[placeholder='tech']").click();	
-							
+							console.log("tech");
 							// $("[data='"+urieventprcode+"']").click();
-						}else if(evepcat==1){
+						}else if(evepcat=="1"){
+							cl=1;
 							$("[placeholder='cult']").click();	
+							console.log("cult");
 
-						}else if(evepcat==2){
+						}else if(evepcat=="2"){
+							cl=2;
 							$("[placeholder='arts']").click();	
+							console.log("arts");
 							
-						}else if(evepcat==3){
+						}else if(evepcat=="3"){
 							
+							cl=3;
+							console.log("manage");
 							$("[placeholder='manage']").click();	
 						}
 						setTimeout(function(){
@@ -309,7 +316,7 @@
 								
 							},500);
 							setTimeout(function(){
-									console.log("Click: [data-evid='"+urieventprcode+"']");
+									console.log("Click: [data-evid='"+urieventid+"']");
 									$("[data-evid='"+urieventid+"']").click();
 								},1000);
 				});
