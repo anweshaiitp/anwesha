@@ -717,7 +717,7 @@
 				<a id='bregister' href="#register"><li>Registration</li></a>
 				<a id='bregister_ca' href="#register_ca"><li>Campus Ambassador</li></a>
                 <a id='bleaderboard' href="#leaderboard"><li>Campus Ambassador Leaderboard</li></a>
-				<a href="#teams" id="teamsbtn" style=""><li>Teams</li></a>
+				<!-- <a href="#teams" id="teamsbtn" style=""><li>Teams</li></a> -->
 				<a href="#events" id="eventsbtn" style=""><li>Events</li></a>
 			    <a href="auditions/"><li>MultiCity</li></a>
 
