@@ -533,9 +533,9 @@
 			});//regular reg
 
     			$("#submitreg").click(function(){
-				$("#submitreg").fadeOut("fast",function(){ 
+				// $("#submitreg").fadeOut("fast",function(){ 
     					$(".smloader2").fadeIn();
-    				 });
+    				 // });
 				var name=$("#name").val();
 				var email=$("#email").val();				
 				var college=$("#college").val();
