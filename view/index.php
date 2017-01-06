@@ -560,7 +560,7 @@
     					$(".smloader2").fadeOut();		
     					$("#submitreg").fadeIn();}
     					// alert('trig');	
-				},5000);
+				},10000);
 				var name=$("#name").val();
 				var email=$("#email").val();				
 				var college=$("#college").val();
