@@ -461,9 +461,9 @@
 
     			//ajax for ca
     			$("#submitca").click(function(){ 
-    				$("#submitca").fadeOut("fast",function(){ 
+    				//$("#submitca").fadeOut("fast",function(){ 
     					$(".smloader").fadeIn();
-    				 });
+    				 //});
     				setTimeout(function(){
 					$("#messagew").show();
 
@@ -542,9 +542,9 @@
 
     			$("#submitreg").click(function(){
     				$("#error").empty();
-				$("#submitreg").fadeOut("fast",function(){ 
+				//$("#submitreg").fadeOut("fast",function(){ 
     					$(".smloader2").fadeIn();
-    			 });
+    			 //});
 				setTimeout(function(){
 					$("#error").show();
 					$("#error").html('A network Issue occured.<br> Please try again.');
