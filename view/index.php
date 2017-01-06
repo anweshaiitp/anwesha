@@ -463,16 +463,18 @@
 
     			//ajax for ca
     			$("#submitca").click(function(){ 
+    				var successvar=0;
     				//$("#submitca").fadeOut("fast",function(){ 
     					$(".smloader").fadeIn();
     				 //});
     				setTimeout(function(){
+    					if(successvar==0){
 					$("#messagew").show();
 
 					$("#messagew").html('A network Issue occured.<br> Please try again.');
     								document.getElementById('messagew').scrollIntoView();
     					$(".smloader").fadeOut();		
-    					$("#submitca").fadeIn();	
+    					$("#submitca").fadeIn();	}
 				},10000);
 				var name=$("#caname").val();
 		var email=$("#caemail").val();
@@ -510,6 +512,7 @@
         					console.log("Response");
         					console.log("Data: " + data + "\nStatus: " + status);
         					if(status=='success'){//$("#myloader").fadeOut();
+        					successvar=1;
         					$("#submitca").fadeIn("fast",function(){ 
     							$(".smloader").fadeOut();
     				 		});
@@ -543,16 +546,19 @@
 			});//regular reg
 
     			$("#submitreg").click(function(){
+    				var successvar=0;
+
     				$("#error").empty();
 				//$("#submitreg").fadeOut("fast",function(){ 
     					$(".smloader2").fadeIn();
     			 //});
 				setTimeout(function(){
+					if(successvar==0){
 					$("#error").show();
 					$("#error").html('A network Issue occured.<br> Please try again.');
     								document.getElementById('error').scrollIntoView();
     					$(".smloader2").fadeOut();		
-    					$("#submitreg").fadeIn();
+    					$("#submitreg").fadeIn();}
     					// alert('trig');	
 				},5000);
 				var name=$("#name").val();
@@ -580,6 +586,8 @@
     						function(data, status){
 							var AJAXresponse = data;
         					if(status=='success'){
+        					successvar=1;
+
         						$("#submitreg").fadeIn("fast",function(){ 
     							$(".smloader2").fadeOut("fast");
     				 		});
