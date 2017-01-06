@@ -465,6 +465,8 @@
     					$(".smloader").fadeIn();
     				 });
     				setTimeout(function(){
+					$("#messagew").show();
+
 					$("#messagew").html('A network Issue occured.<br> Please try again.');
     								document.getElementById('messagew').scrollIntoView();
     					$(".smloader").fadeOut();		
@@ -544,10 +546,12 @@
     					$(".smloader2").fadeIn();
     			 });
 				setTimeout(function(){
+					$("#error").show();
 					$("#error").html('A network Issue occured.<br> Please try again.');
     								document.getElementById('error').scrollIntoView();
     					$(".smloader2").fadeOut();		
-    					$("#submitreg").fadeIn();	
+    					$("#submitreg").fadeIn();
+    					// alert('trig');	
 				},5000);
 				var name=$("#name").val();
 				var email=$("#email").val();				
