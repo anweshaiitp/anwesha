@@ -79,13 +79,18 @@
 					}
          		});
          	});
-         	if(location.hash=="#events"){
+         	var hashloc=location.hash;
+         	var urieventid=null;
+         	if(hashloc=="#events"){
          	 	$("#clwrap").fadeIn();
             	$(".clubs").fadeIn();
             	$("#intro").hide();
             	$(".window2").fadeIn("slow",toggleli());
             	$(".backbtn").fadeIn();
             	// $("#preloader").hide();
+         	 } else if (hashloc.substring(1,6)=="event"){
+         	 	 urieventid = hashloc.replace("#event","");
+         	 	 // alert(urieventid);
          	 }
 			function eve_rulefill(rbookurl){
 					
@@ -201,7 +206,7 @@
 							var e_name = events_data[i]['eveName'];
 							var ev_id = events_data[i]['eveId'];
 
-							$( "#sbl" ).append( "<a href='#' data-evid='"+ev_id+"' class='sbl-item ph-button ph-btn-green'>"+e_name+"</a>" );
+							$( "#sbl" ).append( "<a href='#event"+ev_id+"' data-evid='"+ev_id+"' class='sbl-item ph-button ph-btn-green'>"+e_name+"</a>" );
 							console.log("Event Added "+ev_id);
 						}
 					};
@@ -210,6 +215,8 @@
 
 
 					$(".sbl-item").click(function(){
+						window.location.hash = '#'+cat;
+
 						var cat=$(this).attr('data-evid');
 						console.log("Event to Display :"+cat);
 						//alert("Open "+cat);
@@ -243,7 +250,7 @@
 							var orgnrs = orgarr.split("#");
 							for (i=0;i<orgnrs.length;i++)
 							{
-								$('#eve_organisers').append("<li>"+orgnrs[i]+"</li>");
+								$('#eve_organisers').append("<li>"+orgnrs[i]+"</li><br>");
 							}
 						orgarr=null;
 						orgnrs=null;
@@ -255,6 +262,65 @@
 					});
 					
 				
+				});
+			}
+			if(urieventid!=null){//alert(urieventid); //kochikame
+				// alert(events_data[urieventid]['eveName']);
+				$.get( "allEvents/", function(data, status){
+							console.log("Event Status : "+data[0]);
+
+        					if(status=='success'){
+    							events_data = data[1];
+    						}
+
+				for (var i = 0; i < events_data.length; i++)
+						if(events_data[i]['eveId']==urieventid) {
+							console.log("Found");
+							eve = events_data[i];
+							break;
+						}
+						var urieventprcode=eve['code'];
+						var evepcat=null;
+				for (var i = 0; i < events_data.length; i++)		
+						if(events_data[i]['eveId']==urieventprcode) {
+							console.log("Found"+events_data[i]['code']);
+							eve = events_data[i];
+							break;
+						}
+						evepcat=eve['code'];
+						// urieventprcode is the blue tab/club it belongs to
+						// alert(urieventprcode);
+						console.log(evepcat);
+						$(".swingimage").click();
+						if(evepcat=="0"){
+							cl=0;
+							$("[placeholder='tech']").click();	
+							console.log("tech");
+							// $("[data='"+urieventprcode+"']").click();
+						}else if(evepcat=="1"){
+							cl=1;
+							$("[placeholder='cult']").click();	
+							console.log("cult");
+
+						}else if(evepcat=="2"){
+							cl=2;
+							$("[placeholder='arts']").click();	
+							console.log("arts");
+							
+						}else if(evepcat=="3"){
+							
+							cl=3;
+							console.log("manage");
+							$("[placeholder='manage']").click();	
+						}
+						setTimeout(function(){
+								 $("[data='"+urieventprcode+"']").click();
+								
+							},500);
+							setTimeout(function(){
+									console.log("Click: [data-evid='"+urieventid+"']");
+									$("[data-evid='"+urieventid+"']").click();
+								},1000);
 				});
 			}
          	$.fn.slideFadeToggle  = function(speed, easing, callback) {
@@ -389,13 +455,21 @@
         					}else{
 
         						}
-    			},"json");
+    			}
+    			//,timeout:10000
+    			,"json");
 
     			//ajax for ca
     			$("#submitca").click(function(){ 
     				$("#submitca").fadeOut("fast",function(){ 
     					$(".smloader").fadeIn();
     				 });
+    				setTimeout(function(){
+					$("#messagew").html('A network Issue occured.<br> Please try again.');
+    								document.getElementById('messagew').scrollIntoView();
+    					$(".smloader").fadeOut();		
+    					$("#submitca").fadeIn();	
+				},10000);
 				var name=$("#caname").val();
 		var email=$("#caemail").val();
 		var college=$("#cacollege").val();
@@ -438,7 +512,7 @@
         						console.log(data);
 
         						if(data[0]==1){
-        							$("#form_fill").html('<div style="width:500px;"><center></br>Registration Successful</br>===================</br></br>An activation link has been sent to your email.<br>'+email+'</center></div></br></br>');
+        							$("#form_fill").html('<div style="width:100%;"><center></br>Registration Successful</br></br>An activation link has been sent to your email.<br>'+email+'</center></div></br></br>');
         							//$("#messagew").fadeIn();
         							$("#form_fill").css('background','#5FAB22');
         							//$("#form_fill").fadeOut();
@@ -465,9 +539,16 @@
 			});//regular reg
 
     			$("#submitreg").click(function(){
+    				$("#error").empty();
 				$("#submitreg").fadeOut("fast",function(){ 
     					$(".smloader2").fadeIn();
-    				 });
+    			 });
+				setTimeout(function(){
+					$("#error").html('A network Issue occured.<br> Please try again.');
+    								document.getElementById('error').scrollIntoView();
+    					$(".smloader2").fadeOut();		
+    					$("#submitreg").fadeIn();	
+				},5000);
 				var name=$("#name").val();
 				var email=$("#email").val();				
 				var college=$("#college").val();
@@ -497,7 +578,7 @@
     							$(".smloader2").fadeOut("fast");
     				 		});
         						if(AJAXresponse[0]==1){
-        							$("#boxreg").html('<div style="width:500px"><h1>Registered!<br>==============<br></h1><br>An activation link has been sent to<br>'+ email+'<br><div>');
+        							$("#boxreg").html('<div style="width:100%"><h1>Registered!<br></h1><br>An activation link has been sent to<br>'+ email+'<br><div>');
         							//$("#error").html('<h1>Registered!</h1>An activation link has been sent to '+ email+'<br>');
         							$("#boxreg").css('background','#5FAB22');
     								document.getElementById('boxreg').scrollIntoView();
@@ -612,7 +693,7 @@
 			<div id="bgofblankbg"></div>
 			<div class="NavWrap" style="width: 100%;
     z-index: 8;
-    background-color: black;box-shadow: 0 0 50px #000000">
+    background-color: rgba(70, 69, 69, 0.68);box-shadow: 0 0 50px #000000">
 			<div id="navbar">
         			<a href='#' data="1" class=' navbtn ph-button ph-btn-blue'>Cat1</a>
         			<a href='#' data=2 class=' navbtn ph-button ph-btn-blue'>Cat2</a>
@@ -657,7 +738,7 @@
 				</span><br><br><span style="font-size: 1.8em">Venue:</span>
 				<span id='eve_venue' style="font-size: 1.8em;">
 					VENUE
-				</span><br>
+				</span><br><br>
 				<div id='eve_organisers_head'>
 					<span style="font-size: 1.8em">Organisers :</span>
 					<ul id='eve_organisers' type="none" style="font-size: 1.8em">
@@ -692,13 +773,13 @@
 		<div id="clwrap">
 			<div class="clubs">
 				<ul id="leftlist">
-				<a href="#"><li class="mainevent" onclick="cl=1">Cultural</li></a>
-				<a href="#"><li class="mainevent" onclick="cl=2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arts &amp; Welfare</li></a>
+				<a href="#"><li class="mainevent" onclick="cl=1" placeholder="cult">Cultural</li></a>
+				<a href="#"><li class="mainevent" onclick="cl=2" placeholder="arts">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arts &amp; Welfare</li></a>
 				<!-- <a href="#"><li class="mainevent" onclick="cl=3">NJACK2</li></a> -->
 				</ul>
 				<ul id="rightlist">
-				<a href="#"><li class="mainevent" onclick="cl=0">Technical&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li></a>
-				<a href="#"><li class="mainevent" onclick="cl=3">Management</li></a>
+				<a href="#"><li class="mainevent" onclick="cl=0" placeholder="tech">Technical&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li></a>
+				<a href="#"><li class="mainevent" onclick="cl=3" placeholder="manage">Management</li></a>
 				<!-- <a href="#"><li class="mainevent" onclick="cl=6">NJACK4</li></a> -->
 
 				</ul>
@@ -717,7 +798,7 @@
 				<a id='bregister' href="#register"><li>Registration</li></a>
 				<a id='bregister_ca' href="#register_ca"><li>Campus Ambassador</li></a>
                 <a id='bleaderboard' href="#leaderboard"><li>Campus Ambassador Leaderboard</li></a>
-				<!-- <a href="#teams" id="teamsbtn" style=""><li>Teams</li></a> -->
+				<a href="#teams" id="teamsbtn" style="display: none"><li>Teams</li></a>
 				<a href="#events" id="eventsbtn" style=""><li>Events</li></a>
 			    <a href="auditions/"><li>MultiCity</li></a>
 
@@ -800,7 +881,7 @@
                 <input class="inp" id="datepicker" name="DOB" type="text" placeholder="DOB (yyyy-mm-dd)"  pattern="\d{4}-\d{2}-\d{2}" class="datepicker" class="inp"  title="Invalid Date Format(yyyy-mm-dd)"  >
                 <input id="gender" placeholder="Sex(M/F)" class="inp"  name="sex" type="text" pattern="[MFmf]" value="" >
 				<input id="city" class="inp" name="city" type="text" placeholder="City" patten='^[a-zA-Z0-9.@]*' title="Invalid City" >
-				<input id="refcode" class="inp" name="ref" type="text" placeholder="Reference Code" pattern='([0-9]{4})|()' title="Invalid Ref Number" value="<?php if(isset($referalcode)) echo $referalcode; ?>" <?php if(!empty($referalcode)) echo "disabled"; ?>>
+				<input id="refcode" class="inp" name="ref" type="text" placeholder="Reference Code(Last 4digits of AnweshaID)" pattern='([0-9]{4})|()' title="Invalid Ref Number" value="<?php if(isset($referalcode)) echo $referalcode; ?>" <?php if(!empty($referalcode)) echo "disabled"; ?>>
                 <div id="error" style="width:auto;display:none;box-radius:5px;box-shadow:#000000 0 0 10px;background:#6fce2d;padding:20px;font-size:20px;margin:10px">An error occured</div>
                 <img src="images/spinner-large.gif" style="width:30px;height:30px;display:none" class="smloader2">
 				<input class="button inp" type="submit" id="submitreg" value="Submit" style="width:100%">
@@ -828,7 +909,7 @@
 				<textarea placeholder="Tell us 3 things you would do as a Campus Ambassador of Anwesha &lsquo;17." class="inp" id="cathreethings" name="threethings" rows="10"></textarea>
 				<textarea placeholder="Have you held any position of responsibility in your college? If yes, please explain." class="inp" id="caresponsibility" name="responsibility" rows="10"></textarea>
 				<textarea placeholder="Have you been a part of one or more previous editions of Anwesha? If yes, please explain." class="inp" id="cainvolvement" name="involvement" rows="10"></textarea>
-				<input placeholder="Refered by someone?" id="careferalcode" name="referalcode" class="inp"  type="text" pattern='([0-9]{4})|()' title="Invalid Ref Number" value="<?php if(isset($referalcode)) echo $referalcode; ?>" <?php if(!empty($referalcode)) echo "disabled"; ?> ><br>
+				<input placeholder="Refered by someone?(Last 4digits of AnweshaID)" id="careferalcode" name="referalcode" class="inp"  type="text" pattern='([0-9]{4})|()' title="Invalid Ref Number" value="<?php if(isset($referalcode)) echo $referalcode; ?>" <?php if(!empty($referalcode)) echo "disabled"; ?> ><br>
 				<center><div id="messagew" style="width:auto;display:none;box-radius:5px;box-shadow:#000000 0 0 10px;background:#6fce2d;padding:20px;font-size:20px;margin:10px"></div></center>
 				<img src="images/spinner-large.gif" style="width:30px;height:30px;display:none" class="smloader">
 				<input id="submitca" class="inp" type="submit" value="Submit">
@@ -848,7 +929,7 @@
 					onblur="if (this.value == '') {this.value = 'password';}"
 					onfocus="if (this.value == 'password') {this.value = '';}" /><center>
                 <img src="images/spinner-large.gif" style="width:30px;height:30px;display:none" class="logingif"></center>
-				<input class="button" type="submit" id="loginsubmit" value="LogIn!">
+				<input class="button" type="submit" id="loginsubmit" value="LogIn!"><br>
 				<a class="loganchor" placeholder="reset">Reset Password</a><br>
 				<a class="loganchor" placeholder="resend">Resend Confirmation mail</a>
 			<style>
