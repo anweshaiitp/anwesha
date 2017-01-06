@@ -437,7 +437,9 @@
  
 		<script type="text/javascript">
 			$(document).ready(function(){
-				
+				jQuery('.numbersOnly').keyup(function () { 
+    					this.value = this.value.replace(/[^0-9\.]/g,'');
+				});
 				<?php 
 					if(isset($todo)){
 						echo "window.location='#$todo';";
@@ -904,7 +906,7 @@
 				<input placeholder="College" class="inp" id="cacollege" name="college" type="text" value="" pattern="[a-zA-Z0-9.\s]*" title='Invalid College Name'>
 				<input placeholder="City" class="inp" id="cacity" name="city" type="text" value="" patten='^[a-zA-Z0-9.@]*' title="Invalid City" >
 				<input placeholder="Degree" class="inp" id="cadegree" name="degree" type="text" value="">
-				<input placeholder="Year of Graduation" class="inp" id="cagraduation" name="graduation" type="text" value="">
+				<input placeholder="Year of Graduation" class="inp numbersOnly" id="cagraduation" name="graduation" type="text" value="">
 				<textarea placeholder="Address" class="inp" id="caaddress" name="address" rows="10"></textarea>
 				<input placeholder="Email" class="inp" id="caemail" name="email" type="email" value="" title="Invalid Email ID">
 				<input placeholder="Mobile" class="inp" id="camobile" name="mobile" pattern="[789]\d{9}" title="Invalid Mobile Number" type="text" value="">
