@@ -463,12 +463,14 @@
 
     			//ajax for ca
     			$("#submitca").click(function(){ 
-    				var successvar=0;
+        			$("#messagew").fadeOut();
+
+    				
     				//$("#submitca").fadeOut("fast",function(){ 
     					$(".smloader").fadeIn();
     				 //});
     				setTimeout(function(){
-    					if(successvar==0){
+    					if( $("#messagew").css("display")=="none"){
 					$("#messagew").show();
 
 					$("#messagew").html('A network Issue occured.<br> Please try again.');
@@ -512,7 +514,7 @@
         					console.log("Response");
         					console.log("Data: " + data + "\nStatus: " + status);
         					if(status=='success'){//$("#myloader").fadeOut();
-        					successvar=1;
+        					
         					$("#submitca").fadeIn("fast",function(){ 
     							$(".smloader").fadeOut();
     				 		});
@@ -546,14 +548,13 @@
 			});//regular reg
 
     			$("#submitreg").click(function(){
-    				var successvar=0;
 
     				$("#error").empty();
 				//$("#submitreg").fadeOut("fast",function(){ 
     					$(".smloader2").fadeIn();
     			 //});
 				setTimeout(function(){
-					if(successvar==0){
+					if($("#error").css("display")=="none"){
 					$("#error").show();
 					$("#error").html('A network Issue occured.<br> Please try again.');
     								document.getElementById('error').scrollIntoView();
@@ -586,8 +587,6 @@
     						function(data, status){
 							var AJAXresponse = data;
         					if(status=='success'){
-        					successvar=1;
-
         						$("#submitreg").fadeIn("fast",function(){ 
     							$(".smloader2").fadeOut("fast");
     				 		});
