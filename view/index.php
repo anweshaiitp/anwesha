@@ -464,6 +464,12 @@
     				$("#submitca").fadeOut("fast",function(){ 
     					$(".smloader").fadeIn();
     				 });
+    				setTimeout(function(){
+					$("#messagew").html('A network Issue occured.<br> Please try again.');
+    								document.getElementById('messagew').scrollIntoView();
+    					$(".smloader").fadeOut();		
+    					$("#submitca").fadeIn();	
+				},10000);
 				var name=$("#caname").val();
 		var email=$("#caemail").val();
 		var college=$("#cacollege").val();
@@ -533,9 +539,16 @@
 			});//regular reg
 
     			$("#submitreg").click(function(){
-				// $("#submitreg").fadeOut("fast",function(){ 
+    				$("#error").empty();
+				$("#submitreg").fadeOut("fast",function(){ 
     					$(".smloader2").fadeIn();
-    				 // });
+    			 });
+				setTimeout(function(){
+					$("#error").html('A network Issue occured.<br> Please try again.');
+    								document.getElementById('error').scrollIntoView();
+    					$(".smloader2").fadeOut();		
+    					$("#submitreg").fadeIn();	
+				},5000);
 				var name=$("#name").val();
 				var email=$("#email").val();				
 				var college=$("#college").val();
