@@ -79,13 +79,18 @@
 					}
          		});
          	});
-         	if(location.hash=="#events"){
+         	var hashloc=location.hash;
+         	var urieventid=null;
+         	if(hashloc=="#events"){
          	 	$("#clwrap").fadeIn();
             	$(".clubs").fadeIn();
             	$("#intro").hide();
             	$(".window2").fadeIn("slow",toggleli());
             	$(".backbtn").fadeIn();
             	// $("#preloader").hide();
+         	 } else if (hashloc.substring(1,6)=="event"){
+         	 	 urieventid = hashloc.replace("#event","");
+         	 	 // alert(urieventid);
          	 }
 			function eve_rulefill(rbookurl){
 					
@@ -201,7 +206,7 @@
 							var e_name = events_data[i]['eveName'];
 							var ev_id = events_data[i]['eveId'];
 
-							$( "#sbl" ).append( "<a href='#' data-evid='"+ev_id+"' class='sbl-item ph-button ph-btn-green'>"+e_name+"</a>" );
+							$( "#sbl" ).append( "<a href='#event"+ev_id+"' data-evid='"+ev_id+"' class='sbl-item ph-button ph-btn-green'>"+e_name+"</a>" );
 							console.log("Event Added "+ev_id);
 						}
 					};
@@ -210,6 +215,8 @@
 
 
 					$(".sbl-item").click(function(){
+						window.location.hash = '#'+cat;
+
 						var cat=$(this).attr('data-evid');
 						console.log("Event to Display :"+cat);
 						//alert("Open "+cat);
@@ -255,6 +262,65 @@
 					});
 					
 				
+				});
+			}
+			if(urieventid!=null){//alert(urieventid); //kochikame
+				// alert(events_data[urieventid]['eveName']);
+				$.get( "allEvents/", function(data, status){
+							console.log("Event Status : "+data[0]);
+
+        					if(status=='success'){
+    							events_data = data[1];
+    						}
+
+				for (var i = 0; i < events_data.length; i++)
+						if(events_data[i]['eveId']==urieventid) {
+							console.log("Found");
+							eve = events_data[i];
+							break;
+						}
+						var urieventprcode=eve['code'];
+						var evepcat=null;
+				for (var i = 0; i < events_data.length; i++)		
+						if(events_data[i]['eveId']==urieventprcode) {
+							console.log("Found"+events_data[i]['code']);
+							eve = events_data[i];
+							break;
+						}
+						evepcat=eve['code'];
+						// urieventprcode is the blue tab/club it belongs to
+						// alert(urieventprcode);
+						console.log(evepcat);
+						$(".swingimage").click();
+						if(evepcat=="0"){
+							cl=0;
+							$("[placeholder='tech']").click();	
+							console.log("tech");
+							// $("[data='"+urieventprcode+"']").click();
+						}else if(evepcat=="1"){
+							cl=1;
+							$("[placeholder='cult']").click();	
+							console.log("cult");
+
+						}else if(evepcat=="2"){
+							cl=2;
+							$("[placeholder='arts']").click();	
+							console.log("arts");
+							
+						}else if(evepcat=="3"){
+							
+							cl=3;
+							console.log("manage");
+							$("[placeholder='manage']").click();	
+						}
+						setTimeout(function(){
+								 $("[data='"+urieventprcode+"']").click();
+								
+							},500);
+							setTimeout(function(){
+									console.log("Click: [data-evid='"+urieventid+"']");
+									$("[data-evid='"+urieventid+"']").click();
+								},1000);
 				});
 			}
          	$.fn.slideFadeToggle  = function(speed, easing, callback) {
@@ -371,7 +437,9 @@
  
 		<script type="text/javascript">
 			$(document).ready(function(){
-				
+				jQuery('.numbersOnly').keyup(function () { 
+    					this.value = this.value.replace(/[^0-9\.]/g,'');
+				});
 				<?php 
 					if(isset($todo)){
 						echo "window.location='#$todo';";
@@ -395,9 +463,21 @@
 
     			//ajax for ca
     			$("#submitca").click(function(){ 
-    				$("#submitca").fadeOut("fast",function(){ 
+        			$("#messagew").fadeOut();
+
+    				
+    				//$("#submitca").fadeOut("fast",function(){ 
     					$(".smloader").fadeIn();
-    				 });
+    				 //});
+    				setTimeout(function(){
+    					if( $("#messagew").css("display")=="none"){
+					$("#messagew").show();
+
+					$("#messagew").html('A network Issue occured.<br> Please try again.');
+    								document.getElementById('messagew').scrollIntoView();
+    					$(".smloader").fadeOut();		
+    					$("#submitca").fadeIn();	}
+				},10000);
 				var name=$("#caname").val();
 		var email=$("#caemail").val();
 		var college=$("#cacollege").val();
@@ -434,6 +514,7 @@
         					console.log("Response");
         					console.log("Data: " + data + "\nStatus: " + status);
         					if(status=='success'){//$("#myloader").fadeOut();
+        					
         					$("#submitca").fadeIn("fast",function(){ 
     							$(".smloader").fadeOut();
     				 		});
@@ -467,9 +548,20 @@
 			});//regular reg
 
     			$("#submitreg").click(function(){
-				$("#submitreg").fadeOut("fast",function(){ 
+
+    				$("#error").empty();
+				//$("#submitreg").fadeOut("fast",function(){ 
     					$(".smloader2").fadeIn();
-    				 });
+    			 //});
+				setTimeout(function(){
+					if($("#error").css("display")=="none"){
+					$("#error").show();
+					$("#error").html('A network Issue occured.<br> Please try again.');
+    								document.getElementById('error').scrollIntoView();
+    					$(".smloader2").fadeOut();		
+    					$("#submitreg").fadeIn();}
+    					// alert('trig');	
+				},10000);
 				var name=$("#name").val();
 				var email=$("#email").val();				
 				var college=$("#college").val();
@@ -614,7 +706,7 @@
 			<div id="bgofblankbg"></div>
 			<div class="NavWrap" style="width: 100%;
     z-index: 8;
-    background-color: black;box-shadow: 0 0 50px #000000">
+    background-color: rgba(70, 69, 69, 0.68);box-shadow: 0 0 50px #000000">
 			<div id="navbar">
         			<a href='#' data="1" class=' navbtn ph-button ph-btn-blue'>Cat1</a>
         			<a href='#' data=2 class=' navbtn ph-button ph-btn-blue'>Cat2</a>
@@ -694,13 +786,13 @@
 		<div id="clwrap">
 			<div class="clubs">
 				<ul id="leftlist">
-				<a href="#"><li class="mainevent" onclick="cl=1">Cultural</li></a>
-				<a href="#"><li class="mainevent" onclick="cl=2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arts &amp; Welfare</li></a>
+				<a href="#"><li class="mainevent" onclick="cl=1" placeholder="cult">Cultural</li></a>
+				<a href="#"><li class="mainevent" onclick="cl=2" placeholder="arts">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arts &amp; Welfare</li></a>
 				<!-- <a href="#"><li class="mainevent" onclick="cl=3">NJACK2</li></a> -->
 				</ul>
 				<ul id="rightlist">
-				<a href="#"><li class="mainevent" onclick="cl=0">Technical&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li></a>
-				<a href="#"><li class="mainevent" onclick="cl=3">Management</li></a>
+				<a href="#"><li class="mainevent" onclick="cl=0" placeholder="tech">Technical&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li></a>
+				<a href="#"><li class="mainevent" onclick="cl=3" placeholder="manage">Management</li></a>
 				<!-- <a href="#"><li class="mainevent" onclick="cl=6">NJACK4</li></a> -->
 
 				</ul>
@@ -750,11 +842,9 @@
 		<span id="tag" style="position:absolute;bottom:10px;left:10px;font-family:vinque;font-size: 1.7em;">About</span>
 			<div class="content">
 				<h1>ABOUT ANWESHA</h1><br>
-				 ANWESHA is the annual social and cultural festival of IIT Patna. It marks days of absolute ecstasy,
-             providing the budding artists a competing platform in diverse fields such as music, dance, theater, 
-            photography, literature, fine arts, quizzing and debating. Anwesha is an avenue to be comforted from the
-             routine life and to embrace the fun and frolic embedded with tantalizing professional performances from India
-             along with an addressal to the social responsibility with its underlying social theme.
+				 <p>ANWESHA is a quest. The annual Techno-Cultural Festival of Indian Institute of Technology Patna hosts Technical, Cultural, Literary, Eco and Management events.</p>
+				 <p>Since its genesis in 2010, Anwesha has gained great importance at an exponential rate and enjoys a cult status among the youths of Bihar. Eminent personalities such as chief minister Nitish Kumar, Padma Vibhushan, G. Madhavan Nair, R.K. Sihna (Dolphin Man of India), have been part of Anwesha's extravaganza in the past.</p>
+				 <!--<input type='submit' value='Gallery' onclick='popup_gallery();'/>-->
 				<br>
 				<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/r-qROBBWy5Q" frameborder="0" allowfullscreen></iframe> -->
 			</div>
@@ -792,7 +882,7 @@
 			<div class="close"><a href="#" onclick="document.body.style.overflow='visible';">X</a></div>
 			<h2>Register</h2>
 			
-				<div id="boxreg" class="box" style="overflow-y:scroll; overflow-x:hidden; height:400px;">
+				<div id="boxreg" class="box" style="overflow-y:auto; overflow-x:hidden; height:400px;">
 				<!--input class="inp"  name="username" type="text" placeholder="Username" onblur="if(this.value == ''){this.value = 'Username';}" onfocus="if (this.value == 'Username') {this.value = '';}"-->
 				<!--input class="inp" id="" name="password" type="password" placeholder="Password" onblur="if(this.value == ''){this.value = 'Password';}" onfocus="if (this.value == 'Password') {this.value = '';}"-->
 				<input class="inp" name="name" id="name" type="text" placeholder="Full Name" pattern="[a-zA-Z0-9.\s]{4,40}" title='Alpha Numberic Character of 4 to 40 length'>
@@ -805,7 +895,7 @@
 				<input id="refcode" class="inp" name="ref" type="text" placeholder="Reference Code(Last 4digits of AnweshaID)" pattern='([0-9]{4})|()' title="Invalid Ref Number" value="<?php if(isset($referalcode)) echo $referalcode; ?>" <?php if(!empty($referalcode)) echo "disabled"; ?>>
                 <div id="error" style="width:auto;display:none;box-radius:5px;box-shadow:#000000 0 0 10px;background:#6fce2d;padding:20px;font-size:20px;margin:10px">An error occured</div>
                 <img src="images/spinner-large.gif" style="width:30px;height:30px;display:none" class="smloader2">
-				<input class="button inp" type="submit" id="submitreg" value="Submit" style="width:100%">
+				<input class="button inp" type="submit" id="submitreg" value="Submit" style="width:98%">
 			</div>
 		</div>
 
@@ -821,7 +911,7 @@
 				<input placeholder="College" class="inp" id="cacollege" name="college" type="text" value="" pattern="[a-zA-Z0-9.\s]*" title='Invalid College Name'>
 				<input placeholder="City" class="inp" id="cacity" name="city" type="text" value="" patten='^[a-zA-Z0-9.@]*' title="Invalid City" >
 				<input placeholder="Degree" class="inp" id="cadegree" name="degree" type="text" value="">
-				<input placeholder="Year of Graduation" class="inp" id="cagraduation" name="graduation" type="text" value="">
+				<input placeholder="Year of Graduation" class="inp numbersOnly" id="cagraduation" name="graduation" type="text" value="">
 				<textarea placeholder="Address" class="inp" id="caaddress" name="address" rows="10"></textarea>
 				<input placeholder="Email" class="inp" id="caemail" name="email" type="email" value="" title="Invalid Email ID">
 				<input placeholder="Mobile" class="inp" id="camobile" name="mobile" pattern="[789]\d{9}" title="Invalid Mobile Number" type="text" value="">
@@ -850,7 +940,7 @@
 					onblur="if (this.value == '') {this.value = 'password';}"
 					onfocus="if (this.value == 'password') {this.value = '';}" /><center>
                 <img src="images/spinner-large.gif" style="width:30px;height:30px;display:none" class="logingif"></center>
-				<input class="button" type="submit" id="loginsubmit" value="LogIn!">
+				<input class="button" type="submit" id="loginsubmit" value="LogIn!"><br>
 				<a class="loganchor" placeholder="reset">Reset Password</a><br>
 				<a class="loganchor" placeholder="resend">Resend Confirmation mail</a>
 			<style>
@@ -1082,6 +1172,10 @@
 			isLoggedIn = false;
 			$("#loginbtn").show("fast");
 			$("#userarea").hide("fast");
+		}
+
+		function popup_gallery() {
+
 		}
 		
 			
