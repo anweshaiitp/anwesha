@@ -4,3 +4,4 @@ emailCredential.php
 dbConnection.php
 logs/*
 Payload/log.txt
+errc.txt
