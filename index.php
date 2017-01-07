@@ -37,6 +37,8 @@ if (preg_match($base . '(ca|register|)_?([0-9]{4}|)$@', $url, $match)) {
 	require ('view/multiCityAuditions.html');
 } elseif (preg_match($base . 'auditions/linefollow/$@', $url, $match)) {
 	require ('view/linefollow.html');
+} elseif (preg_match($base . 'gallery/$@', $url, $match)) {
+	require ('view/gallery.html');
 } elseif (preg_match($base . 'switchca/$@', $url, $match)) {
 	require ('view/switchca.php');
 // } elseif ( preg_match($base .'cssLoader/home/?$@', $url, $match ) ) {
