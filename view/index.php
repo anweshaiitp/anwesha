@@ -935,7 +935,10 @@
 			<span id="loginerror" style="color:red;padding:5px;"></span>
 				<input class="inp loginname" name="username" type="text" value="AnweshaID"
 					onblur="if (this.value == '') {this.value = 'AnweshaID';}"
-					onfocus="if (this.value == 'AnweshaID' || this.value == 'emailID') {this.value = '';}" />
+					onfocus="if (this.value == 'AnweshaID') {this.value = '';}" />
+				<input class="inp loginemail" name="username" type="text" style="display: none;" value="emailID"
+					onblur="if (this.value == '') {this.value = 'emailID';}"
+					onfocus="if (this.value == 'emailID') {this.value = '';}" />					
 				<input class="inp loginpswd" name="password" type="password" value="password"
 					onblur="if (this.value == '') {this.value = 'password';}"
 					onfocus="if (this.value == 'password') {this.value = '';}" /><center>
@@ -994,19 +997,23 @@
 						$(".loginpswd").fadeOut();
 						var username=$(".loginname").val();
 						if($(this).attr("placeholder")=="resend"){
-							$(".loginname").val("emailID");
+							$(".loginemail").fadeIn();
+							$(".loginname").fadeOut();
+
+						var username=$(".loginemail").val();
+        						console.log("resend");
 
 						}
-						if(username=='' || username==null || username == "emailID"){
-        					$("#loginerror").text("Please enter emailID used to register to proceed");
+						if(username=='' || username==null ){
+							if($(this).attr("placeholder") == "reset"){
 
-						}
-         				else if (username=='' || username==null || username=="AnweshaID" ){
-        					
-        					$("#loginerror").text("Please enter AnweshaID to proceed");
-            				
-        				} else{
-        					if(!(/^([Aa][Nn][Ww][0-9]{4})$/.test(username))) {
+        						$("#loginerror").text("Please enter emailID used to register to proceed");
+        					}else if(username=="AnweshaID" ){
+        						$("#loginerror").text("Please enter AnweshaID to proceed");
+        					}
+
+						} else{
+        					if(!(/^([Aa][Nn][Ww][0-9]{4})$/.test(username)) && $(this).attr("placeholder") != "reset") {
         						$(".loginhead").css("color","yellow");
                         		$(".loginhead").text("Incorrect Anw ID");
         					}else

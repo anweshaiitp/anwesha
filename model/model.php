@@ -197,7 +197,7 @@ class People{
      * @return array       array
      */
     public function getUserByEmail($emailID,$conn){
-        $sql = " SELECT * FROM People WHERE email = $emailID";
+        $sql = " SELECT * FROM People WHERE `email` = '$emailID'";
         $result = mysqli_query($conn, $sql);
         if(!$result || mysqli_num_rows($result)!=1){
             $error = "Error in displaying result for given email ID";

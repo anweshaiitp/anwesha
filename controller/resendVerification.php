@@ -11,13 +11,13 @@ if ($user[0] != 1) {
 	echo json_encode(array(-1,  $user[1]));
 	die();
 }
-$pID=  $user['pId'];
 $user = $user[1];
-$loginInfo = People::getUserLoginInfo($pID,$conn);
+$pId=  $user['pId'];
+$loginInfo = People::getUserLoginInfo($pId,$conn);
 if ($loginInfo[0] != 1) {
 	mysqli_close($conn);
 	header('Content-type: application/json');
-	echo json_encode(array(-1, "Error! Contact Registration Desk Immediately."));
+	echo json_encode(array(-1, "Error! Contact Registration Desk Immediately.",$pId));
 	die();
 }
 mysqli_close($conn);
@@ -28,7 +28,7 @@ if(($type==0)) {
 	echo json_encode(array(-1, "Account already verified."));
 	die();
 }
-People::Email($emailID, $user['name'], $loginInfo['csrfToken'], $pID);
+People::Email($emailID, $user['name'], $loginInfo['csrfToken'], $pId);
 header('Content-type: application/json');
 echo json_encode(array(1,  "Verification link sent to registered email."));
 die();
