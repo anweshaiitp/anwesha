@@ -829,11 +829,9 @@
 		<span id="tag" style="position:absolute;bottom:10px;left:10px;font-family:vinque;font-size: 1.7em;">About</span>
 			<div class="content">
 				<h1>ABOUT ANWESHA</h1><br>
-				 ANWESHA is the annual social and cultural festival of IIT Patna. It marks days of absolute ecstasy,
-             providing the budding artists a competing platform in diverse fields such as music, dance, theater, 
-            photography, literature, fine arts, quizzing and debating. Anwesha is an avenue to be comforted from the
-             routine life and to embrace the fun and frolic embedded with tantalizing professional performances from India
-             along with an addressal to the social responsibility with its underlying social theme.
+				 <p>ANWESHA is a quest. The annual Techno-Cultural Festival of Indian Institute of Technology Patna hosts Technical, Cultural, Literary, Eco and Management events.</p>
+				 <p>Since its genesis in 2010, Anwesha has gained great importance at an exponential rate and enjoys a cult status among the youths of Bihar. Eminent personalities such as chief minister Nitish Kumar, Padma Vibhushan, G. Madhavan Nair, R.K. Sihna (Dolphin Man of India), have been part of Anwesha's extravaganza in the past.</p>
+				 <!--<input type='submit' value='Gallery' onclick='popup_gallery();'/>-->
 				<br>
 				<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/r-qROBBWy5Q" frameborder="0" allowfullscreen></iframe> -->
 			</div>
@@ -1161,6 +1159,10 @@
 			isLoggedIn = false;
 			$("#loginbtn").show("fast");
 			$("#userarea").hide("fast");
+		}
+
+		function popup_gallery() {
+
 		}
 		
 			
