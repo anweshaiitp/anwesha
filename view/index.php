@@ -437,7 +437,9 @@
  
 		<script type="text/javascript">
 			$(document).ready(function(){
-				
+				jQuery('.numbersOnly').keyup(function () { 
+    					this.value = this.value.replace(/[^0-9\.]/g,'');
+				});
 				<?php 
 					if(isset($todo)){
 						echo "window.location='#$todo';";
@@ -461,14 +463,20 @@
 
     			//ajax for ca
     			$("#submitca").click(function(){ 
-    				$("#submitca").fadeOut("fast",function(){ 
+        			$("#messagew").fadeOut();
+
+    				
+    				//$("#submitca").fadeOut("fast",function(){ 
     					$(".smloader").fadeIn();
-    				 });
+    				 //});
     				setTimeout(function(){
+    					if( $("#messagew").css("display")=="none"){
+					$("#messagew").show();
+
 					$("#messagew").html('A network Issue occured.<br> Please try again.');
     								document.getElementById('messagew').scrollIntoView();
     					$(".smloader").fadeOut();		
-    					$("#submitca").fadeIn();	
+    					$("#submitca").fadeIn();	}
 				},10000);
 				var name=$("#caname").val();
 		var email=$("#caemail").val();
@@ -506,6 +514,7 @@
         					console.log("Response");
         					console.log("Data: " + data + "\nStatus: " + status);
         					if(status=='success'){//$("#myloader").fadeOut();
+        					
         					$("#submitca").fadeIn("fast",function(){ 
     							$(".smloader").fadeOut();
     				 		});
@@ -539,16 +548,20 @@
 			});//regular reg
 
     			$("#submitreg").click(function(){
+
     				$("#error").empty();
-				$("#submitreg").fadeOut("fast",function(){ 
+				//$("#submitreg").fadeOut("fast",function(){ 
     					$(".smloader2").fadeIn();
-    			 });
+    			 //});
 				setTimeout(function(){
+					if($("#error").css("display")=="none"){
+					$("#error").show();
 					$("#error").html('A network Issue occured.<br> Please try again.');
     								document.getElementById('error').scrollIntoView();
     					$(".smloader2").fadeOut();		
-    					$("#submitreg").fadeIn();	
-				},5000);
+    					$("#submitreg").fadeIn();}
+    					// alert('trig');	
+				},10000);
 				var name=$("#name").val();
 				var email=$("#email").val();				
 				var college=$("#college").val();
@@ -869,7 +882,7 @@
 			<div class="close"><a href="#" onclick="document.body.style.overflow='visible';">X</a></div>
 			<h2>Register</h2>
 			
-				<div id="boxreg" class="box" style="overflow-y:scroll; overflow-x:hidden; height:400px;">
+				<div id="boxreg" class="box" style="overflow-y:auto; overflow-x:hidden; height:400px;">
 				<!--input class="inp"  name="username" type="text" placeholder="Username" onblur="if(this.value == ''){this.value = 'Username';}" onfocus="if (this.value == 'Username') {this.value = '';}"-->
 				<!--input class="inp" id="" name="password" type="password" placeholder="Password" onblur="if(this.value == ''){this.value = 'Password';}" onfocus="if (this.value == 'Password') {this.value = '';}"-->
 				<input class="inp" name="name" id="name" type="text" placeholder="Full Name" pattern="[a-zA-Z0-9.\s]{4,40}" title='Alpha Numberic Character of 4 to 40 length'>
@@ -882,7 +895,7 @@
 				<input id="refcode" class="inp" name="ref" type="text" placeholder="Reference Code(Last 4digits of AnweshaID)" pattern='([0-9]{4})|()' title="Invalid Ref Number" value="<?php if(isset($referalcode)) echo $referalcode; ?>" <?php if(!empty($referalcode)) echo "disabled"; ?>>
                 <div id="error" style="width:auto;display:none;box-radius:5px;box-shadow:#000000 0 0 10px;background:#6fce2d;padding:20px;font-size:20px;margin:10px">An error occured</div>
                 <img src="images/spinner-large.gif" style="width:30px;height:30px;display:none" class="smloader2">
-				<input class="button inp" type="submit" id="submitreg" value="Submit" style="width:100%">
+				<input class="button inp" type="submit" id="submitreg" value="Submit" style="width:98%">
 			</div>
 		</div>
 
@@ -898,7 +911,7 @@
 				<input placeholder="College" class="inp" id="cacollege" name="college" type="text" value="" pattern="[a-zA-Z0-9.\s]*" title='Invalid College Name'>
 				<input placeholder="City" class="inp" id="cacity" name="city" type="text" value="" patten='^[a-zA-Z0-9.@]*' title="Invalid City" >
 				<input placeholder="Degree" class="inp" id="cadegree" name="degree" type="text" value="">
-				<input placeholder="Year of Graduation" class="inp" id="cagraduation" name="graduation" type="text" value="">
+				<input placeholder="Year of Graduation" class="inp numbersOnly" id="cagraduation" name="graduation" type="text" value="">
 				<textarea placeholder="Address" class="inp" id="caaddress" name="address" rows="10"></textarea>
 				<input placeholder="Email" class="inp" id="caemail" name="email" type="email" value="" title="Invalid Email ID">
 				<input placeholder="Mobile" class="inp" id="camobile" name="mobile" pattern="[789]\d{9}" title="Invalid Mobile Number" type="text" value="">

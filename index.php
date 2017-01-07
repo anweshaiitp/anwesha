@@ -70,6 +70,8 @@ if (preg_match($base . '(ca|register|)_?([0-9]{4}|)$@', $url, $match)) {
 //For Changing Passwords
 } elseif (preg_match($base . 'changePassword/?$@', $url)) {
 	require ('controller/changePassword.php');
+}elseif (preg_match($base . 'viewRef/?$@', $url)) {
+	require ('view/viewRef.php');
 } elseif (preg_match($base . 'reset/[Aa][Nn][Ww]([0-9]{4})/?$@', $url,$match)) {
 	require ('controller/forgetpasswdmail.php');
 } elseif (preg_match($base . 'resetpassword/([0-9]{4})/([A-Za-z0-9]{40})/$@', $url,$match)) {
