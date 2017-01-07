@@ -1013,7 +1013,7 @@
         					}
 
 						} else{
-        					if(!(/^([Aa][Nn][Ww][0-9]{4})$/.test(username)) && $(this).attr("placeholder") != "reset") {
+        					if(!(/^([Aa][Nn][Ww][0-9]{4})$/.test(username)) && $(this).attr("placeholder") != "resend") {
         						$(".loginhead").css("color","yellow");
                         		$(".loginhead").text("Incorrect Anw ID");
         					}else
