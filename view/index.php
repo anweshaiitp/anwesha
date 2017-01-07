@@ -884,7 +884,7 @@
 			<div class="close"><a href="#" onclick="document.body.style.overflow='visible';">X</a></div>
 			<h2>Register</h2>
 			
-				<div id="boxreg" class="box" style="overflow-y:scroll; overflow-x:hidden; height:400px;">
+				<div id="boxreg" class="box" style="overflow-y:auto; overflow-x:hidden; height:400px;">
 				<!--input class="inp"  name="username" type="text" placeholder="Username" onblur="if(this.value == ''){this.value = 'Username';}" onfocus="if (this.value == 'Username') {this.value = '';}"-->
 				<!--input class="inp" id="" name="password" type="password" placeholder="Password" onblur="if(this.value == ''){this.value = 'Password';}" onfocus="if (this.value == 'Password') {this.value = '';}"-->
 				<input class="inp" name="name" id="name" type="text" placeholder="Full Name" pattern="[a-zA-Z0-9.\s]{4,40}" title='Alpha Numberic Character of 4 to 40 length'>
