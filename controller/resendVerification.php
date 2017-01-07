@@ -11,7 +11,7 @@ if ($user[0] != 1) {
 	echo json_encode(array(-1,  $user[1]));
 	die();
 }
-$pID= $user[1];
+$pID=  $user['pId'];
 $user = $user[1];
 $loginInfo = People::getUserLoginInfo($pID,$conn);
 if ($loginInfo[0] != 1) {
