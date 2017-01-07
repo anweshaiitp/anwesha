@@ -303,56 +303,69 @@ class People{
         // $conn = mysqli_connect(SERVER_ADDRESS,USER_NAME,PASSWORD,DATABASE);
         $Err = '';
 
-        $sql = "SELECT pId FROM Pids LIMIT 1";
-        $result = mysqli_query($conn, $sql);
-        if(!$result || mysqli_num_rows($result)==0){
-            $Err = 'Problem in Getting A New ID';
-            $arr = array();
-            $arr[]=-1;
-            $arr[]=$Err;
-            return $arr;
-        }
-        $row = mysqli_fetch_assoc($result);
-        $id = $row['pId'];
+        if(!$ca)
+            mysqli_autocommit($conn,FALSE);
+        
+        try
+        {
+            $sql = "SELECT pId FROM Pids ORDER BY pId LIMIT 1";
+            $result = mysqli_query($conn, $sql);
+            if(!$result || mysqli_num_rows($result)==0){
+                $Err = 'Problem in Getting A New ID';
+                $arr = array();
+                $arr[]=-1;
+                $arr[]=$Err;
+                return $arr;
+            }
+            $row = mysqli_fetch_assoc($result);
+            $id = $row['pId'];
 
-        $time = time() ;
+            $time = time() ;
 
-        $sqlInsert = "INSERT INTO People(name,pId,college,sex,mobile,email,dob,city,refcode,feePaid,confirm) VALUES ('$n', $id, '$col', '$se', '$mob', '$em', '$db', '$cit', '$rc', 0, 0)";
+            $sqlInsert = "INSERT INTO People(name,pId,college,sex,mobile,email,dob,city,refcode,feePaid,confirm) VALUES ('$n', $id, '$col', '$se', '$mob', '$em', '$db', '$cit', '$rc', 0, 0)";
 
-        $result = mysqli_query($conn,$sqlInsert);
-        if(!$result){
-            $Err = 'Error! Maybe EmailId is already in use. #'.alog(mysqli_error($conn));
-            $arr = array();
-            $arr[]=-1;
-            $arr[]=$Err;
-            return $arr;
-        }
+            $result = mysqli_query($conn,$sqlInsert);
+            if(!$result){
+                $Err = 'Error! Maybe EmailId is already in use. #'.alog(mysqli_error($conn));
+                $arr = array();
+                $arr[]=-1;
+                $arr[]=$Err;
+                mysqli_rollback($conn);
+                return $arr;
+            }
 
-        $sqlDeletePid="DELETE FROM Pids WHERE pId=$id";
-        $result = mysqli_query($conn,$sqlDeletePid);
-        if(!$result){
-            $Err='An Internal Error Occured... Please try later. #'.alog(mysqli_error($conn));
-            $arr = array();
-            $arr[]=-1;
-            $arr[]=$Err;
-            return $arr;
-        }
-        $token = sha1(base64_encode((openssl_random_pseudo_bytes(15))));
-        $sqlInsert = "INSERT INTO LoginTable(pId,password,csrfToken,type) VALUES ($id,NULL,'$token',1)";
+            $sqlDeletePid="DELETE FROM Pids WHERE pId=$id";
+            $result = mysqli_query($conn,$sqlDeletePid);
+            if(!$result){
+                $Err='An Internal Error Occured... Please try later. #'.alog(mysqli_error($conn));
+                $arr = array();
+                $arr[]=-1;
+                $arr[]=$Err;
+                mysqli_rollback($conn);
+                return $arr;
+            }
+            $token = sha1(base64_encode((openssl_random_pseudo_bytes(15))));
+            $sqlInsert = "INSERT INTO LoginTable(pId,password,csrfToken,type) VALUES ($id,NULL,'$token',1)";
 
-        $result = mysqli_query($conn,$sqlInsert);
-        if(!$result){
-            $Err = 'Problem in Creating login Id. Contact Registration team for help. #'.alog(mysqli_error($conn));
-            $arr = array();
-            $arr[]=-1;
-            $arr[]=$Err;
-            return $arr;
-        }
-        if(!$ca) {
-            // Mail will be send from Campus Ambassador
-            self::Email($em,$n,$token,$id,$ca);
-        }
-        return self::getUser($id, $conn);
+            $result = mysqli_query($conn,$sqlInsert);
+            if(!$result){
+                $Err = 'Problem in Creating login Id. Contact Registration team for help. #'.alog(mysqli_error($conn));
+                $arr = array();
+                $arr[]=-1;
+                $arr[]=$Err;
+                mysqli_rollback($conn); 
+                return $arr;
+            }
+            if(!$ca) {
+                // Mail will be send from Campus Ambassador
+                self::Email($em,$n,$token,$id,$ca);
+                mysqli_commit($conn);
+            }
+            return self::getUser($id, $conn);
+        } finally {
+            if(!$ca)
+                mysqli_autocommit($conn,TRUE);            
+        } 
     }
 
     /**
@@ -375,44 +388,53 @@ class People{
      * @return array             index 0 :- 1(success), -1(error);
      */
     public function createCampusAmbassador($name,$college,$sex,$mob,$email,$dob,$city,$address,$degree,$grad,$leader,$involvement,$threethings,$rc,$conn){
-        $returnArray = self::createUser($name,$college,$sex,$mob,$email,$dob,$city,true,$rc,$conn);
-        if($returnArray[0]==-1){
+        mysqli_autocommit($conn,FALSE);
+        try
+        {
+            $returnArray = self::createUser($name,$college,$sex,$mob,$email,$dob,$city,true,$rc,$conn);
+            if($returnArray[0]==-1){
+                mysqli_rollback($conn);
+                return $returnArray;
+            }
+            // Escaping String
+            $address = mysqli_real_escape_string($conn,$address);
+            $degree = mysqli_real_escape_string($conn,$degree);
+            $grad = mysqli_real_escape_string($conn,$grad);
+            $leader = mysqli_real_escape_string($conn,$leader);
+            $involvement = mysqli_real_escape_string($conn,$involvement);
+            $threethings =  mysqli_real_escape_string($conn,$threethings);
+
+            $pid = $returnArray[1]['pId'];
+            $sql = "INSERT INTO `CampusAmberg` (`pId`, `refKey`, `address`, `degree`, `grad`, `leader`, `involvement`,`threethings`) VALUES ($pid, '0', '$address', '$degree', '$grad', '$leader', '$involvement','$threethings')";
+
+            $result = mysqli_query($conn, $sql);
+            if(!$result){
+                $error = "Could not register the Campus Ambassador, #".alog(mysqli_error($conn));
+                $arr = array();
+                $arr[]=-1;
+                $arr[]=$error;
+                mysqli_rollback($conn);
+                return $arr;
+            }
+
+            $token = sha1(base64_encode((openssl_random_pseudo_bytes(15))));
+            $sqlUpdateTokenType = "UPDATE LoginTable SET type = 2,csrfToken='$token' WHERE pId = $pid";
+
+            $result = mysqli_query($conn,$sqlUpdateTokenType);
+            if(!$result){
+                $Err = 'Problem in Generating Confirmation Token for CampusAmbassador. Contact Registration team for help. #'.alog(mysqli_error($conn));
+                $arr = array();
+                $arr[]=-1;
+                $arr[]=$Err;
+                mysqli_rollback($conn);
+                return $arr;
+            }
+            self::Email($email,$name,$token,$pid,true);
+            mysqli_commit($conn);
             return $returnArray;
+        }finally{
+            mysqli_autocommit($conn,TRUE);
         }
-        // Escaping String
-        $address = mysqli_real_escape_string($conn,$address);
-        $degree = mysqli_real_escape_string($conn,$degree);
-        $grad = mysqli_real_escape_string($conn,$grad);
-        $leader = mysqli_real_escape_string($conn,$leader);
-        $involvement = mysqli_real_escape_string($conn,$involvement);
-        $threethings =  mysqli_real_escape_string($conn,$threethings);
-
-        $pid = $returnArray[1]['pId'];
-        $sql = "INSERT INTO `CampusAmberg` (`pId`, `refKey`, `address`, `degree`, `grad`, `leader`, `involvement`,`threethings`) VALUES ($pid, '0', '$address', '$degree', '$grad', '$leader', '$involvement','$threethings')";
-
-        $result = mysqli_query($conn, $sql);
-        if(!$result){
-            $error = "Could not register the Campus Ambassador, #".alog(mysqli_error($conn));
-            $arr = array();
-            $arr[]=-1;
-            $arr[]=$error;
-            return $arr;
-        }
-
-        $token = sha1(base64_encode((openssl_random_pseudo_bytes(15))));
-        $sqlUpdateTokenType = "UPDATE LoginTable SET type = 2,csrfToken='$token' WHERE pId = $pid";
-
-        $result = mysqli_query($conn,$sqlUpdateTokenType);
-        if(!$result){
-            $Err = 'Problem in Generating Confirmation Token for CampusAmbassador. Contact Registration team for help. #'.alog(mysqli_error($conn));
-            $arr = array();
-            $arr[]=-1;
-            $arr[]=$Err;
-            return $arr;
-        }
-        self::Email($email,$name,$token,$pid,true);
-        return $returnArray;
-
     }
 
     /**
@@ -429,61 +451,70 @@ class People{
      * @return array             index 0 :- 1(success), -1(error);
      */
     public function switchCampusAmbassador($anwid,$email,$address,$degree,$grad,$leader,$involvement,$threethings,$conn){
-        $thisUser = self::getUser($anwid, $conn);
-        if($thisUser[0]==-1){
+        mysqli_autocommit($conn,FALSE);
+        try
+        {
+            $thisUser = self::getUser($anwid, $conn);
+            if($thisUser[0]==-1){
+                return $thisUser;
+            }
+            if(strcmp($email,$thisUser[1]['email'])!=0){
+                $error = "Email not matching with given AnweshaID";
+                $arr = array();
+                $arr[]=-1;
+                $arr[]=$error;
+                return $arr;
+            }
+
+            // Escaping String
+            $address = mysqli_real_escape_string($conn,$address);
+            $degree = mysqli_real_escape_string($conn,$degree);
+            $grad = mysqli_real_escape_string($conn,$grad);
+            $leader = mysqli_real_escape_string($conn,$leader);
+            $involvement = mysqli_real_escape_string($conn,$involvement);
+            $threethings =  mysqli_real_escape_string($conn,$threethings);
+
+            $pid = $thisUser[1]['pId'];
+            $name = $thisUser[1]['name'];
+            
+            if(self::checkIfCampusAmbassador($pid,$conn)) {
+                $error = "Already a Campus Ambassador!";
+                $arr = array();
+                $arr[]=-1;
+                $arr[]=$error;
+                return $arr;
+            }
+          
+            $sql = "INSERT INTO `CampusAmberg` (`pId`, `refKey`, `address`, `degree`, `grad`, `leader`, `involvement`,`threethings`) VALUES ($pid, '0', '$address', '$degree', '$grad', '$leader', '$involvement','$threethings')";
+
+            $result = mysqli_query($conn, $sql);
+            if(!$result){
+                $error = "Could not switch to Campus Ambassador. #".alog(mysqli_error($conn));;
+                $arr = array();
+                $arr[]=-1;
+                $arr[]=$error;
+                mysqli_rollback($conn);
+                return $arr;
+            }
+            
+            $token = sha1(base64_encode((openssl_random_pseudo_bytes(15))));
+            $sqlUpdateTokenType = "UPDATE LoginTable SET type = 2,csrfToken='$token' WHERE pId = $pid";
+
+            $result = mysqli_query($conn,$sqlUpdateTokenType);
+            if(!$result){
+                $Err = 'Problem in Generating Confirmation Token for CampusAmbassador. Contact Registration team for help. #'.alog(mysqli_error($conn));
+                $arr = array();
+                $arr[]=-1;
+                $arr[]=$Err;
+                mysqli_rollback($conn);
+                return $arr;
+            }
+            self::Email($email,$name,$token,$pid,true);
+            mysqli_commit($conn);
             return $thisUser;
+        }finally{
+             mysqli_autocommit($conn,TRUE);
         }
-        if(strcmp($email,$thisUser[1]['email'])!=0){
-            $error = "Email not matching with given AnweshaID";
-            $arr = array();
-            $arr[]=-1;
-            $arr[]=$error;
-            return $arr;
-        }
-
-        // Escaping String
-        $address = mysqli_real_escape_string($conn,$address);
-        $degree = mysqli_real_escape_string($conn,$degree);
-        $grad = mysqli_real_escape_string($conn,$grad);
-        $leader = mysqli_real_escape_string($conn,$leader);
-        $involvement = mysqli_real_escape_string($conn,$involvement);
-        $threethings =  mysqli_real_escape_string($conn,$threethings);
-
-        $pid = $thisUser[1]['pId'];
-        $name = $thisUser[1]['name'];
-        
-        if(self::checkIfCampusAmbassador($pid,$conn)) {
-            $error = "Already a Campus Ambassador!";
-            $arr = array();
-            $arr[]=-1;
-            $arr[]=$error;
-            return $arr;
-        }
-      
-        $sql = "INSERT INTO `CampusAmberg` (`pId`, `refKey`, `address`, `degree`, `grad`, `leader`, `involvement`,`threethings`) VALUES ($pid, '0', '$address', '$degree', '$grad', '$leader', '$involvement','$threethings')";
-
-        $result = mysqli_query($conn, $sql);
-        if(!$result){
-            $error = "Could not switch to Campus Ambassador. #".alog(mysqli_error($conn));;
-            $arr = array();
-            $arr[]=-1;
-            $arr[]=$error;
-            return $arr;
-        }
-        
-        $token = sha1(base64_encode((openssl_random_pseudo_bytes(15))));
-        $sqlUpdateTokenType = "UPDATE LoginTable SET type = 2,csrfToken='$token' WHERE pId = $pid";
-
-        $result = mysqli_query($conn,$sqlUpdateTokenType);
-        if(!$result){
-            $Err = 'Problem in Generating Confirmation Token for CampusAmbassador. Contact Registration team for help. #'.alog(mysqli_error($conn));
-            $arr = array();
-            $arr[]=-1;
-            $arr[]=$Err;
-            return $arr;
-        }
-        self::Email($email,$name,$token,$pid,true);
-        return $thisUser;
 
     }
 
