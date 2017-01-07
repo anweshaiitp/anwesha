@@ -992,6 +992,7 @@
 								},"json");
 					});
 					var onresetpassORresendEmail = function(){$("#loginerror").empty();
+					$(".logingif").fadeIn();
 						console.log("Clicked to "+$(this).attr("placeholder"));
 						$("#loginsubmit").fadeOut();
 						$(".loginpswd").fadeOut();
@@ -1025,6 +1026,7 @@
 									console.log("Response");
 	                            	console.log("Data: " + data + "\nStatus: " + status);
 	                                if(status=='success'){
+										$(".logingif").fadeOut();
 	                                	if(data[0]==1) {
 	                                		$(".loginpswd").fadeOut();
 											
@@ -1035,7 +1037,8 @@
 	                                	$(".loginhead").text(data[1]);
 				        					
 	                                }else 
-	                                	{
+	                                	{	
+											$(".logingif").fadeOut();
 	                                		$(".loginhead").css("color","yellow");
 	                                		$(".loginhead").text("Error!");
 	                                	}
