@@ -308,7 +308,7 @@ class People{
         
         try
         {
-            $sql = "SELECT pId FROM Pids ORDER BY pId LIMIT 1";
+            $sql = "SELECT pId FROM Pids LIMIT 1";
             $result = mysqli_query($conn, $sql);
             if(!$result || mysqli_num_rows($result)==0){
                 $Err = 'Problem in Getting A New ID';
