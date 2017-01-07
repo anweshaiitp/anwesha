@@ -81,8 +81,7 @@ if (preg_match($base . '(ca|register|)_?([0-9]{4}|)$@', $url, $match)) {
 } elseif (preg_match($base . 'resetpassword/([0-9]{4})/([A-Za-z0-9]{40})/now/?$@', $url,$match)) {
 	require ('controller/forgetpassword_token.php');
 
-
-} elseif (preg_match($base . 'resend/[Aa][Nn][Ww]([0-9]{4})/?$@', $url, $match)) {
+} elseif (preg_match($base . 'resend/([a-zA-Z0-9_.+-]+\@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+)/?$@', $url, $match)) {
 	require ('controller/resendVerification.php');
 
 
