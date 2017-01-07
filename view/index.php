@@ -935,7 +935,7 @@
 			<span id="loginerror" style="color:red;padding:5px;"></span>
 				<input class="inp loginname" name="username" type="text" value="AnweshaID"
 					onblur="if (this.value == '') {this.value = 'AnweshaID';}"
-					onfocus="if (this.value == 'AnweshaID') {this.value = '';}" />
+					onfocus="if (this.value == 'AnweshaID' || this.value == 'emailID') {this.value = '';}" />
 				<input class="inp loginpswd" name="password" type="password" value="password"
 					onblur="if (this.value == '') {this.value = 'password';}"
 					onfocus="if (this.value == 'password') {this.value = '';}" /><center>
@@ -993,7 +993,16 @@
 						$("#loginsubmit").fadeOut();
 						$(".loginpswd").fadeOut();
 						var username=$(".loginname").val();
-         				if (username=='' || username==null || username=="AnweshaID"){
+						if($(this).attr("placeholder")=="resend"){
+							$(".loginname").val("emailID");
+
+						}
+						if(username=='' || username==null || username == "emailID"){
+        					$("#loginerror").text("Please enter emailID used to register to proceed");
+
+						}
+         				else if (username=='' || username==null || username=="AnweshaID" ){
+        					
         					$("#loginerror").text("Please enter AnweshaID to proceed");
             				
         				} else{
