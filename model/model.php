@@ -189,6 +189,31 @@ class People{
         $arr[]=$row;
         return $arr;
     }
+
+    /**
+     * to get People object with given email
+     * @param  int $id   email id of user
+     * @param  MySQLi object $conn variable containing connection details
+     * @return array       array
+     */
+    public function getUserByEmail($emailID,$conn){
+        $sql = " SELECT * FROM People WHERE email = $emailID";
+        $result = mysqli_query($conn, $sql);
+        if(!$result || mysqli_num_rows($result)!=1){
+            $error = "Error in displaying result for given email ID";
+            $arr = array();
+            $arr[]=-1;
+            $arr[]=$error;
+            return $arr;
+        }
+        $row = mysqli_fetch_assoc($result);
+
+        $arr = array();
+        $arr[]=1;
+        $arr[]=$row;
+        return $arr;
+    }
+
     /**
      * Check if User is a CampusAmbassador
      * @param  int $id   anwesha id of user
