@@ -2,18 +2,18 @@
 require('model/model.php');
 require('dbConnection.php');
 
-$userID = $match[1];
+$emailID = $match[1];
 $conn = mysqli_connect(SERVER_ADDRESS,USER_NAME,PASSWORD,DATABASE);
-$user = People::getUser($userID,$conn);
+$user = People::getUser($emailID,$conn);
 if ($user[0] != 1) {
 	mysqli_close($conn);
 	header('Content-type: application/json');
 	echo json_encode(array(-1,  $user[1]));
 	die();
 }
+$pID= $user[1];
 $user = $user[1];
-
-$loginInfo = People::getUserLoginInfo($userID,$conn);
+$loginInfo = People::getUserLoginInfo($pID,$conn);
 if ($loginInfo[0] != 1) {
 	mysqli_close($conn);
 	header('Content-type: application/json');
@@ -28,7 +28,7 @@ if(($type==0)) {
 	echo json_encode(array(-1, "Account already verified."));
 	die();
 }
-People::Email($user['email'], $user['name'], $loginInfo['csrfToken'], $userID);
+People::Email($emailID, $user['name'], $loginInfo['csrfToken'], $pID);
 header('Content-type: application/json');
 echo json_encode(array(1,  "Verification link sent to registered email."));
 die();
