@@ -4,7 +4,7 @@ require('dbConnection.php');
 
 $emailID = $match[1];
 $conn = mysqli_connect(SERVER_ADDRESS,USER_NAME,PASSWORD,DATABASE);
-$user = People::getUser($emailID,$conn);
+$user = People::getUserByEmail($emailID,$conn);
 if ($user[0] != 1) {
 	mysqli_close($conn);
 	header('Content-type: application/json');
