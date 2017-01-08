@@ -25,7 +25,15 @@
      -o-animation-timing-function: cubic-bezier(0.815, 0.185, 0.215, 1.400); 
         animation-timing-function: cubic-bezier(0.815, 0.185, 0.215, 1.400); /* custom */
 }
-
+.wheel,.medal{
+display: block;
+}
+.links{
+	display: none;
+}
+#teamsbtnnw{
+	display: block !important;
+}
 .loginexit{
 	color:white;
 	font-size: 15px;

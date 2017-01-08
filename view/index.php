@@ -82,11 +82,7 @@
          	var hashloc=location.hash;
          	var urieventid=null;
          	if(hashloc=="#events"){
-         	 	$("#clwrap").fadeIn();
-            	$(".clubs").fadeIn();
-            	$("#intro").hide();
-            	$(".window2").fadeIn("slow",toggleli());
-            	$(".backbtn").fadeIn();
+         		$("#eventsbtn").click();
             	// $("#preloader").hide();
          	 } else if (hashloc.substring(1,6)=="event"){
          	 	 urieventid = hashloc.replace("#event","");
@@ -337,6 +333,9 @@
             	$(".window2").fadeIn("slow",toggleli());
             	$(".backbtn").fadeIn();
             	$("#preloader").hide();
+            	$(".wheel").fadeOut();
+            	$(".medal").fadeOut();
+
             });
             $(".swingimage").click(function(){
             	$("#clwrap").fadeIn();
@@ -352,7 +351,9 @@
 				$("#clwrap").fadeOut();
             	$(".clubs").fadeOut();
             	$("#preloader").show();
-				
+				$(".wheel").fadeIn();
+            	$(".medal").fadeIn();
+
             	if(ev==1){
             		// $(".blankbg ").fadeOut();
             		$(".blankbg ").slideFadeToggle();
@@ -616,6 +617,42 @@
 			});
 		
 		</script>
+		<script type="text/javascript">
+	$(document).ready(function(){
+		// alert('yes');
+		$(".registerbtnnew").mouseenter(function(){
+			$(".wheel").css("transform","translate(-50%,-50%)rotate(-55deg)");
+		});
+		$(".registerbtnnew").click(function(){
+			$("#bregister").click();
+		});
+		$(".eventsbtnnew").mouseenter(function(){
+			$(".wheel").css("transform","translate(-50%,-50%)rotate(10deg)");
+		});
+		$(".eventsbtnnew").click(function(){
+			$("#eventsbtn").click();
+		});
+		$(".loginbtnnew").mouseenter(function(){
+			$(".wheel").css("transform","translate(-50%,-50%)rotate(55deg)");
+		});
+		$(".cabtnnew").mouseenter(function(){
+			$(".wheel").css("transform","translate(-50%,-50%)rotate(150deg)");
+		});
+		$(".cabtnnew").click(function(){
+			$("#bregister_ca").click();
+		});
+		$(".sponsbtnnew").mouseenter(function(){
+			$(".wheel").css("transform","translate(-50%,-50%)rotate(-120deg)");
+		});
+		$(".sponsbtnnew").click(function(){
+			stackWoodStacks();
+		});
+		$(".registerbtnnew, .eventsbtnnew, .loginbtnnew, .cabtnnew, .sponsbtnnew").mouseleave(function(){
+			$(".wheel").css("transform","translate(-50%,-50%)rotate(0deg)");
+
+		});
+	});
+</script>
 		<meta property="og:image" content="images/preview.png" />
 		<link rel="shortcut icon" href="favicon.ico">
 		<style type="text/css">
@@ -782,7 +819,22 @@
 		<button class="backbtn">< Back to home</button>
 		<button class="backbtn3" onclick="clearWoodStacks();$(this).fadeOut();">< Back to home</button>
 		<button class="backbtn2">< Events home</button>
-		<div class="sea"></div>
+		<!-- <div class="sea"></div> -->
+
+  <video class="sea" src="images/ocean-3_comp.mp4" playsinline autoplay muted loop></video>
+
+<div class="ship"></div>
+
+<img class="medal" src="images/medal.png" usemap="#map_1">
+<map id="map_1" name="map_1">
+  <area shape="poly" alt="" title="" coords="137,229,214,135,187,107,98,215,99,214" class="registerbtnnew" href="#register" target="" />
+  <area shape="poly" alt="" title="" coords="267,123,360,133,377,100,305,84,255,81,255,82" href="#events" class="eventsbtnnew" target="" />
+  <area shape="poly" alt="" title="" coords="406,166,446,232,477,227,429,129,426,131" class="loginbtnnew" target="" />
+  <area shape="poly" alt="" title="" coords="460,320,497,338,423,441,414,453,334,473,269,477,243,464,242,430,290,442,337,437,390,420,438,374,459,315,460,314" class="cabtnnew" href="#register_ca" target="" />
+  <area shape="poly" alt="" title="" coords="134,319,147,357,204,421,181,452,153,436,115,372,103,326,133,319" class="sponsbtnnew" target="" />
+  </map>
+<div class="wheel"></div>
+
 		<div id="clwrap">
 			<div class="clubs">
 				<ul id="leftlist">
@@ -804,6 +856,8 @@
 			</div>
 		<div id="intro">
 			
+				<a href="#teams" id="teamsbtnnw" style="">Teams</a>
+	    <a href="#leaderboard" id="teamsbtnnw" style="">CA Leaderboard</a>
 		
 			<ul class="links">
 				<a href="#login" id="loginbtn" style=""><li>Login</li></a>

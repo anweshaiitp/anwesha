@@ -26,6 +26,13 @@
 #glass .text{
 	font-size: 2em !important;
 }
+
+.wheel,.medal{
+display: none;
+}
+.links{
+	display: block;
+}
 .loginexit{
 	color:white;
 	font-size: 15px;
