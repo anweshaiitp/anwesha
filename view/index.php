@@ -21,6 +21,12 @@
 <!DOCTYPE html>
 <html >
 	<head>
+	<!--SEO-->
+	<META NAME="Title" CONTENT="Anwesha 2017 IIT Patna">
+	<META NAME="Keywords" CONTENT="Anwesha, Anwesha, Anwesha, IIT, IIT Patna, IIT P , IITP, Anwesha Fest, fest, cult, cultural">
+	<META NAME="Description" CONTENT="ANWESHA is a quest. The annual Techno-Cultural Festival of Indian Institute of Technology Patna hosts Technical, Cultural, Management, Arts and Welfare ...">
+	<META NAME="Subject" CONTENT="Anwesha IITP">
+
 		<!-- Latest compiled and minified CSS -->
 		<!-- jQuery library -->
 		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
