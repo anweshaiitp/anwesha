@@ -39,6 +39,7 @@
 		<!-- <script src="//code.jquery.com/jquery-1.12.4.js"></script> -->
 		<script type = "text/javascript" 
          src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script src="assets/js/imageMap.js"></script>
 		
       <script type = "text/javascript" 
          src = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
@@ -435,7 +436,11 @@
          });
 			
       </script>
- 
+ 	<script>
+		$(document).ready(function() {
+    		$('map').imageMapResize();
+		});
+	</script>
 		<script type="text/javascript">
 			$(document).ready(function(){
 				jQuery('.numbersOnly').keyup(function () { 
