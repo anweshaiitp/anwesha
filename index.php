@@ -29,6 +29,10 @@ $base = '@^'. $mat[1] ;
 
 if (preg_match($base . '(ca|register|)_?([0-9]{4}|)$@', $url, $match)) {
 	require ('view/index.php');
+}elseif (preg_match($base . 'ca/?$@', $url, $match)) {
+	require ('view/index.php');
+} elseif (preg_match($base . 'register/?$@', $url, $match)) {
+	require ('view/index.php');
 } elseif (preg_match($base . 'leaderboard/api/?$@', $url, $match)) {
 	require ('controller/leaderboardback.php');
 } elseif (preg_match($base . 'leaderboard/?$@', $url, $match)) {
@@ -83,8 +87,6 @@ if (preg_match($base . '(ca|register|)_?([0-9]{4}|)$@', $url, $match)) {
 
 } elseif (preg_match($base . 'resend/([a-zA-Z0-9_.+-]+\@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+)/?$@', $url, $match)) {
 	require ('controller/resendVerification.php');
-
-
 } elseif (preg_match($base . 'download_records/(.*)$@', $url, $match)) {
 	require ('controller/download_records.php');
 } elseif (preg_match($base . 'download_logs/([0-9]{1,2}\.[0-9]{1,2}\.[0-9]{4})/([0-9A-Za-z]{32})/?$@', $url, $match)) {
