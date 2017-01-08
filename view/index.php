@@ -1062,6 +1062,11 @@
 					$("#loginsubmit").click(function(){$("#loginerror").empty();//initiaize error display
 						$(".logingif").fadeIn();
 						$("#loginsubmit").fadeOut();
+						$("#loginajaxerror").text("Please Try again");
+										$(".logingif").fadeOut();
+
+
+					},5000);
 						//ajax
 						var username=$(".loginname").val();
         				var password=$(".loginpswd").val();
@@ -1098,6 +1103,7 @@
                                     //if login succeeds you can use the following  ccommented lines of code:
                                     $("#loginerror").empty();
         							if(data['status']===true || data['status']==1) {
+        								$("#loginajaxerror").text('');
                                     	$(".loginhead").css("color","green");
                                     	uilogin_name(data['name']);
                                     	$("#login").delay(1000).fadeOut(1000,function(){
