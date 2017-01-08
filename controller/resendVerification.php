@@ -2,9 +2,9 @@
 require('model/model.php');
 require('dbConnection.php');
 
-$userID = $match[1];
+$emailID = $match[1];
 $conn = mysqli_connect(SERVER_ADDRESS,USER_NAME,PASSWORD,DATABASE);
-$user = People::getUser($userID,$conn);
+$user = People::getUserByEmail($emailID,$conn);
 if ($user[0] != 1) {
 	mysqli_close($conn);
 	header('Content-type: application/json');
@@ -12,12 +12,12 @@ if ($user[0] != 1) {
 	die();
 }
 $user = $user[1];
-
-$loginInfo = People::getUserLoginInfo($userID,$conn);
+$pId=  $user['pId'];
+$loginInfo = People::getUserLoginInfo($pId,$conn);
 if ($loginInfo[0] != 1) {
 	mysqli_close($conn);
 	header('Content-type: application/json');
-	echo json_encode(array(-1, "Error! Contact Registration Desk Immediately."));
+	echo json_encode(array(-1, "Error! Contact Registration Desk Immediately.",$pId));
 	die();
 }
 mysqli_close($conn);
@@ -28,7 +28,7 @@ if(($type==0)) {
 	echo json_encode(array(-1, "Account already verified."));
 	die();
 }
-People::Email($user['email'], $user['name'], $loginInfo['csrfToken'], $userID);
+People::Email($emailID, $user['name'], $loginInfo['csrfToken'], $pId);
 header('Content-type: application/json');
 echo json_encode(array(1,  "Verification link sent to registered email."));
 die();

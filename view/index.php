@@ -842,7 +842,7 @@
 		<span id="tag" style="position:absolute;bottom:10px;left:10px;font-family:vinque;font-size: 1.7em;">About</span>
 			<div class="content">
 				<h1>ABOUT ANWESHA</h1><br>
-				 <p>ANWESHA is a quest. The annual Techno-Cultural Festival of Indian Institute of Technology Patna hosts Technical, Cultural, Literary, Eco and Management events.</p>
+				 <p>ANWESHA is a quest. The annual Techno-Cultural Festival of Indian Institute of Technology Patna hosts Technical, Cultural, Management, Arts and Welfare events.</p>
 				 <p>Since its genesis in 2010, Anwesha has gained great importance at an exponential rate and enjoys a cult status among the youths of Bihar. Eminent personalities such as chief minister Nitish Kumar, Padma Vibhushan, G. Madhavan Nair, R.K. Sihna (Dolphin Man of India), have been part of Anwesha's extravaganza in the past.</p>
 				 <!--<input type='submit' value='Gallery' onclick='popup_gallery();'/>-->
 				<br>
@@ -933,9 +933,14 @@
 			<div class="loginexit"><a onclick="window.location.hash ='#';document.body.style.overflow='visible';" style="cursor: pointer">x</a></div>
 			<h2 style="font-size: 2em;" class="loginhead">Login</h2>
 			<span id="loginerror" style="color:red;padding:5px;"></span>
+			<span id="loginajaxerror" style="color:red;padding:5px;"></span>
+
 				<input class="inp loginname" name="username" type="text" value="AnweshaID"
 					onblur="if (this.value == '') {this.value = 'AnweshaID';}"
 					onfocus="if (this.value == 'AnweshaID') {this.value = '';}" />
+				<input class="inp loginemail" name="username" type="text" style="display: none;" value="emailID"
+					onblur="if (this.value == '') {this.value = 'emailID';}"
+					onfocus="if (this.value == 'emailID') {this.value = '';}" />					
 				<input class="inp loginpswd" name="password" type="password" value="password"
 					onblur="if (this.value == '') {this.value = 'password';}"
 					onfocus="if (this.value == 'password') {this.value = '';}" /><center>
@@ -989,15 +994,34 @@
 								},"json");
 					});
 					var onresetpassORresendEmail = function(){$("#loginerror").empty();
+					$(".logingif").fadeIn();
+					setTimeout(function(){
+						$("#loginajaxerror").text("Please Try again");
+						$(".logingif").fadeOut();
+
+					},5000);
 						console.log("Clicked to "+$(this).attr("placeholder"));
 						$("#loginsubmit").fadeOut();
 						$(".loginpswd").fadeOut();
 						var username=$(".loginname").val();
-         				if (username=='' || username==null || username=="AnweshaID"){
-        					$("#loginerror").text("Please enter AnweshaID to proceed");
-            				
-        				} else{
-        					if(!(/^([Aa][Nn][Ww][0-9]{4})$/.test(username))) {
+						if($(this).attr("placeholder")=="resend"){
+							$(".loginemail").fadeIn();
+							$(".loginname").fadeOut();
+							$("[placeholder='reset']").hide();
+						var username=$(".loginemail").val();
+        						console.log("resend");
+
+						}
+						if(username=='' || username==null ){
+							if($(this).attr("placeholder") == "reset"){
+
+        						$("#loginerror").text("Please enter emailID used to register to proceed");
+        					}else if(username=="AnweshaID" ){
+        						$("#loginerror").text("Please enter AnweshaID to proceed");
+        					}
+
+						} else{
+        					if(!(/^([Aa][Nn][Ww][0-9]{4})$/.test(username)) && $(this).attr("placeholder") != "resend") {
         						$(".loginhead").css("color","yellow");
                         		$(".loginhead").text("Incorrect Anw ID");
         					}else
@@ -1009,6 +1033,7 @@
 									console.log("Response");
 	                            	console.log("Data: " + data + "\nStatus: " + status);
 	                                if(status=='success'){
+										$(".logingif").fadeOut();
 	                                	if(data[0]==1) {
 	                                		$(".loginpswd").fadeOut();
 											
@@ -1019,7 +1044,8 @@
 	                                	$(".loginhead").text(data[1]);
 				        					
 	                                }else 
-	                                	{
+	                                	{	
+											$(".logingif").fadeOut();
 	                                		$(".loginhead").css("color","yellow");
 	                                		$(".loginhead").text("Error!");
 	                                	}
@@ -1049,7 +1075,12 @@
         				}else{
         				console.log("Login Data Sent;");
         				console.log("Username : "+ username+"");
+        				setTimeout(function(){
+						$("#loginajaxerror").text("Please Try again");
+						$(".logingif").fadeOut();
+            			$("#loginsubmit").fadeIn();
 
+						},5000);
         		$.post("login/",
                             {                    
                             username: username,

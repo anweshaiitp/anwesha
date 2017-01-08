@@ -49,7 +49,7 @@ CREATE TABLE `Events` (
   `eveName` varchar(35) DEFAULT NULL,
   `fee` int(4) DEFAULT NULL,
   `day` int(1) DEFAULT NULL,
-  `size` int(2) DEFAULT NULL,
+  `size` int(2) NULL DEFAULT '1',
   `code` int(3) NOT NULL,
   `tagline` varchar(100) DEFAULT NULL,
   `date` varchar(15) DEFAULT NULL,
