@@ -997,6 +997,8 @@
 					$(".logingif").fadeIn();
 					setTimeout(function(){
 						$("#loginajaxerror").text("Please Try again");
+						$(".logingif").fadeOut();
+
 					},5000);
 						console.log("Clicked to "+$(this).attr("placeholder"));
 						$("#loginsubmit").fadeOut();
@@ -1073,7 +1075,11 @@
         				}else{
         				console.log("Login Data Sent;");
         				console.log("Username : "+ username+"");
-
+        				setTimeout(function(){
+						$("#loginajaxerror").text("Please Try again");
+						$(".logingif").fadeOut();
+						
+						},5000);
         		$.post("login/",
                             {                    
                             username: username,
