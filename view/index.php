@@ -1078,7 +1078,8 @@
         				setTimeout(function(){
 						$("#loginajaxerror").text("Please Try again");
 						$(".logingif").fadeOut();
-						
+            			$("#loginsubmit").fadeIn();
+
 						},5000);
         		$.post("login/",
                             {                    
