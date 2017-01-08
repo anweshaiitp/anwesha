@@ -933,6 +933,8 @@
 			<div class="loginexit"><a onclick="window.location.hash ='#';document.body.style.overflow='visible';" style="cursor: pointer">x</a></div>
 			<h2 style="font-size: 2em;" class="loginhead">Login</h2>
 			<span id="loginerror" style="color:red;padding:5px;"></span>
+			<span id="loginajaxerror" style="color:red;padding:5px;"></span>
+
 				<input class="inp loginname" name="username" type="text" value="AnweshaID"
 					onblur="if (this.value == '') {this.value = 'AnweshaID';}"
 					onfocus="if (this.value == 'AnweshaID') {this.value = '';}" />
@@ -993,6 +995,11 @@
 					});
 					var onresetpassORresendEmail = function(){$("#loginerror").empty();
 					$(".logingif").fadeIn();
+					setTimeout(function(){
+						$("#loginajaxerror").text("Please Try again");
+						$(".logingif").fadeOut();
+
+					},5000);
 						console.log("Clicked to "+$(this).attr("placeholder"));
 						$("#loginsubmit").fadeOut();
 						$(".loginpswd").fadeOut();
@@ -1000,7 +1007,7 @@
 						if($(this).attr("placeholder")=="resend"){
 							$(".loginemail").fadeIn();
 							$(".loginname").fadeOut();
-
+							$("[placeholder='reset']").hide();
 						var username=$(".loginemail").val();
         						console.log("resend");
 
@@ -1068,7 +1075,12 @@
         				}else{
         				console.log("Login Data Sent;");
         				console.log("Username : "+ username+"");
+        				setTimeout(function(){
+						$("#loginajaxerror").text("Please Try again");
+						$(".logingif").fadeOut();
+            			$("#loginsubmit").fadeIn();
 
+						},5000);
         		$.post("login/",
                             {                    
                             username: username,

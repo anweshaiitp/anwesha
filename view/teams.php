@@ -138,32 +138,33 @@
         			</center>
         		</div>
         	</div>
-        			<center>
+        				<center>
 					<hr width="80%">
    						<br>
 
-        	<span class="desig" >Marketing and Sponsorship</span>
-        			</center>
+        	<span class="desig" >Media &amp; Public Relations</span>
+        	</center>
+
 
 			<div class="row">
 
-        		<div class="col-sm-6">
+        		<div class="col-sm-4">
         			<center>
         				
         			<!-- image -->
 
 						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
 							<div class="flipper">
-							<div class="pplfront" style="background-image: url('images/team/festcoord.jpg')">
+							<div class="pplfront" style="background-image: url('images/team/Prateeks.jpg')">
 									<!-- front content -->
 								</div>
 								<div class="pplback">
 									<div class="contactinfo"><br><br>
-										<span class="phoneno">+91 9708000578</span> <br>
-										<span class="emailid"><a href="mailto:abhinay.cs14@iitp.ac.in">abhinay.cs14@iitp.ac.in</a></span><br><br>
+										<span class="phoneno">+91 9709309693</span> <br>
+										<span class="emailid"><a href="mailto:prateek.cs14@iitp.ac.in">prateek.cs14@iitp.ac.in</a></span><br><br>
 										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
-										<a href="https://in.linkedin.com/in/abhinay-paladugu-239220b8"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
-										<a href="https://www.facebook.com/abhinay.paladugu" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
+										<!-- <a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a> -->
+										<a href="https://www.facebook.com/prateek.sharma.18400700" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
 										</div>										
 									</div>
 									<!-- back content -->
@@ -174,26 +175,55 @@
         			<!-- /image -->
         			<br>
         			<!-- name -->
-        			<span class="name" >Abhinay Paladugu</span>
+        			<span class="name" >Prateek Sharma</span>
         			</center>
         		</div>
+				<div class="col-sm-4">
+        			<center>
+        				
+        			<!-- image -->
 
-        		<div class="col-sm-6">
+						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+							<div class="pplfront" style="background-image: url('images/team/lakhan.jpg')">
+									<!-- front content -->
+								</div>
+								<div class="pplback">
+									<div class="contactinfo"><br><br>
+										<span class="phoneno">+91 9006703052</span> <br>
+										<span class="emailid"><a href="mailto:lakhan.ch14@iitp.ac.in">lakhan.ch14@iitp.ac.in</a></span><br><br>
+										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
+										<a href="https://www.linkedin.com/in/lakhan-aggrawal-4b1959115"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<a href="https://www.facebook.com/lakhan.aggrawal" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
+										</div>										
+									</div>
+									<!-- back content -->
+								</div>
+							</div>
+						</div>
+
+        			<!-- /image -->
+        			<br>
+        			<!-- name -->
+        			<span class="name" >Lakhan Aggrawal</span>
+        			</center>
+        		</div>
+        		<div class="col-sm-4">
         			<center>
         			<!-- image -->
 
 						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
 							<div class="flipper">
-							<div class="pplfront" style="background-image: url('images/team/sureshb.jpg')">
+							<div class="pplfront" style="background-image: url('images/team/bhagyashri.jpg')">
 									<!-- front content -->
 								</div>
 								<div class="pplback">
 									<div class="contactinfo"><br><br>
-										<span class="phoneno">+91 9006703625</span> <br>
-										<span class="emailid"><a href="mailto:suresh.ce14@iitp.ac.in">suresh.ce14@iitp.ac.in</a></span><br><br>
+										<span class="phoneno">+91 9631089163</span> <br>
+										<span class="emailid"><a href="mailto:bhagyashri.ch14@iitp.ac.in">bhagyashri.ch14@iitp.ac.in</a></span><br><br>
 										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
-										<a href="https://in.linkedin.com/in/suresh-raja-36596aa6"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
-										<a href="https://www.facebook.com/suresh.raja.355744" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
+										<a href="https://www.linkedin.com/in/bhagyav/"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<a href="https://www.facebook.com/bhagyashri.verma.9" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
 										</div>										
 									</div>
 									<!-- back content -->
@@ -204,13 +234,147 @@
         			<!-- /image -->
         			<br>
         			<!-- name -->
-        			<span class="name" >Suresh Raja</span>
+        			<span class="name" >Bhagyashri Verma</span>
         			</center>
         		</div>
 
         		
         	</div>
 
+	
+			<center>
+					<hr width="80%">
+   						<br>
+
+        	<span class="desig" >Hospitality</span>
+        	</center>
+
+
+			<div class="row">
+
+        		<div class="col-sm-3">
+        			<center>
+        				
+        			<!-- image -->
+
+						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+							<div class="pplfront" style="background-image: url('images/team/vishvesh.jpg')">
+									<!-- front content -->
+								</div>
+								<div class="pplback">
+									<div class="contactinfo"><br><br>
+										<span class="phoneno">+91 9006703087</span> <br>
+										<span class="emailid"><a href="mailto:vishvesh.ch14@iitp.ac.in">vishvesh.ch14@iitp.ac.in</a></span><br><br>
+										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
+										<!-- <a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a> -->
+										<a href="https://www.facebook.com/vishvesh.rai.9?fref=ts" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
+										</div>										
+									</div>
+									<!-- back content -->
+								</div>
+							</div>
+						</div>
+
+        			<!-- /image -->
+        			<br>
+        			<!-- name -->
+        			<span class="name" >Vishvesh Rai </span>
+        			</center>
+        		</div>
+				<div class="col-sm-3">
+        			<center>
+        				
+        			<!-- image -->
+
+						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+							<div class="pplfront" style="background-image: url('images/team/pranjali.jpg')">
+									<!-- front content -->
+								</div>
+								<div class="pplback">
+									<div class="contactinfo"><br><br>
+										<span class="phoneno">+91 9631112451</span> <br>
+										<span class="emailid"><a href="mailto:pranjali.ch14@iitp.ac.in">pranjali.ch14@iitp.ac.in</a></span><br><br>
+										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
+										<a href="https://www.linkedin.com/in/pranjali-sharma-2388b7b0/"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<a href="https://www.facebook.com/pranjali.sharma.583" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
+										</div>										
+									</div>
+									<!-- back content -->
+								</div>
+							</div>
+						</div>
+
+        			<!-- /image -->
+        			<br>
+        			<!-- name -->
+        			<span class="name" >Pranjali Sharma </span>
+        			</center>
+        		</div>
+        		<div class="col-sm-3">
+        			<center>
+        			<!-- image -->
+
+						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+							<div class="pplfront" style="background-image: url('images/team/sushant.jpg')">
+									<!-- front content -->
+								</div>
+								<div class="pplback">
+									<div class="contactinfo"><br><br>
+										<span class="phoneno">+91 9470731600</span> <br>
+										<span class="emailid"><a href="mailto:sushant.cs14@iitp.ac.in">sushant.cs14@iitp.ac.in</a></span><br><br>
+										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
+										<!-- <a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a> -->
+										<a href="https://www.facebook.com/mithu987654321" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
+										</div>										
+									</div>
+									<!-- back content -->
+								</div>
+							</div>
+						</div>
+
+        			<!-- /image -->
+        			<br>
+        			<!-- name -->
+        			<span class="name" >Sushant Kumar </span>
+        			</center>
+        		</div>
+        		<div class="col-sm-3">
+        			<center>
+        			<!-- image -->
+
+						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+							<div class="pplfront" style="background-image: url('images/team/default.jpg')">
+									<!-- front content -->
+								</div>
+								<div class="pplback">
+									<div class="contactinfo"><br><br>
+										<span class="phoneno">+91 9869438819‬</span> <br>
+										<span class="emailid"><a href="mailto:patil.cs14@iitp.ac.in">patil.cs14@iitp.ac.in</a></span><br><br>
+										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
+										<!-- <a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a> -->
+										<a href="https://www.facebook.com/shreyas.patil.5203" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
+										</div>										
+									</div>
+									<!-- back content -->
+								</div>
+							</div>
+						</div>
+
+        			<!-- /image -->
+        			<br>
+        			<!-- name -->
+        			<span class="name" >Shreyas Patil</span>
+        			</center>
+        		</div>
+
+        		
+        	</div>
+
+			
 
 			<center>
 					<hr width="80%">
@@ -314,35 +478,32 @@
         		
         	</div>
 			
-
-
-			<center>
+        			<center>
 					<hr width="80%">
    						<br>
 
-        	<span class="desig" >Media &amp; Public Relations</span>
-        	</center>
-
+        	<span class="desig" >Marketing and Sponsorship</span>
+        			</center>
 
 			<div class="row">
 
-        		<div class="col-sm-4">
+        		<div class="col-sm-6">
         			<center>
         				
         			<!-- image -->
 
 						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
 							<div class="flipper">
-							<div class="pplfront" style="background-image: url('images/team/Prateeks.jpg')">
+							<div class="pplfront" style="background-image: url('images/team/festcoord.jpg')">
 									<!-- front content -->
 								</div>
 								<div class="pplback">
 									<div class="contactinfo"><br><br>
-										<span class="phoneno">+91 9709309693</span> <br>
-										<span class="emailid"><a href="mailto:prateek.cs14@iitp.ac.in">prateek.cs14@iitp.ac.in</a></span><br><br>
+										<span class="phoneno">+91 9708000578</span> <br>
+										<span class="emailid"><a href="mailto:abhinay.cs14@iitp.ac.in">abhinay.cs14@iitp.ac.in</a></span><br><br>
 										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
-										<!-- <a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a> -->
-										<a href="https://www.facebook.com/prateek.sharma.18400700" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
+										<a href="https://in.linkedin.com/in/abhinay-paladugu-239220b8"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<a href="https://www.facebook.com/abhinay.paladugu" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
 										</div>										
 									</div>
 									<!-- back content -->
@@ -353,55 +514,26 @@
         			<!-- /image -->
         			<br>
         			<!-- name -->
-        			<span class="name" >Prateek Sharma</span>
+        			<span class="name" >Abhinay Paladugu</span>
         			</center>
         		</div>
-				<div class="col-sm-4">
-        			<center>
-        				
-        			<!-- image -->
 
-						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
-							<div class="flipper">
-							<div class="pplfront" style="background-image: url('images/team/lakhan.jpg')">
-									<!-- front content -->
-								</div>
-								<div class="pplback">
-									<div class="contactinfo"><br><br>
-										<span class="phoneno">+91 9006703052</span> <br>
-										<span class="emailid"><a href="mailto:lakhan.ch14@iitp.ac.in">lakhan.ch14@iitp.ac.in</a></span><br><br>
-										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
-										<a href="https://www.linkedin.com/in/lakhan-aggrawal-4b1959115"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
-										<a href="https://www.facebook.com/lakhan.aggrawal" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
-										</div>										
-									</div>
-									<!-- back content -->
-								</div>
-							</div>
-						</div>
-
-        			<!-- /image -->
-        			<br>
-        			<!-- name -->
-        			<span class="name" >Lakhan Aggrawal</span>
-        			</center>
-        		</div>
-        		<div class="col-sm-4">
+        		<div class="col-sm-6">
         			<center>
         			<!-- image -->
 
 						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
 							<div class="flipper">
-							<div class="pplfront" style="background-image: url('images/team/bhagyashri.jpg')">
+							<div class="pplfront" style="background-image: url('images/team/sureshb.jpg')">
 									<!-- front content -->
 								</div>
 								<div class="pplback">
 									<div class="contactinfo"><br><br>
-										<span class="phoneno">+91 9631089163</span> <br>
-										<span class="emailid"><a href="mailto:bhagyashri.ch14@iitp.ac.in">bhagyashri.ch14@iitp.ac.in</a></span><br><br>
+										<span class="phoneno">+91 9006703625</span> <br>
+										<span class="emailid"><a href="mailto:suresh.ce14@iitp.ac.in">suresh.ce14@iitp.ac.in</a></span><br><br>
 										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
-										<a href="https://www.linkedin.com/in/bhagyav/"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
-										<a href="https://www.facebook.com/bhagyashri.verma.9" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
+										<a href="https://in.linkedin.com/in/suresh-raja-36596aa6"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
+										<a href="https://www.facebook.com/suresh.raja.355744" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
 										</div>										
 									</div>
 									<!-- back content -->
@@ -412,12 +544,16 @@
         			<!-- /image -->
         			<br>
         			<!-- name -->
-        			<span class="name" >Bhagyashri Verma</span>
+        			<span class="name" >Suresh Raja</span>
         			</center>
         		</div>
 
         		
         	</div>
+
+			
+
+
 
 			<center>
 					<hr width="80%">
@@ -677,140 +813,6 @@
 
 			
 
-			<center>
-					<hr width="80%">
-   						<br>
-
-        	<span class="desig" >Hospitality</span>
-        	</center>
-
-
-			<div class="row">
-
-        		<div class="col-sm-3">
-        			<center>
-        				
-        			<!-- image -->
-
-						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
-							<div class="flipper">
-							<div class="pplfront" style="background-image: url('images/team/vishvesh.jpg')">
-									<!-- front content -->
-								</div>
-								<div class="pplback">
-									<div class="contactinfo"><br><br>
-										<span class="phoneno">+91 9006703087</span> <br>
-										<span class="emailid"><a href="mailto:vishvesh.ch14@iitp.ac.in">vishvesh.ch14@iitp.ac.in</a></span><br><br>
-										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
-										<!-- <a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a> -->
-										<a href="https://www.facebook.com/vishvesh.rai.9?fref=ts" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
-										</div>										
-									</div>
-									<!-- back content -->
-								</div>
-							</div>
-						</div>
-
-        			<!-- /image -->
-        			<br>
-        			<!-- name -->
-        			<span class="name" >Vishvesh Rai </span>
-        			</center>
-        		</div>
-				<div class="col-sm-3">
-        			<center>
-        				
-        			<!-- image -->
-
-						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
-							<div class="flipper">
-							<div class="pplfront" style="background-image: url('images/team/pranjali.jpg')">
-									<!-- front content -->
-								</div>
-								<div class="pplback">
-									<div class="contactinfo"><br><br>
-										<span class="phoneno">+91 9631112451</span> <br>
-										<span class="emailid"><a href="mailto:pranjali.ch14@iitp.ac.in">pranjali.ch14@iitp.ac.in</a></span><br><br>
-										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
-										<a href="https://www.linkedin.com/in/pranjali-sharma-2388b7b0/"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
-										<a href="https://www.facebook.com/pranjali.sharma.583" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
-										</div>										
-									</div>
-									<!-- back content -->
-								</div>
-							</div>
-						</div>
-
-        			<!-- /image -->
-        			<br>
-        			<!-- name -->
-        			<span class="name" >Pranjali Sharma </span>
-        			</center>
-        		</div>
-        		<div class="col-sm-3">
-        			<center>
-        			<!-- image -->
-
-						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
-							<div class="flipper">
-							<div class="pplfront" style="background-image: url('images/team/sushant.jpg')">
-									<!-- front content -->
-								</div>
-								<div class="pplback">
-									<div class="contactinfo"><br><br>
-										<span class="phoneno">+91 9470731600</span> <br>
-										<span class="emailid"><a href="mailto:sushant.cs14@iitp.ac.in">sushant.cs14@iitp.ac.in</a></span><br><br>
-										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
-										<!-- <a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a> -->
-										<a href="https://www.facebook.com/mithu987654321" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
-										</div>										
-									</div>
-									<!-- back content -->
-								</div>
-							</div>
-						</div>
-
-        			<!-- /image -->
-        			<br>
-        			<!-- name -->
-        			<span class="name" >Sushant Kumar </span>
-        			</center>
-        		</div>
-        		<div class="col-sm-3">
-        			<center>
-        			<!-- image -->
-
-						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
-							<div class="flipper">
-							<div class="pplfront" style="background-image: url('images/team/default.jpg')">
-									<!-- front content -->
-								</div>
-								<div class="pplback">
-									<div class="contactinfo"><br><br>
-										<span class="phoneno">+91 9869438819‬</span> <br>
-										<span class="emailid"><a href="mailto:patil.cs14@iitp.ac.in">patil.cs14@iitp.ac.in</a></span><br><br>
-										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
-										<!-- <a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a> -->
-										<a href="https://www.facebook.com/shreyas.patil.5203" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
-										</div>										
-									</div>
-									<!-- back content -->
-								</div>
-							</div>
-						</div>
-
-        			<!-- /image -->
-        			<br>
-        			<!-- name -->
-        			<span class="name" >Shreyas Patil</span>
-        			</center>
-        		</div>
-
-        		
-        	</div>
-
-			
-			
 
 			<center>
 					<hr width="80%">
