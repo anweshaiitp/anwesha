@@ -817,6 +817,7 @@ background: #000;
 	transition: visibility 0s 0.4s, height 0s 0.4s;
 }
 .sponsimg{
+	display:none;
 	position: absolute;
 	right: 120px;
 	bottom: 10px;
