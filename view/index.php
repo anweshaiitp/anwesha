@@ -783,8 +783,8 @@
 			</center>
 			</div>
 		</div>
-        <div class="window2"></div>
-		<div class="window"></div>
+        <!--<div class="window2"></div>
+		<div class="window"></div>-->
 		<button class="backbtn">< Back to home</button>
 		<button class="backbtn3" onclick="clearWoodStacks();$(this).fadeOut();">< Back to home</button>
 		<button class="backbtn2">< Events home</button>
