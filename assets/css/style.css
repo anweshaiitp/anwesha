@@ -756,7 +756,18 @@ background:#efefef;
 ::-webkit-scrollbar-thumb:window-inactive {
 background: #000;
 }
-
+::-moz-scrollbar {
+width: 0.3em;
+}
+::-moz-scrollbar-thumb {
+background: #000;
+}
+::-moz-scrollbar-track {
+background:#efefef;
+}
+::-moz-scrollbar-thumb:window-inactive {
+background: #000;
+}
 
 
 
@@ -1184,10 +1195,11 @@ video {
 	top:0;
 	left: 0;
 	width:100%;
+	transform: translateX(50%);
 	height:100%;*/
 	position: absolute;
 	left:50%;
-	transform: translateX(50%);
+	
 	height: 100%;
 	z-index: -2;
 }
