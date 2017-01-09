@@ -640,6 +640,9 @@
 		$(".loginbtnnew").mouseenter(function(){
 			$(".wheel").css("transform","translate(-50%,-50%)rotate(55deg)");
 		});
+		$(".loginbtnnew").click(function(){
+			$("#loginbtn").click();
+		});
 		$(".cabtnnew").mouseenter(function(){
 			$(".wheel").css("transform","translate(-50%,-50%)rotate(150deg)");
 		});
@@ -834,7 +837,7 @@
 <map id="map_1" name="map_1">
   <area shape="poly" alt="" title="" coords="137,229,214,135,187,107,98,215,99,214" class="registerbtnnew" href="#register" target="" />
   <area shape="poly" alt="" title="" coords="267,123,360,133,377,100,305,84,255,81,255,82" href="#events" class="eventsbtnnew" target="" />
-  <area shape="poly" alt="" title="" coords="406,166,446,232,477,227,429,129,426,131" class="loginbtnnew" target="" />
+  <area shape="poly" alt="" title="" coords="406,166,446,232,477,227,429,129,426,131" class="loginbtnnew" href="#login" target="" />
   <area shape="poly" alt="" title="" coords="460,320,497,338,423,441,414,453,334,473,269,477,243,464,242,430,290,442,337,437,390,420,438,374,459,315,460,314" class="cabtnnew" href="#register_ca" target="" />
   <area shape="poly" alt="" title="" coords="134,319,147,357,204,421,181,452,153,436,115,372,103,326,133,319" class="sponsbtnnew" target="" />
   </map>

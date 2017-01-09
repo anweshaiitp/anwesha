@@ -48,8 +48,10 @@ jQuery(window).load(function() {
 		$('.logo').delay(1000).transition({ x: '-40%', y: '100%' });
 	} else {
 		$('.logo').delay(1000).transition({ x: '0%', y: '100%' });
-		$(".parallelogram").delay(1000).css("z-index","2");
-		$(".sponsimg").delay(1000).css("z-index","2");
+		// $(".parallelogram").delay(1000).css("z-index","5");
+		// $(".medal").delay(1000).css("z-index","3");
+		// $(".wheel").delay(1000).css("z-index","3");
+		// $(".sponsimg").delay(1000).css("z-index","2");
 
 	}
 

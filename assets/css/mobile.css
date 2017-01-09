@@ -26,12 +26,27 @@
 #glass .text{
 	font-size: 2em !important;
 }
-
+body{
+	background-color:black; 
+}
 .wheel,.medal{
-display: none;
+/*display: none;*/
+}
+.wheel{
+	width:70%;
+}
+.medal{
+	width:80%;
 }
 .links{
-	display: block;
+	display: none;
+}
+.sea{
+	display: none;
+}
+.ship{
+   
+
 }
 .loginexit{
 	color:white;
