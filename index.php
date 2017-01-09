@@ -30,9 +30,9 @@ $base = '@^'. $mat[1] ;
 if (preg_match($base . '(ca|register|)_?([0-9]{4}|)$@', $url, $match)) {
 	require ('view/index.php');
 }elseif (preg_match($base . 'ca/?$@', $url, $match)) {
-	require ('view/index.php');
+	header('Location: '.$base);
 } elseif (preg_match($base . 'register/?$@', $url, $match)) {
-	require ('view/index.php');
+	header('Location: '.$base);
 } elseif (preg_match($base . 'leaderboard/api/?$@', $url, $match)) {
 	require ('controller/leaderboardback.php');
 } elseif (preg_match($base . 'leaderboard/?$@', $url, $match)) {
