@@ -750,8 +750,30 @@ background:#efefef;
 ::-webkit-scrollbar-thumb:window-inactive {
 background: #000;
 }
-
-
+::-moz-scrollbar {
+width: 0.3em;
+}
+::-moz-scrollbar-thumb {
+background: #000;
+}
+::-moz-scrollbar-track {
+background:#efefef;
+}
+::-moz-scrollbar-thumb:window-inactive {
+background: #000;
+}
+::-ms-scrollbar {
+width: 0.3em;
+}
+::-ms-scrollbar-thumb {
+background: #000;
+}
+::-ms-scrollbar-track {
+background:#efefef;
+}
+::-ms-scrollbar-thumb:window-inactive {
+background: #000;
+}
 
 
 /*component css*/
