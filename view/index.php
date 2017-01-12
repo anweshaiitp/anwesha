@@ -402,7 +402,7 @@
 					view_sbar(-1);
 					if($(window).width()<960){
 						var sbtop=120 + $("#navbar").height();
-						var matop=70 + sbtop;
+						var matop= $(".sblist").height() + sbtop;
 						$("#sidebar").css("top",sbtop);
          				$("#mainarea").css("top",matop);
          				$("#mainareaalt").css("top",matop);
