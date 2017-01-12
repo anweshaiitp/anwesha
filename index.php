@@ -32,9 +32,9 @@ if (preg_match($base . '(ca|register|)_?([0-9]{4}|)$@', $url, $match)) {
 } elseif (preg_match($base . 'leaderboard/api/?$@', $url, $match)) {
 	require ('controller/leaderboardback.php');
 } elseif (preg_match($base . 'ca/?$@', $url, $match)) {
-	header('Location: index.php');
+	header('Location: ../index.php');
 } elseif (preg_match($base . 'register/?$@', $url, $match)) {
-	header('Location: index.php');
+	header('Location: ../index.php');
 } elseif (preg_match($base . 'leaderboard/?$@', $url, $match)) {
 	require ('view/leaderboard.php');
 } elseif (preg_match($base . 'auditions/$@', $url, $match)) {
