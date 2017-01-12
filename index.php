@@ -37,6 +37,8 @@ if (preg_match($base . '(ca|register|)_?([0-9]{4}|)$@', $url, $match)) {
 	header('Location: ../');
 } elseif (preg_match($base . 'index.php?$@', $url, $match)) {
 	header('Location: ./');
+} elseif (preg_match($base . 'index.php/?$@', $url, $match)) {
+	header('Location: ./');
 } elseif (preg_match($base . 'leaderboard/?$@', $url, $match)) {
 	require ('view/leaderboard.php');
 } elseif (preg_match($base . 'auditions/$@', $url, $match)) {
