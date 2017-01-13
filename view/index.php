@@ -248,7 +248,7 @@
 						$('#eve_long_desc').html(getHTMLText(eve['long_desc']));
 						// eve_rulefill();
 						if(eve['rule_url']){
-						$("#RuleBtn").attr("href",eve['rule_url']);
+						$("#RuleBtn").attr("href",eve['rules_url']);
 						$("#RuleBtn").show();}
 						// $('#eve_icon').attr("src",eve['icon_url']);
 						eve_iconswitch(eve['icon_url']);
