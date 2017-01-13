@@ -48,7 +48,9 @@
 		
       <script type = "text/javascript" 
          src = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
-		
+		<style>
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+</style>
   <!-- <script src="//code.jquery.com/ui/1.12.0/jquery-ui.js"></script> -->
 		<!-- <script src='assets/js/jquery.min.js'></script> -->
 		<script src='assets/js/jquery.transit.min.js'></script>
@@ -777,7 +779,7 @@
 				<span id='eve_short_desc' style="font-size: 1.5em;">
 					Event Short Desc
 				</span><br>
-				<span id='eve_long_desc' style="font-size: 1.5em;text-align:justify;text-justify: inter-word;">
+				<span id='eve_long_desc' style="font-family: 'Roboto', sans-serif;font-size: 1.5em;text-align:justify;text-justify: inter-word;">
 					Event Long Desc
 				</span>
 				<br><br><br><br><br><br>
