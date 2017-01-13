@@ -166,8 +166,8 @@
 				$('#eve_short_desc').text("");
 				$('#eve_long_desc').text("");
 				$('#regbtn').attr("placeholder","");
-				
-				eve_rulefill("");
+				$("#RuleBtn").attr("href","");
+				$("#RuleBtn").hide();
 				eve_iconswitch("");
 				eve_coverswitch("");
 				// $('#eve_cover').css("src","");
@@ -246,7 +246,10 @@
 						$('#eve_venue').html(eve['venue']);
 						$('#eve_short_desc').html(getHTMLText(eve['short_desc']));
 						$('#eve_long_desc').html(getHTMLText(eve['long_desc']));
-						eve_rulefill(eve['rule_url']);
+						// eve_rulefill();
+						if(eve['rule_url']){
+						$("#RuleBtn").attr("href",eve['rule_url']);
+						$("#RuleBtn").show();}
 						// $('#eve_icon').attr("src",eve['icon_url']);
 						eve_iconswitch(eve['icon_url']);
 						// $('#eve_organisers').text(eve['organisers']);
