@@ -44,6 +44,9 @@ body{
 .sea{
 	display: none;
 }
+.seatwo{
+	display: block !important;
+}
 .ship{
    
 

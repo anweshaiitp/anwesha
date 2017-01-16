@@ -828,7 +828,7 @@
 		<button class="backbtn3" onclick="clearWoodStacks();$(this).fadeOut();">< Back to home</button>
 		<button class="backbtn2">< Events home</button>
 		<!-- <div class="sea"></div> -->
-
+<div class="seatwo"></div>
   <video class="sea" src="images/ocean-3_comp.mp4" playsinline autoplay muted loop></video>
 
 <div class="ship"></div>
