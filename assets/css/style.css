@@ -446,12 +446,18 @@ button:hover, button:active, button:focus {
 	max-height:100%;
 	font-family:vinque;
 	line-height:1.4em;
+	left:20%;
 	text-align:center;
 	overflow-y: auto;
 	/*font-size: 1.7em !important;*/
-	margin: auto;
+	top:10%;
     width: 60%;
+
 	text-shadow: 0 0 5px #FFFFFF;
+}
+body{
+	overflow-y: hidden;
+	overflow-x: hidden;
 }
 .parallelogram h1{
 	background:rgba(0,0,0,0.6);
@@ -1565,7 +1571,7 @@ video {
 }
 .loginlightbox{
 	display: none;
-
+	z-index:40;
 }
 #teamsbtnnw{
 	margin:0.5em;

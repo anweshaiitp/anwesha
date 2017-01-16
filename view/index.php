@@ -644,10 +644,16 @@
 			$("#loginbtn").click();
 		});
 		$(".cabtnnew").mouseenter(function(){
-			$(".wheel").css("transform","translate(-50%,-50%)rotate(150deg)");
+			$(".wheel").css("transform","translate(-50%,-50%)rotate(-150deg)");
 		});
 		$(".cabtnnew").click(function(){
 			$("#bregister_ca").click();
+		});
+		$(".gallerybtn").mouseenter(function(){
+			$(".wheel").css("transform","translate(-50%,-50%)rotate(120deg)");
+		});
+		$(".cabtnnew").click(function(){
+			
 		});
 		$(".sponsbtnnew").mouseenter(function(){
 			$(".wheel").css("transform","translate(-50%,-50%)rotate(-120deg)");
@@ -655,7 +661,7 @@
 		$(".sponsbtnnew").click(function(){
 			stackWoodStacks();
 		});
-		$(".registerbtnnew, .eventsbtnnew, .loginbtnnew, .cabtnnew, .sponsbtnnew").mouseleave(function(){
+		$(".registerbtnnew, .eventsbtnnew, .loginbtnnew, .cabtnnew, .sponsbtnnew,.gallerybtn").mouseleave(function(){
 			$(".wheel").css("transform","translate(-50%,-50%)rotate(0deg)");
 
 		});
@@ -835,11 +841,12 @@
 
 <img class="medal" src="images/medal.png" usemap="#map_1">
 <map id="map_1" name="map_1">
-  <area shape="poly" alt="" title="" coords="137,229,214,135,187,107,98,215,99,214" class="registerbtnnew" href="#register" target="" />
-  <area shape="poly" alt="" title="" coords="267,123,360,133,377,100,305,84,255,81,255,82" href="#events" class="eventsbtnnew" target="" />
-  <area shape="poly" alt="" title="" coords="406,166,446,232,477,227,429,129,426,131" class="loginbtnnew" href="#login" target="" />
-  <area shape="poly" alt="" title="" coords="460,320,497,338,423,441,414,453,334,473,269,477,243,464,242,430,290,442,337,437,390,420,438,374,459,315,460,314" class="cabtnnew" href="#register_ca" target="" />
-  <area shape="poly" alt="" title="" coords="134,319,147,357,204,421,181,452,153,436,115,372,103,326,133,319" class="sponsbtnnew" target="" />
+  <area shape="poly" alt="" title="" coords=138,222,152,193,181,157,213,132,199,108,155,143,128,178,112,195,102,214,130,224" class="registerbtnnew" href="#register" target="" />
+  <area shape="poly" alt="" title="" coords="260,81,266,120,294,113,327,114,355,128,365,124,373,106,362,98,335,93,304,84,270,76,258,86" href="#events" class="eventsbtnnew" target="" />
+  <area shape="poly" alt="" title="" coords="404,166,407,151,431,131,451,159,475,225,453,233,421,184,401,161,402,162" class="loginbtnnew" href="#login" target="" />
+  <area shape="poly" alt="" title="" coords="345,455,361,482,237,485,154,438,119,387,114,359,140,355,160,373,171,395,194,416,251,434,292,448,325,453" class="cabtnnew" href="#register_ca" target="" />
+  <area shape="poly" alt="" title="" coords="390,426,397,447,427,447,472,399,486,368,484,355,471,344,453,359,428,372,412,398,392,417" class="gallerybtn" href="#register_ca" target="" />
+  <!-- <area shape="poly" alt="" title="" coords="134,319,147,357,204,421,181,452,153,436,115,372,103,326,133,319" class="sponsbtnnew" target="" /> -->
   </map>
 <div class="wheel"></div>
 
@@ -901,7 +908,7 @@
 		</div>
 
 		<div class="parallelogram">
-		<span id="tag" style="position:absolute;bottom:10px;left:10px;font-family:vinque;font-size: 1.7em;">About</span>
+		<span id="tag" style="position:absolute;bottom:10px;left:10px;font-family:vinque;font-size: 1.9em;">About</span>
 			<div class="content">
 				<h1>ABOUT ANWESHA</h1><br>
 				 <p>ANWESHA is a quest. The annual Techno-Cultural Festival of Indian Institute of Technology Patna hosts Technical, Cultural, Management, Arts and Welfare events.</p>
