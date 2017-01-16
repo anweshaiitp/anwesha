@@ -31,7 +31,10 @@ display: block;
 .links{
 	display: none;
 }
-
+body{
+	overflow-x: none;
+	overflow-y: none;
+}
 #teamsbtnnw{
 	display: block !important;
 }
