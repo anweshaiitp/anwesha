@@ -42,21 +42,22 @@ ul.fb-albums, ul.fb-photos {
 }
 
 li.fb-album, li.fb-photo {
-    position: relative;
+   position: relative;
     display: inline-block;
     width: 130px;
     height: 130px;
     overflow: hidden;
     padding: 0;
-    background-color: #f7f7f7;
-    margin-top: -4px;
-    margin-bottom: 3px;
-    margin-right: 3px;
-    background-image: url('loader.gif');
+    /* background-color: #f7f7f7; */
+    /* margin-top: -4px; */
+    /* margin-bottom: 3px; */
+    margin: 10px;
+    /* margin-right: 3px; */
+    background-image: url(loader.gif);
     background-position: center center;
     background-repeat: no-repeat;
     cursor: pointer;
-    border: 1px solid #fff;
+    /* border: 1px solid #fff; */
     border-bottom-style: none;
 }
 
