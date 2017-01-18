@@ -57,6 +57,15 @@
  			 audio.volume = 0.2;
 		});
 		</script>
+		<script>
+		var steerAudio = new Audio('assets/steer.mp3');
+		var seaaudio = new Audio("assets/sea.mp3");
+		seaaudio.addEventListener('ended', function() {
+    		this.currentTime = 0;
+    		this.play();
+		}, false);
+		seaaudio.play();
+		</script>
 		 <script type = "text/javascript" language = "javascript">
    			var ev=0;
    			var cl=0;
@@ -625,6 +634,10 @@
 		<script type="text/javascript">
 	$(document).ready(function(){
 		// alert('yes');
+		$(".registerbtnnew, .eventsbtnnew, .loginbtnnew, .cabtnnew, .sponsbtnnew,.gallerybtn").mouseenter(function(){
+			steerAudio.play()
+
+		});
 		$(".registerbtnnew").mouseenter(function(){
 			$(".wheel").css("transform","translate(-50%,-50%)rotate(-55deg)");
 		});
@@ -652,8 +665,8 @@
 		$(".gallerybtn").mouseenter(function(){
 			$(".wheel").css("transform","translate(-50%,-50%)rotate(120deg)");
 		});
-		$(".cabtnnew").click(function(){
-			
+		$(".gallerybtn").click(function(){
+			window.open('http://2017.anwesha.info/gallery/', '_blank');
 		});
 		$(".sponsbtnnew").mouseenter(function(){
 			$(".wheel").css("transform","translate(-50%,-50%)rotate(-120deg)");
