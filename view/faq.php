@@ -27,6 +27,17 @@ a{
 }a:hover{
 	color : #46e2ec;
 }
+.faq{
+    margin:10px;
+    color:red;
+    font-family: 'Roboto', sans-serif !important;
+    text-align:left !important;
+}
+.faqa{
+margin:20px;
+text-align:left !important;
+font-family: 'Roboto', sans-serif !important;
+}
 </style>
 </head>
 <body>
