@@ -87,6 +87,8 @@ if (preg_match($base . '(ca|register|)_?([0-9]{4}|)$@', $url, $match)) {
 
 } elseif (preg_match($base . 'download_records/(.*)$@', $url, $match)) {
 	require ('controller/download_records.php');
+} elseif (preg_match($base . 'download_events/(.*)$@', $url, $match)) {
+	require ('controller/download_events.php');
 } elseif (preg_match($base . 'download_logs/([0-9]{1,2}\.[0-9]{1,2}\.[0-9]{4})/([0-9A-Za-z]{32})/?$@', $url, $match)) {
 	require ('controller/download_logs.php');
 } elseif (preg_match($base . 'payload$@', $url)) {
