@@ -959,7 +959,7 @@
 					onfocus="if (this.value == 'password') {this.value = '';}" /><center>
                 <img src="images/spinner-large.gif" style="width:30px;height:30px;display:none" class="logingif"></center>
 				<input class="button" type="submit" id="loginsubmit" value="LogIn!"><br>
-				<a class="faqtext" href="http://2017.anwesha.info/faq/" target="_blank">Having Problem Logging-in or registering?</a>
+				<a class="faqtext" href="http://2017.anwesha.info/faq/" target="_blank">Having Problem Logging-in or registering?</a><br>
 				<a class="loganchor" placeholder="reset">Reset Password</a><br>
 				<a class="loganchor" placeholder="resend">Resend Confirmation mail</a>
 			<style>
