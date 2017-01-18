@@ -646,7 +646,7 @@
 	$(document).ready(function(){
 		// alert('yes');
 		$(".registerbtnnew, .eventsbtnnew, .loginbtnnew, .cabtnnew, .sponsbtnnew,.gallerybtn").mouseenter(function(){
-			steerAudio.play()
+			//steerAudio.play();
 
 		});
 		$(".registerbtnnew").mouseenter(function(){
