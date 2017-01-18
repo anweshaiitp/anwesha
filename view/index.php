@@ -858,7 +858,7 @@
   <area shape="poly" alt="" title="" coords="260,81,266,120,294,113,327,114,355,128,365,124,373,106,362,98,335,93,304,84,270,76,258,86" href="#events" class="eventsbtnnew" target="" />
   <area shape="poly" alt="" title="" coords="404,166,407,151,431,131,451,159,475,225,453,233,421,184,401,161,402,162" class="loginbtnnew" href="#login" target="" />
   <area shape="poly" alt="" title="" coords="345,455,361,482,237,485,154,438,119,387,114,359,140,355,160,373,171,395,194,416,251,434,292,448,325,453" class="cabtnnew" href="#register_ca" target="" />
-  <area shape="poly" alt="" title="" coords="390,426,397,447,427,447,472,399,486,368,484,355,471,344,453,359,428,372,412,398,392,417" class="gallerybtn" href="#register_ca" target="" />
+  <area shape="poly" alt="" title="" coords="390,426,397,447,427,447,472,399,486,368,484,355,471,344,453,359,428,372,412,398,392,417" class="gallerybtn" href="#" target="" />
   <!-- <area shape="poly" alt="" title="" coords="134,319,147,357,204,421,181,452,153,436,115,372,103,326,133,319" class="sponsbtnnew" target="" /> -->
   </map>
 <div class="wheel"></div>
