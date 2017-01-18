@@ -892,6 +892,7 @@
 		<div id="register" class="lightbox logreg">
 			<div class="close"><a href="#" onclick="document.body.style.overflow='visible';">X</a></div>
 			<h2>Register</h2>
+				<center><a style="font-size: 1.2em;" class="faqtext" href="http://2017.anwesha.info/faq/" target="_blank">Having Problem Logging-in or registering?</a></center><br>
 			
 				<div id="boxreg" class="box" style="overflow-y:auto; overflow-x:hidden; height:400px;">
 				<!--input class="inp"  name="username" type="text" placeholder="Username" onblur="if(this.value == ''){this.value = 'Username';}" onfocus="if (this.value == 'Username') {this.value = '';}"-->
@@ -913,7 +914,8 @@
 		<div id="register_ca" class="lightbox logreg">
 			<div class="close"><a href="#" onclick="document.body.style.overflow='visible';">X</a></div>
 			<h2>Campus Ambassador<br> Registration</h2>
-
+				<center><a style="font-size: 1.2em;" class="faqtext" href="http://2017.anwesha.info/faq/" target="_blank">Having Problem Logging-in or registering?</a></center><br>
+			
 			<div class="box" id="box"><center>
 				<div id="message" style="color: red !important;"></div></center>
 
@@ -957,6 +959,7 @@
 					onfocus="if (this.value == 'password') {this.value = '';}" /><center>
                 <img src="images/spinner-large.gif" style="width:30px;height:30px;display:none" class="logingif"></center>
 				<input class="button" type="submit" id="loginsubmit" value="LogIn!"><br>
+				<a class="faqtext" href="http://2017.anwesha.info/faq/" target="_blank">Having Problem Logging-in or registering?</a>
 				<a class="loganchor" placeholder="reset">Reset Password</a><br>
 				<a class="loganchor" placeholder="resend">Resend Confirmation mail</a>
 			<style>
