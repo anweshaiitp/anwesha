@@ -16,6 +16,10 @@ font-family:"vinque";
 src:url(../fonts/vinque.ttf) format("truetype");
 }
 
+#date .text{
+	    font-size: 20px !important;
+    line-height: 1;
+}
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -777,7 +781,18 @@ background:#efefef;
 ::-moz-scrollbar-thumb:window-inactive {
 background: #000;
 }
-
+::-ms-scrollbar {
+width: 0.3em;
+}
+::-ms-scrollbar-thumb {
+background: #000;
+}
+::-ms-scrollbar-track {
+background:#efefef;
+}
+::-ms-scrollbar-thumb:window-inactive {
+background: #000;
+}
 
 
 /*component css*/

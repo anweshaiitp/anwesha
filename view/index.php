@@ -21,6 +21,12 @@
 <!DOCTYPE html>
 <html >
 	<head>
+	<!--SEO-->
+	<META NAME="Title" CONTENT="Anwesha 2017 IIT Patna">
+	<META NAME="Keywords" CONTENT="Anwesha, Anwesha, Anwesha, IIT, IIT Patna, IIT P , IITP, Anwesha Fest, fest, cult, cultural">
+	<META NAME="Description" CONTENT="ANWESHA is a quest. The annual Techno-Cultural Festival of Indian Institute of Technology Patna hosts Technical, Cultural, Management, Arts and Welfare ...">
+	<META NAME="Subject" CONTENT="Anwesha IITP">
+
 		<!-- Latest compiled and minified CSS -->
 		<!-- jQuery library -->
 		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
@@ -43,7 +49,9 @@
 		
       <script type = "text/javascript" 
          src = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
-		
+		<style>
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+</style>
   <!-- <script src="//code.jquery.com/ui/1.12.0/jquery-ui.js"></script> -->
 		<!-- <script src='assets/js/jquery.min.js'></script> -->
 		<script src='assets/js/jquery.transit.min.js'></script>
@@ -166,8 +174,8 @@
 				$('#eve_short_desc').text("");
 				$('#eve_long_desc').text("");
 				$('#regbtn').attr("placeholder","");
-				
-				eve_rulefill("");
+				$("#RuleBtn").attr("href","");
+				$("#RuleBtn").hide();
 				eve_iconswitch("");
 				eve_coverswitch("");
 				// $('#eve_cover').css("src","");
@@ -246,7 +254,10 @@
 						$('#eve_venue').html(eve['venue']);
 						$('#eve_short_desc').html(getHTMLText(eve['short_desc']));
 						$('#eve_long_desc').html(getHTMLText(eve['long_desc']));
-						eve_rulefill(eve['rule_url']);
+						// eve_rulefill();
+						if(eve['rule_url']){
+						$("#RuleBtn").attr("href",eve['rules_url']);
+						$("#RuleBtn").show();}
 						// $('#eve_icon').attr("src",eve['icon_url']);
 						eve_iconswitch(eve['icon_url']);
 						// $('#eve_organisers').text(eve['organisers']);
@@ -407,7 +418,7 @@
 					view_sbar(-1);
 					if($(window).width()<960){
 						var sbtop=120 + $("#navbar").height();
-						var matop=70 + sbtop;
+						var matop= $(".sblist").height() + sbtop;
 						$("#sidebar").css("top",sbtop);
          				$("#mainarea").css("top",matop);
          				$("#mainareaalt").css("top",matop);
@@ -832,7 +843,7 @@
 				<span id='eve_short_desc' style="font-size: 1.5em;">
 					Event Short Desc
 				</span><br>
-				<span id='eve_long_desc' style="font-size: 1.5em;text-align:justify;text-justify: inter-word;">
+				<span id='eve_long_desc' style="font-family: 'Roboto', sans-serif;font-size: 1.5em;text-align:justify;text-justify: inter-word;">
 					Event Long Desc
 				</span>
 				<br><br><br><br><br><br>
@@ -963,6 +974,7 @@
 		<div id="register" class="lightbox logreg">
 			<div class="close"><a href="#" onclick="document.body.style.overflow='visible';">X</a></div>
 			<h2>Register</h2>
+				<center><a style="font-size: 1.2em;" class="faqtext" href="http://2017.anwesha.info/faq/" target="_blank">Having Problem Logging-in or registering?</a></center><br>
 			
 				<div id="boxreg" class="box" style="overflow-y:auto; overflow-x:hidden; height:400px;">
 				<!--input class="inp"  name="username" type="text" placeholder="Username" onblur="if(this.value == ''){this.value = 'Username';}" onfocus="if (this.value == 'Username') {this.value = '';}"-->
@@ -984,7 +996,8 @@
 		<div id="register_ca" class="lightbox logreg">
 			<div class="close"><a href="#" onclick="document.body.style.overflow='visible';">X</a></div>
 			<h2>Campus Ambassador<br> Registration</h2>
-
+				<center><a style="font-size: 1.2em;" class="faqtext" href="http://2017.anwesha.info/faq/" target="_blank">Having Problem Logging-in or registering?</a></center><br>
+			
 			<div class="box" id="box"><center>
 				<div id="message" style="color: red !important;"></div></center>
 
@@ -1028,6 +1041,7 @@
 					onfocus="if (this.value == 'password') {this.value = '';}" /><center>
                 <img src="images/spinner-large.gif" style="width:30px;height:30px;display:none" class="logingif"></center>
 				<input class="button" type="submit" id="loginsubmit" value="LogIn!"><br>
+				<a class="faqtext" href="http://2017.anwesha.info/faq/" target="_blank">Having Problem Logging-in or registering?</a><br>
 				<a class="loganchor" placeholder="reset">Reset Password</a><br>
 				<a class="loganchor" placeholder="resend">Resend Confirmation mail</a>
 			<style>

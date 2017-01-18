@@ -31,12 +31,22 @@ if (preg_match($base . '(ca|register|)_?([0-9]{4}|)$@', $url, $match)) {
 	require ('view/index.php');
 } elseif (preg_match($base . 'leaderboard/api/?$@', $url, $match)) {
 	require ('controller/leaderboardback.php');
+} elseif (preg_match($base . 'ca/?$@', $url, $match)) {
+	header('Location: ../');
+} elseif (preg_match($base . 'register/?$@', $url, $match)) {
+	header('Location: ../');
+} elseif (preg_match($base . 'index.php?$@', $url, $match)) {
+	header('Location: ./');
+} elseif (preg_match($base . 'index.php/?$@', $url, $match)) {
+	header('Location: ./');
 } elseif (preg_match($base . 'leaderboard/?$@', $url, $match)) {
 	require ('view/leaderboard.php');
 } elseif (preg_match($base . 'auditions/$@', $url, $match)) {
 	require ('view/multiCityAuditions.html');
 } elseif (preg_match($base . 'auditions/linefollow/$@', $url, $match)) {
 	require ('view/linefollow.html');
+} elseif ( preg_match($base .'faq/?$@', $url, $match ) ) {
+	require ('view/faq.php');
 } elseif (preg_match($base . 'gallery/$@', $url, $match)) {
 	require ('view/gallery.html');
 } elseif (preg_match($base . 'switchca/$@', $url, $match)) {
@@ -83,8 +93,6 @@ if (preg_match($base . '(ca|register|)_?([0-9]{4}|)$@', $url, $match)) {
 
 } elseif (preg_match($base . 'resend/([a-zA-Z0-9_.+-]+\@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+)/?$@', $url, $match)) {
 	require ('controller/resendVerification.php');
-
-
 } elseif (preg_match($base . 'download_records/(.*)$@', $url, $match)) {
 	require ('controller/download_records.php');
 } elseif (preg_match($base . 'download_events/(.*)$@', $url, $match)) {

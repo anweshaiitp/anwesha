@@ -104,6 +104,12 @@ class People{
         $error = null;
         if (strlen($n)<4 || strlen($n) > 40){
             $error = 'Username is too long or too short';
+        } else if (strlen($col)>=300){
+            $error = 'College Name too long';
+        } else if (strlen($em)>=60){
+            $error = 'Email ID too long';
+        } else if (strlen($cit)>=50){
+            $error = 'City name too long';
         }  else if (!preg_match('/^[a-zA-Z0-9.\s]*$/', $n)) {
             $error = "Invalid Name";
         }  else if (!preg_match('/^[a-zA-Z0-9.\s]*$/', $col)) {
