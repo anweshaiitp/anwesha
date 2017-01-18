@@ -2,9 +2,7 @@
     		width:90% !important;
     		outline:none;
     	}
-#header{
-	font-size: 50px;
-}
+
  #pirateboy{
  	top:7px;
     display:none;
@@ -25,4 +23,16 @@
 #mainForm{
             width:90% !important;
             left:5%;
+}
+.faqheader{
+    font-size: 1.5em !important;
+}
+.faq{
+    margin:5px;
+    color:red;
+    font-size: 1.5em;
+}
+.faqa{
+margin:10px;
+font-size: 1em;
 }
