@@ -1466,9 +1466,9 @@ html, body { height: 100%; width: 100%; margin: 0; }
 	background:rgba(88, 214, 103, 0.6);
 }
 #contenthere img {
-	border-radius: 12px;
-	border: 2px #000000 solid;
-	box-shadow: 0 0 30px #3f8abf;
+	border-radius: 6px;
+    border: 2px #944f06 solid;
+    box-shadow: 0 0 30px #082f4a;
 }
 #contenthere{
 	position:absolute;
