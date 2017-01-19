@@ -48,7 +48,9 @@
 	left:30%;
 
 }
-
+#contenthere img{
+	height: 200px !important;
+}
 #eve_short_desc p{
 	width:100%;
 	padding-left: 100px;
