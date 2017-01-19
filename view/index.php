@@ -1,5 +1,6 @@
 <?php
 	session_start();
+	ob_start();
 	$referalcode = null;
 	//Works to be done by frontend after loading
 	$todo  = null;
@@ -1240,3 +1241,15 @@
   </div>
 	</body>
 </html>
+<?php
+	$content = ob_get_contents();
+	ob_end_clean();
+	echo preg_replace_callback("/(assets\/[a-zA-Z0-9\/.]*)(['\"])/",function($matches) {
+	  $filename = $matches[1];
+	  $param = "";
+	  if(file_exists($filename)) {
+	  	$param = "?".filemtime($filename);
+	  }
+	  return $matches[1].$param.$matches[2]; 
+	}, $content);
+?>
