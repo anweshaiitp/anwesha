@@ -23,6 +23,18 @@
 <html >
 	<head>
 	<?php
+
+		if(isset($_SESSION['user_name'])) {
+			echo "<meta id='ID_logged_name' data='".$_SESSION["user_name"]."'>\n";
+		}
+		if(isset($todo)) {
+			echo "<meta id='ID_todo' data='".$todo."'>\n";
+		}
+		if(isset($referalcode) && !empty($referalcode)) {
+			echo "<meta id='ID_refcode' data='".$referalcode."'>\n";
+		}
+
+		
 		//Partial Cache
 		$filename = 'cache/' .sha1('view/index'). '.html';
 		$cache_time = 60;
@@ -53,7 +65,6 @@
 		<meta charset="UTF-8">
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 		<title>Anwesha '17</title>
-<!-- <?php echo $match[2] ;?> -->
 		<link rel="stylesheet" href="assets/css/style.css">
 		<link rel="icon" href="favicon.ico" type="image/x-icon" />
 		<!-- <script src="//code.jquery.com/jquery-1.12.4.js"></script> -->
@@ -465,11 +476,10 @@
 				jQuery('.numbersOnly').keyup(function () { 
     					this.value = this.value.replace(/[^0-9\.]/g,'');
 				});
-				<?php 
-					if(isset($todo)){
-						echo "window.location='#$todo';";
-					}
-				?>
+				var elementTodo = document.getElementById('ID_todo');
+				if (typeof(elementTodo) != 'undefined' && elementTodo != null) {
+					window.location='#'+elementTodo.getAttribute('data');
+				}
 				$.post("leaderboard/api/",
     						{	},
     						function(data, status){
@@ -918,7 +928,7 @@
                 <input class="inp" id="datepicker" name="DOB" type="text" placeholder="DOB (yyyy-mm-dd)"  pattern="\d{4}-\d{2}-\d{2}" class="datepicker" class="inp"  title="Invalid Date Format(yyyy-mm-dd)"  >
                 <input id="gender" placeholder="Sex(M/F)" class="inp"  name="sex" type="text" pattern="[MFmf]" value="" >
 				<input id="city" class="inp" name="city" type="text" placeholder="City" patten='^[a-zA-Z0-9.@]*' title="Invalid City" >
-				<input id="refcode" class="inp" name="ref" type="text" placeholder="Reference Code(Last 4digits of AnweshaID)" pattern='([0-9]{4})|()' title="Invalid Ref Number" value="<?php if(isset($referalcode)) echo $referalcode; ?>" <?php if(!empty($referalcode)) echo "disabled"; ?>>
+				<input id="refcode" class="inp" name="ref" type="text" placeholder="Reference Code(Last 4digits of AnweshaID)" pattern='([0-9]{4})|()' title="Invalid Ref Number" value="" >
                 <div id="error" style="width:auto;display:none;box-radius:5px;box-shadow:#000000 0 0 10px;background:#6fce2d;padding:20px;font-size:20px;margin:10px">An error occured</div>
                 <img src="images/spinner-large.gif" style="width:30px;height:30px;display:none" class="smloader2">
 				<input class="button inp" type="submit" id="submitreg" value="Submit" style="width:98%">
@@ -947,7 +957,7 @@
 				<textarea placeholder="Tell us 3 things you would do as a Campus Ambassador of Anwesha &lsquo;17." class="inp" id="cathreethings" name="threethings" rows="10"></textarea>
 				<textarea placeholder="Have you held any position of responsibility in your college? If yes, please explain." class="inp" id="caresponsibility" name="responsibility" rows="10"></textarea>
 				<textarea placeholder="Have you been a part of one or more previous editions of Anwesha? If yes, please explain." class="inp" id="cainvolvement" name="involvement" rows="10"></textarea>
-				<input placeholder="Refered by someone?(Last 4digits of AnweshaID)" id="careferalcode" name="referalcode" class="inp"  type="text" pattern='([0-9]{4})|()' title="Invalid Ref Number" value="<?php if(isset($referalcode)) echo $referalcode; ?>" <?php if(!empty($referalcode)) echo "disabled"; ?> ><br>
+				<input placeholder="Refered by someone?(Last 4digits of AnweshaID)" id="careferalcode" name="referalcode" class="inp"  type="text" pattern='([0-9]{4})|()' title="Invalid Ref Number"><br>
 				<center><div id="messagew" style="width:auto;display:none;box-radius:5px;box-shadow:#000000 0 0 10px;background:#6fce2d;padding:20px;font-size:20px;margin:10px"></div></center>
 				<img src="images/spinner-large.gif" style="width:30px;height:30px;display:none" class="smloader">
 				<input id="submitca" class="inp" type="submit" value="Submit">
@@ -986,6 +996,16 @@
 				}
 			</style>
 			<script>
+
+				var elementRef = document.getElementById('ID_refcode');
+				if (typeof(elementRef) != 'undefined' && elementRef != null) {
+					$("#refcode").attr('value',elementRef.getAttribute('data'));
+					$("#refcode").attr('disabled',"true");
+					$("#careferalcode").attr('value',elementRef.getAttribute('data'));
+					$("#careferalcode").attr('disabled',"true");
+					
+				}
+				
 				$(document).ready(function(){
 					$("#logoutbtn").click(function(){
 
@@ -1190,13 +1210,14 @@
 		<script type="text/javascript">
 		var isLoggedIn = false;
 		var logged_name = "";
-
-		<?php
-		if(isset($_SESSION['user_name'])) {
-			echo "logged_name='".$_SESSION["user_name"]."';";
-			echo "isLoggedIn= true;";
+		var element = document.getElementById('ID_logged_name');
+		if (typeof(element) != 'undefined' && element != null) {
+			console.log("Logged In");
+			logged_name = element..getAttribute('data');
+			isLoggedIn = true;
 		}
-		?>
+
+		
 		$("#userarea").hide();
 		function uilogin() {
 			console.log("UI Logged IN : "+logged_name);
