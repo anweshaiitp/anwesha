@@ -689,13 +689,20 @@
 			}});
 		}
 		function stackWoodStacks() {
-			var htmldata="<div id='contenthere'><center><h1 style='font-size:5em;font-family:bebas;text-shadow:0 0 10px #3f8abf'>Sponsors</h1><br><br><h2 style='font-size:3em;font-family:bebas;'>Power sponsor</h2><br><br><p><a href='http://www.rubanpatliputrahospital.com/'><img src='images/sponsors/ruban.png' height='100px'></a><br><br><h2 style='font-size:3em;font-family:bebas;'>Associate sponsor</h2><br><br><br><a href='http://breda.in/abour_us.html'><img id='secondlogo' src='images/sponsors/biharlogo.jpg' ></a><br><br><br><a href='http://www.thomsondigital.com/'><img src='images/sponsors/tdigital.jpg' height='100px'></a></p><br><br><br></center></div>"
+			//var htmldata="<div id='contenthere'><center><h1>Sponsors</h1><br><br><h2 style=''>Presented by</h2><br><br><p><a href='http://www.rubanpatliputrahospital.com/'><img src='images/sponsors/ruban.png' height='100px'></a><br><br><h2>Associate sponsor</h2><br><br><br><a href='http://breda.in/abour_us.html'><img id='secondlogo' src='images/sponsors/biharlogo.jpg' ></a><br><br><br><a href='http://www.thomsondigital.com/'><img src='images/sponsors/tdigital.jpg' height='100px'></a></p><br><br><br></center></div>"
+			var htmldata;
+			$.get( "sponsors/", function( data ) {
+  				htmldata = data;
 			$(".backbtn3").fadeIn();
 			// $('#back_wood').empty();
 			$("#back_wood").show();
 			$("body").css("overflow-y","hidden");
 			addStackOnBackWood(0);
-			$("#back_wood").append(htmldata);
+			$("#back_wood").append(data);
+
+			});
+			
+			
 			
 			
 

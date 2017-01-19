@@ -17,6 +17,12 @@ src:url(../fonts/vinque.ttf) format("truetype");
 	    font-size: 20px !important;
     line-height: 1;
 }
+#contenthere h1{
+	font-size:5em;
+	font-family:bebas;
+	text-shadow:0 0 10px #3f8abf;
+}
+#contenthere h2{font-size:3em;font-family:bebas;}
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
