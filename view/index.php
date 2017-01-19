@@ -1,6 +1,5 @@
 <?php
 	session_start();
-	ob_start();
 	$referalcode = null;
 	//Works to be done by frontend after loading
 	$todo  = null;
@@ -19,9 +18,23 @@
 		$todo = 'leaderboard';
 
 ?>
+
 <!DOCTYPE html>
 <html >
 	<head>
+	<?php
+		//Partial Cache
+		$filename = 'cache/' .sha1('view/index'). '.html';
+		$cache_time = 60;
+		if(file_exists($filename) && filemtime($filename) + $cache_time > time()){
+			echo "<meta name='cachetimeleft' content='". (filemtime($filename) + $cache_time - time()) . "'>\n";
+			ob_start();
+			readfile($filename);
+			ob_end_flush();
+			exit();
+		}
+		ob_start();	
+	?>
 	<!--SEO-->
 	<META NAME="Title" CONTENT="Anwesha 2017 IIT Patna">
 	<META NAME="Keywords" CONTENT="Anwesha, Anwesha, Anwesha, IIT, IIT Patna, IIT P , IITP, Anwesha Fest, fest, cult, cultural">
@@ -1244,12 +1257,17 @@
 <?php
 	$content = ob_get_contents();
 	ob_end_clean();
-	echo preg_replace_callback("/(assets\/[a-zA-Z0-9\/.]*)(['\"])/",function($matches) {
+	$modifedContent =  preg_replace_callback("/((assets|images)\/[a-zA-Z0-9\/.]*)(['\"])/",function($matches) {
 	  $filename = $matches[1];
 	  $param = "";
 	  if(file_exists($filename)) {
 	  	$param = "?".filemtime($filename);
 	  }
-	  return $matches[1].$param.$matches[2]; 
+	  return $matches[1].$param.$matches[3]; 
 	}, $content);
+
+	$file = fopen($filename,'w');
+	fwrite($file,$modifedContent);
+	fclose($file);
+	echo $modifedContent;
 ?>
