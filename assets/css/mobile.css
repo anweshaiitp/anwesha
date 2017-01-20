@@ -36,7 +36,7 @@ body{
 	width:70%;
 }
 .medal{
-	width:80%;
+	width:60%;
 }
 .links{
 	display: none;
@@ -115,6 +115,10 @@ body{
     .clubs{
 		width: 100%;
 	}
+	.medal{
+		width:80%;
+	}
+
 }
 @media only screen and (min-width: 571px) {
     .clubs{

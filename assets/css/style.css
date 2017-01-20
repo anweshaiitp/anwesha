@@ -742,6 +742,7 @@ body{
 	display: block;
 	color:#fff;
 	font-family:agency;
+	outline: none;
 }
 .logreg .button{
 	left:1%;
@@ -1248,7 +1249,7 @@ video {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    filter: blur(5px) brightness(.7);
+    filter: blur(2px) brightness(.7);
     z-index: -1;
 }
 .medal{
