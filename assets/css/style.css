@@ -1327,12 +1327,13 @@ html, body { height: 100%; width: 100%; margin: 0; }
 	width:100%;
 }*/
 #sidebar{
+	z-index:10;
 }
 #mainarea{
 	font-family: bebas;
 	box-shadow: 0 0 50px #4c4d4f;
 	position: absolute;
-    
+    z-index:8;
     /* float: right; */
     /*background-color: #FFFFFF;*/
     background-color: rgb(44, 87, 79);
@@ -1361,7 +1362,7 @@ html, body { height: 100%; width: 100%; margin: 0; }
     text-decoration: none;
     text-overflow: ellipsis;
     transition: all 200ms ease-in-out 0s;
-    white-space: nowrap;	
+    white-space: nowrap;
     font-family: "Gotham Rounded A","Gotham Rounded B",Helvetica,Arial,sans-serif;
     font-weight: 700;	
     padding: 12px ;

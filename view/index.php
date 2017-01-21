@@ -163,6 +163,17 @@
          			
          		}
          	}
+         	function eve_imgswitch(imgurl){
+         		
+         		if(imgurl=="" || imgurl==null){
+         			$("#eve_img").attr("src","");
+         			$("#eve_img").hide();
+         		}else{
+         		
+         			$("#eve_img").attr("src",imgurl);
+         			$("#eve_img").show();
+         		}
+         	}
          	function eve_iconswitch(icourl){
          		if(icourl=="" || icourl==null){
          			$("#eve_icon").hide();
@@ -195,6 +206,7 @@
 				$('#regbtn').attr("placeholder","");
 				$("#RuleBtn").attr("href","");
 				$("#RuleBtn").hide();
+				eve_imgswitch("");
 				eve_iconswitch("");
 				eve_coverswitch("");
 				// $('#eve_cover').css("src","");
@@ -274,25 +286,27 @@
 						$('#eve_short_desc').html(getHTMLText(eve['short_desc']));
 						$('#eve_long_desc').html(getHTMLText(eve['long_desc']));
 						// eve_rulefill();
-						if(eve['rule_url']){
-						$("#RuleBtn").attr("href",eve['rules_url']);
-						$("#RuleBtn").show();}
+						if(eve['rule_url']!=null && eve['rule_url']!=""){
+							$("#RuleBtn").attr("href",eve['rules_url']);
+							$("#RuleBtn").show();
+						}
 						// $('#eve_icon').attr("src",eve['icon_url']);
 						eve_iconswitch(eve['icon_url']);
 						// $('#eve_organisers').text(eve['organisers']);
 						var orgarr = eve['organisers'];
 						$('#eve_organisers').empty();
-						if(orgarr!=null){						
+						if(orgarr!=null){
 							var orgnrs = orgarr.split("#");
 							for (i=0;i<orgnrs.length;i++)
 							{
-								$('#eve_organisers').append("<li>"+orgnrs[i]+"</li><br>");
+								$('#eve_organisers').append("<li>"+orgnrs[i]+"</li>");
 							}
 						orgarr=null;
 						orgnrs=null;
 						}
 						// $('#eve_cover').attr("src",eve['cover_url']);
 						eve_coverswitch(eve['cover_url']);
+						eve_imgswitch(eve['img_url']);
 						$("#mainarea").fadeIn();
 						$("#mainareaalt").fadeOut();
 					});
@@ -814,6 +828,7 @@
 				<span id='eve_long_desc' style="font-family: 'Roboto', sans-serif;font-size: 1.5em;text-align:justify;text-justify: inter-word;">
 					Event Long Desc
 				</span>
+				<img src="" id="eve_img" style="display: none" height="200px" />
 				<br><br><br><br><br><br>
 
 
