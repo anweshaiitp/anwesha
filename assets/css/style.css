@@ -1238,7 +1238,7 @@ video {
 }
 .seatwo{
 	display: none;
-	background:url("../../images/sea_mob.jpg") no-repeat center center fixed;
+	background:url("../../images/4.jpg") no-repeat center center fixed;
 	background-size: auto 100%; 
 	position: fixed;
 	top: 0;
@@ -1247,6 +1247,14 @@ video {
 	height:100%;
 	background-size: cover;
 	z-index: -2;
+}
+a.sbl-item.ph-button.ph-btn-green:focus{
+color:white;
+border-color: #f44336;
+}
+a.navbtn.ph-button.ph-btn-blue:focus{
+color:white;	
+border-color: #f44336;
 }
 .ship{
     background-image:url('../../images/Layer 1.png');
