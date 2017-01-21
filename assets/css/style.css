@@ -152,6 +152,7 @@ z-index: 10;
 	width:100%;
 	text-align:center;
 	top:50%;
+	z-index: 40;
 	transform:translateY(-50%);
 }
 #preloader .logo img{
@@ -1176,6 +1177,7 @@ html, body { height: 100%; width: 100%; margin: 0; }
 	height:100% !important;
 	display: none;
 	z-index:5!important; 
+	overflow: scroll;
 }
 #bgofblankbg{
 	position: fixed;
@@ -1260,10 +1262,13 @@ video {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;*/
-    transform: translate(-52%,-50%) scale(1.2);
+    transform: translate(-50%,-50%) scale(1.2);
     top: 50%;
     left: 50%;
     z-index:3;
+}
+map{
+opacity:0;
 }
 .wheel{
     background-image:url('../../images/wheel-2.png');
@@ -1277,7 +1282,7 @@ video {
     transform: translate(-50%,-50%);
     top: 49.8%;
     left: 50%;
-    z-index:3;
+    z-index:5;
     transition: transform 1s cubic-bezier(.62,-0.51,.29,1.53);
 }
 .wheel:hover{

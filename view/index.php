@@ -354,8 +354,10 @@
             	$(".window2").fadeIn("slow",toggleli());
             	$(".backbtn").fadeIn();
             	$("#preloader").hide();
-            	$(".wheel").fadeOut();
-            	$(".medal").fadeOut();
+            	$("#wheel1").fadeOut();
+				$("#wheel2").fadeIn();
+            	$("#map_one").fadeOut();
+				$('map').imageMapResize();
 
             });
             $(".swingimage").click(function(){
@@ -372,8 +374,10 @@
 				$("#clwrap").fadeOut();
             	$(".clubs").fadeOut();
             	$("#preloader").show();
-				$(".wheel").fadeIn();
+				$("#wheel1").fadeIn();
+				$("#wheel2").fadeOut();
             	$(".medal").fadeIn();
+				$('map').imageMapResize();
 
             	if(ev==1){
             		// $(".blankbg ").fadeOut();
@@ -650,45 +654,59 @@
 
 		});
 		$(".registerbtnnew").mouseenter(function(){
-			$(".wheel").css("transform","translate(-50%,-50%)rotate(-55deg)");
+			$("#wheel1").css("transform","translate(-50%,-50%)rotate(-55deg)");
 		});
 		$(".registerbtnnew").click(function(){
 			$("#bregister").click();
 		});
 		$(".eventsbtnnew").mouseenter(function(){
-			$(".wheel").css("transform","translate(-50%,-50%)rotate(10deg)");
+			$("#wheel1").css("transform","translate(-50%,-50%)rotate(10deg)");
 		});
 		$(".eventsbtnnew").click(function(){
 			$("#eventsbtn").click();
 		});
 		$(".loginbtnnew").mouseenter(function(){
-			$(".wheel").css("transform","translate(-50%,-50%)rotate(55deg)");
+			$("#wheel1").css("transform","translate(-50%,-50%)rotate(55deg)");
 		});
 		$(".loginbtnnew").click(function(){
 			$("#loginbtn").click();
 		});
 		$(".cabtnnew").mouseenter(function(){
-			$(".wheel").css("transform","translate(-50%,-50%)rotate(-150deg)");
+			$("#wheel1").css("transform","translate(-50%,-50%)rotate(-150deg)");
 		});
 		$(".cabtnnew").click(function(){
 			$("#bregister_ca").click();
 		});
 		$(".gallerybtn").mouseenter(function(){
-			$(".wheel").css("transform","translate(-50%,-50%)rotate(120deg)");
+			$("#wheel1").css("transform","translate(-50%,-50%)rotate(120deg)");
 		});
 		$(".gallerybtn").click(function(){
 			window.open('http://2017.anwesha.info/gallery/', '_blank');
 		});
 		$(".sponsbtnnew").mouseenter(function(){
-			$(".wheel").css("transform","translate(-50%,-50%)rotate(-120deg)");
+			$("#wheel1").css("transform","translate(-50%,-50%)rotate(-120deg)");
 		});
 		$(".sponsbtnnew").click(function(){
 			stackWoodStacks();
 		});
 		$(".registerbtnnew, .eventsbtnnew, .loginbtnnew, .cabtnnew, .sponsbtnnew,.gallerybtn").mouseleave(function(){
-			$(".wheel").css("transform","translate(-50%,-50%)rotate(0deg)");
-
+			$("#wheel1").css("transform","translate(-50%,-50%)rotate(0deg)");
 		});
+		$(".cultbtnnew").mouseenter(function(){
+			$('#wheel2').css("transform","translate(-50%,-50%)rotate(-90deg)");
+		})
+		$(".techbtnnew").mouseenter(function(){
+			$('#wheel2').css("transform","translate(-50%,-50%)rotate(0deg)");
+		})
+		$(".managebtnnew").mouseenter(function(){
+			$('#wheel2').css("transform","translate(-50%,-50%)rotate(90deg)");
+		})
+		$(".artsbtnnew").mouseenter(function(){
+			$('#wheel2').css("transform","translate(-50%,-50%)rotate(-180deg)");
+		})
+		$(".cultbtnnew, .techbtnnew, .managebtnnew, .artsbtnnew ").mouseleave(function(){
+			$('#wheel2').css("transform","translate(-50%,-50%)rotate(0deg)");
+		})
 	});
 </script>
 		<meta property="og:image" content="images/preview.png" />
@@ -861,34 +879,37 @@
 <div class="seatwo"></div>
   <video class="sea" src="images/ocean-3_comp.mp4" playsinline autoplay muted loop></video>
 
-<div class="ship"></div>
-
-<img class="medal" src="images/medal.png" usemap="#map_1">
-<map id="map_1" name="map_1">
-  <area shape="poly" alt="" title="" coords=138,222,152,193,181,157,213,132,199,108,155,143,128,178,112,195,102,214,130,224" class="registerbtnnew" href="#register" target="" />
+<img id="map_one" class="medal" src="images/medal.png" usemap="#map_1">
+<map id="map_one" name="map_1">
+  <area shape="poly" alt="" title="" coords="138,222,152,193,181,157,213,132,199,108,155,143,128,178,112,195,102,214,130,224" class="registerbtnnew" href="#register" target="" />
   <area shape="poly" alt="" title="" coords="260,81,266,120,294,113,327,114,355,128,365,124,373,106,362,98,335,93,304,84,270,76,258,86" href="#events" class="eventsbtnnew" target="" />
   <area shape="poly" alt="" title="" coords="404,166,407,151,431,131,451,159,475,225,453,233,421,184,401,161,402,162" class="loginbtnnew" href="#login" target="" />
   <area shape="poly" alt="" title="" coords="345,455,361,482,237,485,154,438,119,387,114,359,140,355,160,373,171,395,194,416,251,434,292,448,325,453" class="cabtnnew" href="#register_ca" target="" />
   <area shape="poly" alt="" title="" coords="390,426,397,447,427,447,472,399,486,368,484,355,471,344,453,359,428,372,412,398,392,417" class="gallerybtn" href="#" target="" />
   <!-- <area shape="poly" alt="" title="" coords="134,319,147,357,204,421,181,452,153,436,115,372,103,326,133,319" class="sponsbtnnew" target="" /> -->
   </map>
-<div class="wheel"></div>
+
+<!--<img id="map_two" class="medal" src="images/medal2.png" usemap="#map_2">
+<map id="map_2" name="map_2">
+  <area shape="poly" alt="" title="" coords="93,292,127,287,135,228,151,188,171,164,146,144,114,203,96,253,88,280,89,285" class="registerbtnnew" href="#register" target="" />
+  <area shape="poly" alt="" title="" coords="196,105,214,136,229,124,262,117,315,114,365,129,376,94,313,81,268,78,210,89,196,102" href="#events" class="eventsbtnnew" target="" />
+  <area shape="poly" alt="" title="" coords="401,155,434,130,466,176,477,215,483,262,484,304,476,332,473,344,444,330,452,295,449,256,435,214,418,175,397,150,397,149" class="loginbtnnew" href="#login" target="" />
+  <area shape="poly" alt="" title="" coords="154,434,193,410,214,433,238,445,276,449,310,451,375,435,397,422,419,406,440,441,394,461,348,479,299,493,239,477,198,464,152,431" class="cabtnnew" href="#register_ca" target="" />
+  </map>-->
+<div id="wheel1" class="wheel"></div>
 
 		<div id="clwrap">
 			<div class="clubs">
-				<ul id="leftlist">
-				<a href="#"><li class="mainevent" onclick="cl=1" placeholder="cult">Cultural</li></a>
-				<a href="#"><li class="mainevent" onclick="cl=2" placeholder="arts">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arts &amp; Welfare</li></a>
-				<!-- <a href="#"><li class="mainevent" onclick="cl=3">NJACK2</li></a> -->
-				</ul>
-				<ul id="rightlist">
-				<a href="#"><li class="mainevent" onclick="cl=0" placeholder="tech">Technical&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li></a>
-				<a href="#"><li class="mainevent" onclick="cl=3" placeholder="manage">Management</li></a>
-				<!-- <a href="#"><li class="mainevent" onclick="cl=6">NJACK4</li></a> -->
-
-				</ul>
-
+				<div id="wheel2" class="wheel"></div>
+				<img id="map_two" class="medal" src="images/medal2.png" usemap="#map_2" style="display:block">
+				<map id="map_2" name="map_2">
+				<area shape="poly" alt="" title="" coords="116,351,148,337,137,299,134,271,145,227,157,204,124,196,108,269,106,326,107,326"  class="mainevent cultbtnnew" onclick="cl=1" placeholder="cult" target="" />
+				<area shape="poly" alt="" title="" coords="215,104,234,135,260,123,301,116,329,119,378,135,395,108,362,92,271,85,224,89" class="mainevent techbtnnew" onclick="cl=0" placeholder="tech"  target="" />
+				<area shape="poly" alt="" title="" coords="437,193,457,244,464,305,447,350,434,375,460,394,489,343,492,268,483,217,491,205,477,178" class="mainevent managebtnnew" onclick="cl=3" placeholder="manage" target="" />
+				<area shape="poly" alt="" title="" coords="199,413,207,425,245,444,315,445,363,441,410,426,436,442,385,475,266,486,171,454,164,430"  class="mainevent artsbtnnew" onclick="cl=2" placeholder="arts"   target="" />
+				</map>
 			</div>
+			
 		</div>
 		<div id='back_wood' style='position:absolute;width:100%;text-align:center;z-index: 4'>
 		
@@ -931,18 +952,7 @@
 
 		</div>
 
-		<div class="parallelogram">
-		<span id="tag" style="position:absolute;bottom:10px;left:10px;font-family:vinque;font-size: 1.9em;">About</span>
-			<div class="content">
-				<h1>ABOUT ANWESHA</h1><br>
-				 <p>ANWESHA is a quest. The annual Techno-Cultural Festival of Indian Institute of Technology Patna hosts Technical, Cultural, Management, Arts and Welfare events.</p>
-				 <p>Since its genesis in 2010, Anwesha has gained great importance at an exponential rate and enjoys a cult status among the youths of Bihar. Eminent personalities such as chief minister Nitish Kumar, Padma Vibhushan, G. Madhavan Nair, R.K. Sihna (Dolphin Man of India), have been part of Anwesha's extravaganza in the past.</p>
-				 <!--<input type='submit' value='Gallery' onclick='popup_gallery();'/>-->
-				<br>
-				<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/r-qROBBWy5Q" frameborder="0" allowfullscreen></iframe> -->
-			</div>
-		
-		</div>
+
         
 		<button id="expand-navigation" style='visibility:hidden'>-</button>
 		<section class="wrapper opened">
@@ -1055,6 +1065,9 @@
 			</style>
 			<script>
 				$(document).ready(function(){
+
+
+
 					$("#logoutbtn").click(function(){
 
         					$.post("logout/",
