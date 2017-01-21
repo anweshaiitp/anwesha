@@ -616,6 +616,7 @@ class People{
         // }
     }
 
+
     /**
      * Sends email 
      * @param string $emailId Email Id
@@ -657,6 +658,49 @@ class People{
     }
 
     /**
+     * Sends email for password
+     * @param string $emailId       password is send to this email id
+     * @param string $name          Name of user
+     * @param string $randPass      random generated string
+     * @param int    $id               Anwesha Id for registered user
+     */
+    public function passEmail($emailId,$name,$randPass,$id) {
+        // mail($to,$subject,$message);
+        require('defines.php');
+        
+        $message = "Hi $name,<br>Thank you for registering for $ANWESHA_YEAR. Your Registered Id is : <b>ANW$id</b>.<br>Your temporary auto generated password is : <b>$randPass</b><br>You can change the password by clicking Reset Password.<br>In case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to <i>$ANWESHA_REG_EMAIL</i>. You can also visit our website <i>$ANWESHA_URL</i> for more information.<br>Thank You.<br>Registration Desk<br>$ANWESHA_YEAR";
+        $messagePlain = "Hi $name,\nThank you for registering for $ANWESHA_YEAR. Your Registered Id is : ANW$id.\nYour temporary auto generated password is : $randPass\nYou can change the password by clicking Reset Password.\nIn case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to $ANWESHA_REG_EMAIL. You can also visit our website $ANWESHA_URL for more information.\nThank You.\nRegistration Desk\n$ANWESHA_YEAR";
+        $subject = "Account Confirmed, $ANWESHA_YEAR";
+
+        require('resources/PHPMailer/PHPMailerAutoload.php');
+        require('emailCredential.php');
+
+        $mail = new PHPMailer;
+
+        $mail->SMTPDebug = 0;
+
+        $mail->isSMTP();                                      // Set mailer to use SMTP
+        $mail->Host = MAIL_HOST;  // Specify main and backup SMTP servers
+        $mail->SMTPAuth = MAIL_SMTP_AUTH;                               // Enable SMTP authentication
+        $mail->Username = MAIL_USERNAME;                 // SMTP username
+        $mail->Password = MAIL_PASSWORD;                           // SMTP password
+        $mail->SMTPSecure = MAIL_SMTP_SECURE;                            // Enable TLS encryption, `ssl` also accepted
+        $mail->Port = MAIL_PORT;                                    // TCP port to connect to
+
+        $mail->setFrom($ANWESHA_REG_EMAIL, 'Anwesha Registration & Planning Team');
+        $mail->addAddress($emailId, $name);     // Add a recipient
+        $mail->addReplyTo($ANWESHA_REG_EMAIL, 'Registration & Planning Team');
+        $mail->isHTML(false);                                  // Set email format to HTML
+
+        $mail->Subject = $subject;
+        $mail->Body    = $message;
+        $mail->AltBody = $messagePlain;
+        
+        $mail->send();
+        
+    }
+
+    /**
      * Verfies the user registraion
      * @param int $id      Anwesha Id for registered user
      * @param string $token     Confirmation Token
@@ -673,7 +717,7 @@ class People{
         }
         $row = mysqli_fetch_assoc($result);
         if(empty($token) || strcmp($token,$row['csrfToken'])!=0){
-            $error = "Invalid Link or Link Expired. #".$id;
+            $error = "Invalid Link, Link Expired or May be already Confirmed! #".$id;
             $arr = array();
             $arr[] = -1;
             $arr[] = $error;
@@ -731,7 +775,7 @@ class People{
             }
         }
 
-        Auth::passEmail($email,$name,$randPass,$id);                                                                 //vinay edit
+        People::passEmail($email,$name,$randPass,$id);
         $arr[]=$randPass;                                                                  //vinay edit
         return $arr;
 
@@ -812,7 +856,7 @@ class People{
         $mail->setFrom($ANWESHA_YEAR, 'Anwesha Registration & Planning Team');
         $mail->addAddress($emailId, $name);     // Add a recipient
         // $mail->addAddress('ellen@example.com');               // Name is optional
-        $mail->addReplyTo($ANWESHA_YEAR, 'Registration & Planning Team');
+        $mail->addReplyTo($ANWESHA_REG_EMAIL, 'Registration & Planning Team');
         // $mail->addCC('guptaaditya.13@gmail.com');
         // $mail->addBCC($ANWESHA_YEAR);
 
@@ -1171,60 +1215,7 @@ class Auth
         return $pass; //turn the array into a string
     }
 
-    /**
-     * Sends email for password
-     * @param string $emailId       password is send to this email id
-     * @param string $name          Name of user
-     * @param string $randPass      random generated string
-     * @param int    $id               Anwesha Id for registered user
-     */
-    public function passEmail($emailId,$name,$randPass,$id) {
-        // mail($to,$subject,$message);
-        require('defines.php');
-        $message = "Hi $name,<br>Thank you for registering for $ANWESHA_YEAR. Your Registered Id is : <b>ANW$id</b>.<br>Your temporary auto generated password is : <b>$randPass</b><br>You can change the password after login.<br>In case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to <i>$ANWESHA_REG_EMAIL</i>. You can also visit our website <i>$ANWESHA_URL</i> for more information.<br>Thank You.<br>Registration Desk<br>$ANWESHA_YEAR";
-        $subject = "AnweshaID Password, $ANWESHA_YEAR";
-
-        require('resources/PHPMailer/PHPMailerAutoload.php');
-	require('emailCredential.php');
-
-        $mail = new PHPMailer;
-
-        // 0 = off (for production use)
-        // 1 = client messages
-        // 2 = client and server messages
-        // 3 = verbose debug output
-        $mail->SMTPDebug = 0;
-
-        $mail->isSMTP();                                      // Set mailer to use SMTP
-        $mail->Host = MAIL_HOST;  // Specify main and backup SMTP servers
-        $mail->SMTPAuth = MAIL_SMTP_AUTH;                               // Enable SMTP authentication
-        $mail->Username = MAIL_USERNAME;                 // SMTP username
-        $mail->Password = MAIL_PASSWORD;                           // SMTP password
-        $mail->SMTPSecure = MAIL_SMTP_SECURE;                            // Enable TLS encryption, `ssl` also accepted
-        $mail->Port = MAIL_PORT;                                    // TCP port to connect to
-        $mail->setFrom($ANWESHA_YEAR, 'Anwesha Registration & Planning Team');
-        $mail->addAddress($emailId, $name);     // Add a recipient
-        // $mail->addAddress('ellen@example.com');               // Name is optional
-        $mail->addReplyTo($ANWESHA_YEAR, 'Registration & Planning Team');
-        // $mail->addCC('guptaaditya.13@gmail.com');
-        // $mail->addBCC($ANWESHA_YEAR);
-
-        // $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
-        // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
-        $mail->isHTML(true);                                  // Set email format to HTML
-
-        $mail->Subject = $subject;
-        $mail->Body    = $message;
-        $mail->AltBody = "Hi $name,\nThank you for registering for $ANWESHA_YEAR. Your Registered Id is : ANW$id.\nYour temporary auto generated password is : $randPass\nYou can change the password after loging in.\nIn case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to $ANWESHA_REG_EMAIL. You can also visit our website $ANWESHA_URL for more information.\nThank You.\nRegistration & Planning Team\n$ANWESHA_YEAR";
-        $mail->send();
-        // if(!$mail->send()) {
-        //     echo 'Message could not be sent.';
-        //     echo 'Mailer Error: ' . $mail->ErrorInfo;
-        // } else {
-        //     echo 'Message has been sent';
-        // }
-    }
-
+    
     /**
      * Searches the database for user's private key using its public key(username)
      * @param  int $userID anwesha id of the user
