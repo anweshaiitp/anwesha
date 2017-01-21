@@ -1358,13 +1358,15 @@ opacity:0;
    	 padding: 20px;
    	 /* width: 75%; */
    	 font-size: 2em;
-   	 border-radius: 40px;
+   	 border-radius: 0px;
    	 cursor: pointer;
   	 transition: background .5s;
-  	 box-shadow: 0 -10px 0 rgba(0, 0, 0, 0.1) inset;
+  	 /*box-shadow: 0 -10px 0 rgba(0, 0, 0, 0.1) inset;*/
 }
 .backbtn:hover,.backbtn2:hover,.backbtn3:hover,#backbtn4:hover{
-	background:rgba(88, 214, 103, 0.6);
+	background:white;
+	opacity:.9;
+	color:teal;
 }
 .mainevent{
 	background-image: url('../../images/lightwood.jpg');
