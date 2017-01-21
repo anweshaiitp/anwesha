@@ -4,15 +4,16 @@
 	width:300px;
 	padding:20px;
 	padding-bottom:10px !important;
-	
+	position: absolute;
+	right:20px;
 	margin-left: 20px;
-    background-color: rgba(0,0,0,0.6);
+    background-color: rgba(0,0,0,0.9);
     color: #FFFFFF;
     font-size: 20px;
     text-align: center;
     font-family: bebas;
     border-radius: 10px;
-    box-shadow: 0 0 30px #5e5e5e;
+    box-shadow: 0 0 30px black;
     -webkit-animation: loginEnter 1000ms cubic-bezier(0.815, 0.185, 0.215, 1); /* older webkit */
 -webkit-animation: loginEnter 1000ms cubic-bezier(0.815, 0.185, 0.215, 1.400); 
    -moz-animation: loginEnter 1000ms cubic-bezier(0.815, 0.185, 0.215, 1.400); 

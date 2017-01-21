@@ -37,7 +37,7 @@
 		<link rel="stylesheet" href="assets/css/desktop.css" media="only screen and (min-width: 960px)">
 		<meta name="theme-color" content="#e0a772">
 		<meta charset="UTF-8">
-		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Raleway:300,400" rel="stylesheet">
 		<title>Anwesha '17</title>
 <!-- <?php echo $match[2] ;?> -->
 		<link rel="stylesheet" href="assets/css/style.css">

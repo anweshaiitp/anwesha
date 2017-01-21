@@ -66,6 +66,8 @@ table {
 }
 p {
 margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;
+font-family:Raleway;
+font-weight:300;
 }
 a{
 text-decoration:none !important;
@@ -1461,7 +1463,7 @@ opacity:0;
     transition: all 200ms ease-in-out 0s;
     white-space: nowrap;	
     font-family: Raleway;
-    font-weight: 100;	
+    font-weight: 300;	
     padding: 12px ;
     font-size: 18px;
     opacity: 1;
@@ -1480,7 +1482,7 @@ border-color: #f44336;
 .ph-btn-green {
 	margin-top:5px !important;
 	margin-bottom:5px !important;
-	background: crimson;
+	background: black;
 }
 #eve_cover{
 	/*box-shadow: 0 0 30px #FFFFFF;*/
@@ -1525,12 +1527,12 @@ border-color: #f44336;
 .loginlightbox input{
 	text-align: center;
 	width:90%;
-	font-size: 20px;
-	border-radius: 5px;
-	background-color: #544534;
+	font-size: 18px;
+	font-weight:300;
+	background-color: transparent;
 	color:#FFFFFF;
 	padding: 3px;
-	font-family: 'Open Sans', sans-serif;
+	font-family: Raleway;
 	margin-bottom:10px;
 	
 }
@@ -1607,4 +1609,7 @@ border-color: #f44336;
 #teamsbtnnw:hover{
 	opacity: 0.7;
 	color:rgba(0, 0, 0, 1);
+}
+#loginerror,#loginajaxerror{
+
 }
