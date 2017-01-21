@@ -1469,8 +1469,8 @@ opacity:0;
 	width:150px;
 }
 .ph-button:hover{
-color:#fff; 
-
+color:#fff;
+border-color: #f44336; 
 }
 			
 .ph-btn-blue {
