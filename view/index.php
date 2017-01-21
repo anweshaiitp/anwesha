@@ -121,6 +121,8 @@
             	$(".window2").fadeIn("slow",toggleli());
             	$(".backbtn").fadeIn();
             	// $("#preloader").hide();
+         	 }else if(hashloc=="#sponsors"){
+         	 	$(".sponsimg").click();
          	 } else if (hashloc.substring(1,6)=="event"){
          	 	 urieventid = hashloc.replace("#event","");
          	 	 // alert(urieventid);
@@ -141,6 +143,8 @@
     			var img=new Image();
     			img.src=imageurl;
 			}
+
+
          	var imgurl;
          	function eve_coverswitch(imgurl){
          		
@@ -398,7 +402,7 @@
             	$("#preloader").hide();
             });
 			$(".backbtn").click(function(){
-
+				location.hash='';
 				$("#intro").show();
 				$(".backbtn").fadeOut();
 				$("#clwrap").fadeOut();
@@ -489,6 +493,22 @@
  
 		<script type="text/javascript">
 			$(document).ready(function(){
+					//preload spons
+					//@todo: fix this
+			$.get( "sponsors/", function( data ) {
+  				var beforefilter = data.split("images/sponsors/");
+				
+					var filteroneL = beforefilter.length;
+					for (var j = 0; j < filteroneL; j++) {
+    					var afterfilter = beforefilter[j].split("'");
+    					console.log(afterfilter[0]);
+    					//preloadImage("images/sponsors/"+afterfilter[0]);
+					}
+
+			});		
+					
+
+
 				jQuery('.numbersOnly').keyup(function () { 
     					this.value = this.value.replace(/[^0-9\.]/g,'');
 				});
@@ -705,7 +725,7 @@
 			}});
 		}
 		function stackWoodStacks() {
-			//var htmldata="<div id='contenthere'><center><h1>Sponsors</h1><br><br><h2 style=''>Presented by</h2><br><br><p><a href='http://www.rubanpatliputrahospital.com/'><img src='images/sponsors/ruban.png' height='100px'></a><br><br><h2>Associate sponsor</h2><br><br><br><a href='http://breda.in/abour_us.html'><img id='secondlogo' src='images/sponsors/biharlogo.jpg' ></a><br><br><br><a href='http://www.thomsondigital.com/'><img src='images/sponsors/tdigital.jpg' height='100px'></a></p><br><br><br></center></div>"
+			
 			var htmldata;
 			$.get( "sponsors/", function( data ) {
   				htmldata = data;
@@ -839,7 +859,7 @@
         <div class="window2"></div>
 		<div class="window"></div>
 		<button class="backbtn">< Back to home</button>
-		<button class="backbtn3" onclick="clearWoodStacks();$(this).fadeOut();">< Back to home</button>
+		<button class="backbtn3" onclick="clearWoodStacks();$(this).fadeOut();location.hash='';">< Back to home</button>
 		<button class="backbtn2">< Events home</button>
 		<div class="sea"></div>
 		<div id="clwrap">
@@ -893,7 +913,7 @@
 			</div>
 			<div id="swingwrap"><img class="swingimage" src="images/combined.png" /></div>
 			
-			<img class="sponsimg" alt="sponsors" src="images/spons.png" onclick="stackWoodStacks();" />
+			<img class="sponsimg" alt="sponsors" src="images/spons.png" onclick="stackWoodStacks();location.hash='sponsors';" />
 
 		</div>
 
