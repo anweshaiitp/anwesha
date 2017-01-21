@@ -42,7 +42,7 @@ jQuery(window).load(function() {
 	jQuery("#preloader .circle").delay(1000).fadeOut(100);
 	jQuery("#preloader .tagline").delay(1000).fadeOut(100);
 	jQuery("#preloader .bg").delay(1000).fadeOut(100).transition({ x: '-100%' });
-	jQuery(".logo img").delay(1000).animate({height:128,width:150},200);
+	jQuery(".logo img").delay(1000).animate({height:150,width:150},200);
 	$("#preloader").delay(5000).css("z-index","300");
 	$("#medal,#wheel").fadeIn(2000);
 	if($(window).width()>960){

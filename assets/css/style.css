@@ -1232,15 +1232,20 @@ video {
 	height: 100%;*/
 	z-index: -2;
 }
+.logo{
+	width: 150px;
+	height:150px;
+}
 .seatwo{
 	display: none;
-	background:url("../../images/sea.gif") no-repeat center center fixed;
+	background:url("../../images/sea_mob.jpg") no-repeat center center fixed;
 	background-size: auto 100%; 
 	position: fixed;
 	top: 0;
 	left: 0;
 	width:100%;
 	height:100%;
+	background-size: cover;
 	z-index: -2;
 }
 .ship{
