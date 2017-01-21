@@ -1567,7 +1567,7 @@ border-color: teal;
 }
 #regbtn{
 	margin: 20px;
-     background: rgba(255, 255, 255, 0.6);
+     /*background: rgba(255, 255, 255, 0.6);*/
    	 font-family: bebas;
    	 padding: 10px;
    	 font-size: 2em;
@@ -1580,7 +1580,7 @@ border-color: teal;
 	   border-color:white;
 }
 #regbtn:hover{
-	background:rgba(88, 214, 103, 0.6);
+	/*background:rgba(88, 214, 103, 0.6);*/
 }
 #contenthere img {
 	border-radius: 12px;
