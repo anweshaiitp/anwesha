@@ -1220,7 +1220,7 @@
 		var element = document.getElementById('ID_logged_name');
 		if (typeof(element) != 'undefined' && element != null) {
 			console.log("Logged In");
-			logged_name = element..getAttribute('data');
+			logged_name = element.getAttribute('data');
 			isLoggedIn = true;
 		}
 
