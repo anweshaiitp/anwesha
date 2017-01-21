@@ -740,7 +740,10 @@
 			}
 			var $new = $('<div>&nbsp;</div>');
 			$new.hide();
-			$new.css('background-image', "url('images/wood_plank.jpg')");
+			$new.css('background-image', "url('images/5.jpg')");
+			$new.css('background-size', "cover");
+			$new.css('background-position', "center");
+			// $new.css('background-repeat', "no-repeat");
 			$new.css('height', "64px");
 			$new.css('background-position', "0px -"+(countwoodstack*64)+"px");
 
@@ -914,14 +917,14 @@
 			</div>
 			
 		</div>
-		<div id='back_wood' style='position:absolute;width:100%;text-align:center;z-index: 4'>
+		<div id='back_wood' style='position:absolute;width:100%;text-align:center;z-index: 5'>
 		
 			</div>
 		<div id="intro">
 			
 				<a href="#teams" id="teamsbtnnw" style="">Teams</a>
 	    <a href="#leaderboard" id="teamsbtnnw" style="">CA Leaderboard</a>
-		
+			    <a id="teamsbtnnw" style="" onclick="stackWoodStacks();location.hash='sponsors';">Sponsors</a>
 			<ul class="links">
 				<a href="#login" id="loginbtn" style=""><li>Login</li></a>
 				<a  id="logoutbtn" style="display: none"><li>LogOut</li></a>

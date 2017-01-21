@@ -1250,11 +1250,11 @@ video {
 }
 a.sbl-item.ph-button.ph-btn-green:focus{
 color:white;
-border-color: #f44336;
+border-color: teal;
 }
 a.navbtn.ph-button.ph-btn-blue:focus{
 color:white;	
-border-color: #f44336;
+border-color: teal;
 }
 .ship{
     background-image:url('../../images/Layer 1.png');
@@ -1571,10 +1571,13 @@ border-color: #f44336;
    	 font-family: bebas;
    	 padding: 10px;
    	 font-size: 2em;
-   	 border-radius: 10px;
+   	 /*border-radius: 10px;*/
    	 cursor: pointer;
   	 transition: background .5s;
-  	 box-shadow: 0 -10px 0 rgba(0, 0, 0, 0.1) inset;
+  	 /*box-shadow: 0 -10px 0 rgba(0, 0, 0, 0.1) inset;*/
+	   padding-top:13px;
+	   border:solid 3px;
+	   border-color:white;
 }
 #regbtn:hover{
 	background:rgba(88, 214, 103, 0.6);
