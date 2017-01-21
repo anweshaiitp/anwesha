@@ -822,7 +822,7 @@
 			</div>
 			<div id="mainareaalt" style='color:white'>
 			<center>	
-				<img src="images/logo.png" alt="" height="200px"><br><br>
+				<img src="images/logo.png" alt="" height="200px" style=" transform: translateX(-20px);"><br><br>
 				<h1 style="font-family: bebas;font-size: 5em;"><i>Events</i></h1>
 			</center>
 			</div>
