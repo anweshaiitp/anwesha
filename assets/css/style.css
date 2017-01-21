@@ -1466,11 +1466,11 @@ opacity:0;
     font-size: 18px;
     opacity: 1;
   	transition: opacity .3s,box-shadow .3s;
-	width:125px;
+	width:150px;
 }
 .ph-button:hover{
-	opacity: 0.7;
-    box-shadow: 0 0px 50px rgba(255, 255, 255, 0.7);
+color:#fff; 
+
 }
 			
 .ph-btn-blue {
@@ -1480,8 +1480,6 @@ opacity:0;
 .ph-btn-green {
 	margin-top:5px !important;
 	margin-bottom:5px !important;
-	border-color: #3AC162;
-	background-color: #5FCF80;
 }
 #eve_cover{
 	/*box-shadow: 0 0 30px #FFFFFF;*/
