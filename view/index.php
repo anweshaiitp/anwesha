@@ -272,7 +272,7 @@
 						$('#eve_time').text(eve['time']);
 						$('#eve_venue').html(eve['venue']);
 						$('#eve_short_desc').html(getHTMLText(eve['short_desc']));
-						$('#eve_long_desc').html(getHTMLText(eve['long_desc']));
+						$('#eve_long_desc').test(getHTMLText(eve['long_desc']));
 						// eve_rulefill();
 						if(eve['rule_url']){
 						$("#RuleBtn").attr("href",eve['rules_url']);
