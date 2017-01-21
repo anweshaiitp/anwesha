@@ -396,6 +396,8 @@
 				$("#mainarea").hide();/*to fix initial dummy text display on selecting category*/
 				$("#mainareaalt").fadeIn();
 				// $(".blankbg ").fadeIn("fast");
+				$("#wheel2").fadeOut();
+				$("#map_two").fadeOut();
 				$(".blankbg ").slideFadeToggle();
 				$(".backbtn2").fadeIn();
 				if(cl==TEC_CODE || cl==CULT_CODE || cl==AnW_CODE ) {
@@ -451,6 +453,8 @@
 				// $(".blankbg ").fadeOut();
 				 $(".blankbg ").slideFadeToggle();
 				toggleli();
+				$("#wheel2").fadeIn();
+				$("#map_two").fadeIn();
 
 			});
 			
