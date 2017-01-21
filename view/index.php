@@ -383,6 +383,7 @@
             	$("#preloader").hide();
             });
 			$(".backbtn").click(function(){
+
 				$("#intro").show();
 				$(".backbtn").fadeOut();
 				$("#clwrap").fadeOut();
@@ -395,7 +396,7 @@
             		$(".backbtn2").fadeOut();
             		$(".window2").fadeOut("fast");
 					// toggleli();
-
+					ev=0;
             	}else{
             		$(".window2").fadeOut("slow",toggleli());
             	}
