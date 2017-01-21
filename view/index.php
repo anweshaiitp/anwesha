@@ -818,7 +818,7 @@
 						<li>Organiser 3 (9965235245)</li>
 					</ul>
 				</div><br>
-				<a href="" id="RuleBtn" target="_blank">Rulebook</a><br>
+				<a href="" id="RuleBtn" target="_blank">Rulebook</a><br><br><br>
 				<a id="regbtn" placeholder="" >Register for Event</a>
 
 				<br><br>
