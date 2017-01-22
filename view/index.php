@@ -523,6 +523,7 @@
       </script>
  	<script>
 		$(document).ready(function() {
+			$("#contenthere").height($(window).height()-100);
     		$('map').imageMapResize();
 		});
 	</script>
