@@ -176,9 +176,11 @@
          		if(imgurl=="" || imgurl==null){
          			$("#eve_img").attr("src","");
          			$("#eve_img").hide();
+         			$("#img_anchor").attr("href","");
          		}else{
          		
          			$("#eve_img").attr("src",imgurl);
+         			$("#img_anchor").attr("href",imgurl);
          			$("#eve_img").show();
          		}
          	}
@@ -945,7 +947,7 @@
 				<span id='eve_long_desc' style="font-family: 'Roboto', sans-serif;font-size: 1.5em;text-align:justify;text-justify: inter-word;">
 					Event Long Desc
 				</span>
-				<img src="" id="eve_img" style="display: none" height="200px" />
+				<a  href="" id="img_anchor" target="_blank"><img src="" id="eve_img" style="display: none" height="200px" /></a>
 				<br><br><br><br><br><br>
 
 
