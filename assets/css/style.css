@@ -1146,7 +1146,9 @@ input[type=text]::-ms-clear {
           font-family:"KaushanScript-Regular";
 	}
 }
-
+body[style] {
+   overflow:hidden !Important;
+}
 html, body { height: 100%; width: 100%; margin: 0; }
 	.window {
 		/*pointer-events: none;*/
