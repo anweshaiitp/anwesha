@@ -1147,7 +1147,7 @@
 					
 				}
 					logoutFunction=	function (){
-							$("#map_one").attr("src","images/medal")
+							$("#map_one").attr("src","images/medal.png")
 							$("#map_one area.loginbtnnew").attr("href","#login");
 							$("#map_one area.loginbtnnew").removeAttr("onclick");
         					$.post("logout/",
