@@ -1146,13 +1146,10 @@
 					$("#careferalcode").attr('disabled',"true");
 					
 				}
-				
-				$(document).ready(function(){
-
-
-
-					$("#logoutbtn").click(function(){
-
+					logoutFunction=	function (){
+							$("#map_one").attr("src","images/medal")
+							$("#map_one area.loginbtnnew").attr("href","#login");
+							$("#map_one area.loginbtnnew").removeAttr("onclick");
         					$.post("logout/",
 								{},
 								function(data, status){
@@ -1184,7 +1181,10 @@
                                 			
 	                                }
 								},"json");
-					});
+					};
+				$(document).ready(function(){
+
+		
 					var onresetpassORresendEmail = function(){$("#loginerror").empty();
 					$(".logingif").fadeIn();
 					setTimeout(function(){
@@ -1371,6 +1371,9 @@
 			$("#loginbtn").hide("fast");
 			$("#logoutbtn").show("fast");
 			$("#logoutbtn").css("display","block");
+			$("#map_one").attr("src","images/medal1")
+			$("#map_one area.loginbtnnew").attr("onclick","logoutFunction()")
+			$("#map_one area.loginbtnnew").removeAttr("href");
 
 		}
 		function uilogout() {
