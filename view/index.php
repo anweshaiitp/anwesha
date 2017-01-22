@@ -989,7 +989,7 @@
 			</div>
 		<div id="intro">
 			
-				<a href="#teams" id="teamsbtnnw" style="">Teams</a>
+				<a href="#teams" id="teamsbtnnw" style="">Team</a>
 	    <a href="#leaderboard" id="teamsbtnnw" style="">CA Leaderboard</a>
 			    <a id="teamsbtnnw" style="" onclick="stackWoodStacks();location.hash='sponsors';">Sponsors</a>
 			<ul class="links">

@@ -1630,15 +1630,20 @@ border-color: teal;
 	background-image: url('../../images/planck.jpg');
 	    color: rgba(255, 255, 255, 0.8);
 	    box-shadow: 0 0 20px #000000 inset;
-	    font-family: bebas;
+	    font-family: Raleway;
+		font-weight: 300;
+		font-size: 18px;
+
 	    width:200px;
 }
 input.inp.loginname {
     transform: translateX(-10px);
 }
 #teamsbtnnw:hover{
-	opacity: 0.7;
-	color:rgba(0, 0, 0, 1);
+	/*opacity: 0.7;*/
+	/*box-shadow:0px 0px 30px -15px black;
+	color:rgba(0, 0, 0, 1);*/
+	box-shadow: 0 0 30px #000;
 }
 #loginerror,#loginajaxerror{
 
