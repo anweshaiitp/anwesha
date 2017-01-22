@@ -1444,7 +1444,7 @@
 <?php
 	$content = ob_get_contents();
 	ob_end_clean();
-	$modifedContent =  preg_replace_callback("/((assets|images)\/[a-zA-Z0-9\/.]*)(['\"])/",function($matches) {
+	$modifedContent =  preg_replace_callback("/((assets|images)\/[a-zA-Z0-9\/]+\.[a-zA-Z0-9\/]+)(['\"])/",function($matches) {
 	  $filename = $matches[1];
 	  $param = "";
 	  if(file_exists($filename)) {
