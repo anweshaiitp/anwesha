@@ -679,7 +679,7 @@
 
 						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
 							<div class="flipper">
-							<div class="pplfront" style="background-image: url('images/team/default.jpg')">
+							<div class="pplfront" style="background-image: url('images/team/srimann.jpg')">
 									<!-- front content -->
 								</div>
 								<div class="pplback">
@@ -687,7 +687,7 @@
 										<span class="phoneno">+91 9631112601</span> <br>
 										<span class="emailid"><a href="mailto:nannapaneni.ce14@iitp.ac.in">nannapaneni.ce14@iitp.ac.in</a></span><br><br>
 										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
-										<!-- <a href="#"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a> -->
+										<a href="https://www.linkedin.com/in/srimaan-nannapaneni-252792114"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
 										<a href="https://www.facebook.com/srimaan.nannapaneni" target="_blank"><img src="images/team/fb.ico" style="left:0;bottom: 0;height:50px"></a>
 										</div>										
 									</div>
