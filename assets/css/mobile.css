@@ -26,6 +26,31 @@
 #glass .text{
 	font-size: 2em !important;
 }
+body{
+	background-color:black; 
+}
+.wheel,.medal{
+/*display: none;*/
+}
+.wheel{
+	width:70%;
+}
+.medal{
+	width:65%;
+}
+.links{
+	display: none;
+}
+.sea{
+	display: none;
+}
+.seatwo{
+	display: block !important;
+}
+.ship{
+   
+
+}
 .loginexit{
 	color:white;
 	font-size: 15px;
@@ -90,6 +115,10 @@
     .clubs{
 		width: 100%;
 	}
+	.medal{
+		width:80%;
+	}
+
 }
 @media only screen and (min-width: 571px) {
     .clubs{
@@ -97,7 +126,7 @@
 	}
 }
 #mainarea{
-	top:350px;
+	top:390px;
 	left:0;
 }
 #mainareaalt{

@@ -42,14 +42,21 @@ jQuery(window).load(function() {
 	jQuery("#preloader .circle").delay(1000).fadeOut(100);
 	jQuery("#preloader .tagline").delay(1000).fadeOut(100);
 	jQuery("#preloader .bg").delay(1000).fadeOut(100).transition({ x: '-100%' });
-	jQuery(".logo img").delay(1000).animate({height:128,width:150},200);
-	$("#preloader").delay(2000).css("z-index","1");
+	jQuery(".logo img").delay(1000).animate({height:150,width:150},200);
+	$("#preloader").delay(5000).css("z-index","300");
+	$("#medal,#wheel").fadeIn(2000);
 	if($(window).width()>960){
-		$('.logo').delay(1000).transition({ x: '-40%', y: '100%' });
+		$('.logo').delay(1000).transition({ x: '-40%', y: '120%' });
+		setTimeout(function(){
+			$('.logo').css({"width":"50%"});
+		},1000)
+		
 	} else {
-		$('.logo').delay(1000).transition({ x: '0%', y: '100%' });
-		$(".parallelogram").delay(1000).css("z-index","2");
-		$(".sponsimg").delay(1000).css("z-index","2");
+		$('.logo').delay(1000).transition({ x: '0%', y: '120%' });
+		// $(".parallelogram").delay(1000).css("z-index","5");
+		// $(".medal").delay(1000).css("z-index","3");
+		// $(".wheel").delay(1000).css("z-index","3");
+		// $(".sponsimg").delay(1000).css("z-index","2");
 
 	}
 
@@ -57,13 +64,13 @@ jQuery(window).load(function() {
 	var z1 = DayDiff(Today);
 
 	if(z1>1)
-		$('.hidden').html(z1+" days to go...");
+		$('.hidden-count').html(z1+" days to go...");
 	else if(z1==1)
-		$('.hidden').html(z1+" day to go...");
+		$('.hidden-count').html(z1+" day to go...");
 	else if(z1>-3)
-		$('.hidden').html("The game is on!");
+		$('.hidden-count').html("The game is on!");
 	else
-		$('.hidden').html("Hope to see you next year!");
+		$('.hidden-count').html("Hope to see you next year!");
 	 
 })
 
