@@ -427,7 +427,7 @@
 								</div>
 								<div class="pplback">
 									<div class="contactinfo"><br><br>
-										<span class="phoneno">+91 9709318262</span> <br>
+										<span class="phoneno">+91 7282959402</span> <br>
 										<span class="emailid"><a href="mailto:utkarsh.ch14@iitp.ac.in">utkarsh.ch14@iitp.ac.in</a></span><br><br>
 										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
 										<a href="https://www.linkedin.com/in/utkarsh-singh-653783aa/"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
@@ -970,7 +970,7 @@
 								</div>
 								<div class="pplback">
 									<div class="contactinfo"><br><br>
-										<span class="phoneno">+91 9006703524</span> <br>
+										<span class="phoneno">+91 7631978779</span> <br>
 										<span class="emailid"><a href="mailto:zenin.me14@iitp.ac.in">zenin.me14@iitp.ac.in</a></span><br><br>
 										<div id="socialwrapper" style="bottom: 0;left:0;width:100%">
 										<a href="https://www.linkedin.com/in/zenineasa/"  style="" target="_blank"><img src="images/team/lin.png" style="right:0;bottom: 0;height:50px"></a>
