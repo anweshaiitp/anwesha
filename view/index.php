@@ -84,6 +84,11 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 		<script>
+		function preloadImage(imageurl)
+		{
+			var img=new Image();
+			img.src=imageurl;
+		}
 		$(document).ready(function() {
 
 			var audio = document.getElementById("bgaudio");
@@ -144,13 +149,6 @@
 					}
 				}
          	
-         	function preloadImage(imageurl)
-			{
-    			var img=new Image();
-    			img.src=imageurl;
-			}
-
-
          	var imgurl;
          	function eve_coverswitch(imgurl){
          		
@@ -519,13 +517,14 @@
 					//preload spons
 					//@todo: fix this
 			$.get( "sponsors/", function( data ) {
-  				var beforefilter = data.split("images/sponsors/");
 				
+				var beforefilter = data.split("images\/sponsors\/");
+						
 					var filteroneL = beforefilter.length;
-					for (var j = 0; j < filteroneL; j++) {
+					for (var j = 1; j < filteroneL; j++) {
     					var afterfilter = beforefilter[j].split("'");
-    					console.log(afterfilter[0]);
-    					//preloadImage("images/sponsors/"+afterfilter[0]);
+    					console.log("Loading "+afterfilter[0]);
+    					preloadImage("images/sponsors/"+afterfilter[0]);
 					}
 
 			});		
