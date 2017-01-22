@@ -803,7 +803,7 @@
 			$new.css('background-size', "cover");
 			$new.css('background-position', "center");
 			// $new.css('background-repeat', "no-repeat");
-			$new.css('height', "64px");
+			$new.css('height', "100vh");
 			$new.css('background-position', "0px -"+(countwoodstack*64)+"px");
 
 			
