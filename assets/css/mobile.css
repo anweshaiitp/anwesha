@@ -51,6 +51,13 @@ body{
    
 
 }
+#teamsbtnnw{
+	line-height: 2.3;
+
+}
+.workshops{
+	line-height: 1.5 !important;
+}
 .loginexit{
 	color:white;
 	font-size: 15px;

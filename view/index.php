@@ -371,6 +371,11 @@
 							cl=3;
 							console.log("manage");
 							$("[placeholder='manage']").click();	
+						}else if(evepcat=="80"){
+							
+							cl=3;
+							console.log("wshops");
+							$("[placeholder='wshops']").click();	
 						}
 						setTimeout(function(){
 								 $("[data='"+urieventprcode+"']").click();
@@ -398,6 +403,7 @@
             	$("#preloader").hide();
             	$("#wheel1").fadeOut();
 				$("#wheel2").fadeIn();
+				$(".workshops").fadeIn();
             	$("#map_one").fadeOut();
 				$('map').imageMapResize();
 
@@ -419,6 +425,7 @@
             	$("#preloader").show();
 				$("#wheel1").fadeIn();
 				$("#wheel2").fadeOut();
+				$(".workshops").fadeOut();
             	$(".medal").fadeIn();
 				$('map').imageMapResize();
 
@@ -440,6 +447,7 @@
 				$("#mainareaalt").fadeIn();
 				// $(".blankbg ").fadeIn("fast");
 				$("#wheel2").fadeOut();
+				$(".workshops").fadeOut();
 				$("#map_two").fadeOut();
 				$(".blankbg ").slideFadeToggle();
 				$(".backbtn2").fadeIn();
@@ -497,6 +505,7 @@
 				 $(".blankbg ").slideFadeToggle();
 				toggleli();
 				$("#wheel2").fadeIn();
+				$(".workshops").fadeIn();
 				$("#map_two").fadeIn();
 
 			});
@@ -979,10 +988,10 @@
 				<area shape="poly" alt="" title="" coords="116,351,148,337,137,299,134,271,145,227,157,204,124,196,108,269,106,326,107,326"  class="mainevent cultbtnnew" onclick="cl=1" placeholder="cult" target="" />
 				<area shape="poly" alt="" title="" coords="215,104,234,135,260,123,301,116,329,119,378,135,395,108,362,92,271,85,224,89" class="mainevent techbtnnew" onclick="cl=0" placeholder="tech"  target="" />
 				<area shape="poly" alt="" title="" coords="437,193,457,244,464,305,447,350,434,375,460,394,489,343,492,268,483,217,491,205,477,178" class="mainevent managebtnnew" onclick="cl=3" placeholder="manage" target="" />
-				<area shape="poly" alt="" title="" coords="199,413,207,425,245,444,315,445,363,441,410,426,436,442,385,475,266,486,171,454,164,430"  class="mainevent artsbtnnew" onclick="cl=2" placeholder="arts"   target="" />
+				<area shape="poly" alt="" title="" coords="199,413,207,425,245,444,315,445,363,441,410,426,436,442,385,475,266,486,171,454,164,430"  class="mainevent artsbtnnew" onclick="cl=2"  placeholder="arts"   target="" />
 				</map>
 			</div>
-			
+			 <a id="teamsbtnnw" class="workshops mainevent" onclick="cl=80" placeholder="wshops" style="position:absolute;top:20px;right:20px;">Workshops</a>
 		</div>
 		<div id='back_wood' style='position:absolute;width:100%;text-align:center;z-index: 5'>
 		

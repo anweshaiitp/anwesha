@@ -1634,6 +1634,7 @@ border-color: teal;
 		font-weight: 300;
 		font-size: 18px;
 	    width:200px;
+	    cursor: pointer;
 }
 #userarea[style]{
 top:100px;
