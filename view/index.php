@@ -1371,7 +1371,7 @@
 			$("#loginbtn").hide("fast");
 			$("#logoutbtn").show("fast");
 			$("#logoutbtn").css("display","block");
-			$("#map_one").attr("src","images/medal1")
+			$("#map_one").attr("src","images/medal1.png");
 			$("#map_one area.loginbtnnew").attr("onclick","logoutFunction()")
 			$("#map_one area.loginbtnnew").removeAttr("href");
 
