@@ -1146,11 +1146,14 @@
 					$("#careferalcode").attr('disabled',"true");
 					
 				}
+				loginFunction=function(){
+							window.location='#login';
+				}
 				
 					logoutFunction=	function (){
 							$("#map_one").attr("src","images/medal.png")
 							$("#map_one area.loginbtnnew").attr("href","#login");
-							$("#map_one area.loginbtnnew").attr("onclick","window.location='#login''");
+							$("#map_one area.loginbtnnew").attr("onclick","loginFunction()");
         					$.post("logout/",
 								{},
 								function(data, status){
