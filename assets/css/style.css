@@ -1636,6 +1636,9 @@ border-color: teal;
 
 	    width:200px;
 }
+#userarea[style]{
+top:100px;
+}
 input.inp.loginname {
     transform: translateX(-10px);
 }
