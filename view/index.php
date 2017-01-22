@@ -1055,7 +1055,7 @@
 		</div>
 
 		<div id="register" class="lightbox logreg">
-			<div class="close"><a href="#" onclick="document.body.style.overflow='visible';">X</a></div>
+			<div class="close"><a href="#" onclick="document.body.style.overflow='hidden';">X</a></div>
 			<h2>Register</h2>
 				<center><a style="font-size: 1.2em;" class="faqtext" href="http://2017.anwesha.info/faq/" target="_blank">Having Problem Logging-in or registering?</a></center><br>
 			
@@ -1077,7 +1077,7 @@
 		</div>
 
 		<div id="register_ca" class="lightbox logreg">
-			<div class="close"><a href="#" onclick="document.body.style.overflow='visible';">X</a></div>
+			<div class="close"><a href="#" onclick="document.body.style.overflow='hidden';">X</a></div>
 			<h2>Campus Ambassador<br> Registration</h2>
 				<center><a style="font-size: 1.2em;" class="faqtext" href="http://2017.anwesha.info/faq/" target="_blank">Having Problem Logging-in or registering?</a></center><br>
 			
@@ -1108,7 +1108,7 @@
 		</div>
 
 		<div id="login" class="loginlightbox">
-			<div class="loginexit"><a onclick="window.location.hash ='#';document.body.style.overflow='visible';" style="cursor: pointer">x</a></div>
+			<div class="loginexit"><a onclick="window.location.hash ='#';document.body.style.overflow='hidden';" style="cursor: pointer">x</a></div>
 			<h2 style="font-size: 2em;" class="loginhead">Login</h2>
 			<span id="loginerror" style="color:red;padding:5px;"></span>
 			<span id="loginajaxerror" style="color:red;padding:5px;"></span>
@@ -1326,7 +1326,7 @@
 		</div>
 
         <div id="leaderboard" class="lightbox logreg">
-            <div class="close"><a href="#" onclick="document.body.style.overflow='visible';">X</a></div>
+            <div class="close"><a href="#" onclick="document.body.style.overflow='hidden';">X</a></div>
             <h2>LEADERBOARD</h2>
             <center>
                 <div style="width:50%; align-content:center;">

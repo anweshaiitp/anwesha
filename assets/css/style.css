@@ -1458,7 +1458,7 @@ opacity:0;
     background-color: transparent;
     /* float: right; */
     /*background-color: #FFFFFF;*/
-    z-index: 8;
+    z-index: 7;
     /*height: 10000px;*/
     			
 }
@@ -1625,11 +1625,14 @@ border-color: teal;
 	text-align: center; 
 	border-radius:0.1em;
 	transition: opacity .5s,color .5s;
-	display: none; background-image: url('../../images/planck.jpg');
+	background-image: url('../../images/planck.jpg');
 	    color: rgba(255, 255, 255, 0.8);
 	    box-shadow: 0 0 20px #000000 inset;
 	    font-family: bebas;
 	    width:200px;
+}
+input.inp.loginname {
+    transform: translateX(-10px);
 }
 #teamsbtnnw:hover{
 	opacity: 0.7;
