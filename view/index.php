@@ -327,6 +327,9 @@
 			}
 			if(urieventid!=null){//alert(urieventid); //kochikame
 				// alert(events_data[urieventid]['eveName']);
+				$("#wheel2").fadeOut();
+				$("#map_two").fadeOut();
+
 				$.get( "allEvents/", function(data, status){
 							console.log("Event Status : "+data[0]);
 
@@ -377,7 +380,7 @@
 							
 							cl=3;
 							console.log("wshops");
-							$("[placeholder='wshops']").click();	
+							$(".workshops").click();	
 						}
 						setTimeout(function(){
 								 $("[data='"+urieventprcode+"']").click();
