@@ -103,6 +103,9 @@ if (preg_match($base . '(ca|register|)_?([0-9]{4}|)$@', $url, $match)) {
 	require ('controller/download_logs.php');
 } elseif (preg_match($base . 'payload$@', $url)) {
         require ('controller/payload.php');
+//App
+} elseif (preg_match($base . 'appversion/?$@', $url)) {
+        echo "1";
 } else {
 	http_response_code(404);
 	die('invalid url ' . $url);
