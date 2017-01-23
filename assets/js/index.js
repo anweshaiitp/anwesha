@@ -46,7 +46,7 @@ jQuery(window).load(function() {
 	$("#preloader").delay(5000).css("z-index","300");
 	$("#medal,#wheel").fadeIn(2000);
 	if($(window).width()>960){
-		$('.logo').delay(1000).transition({ x: '-170px', y: '200px' });
+		$('.logo').delay(1000).transition({ x: '-30%', y: '90%' });
 		// $('.logo').delay(1000).animate({left:0,bottom:0});
 		setTimeout(function(){
 			$('.logo').css({"width":"50%"});
