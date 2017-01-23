@@ -89,7 +89,7 @@ $('#galleryload').load('gallery.html');
 
 function DayDiff(CurrentDate){
 	var TYear=CurrentDate.getFullYear();
-    var TDay=new Date("January, 27, 2017");
+    var TDay=new Date("January, 28, 2017");
     TDay.getFullYear(TYear);
     var DayCount=(TDay-CurrentDate)/(1000*60*60*24);
     DayCount=Math.round(DayCount); 
