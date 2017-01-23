@@ -164,7 +164,10 @@ z-index: 10;
 	transform:translateY(-50%);
 	/*width:10px;*/
 }
-#preloader .logo img{
+.titlespons{
+	
+}
+.anwlogo{
 	width: 200px;
 	height: 170px;
 }
@@ -1603,7 +1606,7 @@ border-color: teal;
 	overflow-y:auto;
 	width:98%;
 	text-align:center;
-	height:calc(100% - 90px);
+	height:650px;
 	display: none;
 	z-index:9;
 }

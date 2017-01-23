@@ -523,6 +523,7 @@
       </script>
  	<script>
 		$(document).ready(function() {
+			$("#contenthere").height($(window).height()-100);
     		$('map').imageMapResize();
 		});
 	</script>
@@ -1060,7 +1061,8 @@
 		<div id="preloader">
 			<div class="bg"></div>
 			<div class="logo">
-				<img src="images/logo.png">
+				<a target="_blank" href='http://www.anshulhomes.com/'><img class="titlespons" src="images/sponsors/anshul.png" height="50px" width="200px"></a><br>
+				<img class="anwlogo" src="images/logo.png">
 			</div>
 			<div class="circle"></div>
 			<div class="tagline">
