@@ -42,17 +42,24 @@ jQuery(window).load(function() {
 	jQuery("#preloader .circle").delay(1000).fadeOut(100);
 	jQuery("#preloader .tagline").delay(1000).fadeOut(100);
 	jQuery("#preloader .bg").delay(1000).fadeOut(100).transition({ x: '-100%' });
-	jQuery(".logo img").delay(1000).animate({height:150,width:150},200);
+	jQuery(".anwlogo").delay(1000).animate({height:150,width:150},200);
 	$("#preloader").delay(5000).css("z-index","300");
 	$("#medal,#wheel").fadeIn(2000);
 	if($(window).width()>960){
-		$('.logo').delay(1000).transition({ x: '-40%', y: '120%' });
+		$('.logo').delay(1000).transition({ x: '-170px', y: '200px' });
+		// $('.logo').delay(1000).animate({left:0,bottom:0});
 		setTimeout(function(){
 			$('.logo').css({"width":"50%"});
 		},1000)
 		
 	} else {
-		$('.logo').delay(1000).transition({ x: '0%', y: '120%' });
+		$('.logo').delay(1000).transition({  y: '100%' });
+		// var logo=$(window).height()-$("#");
+		$(".anwlogo").animate({height:100,width:100},200);
+		$(".titlespons").delay(500).animate({height:40,width:160},200);
+
+		// $(".titlespons").css("bottom","0");
+		// $(".titlespons").css("left","0");
 		// $(".parallelogram").delay(1000).css("z-index","5");
 		// $(".medal").delay(1000).css("z-index","3");
 		// $(".wheel").delay(1000).css("z-index","3");

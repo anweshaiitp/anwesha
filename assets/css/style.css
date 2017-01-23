@@ -164,7 +164,10 @@ z-index: 10;
 	transform:translateY(-50%);
 	/*width:10px;*/
 }
-#preloader .logo img{
+.titlespons{
+	
+}
+.anwlogo{
 	width: 200px;
 	height: 170px;
 }
