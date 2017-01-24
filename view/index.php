@@ -1095,7 +1095,7 @@
 		</div>
 
 		<div id="accommodation" class="lightbox logreg">
-			<div class="close"><a href="#" onclick="document.body.style.overflow='hidden';">X</a></div>
+			<div class="close" style="z-index:20"><a href="#" onclick="document.body.style.overflow='hidden';">X</a></div>
 			<center><h1>Accommodation</h1><br><h2>Hospitality</h2></center>
 			
 				<div id="boxreg" class="box" style="overflow-y:auto; padding:20px;text-align: left !important; overflow-x:hidden; height:400px;">
