@@ -1245,23 +1245,17 @@ THREE DAYS   - Rs.300<br>
 						console.log("Clicked to "+$(this).attr("placeholder"));
 						$("#loginsubmit").fadeOut();
 						$(".loginpswd").fadeOut();
-						var username=$(".loginname").val();
-						if($(this).attr("placeholder")=="resend"){
+						// var username=$(".loginname").val();
+						// if($(this).attr("placeholder")=="resend"){
 							$(".loginemail").fadeIn();
 							$(".loginname").fadeOut();
-							$("[placeholder='reset']").hide();
+							
 						var username=$(".loginemail").val();
         						console.log("resend");
 
-						}
+						// }
 						if(username=='' || username==null ){
-							if($(this).attr("placeholder") == "reset"){
-
         						$("#loginerror").text("Please enter emailID used to register to proceed");
-        					}else if(username=="AnweshaID" ){
-        						$("#loginerror").text("Please enter AnweshaID to proceed");
-        					}
-
 						} else{
         					if(!(/^([Aa][Nn][Ww][0-9]{4})$/.test(username)) && $(this).attr("placeholder") != "resend") {
         						$(".loginhead").css("color","yellow");
