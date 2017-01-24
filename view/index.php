@@ -1008,7 +1008,7 @@
 	    <a href="#leaderboard" id="teamsbtnnw" style="">CA Leaderboard</a>
 			
 			    <a id="teamsbtnnw" style="" onclick="stackWoodStacks();location.hash='sponsors';">Sponsors</a>
-			<a href="#accommodation" id="accommodation_btn" style="">Accommodation</a>
+			<a href="#accommodation" id="teamsbtnnw" style="">Accommodation</a>
 			<ul class="links">
 				<a href="#login" id="loginbtn" style=""><li>Login</li></a>
 				<a  id="logoutbtn" style="display: none"><li>LogOut</li></a>
