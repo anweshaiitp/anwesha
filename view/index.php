@@ -1257,9 +1257,9 @@ THREE DAYS   - Rs.300<br>
 						if(username=='' || username==null ){
         						$("#loginerror").text("Please enter emailID used to register to proceed");
 						} else{
-        					if(!(/^([Aa][Nn][Ww][0-9]{4})$/.test(username)) && $(this).attr("placeholder") != "resend") {
+        					if(!(/^([Aa][Nn][Ww][0-9]{4})$/.test(username)) && $(this).attr("placeholder") != "resend" && $(this).attr('placeholder')!="reset") {
         						$(".loginhead").css("color","yellow");
-                        		$(".loginhead").text("Incorrect Anw ID");
+                        		$(".loginhead").text("Incorrect email ID");
         					}else
         					$.post(""+ $(this).attr("placeholder")+"/"+username,
 								{
