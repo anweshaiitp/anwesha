@@ -131,11 +131,15 @@
          	var urieventid=null;
          	if(hashloc=="#events"){
          		$("#eventsbtn").click();
+            	$("#wheel1").hide();
+            	$("#map_one").hide();
             	// $("#preloader").hide();
          	 }else if(hashloc=="#sponsors"){
          	 	$(".sponsimg").click();
          	 } else if (hashloc.substring(1,6)=="event"){
          	 	 urieventid = hashloc.replace("#event","");
+            	$("#wheel1").hide();
+            	$("#map_one").hide();
          	 	 // alert(urieventid);
          	 }
 			function eve_rulefill(rbookurl){
@@ -405,7 +409,7 @@
             	$("#intro").hide();
             	$(".window2").fadeIn("slow",toggleli());
             	$(".backbtn").fadeIn();
-            	$("#preloader").hide();
+            	// $("#preloader").hide();
             	$("#wheel1").fadeOut();
 				$("#wheel2").fadeIn();
 				$(".workshops").fadeIn();
@@ -419,7 +423,7 @@
             	$("#intro").hide();
             	$(".window2").fadeIn("slow",toggleli());
             	$(".backbtn").fadeIn();
-            	$("#preloader").hide();
+            	// $("#preloader").hide();
             });
 			$(".backbtn").click(function(){
 				location.hash='';
@@ -433,6 +437,7 @@
 				$(".workshops").fadeOut();
             	$(".medal").fadeIn();
 				$('map').imageMapResize();
+
 
             	if(ev==1){
             		// $(".blankbg ").fadeOut();
@@ -1004,9 +1009,11 @@
 			</div>
 		<div id="intro">
 			
-				<a href="#teams" id="teamsbtnnw" style="">Team</a>
+				<a href="team/" target="_blank" id="teamsbtnnw" style="">Team</a>
 	    <a href="#leaderboard" id="teamsbtnnw" style="">CA Leaderboard</a>
+			
 			    <a id="teamsbtnnw" style="" onclick="stackWoodStacks();location.hash='sponsors';">Sponsors</a>
+			<a href="#accommodation" id="teamsbtnnw" style="">Accommodation</a>
 			<ul class="links">
 				<a href="#login" id="loginbtn" style=""><li>Login</li></a>
 				<a  id="logoutbtn" style="display: none"><li>LogOut</li></a>
@@ -1091,6 +1098,29 @@
 				<input class="button inp" type="submit" id="submitreg" value="Submit" style="width:98%">
 			</div>
 		</div>
+
+		<div id="accommodation" class="lightbox logreg">
+			<div class="close" style="z-index:20"><a href="#" onclick="document.body.style.overflow='hidden';">X</a></div>
+			<center><h1>Accommodation</h1><br><h2>Hospitality</h2></center>
+			
+				<div id="boxreg" class="box" style="overflow-y:auto; padding:20px;text-align: left !important; overflow-x:hidden; height:400px;">
+				1. Participant will be given accommodation only after confirmation by Registration Desk.<br>
+2. Guest must take care of their personal belongings,  college authorities are not responsible in any case of theft or loss of your belongings.<br>
+3. The guest shall be responsible for any damage caused at the accommodation facility.<br>
+4. Students can avail accommodation facilities from 27th January 10:00 am to 30th January 9:00 am.<br>
+5. Smoking and drinking inside the campus are strictly prohibited.<br>
+6. If found smoking or drinking within the premises, the guest will be immediately asked to vacate the accommodation facility.<br>
+7. In case of any discrepancy, the decision of Team Anwesha will  be final.<br>
+Charges Of Accommodation<br>
+ONE DAY – Rs.150<br>
+TWO DAYS     -  Rs.250<br>
+THREE DAYS   - Rs.300<br>
+			</div>
+		</div>
+
+
+		
+
 
 		<div id="register_ca" class="lightbox logreg">
 			<div class="close"><a href="#" onclick="document.body.style.overflow='hidden';">X</a></div>

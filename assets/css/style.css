@@ -157,12 +157,14 @@ z-index: 10;
 }
 #preloader .logo{
 	position:fixed;
-	width:100%;
-	text-align:center;
-	top:50%;
+	width:200px;
 	z-index: 40;
-	transform:translateY(-50%);
-	/*width:10px;*/
+	bottom:50%;
+	left: 50%;
+	z-index: 40;
+	/*text-align: center;*/
+	transform:translateX(-50%) translateY(50%);
+
 }
 .titlespons{
 	
