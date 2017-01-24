@@ -1278,11 +1278,12 @@ class Auth
         }
     }
 
-    public function forgetPassword($userId,$conn){
-        $sql = "SELECT name,email,type FROM People P JOIN LoginTable LT on LT.pId=P.pId WHERE P.pId = $userId";
+    public function forgetPassword($eId,$conn){
+        echo $eId;
+        $sql = "SELECT P.pId as pId,name,email,type FROM People P JOIN LoginTable LT on LT.pId=P.pId WHERE email = '$eId'";
         $result = mysqli_query($conn,$sql);
         if(!$result OR mysqli_num_rows($result) != 1 ){
-            $Err = 'Invalid AnweshaID ';
+            $Err = 'Email Not Registered';
             $arr = array();
             $arr[]=-1;
             $arr[]=$Err;
@@ -1292,6 +1293,7 @@ class Auth
         $name = $row['name'];
         $em = $row['email'];
         $type = $row['type'];
+        $userId = $row['pId'];
         if ($type!=0) {
             $Err = 'Please verify your email-id first.';
             $arr = array();
@@ -1316,7 +1318,7 @@ class Auth
         $baseURL = $ANWESHA_URL;
         $url = $baseURL . "resetpassword/$userId/$token/";
         
-        $emailContent = "Hi $name,</br>We received a request to Reset to Anwesha Password. To reset your password Please click <a href='$url'>here</a>.</br></br>In case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to $ANWESHA_REG_EMAIL. You can also visit our website $ANWESHA_URL for more information.</br></br>Thank You.</br>Registration & Planning Team</br>$ANWESHA_YEAR";
+        $emailContent = "Hi $name,</br>We received a request to Reset to Anwesha Password. To reset your password Please click <a href='$url '>here</a>.</br></br>In case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to $ANWESHA_REG_EMAIL. You can also visit our website $ANWESHA_URL for more information.</br></br>Thank You.</br>Registration & Planning Team</br>$ANWESHA_YEAR";
         People::EmailWithText($em,"Anwesha Password Reset",$emailContent);
         $arr = array();
         $arr[]=1;
