@@ -131,11 +131,15 @@
          	var urieventid=null;
          	if(hashloc=="#events"){
          		$("#eventsbtn").click();
+            	$("#wheel1").hide();
+            	$("#map_one").hide();
             	// $("#preloader").hide();
          	 }else if(hashloc=="#sponsors"){
          	 	$(".sponsimg").click();
          	 } else if (hashloc.substring(1,6)=="event"){
          	 	 urieventid = hashloc.replace("#event","");
+            	$("#wheel1").hide();
+            	$("#map_one").hide();
          	 	 // alert(urieventid);
          	 }
 			function eve_rulefill(rbookurl){
@@ -433,6 +437,7 @@
 				$(".workshops").fadeOut();
             	$(".medal").fadeIn();
 				$('map').imageMapResize();
+
 
             	if(ev==1){
             		// $(".blankbg ").fadeOut();
