@@ -53,7 +53,7 @@ jQuery(window).load(function() {
 		},1000)
 		
 	} else {
-		$('.logo').delay(1000).transition({  y: '100%' });
+		$('.logo').delay(1000).transition({  y: '95%' });
 		// var logo=$(window).height()-$("#");
 		$(".anwlogo").animate({height:100,width:100},200);
 		$(".titlespons").delay(500).animate({height:40,width:160},200);
