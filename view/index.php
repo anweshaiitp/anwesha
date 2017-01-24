@@ -405,7 +405,7 @@
             	$("#intro").hide();
             	$(".window2").fadeIn("slow",toggleli());
             	$(".backbtn").fadeIn();
-            	$("#preloader").hide();
+            	// $("#preloader").hide();
             	$("#wheel1").fadeOut();
 				$("#wheel2").fadeIn();
 				$(".workshops").fadeIn();
@@ -419,7 +419,7 @@
             	$("#intro").hide();
             	$(".window2").fadeIn("slow",toggleli());
             	$(".backbtn").fadeIn();
-            	$("#preloader").hide();
+            	// $("#preloader").hide();
             });
 			$(".backbtn").click(function(){
 				location.hash='';
