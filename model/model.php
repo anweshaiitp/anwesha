@@ -1279,7 +1279,6 @@ class Auth
     }
 
     public function forgetPassword($eId,$conn){
-        echo $eId;
         $sql = "SELECT P.pId as pId,name,email,type FROM People P JOIN LoginTable LT on LT.pId=P.pId WHERE email = '$eId'";
         $result = mysqli_query($conn,$sql);
         if(!$result OR mysqli_num_rows($result) != 1 ){
