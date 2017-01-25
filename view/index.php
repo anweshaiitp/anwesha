@@ -300,14 +300,13 @@
 						$('#alt_regbtn').attr("href",eve['reg_url']);
 
 						if(eve['reg_url']!=null && eve['reg_url']!=""){
-							console.log("no reg url");
-							$('#regbtn').show();
-							$('#alt_regbtn').hide();	
-						} else{
 							console.log("yes reg url");
-
 							$('#regbtn').hide();
 							$('#alt_regbtn').show();
+						} else{
+							console.log("no reg url");
+							$('#regbtn').show();
+							$('#alt_regbtn').hide();
 						}
 						$('#eve_time').text(eve['time']);
 						$('#eve_venue').html(eve['venue']);
