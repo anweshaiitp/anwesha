@@ -162,7 +162,7 @@ z-index: 10;
 	bottom:50%;
 	right: 50%;
 	z-index: 40;
-	/*text-align: center;*/
+	text-align: center;
 	transform:translateX(50%) translateY(50%);
 
 }
