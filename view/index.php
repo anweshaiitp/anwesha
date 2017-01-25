@@ -218,6 +218,7 @@
 				$('#eve_short_desc').text("");
 				$('#eve_long_desc').text("");
 				$('#regbtn').attr("placeholder","");
+				$("#alt_regbtn").attr("href","");
 				$("#RuleBtn").attr("href","");
 				$("#RuleBtn").hide();
 				eve_imgswitch("");
@@ -294,7 +295,15 @@
 						$('#eve_name').text(eve['eveName']);
 						$('#eve_tagline').html(getHTMLText(eve['tagline']));
 						$('#eve_date').text(eve['date']);
-						$('#regbtn').attr("placeholder",eve['eveId']);
+						if(eve['reg_url']!=null && eve['reg_url']!=""){
+							$('#regbtn').show();
+							$('#alt_regbtn').hide();
+							$('#regbtn').attr("placeholder",eve['eveId']);
+						} else{
+							$('#regbtn').hide();
+							$('#alt_regbtn').show();
+							$('#alt_regbtn').attr("href",eve['reg_url']);
+						}
 						$('#eve_time').text(eve['time']);
 						$('#eve_venue').html(eve['venue']);
 						$('#eve_short_desc').html(getHTMLText(eve['short_desc']));
@@ -947,7 +956,8 @@
 				</div><br>
 				<a href="" id="RuleBtn" target="_blank">Rulebook</a><br><br><br>
 				<a id="regbtn" placeholder="" >Register for Event</a>
-
+				<a id="alt_regbtn" href="" target="_blank" placeholder="" style="display: none" >Register for Event</a>
+				
 				<br><br>
 
 				<span id='eve_short_desc' style="font-size: 1.5em;">
