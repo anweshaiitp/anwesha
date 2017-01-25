@@ -295,14 +295,19 @@
 						$('#eve_name').text(eve['eveName']);
 						$('#eve_tagline').html(getHTMLText(eve['tagline']));
 						$('#eve_date').text(eve['date']);
+						console.log(eve['reg_url']);
+						$('#regbtn').attr("placeholder",eve['eveId']);
+						$('#alt_regbtn').attr("href",eve['reg_url']);
+
 						if(eve['reg_url']!=null && eve['reg_url']!=""){
+							console.log("no reg url");
 							$('#regbtn').show();
-							$('#alt_regbtn').hide();
-							$('#regbtn').attr("placeholder",eve['eveId']);
+							$('#alt_regbtn').hide();	
 						} else{
+							console.log("yes reg url");
+
 							$('#regbtn').hide();
 							$('#alt_regbtn').show();
-							$('#alt_regbtn').attr("href",eve['reg_url']);
 						}
 						$('#eve_time').text(eve['time']);
 						$('#eve_venue').html(eve['venue']);
