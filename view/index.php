@@ -1072,8 +1072,10 @@
 				<img class="anwlogo" src="images/logo.png">
 			</div>
 			<div class="circle"></div>
-			<div class="tagline">
-				Think.Dream.Live
+			<div class="tagline" style="text-align: center;">
+				Think.Dream.Live<br>
+				<!--<small style="font-family: 'Roboto', sans-serif;font-size: 0.5em;">
+					It is mandatory for everyone to carry College IDs</small>-->
 			</div>
 		</div>
 
