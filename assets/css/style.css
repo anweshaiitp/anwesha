@@ -1579,7 +1579,7 @@ border-color: teal;
 #RuleBtn:hover{
 	background:rgba(88, 214, 103, 0.6);
 }
-#regbtn{
+#regbtn,#alt_regbtn{
 	margin: 20px;
      /*background: rgba(255, 255, 255, 0.6);*/
    	 font-family: bebas;
@@ -1593,7 +1593,7 @@ border-color: teal;
 	   border:solid 3px;
 	   border-color:white;
 }
-#regbtn:hover{
+#regbtn:hover,#alt_regbtn:hover{
 	/*background:rgba(88, 214, 103, 0.6);*/
 }
 #contenthere img {
