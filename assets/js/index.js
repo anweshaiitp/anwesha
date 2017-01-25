@@ -48,7 +48,7 @@ jQuery(window).load(function() {
 	if($(window).width()>960){
 		// $('.logo').delay(1000).transition({ x: '-30%', y: '90%' });
 		// $('.logo').delay(1000).css('text-align','left');
-		$('.logo').delay(1000).animate({"left":"10px","bottom":"70px",y:'0%',x:'0%'});
+		$('.logo').delay(1000).animate({"right":"10px","bottom":"70px",y:'0%',x:'0%'});
 		// setTimeout(function(){
 		// 	$('.logo').css({"width":"50%"});
 		// },1000)
