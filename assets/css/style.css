@@ -1641,6 +1641,22 @@ border-color: teal;
 	    width:200px;
 	    cursor: pointer;
 }
+#wrkshop{
+	margin:0.5em;
+	/*background:rgba(255,255,255,0.6);*/
+	padding:0.5em;
+	text-align: center; 
+	border-radius:0.1em;
+	transition: opacity .5s,color .5s;
+	background-image: url('../../images/planck.jpg');
+	    color: rgba(255, 255, 255, 0.8);
+	    box-shadow: 0 0 20px #000000 inset;
+	    font-family: Raleway;
+		font-weight: 300;
+		font-size: 18px;
+	    width:200px;
+	    cursor: pointer;
+}
 #userarea[style]{
 top:100px;
 }

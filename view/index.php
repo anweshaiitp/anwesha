@@ -1002,11 +1002,24 @@
 				<area shape="poly" alt="" title="" coords="199,413,207,425,245,444,315,445,363,441,410,426,436,442,385,475,266,486,171,454,164,430"  class="mainevent artsbtnnew" onclick="cl=2"  placeholder="arts"   target="" />
 				</map>
 			</div>
-			 <a id="teamsbtnnw" class="workshops mainevent" onclick="cl=80" placeholder="wshops" style="position:absolute;top:20px;right:20px;">Workshops</a>
+			 <a id="wrkshop" class="workshops mainevent" onclick="cl=80" placeholder="wshops" style="position:absolute;top:20px;right:20px;">Workshops</a>
 		</div>
 		<div id='back_wood' style='position:absolute;width:100%;text-align:center;z-index: 5'>
 		
 			</div>
+			<script>
+			$(window).ready(function(){
+				$(".wrkshop").click(function(){
+					// $("#eventsbtn").click();
+					// $(".workshops").click();
+					// cl=80;
+					// $(".mainevent").click();
+					setTimeout(function(){
+							$("#wrkshop").click();},500
+						);
+				});
+			});
+			</script>
 		<div id="intro">
 			
 				<a href="team/" target="_blank" id="teamsbtnnw" style="">Team</a>
@@ -1014,6 +1027,8 @@
 			
 			    <a id="teamsbtnnw" style="" onclick="stackWoodStacks();location.hash='sponsors';">Sponsors</a>
 			<a href="#accommodation" id="teamsbtnnw" style="">Accommodation</a>
+			<a id="teamsbtnnw" href="#events" class="eventsbtnnew wrkshop" onclick="" style="">Workshops</a>
+
 			<ul class="links">
 				<a href="#login" id="loginbtn" style=""><li>Login</li></a>
 				<a  id="logoutbtn" style="display: none"><li>LogOut</li></a>
