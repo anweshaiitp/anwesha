@@ -46,14 +46,15 @@ jQuery(window).load(function() {
 	$("#preloader").delay(5000).css("z-index","300");
 	$("#medal,#wheel").fadeIn(2000);
 	if($(window).width()>960){
-		$('.logo').delay(1000).transition({ x: '-30%', y: '90%' });
-		// $('.logo').delay(1000).animate({left:0,bottom:0});
-		setTimeout(function(){
-			$('.logo').css({"width":"50%"});
-		},1000)
+		// $('.logo').delay(1000).transition({ x: '-30%', y: '90%' });
+		// $('.logo').delay(1000).css('text-align','left');
+		$('.logo').delay(1000).animate({"left":"10px","bottom":"70px",y:'0%',x:'0%'});
+		// setTimeout(function(){
+		// 	$('.logo').css({"width":"50%"});
+		// },1000)
 		
 	} else {
-		$('.logo').delay(1000).transition({  y: '95%' });
+		$('.logo').delay(1000).animate({"left":"10px","bottom":"10px",y:'0%',x:'0%'});
 		// var logo=$(window).height()-$("#");
 		$(".anwlogo").animate({height:100,width:100},200);
 		$(".titlespons").delay(500).animate({height:40,width:160},200);

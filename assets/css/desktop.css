@@ -73,6 +73,8 @@ body{
 .NavWrap{
 	position: fixed;
 	background-image: url("../../images/plank_black.jpg");
+	background-repeat: no-repeat;
+    background-size: cover;
 }
 #mainarea{
 	top: 120px;

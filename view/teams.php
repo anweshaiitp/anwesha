@@ -347,7 +347,7 @@
 
 						<div class="flip-container pplbox" ontouchstart="this.classList.toggle('hover');">
 							<div class="flipper">
-							<div class="pplfront" style="background-image: url('images/team/default.jpg')">
+							<div class="pplfront" style="background-image: url('images/team/shreyas.jpg')">
 									<!-- front content -->
 								</div>
 								<div class="pplback">
