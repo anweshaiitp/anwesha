@@ -1564,7 +1564,7 @@ border-color: teal;
 	font-family: Raleway;
 	margin-bottom:10px;
 	
-}
+}/*
 #RuleBtn{
 	margin: 20px;
      background: rgba(255, 255, 255, 0.6);
@@ -1578,8 +1578,8 @@ border-color: teal;
 }
 #RuleBtn:hover{
 	background:rgba(88, 214, 103, 0.6);
-}
-#regbtn,#alt_regbtn{
+}*/
+#regbtn,#alt_regbtn,#RuleBtn{
 	margin: 20px;
      /*background: rgba(255, 255, 255, 0.6);*/
    	 font-family: bebas;
@@ -1593,7 +1593,7 @@ border-color: teal;
 	   border:solid 3px;
 	   border-color:white;
 }
-#regbtn:hover,#alt_regbtn:hover{
+#regbtn:hover,#alt_regbtn:hover,#RuleBtn:hover{
 	/*background:rgba(88, 214, 103, 0.6);*/
 }
 #contenthere img {
