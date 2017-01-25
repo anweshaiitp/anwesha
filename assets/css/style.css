@@ -1497,7 +1497,7 @@ opacity:0;
     font-size: 18px;
     opacity: 1;
   	transition: opacity .3s,box-shadow .3s;
-	width:150px;
+	/*width:150px;*/
 }
 .ph-button:hover{
 color:#fff;
