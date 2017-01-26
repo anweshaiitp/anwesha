@@ -1145,7 +1145,8 @@
 Charges Of Accommodation<br>
 ONE DAY – Rs.150<br>
 TWO DAYS     -  Rs.250<br>
-THREE DAYS   - Rs.300<br>
+THREE DAYS   - Rs.300<br><br>
+For any query, contact Sushant (7258062462)<br>
 			</div>
 		</div>
 
