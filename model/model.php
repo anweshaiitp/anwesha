@@ -88,6 +88,17 @@ class People{
     }
 
     /**
+    * Validate if date is valid
+    * @param $date
+    */
+    function validateDate($date)
+    {
+        $format = 'Y-m-d';
+        $d = DateTime::createFromFormat($format, $date);
+        return $d && $d->format($format) == $date;
+    }
+
+    /**
      * Checks if the data entered for registraion is avlid or not
      * @param  string $n   name
      * @param  string $col college
@@ -120,7 +131,7 @@ class People{
             $error = "Invalid Mobile Number ";
         }  else if (!filter_var($em, FILTER_VALIDATE_EMAIL)) {
             $error = "Invalid Email-ID";
-        }  else if (DateTime::createFromFormat('Y-m-d', $db) == FALSE) {
+        }  else if (self::validateDate($db)) {
             $error = "Invalid D.O.B [".$db."]";
         }  else if (!preg_match('/^[a-zA-Z0-9.@]*$/', $cit)) {
             $error = "Invalid City";
