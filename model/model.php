@@ -131,7 +131,7 @@ class People{
             $error = "Invalid Mobile Number ";
         }  else if (!filter_var($em, FILTER_VALIDATE_EMAIL)) {
             $error = "Invalid Email-ID";
-        }  else if (self::validateDate($db)) {
+        }  else if (!self::validateDate($db)) {
             $error = "Invalid D.O.B [".$db."]";
         }  else if (!preg_match('/^[a-zA-Z0-9.@]*$/', $cit)) {
             $error = "Invalid City";
