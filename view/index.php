@@ -1042,7 +1042,8 @@
 			    <a id="teamsbtnnw" style="" onclick="stackWoodStacks();location.hash='sponsors';">Sponsors</a>
 			<a href="#accommodation" id="teamsbtnnw" style="">Accommodation</a>
 			<a id="teamsbtnnw" href="#events" class="eventsbtnnew wrkshop" onclick="cl=80" style="">Workshops</a>
-
+			<a href="https://www.facebook.com/anwesha.iitpatna/photos/pcb.1421513644547943/1421513477881293/?type=3&theater/" target="_blank" id="teamsbtnnw" style="">Schedule</a>
+	    
 			<ul class="links">
 				<a href="#login" id="loginbtn" style=""><li>Login</li></a>
 				<a  id="logoutbtn" style="display: none"><li>LogOut</li></a>
