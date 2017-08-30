@@ -59,8 +59,8 @@
 			    if(Lstatus.status == "connected"){
 				FB.api('/me', function(response) {
 			      console.log('Successful login for: ' + response.name);
+					$("#FB-Oauth").html("Hi! " +response.first_name+"<br> Email:"+response.email);
 				});
-				$("#FB-Oauth").html("Hi! " +response.first_name);
 
 				}
 		    });
