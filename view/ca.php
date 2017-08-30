@@ -36,20 +36,6 @@
 	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=1088640574599664";
 	  fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script','email', 'facebook-jssdk'));
-	FB.Event.subscribe('auth.authResponseChange', auth_response_change_callback);
-	FB.login(function(response) {
-		console.log(response);
-	    if (response.authResponse) {
-	     console.log('Welcome!  Fetching your information.... ');
-	     FB.api('/me?fields=name,first_name,birthday,email', function(response) {
-		console.log(response);
-	       console.log('Good to see you, ' + response.name + '.');
-	     });
-	    } else {
-	     console.log('User cancelled login or did not fully authorize.');
-	    }
-	}, {scope: 'email,user_likes'});
-
 	function checkLoginState() {
 	  FB.getLoginStatus(function(response) {
 	    console.log(response);
@@ -90,7 +76,7 @@
 				<h1>Campus Ambassador Programme</h1><br>
 				<div id="FB-Oauth">
 					Sign-Up with Facebook
-					<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with"  data-auto-logout-link="true" data-use-continue-as="true"></div><!-- <br>
+					<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with"  data-auto-logout-link="true" data-use-continue-as="true" data-scope="basic_info,email,public_profile,user_location,user_birthday,user_about_me" onlogin="auth_response_change_callback();"></div><!-- <br>
 					<a id="test">This this</a> -->
 				</div>
 			
