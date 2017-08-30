@@ -36,6 +36,8 @@
 	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=1088640574599664";
 	  fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));
+	FB.Event.subscribe('auth.authResponseChange', auth_response_change_callback);
+
 	function checkLoginState() {
 	  FB.getLoginStatus(function(response) {
 	    console.log(response);
@@ -48,15 +50,21 @@
 	</script>
 	<script>
 	$(document).ready(function(){
+		function auth_response_change_callback(){
+			console.log("called");
+		}
 		setInterval(function(){
-			var status = checkLoginState();
-			if(status.status == "connected"){
+			FB.getLoginStatus(function(Lstatus) {
+			    console.log(Lstatus);
+			    if(Lstatus.status == "connected"){
 				FB.api('/me', function(response) {
 			      console.log('Successful login for: ' + response.name);
 				});
 				$("#FB-Oauth").html("Hi! " +response.first_name);
 
-			}
+				}
+		    });
+			
 		},1000);
 	});
 	</script>
