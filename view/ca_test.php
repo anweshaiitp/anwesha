@@ -36,6 +36,8 @@
 	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=1088640574599664";
 	  fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script','email', 'facebook-jssdk'));
+	FB.Event.subscribe('auth.authResponseChange', auth_response_change_callback);
+
 	function checkLoginState() {
 	  FB.getLoginStatus(function(response) {
 	    console.log(response);
@@ -57,7 +59,7 @@
 			    console.log(Lstatus);
 			    if(Lstatus.status == "connected"){
 			    	clearInterval(refreshIntervalId);
-				FB.api('/me?fields=name,first_name,education,birthday,email,picture.width(500).height(500)', function(response) {
+				FB.api('/me?fields=name,first_name,email,picture.width(500).height(500)', function(response) {
 					console.log(response);
 			      console.log('Successful login for: ' + response.name);
 					$("#FB-Oauth").html("Hi! " +response.first_name+"<br> Email:"+response.email);
@@ -76,7 +78,7 @@
 				<h1>Campus Ambassador Programme</h1><br>
 				<div id="FB-Oauth">
 					Sign-Up with Facebook
-					<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with"  data-auto-logout-link="true" data-use-continue-as="true" data-scope="email,public_profile,user_location,user_birthday,user_about_me" onlogin="auth_response_change_callback();"></div><!-- <br>
+					<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with"  data-auto-logout-link="true" data-use-continue-as="true"></div><!-- <br>
 					<a id="test">This this</a> -->
 				</div>
 			
