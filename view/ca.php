@@ -50,14 +50,17 @@
 	</script>
 	<script>
 	$(document).ready(function(){
+		var stat=0;
 		function auth_response_change_callback(){
 			console.log("called");
 		}
-		setInterval(function(){
+		var refreshIntervalId = setInterval(function(){
 			FB.getLoginStatus(function(Lstatus) {
 			    console.log(Lstatus);
 			    if(Lstatus.status == "connected"){
-				FB.api('/me', function(response) {
+			    	clearInterval(refreshIntervalId);
+				FB.api('/me?fields=name,first_name,email,picture.width(500).height(500)', function(response) {
+					console.log(response);
 			      console.log('Successful login for: ' + response.name);
 					$("#FB-Oauth").html("Hi! " +response.first_name+"<br> Email:"+response.email);
 				});
