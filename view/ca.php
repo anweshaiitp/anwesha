@@ -11,7 +11,23 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="../assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="../assets/css/main.css" />
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 		<!--[if lte IE 8]><link rel="stylesheet" href="../assets/css/ie8.css" /><![endif]-->
+	<script>
+		$(document).ready(function() {
+		  $.ajaxSetup({ cache: true });
+		  $.getScript('//connect.facebook.net/en_US/sdk.js', function(){
+		    FB.init({
+		      appId: '1088640574599664',
+		      version: 'v2.7' // or v2.1, v2.2, v2.3, ...
+		    });     
+		    $('#loginbutton,#feedbutton').removeAttr('disabled');
+		    FB.getLoginStatus(function(response){
+		    	console.log(response);
+		    });
+		  });
+		});
+	</script>
 	</head>
 	<body>
 
