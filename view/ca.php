@@ -1,138 +1,282 @@
-<?php
-$error="";
-$success="";
-$referalcode="";
-if(isset($match[1]))
-	$referalcode = $match[1];
-
-?>                                                                                                                   
 <!DOCTYPE HTML>
+<!--
+	Directive by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <html>
 	<head>
-		<title>Campus Ambassador Registration Form</title>
-		<link rel="stylesheet" media="only screen and (max-width: 994px)" href="../assets/css/m_ca.css" />
-		<link rel="stylesheet" href="../assets/css/reg.css">
-		<link rel="stylesheet" media="only screen and (min-width: 995px)" href="../assets/css/d.css" />
-		<meta name="viewport" content="width=device-width, initial-scale=1">
- 	<link rel="stylesheet" media="only screen and (max-width: 994px)" href="../assets/css/m.css" />
-		<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js'></script>
-		<script>
-		$(document).ready(function(){
-			$("#submit").click(function(){
-				var name=$("[name='name']").val();
-		var email=$("[name='email']").val();
-		var college=$("[name='college']").val();
-		var degree=$("[name='degree']").val();
-		var city=$("[name='city']").val();
-		var graduation=$("[name='graduation']").val();
-		var address=$("[name='address']").val();
-		var dob=$("[name='dob']").val();
-		var mobile=$("[name='mobile']").val();
-		var sex=$("[name='sex']").val();
-		var responsibility=$("[name='responsibility']").val();
-		var involvement=$("[name='involvement']").val();
-		var threethings=$("[name='threethings']").val();
-		var referalcode=$("[name='referalcode']").val();
-		console.log("Request Send");
-		$.post("../user/register/CampusAmbassador/",
-    						{        						
-       						name: name,
-        					email: email,
-        					college: college,
-        					degree: degree,
-        					city:city,
-        					graduation:graduation,
-        					address:address,
-        					dob:dob,
-        					mobile:mobile,
-        					sex:sex,
-        					responsibility:responsibility,
-        					involvement:involvement,
-        					threethings:threethings,
-        					referalcode:referalcode
-    						},
-    						function(data, status){
-        					console.log("Response");
-        					console.log("Data: " + data + "\nStatus: " + status);
-        					if(status=='success'){//$("#myloader").fadeOut();
-        						console.log(data);
-
-        						if(data[0]==1){
-        							$("#message").html('<center>Registration Successful<br>An activation link has been sent to your email.</center>');
-        							$("#message").fadeIn();
-        							$("#message").css('background','#5FAB22');
-        							$("#form_fill").fadeOut();
-        						}else{
-        							$("#message").fadeIn();
-        							$("#message").html('<center>Error<br>'+data[1]+'</center>');
-								}
-								$('html, body').animate({
-								        scrollTop: $("#header").offset().top
-								    }, 500);
-     
-        					}else{//$("#myloader").fadeOut();
-        							$("#message").fadeIn();
-        							$("#message").html('An error occured.<br> Please try again.');
-        							$('html, body').animate({
-								        scrollTop: $("#header").offset().top
-								    }, 500);
-								    console.log("Failed "+data);
-
-        						}
-        						$('html, body').animate({
-        scrollTop: $("#header").offset().top
-    }, 500);
-    			},"json");
-
-			});
-		});
-		
-		</script>
-		<style>
-		 @import 'https://fonts.googleapis.com/css?family=Exo';
-    	 @import 'https://fonts.googleapis.com/css?family=Coming+Soon';
-    	 @import 'https://fonts.googleapis.com/css?family=Atma';
-    	 #mainForm{
-    	 	width:700px;
-    	 }
-    	 .inputbabe{
-    	 	width:90%;
-    	 }
-		</style>
+		<title>Campus Ambassador</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="../assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="../assets/css/ie8.css" /><![endif]-->
 	</head>
-	<body><center><div id="backg"></div>
+	<body>
 
-		<h4 id="header" style="margin-bottom:10px;font-size:55px">Campus Ambassador Registration Form</h4>
-		<div class="link" style="display: block;border-radius: 0.3em;border: rgba(0,0,0,0.3) 0.25em solid;margin: 0.5em;background: rgba(20, 66, 106, 0.29);position:absolute;top:50px:top:10px">
-			<a style='text-decoration: none;color: #fff9;font-size: 1em;font-family: bebas;' href="../switchca/">Already User<br><span style="font-weight:bolder">Switch to CA</span></a>
-		</div>
-		
-		<div id="mainForm" >
-		<!--
-			<p style='text-align:center;color:#ff0000;'><?php echo $error; ?></p>
-			<p style='text-align:center;color:#33ff33;'><?php echo $success; ?></p><br />-->
-			<div id="message"><center></center></div>
+		<!-- Header -->
+			<div id="header" >
+				<span class="logo icon "></span><h6>IIT Patna</h6>
+				<h1>Anwesha</h1><br>
+				<h1>Campus Ambassador Programme</h1>
 
-			<form action="javascript:" method="post" id="form_fill" accept-charset="UTF-8">
-				<input placeholder="Full Name" class="inputbabe coolk" name="name" type="text" value="">
-				<input placeholder="College" class="inputbabe coolk" name="college" type="text" value="">
-				<input placeholder="City" class="inputbabe coolk" name="city" type="text" value="">
-				<input placeholder="Degree" class="inputbabe coolk" name="degree" type="text" value="">
-				<input placeholder="Year of Graduation" class="inputbabe coolk" name="graduation" type="text" value="">
-				<textarea placeholder="Address" class="inputbabe coolk" name="address" rows="10"></textarea>
-				<input placeholder="Email" class="inputbabe coolk" name="email" type="text" value="">
-				<input placeholder="Mobile" class="inputbabe coolk" name="mobile" pattern="[789]\d{9}" title="Invalid Mobile Number" type="text" value="">
-				<input placeholder="DOB (yyyy-mm-dd)" class="inputbabe coolk" name="dob" pattern="\d{4}-\d{2}-\d{2}" class="datepicker" class="inputbabe coolk" title="Invalid Date Format(yyyy-mm-dd)" value="">
-				<input placeholder="Sex(M/F)" class="inputbabe coolk" name="sex" type="text" pattern="[MFmf]" value="">
-				<textarea placeholder="Tell us 3 things you would do as a Campus Ambassador of Anwesha '17." class="inputbabe coolk" name="threethings" rows="10"></textarea>
-				<textarea placeholder="Have you held any position of responsibility in your college? If yes, please explain." class="inputbabe coolk" name="responsibility" rows="10"></textarea>
-				<textarea placeholder="Have you been a part of one or more previous editions of Anwesha? If yes, please explain." class="inputbabe coolk" name="involvement" rows="10"></textarea>
-				<input placeholder="Refered by someone?" name="referalcode" class="inputbabe coolk" type="text" value="<?php echo $referalcode; ?>" <?php if(!empty($referalcode)) echo "disabled"; ?>><br>
-				<input id="submit" class="inputbabe " type="submit" value="Submit">
-			</form>
-		</div>
-		
+			</div>
 
-<div id="biglogo"></div>
-	</center></body>
+		<!-- Main -->
+			<div id="main">
+
+				<header class="major container 75%">
+				<h1 style="font-size: 40px">About us</h1><br>
+					<h2>We conduct experiments that
+					<br />
+					may or may not seriously
+					<br />
+					break the universe</h2>
+					<!--
+					<p>Tellus erat mauris ipsum fermentum<br />
+					etiam vivamus nunc nibh morbi.</p>
+					-->
+				</header>
+
+				<div class="box alt container">
+					<section class="feature left">
+						<a href="#" class="image icon fa-signal"><img src="../images/pic01.jpg" alt="" /></a>
+						<div class="content">
+							<h3>The First Thing</h3>
+							<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus. Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis fusce lacus.</p>
+						</div>
+					</section>
+					<section class="feature right">
+						<a href="#" class="image icon fa-code"><img src="../images/pic02.jpg" alt="" /></a>
+						<div class="content">
+							<h3>The Second Thing</h3>
+							<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus. Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis fusce lacus.</p>
+						</div>
+					</section>
+					<section class="feature left">
+						<a href="#" class="image icon fa-mobile"><img src="../images/pic03.jpg" alt="" /></a>
+						<div class="content">
+							<h3>The Third Thing</h3>
+							<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus. Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis fusce lacus.</p>
+						</div>
+					</section>
+				</div>
+
+				
+				<div class="box container">
+					<header>
+						<h2>A lot of generic stuff</h2>
+					</header>
+					<section>
+						<header>
+							<h3>Paragraph</h3>
+							<p>This is the subtitle for this particular heading</p>
+						</header>
+						<p>Phasellus nisl nisl, varius id <sup>porttitor sed pellentesque</sup> ac orci. Pellentesque
+						habitant <strong>strong</strong> tristique <b>bold</b> et netus <i>italic</i> malesuada <em>emphasized</em> ac turpis egestas. Morbi
+						leo suscipit ut. Praesent <sub>id turpis vitae</sub> turpis pretium ultricies. Vestibulum sit
+						amet risus elit.</p>
+					</section>
+					<section>
+						<header>
+							<h3>Blockquote</h3>
+						</header>
+						<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget.
+						tempus euismod. Vestibulum ante ipsum primis in faucibus.</blockquote>
+					</section>
+					<section>
+						<header>
+							<h3>Divider</h3>
+						</header>
+						<p>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra
+						ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel. Praesent nec orci
+						facilisis leo magna. Cras sit amet urna eros, id egestas urna. Quisque aliquam
+						tempus euismod. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+						posuere cubilia.</p>
+						<hr />
+						<p>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra
+						ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel. Praesent nec orci
+						facilisis leo magna. Cras sit amet urna eros, id egestas urna. Quisque aliquam
+						tempus euismod. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+						posuere cubilia.</p>
+					</section>
+					<section>
+						<header>
+							<h3>Unordered List</h3>
+						</header>
+						<ul class="default">
+							<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
+							<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
+							<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
+							<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
+						</ul>
+					</section>
+					<section>
+						<header>
+							<h3>Ordered List</h3>
+						</header>
+						<ol class="default">
+							<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
+							<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
+							<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
+							<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
+						</ol>
+					</section>
+					<section>
+						<header>
+							<h3>Table</h3>
+						</header>
+						<div class="table-wrapper">
+							<table class="default">
+								<thead>
+									<tr>
+										<th>ID</th>
+										<th>Name</th>
+										<th>Description</th>
+										<th>Price</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>45815</td>
+										<td>Something</td>
+										<td>Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</td>
+										<td>29.99</td>
+									</tr>
+									<tr>
+										<td>24524</td>
+										<td>Nothing</td>
+										<td>Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</td>
+										<td>19.99</td>
+									</tr>
+									<tr>
+										<td>45815</td>
+										<td>Something</td>
+										<td>Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</td>
+										<td>29.99</td>
+									</tr>
+									<tr>
+										<td>24524</td>
+										<td>Nothing</td>
+										<td>Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</td>
+										<td>19.99</td>
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<td colspan="3"></td>
+										<td>100.00</td>
+									</tr>
+								</tfoot>
+							</table>
+						</div>
+					</section>
+					<section>
+						<header>
+							<h3>Form</h3>
+						</header>
+						<form method="post" action="#">
+							<div class="row">
+								<div class="6u 12u(mobilep)">
+									<label for="name">Name</label>
+									<input class="text" type="text" name="name" id="name" value="" placeholder="John Doe" />
+								</div>
+								<div class="6u 12u(mobilep)">
+									<label for="email">Email</label>
+									<input class="text" type="text" name="email" id="email" value="" placeholder="johndoe@domain.tld" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="12u">
+									<label for="subject">Subject</label>
+									<input class="text" type="text" name="subject" id="subject" value="" placeholder="Enter your subject" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="12u">
+									<label for="subject">Message</label>
+									<textarea name="message" id="message" placeholder="Enter your message" rows="6"></textarea>
+								</div>
+							</div>
+							<div class="row">
+								<div class="12u">
+									<ul class="actions">
+										<li><input type="submit" value="Send" /></li>
+										<li><input type="reset" value="Reset" class="alt" /></li>
+									</ul>
+								</div>
+							</div>
+						</form>
+					</section>
+				</div>
+			
+
+				<footer class="major container 75%">
+					<h3>Get shady with science</h3>
+					<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus. Tellus erat mauris ipsum fermentum etiam vivamus.</p>
+					<ul class="actions">
+						<li><a href="#" class="button">Join our crew</a></li>
+					</ul>
+				</footer>
+
+			</div>
+
+		<!-- Footer -->
+			<div id="footer">
+				<div class="container 75%">
+
+					<header class="major last">
+						<h2>Questions or comments?</h2>
+					</header>
+
+					<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor
+					orci penatibus. Tellus erat mauris ipsum fermentum etiam vivamus.</p>
+
+					<form method="post" action="#">
+						<div class="row">
+							<div class="6u 12u(mobilep)">
+								<input type="text" name="name" placeholder="Name" />
+							</div>
+							<div class="6u 12u(mobilep)">
+								<input type="email" name="email" placeholder="Email" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="12u">
+								<textarea name="message" placeholder="Message" rows="6"></textarea>
+							</div>
+						</div>
+						<div class="row">
+							<div class="12u">
+								<ul class="actions">
+									<li><input type="submit" value="Send Message" /></li>
+								</ul>
+							</div>
+						</div>
+					</form>
+
+					<ul class="icons">
+						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+						<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+					</ul>
+
+					<ul class="copyright">
+						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+
+				</div>
+			</div>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/skel.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="../assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="../assets/js/main.js"></script>
+
+	</body>
 </html>
