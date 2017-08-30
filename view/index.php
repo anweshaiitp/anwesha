@@ -104,7 +104,7 @@
 		.title {
 			position: absolute;
 			bottom: 0;
-			z-index: 100;
+			z-index: 2;
 			font-family: 'Ubuntu', sans-serif;
 			text-align: center;
 			color: #FFF;
@@ -128,11 +128,144 @@
 			/*text-shadow: 2px 2px 2px #000000;*/
 			margin: 10px 0;
 		}
+		#ca:target{
+			display: block;
+			opacity: 1;
+	    background-color: rgba(0,0,0,0.9);
+	    color: #FFFFFF;
+	    font-size: 20px;
+	    text-align: center;
+	    font-family: bebas;
+	    border-radius: 10px;
+	    box-shadow: 0 0 30px black;
+	    -webkit-animation: caEnter 1000ms cubic-bezier(0.815, 0.185, 0.215, 1); /* older webkit */
+			-webkit-animation: caEnter 1000ms cubic-bezier(0.815, 0.185, 0.215, 1.400); 
+			   -moz-animation: caEnter 1000ms cubic-bezier(0.815, 0.185, 0.215, 1.400); 
+			     -o-animation: caEnter 1000ms cubic-bezier(0.815, 0.185, 0.215, 1.400); 
+			        animation: caEnter 1000ms cubic-bezier(0.815, 0.185, 0.215, 1.400); /* custom */
+
+			-webkit-animation-timing-function: cubic-bezier(0.815, 0.185, 0.215, 1); /* older webkit */
+			-webkit-animation-timing-function: cubic-bezier(0.815, 0.185, 0.215, 1.400); 
+			   -moz-animation-timing-function: cubic-bezier(0.815, 0.185, 0.215, 1.400); 
+			     -o-animation-timing-function: cubic-bezier(0.815, 0.185, 0.215, 1.400); 
+			        animation-timing-function: cubic-bezier(0.815, 0.185, 0.215, 1.400); /* custom */
+		}
+		@-webkit-keyframes caEnter {
+		  0% {  opacity: 0;top:-20%; }
+		  100% { opacity: 1;top:50%; }
+		}
+		@-moz-keyframes caEnter {
+		  0% {  opacity: 0;top:-20%; }
+		  100% {  opacity: 1;top:50%; }
+		}
+		@-o-keyframes caEnter {
+		  0% {  opacity: 0;top:-20%; }
+		  100% {  opacity: 1;top:50%; }
+		}
+		@-ms-keyframes caEnter {
+		  0% {  opacity: 0;top:-20%; }
+		  100% {  opacity: 1;top:50%; }
+		}
+		@keyframes caEnter {
+		  0% {  opacity: 0;top:-20%; }
+		  100% {  opacity: 1;top:50%; }
+		}
+		#ca{
+			position: fixed;
+			/*opacity: 0;*/
+			display: none;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 50%;
+			height: 50%;
+			background-color: rgba(0,0,0,0);
+			border-radius: 30px;
+		}
+		#shadow{
+			display: none;
+			background-color: rgba(0,0,0,0);
+
+		}
+		.back{
+	    -webkit-animation: backG 500ms cubic-bezier(0.815, 0.185, 0.215, 1); /* older webkit */
+			-webkit-animation: backG 500ms cubic-bezier(0.815, 0.185, 0.215, 1.400); 
+			   -moz-animation: backG 500ms cubic-bezier(0.815, 0.185, 0.215, 1.400); 
+			     -o-animation: backG 500ms cubic-bezier(0.815, 0.185, 0.215, 1.400); 
+			        animation: backG 500ms cubic-bezier(0.815, 0.185, 0.215, 1.400); /* custom */
+			opacity: 0.5;
+		}
+		@-webkit-keyframes backG {
+		  0% { opacity: 1;  }
+		  100% { opacity: 0.5; }
+		}
+		@-moz-keyframes backG {
+		  0% {  opacity: 1; }
+		  100% {  opacity: 0.5; }
+		}
+		@-o-keyframes backG {
+		  0% {  opacity: 1; }
+		  100% {  opacity: 0.5; }
+		}
+		@-ms-keyframes backG {
+		  0% {  opacity: 1; }
+		  100% {  opacity: 0.5; }
+		}
+		@keyframes backG {
+		  0% {  opacity: 1; }
+		  100% {  opacity: 0.5; }
+		}
+
+		.btf{
+	    -webkit-animation: RbackG 500ms cubic-bezier(0.815, 0.185, 0.215, 1); /* older webkit */
+			-webkit-animation: RbackG 500ms cubic-bezier(0.815, 0.185, 0.215, 1.400); 
+			   -moz-animation: RbackG 500ms cubic-bezier(0.815, 0.185, 0.215, 1.400); 
+			     -o-animation: RbackG 500ms cubic-bezier(0.815, 0.185, 0.215, 1.400); 
+			        animation: RbackG 500ms cubic-bezier(0.815, 0.185, 0.215, 1.400); /* custom */
+			opacity: 1;
+		}
+		@-webkit-keyframes RbackG {
+		  0% { opacity: 0.5;  }
+		  100% { opacity: 1; }
+		}
+		@-moz-keyframes RbackG {
+		  0% {  opacity: 0.5; }
+		  100% {  opacity: 1; }
+		}
+		@-o-keyframes RbackG {
+		  0% {  opacity: 0.5; }
+		  100% {  opacity: 1; }
+		}
+		@-ms-keyframes RbackG {
+		  0% {  opacity: 0.5; }
+		  100% {  opacity: 1; }
+		}
+		@keyframes RbackG {
+		  0% {  opacity: 0.5; }
+		  100% {  opacity: 1; }
+		}
 	</style>
 	<script type="text/javascript" src="https://sarcadass.github.io/granim.js/assets/js/vendor/granim.min.js"></script>
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 	<script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="assets/js/cubeTransition.js"></script>
+	<script>
+	$(document).ready(function(){
+		var lightbox=0;
+		if(window.location.hash=="#ca"){
+			lightbox=1;
+			$(".bloc-logo,#logo-canvas,.logo-mask,#particles-js,#center-container").addClass("back");
+		}
+	  $("#particles-js,#anwLogo").click(function () {
+	  	if(lightbox==1){
+	  		lightbox=0;
+	  		$(".bloc-logo,#logo-canvas,.logo-mask,#particles-js,#center-container").removeClass("back");
+	  		$(".bloc-logo,#logo-canvas,.logo-mask,#particles-js,#center-container").removeClass("btf");
+	  		$("#ca").fadeOut();
+	  	}
+	  })
+	});
+	</script>
 	</head>
 	<body bgcolor="#000000">
 		
@@ -140,7 +273,7 @@
 		    <canvas id="logo-canvas"></canvas>
 		    <a href="index.html" class="logo-mask">Granim.js</a>
 		</div>
-		<canvas id="granim-canvas"></canvas>
+		<!-- <canvas id="granim-canvas"></canvas> -->
 		<div id="particles-js"></div>
 		<div id="center-container">
 			<div id="anwLogo">
@@ -150,6 +283,12 @@
 			 <h1 style="font-style: ">Comming Soon</h1>
 			</div>
 		</div>
+		
+		<div id="ca">
+			
+		</div>
+		
+		
 		<!-- <div id="cubeTransition">
 			<div class="page1"><h2>cubeTransition</h2></div>
 			<div class="page2"><h2>Page 2</h2></div>
@@ -177,121 +316,7 @@
 		});
 		</script>
 
-<script>
-		/* ---- particles.js config ---- */
-
-particlesJS("particles-js", {
-		  "particles": {
-		    "number": {
-		      "value": 300,
-		      "density": {
-		        "enable": true,
-		        "value_area": 800
-		      }
-		    },
-		    "color": {
-		      "value": "#ffffff"
-		    },
-		    "shape": {
-		      "type": "circle",
-		      "stroke": {
-		        "width": 0,
-		        "color": "#000000"
-		      },
-		      "polygon": {
-		        "nb_sides": 5
-		      },
-		      "image": {
-		        "src": "img/github.svg",
-		        "width": 100,
-		        "height": 100
-		      }
-		    },
-		    "opacity": {
-		      "value": 1,
-		      "random": true,
-		      "anim": {
-		        "enable": true,
-		        "speed": 1,
-		        "opacity_min": 0,
-		        "sync": false
-		      }
-		    },
-		    "size": {
-		      "value": 3,
-		      "random": true,
-		      "anim": {
-		        "enable": false,
-		        "speed": 4,
-		        "size_min": 0.3,
-		        "sync": false
-		      }
-		    },
-		    "line_linked": {
-		      "enable": false,
-		      "distance": 150,
-		      "color": "#ffffff",
-		      "opacity": 0.4,
-		      "width": 1
-		    },
-		    "move": {
-		      "enable": true,
-		      "speed": 1,
-		      "direction": "none",
-		      "random": true,
-		      "straight": false,
-		      "out_mode": "out",
-		      "bounce": false,
-		      "attract": {
-		        "enable": false,
-		        "rotateX": 600,
-		        "rotateY": 600
-		      }
-		    }
-		  },
-		  "interactivity": {
-		    "detect_on": "canvas",
-		    "events": {
-		      "onhover": {
-		        "enable": true,
-		        "mode": "bubble"
-		      },
-		      "onclick": {
-		        "enable": true,
-		        "mode": "repulse"
-		      },
-		      "resize": true
-		    },
-		    "modes": {
-		      "grab": {
-		        "distance": 400,
-		        "line_linked": {
-		          "opacity": 1
-		        }
-		      },
-		      "bubble": {
-		        "distance": 250,
-		        "size": 0,
-		        "duration": 2,
-		        "opacity": 0,
-		        "speed": 3
-		      },
-		      "repulse": {
-		        "distance": 400,
-		        "duration": 0.4
-		      },
-		      "push": {
-		        "particles_nb": 4
-		      },
-		      "remove": {
-		        "particles_nb": 2
-		      }
-		    }
-		  },
-		  "retina_detect": true
-		});
-
-
+<script src="assets/js/particles_conf.js" type="text/javascript">
 	</script>
 	</body>
 	</html>
