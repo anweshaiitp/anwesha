@@ -9,7 +9,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/mobile.css" media="only screen and (max-width: 960px)">
 	<link rel="stylesheet" href="assets/css/desktop.css" media="only screen and (min-width: 960px)">
-	<meta name="theme-color" content="#e0a772">
+	<meta name="theme-color" content="#496495">
 	<meta charset="UTF-8">
 	<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
 	<title>Anwesha '18</title>
@@ -243,6 +243,17 @@
 		@keyframes RbackG {
 		  0% {  opacity: 0.5; }
 		  100% {  opacity: 1; }
+		}
+		@media screen and (max-width: 600px) {
+	    .title{
+	    	width:100%;
+	    }
+	    h1{
+	    	font-size: 50px !important;
+	    	background-size: 80% !important;
+	    	background-position: center;
+	    	background-repeat: no-repeat;
+	    }
 		}
 	</style>
 	<script type="text/javascript" src="https://sarcadass.github.io/granim.js/assets/js/vendor/granim.min.js"></script>
