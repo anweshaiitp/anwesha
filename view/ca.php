@@ -35,8 +35,20 @@
 	  js = d.createElement(s); js.id = id;
 	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=1088640574599664";
 	  fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));
+	}(document, 'script','email', 'facebook-jssdk'));
 	FB.Event.subscribe('auth.authResponseChange', auth_response_change_callback);
+	FB.login(function(response) {
+		console.log(response);
+	    if (response.authResponse) {
+	     console.log('Welcome!  Fetching your information.... ');
+	     FB.api('/me?fields=name,first_name,birthday,email', function(response) {
+		console.log(response);
+	       console.log('Good to see you, ' + response.name + '.');
+	     });
+	    } else {
+	     console.log('User cancelled login or did not fully authorize.');
+	    }
+	}, {scope: 'email,user_likes'});
 
 	function checkLoginState() {
 	  FB.getLoginStatus(function(response) {
@@ -59,7 +71,7 @@
 			    console.log(Lstatus);
 			    if(Lstatus.status == "connected"){
 			    	clearInterval(refreshIntervalId);
-				FB.api('/me?fields=name,first_name,email,picture.width(500).height(500)', function(response) {
+				FB.api('/me?fields=name,first_name,birthday,email,picture.width(500).height(500)', function(response) {
 					console.log(response);
 			      console.log('Successful login for: ' + response.name);
 					$("#FB-Oauth").html("Hi! " +response.first_name+"<br> Email:"+response.email);
