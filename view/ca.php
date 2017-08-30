@@ -13,6 +13,18 @@
 		<link rel="stylesheet" href="../assets/css/main.css" />
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 		<!--[if lte IE 8]><link rel="stylesheet" href="../assets/css/ie8.css" /><![endif]-->
+		<style>
+			#FB-Oauth{
+				padding: 10px;
+				    background-color: rgba(98, 153, 193, 0.76);
+				    width: 400px;
+				    margin: 30px;
+				    border-radius: 10px;
+				    left: 50%;
+				    position: absolute;
+				    transform: translateX(-50%);
+			}
+		</style>
 	</head>
 	<body>
 	<div id="fb-root"></div>
@@ -26,7 +38,8 @@
 	}(document, 'script', 'facebook-jssdk'));
 	function checkLoginState() {
 	  FB.getLoginStatus(function(response) {
-	    statusChangeCallback(response);
+	    console.log(response);
+	    return response;
 	  });
 	 // Here we run a very simple test of the Graph API after login is
 	   // successful.  See statusChangeCallback() for when this call is made.
@@ -35,9 +48,16 @@
 	</script>
 	<script>
 	$(document).ready(function(){
-		$("#test").click(function(){
-			checkLoginState();
-		});
+		setInterval(function(){
+			var status = checkLoginState();
+			if(status.status == "connected"){
+				FB.api('/me', function(response) {
+			      console.log('Successful login for: ' + response.name);
+				});
+				$("#FB-Oauth").html("Hi! " +response.first_name);
+
+			}
+		},1000);
 	});
 	</script>
 		<!-- Header -->
@@ -46,8 +66,9 @@
 				<h1>Anwesha</h1><br>
 				<h1>Campus Ambassador Programme</h1><br>
 				<div id="FB-Oauth">
-					<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="true" data-auto-logout-link="false" data-use-continue-as="true"></div>
-					<a id="test">This this</a>
+					Sign-Up with Facebook
+					<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with"  data-auto-logout-link="true" data-use-continue-as="true"></div><!-- <br>
+					<a id="test">This this</a> -->
 				</div>
 			
 			</div>
