@@ -30,14 +30,15 @@
 	  });
 	 // Here we run a very simple test of the Graph API after login is
 	   // successful.  See statusChangeCallback() for when this call is made.
-	   function testAPI() {
-	     console.log('Welcome!  Fetching your information.... ');
-	     FB.api('/me', function(response) {
-	       console.log('Successful login for: ' + response.name);
-	       document.getElementById('FB-Oauth').innerHTML =
-	         'Thanks for logging in, ' + response.name + '!';
-	     });
+	   
 	}
+	</script>
+	<script>
+	$(document).ready(function(){
+		$("#test").click(function(){
+			checkLoginState();
+		});
+	});
 	</script>
 		<!-- Header -->
 			<div id="header" >
@@ -46,8 +47,7 @@
 				<h1>Campus Ambassador Programme</h1><br>
 				<div id="FB-Oauth">
 					<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="true" data-auto-logout-link="false" data-use-continue-as="true"></div>
-					<fb:login-button scope="public_profile,email" onlogin="testAPI();">
-</fb:login-button>
+					<a id="test">This this</a>
 				</div>
 			
 			</div>
