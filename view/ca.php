@@ -13,30 +13,43 @@
 		<link rel="stylesheet" href="../assets/css/main.css" />
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 		<!--[if lte IE 8]><link rel="stylesheet" href="../assets/css/ie8.css" /><![endif]-->
-	<script>
-		$(document).ready(function() {
-		  $.ajaxSetup({ cache: true });
-		  $.getScript('//connect.facebook.net/en_US/sdk.js', function(){
-		    FB.init({
-		      appId: '1088640574599664',
-		      version: 'v2.7' // or v2.1, v2.2, v2.3, ...
-		    });     
-		    $('#loginbutton,#feedbutton').removeAttr('disabled');
-		    FB.getLoginStatus(function(response){
-		    	console.log(response);
-		    });
-		  });
-		});
-	</script>
 	</head>
 	<body>
-
+	<div id="fb-root"></div>
+	<!-- FB Oauth -->
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=1088640574599664";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+	function checkLoginState() {
+	  FB.getLoginStatus(function(response) {
+	    statusChangeCallback(response);
+	  });
+	 // Here we run a very simple test of the Graph API after login is
+	   // successful.  See statusChangeCallback() for when this call is made.
+	   function testAPI() {
+	     console.log('Welcome!  Fetching your information.... ');
+	     FB.api('/me', function(response) {
+	       console.log('Successful login for: ' + response.name);
+	       document.getElementById('FB-Oauth').innerHTML =
+	         'Thanks for logging in, ' + response.name + '!';
+	     });
+	}
+	</script>
 		<!-- Header -->
 			<div id="header" >
 				<span class="logo icon "></span><h6>IIT Patna</h6>
 				<h1>Anwesha</h1><br>
-				<h1>Campus Ambassador Programme</h1>
-
+				<h1>Campus Ambassador Programme</h1><br>
+				<div id="FB-Oauth">
+					<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="true" data-auto-logout-link="false" data-use-continue-as="true"></div>
+					<fb:login-button scope="public_profile,email" onlogin="testAPI();">
+</fb:login-button>
+				</div>
+			
 			</div>
 
 		<!-- Main -->
