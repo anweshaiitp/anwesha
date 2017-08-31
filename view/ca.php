@@ -17,12 +17,16 @@
 			#FB-Oauth,#FB-Oauth2{
 				padding: 10px;
 				    background-color: rgba(98, 153, 193, 0.76);
-				    width: 400px;
+				    
 				    margin: 30px;
 				    border-radius: 10px;
 				    left: 50%;
 				    /*position: absolute;*/
 				    /*transform: translateX(-50%);*/
+			}
+			@media screen and (min-width: 600px) {
+			#FB-Oauth,#FB-Oauth2{
+				width: 400px;
 			}
 		</style>
 		<script>
