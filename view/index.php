@@ -23,6 +23,107 @@
 	<meta property="og:image" content="images/preview.png" />
 	<link rel="shortcut icon" href="favicon.ico">
 	<style type="text/css">
+
+		/* 3D Button */
+		.btn-3d {
+			position: fixed;
+			/*top:30px;*/
+			left:20px;
+			display: inline-block;
+			font-family: 'Ubuntu', sans-serif;
+			font-size: 18px;
+			text-decoration: none;
+			padding: 10px 30px;
+			color: white;
+			/*margin: 10px 10px 10px;*/
+			border-radius: 6px;
+			text-align: center;
+			transition: top .01s linear;
+			text-shadow: 0 1px 0 rgba(0,0,0,0.15);
+		}
+		.btn-3d.red:hover    {background-color: #e74c3c;}
+		.btn-3d.blue:hover   {background-color: #699DD1;}
+		.btn-3d.green:hover  {background-color: #80C49D;}
+		.btn-3d.purple:hover {background-color: #D19ECB;}
+		.btn-3d.yellow:hover {background-color: #F0D264;}
+		.btn-3d.cyan:hover   {background-color: #82D1E3;}
+
+		.btn-3d:active {
+			top: 20px;
+		}
+
+		/* 3D button colors */
+		.btn-3d.red {
+			background-color: #e74c3c;
+			box-shadow: 0 0 0 1px #c63702 inset,
+		        0 0 0 2px rgba(255,255,255,0.15) inset,
+		        0 8px 0 0 #C24032,
+		        0 8px 0 1px rgba(0,0,0,0.4),
+						0 8px 8px 1px rgba(0,0,0,0.5);
+		}
+		.btn-3d.red:active {
+			box-shadow: 0 0 0 1px #c63702 inset,
+						0 0 0 2px rgba(255,255,255,0.15) inset,
+						0 0 0 1px rgba(0,0,0,0.4);
+		}
+
+		.btn-3d.blue {
+			background-color: #6DA2D9;
+			box-shadow: 0 0 0 1px #6698cb inset,
+						0 0 0 2px rgba(255,255,255,0.15) inset,
+						0 8px 0 0 rgba(110, 164, 219, .7),
+						0 8px 0 1px rgba(0,0,0,.4),
+						0 8px 8px 1px rgba(0,0,0,0.5);
+		}
+		.btn-3d.blue:active {
+			box-shadow: 0 0 0 1px #6191C2 inset,
+						0 0 0 2px rgba(255,255,255,0.15) inset,
+						0 0 0 1px rgba(0,0,0,0.4);
+		}
+
+		.btn-3d.green {
+			background-color: #82c8a0;
+			box-shadow: 0 0 0 1px #82c8a0 inset,
+						0 0 0 2px rgba(255,255,255,0.15) inset,
+						0 8px 0 0 rgba(126, 194, 155, .7),
+						0 8px 0 1px rgba(0,0,0,.4),
+						0 8px 8px 1px rgba(0,0,0,0.5);
+		}
+		.btn-3d.green:active {
+			box-shadow: 0 0 0 1px #82c8a0 inset,
+						0 0 0 2px rgba(255,255,255,0.15) inset,
+						0 0 0 1px rgba(0,0,0,0.4);
+		}
+
+		.btn-3d.purple {
+			background-color: #cb99c5;
+			box-shadow: 0 0 0 1px #cb99c5 inset,
+						0 0 0 2px rgba(255,255,255,0.15) inset,
+						0 8px 0 0 rgba(189, 142, 183, .7),
+						0 8px 0 1px rgba(0,0,0,.4),
+						0 8px 8px 1px rgba(0,0,0,0.5);
+		}
+		.btn-3d.purple:active {
+			box-shadow: 0 0 0 1px #cb99c5 inset,
+						0 0 0 2px rgba(255,255,255,0.15) inset,
+						0 0 0 1px rgba(0,0,0,0.4);
+		}
+
+		.btn-3d.cyan {
+			background-color: #7fccde;
+			box-shadow: 0 0 0 1px #7fccde inset,
+						0 0 0 2px rgba(255,255,255,0.15) inset,
+						0 8px 0 0 rgba(102, 164, 178, .6),
+						0 8px 0 1px rgba(0,0,0,.4),
+						0 8px 8px 1px rgba(0,0,0,0.5);
+		}
+		.btn-3d.cyan:active {
+			box-shadow: 0 0 0 1px #7fccde inset,
+						0 0 0 2px rgba(255,255,255,0.15) inset,
+						0 0 0 1px rgba(0,0,0,0.4);
+		}
+
+
 		.bloc-logo {
 		    position: relative;
 		    width: 130px;
@@ -298,7 +399,10 @@
 		<div id="ca">
 			
 		</div>
-		
+		<div class="btn-container">
+	<a href="ca/" class="btn-3d green">Campus Ambassador</a>
+	<pre>&lt;<span class="anc">a</span> <span class="att">href</span>=<span class="val">"#"</span> <span class="att">class</span>=<span class="val">"btn-3d green"</span>>Button&lt;/<span class="anc">a</span>></pre>
+</div>
 		
 		<!-- <div id="cubeTransition">
 			<div class="page1"><h2>cubeTransition</h2></div>
