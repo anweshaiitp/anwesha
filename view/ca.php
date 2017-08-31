@@ -81,7 +81,7 @@
 			  	  $("input[name='DOB']").attr('disabled','true');
 			  	  }
 					$("#FB-Oauth").html("Hi! " +response.first_name+" <ul class='actions'><li><a href='#signUp' class='button'>Continue to step 2</a></li></ul>");
-					$("#FB-Oauth2").html("Hi! " +response.first_name+" Complete signUp below");
+					$("#FB-Oauth2").html("Hi! " +response.first_name+"<br> Complete signUp below");
 				});
 
 				}
@@ -271,58 +271,59 @@
 						</center>
 					</header>
 					<form method="post" action="#" id="signUp" style="display: block">
+					<input type="hidden" name="fbID" />
 						<h2>Step 2</h2><br>
 						<div class="row">
 							<div class="6u 12u(mobilep)">
-								<input type="text" name="name" placeholder="Name" />
+								<input type="text" name="name" placeholder="Name" required />
 							</div>
 							<div class="6u 12u(mobilep)">
-								<input type="email" name="email" placeholder="Email" />
-							</div>
-						</div>
-						<div class="row">
-							<div class="6u 12u(mobilep)">
-								<input type="text" name="college" placeholder="College"  />
-							</div>
-							<div class="6u 12u(mobilep)">
-								<input type="text" name="degree" placeholder="Degree"  />
+								<input type="email" name="email" placeholder="Email" required />
 							</div>
 						</div>
 						<div class="row">
 							<div class="6u 12u(mobilep)">
-								<input type="number" name="yearOfGraduation" placeholder="Year of Graduation" />
+								<input type="text" name="college" placeholder="College"  required />
 							</div>
 							<div class="6u 12u(mobilep)">
-								<input type="text" name="city" placeholder="City" />
+								<input type="text" name="degree" placeholder="Degree"  required  />
 							</div>
 						</div>
 						<div class="row">
 							<div class="6u 12u(mobilep)">
-								<input type="number" name="mobile" placeholder="Mobile(10 digit)" />
+								<input type="text" name="yearOfGraduation" pattern="20[0-9][0-9]" placeholder="Year of Graduation(20XX)" required />
 							</div>
 							<div class="6u 12u(mobilep)">
-								<input type="text" name="DOB" placeholder="Date of Birth" />
+								<input type="text" name="city" placeholder="City" required />
+							</div>
+						</div>
+						<div class="row">
+							<div class="6u 12u(mobilep)">
+								<input type="text" name="mobile" placeholder="Mobile(10 digit)" pattern="(7|8|9)\d{9}" required />
+							</div>
+							<div class="6u 12u(mobilep)">
+								<input type="text" name="DOB" placeholder="Date of Birth"  required />
 							</div>
 						</div>
 						<!-- gender -->
 						<div class="row">
 							<div class="12u">
-								<textarea name="address" placeholder="Address" rows="3"></textarea>
+								<textarea name="address" placeholder="Address" required rows="3"></textarea>
 							</div>
 						</div>
 						<div class="row">
 							<div class="12u">
-								<textarea name="threethings" placeholder="Tell us 3 things you would do as a Campus Ambassador of Anwesha '18." rows="4"></textarea>
+								<textarea name="threethings" placeholder="Tell us 3 things you would do as a Campus Ambassador of Anwesha '18." rows="4" required></textarea>
 							</div>
 						</div>
 						<div class="row">
 							<div class="12u">
-								<textarea name="responsibility" placeholder="Have you held any position of responsibility in your college? If yes, please explain." rows="4"></textarea>
+								<textarea name="responsibility" placeholder="Have you held any position of responsibility in your college? If yes, please explain." required rows="4"></textarea>
 							</div>
 						</div>
 						<div class="row">
 							<div class="12u">
-								<textarea name="involvement" placeholder="Have you been a part of one or more previous editions of Anwesha? If yes, please explain." rows="4"></textarea>
+								<textarea name="involvement" placeholder="Have you been a part of one or more previous editions of Anwesha? If yes, please explain." required rows="4"></textarea>
 							</div>
 						</div>
 						
