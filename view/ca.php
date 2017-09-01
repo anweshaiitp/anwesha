@@ -142,10 +142,11 @@
 			    	clearInterval(refreshIntervalId);
 			    	//REST call with FB userID fetches if signedu or not.
 			    	//If not, then post request to the same for registering and validation.
-				FB.api('/me?fields=name,first_name,education,birthday,email,picture.width(500).height(500)', function(response) {
+				FB.api('/me?fields=name,first_name,education,gender,birthday,email,picture.width(500).height(500)', function(response) {
 					console.log(response);
 			      console.log('Successful login for: ' + response.name);
 			      name = response.name;
+			      gender = response.gender;
 			      email = response.email;
 			      DOB = response.birthday;
 			      pic = response.picture;
@@ -154,11 +155,21 @@
 				      $("input[name='name']").val(name);
 			      	  $("input[name='name']").attr('disabled','true');
 			      }
+			      if(gender){
+	      			var $radios = $('input:radio[name=gender]');
+		      		if(gender=='male'){
+		      			$radios.filter('[value=M]').prop('checked', true);
+		      		} else if(gender=='female') {
+		      			$radios.filter('[value=F]').prop('checked', true);
+
+		      		}
+			      	  $("input[name='gender']").attr('disabled','true');
+			      }
 			  	  if(email){
 			      $("input[name='email']").val(email);
 			  	  $("input[name='email']").attr('disabled','true');
 			  	  }
-			  	   if(DOB){
+			  	   if(DOB && ){
 			      $("input[name='DOB']").val(DOB);
 			  	  $("input[name='DOB']").attr('disabled','true');
 			  	  }
@@ -388,6 +399,11 @@
 							</div>
 						</div>
 						<!-- gender -->
+						<div class="12u">Gender:
+								<input type="radio" name="gender" value="M">Male
+								<input type="radio" name="gender" value="F">Female<br>
+						</div>
+
 						<div class="row">
 							<div class="12u">
 								<textarea name="address" placeholder="Address" required rows="3"></textarea>
