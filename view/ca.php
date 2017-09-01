@@ -393,7 +393,7 @@
 						</div>
 						<div class="row">
 							<div class="6u 12u(mobilep)">
-								<input type="text" name="yearOfGraduation" pattern="20[0-9][0-9]" placeholder="Year of Graduation(20XX)" required />
+								<input type="text" name="graduation" pattern="20[0-9][0-9]" placeholder="Year of Graduation(20XX)" required />
 							</div>
 							<div class="6u 12u(mobilep)">
 								<input type="text" name="city" placeholder="City" required />
