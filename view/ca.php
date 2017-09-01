@@ -137,8 +137,10 @@
 			    console.log(Lstatus);
 			    fbID = Lstatus.authResponse['userID'];
 			    console.log(fbID);
+			    	console.log(Lstatus.status);
 			    $("input[name='fbID']").val(fbID);
 			    if(Lstatus.status == "connected"){
+			    	console.log("in");
 			    	clearInterval(refreshIntervalId);
 			    	$.get( "../user/CAcheck/" + fbID + "/", function( data ) {
 			    	  var obj = JSON.parse(data);

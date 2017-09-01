@@ -309,12 +309,12 @@ class People{
             return $arr;
         }
         $arr = array();
-        $result = 0;
+        $result_ = 0;
         while($row = mysqli_fetch_assoc($result)){
-            $result = $row['pId'];
+            $result_ = $row['pId'];
         }
         $arr[]=1;
-        $arr[] = $result;
+        $arr[] = $result_;
         return $arr;
     }
 
