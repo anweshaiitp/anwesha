@@ -31,7 +31,8 @@
 		</style>
 		<script>
 	$(document).ready(function(){
-			$("#submit").click(function(){
+			$("#submit").click(function(event){
+					event.preventDefault();
 					var name=$("[name='name']").val();
 					var email=$("[name='email']").val();
 					var college=$("[name='college']").val();
@@ -413,7 +414,7 @@
 						<div class="row">
 							<div class="12u">
 								<ul class="actions">
-									<li><input type="submit" value="Submit" /></li>
+									<li><input type="submit" id="submit" value="Submit" /></li>
 								</ul>
 							</div>
 						</div>

@@ -789,7 +789,7 @@ class People{
             }
         }
 
-        People::passEmail($email,$name,$randPass,$id);
+        // People::passEmail($email,$name,$randPass,$id);
         $arr[]=$randPass;                                                                  //vinay edit
         return $arr;
 
