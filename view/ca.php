@@ -77,21 +77,21 @@
     							$("#message").html('<center>Registration Successful<br>An activation link has been sent to your email.</center>');
     							$("#message").fadeIn();
     							$("#message").css('background','#5FAB22');
-    							$("#form_fill").fadeOut();
+    							$("#signUp").fadeOut();
     						}else{
-    							$("#message").fadeIn();
-    							$("#message").html('<center>Error<br>'+data[1]+'</center>');
+    							$("#message,#message2").fadeIn();
+    							$("#message,#message2").html('<center>Error<br>'+data[1]+'</center>');
 							}
 							$('html, body').animate({
 							        scrollTop: $("#header").offset().top
 							    }, 500);
  
     					}else{//$("#myloader").fadeOut();
-    							$("#message").fadeIn();
-    							$("#message").html('An error occured.<br> Please try again.');
-    							$('html, body').animate({
-							        scrollTop: $("#signUp").offset().top
-							    }, 500);
+    							$("#message,#message2").fadeIn();
+    							$("#message,#message2").html('An error occured.<br> Please try again.');
+    							// $('html, body').animate({
+							    //     scrollTop: $("#signUp").offset().top
+							    // }, 500);
 							    console.log("Failed "+data);
 
     						}
@@ -140,6 +140,11 @@
 			    $("input[name='fbID']").val(fbID);
 			    if(Lstatus.status == "connected"){
 			    	clearInterval(refreshIntervalId);
+			    	$.get( "../user/CAcheck/" + fbID + "/", function( data ) {
+			    	  var obj = JSON.parse(data);
+			    	  console.log(obj);
+			    	  console.log(obj[0]);
+			    	// if(data[-1])
 			    	//REST call with FB userID fetches if signedu or not.
 			    	//If not, then post request to the same for registering and validation.
 				FB.api('/me?fields=name,first_name,education,gender,birthday,email,picture.width(500).height(500)', function(response) {
@@ -185,7 +190,7 @@
 					$("#FB-Oauth").html("Hi! " +response.first_name+" <ul class='actions'><li><a href='#signUp' class='button'>Continue to step 2</a></li></ul>");
 					$("#FB-Oauth2").html("Hi! " +response.first_name+"<br> Complete signUp below");
 				});
-
+				});
 				}
 		    });
 			

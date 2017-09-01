@@ -294,6 +294,30 @@ class People{
         return $arr;
     }
 
+    /**
+     * Check if user is registered
+     * @param  int $fbID   FBID
+     * @param  DB conn
+     * @return PID of user
+     */
+    public static function checkReg($fbID, $conn){
+        $sql = "SELECT pId FROM People where fbID = $fbID";
+        $result = mysqli_query($conn, $sql);
+        if(!$result){
+            $arr = array();
+            $arr[]=-1;
+            return $arr;
+        }
+        $arr = array();
+        $result = 0;
+        while($row = mysqli_fetch_assoc($result)){
+            $result = $row['pId'];
+        }
+        $arr[]=1;
+        $arr[] = $result;
+        return $arr;
+    }
+
     public function getGroups($id, $conn){
 
     }
@@ -345,7 +369,7 @@ class People{
 
             $result = mysqli_query($conn,$sqlInsert);
             if(!$result){
-                $Err = 'Error! Please contact registration team. #'.alog(mysqli_error($conn)).' '.mysqli_error($conn);//remove
+                $Err = 'Error! Please contact registration team. #'.alog(mysqli_error($conn));
                 $arr = array();
                 $arr[]=-1;
                 $arr[]=$Err;

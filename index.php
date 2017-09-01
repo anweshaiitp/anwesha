@@ -1,5 +1,5 @@
 <?php
-ini_set( "display_errors", 0); 
+ini_set( "display_errors", 1); 
 ini_set('zlib_output_compression','On');
 /**
 * New request lands in this class. After that it is routed accordingly to the respective controller.
@@ -64,6 +64,8 @@ if (preg_match($base . '(ca|register|)_?([0-9]{4}|)$@', $url, $match)) {
 	require ('controller/getSubEvents.php');
 } elseif (preg_match($base . 'user/register/User/?$@', $url)) {
 	require ('controller/userRegistration.php');
+} elseif (preg_match($base . 'user/CAcheck/([0-9]+)/?$@', $url, $match)) {
+	require ('controller/cacheck.php');
 } elseif (preg_match($base . 'user/register/CampusAmbassador/?$@', $url)) {
 	require ('controller/campusAmbassadorRegistration.php');
 } elseif (preg_match($base . 'user/switch/CampusAmbassador/?$@', $url)) {
