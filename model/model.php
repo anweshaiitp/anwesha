@@ -309,7 +309,7 @@ class People{
             return $arr;
         }
         $arr = array();
-        $result_ = 0;
+        $result_ = -1;
         while($row = mysqli_fetch_assoc($result)){
             $result_ = $row['pId'];
         }

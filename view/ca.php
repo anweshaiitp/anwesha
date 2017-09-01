@@ -190,11 +190,11 @@
 				      }
 			  	  // $("input[name='DOB']").attr('disabled','true');
 			  	  }
-			  	  if(data[0]!=1){
+			  	  if(data[1]<=1){
 					  $("#FB-Oauth").html("Hi! " +response.first_name+" <ul class='actions'><li><a href='#signUp' class='button'>Continue to step 2</a></li></ul>");
 					  $("#FB-Oauth2").html("Hi! " +response.first_name+"<br> Complete signUp below");	
 					  $("#signUp").css("display","block");
-			  	  }else if(data[0]==1){
+			  	  }else if(data[1]>1){
 			  	  	$("#FB-Oauth").html("Hi! " +response.first_name+"<br>Referal Code is :"+data[1]+" <br><ul class='actions'><li><a href='#leader' class='button'>Dashboard</a></li></ul>");
 			  	  	$("#FB-Oauth2").html("Sign-Up Complete <br>Referal Code is : " + data[1]);
 			  	  }
@@ -204,6 +204,12 @@
 		    });
 			
 		},1000);
+    	$.get( "../leaderboard/api/", function( leaderData ) {
+    		leaderData.forEach(function(userData, index){
+    			$("#leaderTable").append("<tr><td>"+index+"</td><td>"+userData.score+"</td><td>"+userData.score+"</td></tr>");
+    		});
+    	});
+
 	});
 	</script>
 		<!-- Header -->
@@ -316,44 +322,14 @@
 							<table class="default">
 								<thead>
 									<tr>
-										<th>ID</th>
+										<th>Rank</th>
 										<th>Name</th>
-										<th>Description</th>
-										<th>Price</th>
+										<th>Score</th>
 									</tr>
 								</thead>
-								<tbody>
-									<tr>
-										<td>45815</td>
-										<td>Something</td>
-										<td>Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</td>
-										<td>29.99</td>
-									</tr>
-									<tr>
-										<td>24524</td>
-										<td>Nothing</td>
-										<td>Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</td>
-										<td>19.99</td>
-									</tr>
-									<tr>
-										<td>45815</td>
-										<td>Something</td>
-										<td>Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</td>
-										<td>29.99</td>
-									</tr>
-									<tr>
-										<td>24524</td>
-										<td>Nothing</td>
-										<td>Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</td>
-										<td>19.99</td>
-									</tr>
+								<tbody id="leaderTable">
+									
 								</tbody>
-								<tfoot>
-									<tr>
-										<td colspan="3"></td>
-										<td>100.00</td>
-									</tr>
-								</tfoot>
 							</table>
 						</div>
 					</section>
