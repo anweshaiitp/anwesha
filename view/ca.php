@@ -41,9 +41,9 @@
 					var city=$("[name='city']").val();
 					var graduation=$("[name='graduation']").val();
 					var address=$("[name='address']").val();
-					var dob=$("[name='dob']").val();
+					var dob=$("[name='DOB']").val();
 					var mobile=$("[name='mobile']").val();
-					var sex=$("[name='sex']").val();
+					var sex=$("[name='gender']").val();
 					var responsibility=$("[name='responsibility']").val();
 					var involvement=$("[name='involvement']").val();
 					var threethings=$("[name='threethings']").val();
@@ -169,9 +169,18 @@
 			      $("input[name='email']").val(email);
 			  	  $("input[name='email']").attr('disabled','true');
 			  	  }
-			  	   if(DOB && ){
+			  	   if(DOB){//dob format check
 			      $("input[name='DOB']").val(DOB);
-			  	  $("input[name='DOB']").attr('disabled','true');
+			      var dobArr = DOB.split("/");
+			      var dobNo = dobArr.length - 1;
+			      var dobStr = '';
+			      if(dobNo==2){
+			      	dobStr += dobArr[2];
+			      	dobStr += dobArr[0];
+			      	dobStr += dobArr[1];
+			      	$("input[name='DOB']").val(dobStr);
+			      }
+			  	  // $("input[name='DOB']").attr('disabled','true');
 			  	  }
 					$("#FB-Oauth").html("Hi! " +response.first_name+" <ul class='actions'><li><a href='#signUp' class='button'>Continue to step 2</a></li></ul>");
 					$("#FB-Oauth2").html("Hi! " +response.first_name+"<br> Complete signUp below");
@@ -395,7 +404,7 @@
 								<input type="text" name="mobile" placeholder="Mobile(10 digit)" pattern="(7|8|9)\d{9}" required />
 							</div>
 							<div class="6u 12u(mobilep)">
-								<input type="text" name="DOB" placeholder="Date of Birth"  required />
+								<input type="text" name="DOB" placeholder="Date of Birth(yyyy-mm-dd)"  required />
 							</div>
 						</div>
 						<!-- gender -->
