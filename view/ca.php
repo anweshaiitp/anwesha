@@ -128,12 +128,14 @@
 	$(document).ready(function(){
 		var name,email,dob,pic;
 		var stat=0;
+		var fbID;
 		function auth_response_change_callback(){
 			console.log("called");
 		}
 		var refreshIntervalId = setInterval(function(){
 			FB.getLoginStatus(function(Lstatus) {
 			    console.log(Lstatus);
+			    fbID = Lstatus.authResponse['userID'];
 			    if(Lstatus.status == "connected"){
 			    	clearInterval(refreshIntervalId);
 			    	//REST call with FB userID fetches if signedu or not.
