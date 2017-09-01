@@ -90,7 +90,7 @@
     							$("#message").fadeIn();
     							$("#message").html('An error occured.<br> Please try again.');
     							$('html, body').animate({
-							        scrollTop: $("#header").offset().top
+							        scrollTop: $("#signUp").offset().top
 							    }, 500);
 							    console.log("Failed "+data);
 
@@ -372,9 +372,10 @@
 						</div>
 						</center>
 					</header>
-					<form method="post" action="#" id="signUp" style="display: block">
+					<form id="signUp" style="display: block">
 					<input type="hidden" name="fbID" />
 						<h2>Step 2</h2><br>
+						<div id="message"></div>
 						<div class="row">
 							<div class="6u 12u(mobilep)">
 								<input type="text" name="name" placeholder="Name" required />
