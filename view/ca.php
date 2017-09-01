@@ -175,8 +175,8 @@
 			      var dobNo = dobArr.length - 1;
 			      var dobStr = '';
 			      if(dobNo==2){
-			      	dobStr += dobArr[2];
-			      	dobStr += dobArr[0];
+			      	dobStr += dobArr[2] + '-';
+			      	dobStr += dobArr[0] + '-';
 			      	dobStr += dobArr[1];
 			      	$("input[name='DOB']").val(dobStr);
 			      }
