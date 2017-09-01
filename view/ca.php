@@ -205,16 +205,18 @@
 			
 		},1000);
     	$.get( "../leaderboard/api/", function( leaderData ) {
+    		if(leaderData.length>0){
     		leaderData.forEach(function(userData, index){
-    			$("#leaderTable").append("<tr><td>"+index+"</td><td>"+userData.score+"</td><td>"+userData.score+"</td></tr>");
+    			$("#leaderTable").append("<tr><td>"+index+"</td><td>"+userData.name+"</td><td>"+userData.score+"</td></tr>");
     		});
-    	});
+    		}
+    	},"json");
 
 	});
 	</script>
 		<!-- Header -->
 			<div id="header" >
-				<span class="logo icon "></span><h6>IIT Patna</h6>
+				<!-- <span class="logo icon "></span>--><br><br><br><br><h6>IIT Patna's</h6>
 				<h1>Anwesha</h1><br>
 				<h1>Campus Ambassador Programme</h1><br>
 				<center>
@@ -231,13 +233,19 @@
 		<!-- Main -->
 			<div id="main">
 
-				<header class="major container 75%">
+				<header class="major container 95%">
 				<h1 style="font-size: 40px">About us</h1><br>
-					<h2>We conduct experiments that
-					<br />
-					may or may not seriously
-					<br />
-					break the universe</h2>
+					<p>
+						Anwesha is a Techno-Cultural extravaganza held every year in spring.
+						Since its inception in 2010, it has grown into one of the most anticipated student-organized youth festival.
+
+						From NASA Scientists to Dancing Idols, from Ethical Hackers to Heartthrob Singers, from Game Development to Gaming Wars, from Robotics to Dramatics, from Model United Nations to Foreign Exchange Conferences, from Sufi to Death Metal, Anwesha, with the tag “Think Dream Live”, promises every youth to full-fill his/her dreams to the maximum.
+
+						It involves student volunteers who work by interest and promote intellectualism and creativity through their organization and maintain the brand value of IIT. Anwesha meaning “Quest” in Sanskrit has been a quest for every participant to reach his full potential.
+
+						Its latest edition received participation around 5000 and footfall of around 20000 involving many computer geeks, gaming freaks, technoholics, music & dance maniacs and rock bands hailing from well-known institutes across the country.
+
+					</p>
 					<!--
 					<p>Tellus erat mauris ipsum fermentum<br />
 					etiam vivamus nunc nibh morbi.</p>
@@ -246,24 +254,23 @@
 
 				<div class="box alt container">
 					<section class="feature left">
-						<a href="#" class="image icon fa-signal"><img src="../images/pic01.jpg" alt="" /></a>
+						<a href="#" class="image icon  fa-retweet"><img src="../images/pic07.png" alt="" height="700"/></a>
 						<div class="content">
-							<h3>The First Thing</h3>
-							<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus. Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis fusce lacus.</p>
+							<h3>What is Campus Ambassador?</h3>
+							<p>The Campus Ambassador Program (CA) is one of the leading publicity programs of Anwesha. Campus Ambassadors serve as the face of the one of the biggest cultural festival in North-East India in their college and are expected to increase outreach of the fest through on ground and social media publicity. Exciting prizes up for grab apart from the coveted Certificate and goodies.</p>
 						</div>
 					</section>
 					<section class="feature right">
-						<a href="#" class="image icon fa-code"><img src="../images/pic02.jpg" alt="" /></a>
+						<a href="#" class="image icon fa-sitemap"><img src="../images/pic07.png" alt="" height="700"/></a>
 						<div class="content">
-							<h3>The Second Thing</h3>
-							<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus. Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis fusce lacus.</p>
-						</div>
-					</section>
-					<section class="feature left">
-						<a href="#" class="image icon fa-mobile"><img src="../images/pic03.jpg" alt="" /></a>
-						<div class="content">
-							<h3>The Third Thing</h3>
-							<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus. Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis fusce lacus.</p>
+							<h3>Why CA?</h3>
+							<p>Improving your Speaking and managerial skills:<br>
+   An opportunity to improve your oration skills and managerial skills by interacting with people of your campus and encouraging them to take part and be a part of our fest.</p>
+   							<p>
+   								Earn Certificate and goodies:<br>
+   								Recieve a certificate of campus ambassador from Anwesha, IIT Patna authenticating your work as Campus Ambassador. Also, receive various goodies and prizes as perks.
+
+   							</p>
 						</div>
 					</section>
 				</div>
@@ -271,52 +278,64 @@
 				
 				<div class="box container">
 					<header>
-						<h2>A lot of generic stuff</h2>
+						<h2>Judging criteria:-</h2>
 					</header>
 					<section>
-						<header>
-							<h3>Paragraph</h3><br>
-							<p>This is the subtitle for this particular heading</p>
+   
+   <h3>Points Criteria: </h3>
+   <ul class="default">
+   	<li>Online registrations from your referral id - 80 snickles per registration</li>
+   	<li>Upgrade profle photo / cover photo on facebook with Anwesha frame #Anwesha_2k18 in caption - 100 galleons per update</li>
+   	<li>Sharing posts on facebook with #Anwesha_2k18 in caption - 60 snuckles per share</li>
+   	<li>Offline registration from your referral id - 120 galleons per registration</li>
+   	<li>Mailer's Forward Screenshot - 60pts per mail</li>
+   	<li>Sharing Anwesha posts in Instagram Screenshot - 60pts per share</li>
+   	<li>Whatsapp group share Screenshot - 60pts per share</li>
+   	<li>Profile photo with Anwesha frame on instagram Screenshot - 100pts per update</li>
+   	<li>Profile photo with Anwesha frame on whatsapp Screenshot - 100pts per update</li>
+   	<li>Sharing contacts of Student body of your college - 10pts per contact</li>
+   	<li>Sharing details of Anwesha in your college's facebook page (if any) and tagging Anwesha (not in a guest post) - 100pts per share</li>
+   	<li>Sharing details of Anwesha in your college's whatsapp group (if any) Screenshot - 100pts per share</li>
+   </ul>
+<h3>Star CAs:</h3>   
+     After anwesha is over, the top 10 campus ambassadors of Anwesha will be the 'Star' CAs who will be given various perks along with cerificate which include goodies like brand new earphones
+     , anwesha t-shirts, coupons, etc. 
+   
+   <h3>Gold CAs:</h3>
+     Other top 40 CAs will receive Certificate of Campus Ambassador authorised by Anwesha, IIT Patna. 
+					
+					<section>
+						<header><br>
+							<h2>Responsibilities of CA</h2>
 						</header>
-						<p>Phasellus nisl nisl, varius id <sup>porttitor sed pellentesque</sup> ac orci. Pellentesque
-						habitant <strong>strong</strong> tristique <b>bold</b> et netus <i>italic</i> malesuada <em>emphasized</em> ac turpis egestas. Morbi
-						leo suscipit ut. Praesent <sub>id turpis vitae</sub> turpis pretium ultricies. Vestibulum sit
-						amet risus elit.</p>
+						<ul class="default">
+
+						<li><b>Registration:</b><br>
+						   When the registration for Anwesha starts, register yourself as CA and then make other participants from your college register through your referral ID.</li>
+
+						   <li><b>Social Media:</b><br>
+						   Share posts, events and updates related info in social media platforms like facebook, twitter, Instagram.</li>
+
+						   <li><b>Participation:</b><br>
+						   Ensure keen participation from your college in Anwesha and multi-city auditions.</li>
+						</p>
+							
+						</ul>
 					</section>
 					<section>
 						<header>
-							<h3>Blockquote</h3>
+							<h2>Benefits of CA::</h2>
 						</header>
-						<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget.
-						tempus euismod. Vestibulum ante ipsum primis in faucibus.</blockquote>
-					</section>
-					<section>
-						<header>
-							<h3>Divider</h3>
-						</header>
-						<p>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra
-						ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel. Praesent nec orci
-						facilisis leo magna. Cras sit amet urna eros, id egestas urna. Quisque aliquam
-						tempus euismod. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-						posuere cubilia.</p>
+						<p>
+					   Get a certificate of campus ambassador program from Anwesha IIT Patna.<br>
+					   Get a chance to click a selfie with the celebrities coming at pro nites.<br>
+					   Recieve goodies like anwesha t-shirts, earphones(boat), (other stuff from our sponsors)..</p>
 						<hr />
 						
 					</section>
-					<section>
-						<header>
-							<h3>Unordered List</h3>
-						</header>
-						<ul class="default">
-							<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
-							<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
-							<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
-							<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
-						</ul>
-					</section>
-					
 					<section id="leader">
 						<header>
-							<h3>Leaderboard</h3>
+							<h2>Leaderboard</h2>
 						</header>
 						<div class="table-wrapper">
 							<table class="default">
@@ -336,14 +355,14 @@
 					
 				</div>
 			
-
+<!-- 
 				<footer class="major container 75%">
 					<h3>Get shady with science</h3>
 					<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus. Tellus erat mauris ipsum fermentum etiam vivamus.</p>
 					<ul class="actions">
 						<li><a href="#" class="button">Join our crew</a></li>
 					</ul>
-				</footer>
+				</footer> -->
 
 			</div>
 
@@ -357,7 +376,7 @@
 							<h2>Step 1</h2>
 						<div id="FB-Oauth2">
 							 Facebook
-							<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with"  data-auto-logout-link="true" data-use-continue-as="true" data-scope="email,public_profile,user_location,user_birthday,user_about_me" onlogin="auth_response_change_callback();"></div><!-- <br>
+							<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with"  data-auto-logout-link="true" data-use-continue-as="true" data-scope="email,public_profile,user_location,user_likes,user_posts,user_birthday,user_about_me" onlogin="auth_response_change_callback();"></div><!-- <br>
 							<a id="test">This this</a> -->
 						</div>
 						</center>

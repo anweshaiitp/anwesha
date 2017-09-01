@@ -2415,7 +2415,7 @@
 
 	.feature {
 		position: relative;
-		height: 20em;
+		height: 28em;
 	}
 
 		.feature:after {
@@ -2507,11 +2507,22 @@
 /* Header */
 
 	#header {
-		background-attachment: scroll,							scroll,					fixed;
+		/*background-attachment: scroll,							scroll,					fixed;
 		background-image: url("images/top-3200.svg"), url("images/overlay.png"), url("../../images/header.jpg");
 		background-position: bottom center,					top left,				center center;
 		background-repeat: repeat-x,						repeat,					no-repeat;
 		background-size: 3200px 460px,					auto,					cover;
+		color: rgba(255, 255, 255, 0.8);
+		padding: 10em 0 20em 0;
+		position: relative;
+		text-align: center;*/
+		background-attachment: scroll,	scroll,	fixed;
+		background-image: url(images/top-3200.svg), url(../../images/pic02_.jpg);
+		background-repeat: no-repeat;
+		background-position: bottom center,	top left,	center center;
+		/* background-repeat: repeat-x,	repeat,	no-repeat; */
+		/* background-size: 3200px 460px,	auto,	cover; */
+		background-size: cover;
 		color: rgba(255, 255, 255, 0.8);
 		padding: 10em 0 20em 0;
 		position: relative;
@@ -2600,7 +2611,7 @@
 
 	#footer {
 		background-attachment: scroll;
-		background-color: #4eb980;
+		background-color: #3092b9;
 		background-image: url("images/bottom-3200.svg");
 		background-position: top center;
 		background-repeat: repeat-x;
