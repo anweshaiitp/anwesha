@@ -143,9 +143,10 @@
 			    	console.log("in");
 			    	clearInterval(refreshIntervalId);
 			    	$.get( "../user/CAcheck/" + fbID + "/", function( data ) {
-			    	  var obj = JSON.parse(data);
-			    	  console.log(obj);
-			    	  console.log(obj[0]);
+			    	  // var obj = JSON.parse(data);
+			    	  console.log(data);
+			    	  console.log(data[0]);
+
 			    	// if(data[-1])
 			    	//REST call with FB userID fetches if signedu or not.
 			    	//If not, then post request to the same for registering and validation.
@@ -173,24 +174,31 @@
 			      	  $("input[name='gender']").attr('disabled','true');
 			      }
 			  	  if(email){
-			      $("input[name='email']").val(email);
-			  	  $("input[name='email']").attr('disabled','true');
+				      $("input[name='email']").val(email);
+				  	  $("input[name='email']").attr('disabled','true');
 			  	  }
-			  	   if(DOB){//dob format check
-			      $("input[name='DOB']").val(DOB);
-			      var dobArr = DOB.split("/");
-			      var dobNo = dobArr.length - 1;
-			      var dobStr = '';
-			      if(dobNo==2){
-			      	dobStr += dobArr[2] + '-';
-			      	dobStr += dobArr[0] + '-';
-			      	dobStr += dobArr[1];
-			      	$("input[name='DOB']").val(dobStr);
-			      }
+			  	  if(DOB){//dob format check
+				      $("input[name='DOB']").val(DOB);
+				      var dobArr = DOB.split("/");
+				      var dobNo = dobArr.length - 1;
+				      var dobStr = '';
+				      if(dobNo==2){
+				      	dobStr += dobArr[2] + '-';
+				      	dobStr += dobArr[0] + '-';
+				      	dobStr += dobArr[1];
+				      	$("input[name='DOB']").val(dobStr);
+				      }
 			  	  // $("input[name='DOB']").attr('disabled','true');
 			  	  }
-					$("#FB-Oauth").html("Hi! " +response.first_name+" <ul class='actions'><li><a href='#signUp' class='button'>Continue to step 2</a></li></ul>");
-					$("#FB-Oauth2").html("Hi! " +response.first_name+"<br> Complete signUp below");
+			  	  if(data[0]!=1){
+					  $("#FB-Oauth").html("Hi! " +response.first_name+" <ul class='actions'><li><a href='#signUp' class='button'>Continue to step 2</a></li></ul>");
+					  $("#FB-Oauth2").html("Hi! " +response.first_name+"<br> Complete signUp below");	
+					  $("#signUp").css("display","block");
+			  	  }else if(data[0]==1){
+			  	  	$("#FB-Oauth").html("Hi! " +response.first_name+"<br>Referal Code is :"+data[1]+" <br><ul class='actions'><li><a href='#leader' class='button'>Dashboard</a></li></ul>");
+			  	  	$("#FB-Oauth2").html("Sign-Up Complete <br>Referal Code is : " + data[1]);	
+			  	  	$("#signUp").css("display","block");
+			  	  }
 				});
 				});
 				}
@@ -301,9 +309,9 @@
 						</ul>
 					</section>
 					
-					<section>
+					<section id="leader">
 						<header>
-							<h3>Table</h3>
+							<h3>Leaderboard</h3>
 						</header>
 						<div class="table-wrapper">
 							<table class="default">
@@ -379,7 +387,7 @@
 						</div>
 						</center>
 					</header>
-					<form id="signUp" style="display: block">
+					<form id="signUp" style="display: none">
 					<input type="hidden" name="fbID" />
 						<h2>Step 2</h2><br>
 						<div id="message"></div>
