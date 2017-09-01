@@ -30,11 +30,13 @@
 			}
 		</style>
 		<script>
-						$("#submit").click(function(){
-							var name=$("[name='name']").val();
+	$(document).ready(function(){
+			$("#submit").click(function(){
+					var name=$("[name='name']").val();
 					var email=$("[name='email']").val();
 					var college=$("[name='college']").val();
 					var degree=$("[name='degree']").val();
+					var fbID=$("[name='fbID']").val();
 					var city=$("[name='city']").val();
 					var graduation=$("[name='graduation']").val();
 					var address=$("[name='address']").val();
@@ -47,56 +49,58 @@
 					var referalcode=$("[name='referalcode']").val();
 					console.log("Request Send");
 					$.post("../user/register/CampusAmbassador/",
-			    						{        						
-			       						name: name,
-			        					email: email,
-			        					college: college,
-			        					degree: degree,
-			        					city:city,
-			        					graduation:graduation,
-			        					address:address,
-			        					dob:dob,
-			        					mobile:mobile,
-			        					sex:sex,
-			        					responsibility:responsibility,
-			        					involvement:involvement,
-			        					threethings:threethings,
-			        					referalcode:referalcode
-			    						},
-			    						function(data, status){
-			        					console.log("Response");
-			        					console.log("Data: " + data + "\nStatus: " + status);
-			        					if(status=='success'){//$("#myloader").fadeOut();
-			        						console.log(data);
+						{        						
+   						name: name,
+   						fbID:fbID,
+    					email: email,
+    					college: college,
+    					degree: degree,
+    					city:city,
+    					graduation:graduation,
+    					address:address,
+    					dob:dob,
+    					mobile:mobile,
+    					sex:sex,
+    					responsibility:responsibility,
+    					involvement:involvement,
+    					threethings:threethings,
+    					referalcode:referalcode
+						},
+						function(data, status){
+    					console.log("Response");
+    					console.log("Data: " + data + "\nStatus: " + status);
+    					if(status=='success'){//$("#myloader").fadeOut();
+    						console.log(data);
 
-			        						if(data[0]==1){
-			        							$("#message").html('<center>Registration Successful<br>An activation link has been sent to your email.</center>');
-			        							$("#message").fadeIn();
-			        							$("#message").css('background','#5FAB22');
-			        							$("#form_fill").fadeOut();
-			        						}else{
-			        							$("#message").fadeIn();
-			        							$("#message").html('<center>Error<br>'+data[1]+'</center>');
-											}
-											$('html, body').animate({
-											        scrollTop: $("#header").offset().top
-											    }, 500);
-			     
-			        					}else{//$("#myloader").fadeOut();
-			        							$("#message").fadeIn();
-			        							$("#message").html('An error occured.<br> Please try again.');
-			        							$('html, body').animate({
-											        scrollTop: $("#header").offset().top
-											    }, 500);
-											    console.log("Failed "+data);
+    						if(data[0]==1){
+    							$("#message").html('<center>Registration Successful<br>An activation link has been sent to your email.</center>');
+    							$("#message").fadeIn();
+    							$("#message").css('background','#5FAB22');
+    							$("#form_fill").fadeOut();
+    						}else{
+    							$("#message").fadeIn();
+    							$("#message").html('<center>Error<br>'+data[1]+'</center>');
+							}
+							$('html, body').animate({
+							        scrollTop: $("#header").offset().top
+							    }, 500);
+ 
+    					}else{//$("#myloader").fadeOut();
+    							$("#message").fadeIn();
+    							$("#message").html('An error occured.<br> Please try again.');
+    							$('html, body').animate({
+							        scrollTop: $("#header").offset().top
+							    }, 500);
+							    console.log("Failed "+data);
 
-			        						}
-			        						$('html, body').animate({
+    						}
+    						$('html, body').animate({
 			        scrollTop: $("#header").offset().top
 			    }, 500);
 			    			},"json");
 
-						});
+			});
+		});
 		</script>
 	</head>
 	<body>

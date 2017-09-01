@@ -110,13 +110,15 @@ class People{
      * @param  string $rc Referral Code
      * @return string      if null then no errors, else returns the error.
      */
-    public function validateData($n,$col,&$se,$mob,$em,$db,$cit,$rc){
+    public function validateData($n,$fbID,$col,&$se,$mob,$em,$db,$cit,$rc){
 
         $error = null;
         if (strlen($n)<4 || strlen($n) > 40){
             $error = 'Username is too long or too short';
         } else if (strlen($col)>=300){
             $error = 'College Name too long';
+        } else if (!$fbID || $fbID ==''){
+            $error = 'FB auth required too long';
         } else if (strlen($em)>=60){
             $error = 'Email ID too long';
         } else if (strlen($cit)>=50){
@@ -309,8 +311,8 @@ class People{
      * @param  MySQLi $conn database connection object
      * @return array       index 0 :- 1(success), -1(error);
      */
-    public function createUser($n,$col,$se,$mob,$em,$db,$cit,$ca,$rc,$conn){
-        $error = self::validateData($n,$col,$se,$mob,$em,$db,$cit,$rc);
+    public function createUser($n,$fbID,$col,$se,$mob,$em,$db,$cit,$ca,$rc,$conn){
+        $error = self::validateData($n,$fbID,$col,$se,$mob,$em,$db,$cit,$rc);
         if(isset($error)){
             $arr = array();
             $arr[]=-1;
@@ -339,11 +341,11 @@ class People{
 
             $time = time() ;
 
-            $sqlInsert = "INSERT INTO People(name,pId,college,sex,mobile,email,dob,city,refcode,feePaid,confirm) VALUES ('$n', $id, '$col', '$se', '$mob', '$em', '$db', '$cit', '$rc', 0, 0)";
+            $sqlInsert = "INSERT INTO People(name,fbID,pId,college,sex,mobile,email,dob,city,refcode,feePaid,confirm) VALUES ('$n', $fbID, $id, '$col', '$se', '$mob', '$em', '$db', '$cit', '$rc', 0, 1)";
 
             $result = mysqli_query($conn,$sqlInsert);
             if(!$result){
-                $Err = 'Error! Maybe EmailId is already in use. #'.alog(mysqli_error($conn));
+                $Err = 'Error! Please contact registration team. #'.alog(mysqli_error($conn)).' '.mysqli_error($conn);//remove
                 $arr = array();
                 $arr[]=-1;
                 $arr[]=$Err;
@@ -404,17 +406,18 @@ class People{
      * @param  MySQLi $conn       database connection object
      * @return array             index 0 :- 1(success), -1(error);
      */
-    public function createCampusAmbassador($name,$college,$sex,$mob,$email,$dob,$city,$address,$degree,$grad,$leader,$involvement,$threethings,$rc,$conn){
+    public function createCampusAmbassador($name,$fbID = NULL,$college,$sex,$mob,$email,$dob,$city,$address,$degree,$grad,$leader,$involvement,$threethings,$rc,$conn){
         mysqli_autocommit($conn,FALSE);
         try
         {
-            $returnArray = self::createUser($name,$college,$sex,$mob,$email,$dob,$city,true,$rc,$conn);
+            $returnArray = self::createUser($name,$fbID,$college,$sex,$mob,$email,$dob,$city,true,$rc,$conn);
             if($returnArray[0]==-1){
                 mysqli_rollback($conn);
                 return $returnArray;
             }
             // Escaping String
             $address = mysqli_real_escape_string($conn,$address);
+            $fbID = mysqli_real_escape_string($conn,$fbID);
             $degree = mysqli_real_escape_string($conn,$degree);
             $grad = mysqli_real_escape_string($conn,$grad);
             $leader = mysqli_real_escape_string($conn,$leader);
@@ -422,7 +425,7 @@ class People{
             $threethings =  mysqli_real_escape_string($conn,$threethings);
 
             $pid = $returnArray[1]['pId'];
-            $sql = "INSERT INTO `CampusAmberg` (`pId`, `refKey`, `address`, `degree`, `grad`, `leader`, `involvement`,`threethings`) VALUES ($pid, '0', '$address', '$degree', '$grad', '$leader', '$involvement','$threethings')";
+            $sql = "INSERT INTO `CampusAmberg` (`pId`,`fbID`, `refKey`, `address`, `degree`, `grad`, `leader`, `involvement`,`threethings`) VALUES ($pid, $fbID, '0', '$address', '$degree', '$grad', '$leader', '$involvement','$threethings')";
 
             $result = mysqli_query($conn, $sql);
             if(!$result){
@@ -577,7 +580,7 @@ class People{
         $message = "Hi $name,<br>Thank you for registering for $ANWESHA_YEAR. Your Registered Id is : <b>ANW$id</b>. To complete your registration, you need to verify your email account. Click <a href = \"$link\">here</a> for email verification.<br>";
         $ca_shareurl = $ANWESHA_URL . 'register_' . $id;
         if($ca)
-            $message = $message."<br>Your Referal Code is last <i>four digits</i> of your AnweshaID. Or you can also share <a href='$ca_shareurl'>$ca_shareurl</a> for other people registration.<br>";
+            $message = $message."<br>Your Referal Code is last <i>four digits</i> of your AnweshaID ($id). Or you can also share <a href='$ca_shareurl'>$ca_shareurl</a> for other people's registration and get points for more registration. View the Campus Ambassador leaderboard here: <a href='$ca_leader'>$ca_leader</a><br>";
         $message = $message . "In case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to <i>$ANWESHA_REG_EMAIL</i>. You can also visit our website <i>$ANWESHA_URL</i> for more information.<br>Thank You.<br>Registration Desk<br>$ANWESHA_YEAR";
         $subject = "Email Verification, $ANWESHA_YEAR";
 

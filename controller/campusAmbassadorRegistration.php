@@ -16,6 +16,20 @@ if(isset($_POST['name']) && !empty($_POST['name'])){
 	die();
 }
 
+$fbID = null;
+$refcode = "";
+
+if(isset($_POST['fbID']) && !empty($_POST['fbID'])){
+	$fbID = $_POST['fbID'];	
+} else {
+	header('Content-type: application/json');
+	$arr = array();
+	$arr[] = -1;
+	$arr[] = 'Missing parameter in the request : fbID';
+	echo json_encode($arr);
+	die();
+}
+
 $college = null;
 if(isset($_POST['college']) && !empty($_POST['college'])){
 	$college = $_POST['college'];	
@@ -164,7 +178,7 @@ if(isset($_POST['referalcode'])) {
 }
 
 $conn = mysqli_connect(SERVER_ADDRESS,USER_NAME,PASSWORD,DATABASE);
-$result = People::createCampusAmbassador($name,$college,$sex,$mobile,$email,$dob,$city,$address,$degree,$graduation,$responsibility,$involvement,$threethings,$refcode,$conn);
+$result = People::createCampusAmbassador($name,$fbID,$college,$sex,$mobile,$email,$dob,$city,$address,$degree,$graduation,$responsibility,$involvement,$threethings,$refcode,$conn);
 mysqli_close($conn);
 header('Content-type: application/json');
 echo json_encode($result);
