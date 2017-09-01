@@ -136,6 +136,8 @@
 			FB.getLoginStatus(function(Lstatus) {
 			    console.log(Lstatus);
 			    fbID = Lstatus.authResponse['userID'];
+			    console.log(fbID);
+			    $("input[name='fbID']").val(fbID);
 			    if(Lstatus.status == "connected"){
 			    	clearInterval(refreshIntervalId);
 			    	//REST call with FB userID fetches if signedu or not.
