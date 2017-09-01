@@ -392,7 +392,8 @@
 				
 			</div>
 			<div class="title">
-			 <h1 style="font-style: ">Comming Soon</h1>
+			<!--we will rock this year--->
+			 <h1 style="font-style: ">Coming Soon</h1>
 			</div>
 		</div>
 		
