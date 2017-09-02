@@ -2999,8 +2999,8 @@
 		/* Header */
 
 			#header {
-				background-image: url("images/top-1280.svg"), url("images/overlay.png"), url("../../images/header.jpg");
-				background-size: 1280px 184px,						auto,							cover;
+				background-image: url(images/top-3200.svg), url(../../images/pic02_.jpg);
+				background-size: cover;
 				padding: 3em 0 7em 0;
 			}
 
