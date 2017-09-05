@@ -27,7 +27,7 @@
 		<script>
 	$(document).ready(function(){
 			$("#submit").click(function(event){
-					event.preventDefault();
+					// event.preventDefault();
 					var name=$("[name='name']").val();
 					var email=$("[name='email']").val();
 					var college=$("[name='college']").val();
@@ -43,7 +43,7 @@
 					var involvement=$("[name='involvement']").val();
 					var threethings=$("[name='threethings']").val();
 					var referalcode=$("[name='referalcode']").val();
-					console.log("Request Send");
+					console.log("Request Sent");
 					$.post("../user/register/CampusAmbassador/",
 						{        						
    						name: name,
@@ -190,7 +190,7 @@
 					  $("#FB-Oauth2").html("Hi! " +response.first_name+"<br> Complete signUp below");	
 					  $("#signUp").css("display","block");
 			  	  }else if(data[1]>1){
-			  	  	$("#FB-Oauth").html("Hi! " +response.first_name+"<br>Referal Code is :"+data[1]+" <br><ul class='actions'><li><a href='#leader' class='button'>Dashboard</a></li></ul>");
+			  	  	$("#FB-Oauth").html("Hi! " +response.first_name+"<br>Referal Code is :"+data[1]+" <br><ul class='actions'><li><a href='#leader' class='button'>Leaderboard</a></li></ul>");
 			  	  	$("#FB-Oauth2").html("Sign-Up Complete <br>Referal Code is : " + data[1]);
 			  	  }
 				});
@@ -202,7 +202,9 @@
     	$.get( "../leaderboard/api/", function( leaderData ) {
     		if(leaderData.length>0){
     		leaderData.forEach(function(userData, index){
-    			$("#leaderTable").append("<tr><td>"+ index+1 +"</td><td>"+userData.name+"</td><td>"+userData.score+"</td></tr>");
+    			var index_ = parseInt(index);
+    			index_++;
+    			$("#leaderTable").append("<tr><td>"+ index_ +"</td><td>"+userData.name+"</td><td>"+userData.score+"</td></tr>");
     		});
     		}
     	},"json");
