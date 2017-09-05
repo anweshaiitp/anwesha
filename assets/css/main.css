@@ -2539,7 +2539,7 @@
 		}
 
 		#header:before {
-			height: calc(100% - 50px);
+			//height: calc(100% - 50px);
 			opacity: 0.15;
 			top: 0;
 		}
@@ -2611,7 +2611,7 @@
 
 	#footer {
 		background-attachment: scroll;
-		background-color: #3092b9;
+		background-color: #d17308;
 		background-image: url("images/bottom-3200.svg");
 		background-position: top center;
 		background-repeat: repeat-x;
@@ -2843,7 +2843,7 @@
 			}
 
 				#header:before {
-					height: calc(100% - 25px);
+					//height: calc(100% - 25px);
 				}
 
 				#header:after {
@@ -3005,7 +3005,7 @@
 			}
 
 				#header:before {
-					height: calc(100% - 20px);
+					//height: calc(100% - 20px);
 				}
 
 				#header:after {
