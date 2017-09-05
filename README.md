@@ -32,7 +32,7 @@
 
 ## TODO
 - [x] Social links update.
-- [ ] Add youtube link.
+- [x] Add youtube link.
 - [ ] Main content font and text.
 - [ ] Dashboard->leaderboard.
 - [ ] center line
