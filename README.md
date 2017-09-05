@@ -38,7 +38,7 @@
 - [ ] center line
 - [ ] anchor #.
 - [ ] form field error.
-- [ ] Blue background
+- [x] Blue background
 - [ ] Step 1 remove after signup.
 - [ ] Change email
 - [ ] Copyrights

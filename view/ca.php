@@ -460,8 +460,10 @@
 					</form>
 
 					<ul class="icons">
-						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-						<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="https://www.facebook.com/anwesha.iitpatna/" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="https://www.instagram.com/anwesha.iitp/" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="https://www.youtube.com/user/AnweshaIITP" class="icon fa-instagram"><span class="label">Youtube</span></a></li>
+						
 						</ul>
 
 					<ul class="copyright">
