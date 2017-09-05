@@ -1,9 +1,4 @@
 <!DOCTYPE HTML>
-<!--
-	Directive by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
 	<head>
 		<title>Campus Ambassador</title>
@@ -207,7 +202,7 @@
     	$.get( "../leaderboard/api/", function( leaderData ) {
     		if(leaderData.length>0){
     		leaderData.forEach(function(userData, index){
-    			$("#leaderTable").append("<tr><td>"+index+"</td><td>"+userData.name+"</td><td>"+userData.score+"</td></tr>");
+    			$("#leaderTable").append("<tr><td>"+ index+1 +"</td><td>"+userData.name+"</td><td>"+userData.score+"</td></tr>");
     		});
     		}
     	},"json");
@@ -277,7 +272,7 @@
 
 				
 				<div class="box container">
-					<header>
+					<!--<header>
 						<h2>Judging criteria:-</h2>
 					</header>
 					<section>
@@ -303,8 +298,8 @@
    
    <h3>Gold CAs:</h3>
      Other top 40 CAs will receive Certificate of Campus Ambassador authorised by Anwesha, IIT Patna. 
-					
-					<section>
+					-->
+					<!-- <section>
 						<header><br>
 							<h2>Responsibilities of CA</h2>
 						</header>
@@ -321,8 +316,8 @@
 						</p>
 							
 						</ul>
-					</section>
-					<section>
+					</section> -->
+					<!-- <section>
 						<header>
 							<h2>Benefits of CA::</h2>
 						</header>
@@ -332,7 +327,7 @@
 					   Recieve goodies like anwesha t-shirts, earphones(boat), (other stuff from our sponsors)..</p>
 						<hr />
 						
-					</section>
+					</section> -->
 					<section id="leader">
 						<header>
 							<h2>Leaderboard</h2>
