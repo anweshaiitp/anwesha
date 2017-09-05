@@ -90,9 +90,9 @@
 							    console.log("Failed "+data);
 
     						}
-    						$('html, body').animate({
-			        scrollTop: $("#header").offset().top
-			    }, 500);
+    			// 			$('html, body').animate({
+			    //     scrollTop: $("#header").offset().top
+			    // }, 500);
 			    			},"json");
 
 			});
