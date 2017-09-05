@@ -254,14 +254,14 @@
 
 				<div class="box alt container">
 					<section class="feature left">
-						<a href="#" class="image icon  fa-retweet"><img src="../images/pic07.png" alt="" height="700"/></a>
+						<a class="image icon  fa-retweet"><img src="../images/pic07.png" alt="" height="700"/></a>
 						<div class="content">
 							<h3>What is Campus Ambassador?</h3>
 							<p>The Campus Ambassador Program (CA) is one of the leading publicity programs of Anwesha. Campus Ambassadors serve as the face of the one of the biggest cultural festival in North-East India in their college and are expected to increase outreach of the fest through on ground and social media publicity. Exciting prizes up for grab apart from the coveted Certificate and goodies.</p>
 						</div>
 					</section>
 					<section class="feature right">
-						<a href="#" class="image icon fa-sitemap"><img src="../images/pic07.png" alt="" height="700"/></a>
+						<a class="image icon fa-sitemap"><img src="../images/pic07.png" alt="" height="700"/></a>
 						<div class="content">
 							<h3>Why CA?</h3>
 							<p>Improving your Speaking and managerial skills:<br>

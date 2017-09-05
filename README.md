@@ -35,7 +35,7 @@
 - [x] Add youtube link.
 - [ ] Main content font and text.
 - [ ] Dashboard->leaderboard.
-- [ ] center line
+- [x] center line
 - [ ] anchor #.
 - [ ] form field error.
 - [x] Blue background

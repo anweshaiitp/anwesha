@@ -2539,7 +2539,7 @@
 		}
 
 		#header:before {
-			height: calc(100% - 50px);
+			//height: calc(100% - 50px);
 			opacity: 0.15;
 			top: 0;
 		}
@@ -2843,7 +2843,7 @@
 			}
 
 				#header:before {
-					height: calc(100% - 25px);
+					//height: calc(100% - 25px);
 				}
 
 				#header:after {
@@ -3005,7 +3005,7 @@
 			}
 
 				#header:before {
-					height: calc(100% - 20px);
+					//height: calc(100% - 20px);
 				}
 
 				#header:after {
