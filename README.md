@@ -31,11 +31,18 @@
 - send the request
 
 ## TODO
-- [ ] Write setupdb.php.
-- [ ] Write Trigger to clean tables in 4-5 days.
-- [ ] ~~Write backend for Campus Ambassador.~~(See below)
-- [ ] Testing Registration (User/Campus Ambassador).
-- [ ] Testing Events Details.
+- [ ] Social links update.
+- [ ] Add youtube link.
+- [ ] Main content font and text.
+- [ ] Dashboard->leaderboard.
+- [ ] center line
+- [ ] anchor #.
+- [ ] form field error.
+- [ ] Blue background
+- [ ] Step 1 remove after signup.
+- [ ] Change email
+- [ ] Copyrights
+- [ ] Post signup notify and message box.
 - [ ] Testing Events Details [With Image rendering].
 - [ ] Add caching to Events.
 - [ ] Write fb/twitter/google/github register backend and frontend.
