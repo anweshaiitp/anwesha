@@ -27,6 +27,7 @@
 		<script>
 	$(document).ready(function(){
 			$("#submit").click(function(event){
+			//function submitF(){
 					// event.preventDefault();
 					var name=$("[name='name']").val();
 					var email=$("[name='email']").val();
@@ -69,7 +70,7 @@
     						console.log(data);
 
     						if(data[0]==1){
-    							$("#message").html('<center>Registration Successful<br>An activation link has been sent to your email.</center>');
+    							$("#message").html('<center<b>Registration Successful</b>Your referal ID is : '+data[1]['pId']+'<br>A confirmation email has been sent.</center>');
     							$("#message").fadeIn();
     							$("#message").css('background','#5FAB22');
     							$("#signUp").fadeOut();
@@ -77,9 +78,9 @@
     							$("#message,#message2").fadeIn();
     							$("#message,#message2").html('<center>Error<br>'+data[1]+'</center>');
 							}
-							$('html, body').animate({
-							        scrollTop: $("#header").offset().top
-							    }, 500);
+//							$('html, body').animate({
+//							        scrollTop: $("#header").offset().top
+//							    }, 500);
  
     					}else{//$("#myloader").fadeOut();
     							$("#message,#message2").fadeIn();
@@ -90,10 +91,12 @@
 							    console.log("Failed "+data);
 
     						}
-    						$('html, body').animate({
-			        scrollTop: $("#header").offset().top
-			    }, 500);
-			    			},"json");
+    		//				$('html, body').animate({
+		//	        scrollTop: $("#header").offset().top
+		//	    }, 500);
+			    			},"json").always(function(data) {
+//    alert( "finished"+JSON.stringify(data.responseText) );if(data==undefined ){alert("2");}if(data=="" ){alert("3");}
+  });
 
 			});
 		});
@@ -377,11 +380,10 @@
 							<a id="test">This this</a> -->
 						</div>
 						</center>
-					</header>
-					<form id="signUp" style="display: none">
+					</header><div id="message"></div><br>
+					<form id="signUp" style="sidplay:none" action="javascript:" method="post" >
 					<input type="hidden" name="fbID" />
-						<h2>Step 2</h2><br>
-						<div id="message"></div>
+						<h2>Step 2</h2><br>						
 						<div class="row">
 							<div class="6u 12u(mobilep)">
 								<input type="text" name="name" placeholder="Name" required />
@@ -446,7 +448,7 @@
 								<input type="text" name="referalcode" placeholder="Optional referal code" />
 							</div>
 						</div>
-
+<div id="message2"></div>
 						<div class="row">
 							<div class="12u">
 								<ul class="actions">

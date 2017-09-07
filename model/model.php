@@ -369,7 +369,12 @@ class People{
 
             $result = mysqli_query($conn,$sqlInsert);
             if(!$result){
-                $Err = 'Error! Please contact registration team. #'.alog(mysqli_error($conn));
+		$dup='';
+		if(strpos(mysqli_error($conn),"Duplicate entry")!==false){
+			$strExp=explode("'",mysqli_error($conn));
+			$dup.=$strExp[count($strExp)-2]." already exists.";
+		}
+                $Err = 'Error! '.$dup.' Please contact registration team. #'.alog(mysqli_error($conn));
                 $arr = array();
                 $arr[]=-1;
                 $arr[]=$Err;
@@ -601,10 +606,10 @@ class People{
         $baseURL = $baseURL . 'verifyEmail/User/';
         $link = $baseURL . '' . $id . '/' . $link;
         // mail($to,$subject,$message);
-        $message = "Hi $name,<br>Thank you for registering for $ANWESHA_YEAR. Your Registered Id is : <b>ANW$id</b>. To complete your registration, you need to verify your email account. Click <a href = \"$link\">here</a> for email verification.<br>";
+        $message = "Hi $name,<br>Thank you for registering for $ANWESHA_YEAR. Your Registered Id is : <b>ANW$id</b>.<br>";
         $ca_shareurl = $ANWESHA_URL . 'register_' . $id;
         if($ca)
-            $message = $message."<br>Your Referal Code is last <i>four digits</i> of your AnweshaID ($id). Or you can also share <a href='$ca_shareurl'>$ca_shareurl</a> for other people's registration and get points for more registration. View the Campus Ambassador leaderboard here: <a href='$ca_leader'>$ca_leader</a><br>";
+            $message = $message."<br>Your Referal Code is last <i>four digits</i> of your AnweshaID ($id) for other people's registration and get points for more registrations. View the Campus Ambassador leaderboard here: <a href='$ca_leader'>$ca_leader</a><br>";
         $message = $message . "In case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to <i>$ANWESHA_REG_EMAIL</i>. You can also visit our website <i>$ANWESHA_URL</i> for more information.<br>Thank You.<br>Registration Desk<br>$ANWESHA_YEAR";
         $subject = "Email Verification, $ANWESHA_YEAR";
 
