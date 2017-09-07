@@ -85,18 +85,11 @@
     					}else{//$("#myloader").fadeOut();
     							$("#message,#message2").fadeIn();
     							$("#message,#message2").html('An error occured.<br> Please try again.');
-    							// $('html, body').animate({
-							    //     scrollTop: $("#signUp").offset().top
-							    // }, 500);
+    							
 							    console.log("Failed "+data);
 
     						}
-    		//				$('html, body').animate({
-		//	        scrollTop: $("#header").offset().top
-		//	    }, 500);
-			    			},"json").always(function(data) {
-//    alert( "finished"+JSON.stringify(data.responseText) );if(data==undefined ){alert("2");}if(data=="" ){alert("3");}
-  });
+			    			},"json");
 
 			});
 		});
