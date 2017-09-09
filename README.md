@@ -33,11 +33,11 @@
 ## TODO
 - [x] Social links update.
 - [x] Add youtube link.
-- [ ] Main content font and text.
-- [ ] Dashboard->leaderboard.
+- [x] Main content font and text.
+- [x] Dashboard->leaderboard.
 - [x] center line
-- [ ] anchor #.
-- [ ] form field error.
+- [x] anchor #.
+- [x] form field error.
 - [x] Blue background
 - [ ] Step 1 remove after signup.
 - [ ] Change email
