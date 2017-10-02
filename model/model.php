@@ -609,8 +609,31 @@ class People{
         $message = "Hi $name,<br>Thank you for registering for $ANWESHA_YEAR. Your Registered Id is : <b>ANW$id</b>.<br>";
         $ca_shareurl = $ANWESHA_URL . 'register_' . $id;
         if($ca)
-            $message = $message."<br>Your Referal Code is last <i>four digits</i> of your AnweshaID ($id) for other people's registration and get points for more registrations. View the Campus Ambassador leaderboard here: <a href='$ca_leader'>$ca_leader</a><br>";
-        $message = $message . "In case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to <i>$ANWESHA_REG_EMAIL</i>. You can also visit our website <i>$ANWESHA_URL</i> for more information.<br>Thank You.<br>Registration Desk<br>$ANWESHA_YEAR";
+            $message = $message."<br>Hearty Congratulations!! You have been appointed as the Campus Ambassador for Anwesha 2k18 and now you are a part of our team which will take the responsibility of representing Anwesha in your college. Your registration ID  is $id.
+                <br>
+
+                 All you have to do is spread the news about Anwesha 2k18 - One of Eastern India’s  Largest  Festival,  and help your friends  live some of the best moment of life - learning & exploring themselves.
+                 <br>
+                On top of that you also get a chance to win exciting goodies with the top Campus Ambassador getting an opportunity to click a selfie with our celebrity guests at Anwesha 2k18.  
+                <br>
+                Here is rulebook for the Campus Ambassador Program.
+                <br>
+                $ANWESHA_URLca_rulebook.pdf
+                <br>
+                Thank you for registering for Anwesha2k18."
+
+        $message = $message . "In case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to <i>$ANWESHA_REG_EMAIL</i>. You can also visit our website <i>$ANWESHA_URL</i> for more information.<br>Thank You.<br>Registration Desk
+            <br>
+            Anwesha
+            <br>
+            IIT Patna
+            <br>
+            Anwesha Facebook Page - https://www.facebook.com/anwesha.iitpatna/
+            <br>
+            Anwesha Youtube channel - https://www.youtube.com/AnweshaIITP
+            <br>
+            Anwesha Instagram Page - https://www.instagram.com/anwesha.iitp
+            ";
         $subject = "Email Verification, $ANWESHA_YEAR";
 
         require('resources/PHPMailer/PHPMailerAutoload.php');
