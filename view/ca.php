@@ -436,11 +436,11 @@
 							</div>
 						</div>
 						
-						<div class="row">
+						<!-- <div class="row">
 							<div class="12u">
 								<input type="text" name="referalcode" placeholder="Optional referal code" />
 							</div>
-						</div>
+						</div> -->
 <div id="message2"></div>
 						<div class="row">
 							<div class="12u">
