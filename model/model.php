@@ -618,7 +618,7 @@ class People{
                 <br>
                 Here is rulebook for the Campus Ambassador Program.
                 <br>
-                $ANWESHA_URLca_rulebook.pdf
+                ".$ANWESHA_URL."ca_rulebook.pdf
                 <br>
                 <br>
                 Thank you for registering for Anwesha2k18.";
