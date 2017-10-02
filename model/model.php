@@ -618,15 +618,21 @@ class People{
                 <br>
                 Here is rulebook for the Campus Ambassador Program.
                 <br>
-                $ANWESHA_URL ca_rulebook.pdf
+                $ANWESHA_URLca_rulebook.pdf
+                <br>
                 <br>
                 Thank you for registering for Anwesha2k18.";
 
-        $message = $message . "In case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to <i>$ANWESHA_REG_EMAIL</i>. You can also visit our website <i>$ANWESHA_URL</i> for more information.<br>Thank You.<br>Registration Desk
+        $message = $message . "In case you have any registration related queries feel free to contact, $ANWESHA_REG_CONTACT or drop an email to <i>$ANWESHA_REG_EMAIL</i>.
+            <br> 
+            You can also visit our website <i>$ANWESHA_URL</i> for more information.
+            <br>Thank You.
+            <br>Registration Desk
             <br>
-            Anwesha
+            Anwesha 2018
             <br>
             IIT Patna
+            <br>
             <br>
             Anwesha Facebook Page - https://www.facebook.com/anwesha.iitpatna/
             <br>
