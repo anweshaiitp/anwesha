@@ -70,7 +70,7 @@
     						console.log(data);
 
     						if(data[0]==1){
-    							$("#message").html('<center<b>Registration Successful</b>Your referal ID is : '+data[1]['pId']+'<br>A confirmation email has been sent.</center>');
+    							$("#message").html('<center<b>Registration Successful</b>Your referal ID is : '+data[1]['pId']+'<br>A confirmation email has been sent to '.email.'.</center>');
     							$("#message").fadeIn();
     							$("#message").css('background','#5FAB22');
     							$("#signUp").fadeOut();
@@ -374,7 +374,7 @@
 						</div>
 						</center>
 					</header><div id="message"></div><br>
-					<form id="signUp" style="sidplay:none" action="javascript:" method="post" >
+					<form id="signUp" style="display:none" action="javascript:" method="post" >
 					<input type="hidden" name="fbID" />
 						<h2>Step 2</h2><br>						
 						<div class="row">
