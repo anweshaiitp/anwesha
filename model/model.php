@@ -191,7 +191,7 @@ class People{
      * @param  MySQLi object $conn variable containing connection details
      * @return array       array
      */
-    public staic function getUser($id,$conn){
+    public static function getUser($id,$conn){
         $sql = " SELECT * FROM People WHERE pId = $id";
         $result = mysqli_query($conn, $sql);
         if(!$result || mysqli_num_rows($result)!=1){
