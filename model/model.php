@@ -91,7 +91,7 @@ class People{
     * Validate if date is valid
     * @param $date
     */
-    function validateDate($date)
+    static function validateDate($date)
     {
         $format = 'Y-m-d';
         $d = DateTime::createFromFormat($format, $date);
@@ -110,7 +110,7 @@ class People{
      * @param  string $rc Referral Code
      * @return string      if null then no errors, else returns the error.
      */
-    public function validateData($n,$fbID,$col,&$se,$mob,$em,$db,$cit,$rc){
+    public static function validateData($n,$fbID,$col,&$se,$mob,$em,$db,$cit,$rc){
 
         $error = null;
         if (strlen($n)<4 || strlen($n) > 40){
@@ -335,7 +335,7 @@ class People{
      * @param  MySQLi $conn database connection object
      * @return array       index 0 :- 1(success), -1(error);
      */
-    public function createUser($n,$fbID,$col,$se,$mob,$em,$db,$cit,$ca,$rc,$conn){
+    public static function createUser($n,$fbID,$col,$se,$mob,$em,$db,$cit,$ca,$rc,$conn){
         $error = self::validateData($n,$fbID,$col,$se,$mob,$em,$db,$cit,$rc);
         if(isset($error)){
             $arr = array();
@@ -435,7 +435,7 @@ class People{
      * @param  MySQLi $conn       database connection object
      * @return array             index 0 :- 1(success), -1(error);
      */
-    public function createCampusAmbassador($name,$fbID = NULL,$college,$sex,$mob,$email,$dob,$city,$address,$degree,$grad,$leader,$involvement,$threethings,$rc,$conn){
+    public static function createCampusAmbassador($name,$fbID = NULL,$college,$sex,$mob,$email,$dob,$city,$address,$degree,$grad,$leader,$involvement,$threethings,$rc,$conn){
         mysqli_autocommit($conn,FALSE);
         try
         {
