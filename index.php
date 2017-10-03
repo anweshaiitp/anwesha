@@ -1,5 +1,6 @@
 <?php
-ini_set( "display_errors", 1); 
+ini_set('display_errors', '0');     # don't show any errors...
+error_reporting(E_ALL | E_STRICT);  # ...but do log them
 ini_set('zlib_output_compression','On');
 /**
 * New request lands in this class. After that it is routed accordingly to the respective controller.
