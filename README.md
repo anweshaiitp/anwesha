@@ -60,5 +60,5 @@
 - [ ] Expanded Features for above (delete/add registration, add/delete/edit teams)
 - [ ] Fee payment portal.
 
-## DEADLINE
-- [ ] None
+## API
+- user/CAcheck/{fbID}/ Check is fbID is already registered

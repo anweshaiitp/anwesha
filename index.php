@@ -30,6 +30,7 @@ $base = '@^'. $mat[1] ;
 
 if (preg_match($base . '(ca|)_?([0-9]{4}|)$@', $url, $match)) {
 	require ('new.php');
+	// require ('new.php');
 } elseif (preg_match($base . 'register/?$@', $url, $match)) {
 	require ('view/reg.php');
 } elseif (preg_match($base . 'leaderboard/api/?$@', $url, $match)) {

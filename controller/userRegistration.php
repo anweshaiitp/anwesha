@@ -16,6 +16,7 @@ if(!(isset($_POST['name']) && !empty($_POST['name']))){
 	echo json_encode(array(-1,array('Name not given.')));
 	die();
 }
+
 if(!(isset($_POST['college']) && !empty($_POST['college']))){
 	header('Content-type:application/json');
 	echo json_encode(array(-1,array('College not given.')));
@@ -47,6 +48,12 @@ if(!(isset($_POST['city']) && !empty($_POST['city']))){
 	die();
 }
 
+$fbID = null;
+
+if(isset($_POST['fbID']) && !empty($_POST['fbID'])){
+	$fbID = $_POST['fbID'];	
+}
+
 $name = $_POST['name'];
 $college = $_POST['college'];
 $sex = $_POST['sex'];
@@ -61,7 +68,7 @@ if(isset($_POST['refcode'])) {
  * Information if user was created or not. As false is passed, it will create user not CampusAmbassador.
  * @var array;
  */
-$result = People::createUser($name,$college,$sex,$mobile,$email,$dob,$city,false,$refcode,$conn);
+$result = People::createUser($name,$fbID,$college,$sex,$mobile,$email,$dob,$city,false,$refcode,$conn);
 mysqli_close($conn);
 header('Content-type: application/json');
 echo json_encode($result);
