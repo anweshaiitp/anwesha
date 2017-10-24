@@ -18,7 +18,7 @@
 		</div>
 
 		<script type="text/javascript">
-			$('.preloader_div').load("preloader/");
+			$('.preloader_div').load("/preloader/");
 		</script>
 
 
