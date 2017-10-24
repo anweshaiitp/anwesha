@@ -62,3 +62,4 @@
 
 ## API
 - user/CAcheck/{fbID}/ Check is fbID is already registered
+JSON: [1,{"name":"Tameesh Biswas","pId":"4159","fbID":"1591893497571424","college":"sgs","sex":"M","mobile":"9920126830","email":"socioalaa@tameesh.in","dob":"1998-04-10","city":"Mumbai","refcode":"","feePaid":"0","confirm":"1","time":"2017-10-03 21:04:32","iitp":"0"}]

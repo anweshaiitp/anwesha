@@ -313,8 +313,9 @@ class People{
         while($row = mysqli_fetch_assoc($result)){
             $result_ = $row['pId'];
         }
-        $arr[]=1;
-        $arr[] = $result_;
+        // $arr[]=1;
+        // $arr[] = $result_;
+        $arr = self::getUser($result_,$conn);
         return $arr;
     }
 
