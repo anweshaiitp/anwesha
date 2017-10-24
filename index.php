@@ -28,8 +28,10 @@ $url = $_SERVER['REQUEST_URI'];
 preg_match('@(.*)index.php(.*)$@', $_SERVER['PHP_SELF'], $mat );
 $base = '@^'. $mat[1] ;
 
-if (preg_match($base . '(ca|register|)_?([0-9]{4}|)$@', $url, $match)) {
-	require ('view/index.php');
+if (preg_match($base . '(ca|)_?([0-9]{4}|)$@', $url, $match)) {
+	require ('new.php');
+} elseif (preg_match($base . 'register/?$@', $url, $match)) {
+	require ('view/reg.php');
 } elseif (preg_match($base . 'leaderboard/api/?$@', $url, $match)) {
 	require ('controller/leaderboardback.php');
 } elseif (preg_match($base . 'ca/?$@', $url, $match)) {
@@ -46,6 +48,12 @@ if (preg_match($base . '(ca|register|)_?([0-9]{4}|)$@', $url, $match)) {
 	require ('view/leaderboard.php');
 } elseif (preg_match($base . 'team/$@', $url, $match)) {
 	require ('view/team.html');
+} elseif (preg_match($base . 'accodomation/$@', $url, $match)) {
+	require ('view/accodomation.html');
+} elseif (preg_match($base . 'schedule_raw/$@', $url, $match)) {
+	require ('view/schedule.html');
+} elseif (preg_match($base . 'preloader/$@', $url, $match)) {
+	require ('view/preloader.html');
 } elseif (preg_match($base . 'auditions/$@', $url, $match)) {
 	require ('view/multiCityAuditions.html');
 } elseif (preg_match($base . 'auditions/linefollow/$@', $url, $match)) {
@@ -61,6 +69,8 @@ if (preg_match($base . '(ca|register|)_?([0-9]{4}|)$@', $url, $match)) {
 // } elseif ( preg_match($base .'cssLoader/home/?$@', $url, $match ) ) {
 // 	require ('controller/cssLoader.php');
 } elseif ( preg_match($base .'events/?$@', $url, $match ) ) {
+	require ('view/events.html');
+} elseif ( preg_match($base .'eventsData/?$@', $url, $match ) ) {
 	require ('controller/events.php');
 } elseif (preg_match($base . 'allEvents/?$@', $url)) {
 	require ('controller/allEvents.php');

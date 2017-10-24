@@ -1,68 +1,55 @@
 <html>
 	<head>
-		<title>Team | Anwesha 2018</title>
+		<title>Events | Anwesha 2018</title>
 
 		<meta name="viewport" content="width=device-width, initial-scale= 1">
 
-		<link href="../assets/css/bootstrap.min.css" rel="stylesheet">
-		<link href="../assets/css/style_.css" rel="stylesheet">
-		<link href="../images/logo_favi.png" rel="icon" >
+		<link href="/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/css/style.css" rel="stylesheet">
+		<link href="/images/logo_favi.png" rel="icon" >
 
-	<!-----styling for team page------>
+	<!--------styling for events page---------->
 		<style type="text/css">
 			@media screen and (max-width: 900px)
 			{
-				.moving_floor_div
+				.events_div
 				{
-					display: none;
-				}
-
-				.moving_wall_div
-				{
-					display: none;
-				}
-
-				.team_div
-				{
-					//background-color: red;
-					background-image: url(../images/wanted_wall_mob.png);
-					background-size: cover;
-					background-repeat: no-repeat;
 					opacity: 1;
 					height: 60%;
 					width: 100%;
 					overflow-y: scroll;
 					text-align: center;
-					
+					//background: magenta;
 				}
 
-				.team_text
+				.events_blank
 				{
 					display: block;
+					width: 95%;
 					margin:auto;
-					margin: 2%;
-					font-size: 120%;
+
 				}
 
-				.team_blank
+				#event_cat_div
 				{
-					height: 80px;
-					//background: orange;
 					display: block;
+					width: 90%;
 					margin:auto;
 				}
 
 			}
+
 		</style>
 	</head>
 	<body>
+
 	<!---------header-----bar-->
 		<div class="header_div">
-			<img id="header_div_bck" src="../images/blood.jpg"/>
+			<img id="header_div_bck" src="/images/blood.jpg"/>
 		
 			 <div class="menu_toggle">
-				<img src="../images/menu_img.png">
-				 <span> MENU </span>
+				<img src="/images/menu_img.png">
+				<span> MENU </span>
 			</div>
 		</div>
 
@@ -70,18 +57,18 @@
 		<div class="login_backgrnd"></div>
 
 		<div class="login">
-			<a><img src="../images/witch1.png"> Login</a>
+			<a><img src="/images/witch1.png"> Login</a>
 		</div>
 
 		<div class="register">
-			<a><img src="../images/witch1.png"> Register</a>
+			<a><img src="/images/witch1.png"> Register</a>
 		</div>
 
 		<div class="login_div">
-			<img class="close_div" src="../images/close.png"/>
+			<img class="close_div" src="/images/close.png"/>
 
 			<form class="login_form">
-				<img id="login_img" src="../images/witch1.png"/>
+				<img id="login_img" src="/images/witch1.png"/>
 				<br>
 				Anwesha ID
 				<br>
@@ -96,9 +83,9 @@
 		</div>
 
 		<div class="register_div">
-			<img class="close_div" src="../images/close.png"/>
+			<img class="close_div" src="/images/close.png"/>
 			<form class="reg_form">
-				<img id="login_img" src="../images/witch1.png"/>
+				<img id="login_img" src="/images/witch1.png"/>
 				<br>
 				Name
 				<br>
@@ -156,108 +143,82 @@
 		<div class="menu_backgrnd"></div>
 		<div class="door">
 			<div class="left_door left_door_anim">
-				<img src="../images/door_left.png">
+				<img src="/images/door_left.png">
 				
 			</div>
 
 			<div class="right_door right_door_anim">
-				<img src="../images/door_right.png">
+				<img src="/images/door_right.png">
 			</div>
 
 		</div>
 
-
+			 
 	<!-----moving ----witch------>
-		<img class="moving_witch" src="../images/witch_right_1.png">
+		<img class="moving_witch" src="/images/witch_right_1.png">
 
 	<!-----fixed ----cloud------>
 		<div class="cloud_div"></div>
 
 	<!-----moving ----cloud------>
 		<div class="moving_cloud_div">
-			<img src="../images/moving_cloud.png">
+			<img src="/images/moving_cloud.png">
 		</div>
 
-	<!-----moving ----wall------>
-		<div class="moving_wall_div">
-			<img src="../images/wanted_wall.png">
+	<!--events page content-------->
+
+		<div class="events_div">
+
+			<div class="events_blank">
+				<img src="/images/technical.png">
+			</div>
+
+			<div id="event_cat_div">
+				<p class="events_title">Technical Events</p>
+				<ul id="events">
+					<li event_id="1">Static Rush</li>
+					<li event_id="2">Virtual Auto-Expo</li>
+					<li event_id="3">Robo War</li>
+					<li event_id="4">Aqua Soccer</li>
+				</ul>
+
+				<div class="tech_content"></div>
+			</div>
+
+			<div class="events_blank">
+				<img src="/images/cult.png">	
+			</div>
+
+			<div id="event_cat_div">
+				<p class="events_title">Cultural Events</p>
+				<ul id="events">
+					<li event_id="5">Band Wars</li>
+					<li event_id="6">Verb</li>
+					<li event_id="7">Symphony</li>
+					<li event_id="8">Heel Turn</li>
+				</ul>
+
+				<div class="cult_content"></div>
+			</div>
+
+			<div class="events_blank">
+				<img src="/images/mang.png">
+			</div>
+
+			<div id="event_cat_div">
+				<p class="events_title">Management Events</p>
+				<ul id="events">
+					<li event_id="9">B-Quiz</li>
+					<li event_id="10">Monopoly</li>
+					<li event_id="11">Stockmart</li>
+					<li event_id="12">Dad's Business</li>
+				</ul>
+				<div class="mang_content"></div>
+			</div>
+
 		</div>
+		
 
-	<!---team div---->
-		<div class="team_div">
-			<div class="team_blank"></div>
-			<div class="team_text"> Fest Coordinator</div>
-
-			<div class="team_mem">
-				<div class="mem_content">
-					<img src="../images/team1.png"/>
-					<br>
-					<span class="mem_name">Aditya Suman</span>
-					<br>
-					<a href="mailto:aditya.me16@iitp.ac.in">aditya.me16@iitp.ac.in</a>
-					<br>
-					<a href="tel:7424947945">7424947945</a>
-				</div>
-			</div>
-
-			<div class="team_text">Marketing & Sponsorship</div>
-
-			<div class="team_mem">
-				<div class="mem_content">
-					<img src="../images/team1.png"/>
-					<br>
-					<span class="mem_name">Aditya Suman</span>
-					<br>
-					<a href="mailto:aditya.me16@iitp.ac.in">aditya.me16@iitp.ac.in</a>
-					<br>
-					<a href="tel:7424947945">7424947945</a>
-				</div>
-			</div>
-
-			<div class="team_blank"></div>
-				
-			<div class="team_mem">
-				<div class="mem_content">
-					<img src="../images/team1.png"/>
-					<br>
-					<span class="mem_name">Aditya Suman</span>
-					<br>
-					<a href="mailto:aditya.me16@iitp.ac.in">aditya.me16@iitp.ac.in</a>
-					<br>
-					<a href="tel:7424947945">7424947945</a>
-				</div>
-			</div>
-
-			<div class="team_blank"></div>
-				
-			<div class="team_mem">
-				<div class="mem_content">
-					<img src="../images/team1.png"/>
-					<br>
-					<span class="mem_name">Aditya Suman</span>
-					<br>
-					<a href="mailto:aditya.me16@iitp.ac.in">aditya.me16@iitp.ac.in</a>
-					<br>
-					<a href="tel:7424947945">7424947945</a>
-				</div>
-			</div>
-
-			<div class="team_text">Media & PR</div>
-	
-			<div class="team_mem">
-				<div class="mem_content">
-					<img src="../images/team1.png"/>
-					<br>
-					<span class="mem_name">Aditya Suman</span>
-					<br>
-					<a href="mailto:aditya.me16@iitp.ac.in">aditya.me16@iitp.ac.in</a>
-					<br>
-					<a href="tel:7424947945">7424947945</a>
-				</div>
-			</div>
-		</div>
-
-	
 	<!---ajax loader---->
 
 		<div class="ajax_loading_bckgrnd">
@@ -265,24 +226,22 @@
 		</div>
 
 		<div class="ajax_loading_div ajax_loading_entry">
-			<img class="ajax_pin" src="../images/dragon.png"/>
-			<img class="close_icon" src="../images/close.png"/>
-			<img class="ajax_div_back" src="../images/ajax_div_back.png"/>
+			<img class="ajax_pin" src="/images/dragon.png"/>
+			<img class="close_icon" src="/images/close.png"/>
+			<img class="ajax_div_back" src="/images/ajax_div_back.png"/>
 			<div class="ajax_content"></div>
 		</div>
-
-
 
 	<!---footer---->
 		<p id="copyright">&copy 2018 Anwesha, IIT Patna </p>
 
 
-
 	<!--scripts-->
-		<script type="text/javascript" src="../assets/js/jquery.js"></script>
-		<script type="text/javascript" src="../assets/js/jquery.mousewheel.js"></script>
-
+		<script type="text/javascript" src="/js/jquery.js"></script>
+		<script type="text/javascript" src="/js/jquery.mousewheel.js"></script>
+	<!--scripts for index---->
 		<script type="text/javascript">
+
 	//--horizontal----------- scrolling-->
 			$(document).ready(function() {
 			    $('body, html, *').mousewheel(function(e, delta) {
@@ -303,7 +262,7 @@
 					$('.left_door').addClass('left_door_anim');
 					$('.right_door').addClass('right_door_anim');
 					$('.menu_toggle span').text('MENU');
-					$('.menu_toggle img').attr('src', '../images/menu_img.png');
+					$('.menu_toggle img').attr('src', '/images/menu_img.png');
 					$('.menu_backgrnd').fadeOut(800);
 					$('.menu_bar').slideUp(800);
 				}
@@ -312,7 +271,7 @@
 					$('.left_door').removeClass('left_door_anim');
 					$('.right_door').removeClass('right_door_anim');
 					$('.menu_toggle span').text('EXIT').fadeIn(800);
-					$('.menu_toggle img').attr('src', '../images/menu_img_close.png');
+					$('.menu_toggle img').attr('src', '/images/menu_img_close.png');
 					$('.menu_backgrnd').fadeIn(800);
 					$('.menu_bar').slideDown(800);
 				}
@@ -329,25 +288,25 @@
 			new_li.addClass('secnd_rot');
 
 	//witch resting
-			witch_attr = $('.moving_witch').attr('src');
+		witch_attr = $('.moving_witch').attr('src');
 
-			$.fn.witch_motion_start = function()
-				{ 
-		       		witch_motion= setInterval(function()
-						{ 
-							if(witch_attr=="../images/witch_right_1.png")
-							{
-								$('.moving_witch').attr('src', '../images/witch_right_2.png');
-								witch_attr = "../images/witch_right_2.png";
-							}
-							else if(witch_attr=="../images/witch_right_2.png")
-							{
-								$('.moving_witch').attr('src', '../images/witch_right_1.png');
-								witch_attr = "../images/witch_right_1.png";
-							}
+		$.fn.witch_motion_start = function()
+			{ 
+	       		witch_motion= setInterval(function()
+					{ 
+						if(witch_attr=="/images/witch_right_1.png")
+						{
+							$('.moving_witch').attr('src', '/images/witch_right_2.png');
+							witch_attr = "/images/witch_right_2.png";
+						}
+						else if(witch_attr=="/images/witch_right_2.png")
+						{
+							$('.moving_witch').attr('src', '/images/witch_right_1.png');
+							witch_attr = "/images/witch_right_1.png";
+						}
 
-						}, 800);
-			    }
+					}, 800);
+		    }
 
 			$.fn.witch_motion_stop = function()
 			{ 
@@ -398,28 +357,47 @@
 				$('.moving_cloud_div img').css('left', -(window_pos * .05) + 'px');
 			});
 
-	//wall motion
-			$(document).scroll(function()
+
+	//ajax on menu items
+			$('.close_icon').click(function()
 			{
-				var window_pos = $(this).scrollLeft();
-				//alert(window_pos);
-				$('.moving_wall_div img').css('left', -(window_pos * .8) + 'px');
+				$('.ajax_loading_bckgrnd').fadeOut(800);
+				$('.ajax_loading_div').addClass('ajax_loading_entry');
 			});
 
-	//mob scroll
-			mob_scroll_posn = $('.team_div').scrollTop();
 
-			$('.team_div').scroll(function()
+			$('.spons_div').click(function()
+			{
+				$('.ajax_loading_bckgrnd').fadeIn(800);
+				$('.ajax_loading_div').removeClass('ajax_loading_entry');
+			});
+
+			$('.sch_div').click(function()
+			{
+				$('.ajax_loading_bckgrnd').fadeIn(800);
+				$('.ajax_loading_div').removeClass('ajax_loading_entry');
+			});
+
+			$('.acco_load').click(function()
+			{
+				$('.ajax_loading_bckgrnd').fadeIn(800);
+				$('.ajax_loading_div').removeClass('ajax_loading_entry');
+			});
+
+	//javascript for the events page
+
+	//mob scroll
+			mob_scroll_posn = $('.events_div').scrollTop();
+
+			$('.events_div').scroll(function()
 			{
 				var mob_pos = $(this).scrollTop();
 
 			//cloud motion and floor motion
 				$('.moving_cloud_div img').css('left', -(mob_pos * .05) + 'px');
-				$('.moving_floor_div img').css('left', -(mob_pos * .4) + 'px');
-
-
+				
 			//witch motion direction
-				mob_scroll_posn_new = $('.team_div').scrollTop();
+				mob_scroll_posn_new = $('.events_div').scrollTop();
 
 				if(mob_scroll_posn_new >= mob_scroll_posn )
 				{
@@ -450,37 +428,31 @@
 
 			});
 
-	//ajax on menu items
-			$('.close_icon').click(function()
+	//for loading of events in event content page
+			$('#events li').click(function()
 			{
-				$('.ajax_loading_bckgrnd').fadeOut(800);
-				$('.ajax_loading_div').addClass('ajax_loading_entry');
-			});
-
-
-			$('.spons_div').click(function()
-			{
-				$('.ajax_loading_bckgrnd').fadeIn(800);
-				$('.ajax_loading_div').removeClass('ajax_loading_entry');
-			});
-
-			$('.sch_div').click(function()
-			{
-				$('.ajax_loading_bckgrnd').fadeIn(800);
-				$('.ajax_loading_div').removeClass('ajax_loading_entry');
-			});
-
-			$('.acco_load').click(function()
-			{
-				$('.ajax_loading_bckgrnd').fadeIn(800);
-				$('.ajax_loading_div').removeClass('ajax_loading_entry');
+				event_id = $(this).attr('event_id');
+				
+				if(event_id<=4)
+				{
+					//alert('Technical');
+					$('.tech_content').load('events/' + event_id +'.php');
+				}
+				else if(event_id<=8 && event_id > 4)
+				{
+					//alert('cult');
+					$('.cult_content').load('events/' + event_id +'.php');
+				}
+				else if(event_id<=12 && event_id > 8)
+				{
+					//alert('mang');
+					$('.mang_content').load('events/' + event_id +'.php');
+				}
 			});
 			
 		</script>
-
-		<script type="text/javascript" src="../assets/js/ajax.js"></script>
+		
+		<script type="text/javascript" src="/js/ajax.js"></script>
 
 	</body>
 </html>
-
-			

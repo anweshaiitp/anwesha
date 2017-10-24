@@ -2,9 +2,9 @@
 	<head>
 		<title>Anwesha 2018</title>
 
-		<link href="/assets/css/bootstrap.min.css" rel="stylesheet">
-		<link href="/assets/css/style.css" rel="stylesheet">
-		<link href="/assets/img/logo_favi.png" rel="icon" >
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+		<link href="images/logo_favi.png" rel="icon" >
 
 		<meta name="viewport" content="width=device-width, initial-scale= 1">
 
@@ -12,22 +12,22 @@
 	<body>
 
 	<!-----preloader---------------->
-		<script type="text/javascript" src="/assets/js/jquery.js"></script>
+		<script type="text/javascript" src="js/jquery.js"></script>
 		
 		<div class="preloader_div">
 		</div>
 
 		<script type="text/javascript">
-			$('.preloader_div').load("/preloader/");
+			$('.preloader_div').load("preloader/");
 		</script>
 
 
 	<!---------header-----bar-->
 		<div class="header_div">
-			<img id="header_div_bck" src="/assets/img/blood.jpg"/>
+			<img id="header_div_bck" src="images/blood.jpg"/>
 		
 			 <div class="menu_toggle">
-				<img src="/assets/img/menu_img.png">
+				<img src="images/menu_img.png">
 				<span> MENU </span>
 			</div>
 		</div>
@@ -36,18 +36,18 @@
 		<div class="login_backgrnd"></div>
 
 		<div class="login">
-			<a><img src="/assets/img/witch1.png"> Login</a>
+			<a><img src="images/witch1.png"> Login</a>
 		</div>
 
 		<div class="register">
-			<a><img src="/assets/img/witch1.png"> Register</a>
+			<a><img src="images/witch1.png"> Register</a>
 		</div>
 
 		<div class="login_div">
-			<img class="close_div" src="/assets/img/close.png"/>
+			<img class="close_div" src="images/close.png"/>
 
 			<form class="login_form">
-				<img id="login_img" src="/assets/img/witch1.png"/>
+				<img id="login_img" src="images/witch1.png"/>
 				<br>
 				Anwesha ID
 				<br>
@@ -62,9 +62,9 @@
 		</div>
 
 		<div class="register_div">
-			<img class="close_div" src="/assets/img/close.png"/>
+			<img class="close_div" src="images/close.png"/>
 			<form class="reg_form">
-				<img id="login_img" src="/assets/img/witch1.png"/>
+				<img id="login_img" src="images/witch1.png"/>
 				<br>
 				Name
 				<br>
@@ -106,11 +106,11 @@
 	<!-----menu----bar------>
 		<div class="menu_bar">
 			<ul>
-				<li><a href="index.php">Home</a></li>
-				<li><a href="events.html">Events</a></li>
+				<li><a href="/">Home</a></li>
+				<li><a href="events/">Events</a></li>
 				<li class="sch_div">Schedule</li>
-				<li><a href="gallery.html">Gallery</a></li>
-				<li><a href="team.html">Team</a></li>
+				<li><a href="/gallery/">Gallery</a></li>
+				<li><a href="/team/">Team</a></li>
 				<li class="spons_div">Sponsors</li>
 				<li class="acco_load">Accomodation</li>
 			</ul>
@@ -122,30 +122,30 @@
 		<div class="menu_backgrnd"></div>
 		<div class="door">
 			<div class="left_door left_door_anim">
-				<img src="/assets/img/door_left.png">
+				<img src="images/door_left.png">
 				
 			</div>
 
 			<div class="right_door right_door_anim">
-				<img src="/assets/img/door_right.png">
+				<img src="images/door_right.png">
 			</div>
 
 		</div>
 
 	<!-----moving ----witch------>
-		<img class="moving_witch" src="/assets/img/witch_right_1.png">
+		<img class="moving_witch" src="images/witch_right_1.png">
 
 	<!-----fixed ----cloud------>
 		<div class="cloud_div"></div>
 
 	<!-----moving ----cloud------>
 		<div class="moving_cloud_div">
-			<img src="/assets/img/moving_cloud.png">
+			<img src="images/moving_cloud.png">
 		</div>
 
 	<!-----moving ----floor------>
 		<div class="moving_floor_div">
-			<img src="/assets/img/floor_back.png">
+			<img src="images/floor_back.png">
 		</div>
 
 	<!--horizontal---------scrolling div-->
@@ -153,7 +153,7 @@
 		<div class="horizontal">
 	<!----anwehsa--logo-->
 			<div class="anwesha_logo">
-				<img src="/assets/img/logo_favi.png">
+				<img src="images/logo_favi.png">
 			</div>
 
 			<div class="blank_div_thr">
@@ -170,7 +170,7 @@
 
 			<div class="anwesha_theme">
 				<p>Themed on WitchCraft</p>
-				<img src="/assets/img/anw_theme.jpg">
+				<img src="images/anw_theme.jpg">
 
 			</div>
 
@@ -179,7 +179,7 @@
 	<!---------viewing div on mobile phone---------->
 		<div class="mob_div">
 			<div class="anwesha_logo">
-				<img src="/assets/img/logo_favi.png">
+				<img src="images/logo_favi.png">
 			</div>
 
 			<div class="blank_div_thr">
@@ -196,7 +196,7 @@
 
 			<div class="anwesha_theme">
 				<p>Themed on WitchCraft</p>
-				<img src="/assets/img/anw_theme.jpg">
+				<img src="images/anw_theme.jpg">
 
 			</div>
 
@@ -215,9 +215,9 @@
 		</div>
 
 		<div class="ajax_loading_div ajax_loading_entry">
-			<img class="ajax_pin" src="/assets/img/dragon.png"/>
-			<img class="close_icon" src="/assets/img/close.png"/>
-			<img class="ajax_div_back" src="/assets/img/ajax_div_back.png"/>
+			<img class="ajax_pin" src="images/dragon.png"/>
+			<img class="close_icon" src="images/close.png"/>
+			<img class="ajax_div_back" src="images/ajax_div_back.png"/>
 			<div class="ajax_content"></div>
 		</div>
 
@@ -228,8 +228,8 @@
 
 
 <!--scripts-->
-		<script type="text/javascript" src="/assets/js/jquery.js"></script>
-		<script type="text/javascript" src="/assets/js/jquery.mousewheel.js"></script>
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
 
 	<!--scripts for index---->
 		<script type="text/javascript">
@@ -261,7 +261,7 @@
 					$('.left_door').addClass('left_door_anim');
 					$('.right_door').addClass('right_door_anim');
 					$('.menu_toggle span').text('MENU');
-					$('.menu_toggle img').attr('src', 'assets/img/menu_img.png');
+					$('.menu_toggle img').attr('src', 'images/menu_img.png');
 					$('.menu_backgrnd').fadeOut(800);
 					$('.menu_bar').slideUp(800);
 				}
@@ -270,7 +270,7 @@
 					$('.left_door').removeClass('left_door_anim');
 					$('.right_door').removeClass('right_door_anim');
 					$('.menu_toggle span').text('EXIT').fadeIn(800);
-					$('.menu_toggle img').attr('src', 'assets/img/menu_img_close.png');
+					$('.menu_toggle img').attr('src', 'images/menu_img_close.png');
 					$('.menu_backgrnd').fadeIn(800);
 					$('.menu_bar').slideDown(800);
 				}
@@ -293,15 +293,15 @@
 				{ 
 		       		witch_motion= setInterval(function()
 						{ 
-							if(witch_attr=="/assets/img/witch_right_1.png")
+							if(witch_attr=="images/witch_right_1.png")
 							{
-								$('.moving_witch').attr('src', 'assets/img/witch_right_2.png');
-								witch_attr = "/assets/img/witch_right_2.png";
+								$('.moving_witch').attr('src', 'images/witch_right_2.png');
+								witch_attr = "images/witch_right_2.png";
 							}
-							else if(witch_attr=="/assets/img/witch_right_2.png")
+							else if(witch_attr=="images/witch_right_2.png")
 							{
-								$('.moving_witch').attr('src', 'assets/img/witch_right_1.png');
-								witch_attr = "/assets/img/witch_right_1.png";
+								$('.moving_witch').attr('src', 'images/witch_right_1.png');
+								witch_attr = "images/witch_right_1.png";
 							}
 
 						}, 800);
@@ -372,11 +372,11 @@
 
 			// 	if(scroll_posn >2054.4375)
 			// 	{
-			// 		$('.cloud_div').css('background-image', 'url(assets/img/cloud2.jpg)');
+			// 		$('.cloud_div').css('background-image', 'url(images/cloud2.jpg)');
 			// 	}
 			// 	else if(scroll_posn <2054.4375)
 			// 	{
-			// 		$('.cloud_div').css('background-image', 'url(assets/img/cloud.jpg)');
+			// 		$('.cloud_div').css('background-image', 'url(images/cloud.jpg)');
 			// 	}
 			// });--*/
 
@@ -453,7 +453,7 @@
 			
 		</script>
 		
-		<script type="text/javascript" src="/assets/js/ajax.js"></script>
+		<script type="text/javascript" src="js/ajax.js"></script>
 
 	</body>
 </html>
