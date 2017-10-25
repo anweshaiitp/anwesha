@@ -424,6 +424,8 @@ class People{
             $sql = "SELECT pId FROM Pids LIMIT 1";
             $result = mysqli_query($conn, $sql);
             if(!$result || mysqli_num_rows($result)==0){
+                error_log(mysqli_error($conn));
+                alog(mysqli_error($conn));
                 $Err = 'Problem in Getting A New ID';
                 $arr = array();
                 $arr[]=-1;
@@ -437,9 +439,9 @@ class People{
             $time = time() ;
             $confirm = ($fbID)?1:0;
             $fbID = ($fbID)?$fbID:-time();
+            $qrurl = self::genQR($id)[3];
             error_log('time()');
-            $sqlInsert = "INSERT INTO People(name,fbID,pId,college,sex,mobile,email,dob,city,refcode,feePaid,confirm) VALUES ('$n', $fbID, $id, '$col', '$se', '$mob', '$em', '$db', '$cit', '$rc', 0, $confirm)";
-
+            $sqlInsert = "INSERT INTO People(name,fbID,pId,college,sex,mobile,email,dob,city,refcode,feePaid,confirm,qrurl) VALUES ('$n', $fbID, $id, '$col', '$se', '$mob', '$em', '$db', '$cit', '$rc', 0, $confirm, '$qrurl')";
             $result = mysqli_query($conn,$sqlInsert);
             error_log('Query 2');
             if(!$result){
@@ -485,11 +487,12 @@ class People{
             error_log('Before email');
 
                 // Mail will be send from Campus Ambassador
-                self::Email($em,$n,$token,$id,$ca,!$confirm);
+            self::Email($em,$n,$token,$id,$ca,!$confirm);
             error_log('After email');
                 mysqli_commit($conn);
             error_log('MYSQLi Commit');
             }
+
             return self::getUser($id, $conn);
         } finally {
             error_log('finally Commit');
@@ -685,6 +688,8 @@ class People{
     public static function Email($emailId,$name,$link,$id,$ca,$ver = null)
     {
         require('defines.php');
+        $actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
+        $qrDir = $_SERVER['DOCUMENT_ROOT'].'/qr/anw'.$id.'.png';
         $baseURL = $ANWESHA_URL;
         $baseURL = $baseURL . 'verifyEmail/User/';
         $link = $baseURL . '' . $id . '/' . $link;
@@ -708,10 +713,14 @@ class People{
                 <br>
                 Thank you for registering for Anwesha2k18.";
 
-        $message = $message . "In case you have any registration related queries feel free to contact, $ANWESHA_REG_CONTACT or drop an email to <i>$ANWESHA_REG_EMAIL</i>.
+        $message .= "In case you have any registration related queries feel free to contact, $ANWESHA_REG_CONTACT or drop an email to <i>$ANWESHA_REG_EMAIL</i>.
             <br> 
-            You can also visit our website <i>$ANWESHA_URL</i> for more information.
-            <br>Thank You.
+            You can also visit our website <i>$ANWESHA_URL</i> for more information.";
+        if(file_exists($qrDir))
+            $message .= "<br>Yor Registration QRcode is as below and is also attached to this email:<br>
+            <img src='".$actual_link."/qr/anw".$id.".png' height='100' width='100' >";
+        
+        $message .="<br>Thank You.
             <br>Registration Desk
             <br>
             Anwesha 2018
@@ -752,9 +761,9 @@ class People{
         $mail->addReplyTo($ANWESHA_REG_EMAIL, 'Registration & Planning Team');
         // $mail->addCC('guptaaditya.13@gmail.com');
         // $mail->addBCC($ANWESHA_YEAR);
-
+        if(file_exists($qrDir))
+        $mail->addAttachment( $qrDir, 'qrcode.png');    // Optional name
         // $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
-        // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
         $mail->isHTML(true);                                  // Set email format to HTML
 
         $mail->Subject = $subject;
