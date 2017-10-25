@@ -8,6 +8,22 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale= 1">
 		<script type="text/javascript" src="js/jquery.js"></script>
+		<style>
+			#FB-Oauth,#FB-Oauth2{
+				padding: 10px;
+				    background-color: rgba(98, 153, 193, 0.76);
+				    
+				    margin: 30px;
+				    border-radius: 10px;
+				    /*left: 50%;*/
+				    /*position: absolute;*/
+				    /*transform: translateX(-50%);*/
+			}
+			@media screen and (min-width: 600px) {
+			#FB-Oauth,#FB-Oauth2{
+				width: 400px;
+			}
+		</style>
 		<script>
 			$(document).ready(function(){
 			$("#sub_but").click(function(event){
@@ -69,7 +85,25 @@
 		</script>
 	</head>
 	<body>
-
+<div id="fb-root"></div>
+	<!-- FB Oauth -->
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=1088640574599664";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script','email', 'facebook-jssdk'));
+	function checkLoginState() {
+	  FB.getLoginStatus(function(response) {
+	    console.log(response);
+	    return response;
+	  });
+	 // Here we run a very simple test of the Graph API after login is
+	   // successful.  See statusChangeCallback() for when this call is made.
+	   
+	}
+	</script>
 	<!-----preloader---------------->
 		
 		
@@ -101,12 +135,89 @@
 		<div class="register">
 			<a><img src="images/witch1.png"> Register</a>
 		</div>
+		<script>
+			var refreshIntervalId = setInterval(function(){
+			FB.getLoginStatus(function(Lstatus) {
+			    console.log(Lstatus);
+			    fbID = Lstatus.authResponse['userID'];
+			    console.log(fbID);
+			    	console.log(Lstatus.status);
+			    $("input[name='fbID']").val(fbID);
+			    if(Lstatus.status == "connected"){
+			    	console.log("in");
+			    	clearInterval(refreshIntervalId);
+			    	$.get( "user/CAcheck/" + fbID + "/", function( data ) {
+			    	  // var obj = JSON.parse(data);
+			    	  console.log(data);
+			    	  console.log(data[0]);
 
+			    	// if(data[-1])
+			    	//REST call with FB userID fetches if signedu or not.
+			    	//If not, then post request to the same for registering and validation.
+				FB.api('/me?fields=name,first_name,education,gender,birthday,email,picture.width(500).height(500)', function(response) {
+					console.log(response);
+			      console.log('Successful login for: ' + response.name);
+			      name = response.name;
+			      gender = response.gender;
+			      email = response.email;
+			      DOB = response.birthday;
+			      pic = response.picture;
+			      //is signed up, display, your ref code is: and listing of users, leaderboard
+			      if(name){
+				      $("input[name='name']").val(name);
+			      	  $("input[name='name']").attr('disabled','true');
+			      }
+			      if(gender){
+	      			var $radios = $('input:radio[name=gender]');
+		      		if(gender=='male'){
+		      			$radios.filter('[value=M]').prop('checked', true);
+		      		} else if(gender=='female') {
+		      			$radios.filter('[value=F]').prop('checked', true);
+
+		      		}
+			      	  $("input[name='gender']").attr('disabled','true');
+			      }
+			  	  if(email){
+				      $("input[name='email']").val(email);
+				  	  $("input[name='email']").attr('disabled','true');
+			  	  }
+			  	  if(DOB){//dob format check
+				      $("input[name='DOB']").val(DOB);
+				      var dobArr = DOB.split("/");
+				      var dobNo = dobArr.length - 1;
+				      var dobStr = '';
+				      if(dobNo==2){
+				      	dobStr += dobArr[2] + '-';
+				      	dobStr += dobArr[0] + '-';
+				      	dobStr += dobArr[1];
+				      	$("input[name='DOB']").val(dobStr);
+				      }
+			  	  // $("input[name='DOB']").attr('disabled','true');
+			  	  }
+			  	  if(jQuery.parseJSON(data[1]).pId<=1){
+					  $("#FB-Oauth").html("Hi! " +response.first_name+" <ul class='actions'><li><a href='#signUp' class='button'>Continue to step 2</a></li></ul>");
+					  
+					  $("#signUp").css("display","block");
+			  	  }else if(jQuery.parseJSON(data[1]).pId>1){
+			  	  	$("#FB-Oauth").html("Hi! " +response.first_name+"<br>Referal Code is :"+jQuery.parseJSON(data[1]).pId+" <br><ul class='actions'><li><a href='#leader' class='button'>Leaderboard</a></li></ul>");
+			  	  	
+			  	  }
+				});
+				});
+				}
+		    });
+			
+		},1000);
+		</script>
 		<div class="login_div">
 			<img class="close_div" src="images/close.png"/>
-
+			
 			<form class="login_form">
-				<img id="login_img" src="images/witch1.png"/>
+				<img id="login_img" src="images/witch1.png"/><br>
+				<div id="FB-Oauth">
+					Login using FB:<br>
+				
+				<div style="z-index: 10;" class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with"  data-auto-logout-link="true" data-use-continue-as="true" data-scope="email,public_profile,user_location,user_birthday,user_about_me" onlogin="auth_response_change_callback();"></div></div>
 				<br>
 				Anwesha ID
 				<br>
@@ -119,11 +230,12 @@
 				<input id="login_but" type="button" value="login"/>
 			</form>
 		</div>
-
+		
 		<div class="register_div">
 			<img class="close_div" src="images/close.png"/>
-			<form class="reg_form">
-				<img id="login_img" src="images/witch1.png"/>
+			<form class="reg_form" >
+				<img id="login_img" src="images/witch1.png"/><br><center><div id="FB-Oauth">Sign-Up using FB:<br>
+				<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with"  data-auto-logout-link="true" data-use-continue-as="true" data-scope="email,public_profile,user_location,user_birthday,user_about_me" onlogin="auth_response_change_callback();"></div></div></center>
 				<div id="message" style="color:#FF0000"></div>
 				<br>
 				Name
