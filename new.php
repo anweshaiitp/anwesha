@@ -7,12 +7,71 @@
 		<link href="images/logo_favi.png" rel="icon" >
 
 		<meta name="viewport" content="width=device-width, initial-scale= 1">
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script>
+			$(document).ready(function(){
+			$("#sub_but").click(function(event){
+			//function submitF(){
+					// event.preventDefault();
+					var name=$("[name='name']").val();
+					var email=$("[name='email']").val();
+					var college=$("[name='college']").val();
+					var fbID=$("[name='fbID']").val();
+					var city=$("[name='city']").val();
+					var dob=$("[name='DOB']").val();
+					var mobile=$("[name='mobile']").val();
+					var sex=$("[name='gender']").val();
+					var referalcode=$("[name='referalcode']").val();
+					console.log("Request Sent");
+					$.post("user/register/User/",
+						{        						
+   						name: name,
+   						fbID:fbID,
+    					email: email,
+    					college: college,
+    					city:city,
+    					dob:dob,
+    					mobile:mobile,
+    					sex:sex,
+    					referalcode:referalcode
+						},
+						function(data, status){
+    					console.log("Response");
+    					console.log("Data: " + data + "\nStatus: " + status);
+    					if(status=='success'){//$("#myloader").fadeOut();
+    						console.log(data);
 
+    						if(data[0]==1){
+    							$("#message").html('<center<b>Registration Successful</b>Your referal ID is : '+data[1]['pId']+'<br>A confirmation email has been sent to '+email+'.</center>');
+    							$("#message").fadeIn();
+    							// $("#message").css('background','#5FAB22');
+    							$("#message").css('color','#5FAB22');
+    							$("#signUp").fadeOut();
+    						}else{
+    							$("#message,#message2").fadeIn();
+    							$("#message,#message2").html('<center>Error<br>'+data[1]+'</center>');
+							}
+//							$('html, body').animate({
+//							        scrollTop: $("#header").offset().top
+//							    }, 500);
+ 
+    					}else{//$("#myloader").fadeOut();
+    							$("#message,#message2").fadeIn();
+    							$("#message,#message2").html('An error occured.<br> Please try again.');
+    							
+							    console.log("Failed "+data);
+
+    						}
+			    			});
+
+			});
+		});
+		</script>
 	</head>
 	<body>
 
 	<!-----preloader---------------->
-		<script type="text/javascript" src="js/jquery.js"></script>
+		
 		
 		<div class="preloader_div">
 		</div>
@@ -65,6 +124,7 @@
 			<img class="close_div" src="images/close.png"/>
 			<form class="reg_form">
 				<img id="login_img" src="images/witch1.png"/>
+				<div id="message" style="color:#FF0000"></div>
 				<br>
 				Name
 				<br>
@@ -72,7 +132,8 @@
 				<br>
 				Contact No
 				<br>
-				<input type="number" name="contact" placeholder="Phone Number" />
+				<input type="number" name="mobile" placeholder="Phone Number" />
+				
 				<br>
 				Email
 				<br>
@@ -80,14 +141,14 @@
 				<br>
 				Date Of Birth
 				<br>
-				<input type="date" name="dob"/>
+				<input type="date" name="DOB"/>
 				<br>
 				Sex
 				<br>
-				<select name="sex"> 
+				<select name="gender"> 
 					<option value="choose"></option>
-					<option value="Male">Male</option>
-					<option value="Female">Female</option> 
+					<option value="M">Male</option>
+					<option value="F">Female</option> 
 				</select>
 				<br>
 				College
@@ -96,6 +157,9 @@
 				City
 				<br>
 				<input type="text" name="city">
+				<br>Ref Code
+				<br>
+				<input type="number" name="referalcode">
 				<br><br>
 				<input id="sub_but" type="button" name="register" value="register"/>
 			</form>

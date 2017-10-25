@@ -335,7 +335,10 @@ class People{
      * @return array       index 0 :- 1(success), -1(error);
      */
     public static function createUser($n,$fbID = null,$col,$se,$mob,$em,$db,$cit,$ca,$rc,$conn){
+        error_log('1');
         $error = self::validateData($n,$fbID,$col,$se,$mob,$em,$db,$cit,$rc);
+        error_log('Data validated');
+
         if(isset($error)){
             $arr = array();
             $arr[]=-1;
@@ -350,6 +353,7 @@ class People{
         
         try
         {
+            error_log('Try: before select');
             $sql = "SELECT pId FROM Pids LIMIT 1";
             $result = mysqli_query($conn, $sql);
             if(!$result || mysqli_num_rows($result)==0){
@@ -359,21 +363,25 @@ class People{
                 $arr[]=$Err;
                 return $arr;
             }
+            error_log('before mysql fetch');
             $row = mysqli_fetch_assoc($result);
             $id = $row['pId'];
 
             $time = time() ;
             $confirm = ($fbID)?1:0;
+            $fbID = ($fbID)?$fbID:-time();
+            error_log('time()');
             $sqlInsert = "INSERT INTO People(name,fbID,pId,college,sex,mobile,email,dob,city,refcode,feePaid,confirm) VALUES ('$n', $fbID, $id, '$col', '$se', '$mob', '$em', '$db', '$cit', '$rc', 0, $confirm)";
 
             $result = mysqli_query($conn,$sqlInsert);
+            error_log('Query 2');
             if(!$result){
 		$dup='';
 		if(strpos(mysqli_error($conn),"Duplicate entry")!==false){
 			$strExp=explode("'",mysqli_error($conn));
 			$dup.=$strExp[count($strExp)-2]." already exists.";
 		}
-                $Err = 'Error! '.$dup.' Please contact registration team. #'.alog(mysqli_error($conn));
+                $Err ='Error! '.$dup.' Please contact registration team. #'.alog(mysqli_error($conn));
                 $arr = array();
                 $arr[]=-1;
                 $arr[]=$Err;
@@ -383,6 +391,8 @@ class People{
 
             $sqlDeletePid="DELETE FROM Pids WHERE pId=$id";
             $result = mysqli_query($conn,$sqlDeletePid);
+            error_log('Query 3');
+
             if(!$result){
                 $Err='An Internal Error Occured... Please try later. #'.alog(mysqli_error($conn));
                 $arr = array();
@@ -393,6 +403,7 @@ class People{
             }
             $token = sha1(base64_encode((openssl_random_pseudo_bytes(15))));
             $sqlInsert = "INSERT INTO LoginTable(pId,password,csrfToken,type) VALUES ($id,NULL,'$token',1)";
+            error_log('Query 4');
 
             $result = mysqli_query($conn,$sqlInsert);
             if(!$result){
@@ -404,14 +415,20 @@ class People{
                 return $arr;
             }
             if(!$ca) {
+            error_log('Before email');
+
                 // Mail will be send from Campus Ambassador
                 self::Email($em,$n,$token,$id,$ca,!$confirm);
+            error_log('After email');
                 mysqli_commit($conn);
+            error_log('MYSQLi Commit');
             }
             return self::getUser($id, $conn);
         } finally {
+            error_log('finally Commit');
             if(!$ca)
                 mysqli_autocommit($conn,TRUE);            
+            error_log('MYSQLi autoCommit');
         } 
     }
 
