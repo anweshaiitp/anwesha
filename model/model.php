@@ -368,7 +368,7 @@ class People{
         
         $tempDir = 'qr/';
         
-        $codeContents = $anwID;
+        $codeContents = $anwID.sha1($anwID.$AESKey);
         
         // we need to generate filename somehow, 
         // with md5 or with database ID used to obtains $codeContents...
