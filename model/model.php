@@ -117,8 +117,6 @@ class People{
             $error = 'Username is too long or too short';
         } else if (strlen($col)>=300){
             $error = 'College Name too long';
-        } else if (!$fbID || $fbID ==''){
-            $error = 'FB auth required too long';
         } else if (strlen($em)>=60){
             $error = 'Email ID too long';
         } else if (strlen($cit)>=50){
@@ -336,7 +334,7 @@ class People{
      * @param  MySQLi $conn database connection object
      * @return array       index 0 :- 1(success), -1(error);
      */
-    public static function createUser($n,$fbID,$col,$se,$mob,$em,$db,$cit,$ca,$rc,$conn){
+    public static function createUser($n,$fbID = null,$col,$se,$mob,$em,$db,$cit,$ca,$rc,$conn){
         $error = self::validateData($n,$fbID,$col,$se,$mob,$em,$db,$cit,$rc);
         if(isset($error)){
             $arr = array();
@@ -365,8 +363,8 @@ class People{
             $id = $row['pId'];
 
             $time = time() ;
-
-            $sqlInsert = "INSERT INTO People(name,fbID,pId,college,sex,mobile,email,dob,city,refcode,feePaid,confirm) VALUES ('$n', $fbID, $id, '$col', '$se', '$mob', '$em', '$db', '$cit', '$rc', 0, 1)";
+            $confirm = ($fbID)?1:0;
+            $sqlInsert = "INSERT INTO People(name,fbID,pId,college,sex,mobile,email,dob,city,refcode,feePaid,confirm) VALUES ('$n', $fbID, $id, '$col', '$se', '$mob', '$em', '$db', '$cit', '$rc', 0, $confirm)";
 
             $result = mysqli_query($conn,$sqlInsert);
             if(!$result){
@@ -407,7 +405,7 @@ class People{
             }
             if(!$ca) {
                 // Mail will be send from Campus Ambassador
-                self::Email($em,$n,$token,$id,$ca);
+                self::Email($em,$n,$token,$id,$ca,!$confirm);
                 mysqli_commit($conn);
             }
             return self::getUser($id, $conn);
@@ -479,7 +477,7 @@ class People{
                 mysqli_rollback($conn);
                 return $arr;
             }
-            self::Email($email,$name,$token,$pid,true);
+            self::Email($email,$name,$token,$pid,true,0);
             mysqli_commit($conn);
             return $returnArray;
         }finally{
@@ -600,7 +598,7 @@ class People{
      * @param int $id      Anwesha Id for registered user
      * @param boolean $ca      if true then link is for CampusAmbassador
      */
-    public static function Email($emailId,$name,$link,$id,$ca)
+    public static function Email($emailId,$name,$link,$id,$ca,$ver = null)
     {
         require('defines.php');
         $baseURL = $ANWESHA_URL;
@@ -608,6 +606,8 @@ class People{
         $link = $baseURL . '' . $id . '/' . $link;
         // mail($to,$subject,$message);
         $message = "Hi $name,<br>Thank you for registering for $ANWESHA_YEAR. Your Registered Id is : <b>ANW$id</b>.<br>";
+        if($ver==1)
+            $message .= " To complete your registration, you need to verify your email account. Click here for email verification link: $link .<br>";
         $ca_shareurl = $ANWESHA_URL . 'register_' . $id;
         if($ca)
             $message = $message."<br>Hearty Congratulations!! You have been appointed as the Campus Ambassador for Anwesha 2k18 and now you are a part of our team which will take the responsibility of representing Anwesha in your college. Your registration ID  is $id.
@@ -848,7 +848,7 @@ class People{
             }
         }
 
-        // People::passEmail($email,$name,$randPass,$id);
+        People::passEmail($email,$name,$randPass,$id);
         $arr[]=$randPass;                                                                  //vinay edit
         return $arr;
 
