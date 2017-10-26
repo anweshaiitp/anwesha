@@ -316,6 +316,12 @@ class People{
         // $arr[]=1;
         // $arr[] = $result_;
         $arr = self::getUser($result_,$conn);
+        $isSpecial = self::isSpecial($result_,$conn);
+        if (array_shift($isSpecial) == 1)
+            $arr["special"] = $isSpecial;
+        else
+            $arr["special"]["count"] = 0;
+        
         return $arr;
     }
 

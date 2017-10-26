@@ -77,6 +77,8 @@ if (preg_match($base . '(ca|)_?([0-9]{4}|)$@', $url, $match)) {
 // 	require ('controller/cssLoader.php');
 } elseif ( preg_match($base .'events/?$@', $url, $match ) ) {
 	require ('view/events.html');
+} elseif ( preg_match($base .'test/?$@', $url, $match ) ) {
+	require ('test.php');
 } elseif ( preg_match($base .'eventsData/?$@', $url, $match ) ) {
 	require ('controller/events.php');
 } elseif (preg_match($base . 'allEvents/?$@', $url)) {
@@ -87,6 +89,12 @@ if (preg_match($base . '(ca|)_?([0-9]{4}|)$@', $url, $match)) {
 	require ('controller/userRegistration.php');
 } elseif (preg_match($base . 'user/CAcheck/([0-9]+)/?$@', $url, $match)) {
 	require ('controller/cacheck.php');
+} elseif (preg_match($base . 'user/special/([0-9]{4})/?$@', $url, $match)) {
+	header("Content-type:application/json");
+	require('model/model.php');
+	require('dbConnection.php');
+	$conn = mysqli_connect(SERVER_ADDRESS,USER_NAME,PASSWORD,DATABASE);
+	echo json_encode(People::isSpecial($match[1],$conn));
 } elseif (preg_match($base . 'user/register/CampusAmbassador/?$@', $url)) {
 	require ('controller/campusAmbassadorRegistration.php');
 } elseif (preg_match($base . 'user/switch/CampusAmbassador/?$@', $url)) {
@@ -103,7 +111,6 @@ if (preg_match($base . '(ca|)_?([0-9]{4}|)$@', $url, $match)) {
 	require ('controller/loginUser.php');
 } elseif (preg_match($base . 'logout/?$@', $url)) {
 	require ('controller/logout.php');
-
 
 //For Changing Passwords
 } elseif (preg_match($base . 'changePassword/?$@', $url)) {

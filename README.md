@@ -73,5 +73,5 @@ With POST
 [1,200,"User successfully registered for event."]   
 [-1,409,"User already registered for the event"]  
 
-- additional login info inside "special" field of login JSON object   
+- additional login info inside "special" field of login JSON object   can also access from /user/special/{userID} 4 digit
 {"count":1,"eventOrganiser":{"eveCount":1,"0":{"id":"1","name":"Code"}},"isRegTeam":0}

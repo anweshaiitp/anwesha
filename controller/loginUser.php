@@ -39,8 +39,9 @@ if($result['status']){
 		$result['event'] = null;
 	}
 
-	if(($isSpecial[0] == 1)){
-		$result['special'] = $isSpecial[1];//dump all special data
+	if(array_shift($isSpecial) == 1){
+
+		$result['special'] = $isSpecial;//dump all special data
 	} else {
 		$result['special'] = 0;
 	}
