@@ -194,6 +194,8 @@ class People{
         $result = mysqli_query($conn, $sql);
         if(!$result || mysqli_num_rows($result)!=1){
             $error = "Error in displaying result for Anwesha ID";
+            error_log(mysqli_num_rows($result).mysqli_error($conn));
+            alog(mysqli_num_rows($result).mysqli_error($conn));
             $arr = array();
             $arr[]=-1;
             $arr[]=$error;

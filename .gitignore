@@ -1,5 +1,7 @@
 /cache/*.html
 .htaccess
+qr/
+*.DS_Store
 emailCredential.php
 dbConnection.php
 logs/*
