@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 25, 2017 at 09:35 PM
+-- Generation Time: Oct 26, 2017 at 11:23 AM
 -- Server version: 5.7.20-0ubuntu0.16.04.1
 -- PHP Version: 7.1.4-1+deb.sury.org~xenial+1
 
@@ -37,56 +37,6 @@ CREATE TABLE `CampusAmberg` (
   `involvement` text NOT NULL,
   `threethings` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `CampusAmberg`
---
-
-INSERT INTO `CampusAmberg` (`pId`, `fbID`, `refKey`, `address`, `degree`, `grad`, `leader`, `involvement`, `threethings`) VALUES
-(1000, '1591893497571424', 0, 'efa', 'BTech', 2020, 'onoj', 'nono', 'ojn'),
-(1372, '966575160176718', 0, 'ck 67/55 warsi building 3rd floor rijvee lane nai sadak varanasi', 'persuing b.a 3rd year', 2017, 'i\'m a good play back singer , i have youtube channel you can look after it i\'ll be glad to be the part of anwesha 2018 hope to see the good things . https://www.youtube.com/channel/UCVxcCirtI6x2ygPXsbzWJJA', 'no , it will be 1st expirience of anwesha', 'i\'m a good play back singer , i have youtube channel you can look after it i\'ll be glad to be the part of anwesha 2018 hope to see the good things . https://www.youtube.com/channel/UCVxcCirtI6x2ygPXsbzWJJA'),
-(1402, '1591893497572424', 0, 'sfg', 'bk', 2020, 'sdf', 'sdf', 'sd'),
-(1693, '1409046165878045', 0, 'C/O-Krishnanand sharma, AT-behind biteshwer engg workshop raghopur, PO-Bihta, DIST-Patna, PIN-801103', 'BTECH', 2018, 'I am secretary of SANKALP NSIT. This society is responsible for organizing events & programs in the college. We are working since last 2 years and organized many technical, cultural & social events.', 'I am the winner of CA program in ANWESHA 17.', '1. In ANWESHA 17, I am winner of this program.\n2. I have experience of co-ordinating & organizing events.\n3. Also worked as CA in spring fest, IIT KGP & BIT PATNA.     '),
-(1903, '1056252487811233', 0, 'Fr.agnel technical complex , boys hostel , sector 9A vashi, navi mumbai', 'B.E', 2019, 'Secretary , ISHRAE mumbai chapter.\nVice joint secretary, MESA.\nCampus ambassador E-cell IIT Bombay.\nCampus ambassador E-cell IIT Kanpur\nCampus ambassador E-cell IIT kharagpur.\nCampus ambassador E-cell IIM rohtak.\nCampus ambassador techfest\'17.\nCampus ambassador kashiyatra\'18 IIT BHU.', 'Nope.', '1. Being a part of various councils in my college I have a lot of contacts.\n2. I can publicise your event .\n3. Can get participation from my side.\n4. I have done a lot of campus ambassador programs so am aware of responsibilities of an ambassador.'),
-(2136, '1966370553611957', 0, '7,Rail Bazar,Cantt,Kanpur.', 'Bachelor of Technology', 2019, 'As a volunteer in computer society(Cybersrishti) of my college.\nCurrently as co-ordinator for Startup league & member of coding club(Codegeeks).\n', 'I was been contacted last year by team Anwesha but no proper flyers etc were provided  for proper promotion and also failed to register for the C.A. last as the date passed.', 'Create a buzz about Anwesha\'18.\nProvide for maximium participation from my college as well as city.\nWould love to be a part of this great fest.\n'),
-(2377, '1737864336521090', 0, '72/c, Jain nagar,Railway Road, Meerut', 'B.tech', 2020, 'Active member of NSS-HBTU \nMember of hospitality team in ODDESSEY-2K16', 'No.', 'I would represent my college and also spread information of IIT patna in my college. I also would encourage my fellow college mates to participate in the various event that are lined up. '),
-(2736, '1449655255117440', 0, '2rrg`', 'Btech', 2019, 'gggrtg', 'hrthrh', 'wegerg'),
-(2813, '1107688692705976', 0, 'fhfuigfuqig', 'btech', 2019, 'svhuhf', 'suhafhogf', 'fhahfqhf'),
-(2936, '886390791535054', 0, 'Block-o 61 phase-1 tatya tope nagar kanpur uttar pradesh 208022', 'MBA', 2017, 'Vice-president ', 'Last year', 'Advertise about the fest \nSpread a lot of awareness among the people\nPerform my best'),
-(2946, '1492356564166974', 0, '0A-003 KP-12\nKIIT UNIVERSITY', 'BTECH', 2019, 'Volouteer of KIIT MUN 2016', 'NO', '-publicise the event to my level best in the college\n-since i am also from patna so i will tell my friends more about the event clearly\n'),
-(3041, '1372316112895186', 0, 'PATIA,BHUBANESWAR,751024', 'B.TECH', 2020, 'Yes', 'NA', 'popularize,let people know..sharing of posters'),
-(3169, '355469341531574', 0, 'vill-khanuwai\npost-saraimohiuddin\ndist-jaunpur( up)\n', 'b.tech', 2020, 'yes,i am CR of my class,i am in NCC ,NSS,and in aeronautical society,founder of NGO.', 'NO', 'bring team from my college\nspread it in my campus\ndo the task given by anwesha'),
-(3535, '1055568044546344', 0, 'house no- 08 , SBI officers colony, sheikhpura,patna', 'btech', 2021, 'i was headboy when i was doing my  intermediate  . So i have experience of managing  events and how to tackle sudden problems in a team', 'no since this is my 1st year of college .I had never been a part . but I am very much excited to be the part of Anwesha ', 'will promote techfest in my college.\nwill promote techfest on social and other platforms\nwill manage the events '),
-(3656, '1501691179912645', 0, 'D-79 , KP-1 ,KIIT UNIVERSITY , Patia , Bhubaneswar', 'B.Tech', 2019, 'Yes I am team member of a automobile society of our college and I readily and obediently giving my part of life towards it.', 'No', 'I want to contribute the best of me to make this cultural programme a big event in north east and have a wish to give my whole energy to bring its well being in the campus.'),
-(3957, '1912161569105287', 0, 'Nawabganj, kanpur', '2nd EE B.tech', 2020, 'I have active member of hospitality and management team of Odyssey 2k17 of our university.\nI am an active member of NSS team of our university.\nI have participated in technical fest like  Robo Soccer , Robo race and water rocket.', 'No', 'I will try to convince our seniors, classmates and juniors to become a part in Anwesha\'18 to explore there hidden ideas, knowledge and thinking about the various activities that will organize.\n'),
-(4039, '1320459964731119', 0, 'QC2 KIIT University bhubaneshwar,  patia,  odisha, 751024', 'Btech', 2019, 'No', 'No', '1- I would promote the event in my college.\n2-I would make people aware of the events that is going to be held. \n3-I would extend the outreach by doing digital marketing and thus making contribution in making the event more successful. '),
-(4106, '827709717390870', 0, 'C27/192 jagatganj varanasi', 'B. A hons. ', 2017, 'Not yet...  Bt i loved to do ', 'Yes   in Anvesha\'17', 'Telling about the events\nEncorage them to participate\nGiving clear information  about this fest'),
-(4159, '864633850360113', 0, 'dgdgdh', 'Btech', 2019, 'dhdh', 'dhdb', 'dggd'),
-(4500, '1329812283795718', 0, 'Nawabganj, Rawatpur,  Kanpur', 'BTECH', 2020, 'Yes, I have been a election campaigner in my college where I had influenced and convinced many seniors,juniors,my colleagues to vote on my side and I was successful in accomplishing that task as we have won the election. This was a great managerial task for me.', 'No.', '1. I will develop campus-specific marketing and outreach campaigns about your college event Anwesha also on Social media platform like Facebook, Instagram,etc. \n2.I will provide maximum information about events for your event Anwesha.\n3. I will plan and host cool events on campus if I get chance.'),
-(5283, '1150257385105376', 0, 'Boys Hostel, IIT Patna', 'B.Tech', 2020, 'jsdvs', 'yes', 'NIbba what'),
-(5473, '967329406740282', 0, 'J30 Teachers Colony Chitragupt Nagar Kankarbagh Patna  800020', 'BCA', 2019, 'Class Monitor, Batch Incharge, Event Organiser of Teacher\'s day', 'no', 'I will stick anwesha techno cultural poster in my college. I will share as such as I can with social networking. I will try my best to popular around my society.'),
-(5553, '1349851761804801', 0, 'K k college of engineering and management campus,govindpur ,dhanbaad (jharkhand)', 'B.tech in ece', 2017, 'Founder and overall coordinator of team evolution, which control,participate & organise culture, educational and social work in college camlus', 'Yes I was present in anwesha 2k17,as artist,participate, and as a campus ambassador', '1.to inform my college students about techno-cultural event\n2.encourage, & motivate them to take participate in anwesha 2k18\n3.control there overall activities'),
-(5677, '1570578292987732', 0, 'B-11,THIRD FLOOR,HIG DDA BUILDING,POCKET-9A,JASOLA,NEW DELHI-110025', 'M.B.A', 2019, 'I am Elected Class Representative and Can Easily Disseminate information to students and Maintain Listserv right now. I have been a Chief Technical Coordinator at National Workshop on Arm Controlled Robotics and a Member of Robotics Society at Varsity Premises while pursuing B.Tech in Mechanical Engineering. Coordinated National Workshop on Energy conservation and Energy Audit. I have also been a Campus Ambassador at Alcheringa at IIT Guwahati ,IIT Delhi,IIT Madras,IIT Roorkee as well as IIT Bombay. Volunteered for Engineer Society of India, NSS(National Service Scheme) and others. \nI am also Internshala Student Partner 8.0.\nOrganized Aero Wizard Show and Various events at varsity\n', 'No', 'The role of a Campus Ambassador is to Publicize and help garner maximum participation in this unified extravaganza and I have excellent network and connections in all departments of university to facilitate information dissemination and can maintain listserv for almost any announcements.I will publicise about this great Anwesha Fest of IIT Patna through:\n1.Through Social and Professional Networking Sites Like Facebook and Linkedin, I have a diverse and extensive network on Linkedin(7,700 Followers) to disseminate useful information, You can take a glimpse of my linkedin Profile here:\n https://in.linkedin.com/in/saquibd\n2.Through Posters and Announcements throughout University across all the departments.\n3.Through WhatsApp Groups e.t.c\nMoreover,I want to represent my university and help students imbibe technical and professional skills through dynamic global exposure and contribute towards society as a whole. As a Campus Ambassador, I can Contribute towards my University, Students, Colleagues and Society at large and help students pursue their field of interest and advance their career by attending workshops, seminars, events, competitions e.t.c.'),
-(5910, '2001350840112475', 0, 'Boys Hostel No.-9,SLIET Longowal Sangrur Punjab 148106', 'B.tech', 2019, 'ya i having lots of responsibilities in my campus and currently im coordinator  of mechanical enggineering society and im secreatary of Happy Club SLIET,member in Press and media committee in national level techfest.', 'no', '1.Advertisement of your events in campus.\n2.Send more and more paticipants from my college to your fest.\n3.Visit all the hostels in my college and sends mail to all the students in order to participate your event and convience more and more teams including robotics committee head,modelling committee head and all the various teams of my college in order to participate in your event.'),
-(6929, '658276551038695', 0, 'Plot No A-1  UPSIDC industrial Area , Rooma , kanpur', 'B.Tech', 2018, 'I am currently on the position of president in our Cybersristi Society . Cybersristi Society is a CS /IT department Society which work for welfare of CS and IT...', 'No', 'Anwesha is techno cultural fest so I would like to promote this fest in my college . Being a future thinker , My thinking is that More participation will make this fest more interesting..... :)'),
-(6930, '514606925556444', 0, 'At-Badi Nagla,P.O. Madhav Mills,P.S. Malsalami,Patna City,Patna,Bihar', 'B.Tech', 2019, 'I am a member of Drama & Film Club of my college and i along with my other team mates regularly organise nukkar,short films and theatres. i have also been a campus ambassador of MANIT Bhopal Inter NIT Coding Event- CODATHON.', 'Yeah... I eagerly wait for ANWESHA to happen.. I also visited IIT Patna last year during ANWESHA\'17', 'first of all.. i will promote all of your upcoming events here in my college NIT Patna..\nsecondly.. it would be my responsibility to enroll as much as participants for Anwesha\'18.\nn lastly.. i promise i would do my job.. my best!\n'),
-(6986, '1587541491296501', 0, 'asdfas', 'dfgv', 2099, 'asdas', 'sdasd', 'dasd'),
-(7253, '911566615666229', 0, 'Siddh Ganesh Marg,Ward no.4,Chhatarpur,MP', 'BE', 2020, 'No.', 'No.', 'â€¢ Promote their views and all the events thoroughly in the college.\nâ€¢ Try to give any needed suggestions for  future event.\nâ€¢ Will not allow anyone to takedown the  repute of anwesha'),
-(7829, '1983347478607327', 0, 'Murarpur A.N road GAYA BIHAR', 'BE', 2021, 'No', 'No', 'Participating  in games,adventures sports and many more'),
-(7862, '1621615517898393', 0, 'B-27 vishkarmanagar extn. susuwahi marg, varanasi', 'MBA', 2015, 'No', 'No', 'I\'ll promte the events, make people aware about it in my campus so that they can participate and will try to clear their doubts regarding this.'),
-(7885, '328876084252018', 0, 'Bengal College of Engineering and technology, Bidhannagar, Durgapur-713212', 'BTech.', 2020, 'Founder of a techno-cultural club.', 'No.', '1.I have a club in which members will organise games or events only if you support us.\n2.I can go to every class to make every student aware.\n3. I can use my social networking accounts and contact to make sure people from my college would not make a mess in your campus.'),
-(8067, '1531028250318157', 0, 'N s boys hostel,kursi road, Lucknow\nUp', 'b.tech', 2020, 'As a coordinator in robotics society.\nVolunteer and coordinator in college fiesta.\n', 'No', 'Publicize the event\nMarketing\nPromotion'),
-(8184, '462701714115040', 0, 'bihta', 'btech', 2020, 'POR', 'yes', 'nothing'),
-(8217, '136540670319925', 0, 'House no. 53G, \nBhatipura \nMahoba\nUttar Pradesh\n210427', 'B.Tech', 2021, 'No', 'No', 'Ethical Hacking,\nDebates,\n& Robotics'),
-(8536, '1381298535300831', 0, 'Boys Hostel, Kashi institute of technology, Varanasi', 'B. TECH. ', 2019, 'Technical  and Cultural event Coordinator.', 'Yes', 'Popularize the Event anwesha and increasing participations.'),
-(8697, '932410766908246', 0, '69-b Rajhans colony-3 brahampuri khurra Jaipur ', 'B.tech', 2019, 'No', 'No', 'I will promote it as much as I can.\nI will come with max. No. Of participants.\nI will do my best.'),
-(8836, '477464459302774', 0, 'B 38/47 B-K MOTIJHEEL MAHMOORGANJ , VARANASI', 'B.Com 1st year', 2017, 'Yes, I do hold a position of responsibility in my college.\nBeing a first year student , I am a part of my \'College Student Council\' as  an  \'Assembly and Descipline Prefect\'.', 'No', 'â€¢ First thing that I will do is encourage them to showcase their Hidden talents.\n\nâ€¢â€¢Secondly , the most important I will properly guide them about all events taking place in " Anwesha\'18 ".\n\nâ€¢â€¢And lastly will  hold my duties and responsibilities given to me  with proper dignity.'),
-(9190, '1964002633880045', 0, 'KSRM BOYS HOSTEL,KIIT UNIVERSITY ,BHUBANESWAR', 'B.TECH', 2019, 'YA ,I WAS  IN THE PRESENTATION TEAM OF SKYLINE RACING(KIIT AUTOMOBILE SOCIETY).', 'NO,ITS FOR THE FIRST TIME I WILL BE TAKING PART.', '1.I WOULD PROMOTE FOR ANWESHA 2K18\n2.I WOULD HELP TO CONDUCT WORKSHOPS AND MEETINGS\n3.I WOULD SHARE THE POSTS IN SOCIAL MEDIA'),
-(9284, '141607956574915', 0, 'Raghunathpur (West of Bharat sah Halwai) Motihari', 'Btech', 2021, 'No', 'No', 'I manage the things smoothly'),
-(9374, '910824245739674', 0, '15 mig tatya tope naghar phase 3 kanpur', 'Bsc.in hotel management', 2015, 'I am the event organizer in my college..', 'No', 'I will represent my city..in the campus'),
-(9565, '1526336860766568', 0, 'Room No. 117, GH-2, HBTU, Nawab ganj, Kanpur', 'Bachelor\'s of technology', 2020, 'Yes, I have been in the marketing team of my college. I was an active participant of my college fest hospitality management sector. \nI was team leader of the concate team which enthusiastically participated in IIT Kanpur.', 'No. I have never been a part of  Anwesha before but I would love to be.', '1) I would persuade students of my college to attend Anwesha-2017 enthusiastically.\n2) I would forward all your posts and cultural activities on my social media account like Facebook.\n3) I will send all your links to most of the individuals of my college personally on several messengers.'),
-(9670, '1417001471746029', 0, 'WCH 2, HBTU west campus, kanpur', 'B.tech', 2020, 'Coordinated at Parichay ( Freshers) 2k17.\nCore team member Dramatics Club HBTU (DC-HBTU).\nMember Debnexus (Debating society), HBTU ', 'No.', '1. Publicize about the fest using social media platforms including college groups and pages.\n2. Provide all relevant information regarding the multicity auditions taking place in our city and help people out with any queries they have.\n3. Maintain regular contact with representatives of IIT Patna in order to keep myself and the participants updated.'),
-(9964, '1464828066964670', 0, 'C12/83,Lehangpura Kali Mahal Varanasi', 'MBA (FM)', 2016, 'Got the responsibility of managing  the group of students went to represent BHU at the annual fest of SMS College', 'No', '1.Advertising the events of social media\n2.Visit to other departments and faculties for the publicity and advertisement of the fest.\n3.Visit to University Hostels for promotions with my own team.');
 
 -- --------------------------------------------------------
 
@@ -123,7 +73,11 @@ CREATE TABLE `Events` (
   `long_desc` text,
   `cover_url` varchar(100) DEFAULT NULL,
   `icon_url` varchar(100) DEFAULT NULL,
-  `rules_url` varchar(100) DEFAULT NULL
+  `rules_url` varchar(100) DEFAULT NULL,
+  `owner1` int(11) DEFAULT NULL,
+  `owner2` int(11) DEFAULT NULL,
+  `owner3` int(11) DEFAULT NULL,
+  `owner4` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -164,57 +118,6 @@ CREATE TABLE `LoginTable` (
   `lastLogin` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `LoginTable`
---
-
-INSERT INTO `LoginTable` (`pId`, `password`, `privateKey`, `csrfToken`, `type`, `totalLogin`, `lastLogin`) VALUES
-(1000, NULL, NULL, '04f022f15f370dba1cf7e837e87dc90b361c0dd4', 2, 0, NULL),
-(1372, NULL, NULL, '0af1013959486faac97174faf8536e0c0b282caf', 2, 0, NULL),
-(1402, NULL, NULL, 'c2c5cc5681e3ce14bbfe74984a14d3b7696a7797', 2, 0, NULL),
-(1693, NULL, NULL, 'e6c55aab6dbe2af22660c139a94add20706ec9ba', 2, 0, NULL),
-(1903, NULL, NULL, '2d45ce96fb984df38b994a17514eb01410c93085', 2, 0, NULL),
-(2136, NULL, NULL, '64030a86c3860ec92f9144b9c699f70f6e5597af', 2, 0, NULL),
-(2377, NULL, NULL, 'ab1748b35e2ac3d2bf974ea5a62515dadb03250e', 2, 0, NULL),
-(2736, NULL, NULL, '3e39e3ffc04f5aa41bfe18870e2ce65a95ded54e', 2, 0, NULL),
-(2813, NULL, NULL, '3c40fd36b6c37be84d1e5b3f1af85d9f2e32e9ae', 2, 0, NULL),
-(2936, NULL, NULL, '395e1517341d211fe07b8622c565a7ce514b9035', 2, 0, NULL),
-(2946, NULL, NULL, '7dae4167f918ac2d8410e2b8b1b3475a342ae77a', 2, 0, NULL),
-(3041, NULL, NULL, 'e87a402f4ae3030cefce5519f10650428fbf8b4e', 2, 0, NULL),
-(3169, NULL, NULL, 'e1fa07f7b60f281221a4ce839a85308e7b8f8edd', 2, 0, NULL),
-(3535, NULL, NULL, 'ad698f1ae6a88574aab55c8f33a6d6eca1fd406c', 2, 0, NULL),
-(3656, NULL, NULL, '97cfff9bd4baa1da54cc8733c73d2cb02fcfaf2d', 2, 0, NULL),
-(3846, NULL, NULL, 'b5075c1fcb540747f4eb2ff8aa1e49a75c20cc8a', 1, 0, NULL),
-(3957, NULL, NULL, '9b2e11d568a9e6045e0de176290ca7326cdc0f2d', 2, 0, NULL),
-(4039, NULL, NULL, '8afcdbdb82637b01b6640601e5e69e70d4d38289', 2, 0, NULL),
-(4106, NULL, NULL, 'aa28ecf240448660e61a94f36f5b4ad669c29320', 2, 0, NULL),
-(4159, NULL, NULL, '7ae104e6dd63202b5754a3eea338d1ed43b06d81', 2, 0, NULL),
-(4500, NULL, NULL, 'a70aa6a616604eb432f85ec47be167e59717a0e9', 2, 0, NULL),
-(5283, NULL, NULL, '0207936f5672cad5d4804a4c5f5a924015b4cbf4', 2, 0, NULL),
-(5473, NULL, NULL, 'b066f2a217616fcf54a766d2d810ad7c3b6650ba', 2, 0, NULL),
-(5553, NULL, NULL, '36391cdd46c8bf98bebeb405128459e31d612672', 2, 0, NULL),
-(5677, NULL, NULL, 'c00413308690693fed6c00a8f4784e2ce343dd27', 2, 0, NULL),
-(5910, NULL, NULL, '9a1277536508e34ffce559c1c1b1a6948dff8c3b', 2, 0, NULL),
-(6929, NULL, NULL, '21852dd773c25ca2c6b47f3531284f5f966c0e36', 2, 0, NULL),
-(6930, NULL, NULL, '270dd70e1a2708a2a287372be1fca9f031089095', 2, 0, NULL),
-(6986, NULL, NULL, 'ca1eb429cf537137b4e3d287c918028a6f48ea2e', 2, 0, NULL),
-(7253, NULL, NULL, '9e86cf05721b041af9b2304c90039475e2ba7c58', 2, 0, NULL),
-(7829, NULL, NULL, 'bcfd8e1f56f7fb949c737a6be77bf2f48662b901', 2, 0, NULL),
-(7862, NULL, NULL, 'b12fbff3b10bedc2a592029b3ac86ef80e1ced07', 2, 0, NULL),
-(7885, NULL, NULL, '03201985c34e79016b37bbf7e8e3d460d7328277', 2, 0, NULL),
-(8067, NULL, NULL, '88f167aff4811f495218e6d4cb39bd105ad39d53', 2, 0, NULL),
-(8184, NULL, NULL, '6745215a2963d3dc55f31461c96e9449857774ca', 2, 0, NULL),
-(8217, NULL, NULL, '5a435c6eaed67ce5363fa7714b3f5b3a3f1c170d', 2, 0, NULL),
-(8536, NULL, NULL, 'b71fb777416c535f9c09e384e5db91a518ba95ec', 2, 0, NULL),
-(8697, NULL, NULL, 'b33a78e0937085b983dd3eefeddb883519dd4956', 2, 0, NULL),
-(8836, NULL, NULL, 'd48ee137e16b72e749bbd625921ebee7fe49e55c', 2, 0, NULL),
-(9190, NULL, NULL, '63352353b4939c0076d4d2a1113acb15a9d78f74', 2, 0, NULL),
-(9284, NULL, NULL, '86c46c571b749beec55186b3afcacd8f385b2d25', 2, 0, NULL),
-(9374, NULL, NULL, 'e1f6b4bd04874ee1beed0769f614659f48fcf47b', 2, 0, NULL),
-(9565, NULL, NULL, '9e31ac039ccc4a6a3df4f11a5dd396f717355355', 2, 0, NULL),
-(9670, NULL, NULL, 'c33d90734f83d459fd502a75d4975813b0b417b4', 2, 0, NULL),
-(9964, NULL, NULL, '18f1ff0e2b0f9af07c3a858b2ea58cf8bb0ce4ac', 2, 0, NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -233,62 +136,12 @@ CREATE TABLE `People` (
   `city` varchar(15) DEFAULT NULL,
   `refcode` varchar(15) DEFAULT NULL,
   `feePaid` int(4) DEFAULT NULL,
+  `isRegTeam` int(3) NOT NULL DEFAULT '0' COMMENT 'Indicates if user is reg team member',
   `confirm` int(2) NOT NULL,
   `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `iitp` int(1) NOT NULL DEFAULT '0',
   `qrurl` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `People`
---
-
-INSERT INTO `People` (`name`, `pId`, `fbID`, `college`, `sex`, `mobile`, `email`, `dob`, `city`, `refcode`, `feePaid`, `confirm`, `time`, `iitp`, `qrurl`) VALUES
-('Tameesh Biswas', 1000, '1591893497571424', 'IITP', 'M', '9920126830', 'social@tameesh.in', '1998-04-10', 'Mumbai', '', 0, 1, '2017-10-03 16:55:25', 0, NULL),
-('Krishu Singh', 1372, '966575160176718', 'ram kishun vidya mandir', 'M', '9554588149', 'singh7krishu@gmail.com', '1997-06-29', 'varanasi', '', 0, 1, '2017-10-15 18:22:50', 0, NULL),
-('Test', 1402, '1591893497572424', 'jbkk', 'M', '9920126830', 'social__@tameesh.in', '1998-04-10', 'jnn', '', 0, 1, '2017-10-04 12:53:00', 0, NULL),
-('Anant Kumar', 1693, '1409046165878045', 'NSIT', 'M', '7631653656', 'akanantkumar45@gmail.com', '1994-03-08', 'BIHTA', '', 0, 1, '2017-10-05 02:30:11', 0, NULL),
-('Aditya Patil', 1903, '1056252487811233', 'Fr. C. R. Institute of technology', 'M', '9403256431', 'adityanpatil19@gmail.com', '1997-03-19', 'Mumbai', '', 0, 1, '2017-10-24 06:10:18', 0, NULL),
-('Pratibhendra Singh', 2136, '1966370553611957', 'Kanpur Institute Of Technology', 'M', '7897389907', 'pratibhendra@gmail.com', '1995-08-04', 'Kanpur', '', 0, 1, '2017-10-11 13:25:39', 0, NULL),
-('Abhinav Jain', 2377, '1737864336521090', 'Harcourt butler technical university ', 'M', '8317015915', 'abhi2197@gmail.com', '1997-06-21', 'Kanpur', '', 0, 1, '2017-10-21 12:34:21', 0, NULL),
-('Pranav Mutharia', 2736, '1449655255117440', 'IIT Patna', 'M', '9899802982', 'pranav.mutharia@gmail.com', '1996-09-28', 'BHOPAL', '', 0, 1, '2017-10-03 16:51:55', 0, NULL),
-('Saikat Sarkar', 2813, '1107688692705976', 'NIT Durgapur', 'M', '7321888826', 'saikat.dakshana15@gmail.com', '1996-02-03', 'patna', '', 0, 1, '2017-10-04 17:15:33', 0, NULL),
-('Jayant Awasthi', 2936, '886390791535054', 'Kanpur institute of Management Studies', 'M', '7275739349', 'jayant786.knp@rediffmail.com', '1996-07-12', 'Kanpur', '', 0, 1, '2017-10-14 17:14:48', 0, NULL),
-('Abhijeet Anand', 2946, '1492356564166974', 'KIIT UNIVERSITY', 'M', '7064017525', 'ababhi9921@gmail.com', '1996-08-15', 'BHUBANESWAR', '', 0, 1, '2017-10-04 13:48:21', 0, NULL),
-('Sourav Sah', 3041, '1372316112895186', 'KIIT UNIVERSITY', 'M', '8757631102', 'souravsah29@gmail.com', '1998-03-29', 'Bhubaneswar', '', 0, 1, '2017-10-04 20:44:40', 0, NULL),
-('Bhartendra Yaduvanshi', 3169, '355469341531574', 'kalinga institute of industrial technology', 'M', '9937786467', 'bhartendra2251@gmail.com', '1999-03-01', 'bhubaneshvar', '', 0, 1, '2017-10-20 11:46:40', 0, NULL),
-('Hari Mangal', 3535, '1055568044546344', 'LNJPIT chapra', 'M', '9835005961', 'harisci03@gmail.com', '1997-12-03', 'patna', '', 0, 1, '2017-10-07 13:20:10', 0, NULL),
-('Akshit Chaudhary', 3656, '1501691179912645', 'KIIT UNIVERSITY', 'M', '7064007978', 'chaudharyakshit58@gmail.com', '1997-10-18', 'Bhubaneswar', '', 0, 1, '2017-10-04 19:05:51', 0, NULL),
-('Tameeshbb', 3846, '-1508895878', 'IITP', 'M', '9920126844', 'aeaefd@segs.com', '2017-10-18', 'srgs', '', 0, 0, '2017-10-25 01:44:38', 0, NULL),
-('Amresh Kumar', 3957, '1912161569105287', 'HBTU KANPUR', 'M', '8318303191', 'amresh9102@gmail.com', '1997-10-10', 'Kanpur', '', 0, 1, '2017-10-09 17:01:49', 0, NULL),
-('Akanksha Singh', 4039, '1320459964731119', 'kalinga institute of technology bhubaneshwar', 'M', '7064002185', 'akanksha.singh2481@yahoo.com', '1997-03-24', 'Bhubaneswar', '', 0, 1, '2017-10-04 14:34:37', 0, NULL),
-('Divya Singh', 4106, '827709717390870', 'Arya Mahila P. G College', 'M', '7905654827', 'rockdivyacool21@gmail.com', '1996-03-31', 'Varanasi', '', 0, 1, '2017-10-13 18:52:55', 0, NULL),
-('Yogendra Singh', 4159, '864633850360113', 'IIT ', 'M', '7770878087', 'singhyogendra549@yahoo.com', '1997-09-11', 'patna', '', 0, 1, '2017-10-04 12:42:32', 0, NULL),
-('Ankit Chaudhary', 4500, '1329812283795718', 'Harcourt Butler Technical University Kanpur', 'M', '7905674829', 'chaudharyankits@rediffmail.com', '1998-07-23', 'Kanpur', '', 0, 1, '2017-10-09 14:50:25', 0, NULL),
-('Sanket Patil', 5283, '1150257385105376', 'IIT Patna', 'M', '9604342683', 'sanketp681@gmail.com', '1998-07-07', 'Patna', '', 0, 1, '2017-10-12 13:21:26', 0, NULL),
-('Ravi Ranjan', 5473, '967329406740282', 'Bihar National College Patna', 'M', '8292132777', 'raviranjan9973@gmail.com', '1996-10-16', 'Patna', '', 0, 1, '2017-10-06 23:50:57', 0, NULL),
-('Aryan S Prince', 5553, '1349851761804801', 'K k college of engineering and management', 'M', '7004579575', 'sandeepranjan49@gmail.com', '1994-10-10', 'Dhanbaad', '', 0, 1, '2017-10-04 12:52:00', 0, NULL),
-('Saquib Daud', 5677, '1570578292987732', 'Jamia Millia Islamia Central University', 'M', '9013804036', 'saquibdaud786@gmail.com', '1993-07-29', 'Delhi', '', 0, 1, '2017-10-14 10:05:16', 0, NULL),
-('Abhishek Kumar', 5910, '2001350840112475', 'NIT LONGOWAL PUNJAB', 'M', '8699240454', 'abhishekkumar.sliet@gmail.com', '1998-07-13', 'SANGRUR', '', 0, 1, '2017-10-05 17:42:52', 0, NULL),
-('Vishal Vishwakarma', 6929, '658276551038695', 'Kanpur Institute of Technology', 'M', '8127852418', '309vishalvishwakarma@gmail.com', '1995-09-30', 'Kanpur', '', 0, 1, '2017-10-05 13:45:57', 0, NULL),
-('Aryan Roy', 6930, '514606925556444', 'National Institute Of Technology Patna', 'M', '8083050025', 'itzmeaaru@gmail.com', '1997-01-28', 'Patna', '', 0, 1, '2017-10-04 15:37:48', 0, NULL),
-('Arinjaya Khare', 6986, '1587541491296501', 'IIT ISM Dhanbad', 'M', '9431222254', 'arinjayakhare1@gmail.com', '1997-02-02', 'sdasd', '', 0, 1, '2017-10-10 13:35:17', 0, NULL),
-('Manas Chaurasia', 7253, '911566615666229', 'University Institute of Technology', 'M', '9111787424', 'manaschaurasia73@yahoo.com', '1998-03-12', 'Bhopal', '', 0, 1, '2017-10-04 14:23:39', 0, NULL),
-('Shivani Agarwal', 7829, '1983347478607327', 'BIT Mesra Patna campus ', 'M', '9097850962', 'agarwalshivani23@gmail.com', '1999-01-20', 'GAYA', '', 0, 1, '2017-10-06 11:42:49', 0, NULL),
-('Manya Singh', 7862, '1621615517898393', 'Banaras Hindu University', 'M', '8377060539', 'manyasingh26@gmail.com', '1995-09-26', 'Varanasi', '', 0, 1, '2017-10-11 15:03:38', 0, NULL),
-('Dona Ghosh', 7885, '328876084252018', 'Bengal College of Engineering and Technology ', 'M', '7477371691', 'donaghosh3110@gmail.com', '1999-01-30', 'Durgapur', '', 0, 1, '2017-10-05 03:37:10', 0, NULL),
-('Nehad Nazim', 8067, '1531028250318157', 'integral university', 'M', '9129200460', 'nehad.nazim@gmail.com', '1997-12-28', 'Lucknow', '', 0, 1, '2017-10-07 19:56:08', 0, NULL),
-('Aditya Suman', 8184, '462701714115040', 'iit', 'M', '7424947945', 'adityasuman2025@gmail.com', '1999-03-03', 'patna', '', 0, 1, '2017-10-03 16:58:03', 0, NULL),
-('Vicky Sahu', 8217, '136540670319925', 'PSIT Kanpur', 'M', '7752890831', '001sahu@gmail.com', '1999-04-06', 'Mahoba', '', 0, 1, '2017-10-10 18:37:22', 0, NULL),
-('Shivam Pandey', 8536, '1381298535300831', 'KASHI INSTITUTE OF TECHNOLOGY', 'M', '9838478384', 'shivampandeycom.kumar@gmail.com', '1997-10-03', 'VARANASI', '', 0, 1, '2017-10-12 02:17:58', 0, NULL),
-('Shubhank Pareek', 8697, '932410766908246', 'SKIT', 'M', '7791975542', 'shubhankpareek@gmail.com', '1997-11-15', 'Jaipur', '', 0, 1, '2017-10-16 05:14:49', 0, NULL),
-('Pranjali Agrawal', 8836, '477464459302774', 'Sunbeam College For Women Bhagwanpur Varanasi', 'M', '9598410016', '28pranjaliagrawal@gmail.com', '1999-06-28', 'Varanasi', '', 0, 1, '2017-10-18 12:19:42', 0, NULL),
-('Sarthak Anupam', 9190, '1964002633880045', 'KIIT UNIVERSITY', 'M', '7064337557', 'sarthakanupam97@gmail.com', '1997-11-05', 'BHUBANESWAR', '', 0, 1, '2017-10-05 05:27:30', 0, NULL),
-('Mani Sh', 9284, '141607956574915', 'Mahatma Gandhi central university Bihar', 'M', '7033189433', 'manishid@yahoo.com', '1999-08-30', 'Motihari', '', 0, 1, '2017-10-08 20:00:10', 0, NULL),
-('Sumit Tiwari', 9374, '910824245739674', 'Kanpur university', 'M', '9718669081', 'st54329@gmail.com', '1996-10-05', 'Kanpur', '', 0, 1, '2017-10-10 14:44:36', 0, NULL),
-('Shubhangi Gupta', 9565, '1526336860766568', 'Harcourt Butler Technical University', 'M', '8171909037', 'gs199804@gmail.com', '1998-04-28', 'Kanpur', '', 0, 1, '2017-10-09 14:12:13', 0, NULL),
-('Amandeep Gupta', 9670, '1417001471746029', 'Harcourt Butler Technical University', 'M', '9565329496', 'amandeepgupta13@gmail.com', '1997-11-13', 'Kanpur', '', 0, 1, '2017-10-10 14:49:27', 0, NULL),
-('Siddhant Jaiswal', 9964, '1464828066964670', 'BHU', 'M', '8604205531', 'sidjais675@gmail.com', '1996-01-31', 'Varanasi', '', 0, 1, '2017-10-12 16:19:00', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -305,7 +158,6 @@ CREATE TABLE `Pids` (
 --
 
 INSERT INTO `Pids` (`pId`) VALUES
-(9224),
 (1100),
 (9739),
 (5150),
@@ -8631,9 +8483,9 @@ INSERT INTO `Pids` (`pId`) VALUES
 (1683),
 (7915),
 (8518),
-(1912);
+(1912),
+(8875);
 INSERT INTO `Pids` (`pId`) VALUES
-(8875),
 (6171),
 (1568),
 (4530),
@@ -9255,7 +9107,6 @@ INSERT INTO `Pids` (`pId`) VALUES
 (4774),
 (9151),
 (4238),
-(9224),
 (1100),
 (9739),
 (5150),
@@ -16959,10 +16810,10 @@ INSERT INTO `Pids` (`pId`) VALUES
 (4693),
 (6422),
 (3365),
-(4894);
-INSERT INTO `Pids` (`pId`) VALUES
+(4894),
 (8290),
-(9570),
+(9570);
+INSERT INTO `Pids` (`pId`) VALUES
 (4632),
 (5058),
 (3964),

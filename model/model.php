@@ -678,6 +678,51 @@ class People{
         }
     }
 
+    /**
+     * Returns if a userID is owner of which events and if the user is a part of the reg commitee
+     * Originally intended for the QR code app for additional login info on regular login.
+     * this tells the app if the user being logged in has special privilages to register users
+     * for fest or events and accept payments.
+     */
+    public static function isSpecial($userID,$conn) {
+        $ret = array();
+        $eve = array();
+        $count = 0;
+        $reg = 0;
+        $ownerQ = "owner1 = $userID || owner2 = $userID || owner3 = $userID || owner4 = $userID";
+        $sql = "SELECT eveName,eveId FROM Events WHERE $ownerQ";
+        $result = mysqli_query($conn, $sql);
+        if($result){
+            $eve["eveCount"]=mysqli_num_rows($result);
+            while ($row = mysqli_fetch_assoc($result)) {
+               $count++;
+               $eve[] = [
+                    "id"=>$row['eveId'],
+                    "name"=>$row['eveName'],
+                ];
+            }
+        } else {
+            $eve[]=0;
+        }
+
+        $user = self::getUser($userID,$conn);
+        if($user[0]==1){
+            $userDat = $user[1];
+            if($userDat['isRegTeam']==1){
+                $count++;
+                $reg = 1;
+            }
+        }
+        $ret = [
+            1,
+            //count of how many positions of administration the user holds 1 for each event and 1 for reg team
+            "count" => $count,
+            "eventOrganiser" => $eve,
+            "isRegTeam" => $reg
+        ];
+        return $ret;
+    }
+
 
     /**
      * Sends email for verification
