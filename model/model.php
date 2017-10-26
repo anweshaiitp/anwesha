@@ -1342,6 +1342,48 @@ class Events{
         $arr[] = $results;
         return $arr;
     }
+
+    public static function isValidOrg($pId,$eveID,$conn){
+        $eveID = mysqli_real_escape_string($conn,$eveID);
+        $ownerQ = "owner1 = $pId || owner2 = $pId || owner3 = $pId || owner4 = $pId";
+        $sql = "SELECT count(code) as owner FROM Events E1 
+            WHERE 
+                eveId = $eveID AND (
+                    ". $ownerQ ." || (
+                        SELECT count(*) from Events where eveId = E1.code AND (".$ownerQ.") 
+                    ) 
+                )";
+        $result = mysqli_query($conn, $sql);
+        $arr = array();
+        if(!$result || mysqli_num_rows($result)==0){
+            $error = "Internal Error #".alog(mysqli_error($conn));            
+            $arr[]=-1;
+            $arr[]=500;
+            $arr[]=$error;
+            return $arr;
+        }
+        while($row = mysqli_fetch_assoc($result)){
+            if($row['owner']==0){
+                $arr[] = -1;
+                $arr[] = 500;
+                $arr[] = "Not valid user for event";
+                return $arr;
+            }else{
+                $arr[] = 1;
+                $arr[] = 200;
+                $arr[] = "Eve Owner";
+                return $arr;
+            }
+        }
+        
+    }
+
+    public static function regUser($orgID,$eveID,$pId,$conn){
+        $orgID = mysqli_real_escape_string($conn,$orgID);
+        $eveId = mysqli_real_escape_string($conn,$eveId);
+
+    }
+
     /**
      * Returns the size of the event.
      * @param  int $eveID Event id
