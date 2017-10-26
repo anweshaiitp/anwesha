@@ -1380,8 +1380,32 @@ class Events{
 
     public static function regUser($orgID,$eveID,$pId,$conn){
         $orgID = mysqli_real_escape_string($conn,$orgID);
-        $eveId = mysqli_real_escape_string($conn,$eveId);
-
+        $eveID = mysqli_real_escape_string($conn,$eveID);
+        $valid = self::isValidOrg($pId,$eveID,$conn);
+        if(!$valid){
+            return $valid;
+        }
+        $sqlInsert = "INSERT INTO Registration(eveId,pId) VALUES ($eveID,$pId)";
+        $dup ="";
+        $result = mysqli_query($conn,$sqlInsert);
+        if(!$result){
+            $Err = 'Error in registering team. #'.alog(mysqli_error($conn));
+            $arr = array();
+            $arr[] = -1;
+            $arr[] = 400;
+            if(strpos(mysqli_error($conn),"Duplicate entry")!==false){
+               $Err = "User already registered for the event";
+               $arr[1] = 409;
+            }
+            
+            $arr[] = $Err;
+            return $arr;
+        } else {
+            $arr[] = 1;
+            $arr[] = 200;
+            $arr[] = "User successfully registered for event.";
+            return $arr;
+        }
     }
 
     /**

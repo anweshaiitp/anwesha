@@ -68,4 +68,7 @@ JSON: [1,{"name":"Tameesh Biswas","pId":"4159","fbID":"1591893497571424","colleg
 - localhost:8000/qrReg/{cryptographic hash from QR}
 test: 9224b6579e4258e2a76c0f781191e05ab0883bd97dba
 POST: (optional, in case of no post data, only user info will be displayed. Otherwise, user will be registered if organiser is authorised)
-JSON: For no POST data: {"status":1,"http":200,"message":{"name":"ALEgjigoiho","pId":"9224","fbID":"-1508967356","college":"IITP","sex":"M","mobile":"9920126812","email":"aijfaoijg@tameesh.in","dob":"2017-10-11","city":"Mumbai","refcode":"","feePaid":"0","confirm":"0","time":"2017-10-26 03:06:05","iitp":"0","qrurl":"http:\/\/localhost:8000\/qr\/anw9224.png"}}
+JSON: For no POST data: {"status":1,"http":200,"message":{"name":"ALEgjigoiho","pId":"9224","fbID":"-1508967356","college":"IITP","sex":"M","mobile":"9920126812","email":"aijfaoijg@tameesh.in","dob":"2017-10-11","city":"Mumbai","refcode":"","feePaid":"0","confirm":"0","time":"2017-10-26 03:06:05","iitp":"0","qrurl":"http:\/\/localhost:8000\/qr\/anw9224.png"}}   
+With POST
+[1,200,"User successfully registered for event."]
+[-1,409,"User already registered for the event"]

@@ -15,16 +15,16 @@
 	
 	if($match[1] == $pId.sha1($pId.$AESKey)){
 		if(isset($_POST['orgID']) && isset($_POST['eveID'])){
-			if($organiser = Events::isValidOrg($_POST['orgID'],$_POST['eveID'],$conn)){
+			// if($organiser = Events::isValidOrg($_POST['orgID'],$_POST['eveID'],$conn)){
 				$call = Events::regUser($_POST['orgID'],$_POST['eveID'],$pId,$conn);
 				$status = $call[0];
 				$httpstatus = $call[1];
 				$message = $call[2];
-			} else {
-				$httpstatus = $organiser[1];
-				$status = $organiser[0];
-				$message = $organiser[2];
-			}
+			// } else {
+			// 	$httpstatus = $organiser[1];
+			// 	$status = $organiser[0];
+			// 	$message = $organiser[2];
+			// }
 		} else {
 			$httpstatus = 200;
 			$status = 1;
