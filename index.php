@@ -5,7 +5,7 @@ ini_set('zlib_output_compression','On');
 
 ini_set("log_errors", 1);
 ini_set("error_log", "/tmp/php-error.log");
-error_log("hi" );
+error_log($_SERVER['REMOTE_ADDR']);
 /**
 * New request lands in this class. After that it is routed accordingly to the respective controller.
 * Also provides basic functions for loading models.
@@ -55,11 +55,13 @@ if (preg_match($base . '(ca|)_?([0-9]{4}|)$@', $url, $match)) {
 	require ('view/team.html');
 } elseif (preg_match($base . 'accodomation/$@', $url, $match)) {
 	require ('view/accodomation.html');
-} elseif (preg_match($base . 'schedule_raw/$@', $url, $match)) {
+} elseif (preg_match($base . 'qrReg/([0-9A-Za-z]{4,50})/?$@', $url, $match)) {
+	require ('controller/qrReg.php');
+} elseif (preg_match($base . 'schedule_raw/?$@', $url, $match)) {
 	require ('view/schedule.html');
-} elseif (preg_match($base . 'preloader/$@', $url, $match)) {
+} elseif (preg_match($base . 'preloader/?$@', $url, $match)) {
 	require ('view/preloader.html');
-} elseif (preg_match($base . 'auditions/$@', $url, $match)) {
+} elseif (preg_match($base . 'auditions/?$@', $url, $match)) {
 	require ('view/multiCityAuditions.html');
 } elseif (preg_match($base . 'auditions/linefollow/$@', $url, $match)) {
 	require ('view/linefollow.html');

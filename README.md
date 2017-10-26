@@ -11,7 +11,8 @@
 - For populating database import __migrations/data.sql__ in mysql ~~OR run __migrations/migrate.php__~~
 - For generating random anwesha ID run __migration/randomID.php__
 - Use can change the caching time by updating $cache_time variable in the specific controller. Current cache time is 60 second.
-- For removing cached files - delete contents of /cache/ folder (/cache/*.hmtl)
+- For removing cached files - delete contents of /cache/ folder (/cache/*.hmtl) 
+
 
 ### Using Auth:
 - If accessing from web browser ignore this section(for web browser, session support is there).
@@ -61,5 +62,10 @@
 - [ ] Fee payment portal.
 
 ## API
-- user/CAcheck/{fbID}/ Check is fbID is already registered
-JSON: [1,{"name":"Tameesh Biswas","pId":"4159","fbID":"1591893497571424","college":"sgs","sex":"M","mobile":"9999999999","email":"social@tameesh.in","dob":"1998-04-10","city":"Mumbai","refcode":"","feePaid":"0","confirm":"1","time":"2017-10-03 21:04:32","iitp":"0"}]
+- user/CAcheck/{fbID}/ Check if fbID is already registered
+JSON: [1,{"name":"Tameesh Biswas","pId":"4159","fbID":"1591893497571424","college":"sgs","sex":"M","mobile":"9999999999","email":"social@tameesh.in","dob":"1998-04-10","city":"Mumbai","refcode":"","feePaid":"0","confirm":"1","time":"2017-10-03 21:04:32","iitp":"0"}]  
+
+- localhost:8000/qrReg/{cryptographic hash from QR}
+test: 9224b6579e4258e2a76c0f781191e05ab0883bd97dba
+POST: (optional, in case of no post data, only user info will be displayed. Otherwise, user will be registered if organiser is authorised)
+JSON: For no POST data: {"status":1,"http":200,"message":{"name":"ALEgjigoiho","pId":"9224","fbID":"-1508967356","college":"IITP","sex":"M","mobile":"9920126812","email":"aijfaoijg@tameesh.in","dob":"2017-10-11","city":"Mumbai","refcode":"","feePaid":"0","confirm":"0","time":"2017-10-26 03:06:05","iitp":"0","qrurl":"http:\/\/localhost:8000\/qr\/anw9224.png"}}

@@ -10,23 +10,20 @@
 	if(!$conn)
 		error_log(mysqli_connect_error());
 
-	// echo $match[1]..PHP_EOL;
 	$pId = substr($match[1],0,4);
 	$hash = substr($match[1],3);
-	// echo $match[1]."<br>";
-	// echo ;
-
+	
 	if($match[1] == $pId.sha1($pId.$AESKey)){
 		if(isset($_POST['orgID']) && isset($_POST['eveID'])){
-			if($oragniser = Events::isValidOrg($_POST['orgID'],$_POST['eveID'],$conn){
+			if($organiser = Events::isValidOrg($_POST['orgID'],$_POST['eveID'],$conn)){
 				$call = Events::regUser($_POST['orgID'],$_POST['eveID'],$pId,$conn);
 				$status = $call[0];
 				$httpstatus = $call[1];
 				$message = $call[2];
 			} else {
-				$httpstatus = $oragniser[1];
-				$status = $oragniser[0];
-				$message = $oragniser[2];
+				$httpstatus = $organiser[1];
+				$status = $organiser[0];
+				$message = $organiser[2];
 			}
 		} else {
 			$httpstatus = 200;
@@ -45,7 +42,13 @@
 		$httpstatus = 400;
 		$status = -1;
 	}
-	$retArr = [$status,$httpstatus,$message];
+	
+	$retArr = [
+		"status"=>$status,
+		"http"=>$httpstatus,
+		"message"=>$message
+	];
+
 	echo json_encode($retArr);
 
 ?>
