@@ -193,9 +193,9 @@ class People{
         $sql = " SELECT * FROM People WHERE pId = $id";
         $result = mysqli_query($conn, $sql);
         if(!$result || mysqli_num_rows($result)!=1){
-            $error = "Error in displaying result for Anwesha ID";
-            error_log(mysqli_num_rows($result).mysqli_error($conn));
-            alog(mysqli_num_rows($result).mysqli_error($conn));
+            $errorH = alog(mysqli_num_rows($result).mysqli_error($conn));
+            $error = "Error in displaying result for Anwesha ID ".$errorH;
+            error_log("Error: $errorH ". mysqli_num_rows($result).mysqli_error($conn));
             $arr = array();
             $arr[]=-1;
             $arr[]=$error;
@@ -321,7 +321,7 @@ class People{
             $arr["special"] = $isSpecial;
         else
             $arr["special"]["count"] = 0;
-        
+
         return $arr;
     }
 
