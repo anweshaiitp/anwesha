@@ -1,4 +1,0 @@
-<a href='#' class='sidebtn ph-button ph-btn-green' placeholder="<><>detail data<><>" >Event1</a>
-<a href='#' class='sidebtn ph-button ph-btn-green' placeholder="<><>detail data<><>" >Event2</a>
-<a href='#' class='sidebtn ph-button ph-btn-green' placeholder="<><>detail data<><>" >Event3</a>
-<a href='#' class='sidebtn ph-button ph-btn-green' placeholder="<><>detail data<><>" >Event4</a>

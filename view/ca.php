@@ -181,11 +181,11 @@
 				      }
 			  	  // $("input[name='DOB']").attr('disabled','true');
 			  	  }
-			  	  if(data[0]<=1){
+			  	  if(data[0]<1){
 					  $("#FB-Oauth").html("Hi! " +response.first_name+" <ul class='actions'><li><a href='#signUp' class='button'>Continue to step 2</a></li></ul>");
 					  $("#FB-Oauth2").html("Hi! " +response.first_name+"<br> Complete signUp below");	
 					  $("#signUp").css("display","block");
-			  	  }else if(data[0]>1){
+			  	  }else if(data[0]>=1){
 			  	  	$("#FB-Oauth").html("Hi! " +response.first_name+"<br>Referal Code is :"+data[1].pId+" <br><ul class='actions'><li><a href='#leader' class='button'>Leaderboard</a></li></ul>");
 			  	  	$("#FB-Oauth2").html("Sign-Up Complete <br>Referal Code is : " + data[1]).pId;
 			  	  }

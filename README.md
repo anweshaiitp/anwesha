@@ -17,7 +17,7 @@
 ### Using Auth:
 - If accessing from web browser ignore this section(for web browser, session support is there).
 
-#### For login:
+#### For login
 - use URL /login/
 - send username and password by POST. index - username, password
 - Response will contain user information. Private key is given in index key.

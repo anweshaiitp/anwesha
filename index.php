@@ -1,5 +1,5 @@
 <?php
-ini_set('display_errors', '1');     # don't show any errors...
+ini_set('display_errors', '0');     # don't show any errors...
 error_reporting(E_ALL | E_STRICT);  # ...but do log them
 ini_set('zlib_output_compression','On');
 
@@ -33,8 +33,8 @@ preg_match('@(.*)index.php(.*)$@', $_SERVER['PHP_SELF'], $mat );
 $base = '@^'. $mat[1] ;
 
 if (preg_match($base . '(ca|)_?([0-9]{4}|)$@', $url, $match)) {
-	require ('new.php');
-	// require ('new.php');
+	require ('new2018.php');
+	// require ('view/coming_soon.php');
 } elseif (preg_match($base . 'register/?$@', $url, $match)) {
 	require ('view/reg.php');
 } elseif (preg_match($base . 'leaderboard/api/?$@', $url, $match)) {
