@@ -149,7 +149,7 @@
 			    	$.get( "user/CAcheck/" + fbID + "/", function( data ) {
 			    	  // var obj = JSON.parse(data);
 			    	  console.log(data);
-			    	  console.log(data[0]);
+			    	  console.log(data[1]);
 
 			    	// if(data[-1])
 			    	//REST call with FB userID fetches if signedu or not.
@@ -194,12 +194,13 @@
 				      }
 			  	  // $("input[name='DOB']").attr('disabled','true');
 			  	  }
-			  	  if(jQuery.parseJSON(data[1]).pId<=1){
+			  	  console.log("parse",data[1]);
+			  	  if(data[1].pId<=1){
 					  $("#FB-Oauth").html("Hi! " +response.first_name+" <ul class='actions'><li><a href='#signUp' class='button'>Continue to step 2</a></li></ul>");
 					  
 					  $("#signUp").css("display","block");
-			  	  }else if(jQuery.parseJSON(data[1]).pId>1){
-			  	  	$("#FB-Oauth").html("Hi! " +response.first_name+"<br>Referal Code is :"+jQuery.parseJSON(data[1]).pId+" <br><ul class='actions'><li><a href='#leader' class='button'>Leaderboard</a></li></ul>");
+			  	  }else if(data[1].pId>1){
+			  	  	$("#FB-Oauth").html("Hi! " +response.first_name+"<br>Referal Code is :"+data[1].pId+" <br><ul class='actions'><li><a href='#leader' class='button'>Leaderboard</a></li></ul>");
 			  	  	
 			  	  }
 				});
