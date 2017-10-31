@@ -75,3 +75,25 @@ With POST
 
 - additional login info inside "special" field of login JSON object   can also access from /user/special/{userID} 4 digit
 {"count":1,"eventOrganiser":{"eveCount":1,"0":{"id":"1","name":"Code"}},"isRegTeam":0}
+
+- registration JSON response
+{
+0: "1", //status
+1: {  
+city: "Mumbai",
+college: "IITp",
+confirm: "0",
+dob: "1998-05-10",
+email: "aaaa____@tameesh.in",    
+fbID: "-1509445681", //negative because FB not used during reg    
+feePaid: "0",
+iitp: "0",
+isRegTeam: "0", //is part of reg commitee
+mobile: "9940150030",
+name: "Name Name2",
+pId: "9427",//anw ID
+qrurl: "http://anwesha.info/qr/anw9427.png",
+refcode: "",
+sex: "M",
+time: "2017-10-31 10:28:01",   
+}
