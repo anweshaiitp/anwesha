@@ -16,20 +16,20 @@ if(preg_match('/^[Aa][Nn][Ww]([0-9]{4})$/', $userID, $matches)){
 } else {
 	// mysqli_close($conn);
 	header('Content-type: application/json');
-	echo json_encode(array("status" => false, "msg" => "Invalid username"));
+	echo json_encode(array("status" => 400, "msg" => "Invalid username"));
 	die();
 }
 // echo count($password);
 if(strlen($password) > 30 || strlen($password) < 4){
 	// mysqli_close($conn);
 	header('Content-type: application/json');
-	echo json_encode(array("status" => false, "msg" => "Invalid password"));
+	echo json_encode(array("status" => 400, "msg" => "Invalid password"));
 	die();
 }
 $conn = mysqli_connect(SERVER_ADDRESS,USER_NAME,PASSWORD,DATABASE);
 
 $result = Auth::loginUser($userID,$password,$conn);
-if($result['status']){
+if($result['status'] == 200){
 	$eve = People::getEvents($userID,$conn);
 	$isSpecial = People::isSpecial($userID,$conn);
 	// var_dump($eve);

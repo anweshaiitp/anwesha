@@ -1534,10 +1534,10 @@ class Auth
 
         $result = mysqli_query($conn,$sql);
         if(!$result OR mysqli_num_rows($result) != 1){
-            return array("status" => false, "msg" => "Invalid credentials");
+            return array("status" => 403, "msg" => "Invalid credentials");
         } else {
             $row = mysqli_fetch_assoc($result);
-            $row["status"] = True;
+            $row["status"] = 200;
             $row["msg"] = "Login Successful";
             $sql = "UPDATE LoginTable SET totalLogin = totalLogin + 1, lastLogin = NOW() WHERE pId = $userID";
             $result = mysqli_query($conn,$sql);
