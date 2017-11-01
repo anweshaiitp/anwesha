@@ -57,6 +57,8 @@ if (preg_match($base . '(ca|)_?([0-9]{4}|)$@', $url, $match)) {
 	require ('view/accodomation.html');
 } elseif (preg_match($base . 'qrReg/([0-9A-Za-z]{4,50})/?$@', $url, $match)) {
 	require ('controller/qrReg.php');
+} elseif (preg_match($base . 'pay/([0-9]{4})/?$@', $url, $match)) {
+	require ('controller/pay.php');
 } elseif (preg_match($base . 'schedule_raw/?$@', $url, $match)) {
 	require ('view/schedule.html');
 } elseif (preg_match($base . 'preloader/?$@', $url, $match)) {
