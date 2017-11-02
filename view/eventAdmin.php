@@ -12,7 +12,11 @@ $conn = mysqli_connect(SERVER_ADDRESS,USER_NAME,PASSWORD,DATABASE);
 		$purp = -1;
 		$title = "Login first";
 		if(isset($_POST['username']) && isset($_POST['password'])){
-			$result = Auth::loginUser($_POST['username'],$_POST['password'],$conn);
+			$username = $_POST['username'];
+			if(strlen($username)==7){
+				$username = substr($username, 3);
+			}
+			$result = Auth::loginUser($username,$_POST['password'],$conn);
 			if($result['status']==200)
 				$purp = 0;
 			else{
@@ -59,24 +63,28 @@ if($purp!=-1){
       </h2>
     </div>
     <!-- login -->
-    <form action="" method="POST" >
-		<div class="field">
-  			<label class="label">AnweshaID</label>
-			<div class="control">
-				<input class="input" type="text" name="username" placeholder="ANWxxx">
+    <?php
+	if($purp == -1)
+    	echo "<form action=\"\" method=\"POST\" >
+		<div class=\"field\">
+  			<label class=\"label\">AnweshaID</label>
+			<div class=\"control\">
+				<input class=\"input\" type=\"text\" name=\"username\" placeholder=\"ANWxxx\">
 			</div>
 		</div>
-		<div class="field">
-  			<label class="label">Password</label>
-			<div class="control">
-				<input class="input" type="password" name="password" placeholder="********">
+		<div class=\"field\">
+  			<label class=\"label\">Password</label>
+			<div class=\"control\">
+				<input class=\"input\" type=\"password\" name=\"password\" placeholder=\"********\">
 			</div>
 		</div>
 		
-		    <button class="button is-link">Login</button>
+		    <button class=\"button is-link\">Login</button>
 		  
   
-	</form>
+	</form>";
+    ?>
+    
 	<!-- login ends -->
 	<?php
 		$actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
