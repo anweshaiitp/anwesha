@@ -1,5 +1,5 @@
 <?php
-ini_set('display_errors', '1');  
+// ini_set('display_errors', '1');  
 
 session_start();	
 require('model/model.php');
@@ -15,6 +15,10 @@ $conn = mysqli_connect(SERVER_ADDRESS,USER_NAME,PASSWORD,DATABASE);
 			$result = Auth::loginUser($_POST['username'],$_POST['password'],$conn);
 			if($result['status']==200)
 				$purp = 0;
+			else{
+				$purp = -1
+				$title = $result["msg"];
+			}
 		}
 
 	}
@@ -26,7 +30,7 @@ if($purp!=-1){
 		$arr = isSpecial($_SESSION['userID'],$conn)["eventOrganiser"];
 		$title = "List of Events and Categories"; 
 	}else if($match[1]== 'addEvent'){
-		
+
 	}
 }
 ?>
