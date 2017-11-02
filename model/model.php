@@ -714,7 +714,7 @@ class People{
         $user = self::getUser($userID,$conn);
         if($user[0]==1){
             $userDat = $user[1];
-            if($userDat['isRegTeam']==1){
+            if($userDat['isRegTeam']>0){
                 $count++;
                 $reg = 1;
             }
