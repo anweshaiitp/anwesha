@@ -13,38 +13,38 @@ $city = null;
 $refcode = "";
 if(!(isset($_POST['name']) && !empty($_POST['name']))){
 	header('Content-type:application/json');
-	echo json_encode(array(-1,array('Name not given.')));
+	echo json_encode(array(-1,'Name not given.'));
 	die();
 }
 
 if(!(isset($_POST['college']) && !empty($_POST['college']))){
 	header('Content-type:application/json');
-	echo json_encode(array(-1,array('College not given.')));
+	echo json_encode(array(-1,'College not given.'));
 	die();
 }
 if(!(isset($_POST['sex']) && !empty($_POST['sex']))){
 	header('Content-type:application/json');
-	echo json_encode(array(-1,array('Sex not given.')));
+	echo json_encode(array(-1,'Sex not given.'));
 	die();
 }
 if(!(isset($_POST['mobile']) && !empty($_POST['mobile']))){
 	header('Content-type:application/json');
-	echo json_encode(array(-1,array('Mobile not given.')));
+	echo json_encode(array(-1,'Mobile not given.'));
 	die();
 }
 if(!(isset($_POST['email']) && !empty($_POST['email']))){
 	header('Content-type:application/json');
-	echo json_encode(array(-1,array('Email-id not given.')));
+	echo json_encode(array(-1,'Email-id not given.'));
 	die();
 }
 if(!(isset($_POST['dob']) && !empty($_POST['dob']))){
 	header('Content-type:application/json');
-	echo json_encode(array(-1,array('Date of Birth not given.')));
+	echo json_encode(array(-1,'Date of Birth not given.'));
 	die();
 }
 if(!(isset($_POST['city']) && !empty($_POST['city']))){
 	header('Content-type:application/json');
-	echo json_encode(array(-1,array('City not given.')));
+	echo json_encode(array(-1,'City not given.'));
 	die();
 }
 
