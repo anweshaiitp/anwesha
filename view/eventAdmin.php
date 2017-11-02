@@ -41,10 +41,15 @@ if($purp!=-1){
 <!DOCTYPE html>
 <html>
 <head>
+
 	<title>Admin control panel</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<style>
+		body{
+			background: #00d0b2;
+		}
 		.field{
 			width:300px;
 		}
@@ -52,7 +57,7 @@ if($purp!=-1){
 </head>
 <body class="is-primary">
 <center>
-	<section class="hero is-primary" style="min-height: 100%">
+	<section class="hero is-primary" >
   <div class="hero-body">
     <div class="container">
       <h1 class="title">
@@ -90,9 +95,10 @@ if($purp!=-1){
 		$actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
 		if($purp==1)
 		foreach ($arr as $eve) {
-			$action = ($eve["id"]<10) "Add New Event":"Edit Event";
-			$color = ($eve["id"]<10) "is-warning":"is-success";
-			echo "<a href='$actual_link/eventAdmin/update/".$eve['id']."'><div class=\"tags has-addons\" style=\"width:500px\">
+			$action = ($eve["id"]<10)? "Add New Event":"Edit Event";
+			$color = ($eve["id"]<10)? "is-warning":"is-success";
+			$action_ = ($eve["id"]<10)? "addEvent":"update";
+			echo "<a href='$actual_link/eventAdmin/$action_/".$eve['id']."'><div class=\"tags has-addons\" style=\"width:500px\">
 			      <span class=\"tag is-large is-dark\">".$eve['name']."</span>
 			      <span class=\"tag is-large is-info\">".$eve['id']."</span>
 			      <span class=\"tag is-large $color\">".$action."</span>
