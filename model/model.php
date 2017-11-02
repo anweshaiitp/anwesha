@@ -213,23 +213,23 @@ class People{
         $row = mysqli_fetch_assoc($result);
 
         $arr = array();
-        $arr[]=1;
-        $arr[]=$row;
-        if($arr["qrurl"]=="" || $arr["qrurl"]==NULL){
+        $arr[0]=1;
+        $arr[1]=$row;
+        if($row["qrurl"]=="" || $row["qrurl"]==NULL){
 
             $actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
-            if(file_exists($_SERVER['DOCUMENT_ROOT'].'/qr/anw'.$arr["pId"].'.png')){
-                $QRurl = $actual_link.'/qr/anw'.$arr["pId"].'.png';
+            if(file_exists($_SERVER['DOCUMENT_ROOT'].'/qr/anw'.$row["pId"].'.png')){
+                $QRurl = $actual_link.'/qr/anw'.$row["pId"].'.png';
 
             }else{
 
-                $QRurl = self::genQR($arr["pId"])[3];
+                $QRurl = self::genQR($row["pId"])[3];
 
             }
 
-            updateUser('qrurl',$QRurl,$arr["pId"]);
+            self::updateUser('qrurl',$QRurl,$row["pId"]);
 
-            $arr["qrurl"] = $QRurl;
+            $arr[1]["qrurl"] = $QRurl;
         }
         return $arr;
     }
