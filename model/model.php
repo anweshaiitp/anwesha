@@ -744,7 +744,7 @@ class People{
                 $reg = $userDat['isRegTeam'];
             }
         }
-        if( $reg == 1 ){
+        if( $reg > 0 ){
             $eve["eveCount"]++;
             $eve[] =  [
                     "id" => 0,
