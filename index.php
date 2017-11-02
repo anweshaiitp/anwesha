@@ -101,6 +101,8 @@ if (preg_match($base . '(ca|)_?([0-9]{4}|)$@', $url, $match)) {
 	require ('controller/campusAmbassadorRegistration.php');
 } elseif (preg_match($base . 'user/switch/CampusAmbassador/?$@', $url)) {
 	require ('controller/campusAmbassadorSwitching.php');
+} elseif (preg_match($base . 'user/changePassword/?$@', $url)) {
+	require ('view/updatePass.php');
 } elseif (preg_match($base . 'verifyEmail/CampusAmbassador/([0-9]{4})/([A-Za-z0-9]{40})/?$@', $url, $match)) {
 	require ('controller/verifyEmail.php');
 } elseif (preg_match($base . 'verifyEmail/User/([0-9]{4})/([A-Za-z0-9]{40})/?$@', $url, $match)) {
