@@ -1,4 +1,7 @@
 <?php 
+require('model/model.php');
+require('dbConnection.php');
+
 $url = "now/";
 
 $conn = mysqli_connect(SERVER_ADDRESS,USER_NAME,PASSWORD,DATABASE);
@@ -58,12 +61,12 @@ body{
 			echo "<h3>Try again</h3><br><br><form action='' method='post'>
 		<input type='text' name='newPassword' placeholder='New Password' pattern='[a-zA-Z0-9]{6,30}' title='Password should be alpha number 6 to 30 digits'><h4>6 to 30 digits[alpha-numeric]</h4><br>
 		<input type='submit' value='Change Password'>
-	</form>"
+	</form>";
 		}else{
 			$actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
 			echo "<a href='$actual_link'><h3>Go home (anwesha.info)</h3></a>";
 		}
 	}
-	
+	?>
 </body>
 </html>
