@@ -110,7 +110,7 @@ class People{
      * @param  string $rc Referral Code
      * @return string      if null then no errors, else returns the error.
      */
-    public static function validateData($n,$fbID,$col,&$se,$mob,$em,$db,$cit,$rc){
+    public static function validateData($n,$fbID,$col,&$se,$mob,$em,$pass = null,$db,$cit,$rc){
 
         $error = null;
         if (strlen($n)<4 || strlen($n) > 40){
@@ -119,6 +119,8 @@ class People{
             $error = 'College Name too long';
         } else if (strlen($em)>=60){
             $error = 'Email ID too long';
+        } else if ($pass != null && strlen($pass)<5){
+            $error = 'Password too short';
         } else if (strlen($cit)>=50){
             $error = 'City name too long';
         }  else if (!preg_match('/^[a-zA-Z0-9.\s]*$/', $n)) {
@@ -434,9 +436,9 @@ class People{
      * @param  MySQLi $conn database connection object
      * @return array       index 0 :- 1(success), -1(error);
      */
-    public static function createUser($n,$fbID = null,$col,$se,$mob,$em,$db,$cit,$ca,$rc,$conn){
+    public static function createUser($n,$fbID = null,$col,$se,$mob,$em,$pass = null,$db,$cit,$ca,$rc,$conn){
         error_log('1');
-        $error = self::validateData($n,$fbID,$col,$se,$mob,$em,$db,$cit,$rc);
+        $error = self::validateData($n,$fbID,$col,$se,$mob,$em,$pass,$db,$cit,$rc);
         error_log('Data validated');
 
         if(isset($error)){
@@ -504,7 +506,8 @@ class People{
                 return $arr;
             }
             $token = sha1(base64_encode((openssl_random_pseudo_bytes(15))));
-            $sqlInsert = "INSERT INTO LoginTable(pId,password,csrfToken,type) VALUES ($id,NULL,'$token',1)";
+            $password = (isset($pass))?"sha('".mysqli_real_escape_string($conn,$pass)."')":"NULL";
+            $sqlInsert = "INSERT INTO LoginTable(pId,password,csrfToken,type) VALUES ($id,$password,'$token',1)";
             error_log('Query 4');
 
             $result = mysqli_query($conn,$sqlInsert);
@@ -916,12 +919,17 @@ class People{
      * @param string $randPass      random generated string
      * @param int    $id               Anwesha Id for registered user
      */
-    public function passEmail($emailId,$name,$randPass,$id) {
+    public function passEmail( $emailId, $name, $randPass = null, $id) {
         // mail($to,$subject,$message);
         require('defines.php');
-        
-        $message = "Hi $name,<br>Thank you for registering for $ANWESHA_YEAR. Your Registered Id is : <b>ANW$id</b>.<br>Your temporary auto generated password is : <b>$randPass</b><br>You can change the password by clicking Reset Password.<br>In case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to <i>$ANWESHA_REG_EMAIL</i>. You can also visit our website <i>$ANWESHA_URL</i> for more information.<br>Thank You.<br>Registration Desk<br>$ANWESHA_YEAR";
-        $messagePlain = "Hi $name,\nThank you for registering for $ANWESHA_YEAR. Your Registered Id is : ANW$id.\nYour temporary auto generated password is : $randPass\nYou can change the password by clicking Reset Password.\nIn case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to $ANWESHA_REG_EMAIL. You can also visit our website $ANWESHA_URL for more information.\nThank You.\nRegistration Desk\n$ANWESHA_YEAR";
+        if(isset($randPass)){
+            $message = "Hi $name,<br>Thank you for registering for $ANWESHA_YEAR. Your Registered Id is : <b>ANW$id</b>.<br>Your temporary auto generated password is : <b>$randPass</b><br>You can change the password by clicking Reset Password.<br>In case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to <i>$ANWESHA_REG_EMAIL</i>. You can also visit our website <i>$ANWESHA_URL</i> for more information.<br>Thank You.<br>Registration Desk<br>$ANWESHA_YEAR";
+            $messagePlain = "Hi $name,\nThank you for registering for $ANWESHA_YEAR. Your Registered Id is : ANW$id.\nYour temporary auto generated password is : $randPass\nYou can change the password by clicking Reset Password.\nIn case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to $ANWESHA_REG_EMAIL. You can also visit our website $ANWESHA_URL for more information.\nThank You.\nRegistration Desk\n$ANWESHA_YEAR";
+        }else{
+            $message = "Hi $name,<br>Thank you for registering for $ANWESHA_YEAR. Your Registered Id is : <b>ANW$id</b>.<br>You can login using the password that you set during registration.<br>You can change the password by clicking Reset Password.<br>In case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to <i>$ANWESHA_REG_EMAIL</i>. You can also visit our website <i>$ANWESHA_URL</i> for more information.<br>Thank You.<br>Registration Desk<br>$ANWESHA_YEAR";
+            $messagePlain = "Hi $name,\nThank you for registering for $ANWESHA_YEAR. Your Registered Id is : ANW$id.\nYou can login using the password that you set during registration.\nYou can change the password by clicking Reset Password.\nIn case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to $ANWESHA_REG_EMAIL. You can also visit our website $ANWESHA_URL for more information.\nThank You.\nRegistration Desk\n$ANWESHA_YEAR";
+        }
+
         $subject = "Account Confirmed, $ANWESHA_YEAR";
 
         require('resources/PHPMailer/PHPMailerAutoload.php');
@@ -1025,6 +1033,8 @@ class People{
                 $arr[] = $error;
                 return $arr;
             }
+        } else {
+            $randPass = null;
         }
 
         People::passEmail($email,$name,$randPass,$id);
