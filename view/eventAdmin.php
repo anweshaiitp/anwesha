@@ -20,7 +20,7 @@ $conn = mysqli_connect(SERVER_ADDRESS,USER_NAME,PASSWORD,DATABASE);
 			if($result['status']==200)
 				$purp = 0;
 			else{
-				$purp = -1
+				$purp = -1;
 				$title = $result["msg"];
 			}
 		}
@@ -31,7 +31,7 @@ if($purp!=-1){
 	if($match[1]==''){
 		$purp = 1;
 		//$arr[];
-		$arr = isSpecial($_SESSION['userID'],$conn)["eventOrganiser"];
+		$arr = People::isSpecial($_SESSION['userID'],$conn)["eventOrganiser"];
 		$title = "List of Events and Categories"; 
 	}else if($match[1]== 'addEvent'){
 
@@ -90,10 +90,14 @@ if($purp!=-1){
 		$actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
 		if($purp==1)
 		foreach ($arr as $eve) {
-			echo "<a href='$actual_link/eventAdmin/update/".$eve['id']."'><div class=\"tags has-addons\" style=\"width:200px\">
+			$action = ($eve["id"]<10) "Add New Event":"Edit Event";
+			$color = ($eve["id"]<10) "is-warning":"is-success";
+			echo "<a href='$actual_link/eventAdmin/update/".$eve['id']."'><div class=\"tags has-addons\" style=\"width:500px\">
 			      <span class=\"tag is-large is-dark\">".$eve['name']."</span>
 			      <span class=\"tag is-large is-info\">".$eve['id']."</span>
-			    </div>";
+			      <span class=\"tag is-large $color\">".$action."</span>
+			    </div><br>
+			    ".PHP_EOL;
 		}
 	?>
     
