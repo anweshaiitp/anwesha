@@ -30,9 +30,9 @@
 	if(!$conn)
 		error_log(mysqli_connect_error());
 
-	$registrar = mysqli_real_escape_string($_POST['uID']);
-	$amt = mysqli_real_escape_string($_POST['amt']);
-	$val = mysqli_real_escape_string($_POST['val']);
+	$registrar = mysqli_real_escape_string($conn,$_POST['uID']);
+	$amt = mysqli_real_escape_string($conn,$_POST['amt']);
+	$val = mysqli_real_escape_string($conn,$_POST['val']);
 	if(!isset($val) || $val == "")
 		$val = -100;
 	$sql = " SELECT ( count(*) ) as reg FROM People WHERE (pId = $registrar AND isRegTeam = $val AND isRegTeam <> 0) ";
