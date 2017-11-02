@@ -30,6 +30,7 @@ $conn = mysqli_connect(SERVER_ADDRESS,USER_NAME,PASSWORD,DATABASE);
 
 $result = Auth::loginUser($userID,$password,$conn);
 if($result['status'] == 200){
+	$user = People::getUser($userID,$conn);
 	$eve = People::getEvents($userID,$conn);
 	$isSpecial = People::isSpecial($userID,$conn);
 	// var_dump($eve);
@@ -37,6 +38,12 @@ if($result['status'] == 200){
 		$result['event'] = $eve[1];//dump all event data
 	} else {
 		$result['event'] = null;
+	}
+
+	if(array_shift($user) == 1){
+		$result['user'] = $user;
+	}else{
+		$result['user'] = 0;
 	}
 
 	if(array_shift($isSpecial) == 1){

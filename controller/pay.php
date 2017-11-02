@@ -58,7 +58,7 @@
 		$status = -1;
 		$httpstat = 403;
 	    $error .= "Invalid user #".alog("pay invalid: reg: $registrar , amt: $amt, val: $val, $pid= ".$match[1] );
-	    error_log( "Invalid user #".alog("pay invalid: reg: $registrar , amt: $amt, val: $val, $pid= ".$match[1]));
+	    error_log( $error );
 	}
 
 if($httpstat == 200){
