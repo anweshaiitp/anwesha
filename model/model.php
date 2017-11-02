@@ -202,8 +202,8 @@ class People{
         $sql = " SELECT * FROM People WHERE pId = $id";
         $result = mysqli_query($conn, $sql);
         if(!$result || mysqli_num_rows($result)!=1){
-            $errorH = alog(mysqli_num_rows($result).mysqli_error($conn));
-            $error = "Error in displaying result for Anwesha ID ".$errorH;
+            $errorH = alog("getuser error: numrows : ". mysqli_num_rows($result)."error:".mysqli_error($conn));
+            $error = "Error in displaying result for Anwesha ID. Err no: #".$errorH;
             error_log("Error: $errorH ". mysqli_num_rows($result).mysqli_error($conn));
             $arr = array();
             $arr[]=-1;
@@ -228,7 +228,7 @@ class People{
             }
 
             self::updateUser('qrurl', $QRurl, $row["pId"], $conn);
-
+            //email
             $arr[1]["qrurl"] = $QRurl;
         }
         return $arr;
