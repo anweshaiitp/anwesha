@@ -39,7 +39,7 @@
 <a href="http://iitp.ac.in"><img id="iitplogo" src="http://www.iitp.ac.in/images/logo_about.jpg"></a>
 <div class="box">
 <?php 
-$actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
+$actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER['HTTP_HOST']";
 $str = ($verification[1])? "Your automatically generated password : " . $verification[1] . "<br> Please store it somewhere safe.": "You can now log in using the password you set during registration";
 if ($verification[0] == 1){
 	echo "Your registration for Anwesha2k17 has been successfully completed! <br> ". $str ;
@@ -48,7 +48,7 @@ if ($verification[0] == 1){
 	} ?>
 
 <br>
-Reset your password <a href="<?php echo $actual_link/reset/$userEmail ?>">here</a>.
+Reset your password <a href="<?php echo "$actual_link/reset/$userEmail"; ?>">here</a>.
 </div>
 <b></b>
 </body>
