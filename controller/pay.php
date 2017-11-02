@@ -33,7 +33,10 @@
 	$registrar = mysqli_real_escape_string($_POST['uID']);
 	$amt = mysqli_real_escape_string($_POST['amt']);
 	$val = mysqli_real_escape_string($_POST['val']);
+	if(!isset($val) || $val == "")
+		$val = -100;
 	$sql = " SELECT ( count(*) ) as reg FROM People WHERE (pId = $registrar AND isRegTeam = $val AND isRegTeam <> 0) ";
+	alog("pay: $sql");
 	$result = mysqli_query($conn, $sql);
 	if(!$result || mysqli_num_rows($result)<1){
 

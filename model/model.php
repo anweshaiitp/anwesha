@@ -182,6 +182,15 @@ class People{
         return (!isset($val) || trim($val)==='');
     }
 
+    public static function updateUser($field, $data, $pId){
+        $sql = "UPDATE `People` SET `$field` = '$data' WHERE `People`.`pId` = $pId;";
+        if($result = mysqli_query($conn,$sql)){
+            return 1;
+        } else {
+            alog(mysqli_error($conn));
+            return -1;
+        }
+    }
 
     /**
      * to get People object with given id
@@ -206,6 +215,22 @@ class People{
         $arr = array();
         $arr[]=1;
         $arr[]=$row;
+        if($arr["qrurl"]=="" || $arr["qrurl"]==NULL){
+
+            $actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
+            if(file_exists($_SERVER['DOCUMENT_ROOT'].'/qr/anw'.$arr["pId"].'.png')){
+                $QRurl = $actual_link.'/qr/anw'.$arr["pId"].'.png';
+
+            }else{
+
+                $QRurl = self::genQR($arr["pId"])[3];
+
+            }
+
+            updateUser('qrurl',$QRurl,$arr["pId"]);
+
+            $arr["qrurl"] = $QRurl;
+        }
         return $arr;
     }
 
@@ -716,7 +741,7 @@ class People{
             $userDat = $user[1];
             if($userDat['isRegTeam']>0){
                 $count++;
-                $reg = 1;
+                $reg = $userDat['isRegTeam'];
             }
         }
         if( $reg == 1 ){
