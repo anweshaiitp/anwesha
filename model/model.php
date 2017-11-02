@@ -719,6 +719,14 @@ class People{
                 $reg = 1;
             }
         }
+        if( $reg == 1 ){
+            $eve["eveCount"]++;
+            $eve[] =  [
+                    "id" => 0,
+                    "name" => 'register',
+                ];
+        }
+
         $ret = [
             1,
             //count of how many positions of administration the user holds 1 for each event and 1 for reg team
