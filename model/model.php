@@ -182,7 +182,7 @@ class People{
         return (!isset($val) || trim($val)==='');
     }
 
-    public static function updateUser($field, $data, $pId){
+    public static function updateUser($field, $data, $pId, $conn){
         $sql = "UPDATE `People` SET `$field` = '$data' WHERE `People`.`pId` = $pId;";
         if($result = mysqli_query($conn,$sql)){
             return 1;
@@ -198,7 +198,7 @@ class People{
      * @param  MySQLi object $conn variable containing connection details
      * @return array       array
      */
-    public static function getUser($id,$conn){
+    public static function getUser($id, $conn){
         $sql = " SELECT * FROM People WHERE pId = $id";
         $result = mysqli_query($conn, $sql);
         if(!$result || mysqli_num_rows($result)!=1){
@@ -227,7 +227,7 @@ class People{
 
             }
 
-            self::updateUser('qrurl',$QRurl,$row["pId"]);
+            self::updateUser('qrurl', $QRurl, $row["pId"], $conn);
 
             $arr[1]["qrurl"] = $QRurl;
         }
