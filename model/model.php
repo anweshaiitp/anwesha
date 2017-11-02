@@ -919,11 +919,11 @@ class People{
      * @param string $randPass      random generated string
      * @param int    $id               Anwesha Id for registered user
      */
-    public function passEmail( $emailId, $name, $randPass = null, $id) {
+    public function passEmail( $emailId, $name, $randPass = null, $id, $conn) {
         // mail($to,$subject,$message);
         require('defines.php');
         $actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
-        $userObj = People::getUser($id,$conn)[1];
+        $userObj = self::getUser($id,$conn)[1];
         $userEmail = $userObj['email'];
         $resetURL = $actual_link."/reset/".$userEmail;
         if(isset($randPass)){
@@ -1041,7 +1041,7 @@ class People{
             $randPass = null;
         }
 
-        People::passEmail($email,$name,$randPass,$id);
+        People::passEmail($email,$name,$randPass,$id,$conn);
         $arr[]=$randPass;                                                                  //vinay edit
         return $arr;
 
