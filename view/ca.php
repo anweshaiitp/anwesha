@@ -39,7 +39,7 @@
 					var address=$("[name='address']").val();
 					var dob=$("[name='DOB']").val();
 					var mobile=$("[name='mobile']").val();
-					var sex=$("[name='gender']").val();
+					var sex=$("[name='gender']:checked").val();
 					var responsibility=$("[name='responsibility']").val();
 					var involvement=$("[name='involvement']").val();
 					var threethings=$("[name='threethings']").val();
@@ -145,7 +145,7 @@
 					console.log(response);
 			      console.log('Successful login for: ' + response.name);
 			      name = response.name;
-			      gender = response.gender;
+			      // gender = response.gender;
 			      email = response.email;
 			      DOB = response.birthday;
 			      pic = response.picture;
@@ -154,16 +154,16 @@
 				      $("input[name='name']").val(name);
 			      	  $("input[name='name']").attr('disabled','true');
 			      }
-			      if(gender){
-	      			var $radios = $('input:radio[name=gender]');
-		      		if(gender=='male'){
-		      			$radios.filter('[value=M]').prop('checked', true);
-		      		} else if(gender=='female') {
-		      			$radios.filter('[value=F]').prop('checked', true);
+			      // if(gender){
+	      		// 	var $radios = $('input:radio[name=gender]');
+		      	// 	if(gender=='male'){
+		      	// 		$radios.filter('[value=M]').prop('checked', true);
+		      	// 	} else if(gender=='female') {
+		      	// 		$radios.filter('[value=F]').prop('checked', true);
 
-		      		}
-			      	  $("input[name='gender']").attr('disabled','true');
-			      }
+		      	// 	}
+			      // 	  $("input[name='gender']").attr('disabled','true');
+			      // }
 			  	  if(email){
 				      $("input[name='email']").val(email);
 				  	  $("input[name='email']").attr('disabled','true');
@@ -187,7 +187,7 @@
 					  $("#signUp").css("display","block");
 			  	  }else if(data[0]>=1){
 			  	  	$("#FB-Oauth").html("Hi! " +response.first_name+"<br>Referal Code is :"+data[1].pId+" <br><ul class='actions'><li><a href='#leader' class='button'>Leaderboard</a></li></ul>");
-			  	  	$("#FB-Oauth2").html("Sign-Up Complete <br>Referal Code is : " + data[1]).pId;
+			  	  	$("#FB-Oauth2").html("Sign-Up Complete <br>Referal Code is : " + data[1].pId);
 			  	  }
 				});
 				});
