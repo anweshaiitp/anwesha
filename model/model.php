@@ -1492,7 +1492,7 @@ class Events{
             $error = "Internal Error #".alog(mysqli_error($conn));            
             return [-1,[]];
         }
-        $row = mysqli_fetch_assoc($result))
+        $row = mysqli_fetch_assoc($result);
             $arr = $row;
         return [1,$arr];
         
