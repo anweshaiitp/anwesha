@@ -562,7 +562,7 @@ class People{
         mysqli_autocommit($conn,FALSE);
         try
         {
-            $returnArray = self::createUser($name,$fbID,$college,$sex,$mob,$email,$dob,$city,true,$rc,$conn);
+            $returnArray = self::createUser($name,$fbID,$college,$sex,$mob,$email,null,$dob,$city,true,$rc,$conn);
             if($returnArray[0]==-1){
                 mysqli_rollback($conn);
                 return $returnArray;
