@@ -169,8 +169,10 @@ if($purp!=-1){
 			    header('Location: /eventAdmin');
 			}else if($match[3]==1){
 				$eveID = mysqli_real_escape_string($conn,$match[2]);
-				$sql="DELETE FROM Events WHERE evId=$eveID";
+				$sql="DELETE FROM Events WHERE eveId=$eveID";
 	            $result = mysqli_query($conn,$sql);
+	            if(!$result)
+	            	error_log(mysqli_error($conn));
 			    header('Location: /eventAdmin');
 
 			}
@@ -301,7 +303,10 @@ body {
 		    <button class=\"button is-link\">Add Event</button>
 		  
   
-	</form>";
+	</form>
+	<button class=\"button is-danger\" onclick=\"window.location='/eventAdmin/delete/".$match[2]."'\">Delete this category</button>
+	
+	";
 
 		if($purp == 21){
 			echo "<a href='../update/".$evID."'>Add more info to event-> </a>";
