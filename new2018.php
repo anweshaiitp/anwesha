@@ -58,7 +58,7 @@
     						console.log(data);
 
     						if(data[0]==1){
-    							$("#message").html('<center<b>Registration Successful</b>Your referal ID is : '+data[1]['pId']+'<br>A confirmation email has been sent to '+email+'.</center>');
+    							$("#message").html('<center><b>Registration Successful</b><br>Your Anwesha ID is : ANW'+data[1]['pId']+'<br>A confirmation email has been sent to '+email+'.</center>');
     							$("#message").fadeIn();
     							// $("#message").css('background','#5FAB22');
     							$("#message").css('color','#5FAB22');
@@ -235,6 +235,7 @@
 		<div class="register_div">
 			<img class="close_div" src="images/close.png"/>
 			<form class="reg_form" >
+				<input type="hidden" name="fbID"/>
 				<img id="login_img" src="images/witch1.png"/><br><center><div id="FB-Oauth">Sign-Up using FB:<br>
 				<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with"  data-auto-logout-link="true" data-use-continue-as="true" data-scope="email,public_profile,user_location,user_birthday,user_about_me" onlogin="auth_response_change_callback();"></div></div></center>
 				<div id="message" style="color:#FF0000"></div>
