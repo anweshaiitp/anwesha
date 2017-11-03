@@ -92,14 +92,27 @@ if($purp!=-1){
 			$owner2 = mysqli_real_escape_string($conn,$_POST['owner2']);
 			$owner3 = mysqli_real_escape_string($conn,$_POST['owner3']);
 			$owner4 = mysqli_real_escape_string($conn,$_POST['owner4']);
+			$intQuer = "";
+			if($fee!=null && $fee!='')
+				$intQuer.="`fee` = $fee, ";
+			if($day!=null && $day!='')
+				$intQuer.="`day` = $day, ";
+			if($owner1!=null && $owner1!='')
+				$intQuer.="`owner1` = $owner1, ";
+			if($owner2!=null && $owner2!='')
+				$intQuer.="`owner2` = $owner2, ";
+			if($owner3!=null && $owner3!='')
+				$intQuer.="`owner3` = $owner3, ";
+			if($owner4!=null && $owner4!='')
+				$intQuer.="`owner4` = $owner4, ";
 
-
-			$query = "UPDATE `Events` SET `eveName` = '$eveName', `fee` = '$fee', `day` = '$day', `tagline` = '$tagline', `date` = '$date', `time` = '$time', `venue` = '$venue', `organisers` = '$organisers', `short_desc` = '$short_desc', `long_desc` = '$long_desc', `cover_url` = '$cover_url', `icon_url` = '$icon_url', `rules_url` = '$rules_url', `owner1` = '$owner1', `owner2` = '$owner2', `owner3` = '$owner3', `owner4` = '$owner4' WHERE `Events`.`eveId` = ".$match[2].";";
+			$query = "UPDATE `Events` SET `eveName` = '$eveName', $intQuer `tagline` = '$tagline', `date` = '$date', `time` = '$time', `venue` = '$venue', `organisers` = '$organisers', `short_desc` = '$short_desc', `long_desc` = '$long_desc', `cover_url` = '$cover_url', `icon_url` = '$icon_url', `rules_url` = '$rules_url' WHERE `Events`.`eveId` = ".$match[2].";";
 			if($result = mysqli_query($conn,$query)){
 				$title = "Successfully Updated for ".$match[2];
 				$purp = 3;
 			} else {
 				error_log(mysqli_error($conn));
+				error_log($query);
 			}
 		}
 
