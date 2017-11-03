@@ -162,8 +162,8 @@ if($purp!=-1){
   
 	</form>";
 
-		if($purp == 23){
-			echo "<button class=\"button is-link\" onclick=\"window.location('../update/".$evID."')\">Add Event</button>";
+		if($purp == 21){
+			echo "<a href='../update/".$evID."'>Add more info to event-> </a>";
 		}
 	?>
 	<!-- Add new event part ends -->
