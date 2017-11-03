@@ -47,7 +47,7 @@ if($purp!=-1){
             $result = mysqli_query($conn,$sql);
             $row = mysqli_fetch_assoc($result);
             $evID =  $row['eveId'] + 1;
-			$sql = "INSERT INTO `Events` (`eveId`, `eveName`, `code`) VALUES ('$evID', '".$_POST['eveName']."' ,'$".match[2]."');";
+			$sql = "INSERT INTO `Events` (`eveId`, `eveName`, `code`) VALUES ('$evID', '".$_POST['eveName']."' ,'".$match[2]."');";
 			if($result = mysqli_query($conn,$sql)){
 
 				$title = "Successfully added";
@@ -168,7 +168,7 @@ if($purp!=-1){
 	?>
 	<!-- Add new event part ends -->
 	<?php
-	if(purp==3)
+	if($purp==3)
 		echo "<form action=\"\" method=\"POST\" >
 		<div class=\"field\">
   			<label class=\"label\">Event Name</label>
