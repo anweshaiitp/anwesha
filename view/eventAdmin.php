@@ -31,14 +31,29 @@ $conn = mysqli_connect(SERVER_ADDRESS,USER_NAME,PASSWORD,DATABASE);
 
 	}
 if($purp!=-1){
+	$isSuperUser = Events::isSuperUser($_SESSION['userID'],$conn);
 	$resp = People::isSpecial($_SESSION['userID'],$conn);
 	if($match[1]==''){
 		$purp = 1;
 		//$arr[];
 		$arr = $resp["eventOrganiser"];
-		$title = "List of Events and Categories"; 
+
+		$title = "List of Events and Categories";
+		if($isSuperUser){
+			$arr = $resp["eventOrganiser"];
+			$sql = "SELECT eveId,eveName FROM Events ORDER BY eveId ASC";
+	        $result_ = mysqli_query($conn, $sql);
+	        $arr= array();
+			while ($row_ = mysqli_fetch_assoc($result_)) {
+			   $arr[] = [
+			        "id"=>$row_['eveId'],
+			        "name"=>$row_['eveName'],
+			    ];
+			}
+			$title = "SuperUser:: All Events";
+		} 
 	}else if($match[1]== 'addEvent'){
-		if(Events::isValidOrg($_SESSION['userID'],$match[2],$conn)[0]==-1){
+		if(Events::isValidOrg($_SESSION['userID'],$match[2],$conn)[0]==-1 && !$isSuperUser){
 			echo "403";
 			die();
 		}

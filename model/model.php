@@ -1464,6 +1464,26 @@ class Events{
         return $arr;
     }
 
+    public static function isSuperUser($pId,$conn){
+        $pId = mysqli_real_escape_string($conn,$pId);
+        $ownerQ = "owner1 = $pId || owner2 = $pId || owner3 = $pId || owner4 = $pId";
+        $sql = "SELECT count(eveId) as owner FROM Events E1 WHERE eveId = 0 AND ($ownerQ)";
+        $result = mysqli_query($conn, $sql);
+        $arr = array();
+        if(!$result || mysqli_num_rows($result)==0){
+            $error = "Internal Error #".alog(mysqli_error($conn));            
+            return false;
+        }
+        $row = mysqli_fetch_assoc($result);
+        if($row['owner']==0){
+            return false;
+        }else if($row['owner']==1){
+            return true;
+        }
+    }
+        
+    
+
     public static function isValidOrg($pId,$eveID,$conn){
         $eveID = mysqli_real_escape_string($conn,$eveID);
         $ownerQ = "owner1 = $pId || owner2 = $pId || owner3 = $pId || owner4 = $pId";
@@ -1483,13 +1503,15 @@ class Events{
             $arr[]=$error;
             return $arr;
         }
+        $superUser = self::isSuperUser($pId,$conn);
         while($row = mysqli_fetch_assoc($result)){
-            if($row['owner']==0){
+
+            if($row['owner']==0 && !$superUser){
                 $arr[] = -1;
                 $arr[] = 500;
                 $arr[] = "Not valid user for event";
                 return $arr;
-            }else{
+            }elseif($row['owner']==1 || $superUser){
                 $arr[] = 1;
                 $arr[] = 200;
                 $arr[] = "Eve Owner";
