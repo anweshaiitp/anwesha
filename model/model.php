@@ -807,6 +807,8 @@ class People{
         $message = "Hi $name,<br>Thank you for registering for $ANWESHA_YEAR. Your Registered Id is : <b>ANW$id</b>.<br>";
         if($ver==1)
             $message .= " To complete your registration, you need to verify your email account. Click here for email verification link: $link .<br>";
+        else
+            $message .= " Your registration is complete but you can also login using your email ID by verifying it first: $link .<br>";
         $ca_shareurl = $ANWESHA_URL . 'register_' . $id;
         if($ca)
             $message = $message."<br>Hearty Congratulations!! You have been appointed as the Campus Ambassador for Anwesha 2k18 and now you are a part of our team which will take the responsibility of representing Anwesha in your college. Your registration ID  is $id.
