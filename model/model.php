@@ -726,7 +726,7 @@ class People{
         $reg = 0;
         $eveIdarr = array();
         $ownerQ = "owner1 = $userID || owner2 = $userID || owner3 = $userID || owner4 = $userID";
-        $sql = "SELECT eveName,eveId FROM Events WHERE ($ownerQ OR find_in_set((SELECT eveId FROM Events WHERE $ownerQ ), code))";
+        $sql = "SELECT eveName,eveId FROM Events WHERE ($ownerQ OR code IN (SELECT eveId FROM Events WHERE $ownerQ ))";
         $result = mysqli_query($conn, $sql);
         if($result){
             $eve["eveCount"]=mysqli_num_rows($result);
