@@ -425,7 +425,7 @@ body {
 		  	
   
 	</form>
-	<button class=\"button is-danger\" onclick=\"window.location=/eventAdmin/delete/".$match[2]."\">Delete this event</button>
+	<button class=\"button is-danger\" onclick=\"window.location='/eventAdmin/delete/".$match[2]."'\">Delete this event</button>
 ";
 	?>
 		
