@@ -4,8 +4,12 @@
 session_start();	
 require('model/model.php');
 require('dbConnection.php');
+if($match[1]=='logout'){
+	unset($_SESSION['userID']);
+    unset($_SESSION['user_name']);
+    header('Location: /eventAdmin');
+}
 $conn = mysqli_connect(SERVER_ADDRESS,USER_NAME,PASSWORD,DATABASE);
-
 	$purp = 0;
 	$arr = array();
 	if(!isset($_SESSION['userID'])){
@@ -141,23 +145,48 @@ if($purp!=-1){
 					";
 				}
 			?>
-			
+			// $("#logout").onClick(function(){
+			// 	window.location=;
+			// });
 		}); 
 	</script>
 	<style>
-		body{
+	html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
 			background: #00d0b2;
-		}
+  
+}
+		
 		.field{
 			width:300px;
 		}
 	</style>
 </head>
-<body class="is-primary">
+<body bgcolor="#00d0b2">
 <center>
 	<section class="hero is-primary" >
-  <div class="hero-body">
-    <div class="container">
+		<div class="tags has-addons" style="position: fixed;left: 0;top:0">
+	      <span class="tag is-success is-large" onclick="window.location='/eventAdmin';">
+			  Home
+			  <!-- <button class="delete is-small"></button> -->
+			</span>
+			
+	    </div>
+		<?php
+			if($purp!=-1)
+				echo "<div class=\"tags has-addons\" style=\"position: fixed;right: 0;top:0\">
+					<span class=\"tag is-danger is-large\" id=\"logout\" onclick=\"window.location='/eventAdmin/logout';\">
+						  Logout
+						  <button class=\"delete\"></button>
+						</span>
+				    </div>";
+		?>
+	    <br><br>
+  <div class="hero-body is-fullheight">
+    <div class="container is-fullheight">
       <h1 class="title">
        	Event Admin control panel
       </h1>
@@ -195,6 +224,8 @@ if($purp!=-1){
 		$actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
 		if($purp==1)
 		foreach ($arr as $eve) {
+			if($eve["id"]=='' || $eve["id"]==null)
+				continue;
 			$action = ($eve["id"]<10)? "Add New Event":"Edit Event";
 			$color = ($eve["id"]<10)? "is-warning":"is-success";
 			$action_ = ($eve["id"]<10)? "addEvent":"update";
@@ -330,13 +361,13 @@ if($purp!=-1){
 		<div class=\"field\">
   			<label class=\"label\">Admin3 of the event(enter 4 digits of anwesha ID)</label>
 			<div class=\"control\">
-				<input class=\"input\" type=\"number\" name=\"owner2\" min='1000' max='9999'>
+				<input class=\"input\" type=\"number\" name=\"owner3\" min='1000' max='9999'>
 			</div>
 		</div>
 		<div class=\"field\">
   			<label class=\"label\">Admin4 of the event(enter 4 digits of anwesha ID)</label>
 			<div class=\"control\">
-				<input class=\"input\" type=\"number\" name=\"owner2\" min='1000' max='9999'>
+				<input class=\"input\" type=\"number\" name=\"owner4\" min='1000' max='9999'>
 			</div>
 		</div>
 		    <button class=\"button is-link\">Update</button>
