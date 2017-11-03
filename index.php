@@ -81,7 +81,7 @@ if (preg_match($base . '(ca|)_?([0-9]{4}|)$@', $url, $match)) {
 // 	require ('controller/cssLoader.php');
 } elseif ( preg_match($base .'events/?$@', $url, $match ) ) {
 	require ('view/events.html');
-} elseif ( preg_match($base .'eventAdmin/?(|addEvent|update)/?([0-9]{0,9})?$@', $url, $match ) ) {
+} elseif ( preg_match($base .'eventAdmin/?(|addEvent|update|logout)/?([0-9]{0,9})?$@', $url, $match ) ) {
 	require ('view/eventAdmin.php');
 } elseif ( preg_match($base .'test/?$@', $url, $match ) ) {
 	require ('test.php');

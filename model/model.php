@@ -724,6 +724,7 @@ class People{
         $eve = array();
         $count = 0;
         $reg = 0;
+        $eveIdarr = array();
         $ownerQ = "owner1 = $userID || owner2 = $userID || owner3 = $userID || owner4 = $userID";
         $sql = "SELECT eveName,eveId FROM Events WHERE $ownerQ";
         $result = mysqli_query($conn, $sql);
@@ -735,11 +736,28 @@ class People{
                     "id"=>$row['eveId'],
                     "name"=>$row['eveName'],
                 ];
+                $eveIdarr[] = $row['eveId'];
             }
+
+            $sql = "SELECT eveName,eveId FROM Events WHERE find_in_set($eveIdarr, code)";
+            $result_ = mysqli_query($conn, $sql);
+            if($result_){
+                $eve["eveCount"] += mysqli_num_rows($result_);
+                while ($row_ = mysqli_fetch_assoc($result_)) {
+                   $count++;
+                   $eve[] = [
+                        "id"=>$row_['eveId'],
+                        "name"=>$row_['eveName'],
+                    ];
+                }
+            }else{
+                error_log(mysqli_error($conn));
+            }
+
         } else {
             $eve[]=0;
         }
-
+        array_unique($eve);
         $user = self::getUser($userID,$conn);
         if($user[0]==1){
             $userDat = $user[1];
