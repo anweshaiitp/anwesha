@@ -47,7 +47,8 @@ if($purp!=-1){
             $result = mysqli_query($conn,$sql);
             $row = mysqli_fetch_assoc($result);
             $evID =  $row['eveId'] + 1;
-			$sql = "INSERT INTO `Events` (`eveId`, `eveName`, `code`) VALUES ('$evID', '".$_POST['eveName']."' ,'".$match[2]."');";
+			$eveName = mysqli_real_escape_string($conn,$_POST['eveName']);
+			$sql = "INSERT INTO `Events` (`eveId`, `eveName`, `code`) VALUES ('$evID', '".$eveName."' ,'".$match[2]."');";
 			if($result = mysqli_query($conn,$sql)){
 
 				$title = "Successfully added";
@@ -59,10 +60,47 @@ if($purp!=-1){
 	}else if($match[1]== 'update'){
 		$title = "Update Info for Event no ".$match[2];
 		$purp = 3;
+		$fields = array( 'eveName', 'fee', 'day', 'size', 'tagline', 'date', 'time', 'venue', 'organisers', 'short_desc', 'long_desc', 'cover_url', 'icon_url', 'rules_url', 'owner1', 'owner2', 'owner3', 'owner4');
+		if(isset($_POST['eveName']) || isset($_POST['fee']) || isset($_POST['day']) || isset($_POST['size']) || isset($_POST['tagline']) || isset($_POST['date']) || isset($_POST['time']) || isset($_POST['venue']) || isset($_POST['organisers']) || isset($_POST['short_desc']) || isset($_POST['long_desc']) || isset($_POST['cover_url']) || isset($_POST['icon_url']) || isset($_POST['rules_url']) || isset($_POST['owner1']) || isset($_POST['owner2']) || isset($_POST['owner3']) || isset($_POST['owner4'])){
+			// foreach ($fields as $fieldName ) {
+			// 	if($_POST[$fieldName]=='' || $_POST[$fieldName]==null || empty($_POST[$fieldName]) ){
+
+			// 	}
+			// }
+			// $eveId = mysqli_real_escape_string($conn,$_POST['eveId']);
+			$eveName = mysqli_real_escape_string($conn,$_POST['eveName']);
+			$fee = mysqli_real_escape_string($conn,$_POST['fee']);
+			$day = mysqli_real_escape_string($conn,$_POST['day']);
+			$size = mysqli_real_escape_string($conn,$_POST['size']);
+			// $code = mysqli_real_escape_string($conn,$_POST['code']);
+			$tagline = mysqli_real_escape_string($conn,$_POST['tagline']);
+			$date = mysqli_real_escape_string($conn,$_POST['date']);
+			$time = mysqli_real_escape_string($conn,$_POST['time']);
+			$venue = mysqli_real_escape_string($conn,$_POST['venue']);
+			$organisers = mysqli_real_escape_string($conn,$_POST['organisers']);
+			$short_desc = mysqli_real_escape_string($conn,$_POST['short_desc']);
+			$long_desc = mysqli_real_escape_string($conn,$_POST['long_desc']);
+			$cover_url = mysqli_real_escape_string($conn,$_POST['cover_url']);
+			$icon_url = mysqli_real_escape_string($conn,$_POST['icon_url']);
+			$rules_url = mysqli_real_escape_string($conn,$_POST['rules_url']);
+			$owner1 = mysqli_real_escape_string($conn,$_POST['owner1']);
+			$owner2 = mysqli_real_escape_string($conn,$_POST['owner2']);
+			$owner3 = mysqli_real_escape_string($conn,$_POST['owner3']);
+			$owner4 = mysqli_real_escape_string($conn,$_POST['owner4']);
+
+
+			$query = "UPDATE `Events` SET `eveName` = '$eveName', `fee` = '$fee', `day` = '$day', `tagline` = '$tagline', `date` = '$date', `time` = '$time', `venue` = '$venue', `organisers` = '$organisers', `short_desc` = '$short_desc', `long_desc` = '$long_desc', `cover_url` = '$cover_url', `icon_url` = '$icon_url', `rules_url` = '$rules_url', `owner1` = '$owner1', `owner2` = '$owner2', `owner3` = '$owner3', `owner4` = '$owner4' WHERE `Events`.`eveId` = ".$match[2].";";
+			if($result = mysqli_query($conn,$query)){
+				$title = "Successfully Updated for ".$match[2];
+				$purp = 3;
+			}
+		}
+
 		$sql = "SELECT * FROM Events WHERE eveId=".$match[2];
             $result = mysqli_query($conn,$sql);
             $row = mysqli_fetch_assoc($result);
             $arr = $row;
+
 	}
 }
 ?>
@@ -79,7 +117,8 @@ if($purp!=-1){
 		$(document).ready(function(){
 			<?php
 				foreach ($arr as $key => $value) {
-					echo "$(\"[name=".$key."]\").val($value)";
+					echo "$(\"[name=".$key."]\").val('$value');
+					";
 				}
 			?>
 			
