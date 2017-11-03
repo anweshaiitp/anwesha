@@ -1482,7 +1482,22 @@ class Events{
         }
     }
         
-    
+    public static function getEventDetails($eveId,$conn){
+        $arr = array();
+        $eveId = mysqli_real_escape_string($conn,$eveId);
+        $sql = "SELECT *  FROM Events WHERE eveId = $eveId";
+        $result = mysqli_query($conn, $sql);
+        $arr = array();
+        if(!$result || mysqli_num_rows($result)==0){
+            $error = "Internal Error #".alog(mysqli_error($conn));            
+            return [-1,[]];
+        }
+        while($row = mysqli_fetch_assoc($result)){
+            $arr[$row['eveId']] = $row;
+        }
+        return [1,$arr];
+        
+    }
 
     public static function isValidOrg($pId,$eveID,$conn){
         $eveID = mysqli_real_escape_string($conn,$eveID);

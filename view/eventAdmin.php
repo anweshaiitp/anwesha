@@ -12,6 +12,7 @@ if($match[1]=='logout'){
 $conn = mysqli_connect(SERVER_ADDRESS,USER_NAME,PASSWORD,DATABASE);
 	$purp = 0;
 	$arr = array();
+	///############# User not logged in
 	if(!isset($_SESSION['userID'])){
 		$purp = -1;
 		$title = "Login first";
@@ -30,9 +31,11 @@ $conn = mysqli_connect(SERVER_ADDRESS,USER_NAME,PASSWORD,DATABASE);
 		}
 
 	}
+	///############# User Logged in
 if($purp!=-1){
 	$isSuperUser = Events::isSuperUser($_SESSION['userID'],$conn);
 	$resp = People::isSpecial($_SESSION['userID'],$conn);
+	///############# Home, logged in, List all events they are an admin for
 	if($match[1]==''){
 		$purp = 1;
 		//$arr[];
@@ -52,6 +55,7 @@ if($purp!=-1){
 			}
 			$title = "SuperUser:: All Events";
 		} 
+		///#############   Add Event
 	}else if($match[1]== 'addEvent'){
 		if(Events::isValidOrg($_SESSION['userID'],$match[2],$conn)[0]==-1 && !$isSuperUser){
 			echo "403";
@@ -81,10 +85,15 @@ if($purp!=-1){
 			}
 			// $sql = "INSERT INTO `Events` (`eveId`, `eveName`, `fee`, `day`, `size`, `code`, `tagline`, `date`, `time`, `venue`, `organisers`, `short_desc`, `long_desc`, `cover_url`, `icon_url`, `rules_url`, `owner1`, `owner2`, `owner3`, `owner4`) VALUES ('16', 'Loul', NULL, '1', '1', '1', 'Loolwa', '12 jan', '12 baje', 'admin block', 'Guyzzz', 'This is some desc', 'This is some more desc.', 'http://coverurl', 'http://iconurl', 'http://rules.pdf', '1000', NULL, NULL, NULL);";
 		}
-		
+		///############# Update Event
 	}else if($match[1]== 'update'){
+		if(Events::isValidOrg($_SESSION['userID'],$match[2],$conn)[0]==-1 && !$isSuperUser){
+			echo "403";
+			die();
+		}
 		$title = "Update Info for Event no ".$match[2];
 		$purp = 3;
+
 		$fields = array( 'eveName', 'fee', 'day', 'tagline', 'date', 'time', 'venue', 'organisers', 'short_desc', 'long_desc', 'cover_url', 'icon_url', 'rules_url', 'owner1', 'owner2', 'owner3', 'owner4');
 		if(isset($_POST['eveName']) || isset($_POST['fee']) || isset($_POST['day']) || isset($_POST['size']) || isset($_POST['tagline']) || isset($_POST['date']) || isset($_POST['time']) || isset($_POST['venue']) || isset($_POST['organisers']) || isset($_POST['short_desc']) || isset($_POST['long_desc']) || isset($_POST['cover_url']) || isset($_POST['icon_url']) || isset($_POST['rules_url']) || isset($_POST['owner1']) || isset($_POST['owner2']) || isset($_POST['owner3']) || isset($_POST['owner4'])){
 			foreach ($fields as $fieldName ) {
@@ -145,6 +154,27 @@ if($purp!=-1){
             $result = mysqli_query($conn,$sql);
             $row = mysqli_fetch_assoc($result);
             $arr = $row;
+
+	}else if($match[1]== 'delete'){
+		if(Events::isValidOrg($_SESSION['userID'],$match[2],$conn)[0]==-1 && !$isSuperUser){
+			echo "403";
+			die();
+		}
+
+		$purp = 4;
+		$title = "Delete ".Events::getEventDetails($match[2],$conn)[1]["eveName"]."? <br> confirm?";
+
+		if(isset($match[3])){
+			if($match[3]==0){
+			    header('Location: /eventAdmin');
+			}else if($match[3]==1){
+				$eveID = mysqli_real_escape_string($match[2]);
+				$sql="DELETE FROM Events WHERE evId=$eveID";
+	            $result = mysqli_query($conn,$sql);
+			    header('Location: /eventAdmin');
+
+			}
+		}
 
 	}
 }
@@ -392,13 +422,22 @@ body {
 			</div>
 		</div>
 		    <button class=\"button is-link\">Update</button>
-		  
+		  	
   
 	</form>
+	<button class=\"button is-danger\" onclick=\"window.location=/eventAdmin/delete/".$match[2]."\">Delete this event</button>
 ";
 	?>
 		
-    
+    <!-- delete -->
+<?php
+if($purp == 4)
+	echo " <button class=\"button is-danger\" onclick=\"window.location = window.location + '/1'\">Yes</button>
+	 <button class=\"button is-success\" onclick=\"window.location = window.location + '/0'\">Cancel</button>
+		";
+?>
+	
+    <!-- delete end -->
   </div>
 </section>
 	
