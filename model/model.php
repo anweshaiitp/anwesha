@@ -726,7 +726,7 @@ class People{
         $reg = 0;
         $eveIdarr = array();
         $ownerQ = "owner1 = $userID || owner2 = $userID || owner3 = $userID || owner4 = $userID";
-        $sql = "SELECT eveName,eveId FROM Events WHERE $ownerQ";
+        $sql = "SELECT eveName,eveId FROM Events WHERE ($ownerQ OR find_in_set((SELECT eveId FROM Events WHERE $ownerQ ), code))";
         $result = mysqli_query($conn, $sql);
         if($result){
             $eve["eveCount"]=mysqli_num_rows($result);
@@ -739,23 +739,25 @@ class People{
                 $eveIdarr[] = $row['eveId'];
             }
 
-            $sql = "SELECT eveName,eveId FROM Events WHERE find_in_set($eveIdarr, code)";
-            $result_ = mysqli_query($conn, $sql);
-            if($result_){
-                $eve["eveCount"] += mysqli_num_rows($result_);
-                while ($row_ = mysqli_fetch_assoc($result_)) {
-                   $count++;
-                   $eve[] = [
-                        "id"=>$row_['eveId'],
-                        "name"=>$row_['eveName'],
-                    ];
-                }
-            }else{
-                error_log(mysqli_error($conn));
-            }
+            // $sql = "SELECT eveName,eveId FROM Events WHERE find_in_set((SELECT eveId FROM Events WHERE $ownerQ ), code)";
+            // $sql = "SELECT eveName,eveId FROM Events WHERE find_in_set((SELECT eveId FROM Events WHERE owner1 = 1000 || owner2 = 1000 || owner3 = 1000 || owner4 = 1000 ), code)";
+            // $result_ = mysqli_query($conn, $sql);
+            // if($result_){
+            //     $eve["eveCount"] += mysqli_num_rows($result_);
+            //     while ($row_ = mysqli_fetch_assoc($result_)) {
+            //        $count++;
+            //        $eve[] = [
+            //             "id"=>$row_['eveId'],
+            //             "name"=>$row_['eveName'],
+            //         ];
+            //     }
+            // }else{
+            //     error_log(mysqli_error($conn));
+            // }
 
         } else {
             $eve[]=0;
+            error_log(mysqli_error($conn));
         }
         array_unique($eve);
         $user = self::getUser($userID,$conn);
