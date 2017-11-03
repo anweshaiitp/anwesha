@@ -60,18 +60,23 @@ if($purp!=-1){
 	}else if($match[1]== 'update'){
 		$title = "Update Info for Event no ".$match[2];
 		$purp = 3;
-		$fields = array( 'eveName', 'fee', 'day', 'size', 'tagline', 'date', 'time', 'venue', 'organisers', 'short_desc', 'long_desc', 'cover_url', 'icon_url', 'rules_url', 'owner1', 'owner2', 'owner3', 'owner4');
+		$fields = array( 'eveName', 'fee', 'day', 'tagline', 'date', 'time', 'venue', 'organisers', 'short_desc', 'long_desc', 'cover_url', 'icon_url', 'rules_url', 'owner1', 'owner2', 'owner3', 'owner4');
 		if(isset($_POST['eveName']) || isset($_POST['fee']) || isset($_POST['day']) || isset($_POST['size']) || isset($_POST['tagline']) || isset($_POST['date']) || isset($_POST['time']) || isset($_POST['venue']) || isset($_POST['organisers']) || isset($_POST['short_desc']) || isset($_POST['long_desc']) || isset($_POST['cover_url']) || isset($_POST['icon_url']) || isset($_POST['rules_url']) || isset($_POST['owner1']) || isset($_POST['owner2']) || isset($_POST['owner3']) || isset($_POST['owner4'])){
-			// foreach ($fields as $fieldName ) {
-			// 	if($_POST[$fieldName]=='' || $_POST[$fieldName]==null || empty($_POST[$fieldName]) ){
-
-			// 	}
-			// }
+			foreach ($fields as $fieldName ) {
+				if($_POST[$fieldName]=='' || $_POST[$fieldName]==null || empty($_POST[$fieldName]) ){
+					if(in_array($fieldName, array('fee','day','owner1','owner2','owner3','owner4'), TRUE)){
+						$_POST[$fieldName] = NULL;//might case some errors
+					}else{
+						$_POST[$fieldName] = '';
+						
+					}
+				}
+			}
 			// $eveId = mysqli_real_escape_string($conn,$_POST['eveId']);
 			$eveName = mysqli_real_escape_string($conn,$_POST['eveName']);
 			$fee = mysqli_real_escape_string($conn,$_POST['fee']);
 			$day = mysqli_real_escape_string($conn,$_POST['day']);
-			$size = mysqli_real_escape_string($conn,$_POST['size']);
+			// $size = mysqli_real_escape_string($conn,$_POST['size']);
 			// $code = mysqli_real_escape_string($conn,$_POST['code']);
 			$tagline = mysqli_real_escape_string($conn,$_POST['tagline']);
 			$date = mysqli_real_escape_string($conn,$_POST['date']);
@@ -93,6 +98,8 @@ if($purp!=-1){
 			if($result = mysqli_query($conn,$query)){
 				$title = "Successfully Updated for ".$match[2];
 				$purp = 3;
+			} else {
+				error_log(mysqli_error($conn));
 			}
 		}
 
