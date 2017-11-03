@@ -195,13 +195,14 @@
 			  	  // $("input[name='DOB']").attr('disabled','true');
 			  	  }
 			  	  console.log("parse",data[1]);
+			  	  console.log('fboatuth',data[1].pId);
 			  	  if(data[1].pId<=1){
 					  $("#FB-Oauth").html("Hi! " +response.first_name+" <ul class='actions'><li><a href='#signUp' class='button'>Continue to step 2</a></li></ul>");
 					  
 					  $("#signUp").css("display","block");
 			  	  }else if(data[1].pId>1){
-			  	  	$("#FB-Oauth").html("Hi! " +response.first_name+"<br>Referal Code is :"+data[1].pId+" <br><ul class='actions'><li><a href='#leader' class='button'>Leaderboard</a></li></ul>");
-			  	  	
+			  	  	$("#FB-Oauth").html("Hi! " +response.first_name+"<br>Anwesha ID is :"+data[1].pId);
+			  	  	$(".login").html('<img src="images/witch1.png"> Hi!'+response.first_name);
 			  	  }
 				});
 				});
@@ -214,11 +215,12 @@
 			<img class="close_div" src="images/close.png"/>
 			
 			<form class="login_form">
-				<img id="login_img" src="images/witch1.png"/><br>
+				<img id="login_img" src="images/witch1.png" style="height: 100px" ><br><center>
 				<div id="FB-Oauth">
 					Login using FB:<br>
 				
-				<div style="z-index: 10;" class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with"  data-auto-logout-link="true" data-use-continue-as="true" data-scope="email,public_profile,user_location,user_birthday,user_about_me" onlogin="auth_response_change_callback();"></div></div>
+				<div style="z-index: 10;" class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with"  data-auto-logout-link="true" data-use-continue-as="true" data-scope="email,public_profile,user_location,user_birthday,user_about_me" onlogin="auth_response_change_callback();"></div></div></center>
+				<h1>OR</h1>
 				<br>
 				Anwesha ID
 				<br>
@@ -234,9 +236,9 @@
 		
 		<div class="register_div">
 			<img class="close_div" src="images/close.png"/>
-			<form class="reg_form" >
+			<form class="reg_form" id="regForm">
 				<input type="hidden" name="fbID"/>
-				<img id="login_img" src="images/witch1.png"/><br><center><div id="FB-Oauth">Sign-Up using FB:<br>
+				<img id="login_img" src="images/witch1.png" style="height: 100px"><br><center><div id="FB-Oauth">Sign-Up using FB:<br>
 				<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with"  data-auto-logout-link="true" data-use-continue-as="true" data-scope="email,public_profile,user_location,user_birthday,user_about_me" onlogin="auth_response_change_callback();"></div></div></center>
 				<div id="message" style="color:#FF0000"></div>
 				<br>

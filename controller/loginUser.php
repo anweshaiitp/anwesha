@@ -41,7 +41,7 @@ if($result['status'] == 200){
 	}
 
 	if(array_shift($user) == 1){
-		$result['user'] = $user;
+		$result['user'] = $user[0];
 	}else{
 		$result['user'] = 0;
 	}
