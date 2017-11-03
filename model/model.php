@@ -507,7 +507,8 @@ class People{
             }
             $token = sha1(base64_encode((openssl_random_pseudo_bytes(15))));
             $password = (isset($pass))?"sha('".mysqli_real_escape_string($conn,$pass)."')":"NULL";
-            $sqlInsert = "INSERT INTO LoginTable(pId,password,csrfToken,type) VALUES ($id,$password,'$token',1)";
+            $privateKey = (isset($pass))?"sha('".Auth::randomPassword()."')":"NULL";
+            $sqlInsert = "INSERT INTO LoginTable(pId,password,privateKey,csrfToken,type) VALUES ($id,$password,$privateKey,'$token',1)";
             error_log('Query 4');
 
             $result = mysqli_query($conn,$sqlInsert);
