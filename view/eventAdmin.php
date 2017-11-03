@@ -38,6 +38,10 @@ if($purp!=-1){
 		$arr = $resp["eventOrganiser"];
 		$title = "List of Events and Categories"; 
 	}else if($match[1]== 'addEvent'){
+		if(Events::isValidOrg($_SESSION['userID'],$match[2],$conn)[0]==-1){
+			echo "403";
+			die();
+		}
 		$purp = 2;
 		foreach ($resp["eventOrganiser"] as $event) {
 			if($event["id"]==$match[2]){
@@ -48,6 +52,8 @@ if($purp!=-1){
 
 		if(isset($_POST['eveName'])){
 			$sql = "SELECT eveId FROM Events ORDER BY eveId DESC LIMIT 1";
+			if($match[2]==0)
+				$sql = "SELECT eveId FROM Events WHERE eveId < 10 ORDER BY eveId DESC LIMIT 1";
             $result = mysqli_query($conn,$sql);
             $row = mysqli_fetch_assoc($result);
             $evID =  $row['eveId'] + 1;
