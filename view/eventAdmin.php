@@ -168,7 +168,7 @@ if($purp!=-1){
 			if($match[3]==0){
 			    header('Location: /eventAdmin');
 			}else if($match[3]==1){
-				$eveID = mysqli_real_escape_string($match[2]);
+				$eveID = mysqli_real_escape_string($conn,$match[2]);
 				$sql="DELETE FROM Events WHERE evId=$eveID";
 	            $result = mysqli_query($conn,$sql);
 			    header('Location: /eventAdmin');
