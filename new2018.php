@@ -173,10 +173,10 @@
 
 	<!--------reg & login------>
 		<div class="login_backgrnd"></div>
-
+<!-- 
 		<div class="login">
 			<a><img src="images/witch1.png"> Login</a>
-		</div>
+		</div> -->
 
 		<div class="register">
 			<a><img src="images/witch1.png"> Register</a>
@@ -257,7 +257,7 @@
 			
 		},1000);
 		</script>
-		<div class="login_div">
+		<!-- <div class="login_div">
 			<img class="close_div" src="images/close.png"/>
 			
 			<form class="login_form">
@@ -279,7 +279,7 @@
 				<br><br>
 				<input id="login_but" type="button" value="login"/>
 			</form>
-		</div>
+		</div> -->
 		
 		<div class="register_div">
 			<img class="close_div" src="images/close.png"/>
