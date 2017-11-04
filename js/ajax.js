@@ -23,25 +23,25 @@ $('.acco_load').click(function()
 // });
 
 
-//ajax for loading of login page
-$('.login a').click(function()
-{
-	$('.login_backgrnd').fadeIn(500);
-	$('.login_div').fadeIn(1500);
-});
+// //ajax for loading of login page
+// $('.login a').click(function()
+// {
+// 	$('.login_backgrnd').fadeIn(500);
+// 	$('.login_div').fadeIn(1500);
+// });
 
-//closing of login page
-$('.login_backgrnd').click(function()
-{
-	$(this).fadeOut(1500);
-	$('.login_div').fadeOut(1500);
-});
+// //closing of login page
+// $('.login_backgrnd').click(function()
+// {
+// 	$(this).fadeOut(1500);
+// 	$('.login_div').fadeOut(1500);
+// });
 
-$('.close_div').click(function()
-{
-	$('.login_backgrnd').fadeOut(1500);
-	$('.login_div').fadeOut(1500);
-});
+// $('.close_div').click(function()
+// {
+// 	$('.login_backgrnd').fadeOut(1500);
+// 	$('.login_div').fadeOut(1500);
+// });
 
 
 //ajax for loading of register page
