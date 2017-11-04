@@ -173,18 +173,6 @@
 
 	<!--------reg & login------>
 		<div class="login_backgrnd"></div>
-<<<<<<< HEAD
-
-		<!-- <div class="login">
-			<a><img src="images/witch1.png"> Login</a>
-		</div> -->
-
-=======
-<!-- 
-		<div class="login">
-			<a><img src="images/witch1.png"> Login</a>
-		</div> -->
->>>>>>> 652bd8bb419a81147f214491489d6fe699a6806b
 
 		<div class="register">
 			<a><img src="images/witch1.png"> Register</a>
