@@ -173,14 +173,29 @@
 
 	<!--------reg & login------>
 		<div class="login_backgrnd"></div>
+<<<<<<< HEAD
+
+		<!-- <div class="login">
+			<a><img src="images/witch1.png"> Login</a>
+		</div> -->
+
+=======
 <!-- 
 		<div class="login">
 			<a><img src="images/witch1.png"> Login</a>
 		</div> -->
+>>>>>>> 652bd8bb419a81147f214491489d6fe699a6806b
 
 		<div class="register">
 			<a><img src="images/witch1.png"> Register</a>
 		</div>
+
+
+		<div class="ca">
+			<a href="ca/"><img src="/images/witch1.png"> Campus Ambassador</a>
+		</div>
+
+
 		<script>
 			var refreshIntervalId = setInterval(function(){
 			FB.getLoginStatus(function(Lstatus) {
@@ -334,7 +349,7 @@
 		<div class="menu_bar">
 			<ul>
 				<li><a href="/">Home</a></li>
-				<li><a href="events/">Events</a></li>
+				<!-- <li><a href="events/">Events</a></li> -->
 				<!-- <li class="sch_div">Schedule</li> -->
 				<li><a href="/gallery/">Gallery</a></li>
 				<li><a href="/team/">Team</a></li>
@@ -401,6 +416,35 @@
 
 			</div>
 
+
+			<div class="blank_div_fiv">
+			</div>
+
+			<div class="about_anwesha">
+				<p>Anwesha</p>
+				Anwesha is a quest. The annual Techno-Cultural Festival of Indian Institute of Technology Patna hosts Technical, Cultural, Literary, Eco and Management events. Since its genesis in 2010, Anwesha has gained great importance at an exponential rate and enjoys a cult status among the youths of Bihar. Eminent personalities such as chief minister Nitish Kumar, Padma Vibhushan, G. Madhavan Nair, R.K. Sihna (Dolphin Man of India), have been part of Anwesha\'s extravaganza in the past.
+			</div>
+
+
+			<div class="blank_div_fiv">
+			</div>
+
+			<div class="anwesha_theme">
+				<p>Media Outreach</p>
+				<img src="images/media.jpg">
+
+			</div>
+
+
+			<div class="blank_div_fiv">
+			</div>
+
+			<div class="anwesha_theme">
+				<p>Social Outreach</p>
+				<img src="images/social.jpg">
+
+			</div>
+
 		</div>
 
 	<!---------viewing div on mobile phone---------->
@@ -427,11 +471,33 @@
 
 			</div>
 
-			On projection apartments unsatiable so if he entreaties appearance. Rose you wife how set lady half wish. Hard sing an in true felt. Welcomed stronger if steepest ecstatic a
-			Lose john poor same it case do year we. Full how way even the sigh. Extremely nor furniture fat questions now provision incommode preserved. Our side fail find like now. Discovered travelling for insensible partiality unpleasing impossible she. Sudden up my excuse to suffer ladies though or. Bachelor possible marianne directly confined relation as on he. 
-			oreover. Inquietude attachment if ye an solicitude to. Remaining so continued concealed as knowledge happiness. Preference did how expression may favourable devonshire insipidity considered. An length design regret an hardly barton mr figure. 
+			<div class="blank_div_fiv">
+			</div>
 
-			With my them if up many. Lain week nay she them her she. Extremity so attending objection as engrossed gentleman something. Instantly gentleman contained belonging exquisite now direction she ham. West room at sent if year. Numerous indulged distance old law you. Total state as merit court green decay he. Steepest sex bachelor the may delicate its yourself. As he instantly on discovery concluded to. Open draw far pure miss felt say yet few sigh. 
+			<div class="about_anwesha">
+				<p>Anwesha</p>
+				Anwesha is a quest. The annual Techno-Cultural Festival of Indian Institute of Technology Patna hosts Technical, Cultural, Literary, Eco and Management events. Since its genesis in 2010, Anwesha has gained great importance at an exponential rate and enjoys a cult status among the youths of Bihar. Eminent personalities such as chief minister Nitish Kumar, Padma Vibhushan, G. Madhavan Nair, R.K. Sihna (Dolphin Man of India), have been part of Anwesha\'s extravaganza in the past.
+			</div>
+
+			<div class="blank_div_fiv">
+			</div>
+
+			<div class="anwesha_theme">
+				<p>Media Outreach</p>
+				<img src="images/media.jpg">
+
+			</div>
+
+
+			<div class="blank_div_fiv">
+			</div>
+
+			<div class="anwesha_theme">
+				<p>Social Outreach</p>
+				<img src="images/social.jpg">
+
+			</div>
+
 
 		</div>
 
