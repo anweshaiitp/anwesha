@@ -63,9 +63,55 @@
     							// $("#message").css('background','#5FAB22');
     							$("#message").css('color','#5FAB22');
     							$("#signUp").fadeOut();
+    							$(".register").fadeOut();
+    							$(".login").fadeOut();
     						}else{
     							$("#message,#message2").fadeIn();
     							$("#message,#message2").html('<center>Error<br>'+data[1]+'</center>');
+							}
+//							$('html, body').animate({
+//							        scrollTop: $("#header").offset().top
+//							    }, 500);
+ 
+    					}else{//$("#myloader").fadeOut();
+    							$("#message,#message2").fadeIn();
+    							$("#message,#message2").html('An error occured.<br> Please try again.');
+    							
+							    console.log("Failed "+data);
+
+    						}
+			    			});
+
+			});
+
+
+			$("#login_but").click(function(event){
+			//function submitF(){
+					// event.preventDefault();
+					var username=$("[name='username']").val();
+					var password=$("[name='password']").val();
+					console.log("Request Sent");
+					$.post("user/register/User/",
+						{        						
+   						password: password,
+   						username:username,
+						},
+						function(data, status){
+    					console.log("Response");
+    					console.log("Data: " + data + "\nStatus: " + status);
+    					if(status=='success'){//$("#myloader").fadeOut();
+    						console.log(data);
+    						if(data["status"]==200){
+    							$("#message").html('<center>Logged In!</center>');
+    							$("#message").fadeIn();
+    							// $("#message").css('background','#5FAB22');
+    							$("#message").css('color','#5FAB22');
+    							$(".login").fadeOut();
+    							$(".register").fadeOut();
+    							$(".login_form").fadeOut();
+    						}else{
+    							$("#message,#message2").fadeIn();
+    							$("#message,#message2").html('<center>Error<br>'+data["msg"]+'</center>');
 							}
 //							$('html, body').animate({
 //							        scrollTop: $("#header").offset().top
@@ -221,14 +267,15 @@
 				
 				<div style="z-index: 10;" class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with"  data-auto-logout-link="true" data-use-continue-as="true" data-scope="email,public_profile,user_location,user_birthday,user_about_me" onlogin="auth_response_change_callback();"></div></div></center>
 				<h1>OR</h1>
+				<div id="message" style="color:#FF0000"></div>
 				<br>
 				Anwesha ID
 				<br>
-				<input type="text" id="login_id" placeholder="enter your anwesha id"/>
+				<input type="text" id="login_id" name = "username" placeholder="enter your anwesha id"/>
 				<br>
 				Password
 				<br>
-				<input type="password" id="login_pwd" placeholder="enter your password"/>
+				<input type="password" id="login_pwd"  name = "password" placeholder="enter your password"/>
 				<br><br>
 				<input id="login_but" type="button" value="login"/>
 			</form>
