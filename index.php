@@ -33,9 +33,6 @@ preg_match('@(.*)index.php(.*)$@', $_SERVER['PHP_SELF'], $mat );
 $base = '@^'. $mat[1] ;
 
 if (preg_match($base . '(ca|)_?([0-9]{4}|)$@', $url, $match)) {
-	if($_SERVER['HTTP_HOST'] == 'anwesha.info')
-		require ('view/coming_soon.php');
-	else
 		require ('new2018.php');
 } elseif (preg_match($base . 'register/?$@', $url, $match)) {
 	require ('view/reg.php');
