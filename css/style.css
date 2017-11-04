@@ -82,6 +82,19 @@ body
 	text-align: right;
 }
 
+.ca
+{
+	//background: blue;
+	width: 250px;
+	height: auto;
+	position: fixed;
+	right: 5px;
+	top: 5px;
+	z-index: 200;
+	color:white;
+	text-align: left;
+}
+
 .register
 {
 	//background: blue;
@@ -95,6 +108,13 @@ body
 	text-align: left;
 }
 
+ .ca img
+{
+	max-width: 25%;
+	max-height: 25%;
+	vertical-align: middle;
+}
+
 .login img, .register img
 {
 	max-width: 45%;
@@ -102,7 +122,7 @@ body
 	vertical-align: middle;
 }
 
-.login a, .register a
+.login a, .register a, .ca a
 {
 	color: white;
 	cursor: pointer;
@@ -510,7 +530,7 @@ body
 
 .blank_div_thr
 {
-	width: 40%;
+	width: 30%;
 	height: 100px;
 	//background:orange;
 	display: inline-block;
@@ -519,7 +539,7 @@ body
 
 .blank_div_fiv
 {
-	width: 60%;
+	width: 40%;
 	height: 100px;
 	//background:orange;
 	display: inline-block;
@@ -594,7 +614,7 @@ body
 
 .moving_wall_div img
 {
-	display: block;
+	display: inline;
 	position: absolute;
 	bottom:0;
 	left:0;
@@ -1089,7 +1109,7 @@ body
 
 	.blank_div_fiv
 	{
-		width: 60%;
+		width: 50%;
 		height: 100px;
 		margin:auto;
 		display: block;
@@ -1097,12 +1117,12 @@ body
 
 	.about_anwesha
 	{
-		width: 70%;
+		width: 80%;
 	}
 
 	.anwesha_theme
 	{
-		width: 70%;
+		width: 80%;
 		height: auto;
 		padding: 20px;
 		margin:auto;
