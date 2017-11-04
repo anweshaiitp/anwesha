@@ -1061,9 +1061,22 @@ body
 		max-height: 25%;
 	}
 
-	.login a, .register a
+	.ca
 	{
-		font-size: 130%;
+		background: green;
+		width: 120px;
+		text-align: right;
+	}
+
+	.ca img
+	{
+		max-width: 5%;
+		max-height: 5%;
+	}
+
+	.login a, .register a, .ca a
+	{
+		font-size: 110%;
 		
 	}
 
