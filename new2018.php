@@ -335,10 +335,10 @@
 			<ul>
 				<li><a href="/">Home</a></li>
 				<li><a href="events/">Events</a></li>
-				<li class="sch_div">Schedule</li>
+				<!-- <li class="sch_div">Schedule</li> -->
 				<li><a href="/gallery/">Gallery</a></li>
 				<li><a href="/team/">Team</a></li>
-				<li class="spons_div">Sponsors</li>
+				<!-- <li class="spons_div">Sponsors</li> -->
 				<li class="acco_load">Accomodation</li>
 			</ul>
 		</div>
@@ -473,7 +473,7 @@
 			    $('body, html, *').mousewheel(function(e, delta) {
 			        // multiplying by 40 is the sensitivity, 
 			        // increase to scroll faster.
-			        this.scrollLeft -= (delta * 120);
+			        this.scrollLeft -= (delta * 80);
 			        e.preventDefault();
 			    });
 

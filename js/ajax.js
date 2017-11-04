@@ -7,20 +7,20 @@ $('.acco_load').click(function()
 });
 
 
-//ajax for schedule page
-$('.sch_div').click(function()
-{
-	$('.ajax_content').load('/schedule_raw/');
-	return false;
-});
+// //ajax for schedule page
+// $('.sch_div').click(function()
+// {
+// 	$('.ajax_content').load('/schedule_raw/');
+// 	return false;
+// });
 
 
-//ajax for sponsors page
-$('.spons_div').click(function()
-{
-	$('.ajax_content').load('/sponsors/');
-	return false;
-});
+// //ajax for sponsors page
+// $('.spons_div').click(function()
+// {
+// 	$('.ajax_content').load('/sponsors/');
+// 	return false;
+// });
 
 
 //ajax for loading of login page

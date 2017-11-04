@@ -1,5 +1,5 @@
 <?php
-ini_set('display_errors', '0');     # don't show any errors...
+ini_set('display_errors', '1');     # don't show any errors...
 error_reporting(E_ALL | E_STRICT);  # ...but do log them
 ini_set('zlib_output_compression','On');
 
