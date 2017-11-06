@@ -89,16 +89,15 @@ body
     right: 0px;
     float: right;
     right: 5px;
-    top: 20px;
+    top: 5px;
     z-index: 200;
     color: white;
-    text-align: left;
+    text-align: right;
 
 }
 
 .register
 {
-	/*//background: blue;*/
 	width: 150px;
 	height: auto;
 	position: fixed;
@@ -1064,10 +1063,8 @@ body
 
 	.ca
 	{
-		/*//background: orange;*/
-		width: 120px;
+		/*width: 120px;*/
 		text-align: right;
-		/*//font-size: 220%;*/
 	}
 /*
 	.ca img
