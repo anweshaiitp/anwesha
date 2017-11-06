@@ -419,17 +419,17 @@
 
 			<div class="anwesha_theme">
 				<p>Media Outreach</p>
-				<img src="images/media.jpg">
+				<img src="images/media.JPG">
 
 			</div>
 
-
+			<!--social outreach-->
 			<div class="blank_div_fiv">
 			</div>
 
 			<div class="anwesha_theme">
 				<p>Social Outreach</p>
-				<img src="images/social.jpg">
+				<img src="images/social.JPG">
 
 			</div>
 
