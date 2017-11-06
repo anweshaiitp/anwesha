@@ -1,5 +1,3 @@
-<!---how to fo witch aditya adn tameesh---->
-
 <html>
 	<head>
 		<title>Anwesha 2018</title>
