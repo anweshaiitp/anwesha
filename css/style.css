@@ -71,8 +71,6 @@ body
 /*-------floater-----------*/
 .login
 {
-	/*background: blue;*/
-	width: 150px;
 	height: auto;
 	position: fixed;
 	right: 5px;
@@ -86,7 +84,6 @@ body
 {
 	height: auto;
     position: fixed;
-    right: 0px;
     float: right;
     right: 5px;
     top: 5px;
@@ -110,15 +107,15 @@ body
 
  .ca img
 {
-	max-width: 25%;
-	max-height: 25%;
+	max-width: 7%;
+	max-height: 7%;
 	vertical-align: middle;
 }
 
 .login img, .register img
 {
-	max-width: 45%;
-	max-height: 45%;
+	max-width: 35%;
+	max-height: 35%;
 	vertical-align: middle;
 }
 
@@ -1055,27 +1052,28 @@ body
 		display: none;
 	}
 
-	.login img, .register img, .ca img
+	.login img, .register img
 	{
 		max-width: 25%;
 		max-height: 25%;
 	}
 
-	.ca
+	/*.ca
 	{
-		/*width: 120px;*/
-		text-align: right;
-	}
-/*
+		background: green;
+		width: 40%;
+		text-align: left;
+	}*/
+
 	.ca img
 	{
-		max-width: 75%;
-		max-height: 75%;
-	}*/
+		max-width: 9%;
+		max-height: 9%;
+	}
 
 	.login a, .register a, .ca a
 	{
-		font-size: 110%;
+		font-size: 100%;
 		
 	}
 
