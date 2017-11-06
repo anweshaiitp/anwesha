@@ -71,7 +71,7 @@ body
 /*-------floater-----------*/
 .login
 {
-	//background: blue;
+	/*background: blue;*/
 	width: 150px;
 	height: auto;
 	position: fixed;
@@ -84,15 +84,19 @@ body
 
 .ca
 {
-	//background: blue;
-	width: 250px;
-	height: auto;
-	position: fixed;
-	right: 5px;
-	top: 5px;
-	z-index: 200;
-	color:white;
-	text-align: right;
+	/*background: blue;*/
+
+    /* width: 150px; */
+    height: auto;
+    position: fixed;
+    right: 0px;
+    float: right;
+    right: 5px;
+    top: 20px;
+    z-index: 200;
+    color: white;
+    text-align: left;
+
 }
 
 .register
