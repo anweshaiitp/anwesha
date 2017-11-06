@@ -92,7 +92,7 @@ body
 	top: 5px;
 	z-index: 200;
 	color:white;
-	text-align: left;
+	text-align: right;
 }
 
 .register
@@ -1061,12 +1061,12 @@ body
 		max-height: 25%;
 	}
 
-//don't know what is error
 	.ca
 	{
-		//background: green;
+		//background: orange;
 		width: 120px;
 		text-align: right;
+		//font-size: 220%;
 	}
 
 	.ca img
