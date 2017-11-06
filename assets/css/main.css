@@ -2522,7 +2522,7 @@
 		background-position: bottom center,	top left,	center center;
 		/* background-repeat: repeat-x,	repeat,	no-repeat; */
 		/* background-size: 3200px 460px,	auto,	cover; */
-		background-size: cover;
+		background-size: center;
 		color: rgba(255, 255, 255, 0.8);
 		padding: 10em 0 20em 0;
 		position: relative;
