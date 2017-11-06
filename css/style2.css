@@ -1071,8 +1071,8 @@ body
 
 	.ca img
 	{
-		max-width: 5%;
-		max-height: 5%;
+		max-width: 25%;
+		max-height: 25%;
 	}
 
 	.login a, .register a, .ca a
