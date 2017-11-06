@@ -175,12 +175,12 @@
 		<div class="login_backgrnd"></div>
 
 		<div class="register">
-			<a><img src="images/witch1.png"> Register</a>
+			<a><img src="images/witch.png"> Register</a>
 		</div>
 
 
 		<div class="ca">
-			<a href="ca/"><img src="/images/witch1.png"> Campus Ambassador</a>
+			<a href="ca/"><img src="/images/witch.png"> Campus Ambassador</a>
 		</div>
 
 
