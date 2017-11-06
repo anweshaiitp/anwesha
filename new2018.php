@@ -182,7 +182,7 @@
 
 		<!--------ca------>
 		<div class="ca">
-			<a href="ca/"><img src="/images/witch.png"> Campus Ambassador</a>
+			<a href="ca/"><img src="images/witch.png"> Campus Ambassador</a>
 		</div>
 
 
