@@ -84,10 +84,7 @@ body
 
 .ca
 {
-	/*background: blue;*/
-
-    /* width: 150px; */
-    height: auto;
+	height: auto;
     position: fixed;
     right: 0px;
     float: right;
@@ -1059,7 +1056,7 @@ body
 		display: none;
 	}
 
-	.login img, .register img
+	.login img, .register img, .ca img
 	{
 		max-width: 25%;
 		max-height: 25%;
@@ -1072,12 +1069,12 @@ body
 		text-align: right;
 		/*//font-size: 220%;*/
 	}
-
+/*
 	.ca img
 	{
 		max-width: 75%;
 		max-height: 75%;
-	}
+	}*/
 
 	.login a, .register a, .ca a
 	{
