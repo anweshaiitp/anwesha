@@ -33,7 +33,7 @@ preg_match('@(.*)index.php(.*)$@', $_SERVER['PHP_SELF'], $mat );
 $base = '@^'. $mat[1] ;
 
 if (preg_match($base . '(ca|)_?([0-9]{4}|)$@', $url, $match)) {
-		require ('new2018.php');
+		require ('view/coming_soon.php');
 } elseif (preg_match($base . 'register/?$@', $url, $match)) {
 	require ('view/reg.php');
 } elseif (preg_match($base . 'leaderboard/api/?$@', $url, $match)) {
