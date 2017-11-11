@@ -331,7 +331,8 @@ foreach ($fbAlbums as $fbAlbum) {
 </article>
 
 <!--scripts-------->
-<script type="text/javascript">
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript">
   
   //-----menu toggle
       $('.menu_toggle img').on("click",function()
@@ -405,7 +406,9 @@ foreach ($fbAlbums as $fbAlbum) {
         $('.ajax_content').load('/register_/');
         return false;
       });
-</script>
+  </script>
+  <script type="text/javascript" src="../js/ajax.js"></script>
+
 
 </body>
 </html>
