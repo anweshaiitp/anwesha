@@ -522,7 +522,7 @@
 				
 				<div id="fb-root"></div>
 					<!-- FB Oauth -->
-				<script>(function(d, s, id) {
+				<!-- <script>(function(d, s, id) {
 				  var js, fjs = d.getElementsByTagName(s)[0];
 				  if (d.getElementById(id)) return;
 				  js = d.createElement(s); js.id = id;
@@ -539,7 +539,7 @@
 				   // successful.  See statusChangeCallback() for when this call is made.
 				   
 				}
-				</script>
+				</script> -->
 		<!-- <script src="/js/reg.js"></script> -->
 				<script>
 					
@@ -644,8 +644,9 @@
 								}
 								});
 
-						});
-
+						});});
+</script><!-- 
+<script type="text/javascript"> 
 
 						var refreshIntervalId = setInterval(function(){
 						FB.getLoginStatus(function(Lstatus) {
@@ -723,14 +724,14 @@
 						
 					},5000);
 
-					});
+					
 
-				</script>
+				</script> -->
 				<div class="form_div">
 					<center><br>
-						<div id="FB-Oauth">
+						<!-- <div id="FB-Oauth">
 						Register using FB:<br>
-						<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with"  data-auto-logout-link="true" data-use-continue-as="true" data-scope="email,public_profile,user_location,user_birthday,user_about_me" onlogin="auth_response_change_callback();"></div></div>
+						<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with"  data-auto-logout-link="true" data-use-continue-as="true" data-scope="email,public_profile,user_location,user_birthday,user_about_me" onlogin="auth_response_change_callback();"></div></div> -->
 						OR:<br>
 						<div id="success" style="display: none;">
 							
