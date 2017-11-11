@@ -444,7 +444,7 @@
 			});
 			$('.register').click(function()
 			{
-				$('.ajax_content').load('/register/');
+				$('.ajax_content').load('/register_/');
 				return false;
 			});
 		</script>
