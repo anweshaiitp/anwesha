@@ -60,15 +60,14 @@ foreach ($fbAlbums as $fbAlbum) {
           box-sizing: border-box;
         }
 
-        a {
-          color: #da0d25;
-          text-decoration: none;
+        body
+        {
+          background-image: url('/images/cloud.jpg');
+          background-size: cover;
+          background-repeat: no-repeat;
         }
-        a:hover,
-        a:focus {
-          color: #f22840;
-          text-decoration: none;
-        }
+
+       
         p { margin: 0 0 20px; }
 
         h1,
@@ -119,7 +118,8 @@ foreach ($fbAlbums as $fbAlbum) {
           background: #da0d25;
         }
         .flipser
-        @media (max-width: 800px) {
+        @media (max-width: 800px)
+        {
           body { padding: 0; }
 
           .main-header {
@@ -180,7 +180,7 @@ foreach ($fbAlbums as $fbAlbum) {
           color: #7a0715;
           background: #f22840;
         }
-    @import url('https://fonts.googleapis.com/css?family=Lobster');
+      @import url('https://fonts.googleapis.com/css?family=Lobster');
     </style>
 
 </head>
@@ -201,7 +201,7 @@ foreach ($fbAlbums as $fbAlbum) {
         <li><a href="/">Home</a></li>
         <!-- <li><a href="/events/">Events</a></li> -->
         <!-- <li class="sch_div">Schedule</li> -->
-        <li><a href="/gallery/" target="_blank">Gallery</a></li>
+        <li><a href="/gallery/">Gallery</a></li>
         <li><a href="/team/">Team</a></li>
         <!-- <li class="spons_div">Sponsors</li> -->
         <li class="acco_load">Accomodation</li>
@@ -367,6 +367,44 @@ foreach ($fbAlbums as $fbAlbum) {
       var new_li= new_li.next().next().next();
       new_li.addClass('secnd_rot');
 
+//ajax on menu items
+      $('.close_icon').click(function()
+      {
+        $('.ajax_loading_bckgrnd').fadeOut(800);
+        $('.ajax_loading_div').addClass('ajax_loading_entry');
+      });
+
+
+      $('.spons_div').click(function()
+      {
+        $('.ajax_loading_bckgrnd').fadeIn(800);
+        $('.ajax_loading_div').removeClass('ajax_loading_entry');
+      });
+
+      $('.sch_div').click(function()
+      {
+        $('.ajax_loading_bckgrnd').fadeIn(800);
+        $('.ajax_loading_div').removeClass('ajax_loading_entry');
+      });
+
+      $('.acco_load').click(function()
+      {
+        $('.ajax_loading_bckgrnd').fadeIn(800);
+        $('.ajax_loading_div').removeClass('ajax_loading_entry');
+      });
+      
+
+      $('.register').click(function()
+      {
+        $('.ajax_loading_bckgrnd').fadeIn(800);
+        $('.ajax_loading_div').removeClass('ajax_loading_entry');
+
+      });
+      $('.register').click(function()
+      {
+        $('.ajax_content').load('/register_/');
+        return false;
+      });
 </script>
 
 </body>
