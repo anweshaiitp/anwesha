@@ -449,12 +449,12 @@
 
 			.reg_form p
 			{
-				background: white;
+				//background: white;
 				padding: 2%;
 				//padding-bottom: 2%;
 				border-radius: 10px;
 				margin-bottom: 1%;
-				box-shadow: 2px 2px 10px black;
+				//box-shadow: 2px 2px 10px black;
 				font-size: 120%;
 				vertical-align: middle;
 			}
@@ -518,22 +518,8 @@
 	</head>
 	<body>
 			
-			<div class="bloc-logo">
-			    <canvas id="logo-canvas" width="730" height="675"></canvas>
-			    <a href="index.html" class="logo-mask">Granim.js</a>
-			</div>
-			<canvas id="granim-canvas"></canvas>
-			<div id="particles-js">
-				<canvas class="particles-js-canvas-el" width="730" height="675" style="width: 100%; height: 100%;"></canvas>
-			</div>
-			
 			<div class="reg_form_div">
-				<img class="reg_logo" src="../images/logo2.png">
-				<br>
-				<div class="reg_text">
-					Registration
-				</div>
-				<br>
+				
 				<div id="fb-root"></div>
 					<!-- FB Oauth -->
 				<script>(function(d, s, id) {

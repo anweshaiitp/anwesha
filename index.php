@@ -76,8 +76,6 @@ if (preg_match($base . '(ca|)_?([0-9]{4}|)$@', $url, $match)) {
 	require ('view/team_cords/webapp.html');
 } elseif (preg_match($base . 'webdev/$@', $url, $match)) {
 	require ('view/team_cords/webdev.html');
-} elseif (preg_match($base . 'register/$@', $url, $match)) {
-	require ('view/register.php');
 } elseif (preg_match($base . 'qrReg/([0-9A-Za-z]{4,50})/?$@', $url, $match)) {
 	require ('controller/qrReg.php');
 } elseif (preg_match($base . 'pay/([0-9]{4})/?$@', $url, $match)) {
