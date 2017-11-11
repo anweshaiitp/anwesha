@@ -25,7 +25,7 @@
 			color: white;
 			margin-top: 5%;
 			font-size: 140%;
-			//background: red;
+			background: #ffc123;
 		}
 
 		.reg_form input, .reg_form select
