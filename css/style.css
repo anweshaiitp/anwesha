@@ -985,13 +985,6 @@ body
 		display: none;
 	}
 
-	
-	.login_form, .reg_form
-	{
-		font-size: 85%;
-	}
-
-
 
 /*view on mobile phone*/
 	.mob_div
@@ -1025,7 +1018,6 @@ body
 		display: block;
 	}
 
-
 	.blank_div_fiv
 	{
 		width: 50%;
@@ -1043,7 +1035,7 @@ body
 	{
 		width: 80%;
 		height: auto;
-		padding: 20px;
+		padding: 5px;
 		margin:auto;
 		background-color: lightgray;
 		display: block;
@@ -1078,11 +1070,6 @@ body
 	}
 
 	.login_div
-	{
-		width: 80%;
-	}
-
-	.register_div
 	{
 		width: 80%;
 	}

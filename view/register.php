@@ -19,7 +19,7 @@
 			text-align: center;
 			color: black;
 			margin-top: 5%;
-			font-size: 140%;
+			font-size: 120%;
 			background: #ffc123;
 		}
 
@@ -56,6 +56,17 @@
 			cursor: pointer;
 			margin: auto;
 		}
+
+		@media screen and (max-width: 500px)
+		{
+			.reg_form
+			{
+				
+				font-size: 100%;
+				
+			}
+		}
+
 	</style>
 
 </head>
