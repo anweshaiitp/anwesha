@@ -424,7 +424,20 @@
 				//opacity: .8;
 				//padding: 1%;
 			}
-
+			#FB-Oauth,#FB-Oauth2{
+							padding: 10px;
+							    background-color: rgba(98, 153, 193, 0.76);
+							    
+							    margin: 30px;
+							    border-radius: 10px;
+							    /*left: 50%;*/
+							    /*position: absolute;*/
+							    /*transform: translateX(-50%);*/
+						}
+						@media screen and (min-width: 600px) {
+						#FB-Oauth,#FB-Oauth2{
+							width: 400px;
+						}
 			.reg_form
 			{
 				margin: auto;
@@ -544,13 +557,18 @@
 		<script src="/js/reg.js"></script>
 
 				<div class="form_div">
-					<form class="reg_form">
-						<center><br>
-						
+					<center><br>
+						<div id="FB-Oauth">
 						Register using FB:<br>
-						<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with"  data-auto-logout-link="true" data-use-continue-as="true" data-scope="email,public_profile,user_location,user_birthday,user_about_me" onlogin="auth_response_change_callback();"></div><br>
+						<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with"  data-auto-logout-link="true" data-use-continue-as="true" data-scope="email,public_profile,user_location,user_birthday,user_about_me" onlogin="auth_response_change_callback();"></div></div>
 						OR:<br>
+						<div id="success" style="display: none;">
+							
+						</div>
 						</center>
+
+					<form class="reg_form">
+						
 						<h3 id="message"></h3>
 						<input type="hidden" name="fbID" id="fbID">
 						<p>Name <input type="text" name="name" placeholder="Enter Name" required /></p>

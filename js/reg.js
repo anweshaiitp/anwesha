@@ -32,12 +32,12 @@
 					console.log(data);
 
 					if(data[0]==1){
-						$("#message").html('<center><b>Registration Successful</b><br>Your Anwesha ID is : ANW'+data[1]['pId']+'<br>A confirmation email has been sent to '+email+'.</center>');
-						$("#message").fadeIn();
+						$("#success").html('<center><b>Registration Successful</b><br>Your Anwesha ID is : ANW'+data[1]['pId']+'<br>A confirmation email has been sent to '+email+'.</center>');
+						$("#success").fadeIn();
 						// $("#message").css('background','#5FAB22');
-						$("#message").css('color','#5FAB22');
+						$("#success").css('color','#5FAB22');
 						$("input").fadeOut();
-						$(".register").fadeOut();
+						$(".reg_form").fadeOut();
 						$(".login").fadeOut();
 					}else{
 						$("#message,#message2").fadeIn();
@@ -76,12 +76,12 @@
 		if(status=='success'){//$("#myloader").fadeOut();
 			console.log(data);
 			if(data["status"]==200){
-				$("#message").html('<center>Logged In!</center>');
-				$("#message").fadeIn();
+				$("#success").html('<center>Logged In!</center>');
+				$("#success").fadeIn();
 				// $("#message").css('background','#5FAB22');
 				$("#message").css('color','#5FAB22');
 				$(".login").fadeOut();
-				$(".register").fadeOut();
+				$(".reg_form").fadeOut();
 				$(".login_form").fadeOut();
 			}else{
 				$("#message,#message2").fadeIn();
