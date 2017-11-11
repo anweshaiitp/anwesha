@@ -30,11 +30,13 @@ foreach ($fbAlbums as $fbAlbum) {
 <!doctype html>
 <html class="no-js">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Gallery</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=550, initial-scale=1">
+    <title>Gallery | Anwesha 2018</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale= 1">
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../images/logo_favi.png" rel="icon" >
 
     <link rel="stylesheet" href="demo.css">
     <link rel="stylesheet" href="/assets/jquery.flipster.min.css">
@@ -56,28 +58,6 @@ foreach ($fbAlbums as $fbAlbum) {
         *:before,
         *:after {
           box-sizing: border-box;
-        }
-
-        html,
-        body {
-          margin: 0;
-          padding: 0;
-          height: 100%;
-          background-image: url('https://i.ytimg.com/vi/t0kGRcd-IFY/maxresdefault.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-
-        }
-
-        body {
-          color: #333333;
-          font-weight: 400;
-          font-size: 15px;
-          font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-          line-height: 20px;
-          margin: 0;
-          /*padding: 4em 0 4em 20%;*/
         }
 
         a {
@@ -205,8 +185,48 @@ foreach ($fbAlbums as $fbAlbum) {
 
 </head>
 <body>
-<br><br><br><br>
-    <center><h1 style="color:#ffffff;font-size: 70px;font-family: 'Lobster', cursive;" >Gallery</h1></center>
+  <!---------header-----bar-->
+    <div class="header_div">
+      <img id="header_div_bck" src="/images/blood.jpg"/>
+    
+       <div class="menu_toggle">
+        <img src="/images/skull_menu.png">
+        <span> MENU </span>
+      </div>
+    </div>
+
+  <!-----menu----bar------>
+    <div class="menu_bar">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <!-- <li><a href="/events/">Events</a></li> -->
+        <!-- <li class="sch_div">Schedule</li> -->
+        <li><a href="/gallery/" target="_blank">Gallery</a></li>
+        <li><a href="/team/">Team</a></li>
+        <!-- <li class="spons_div">Sponsors</li> -->
+        <li class="acco_load">Accomodation</li>
+        <li class="register">Register</li>
+        <li class="ca"><a href="/ca/" target="_blank">Campus Ambassador</a></li>
+      </ul>
+    </div>
+
+
+  <!-----doors---->
+
+    <div class="menu_backgrnd"></div>
+
+    <div class="door">
+      <div class="left_door left_door_anim">
+        <img src="../images/door_left.png">
+        
+      </div>
+
+      <div class="right_door right_door_anim">
+        <img src="../images/door_right.png">
+      </div>
+
+    </div>
+
 <!-- <article id="demo-default" class="demo">
 
     <h2></h2>
@@ -310,7 +330,44 @@ foreach ($fbAlbums as $fbAlbum) {
 </script>
 </article>
 
+<!--scripts-------->
+<script type="text/javascript">
+  
+  //-----menu toggle
+      $('.menu_toggle img').on("click",function()
+      {
+        span_text=$('.menu_toggle span').text();
+        if(span_text == "EXIT")
+        {
+          $('.left_door').addClass('left_door_anim');
+          $('.right_door').addClass('right_door_anim');
+          $('.menu_toggle span').text('MENU');
+          $('.menu_toggle img').attr('src', '/images/skull_menu.png');
+          $('.menu_backgrnd').fadeOut(800);
+          $('.menu_bar').slideUp(800);
+        }
+        else
+        {
+          $('.left_door').removeClass('left_door_anim');
+          $('.right_door').removeClass('right_door_anim');
+          $('.menu_toggle span').text('EXIT').fadeIn(800);
+          $('.menu_toggle img').attr('src', '/images/skull_exit.png');
+          $('.menu_backgrnd').fadeIn(800);
+          $('.menu_bar').slideDown(800);
+        }
+      });
 
+  //menu bar item css
+      var new_li= $('.menu_bar li').first();
+      new_li.addClass('first_rot');
+      var new_li= new_li.next().next();
+      new_li.addClass('first_rot');
+      var new_li= new_li.next().next();
+      new_li.addClass('secnd_rot');
+      var new_li= new_li.next().next().next();
+      new_li.addClass('secnd_rot');
+
+</script>
 
 </body>
 </html>
