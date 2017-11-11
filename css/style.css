@@ -55,9 +55,8 @@ body
 	display: block;
 	cursor: pointer;
 	width: 10%;
-	/*//background: red;*/
+	//background: green;
 }
-
 
 .header_div span
 {
@@ -71,6 +70,37 @@ body
 }
 
 /*-------floater-----------*/
+
+.reg_ca
+{
+	margin:0;
+	position: fixed;
+	top: .5%;
+	left:0;
+	background-image: url(../images/old_bck.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+	z-index: 200;
+	width: 40%
+}
+
+.reg_ca img
+{
+	max-width: 5%;
+}
+
+.reg_ca a
+{
+	color: white;
+	text-decoration: none;
+	font-size:120%;
+}
+
+.register
+{
+	cursor: pointer;
+}
+
 .login
 {
 	height: auto;
@@ -82,46 +112,16 @@ body
 	text-align: right;
 }
 
-.ca
-{
-	height: auto;
-    position: fixed;
-    float: right;
-    right: 5px;
-    top: 5px;
-    z-index: 200;
-    color: white;
-    text-align: right;
 
-}
 
-.register
-{
-	width: 150px;
-	height: auto;
-	position: fixed;
-	left: 5px;
-	top: 5px;
-	z-index: 200;
-	color:white;
-	text-align: left;
-}
-
- .ca img
-{
-	max-width: 7%;
-	max-height: 7%;
-	vertical-align: middle;
-}
-
-.login img, .register img
+.login img
 {
 	max-width: 35%;
 	max-height: 35%;
 	vertical-align: middle;
 }
 
-.login a, .register a, .ca a
+.login a
 {
 	color: white;
 	cursor: pointer;
@@ -180,6 +180,53 @@ body
 	cursor: pointer;
 }
 
+/*---register page-------*/
+.reg_form
+{
+	width: 100%;
+	height: auto;
+	vertical-align: middle;
+	text-align: center;
+	color: white;
+	margin-top: 5%;
+	font-size: 140%;
+}
+
+.reg_form input, .reg_form select
+{
+	background: none;
+	border: none;
+	border-bottom: 2px white solid;
+	width: 60%;
+}
+
+.reg_form select
+{
+	color: black;
+	background: none;
+	border: none;
+	border-bottom: 2px white solid;
+	width: 60%;
+}
+
+#sub_but
+{
+	color: black;
+	border-radius: 7px;
+	width: 20%;
+	height: 40px;
+	font-size: 80%;
+
+	background: lightgray;
+	border: none;
+	border: 2px black solid;
+	border-radius: 8px;
+	display: block;
+	cursor: pointer;
+	margin: auto;
+}
+
+
 /*---login page-------*/
 .login_form
 {
@@ -216,52 +263,6 @@ body
 }
 
 #login_but
-{
-	color: black;
-	border-radius: 7px;
-	width: 20%;
-	height: 40px;
-	font-size: 80%;
-
-	background: lightgray;
-	border: none;
-	border: 2px black solid;
-	border-radius: 8px;
-	display: block;
-	cursor: pointer;
-	margin: auto;
-}
-
-/*---register page-------*/
-.reg_form
-{
-	width: 100%;
-	height: auto;
-	vertical-align: middle;
-	text-align: center;
-	color: white;
-	margin-top: 5%;
-	font-size: 140%;
-}
-
-.reg_form input, .reg_form select
-{
-	background: none;
-	border: none;
-	border-bottom: 2px white solid;
-	width: 60%;
-}
-
-.reg_form select
-{
-	color: black;
-	background: none;
-	border: none;
-	border-bottom: 2px white solid;
-	width: 60%;
-}
-
-#sub_but
 {
 	color: black;
 	border-radius: 7px;
@@ -1054,31 +1055,7 @@ body
 		display: none;
 	}
 
-	.login img, .register img
-	{
-		max-width: 25%;
-		max-height: 25%;
-	}
-
-	/*.ca
-	{
-		background: green;
-		width: 40%;
-		text-align: left;
-	}*/
-
-	.ca img
-	{
-		max-width: 9%;
-		max-height: 9%;
-	}
-
-	.login a, .register a, .ca a
-	{
-		font-size: 100%;
-		
-	}
-
+	
 	.login_form, .reg_form
 	{
 		font-size: 85%;

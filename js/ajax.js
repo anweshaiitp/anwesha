@@ -45,10 +45,10 @@ $('.acco_load').click(function()
 
 
 //ajax for loading of register page
-$('.register a').click(function()
+$('.register').click(function()
 {
-	$('.login_backgrnd').fadeIn(500);
-	$('.register_div').fadeIn(1500);
+	$('.ajax_content').load('../view/register.php');
+	return false;
 });
 
 //closing of rgister page
