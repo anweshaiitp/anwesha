@@ -25,7 +25,7 @@
 			<img id="header_div_bck" src="images/blood.jpg"/>
 		
 			 <div class="menu_toggle">
-				<img src="images/menu_img.png">
+				<img src="images/skull_menu.png">
 				<span> MENU </span>
 			</div>
 		</div>
@@ -252,7 +252,7 @@
 					$('.left_door').addClass('left_door_anim');
 					$('.right_door').addClass('right_door_anim');
 					$('.menu_toggle span').text('MENU');
-					$('.menu_toggle img').attr('src', 'images/menu_img.png');
+					$('.menu_toggle img').attr('src', 'images/skull_menu.png');
 					$('.menu_backgrnd').fadeOut(800);
 					$('.menu_bar').slideUp(800);
 				}
@@ -261,7 +261,7 @@
 					$('.left_door').removeClass('left_door_anim');
 					$('.right_door').removeClass('right_door_anim');
 					$('.menu_toggle span').text('EXIT').fadeIn(800);
-					$('.menu_toggle img').attr('src', 'images/menu_img_close.png');
+					$('.menu_toggle img').attr('src', 'images/skull_exit.png');
 					$('.menu_backgrnd').fadeIn(800);
 					$('.menu_bar').slideDown(800);
 				}
