@@ -449,13 +449,12 @@
 			$('.register').click(function()
 			{
 
-				$('.ajax_content').html($("#regCont").html());
-				$("#regCont").html("")
+				$('.ajax_content').html("<iframe src='/register_/' frameborder='0' style='height:100%;width:100%'></iframe>");
+				$("#regCont").html("");
 				return false;
 			});
 		</script>
 		
 		<script type="text/javascript" src="js/ajax.js"></script>
-
 	</body>
 </html>
