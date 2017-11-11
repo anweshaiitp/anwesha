@@ -36,7 +36,7 @@
 						$("#message").fadeIn();
 						// $("#message").css('background','#5FAB22');
 						$("#message").css('color','#5FAB22');
-						$("#signUp").fadeOut();
+						$("input").fadeOut();
 						$(".register").fadeOut();
 						$(".login").fadeOut();
 					}else{
