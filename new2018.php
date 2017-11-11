@@ -450,6 +450,7 @@
 			{
 
 				$('.ajax_content').html($("#regCont").html());
+				$("#regCont").html("")
 				return false;
 			});
 		</script>
