@@ -446,6 +446,7 @@
 				$('.ajax_loading_div').removeClass('ajax_loading_entry');
 
 			});
+			
 			$('.register').click(function()
 			{
 
