@@ -52,11 +52,11 @@ $('.register').click(function()
 });
 
 //closing of rgister page
-$('.login_backgrnd').click(function()
-{
-	$(this).fadeOut(1500);
-	$('.register_div').fadeOut(1500);
-});
+// $('.login_backgrnd').click(function()
+// {
+// 	$(this).fadeOut(1500);
+// 	$('.register_div').fadeOut(1500);
+// });
 
 $('.close_div').click(function()
 {
