@@ -10,6 +10,58 @@
 
 	<!-----styling for team page------>
 		<style type="text/css">
+
+		/*------------team menu bar------------*/
+			.team_menu_bar
+			{
+				display: block;
+				//background: white;
+				z-index: 180;
+				text-align:center;
+				font-size: 120%;
+				margin-bottom: 10px;
+			}
+
+			.team_menu_bar ul
+			{
+				list-style: none;
+				padding:0;
+				margin:0;
+			}
+
+			.team_menu_bar li
+			{
+				background: orange;
+				display: inline-block;
+				padding: .5%;
+				margin-left: .5%;
+				background-image: url(/images/cross.jpg);
+				background-repeat: no-repeat;
+				background-size: 100%;
+				text-shadow: 1px 1px 10px black;
+				box-shadow: 3px 3px 1px #A52A2A;
+				border-radius: 5px;
+				cursor: pointer;
+			}
+
+			.team_menu_bar li:hover
+			{
+				color: orange;
+			}
+
+			.team_menu_bar a
+			{
+				text-decoration: none;
+				color: white;
+				cursor: pointer;
+			}
+
+			.team_menu_bar a:hover
+			{
+				color: orange;
+			}
+
+
 			@media screen and (max-width: 900px)
 			{
 				.moving_floor_div
@@ -46,10 +98,19 @@
 
 				.team_blank
 				{
-					height: 80px;
+					height: 50px;
 					//background: orange;
 					display: block;
 					margin:auto;
+				}
+
+				.team_menu_bar li
+				{
+					display: block;
+					margin: auto;
+					margin-top: 10px;
+					width: 60%;
+					
 				}
 
 			}
@@ -118,392 +179,43 @@
 
 	<!---team div---->
 		<div class="team_div">
+			<div class="team_menu_bar">
+				<ul>
+					<li><a id="fest_cord">Fest Coordinator</a></li>
+					<li><a id="mpr">Media & PR</a></li>
+					<li><a id="hospi">Hospitality</a></li>
+					<li><a id="rsp">Registration, Security & Planning</a></li>
+					<li><a id="spons">Marketing & Sponsorship</a></li>
+					<li><a id="cult">Cultural</a></li>
+					<li><a id="tech">Technical</a></li>
+					<li><a id="arts">Arts & Welfare</a></li>
+					<li><a id="cnd">Creatives & Design</a></li>
+					<li><a id="webapp">	Web & App</a></li>
+					<li><a id="webdev">Web Developers</a></li>
+
+				</ul>
+			</div>
+
 			<div class="team_blank"></div>
 
-			<div class="team_text"> Fest Coordinator</div>
-
-			<div class="team_mem">
-				<div class="mem_content">
-					<img src="../images/team1.png"/>
-					<br>
-					<span class="mem_name">Himanshu Barua</span>
-					<!-- <br>
-					<a href="mailto:aditya.me16@iitp.ac.in">aditya.me16@iitp.ac.in</a>
-					<br>
-					<a href="tel:7424947945">7424947945</a> -->
-				</div>
-			</div>
-
-		<!---media---->
-			<div class="team_text">Media & PR</div>
-	
-			<div class="team_mem">
-				<div class="mem_content">
-					<img src="../images/team1.png"/>
-					<br>
-					<span class="mem_name">Shivpreet Sharma</span>
-				<!-- 	<br>
-					<a href="mailto:aditya.me16@iitp.ac.in">aditya.me16@iitp.ac.in</a>
-					<br>
-					<a href="tel:7424947945">7424947945</a> -->
-				</div>
-			</div>
-			<div class="team_blank"></div>
-			
-			<div class="team_mem">
-				<div class="mem_content">
-					<img src="../images/team1.png"/>
-					<br>
-					<span class="mem_name">Rahul Jain</span>
-				<!-- 	<br>
-					<a href="mailto:aditya.me16@iitp.ac.in">aditya.me16@iitp.ac.in</a>
-					<br>
-					<a href="tel:7424947945">7424947945</a> -->
-				</div>
-			</div>
-			<div class="team_blank"></div>
-			
-			<div class="team_mem">
-				<div class="mem_content">
-					<img src="../images/team1.png"/>
-					<br>
-					<span class="mem_name">Arinjaya Khare</span>
-				<!-- 	<br>
-					<a href="mailto:aditya.me16@iitp.ac.in">aditya.me16@iitp.ac.in</a>
-					<br>
-					<a href="tel:7424947945">7424947945</a> -->
-				</div>
-			</div>
 		
-		<!---hospi---->
-			<div class="team_text">Hospitality</div>
-	
-			<div class="team_mem">
-				<div class="mem_content">
-					<img src="../images/team1.png"/>
-					<br>
-					<span class="mem_name">Solomon Joy</span>
-				<!-- 	<br>
-					<a href="mailto:aditya.me16@iitp.ac.in">aditya.me16@iitp.ac.in</a>
-					<br>
-					<a href="tel:7424947945">7424947945</a> -->
-				</div>
+		<!---------team loader------>
+			<div class="team_loader">
+
+				<!-----fest cord------>
+				<div class="team_text"> Fest Coordinator</div>
+
+				<div class="team_mem">
+					<div class="mem_content">
+						<img src="../images/team1.png"/>
+						<br>
+						<span class="mem_name">Himanshu Barua</span>
+						<!-- <br>
+						<a href="mailto:aditya.me16@iitp.ac.in">aditya.me16@iitp.ac.in</a>
+						<br>
+						<a href="tel:7424947945">7424947945</a> -->
+					</div>
 			</div>
-			<div class="team_blank"></div>
-			
-
-			<div class="team_mem">
-				<div class="mem_content">
-					<img src="../images/team1.png"/>
-					<br>
-					<span class="mem_name">Piyush Kumar Agarwal</span>
-				<!-- 	<br>
-					<a href="mailto:aditya.me16@iitp.ac.in">aditya.me16@iitp.ac.in</a>
-					<br>
-					<a href="tel:7424947945">7424947945</a> -->
-				</div>
-			</div>
-			<div class="team_blank"></div>
-			
-			<div class="team_mem">
-				<div class="mem_content">
-					<img src="../images/team1.png"/>
-					<br>
-					<span class="mem_name">Ashish Raj</span>
-				<!-- 	<br>
-					<a href="mailto:aditya.me16@iitp.ac.in">aditya.me16@iitp.ac.in</a>
-					<br>
-					<a href="tel:7424947945">7424947945</a> -->
-				</div>
-			</div>
-		
-		<!---reg---->
-			<div class="team_text">Registration, Security & Planning</div>
-	
-			<div class="team_mem">
-				<div class="mem_content">
-					<img src="../images/team1.png"/>
-					<br>
-					<span class="mem_name">Niranjan Meena</span>
-				<!-- 	<br>
-					<a href="mailto:aditya.me16@iitp.ac.in">aditya.me16@iitp.ac.in</a>
-					<br>
-					<a href="tel:7424947945">7424947945</a> -->
-				</div>
-			</div>
-			<div class="team_blank"></div>
-			
-			<div class="team_mem">
-				<div class="mem_content">
-					<img src="../images/team1.png"/>
-					<br>
-					<span class="mem_name">Hariraj Meena</span>
-				<!-- 	<br>
-					<a href="mailto:aditya.me16@iitp.ac.in">aditya.me16@iitp.ac.in</a>
-					<br>
-					<a href="tel:7424947945">7424947945</a> -->
-				</div>
-			</div>
-			<div class="team_blank"></div>
-			
-			<div class="team_mem">
-				<div class="mem_content">
-					<img src="../images/team1.png"/>
-					<br>
-					<span class="mem_name">Sahil Sharma</span>
-				<!-- 	<br>
-					<a href="mailto:aditya.me16@iitp.ac.in">aditya.me16@iitp.ac.in</a>
-					<br>
-					<a href="tel:7424947945">7424947945</a> -->
-				</div>
-
-			</div>
-			<div class="team_blank"></div>
-			
-			<div class="team_mem">
-				<div class="mem_content">
-					<img src="../images/team1.png"/>
-					<br>
-					<span class="mem_name">Abhishek Yadav</span>
-				<!-- 	<br>
-					<a href="mailto:aditya.me16@iitp.ac.in">aditya.me16@iitp.ac.in</a>
-					<br>
-					<a href="tel:7424947945">7424947945</a> -->
-				</div>
-			</div>
-		
-		<!----spons---->
-			<div class="team_text">Marketing & Sponsorship</div>
-
-			<div class="team_mem">
-				<div class="mem_content">
-					<img src="../images/team1.png"/>
-					<br>
-					<span class="mem_name">Ayush Sharma</span>
-					<!-- <br>
-					<a href="mailto:aditya.me16@iitp.ac.in">aditya.me16@iitp.ac.in</a>
-					<br>
-					<a href="tel:7424947945">7424947945</a> -->
-				</div>
-			</div>
-
-			<div class="team_blank"></div>
-				
-			<div class="team_mem">
-				<div class="mem_content">
-					<img src="../images/team1.png"/>
-					<br>
-					<span class="mem_name">Himanshu Barua</span>
-					<!-- <br>
-					<a href="mailto:aditya.me16@iitp.ac.in">aditya.me16@iitp.ac.in</a>
-					<br>
-					<a href="tel:7424947945">7424947945</a> -->
-				</div>
-			</div>
-
-			<div class="team_blank"></div>
-				
-			<div class="team_mem">
-				<div class="mem_content">
-					<img src="../images/team1.png"/>
-					<br>
-					<span class="mem_name">Pranav Mutharia</span>
-					<!-- <br>
-					<a href="mailto:aditya.me16@iitp.ac.in">aditya.me16@iitp.ac.in</a>
-					<br>
-					<a href="tel:7424947945">7424947945</a> -->
-				</div>
-			</div>
-
-
-		<!----cultural---->
-			<div class="team_text">Cultural</div>
-
-			<div class="team_mem">
-				<div class="mem_content">
-					<img src="../images/team1.png"/>
-					<br>
-					<span class="mem_name">Rohit Gupta</span>
-					<!-- <br>
-					<a href="mailto:aditya.me16@iitp.ac.in">aditya.me16@iitp.ac.in</a>
-					<br>
-					<a href="tel:7424947945">7424947945</a> -->
-				</div>
-			</div>
-
-			<div class="team_blank"></div>
-				
-			<div class="team_mem">
-				<div class="mem_content">
-					<img src="../images/team1.png"/>
-					<br>
-					<span class="mem_name">Vijay Yadav</span>
-					<!-- <br>
-					<a href="mailto:aditya.me16@iitp.ac.in">aditya.me16@iitp.ac.in</a>
-					<br>
-					<a href="tel:7424947945">7424947945</a> -->
-				</div>
-			</div>
-
-			
-		<!----technical---->
-			<div class="team_text">Technical</div>
-
-			<div class="team_mem">
-				<div class="mem_content">
-					<img src="../images/team1.png"/>
-					<br>
-					<span class="mem_name">Tarun Garg</span>
-					<!-- <br>
-					<a href="mailto:aditya.me16@iitp.ac.in">aditya.me16@iitp.ac.in</a>
-					<br>
-					<a href="tel:7424947945">7424947945</a> -->
-				</div>
-			</div>
-
-
-		<!----Arts & Welfare---->
-			<div class="team_text">Arts & Welfare</div>
-
-			<div class="team_mem">
-				<div class="mem_content">
-					<img src="../images/team1.png"/>
-					<br>
-					<span class="mem_name">Rajneesh Singh</span>
-					<!-- <br>
-					<a href="mailto:aditya.me16@iitp.ac.in">aditya.me16@iitp.ac.in</a>
-					<br>
-					<a href="tel:7424947945">7424947945</a> -->
-				</div>
-			</div>
-
-			<div class="team_blank"></div>
-				
-			<div class="team_mem">
-				<div class="mem_content">
-					<img src="../images/team1.png"/>
-					<br>
-					<span class="mem_name">Rajeev Verma</span>
-					<!-- <br>
-					<a href="mailto:aditya.me16@iitp.ac.in">aditya.me16@iitp.ac.in</a>
-					<br>
-					<a href="tel:7424947945">7424947945</a> -->
-				</div>
-			</div>
-
-			<div class="team_blank"></div>
-				
-			<div class="team_mem">
-				<div class="mem_content">
-					<img src="../images/team1.png"/>
-					<br>
-					<span class="mem_name">Manohar Palavalasa</span>
-					<!-- <br>
-					<a href="mailto:aditya.me16@iitp.ac.in">aditya.me16@iitp.ac.in</a>
-					<br>
-					<a href="tel:7424947945">7424947945</a> -->
-				</div>
-			</div>
-
-		<!----Creatives & Design---->
-			<div class="team_text">Creatives & Design</div>
-
-			<div class="team_mem">
-				<div class="mem_content">
-					<img src="../images/team1.png"/>
-					<br>
-					<span class="mem_name">Abhishek Kumar</span>
-					<!-- <br>
-					<a href="mailto:aditya.me16@iitp.ac.in">aditya.me16@iitp.ac.in</a>
-					<br>
-					<a href="tel:7424947945">7424947945</a> -->
-				</div>
-			</div>
-
-			<div class="team_blank"></div>
-				
-			<div class="team_mem">
-				<div class="mem_content">
-					<img src="../images/team1.png"/>
-					<br>
-					<span class="mem_name">Nitesh Dwivedi</span>
-					<!-- <br>
-					<a href="mailto:aditya.me16@iitp.ac.in">aditya.me16@iitp.ac.in</a>
-					<br>
-					<a href="tel:7424947945">7424947945</a> -->
-				</div>
-			</div>
-
-			<div class="team_blank"></div>
-				
-			<div class="team_mem">
-				<div class="mem_content">
-					<img src="../images/team1.png"/>
-					<br>
-					<span class="mem_name">Shashwat Gupta</span>
-					<!-- <br>
-					<a href="mailto:aditya.me16@iitp.ac.in">aditya.me16@iitp.ac.in</a>
-					<br>
-					<a href="tel:7424947945">7424947945</a> -->
-				</div>
-			</div>
-
-		<!----Web & App---->
-			<div class="team_text">Web & App</div>
-
-			<div class="team_mem">
-				<div class="mem_content">
-					<img src="../images/team1.png"/>
-					<br>
-					<span class="mem_name">Chirag Wadhera</span>
-					<!-- <br>
-					<a href="mailto:aditya.me16@iitp.ac.in">aditya.me16@iitp.ac.in</a>
-					<br>
-					<a href="tel:7424947945">7424947945</a> -->
-				</div>
-			</div>
-
-			<div class="team_blank"></div>
-				
-			<div class="team_mem">
-				<div class="mem_content">
-					<img src="../images/team1.png"/>
-					<br>
-					<span class="mem_name">Yogendra Singh</span>
-					<!-- <br>
-					<a href="mailto:aditya.me16@iitp.ac.in">aditya.me16@iitp.ac.in</a>
-					<br>
-					<a href="tel:7424947945">7424947945</a> -->
-				</div>
-			</div>
-
-		<!----Web Developers---->
-			<div class="team_text">Web Developers</div>
-
-			<div class="team_mem">
-				<div class="mem_content">
-					<img src="../images/team1.png"/>
-					<br>
-					<span class="mem_name">Aditya Suman</span>
-					<!-- <br>
-					<a href="mailto:aditya.me16@iitp.ac.in">aditya.me16@iitp.ac.in</a>
-					<br>
-					<a href="tel:7424947945">7424947945</a> -->
-				</div>
-			</div>
-
-			<div class="team_blank"></div>
-				
-			<div class="team_mem">
-				<div class="mem_content">
-					<img src="../images/team1.png"/>
-					<br>
-					<span class="mem_name">Tameesh Biswas</span>
-					<!-- <br>
-					<a href="mailto:aditya.me16@iitp.ac.in">aditya.me16@iitp.ac.in</a>
-					<br>
-					<a href="tel:7424947945">7424947945</a> -->
-				</div>
 			</div>
 
 		</div>	
@@ -526,8 +238,6 @@
 
 	<!---footer---->
 		<p id="copyright">&copy 2018 Anwesha, IIT Patna </p>
-
-
 
 	<!--scripts-->
 		<script type="text/javascript" src="../assets/js/jquery.js"></script>
@@ -734,6 +444,75 @@
 				$('.ajax_loading_div').removeClass('ajax_loading_entry');
 			});
 			
+	//team mem ajax loader
+			$('#fest_cord').click(function()
+			{
+				//alert('ka');
+				$('.team_loader').load('/fest_cord/');
+			});
+
+			$('#mpr').click(function()
+			{
+				//alert('ka');
+				$('.team_loader').load('/mpr/');
+			});
+
+
+			$('#hospi').click(function()
+			{
+				//alert('ka');
+				$('.team_loader').load('/hospi/');
+			});
+
+
+			$('#spons').click(function()
+			{
+				//alert('ka');
+				$('.team_loader').load('/spons/');
+			});
+
+
+			$('#webdev').click(function()
+			{
+				//alert('ka');
+				$('.team_loader').load('/webdev/');
+			});
+
+			$('#webapp').click(function()
+			{
+				//alert('ka');
+				$('.team_loader').load('/webapp/');
+			});
+
+			$('#cnd').click(function()
+			{
+				//alert('ka');
+				$('.team_loader').load('/cnd/');
+			});
+
+			$('#arts').click(function()
+			{
+				//alert('ka');
+				$('.team_loader').load('/arts/');
+			});
+
+			$('#tech').click(function()
+			{
+				//alert('ka');
+				$('.team_loader').load('/tech/');
+			});
+
+			$('#cult').click(function()
+			{
+				//alert('ka');
+				$('.team_loader').load('/cult/');
+			});
+
+			$('#rsp').click(function()
+			{
+				//alert('ka');
+				$('.team_loader').load('/rsp/');
+			});
 		</script>
 
 		<script type="text/javascript" src="../js/ajax.js"></script>
