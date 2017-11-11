@@ -492,7 +492,7 @@ body
 {
 	width: 45%;
 	height: auto;
-	padding: 10px;
+	padding: 5px;
 	vertical-align: top;
 	background-color: lightgray;
 	display: inline-block;
@@ -937,12 +937,12 @@ body
 {
 	.header_div
 	{
-		height: 30px;
+		height: 40px;
 	}
 
 	.menu_toggle img
 	{
-		width: 8%;
+		width: 9%;
 	}
 
 	.moving_witch
@@ -1048,7 +1048,7 @@ body
 
 	.menu_toggle img
 	{
-		width: 13%;
+		width: 15%;
 	}
 
 	.menu_bar
