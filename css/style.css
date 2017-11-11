@@ -33,9 +33,10 @@ body
 	left:0;
   	width: 100%;
     height: 50px; 
-    background: red;
     text-align: center;
     z-index: 200;
+    border-bottom:2px grey solid;
+    //background-image: url(/images/cross.jpg);
 }
 
 #header_div_bck
@@ -230,7 +231,7 @@ body
 	background-repeat: no-repeat;
 	background-size: 100%;
 	text-shadow: 1px 1px 10px black;
-	box-shadow: 3px 3px 1px #A52A2A;
+	box-shadow: 3px 3px 1px black;
 	border-radius: 5px;
 	cursor: pointer;
 }
@@ -379,10 +380,12 @@ body
 {
 	position: fixed;
 	top: 9%;
-	height: 40%;
+	height: 30%;
 	width: 100%;
-	z-index: 140;
-	/*//background: green;*/
+	z-index: 110;
+	margin:0;
+	padding: 0;
+	//background: green;
 }
 
 .moving_cloud_div img
@@ -391,7 +394,7 @@ body
 	position: absolute;
 	top:0;
 	left:0;
-	height: 75%;
+	height: 90%;
 }
 
 /*-------moving floor-----------*/
@@ -552,13 +555,20 @@ body
 	height: 60%;
 	white-space: nowrap;
 	/*//overflow-x: hidden;*/
-	padding-top: 80px;
+	padding-top: 70px;
+}
+
+.team_loader
+{
+	//background: green;
+	width: 100%;
+	//height: 10px;
 }
 
 .team_blank
 {
 	width: 50px;
-	height: 50px;
+	height: 20px;
 	/*//background: orange;*/
 	display: inline-block;
 	vertical-align: bottom;
@@ -1048,7 +1058,7 @@ body
 
 	.menu_toggle img
 	{
-		width: 15%;
+		width: 20%;
 	}
 
 	.menu_bar

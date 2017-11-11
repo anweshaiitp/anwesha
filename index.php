@@ -54,7 +54,29 @@ if (preg_match($base . '(ca|)_?([0-9]{4}|)$@', $url, $match)) {
 	require ('view/team.html');
 } elseif (preg_match($base . 'accodomation/$@', $url, $match)) {
 	require ('view/accodomation.html');
-}  elseif (preg_match($base . 'register/$@', $url, $match)) {
+} elseif (preg_match($base . 'fest_cord/$@', $url, $match)) {
+	require ('view/team_cords/fest_cord.html');
+}  elseif (preg_match($base . 'mpr/$@', $url, $match)) {
+	require ('view/team_cords/mpr.html');
+} elseif (preg_match($base . 'hospi/$@', $url, $match)) {
+	require ('view/team_cords/hospi.html');
+} elseif (preg_match($base . 'rsp/$@', $url, $match)) {
+	require ('view/team_cords/rsp.html');
+} elseif (preg_match($base . 'spons/$@', $url, $match)) {
+	require ('view/team_cords/spons.html');
+} elseif (preg_match($base . 'cult/$@', $url, $match)) {
+	require ('view/team_cords/cult.html');
+} elseif (preg_match($base . 'tech/$@', $url, $match)) {
+	require ('view/team_cords/tech.html');
+} elseif (preg_match($base . 'arts/$@', $url, $match)) {
+	require ('view/team_cords/arts.html');
+} elseif (preg_match($base . 'cnd/$@', $url, $match)) {
+	require ('view/team_cords/cnd.html');
+} elseif (preg_match($base . 'webapp/$@', $url, $match)) {
+	require ('view/team_cords/webapp.html');
+} elseif (preg_match($base . 'webdev/$@', $url, $match)) {
+	require ('view/team_cords/webdev.html');
+} elseif (preg_match($base . 'register/$@', $url, $match)) {
 	require ('view/register.php');
 } elseif (preg_match($base . 'qrReg/([0-9A-Za-z]{4,50})/?$@', $url, $match)) {
 	require ('controller/qrReg.php');
