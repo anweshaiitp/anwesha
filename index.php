@@ -44,8 +44,6 @@ if (preg_match($base . '(ca|)_?([0-9]{4}|)$@', $url, $match)) {
 } elseif ('/anw/ca/?i=1' == $url) {
         require ('view/ca.php');
         // header('Location: ../');
-} elseif (preg_match($base . 'register/?$@', $url, $match)) {
-	header('Location: ../');
 } elseif (preg_match($base . 'index.php?$@', $url, $match)) {
 	header('Location: ./');
 } elseif (preg_match($base . 'leaderboard/?$@', $url, $match)) {
