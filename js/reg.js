@@ -164,11 +164,12 @@
 	  	  console.log("parse",data[1]);
 	  	  console.log('fboatuth',data[1].pId);
 	  	  if(data[1].pId<=1){
-			  $("#FB-Oauth").html("Hi! " +response.first_name+" <ul class='actions'><li><a href='#signUp' class='button'>Continue to step 2</a></li></ul>");
+			  $("#FB-Oauth").html("Hi! " +response.first_name+" <ul class='actions'><li><a  class='button'>Plese fill missing details:</a></li></ul>");
 			  
 			  $("#signUp").css("display","block");
 	  	  }else if(data[1].pId>1){
-	  	  	$("#FB-Oauth").html("Hi! " +response.first_name+"<br>Anwesha ID is :"+data[1].pId);
+	  	  	$(".reg_form").fadeOut();
+	  	  	$("#FB-Oauth").html("Hi! " +response.first_name+"<br>Already registered using this FB ID<br>Anwesha ID is :"+data[1].pId);
 	  	  	$(".login").html('<img src="images/witch.png"> Hi!'+response.first_name);
 	  	  }
 		});
