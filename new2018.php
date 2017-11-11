@@ -212,7 +212,11 @@
 			<div class="ajax_content"></div>
 		</div>
 
-
+	<div id="regCont" style="display: none">
+		<?php
+			require 'view/reg.php';
+		?>
+	</div>
 
 	<!---footer-->
 		<p id="copyright">&copy; 2018 Anwesha, IIT Patna </p>
@@ -444,7 +448,8 @@
 			});
 			$('.register').click(function()
 			{
-				$('.ajax_content').load('/register_/');
+
+				$('.ajax_content').html($("#regCont").html());
 				return false;
 			});
 		</script>
