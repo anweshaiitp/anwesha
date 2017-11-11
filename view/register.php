@@ -3,17 +3,12 @@
 	<style type="text/css">
 
 		/*---fonts---*/
-		@font-face
-		{
-			font-family: main_font;
-			src: url(../css/calibri.ttf);
-		}
-
+		
 		body
 		{
 			margin: 0;
 			padding: 0;
-			font-family: main_font;
+			color: black;
 		}
 
 		.reg_form
@@ -22,7 +17,7 @@
 			height: auto;
 			vertical-align: middle;
 			text-align: center;
-			color: white;
+			color: black;
 			margin-top: 5%;
 			font-size: 140%;
 			background: #ffc123;

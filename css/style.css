@@ -119,20 +119,6 @@ body
 	display: none;
 }
 
-.register_div
-{
-	position: fixed;
-	width: 60%;
-	height: 100%;
-	background-image: url(/images/floater_back.jpg);
-	background-repeat: no-repeat;
-	background-size: cover;
-	z-index: 320;
-	overflow-y: scroll;
-	display: none;
-	right:0;
-}
-
 .login_backgrnd
 {
 	display: none;
@@ -154,9 +140,6 @@ body
 	max-width: 9%;
 	cursor: pointer;
 }
-
-/*---register page-------*/
-
 
 
 /*---login page-------*/
@@ -483,11 +466,13 @@ body
 	height: auto;
 	padding: 20px;
 	vertical-align: top;
-	background: lightgray;
+	background-image: url(/images/div_bck.jpg);
 	display: inline-block;
 	box-shadow: 2px 2px 15px black;
 	font-size: 110%;
 	white-space: pre-line;
+	color: white;
+	text-shadow: 2px 2px 5px black;
 }
 
 .about_anwesha p
@@ -496,20 +481,22 @@ body
 	text-align: right;
 	font-size: 140%;
 	font-weight: bold;
-	background: red;
+	background:  #4d0000;
 	padding: 2px;
 	padding-right: 10px;
 	border-radius: 5px;
+	
 }
 
 .anwesha_theme
 {
 	width: 45%;
 	height: auto;
-	padding: 20px;
+	padding: 10px;
 	vertical-align: top;
 	background-color: lightgray;
 	display: inline-block;
+	background-image: url(/images/div_bck.jpg);
 }
 
 
@@ -519,7 +506,8 @@ body
 	text-align: right;
 	font-size: 140%;
 	font-weight: bold;
-	background: red;
+	background:  #4d0000;
+	
 	padding: 2px;
 	padding-right: 10px;
 	border-radius: 5px;
@@ -874,7 +862,7 @@ body
 /*--syling ajax div---*/
 .ajax_pin
 {
-	position: absolute;
+	position: fixed;
 	top:0px;
 	left: 0px;
 	max-width: 10%;
@@ -883,7 +871,7 @@ body
 
 .ajax_div_back
 {
-	position: absolute;
+	position: fixed;
 	top:0px;
 	left: 0px;
 	right:0;
@@ -895,7 +883,7 @@ body
 
 .close_icon
 {
-	position: absolute;
+	position: fixed;
 	top: 5px;
 	right: 0;
 	max-width: 5%;
@@ -911,7 +899,7 @@ body
 
 .ajax_content
 {
-	margin-top: 10%;
+	margin-top: 8%;
 }
 
 /*--footer---*/

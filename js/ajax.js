@@ -47,16 +47,10 @@ $('.acco_load').click(function()
 //ajax for loading of register page
 $('.register').click(function()
 {
-	$('.ajax_content').load('/register/');
+	$('.ajax_content').load('../view/register.php');
 	return false;
 });
 
-//closing of rgister page
-// $('.login_backgrnd').click(function()
-// {
-// 	$(this).fadeOut(1500);
-// 	$('.register_div').fadeOut(1500);
-// });
 
 $('.close_div').click(function()
 {

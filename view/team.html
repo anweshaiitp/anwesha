@@ -66,67 +66,6 @@
 			</div>
 		</div>
 
-	<!--------reg & login------>
-		<div class="login_backgrnd"></div>
-
-		<div class="login_div">
-			<img class="close_div" src="../images/close.png"/>
-
-			<form class="login_form">
-				<img id="login_img" src="../images/witch1.png"/>
-				<br>
-				Anwesha ID
-				<br>
-				<input type="text" id="login_id" placeholder="enter your anwesha id"/>
-				<br>
-				Password
-				<br>
-				<input type="password" id="login_pwd" placeholder="enter your password"/>
-				<br><br>
-				<input id="login_but" type="button" value="login"/>
-			</form>
-		</div>
-
-		<div class="register_div">
-			<img class="close_div" src="../images/close.png"/>
-			<form class="reg_form">
-				<img id="login_img" src="../images/witch1.png"/>
-				<br>
-				Name
-				<br>
-				<input type="text" name="name" placeholder="Enter Name" />
-				<br>
-				Contact No
-				<br>
-				<input type="number" name="contact" placeholder="Phone Number" />
-				<br>
-				Email
-				<br>
-				<input type="email" name="email" placeholder="something@else.com" />
-				<br>
-				Date Of Birth
-				<br>
-				<input type="date" name="dob"/>
-				<br>
-				Sex
-				<br>
-				<select name="sex"> 
-					<option value="choose"></option>
-					<option value="Male">Male</option>
-					<option value="Female">Female</option> 
-				</select>
-				<br>
-				College
-				<br><input type="text" name="college">
-				<br>
-				City
-				<br>
-				<input type="text" name="city">
-				<br><br>
-				<input id="sub_but" type="button" name="register" value="register"/>
-			</form>
-
-		</div>
 
 
 	<!-----menu----bar------>
@@ -139,6 +78,8 @@
 				<li><a href="/team/">Team</a></li>
 				<!-- <li class="spons_div">Sponsors</li> -->
 				<li class="acco_load">Accomodation</li>
+				<li class="register">Register</li>
+				<li class="ca"><a href="/ca/" target="_blank">Campus Ambassador</a></li>
 			</ul>
 		</div>
 
@@ -782,6 +723,13 @@
 			});
 
 			$('.acco_load').click(function()
+			{
+				$('.ajax_loading_bckgrnd').fadeIn(800);
+				$('.ajax_loading_div').removeClass('ajax_loading_entry');
+			});
+
+
+			$('.register').click(function()
 			{
 				$('.ajax_loading_bckgrnd').fadeIn(800);
 				$('.ajax_loading_div').removeClass('ajax_loading_entry');

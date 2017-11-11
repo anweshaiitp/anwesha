@@ -55,10 +55,7 @@
 						<input id="login_but" type="button" value="login"/>
 					</form>
 				</div> -->
-
-	<!--------reg & ca------>
-		
-		
+	
 	<!-----menu----bar------>
 		<div class="menu_bar">
 			<ul>
@@ -119,7 +116,7 @@
 
 			<div class="about_anwesha">
 				<p> About Anwesha</p>
-				Anwesha is the Annual Techno-Cultural Festival of Indian Institute of Technology Patna. It is a three-day-long event usually held towards the end of January every year. The fest hosts Technical, Cultural, Literary, Eco and Management events. The first edition of Anwesha took place in 2010. It draws a footfall of about 4,500 from more than 140 colleges across the country. Management events such as Stock Mart, B-quiz, Vendre and eco events like Eco-debate, Green quiz give participants ample scope to showcase their talents. Anwesha enjoys a cult status among the youths of Bihar.
+				Anwesha is a quest. The annual Techno-Cultural Festival of Indian Institute of Technology Patna hosts Technical, Cultural, Literary, Eco and Management events. Since its genesis in 2010, Anwesha has gained great importance at an exponential rate and enjoys a cult status among the youths of Bihar. Eminent personalities such as chief minister Nitish Kumar, Padma Vibhushan, G. Madhavan Nair, R.K. Sihna (Dolphin Man of India), have been part of Anwesha's extravaganza in the past.
 			</div>
 
 
@@ -131,16 +128,6 @@
 				<img src="images/anw_theme.jpg">
 
 			</div>
-
-
-			<div class="blank_div_fiv">
-			</div>
-
-			<div class="about_anwesha">
-				<p>Anwesha</p>
-				Anwesha is a quest. The annual Techno-Cultural Festival of Indian Institute of Technology Patna hosts Technical, Cultural, Literary, Eco and Management events. Since its genesis in 2010, Anwesha has gained great importance at an exponential rate and enjoys a cult status among the youths of Bihar. Eminent personalities such as chief minister Nitish Kumar, Padma Vibhushan, G. Madhavan Nair, R.K. Sihna (Dolphin Man of India), have been part of Anwesha\'s extravaganza in the past.
-			</div>
-
 
 			<div class="blank_div_fiv">
 			</div>
@@ -158,7 +145,9 @@
 			<div class="anwesha_theme">
 				<p>Social Outreach</p>
 				<img src="images/social.jpg">
+			</div>
 
+			<div class="blank_div_thr">
 			</div>
 
 		</div>
@@ -174,7 +163,7 @@
 
 			<div class="about_anwesha">
 				<p> About Anwesha</p>
-				Anwesha is the Annual Techno-Cultural Festival of Indian Institute of Technology Patna. It is a three-day-long event usually held towards the end of January every year. The fest hosts Technical, Cultural, Literary, Eco and Management events. The first edition of Anwesha took place in 2010. It draws a footfall of about 4,500 from more than 140 colleges across the country. Management events such as Stock Mart, B-quiz, Vendre and eco events like Eco-debate, Green quiz give participants ample scope to showcase their talents. Anwesha enjoys a cult status among the youths of Bihar.
+				Anwesha is a quest. The annual Techno-Cultural Festival of Indian Institute of Technology Patna hosts Technical, Cultural, Literary, Eco and Management events. Since its genesis in 2010, Anwesha has gained great importance at an exponential rate and enjoys a cult status among the youths of Bihar. Eminent personalities such as chief minister Nitish Kumar, Padma Vibhushan, G. Madhavan Nair, R.K. Sihna (Dolphin Man of India), have been part of Anwesha's extravaganza in the past.
 			</div>
 
 
@@ -190,20 +179,11 @@
 			<div class="blank_div_fiv">
 			</div>
 
-			<div class="about_anwesha">
-				<p>Anwesha</p>
-				Anwesha is a quest. The annual Techno-Cultural Festival of Indian Institute of Technology Patna hosts Technical, Cultural, Literary, Eco and Management events. Since its genesis in 2010, Anwesha has gained great importance at an exponential rate and enjoys a cult status among the youths of Bihar. Eminent personalities such as chief minister Nitish Kumar, Padma Vibhushan, G. Madhavan Nair, R.K. Sihna (Dolphin Man of India), have been part of Anwesha\'s extravaganza in the past.
-			</div>
-
-			<div class="blank_div_fiv">
-			</div>
-
 			<div class="anwesha_theme">
 				<p>Media Outreach</p>
 				<img src="images/media.jpg">
 
 			</div>
-
 
 			<div class="blank_div_fiv">
 			</div>
@@ -214,6 +194,8 @@
 
 			</div>
 
+			<div class="blank_div_fiv">
+			</div>
 
 		</div>
 
