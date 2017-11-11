@@ -152,7 +152,7 @@
 
 		</div>
 
-	<!---------viewing div on mobile phone---------->
+	<!---viewing div on mobile phone-->
 		<div class="mob_div">
 			<div class="anwesha_logo">
 				<img src="images/logo_favi.png">
@@ -199,7 +199,7 @@
 
 		</div>
 
-	<!---ajax loader---->
+	<!---ajax loader-->
 
 		<div class="ajax_loading_bckgrnd">
 			<div class="ajax_back"></div>
@@ -214,15 +214,15 @@
 
 
 
-	<!---footer---->
-		<p id="copyright">&copy 2018 Anwesha, IIT Patna </p>
+	<!---footer-->
+		<p id="copyright">&copy; 2018 Anwesha, IIT Patna </p>
 
 
 <!--scripts-->
 		<script type="text/javascript" src="js/jquery.js"></script>
 		<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
 
-	<!--scripts for index---->
+	<!--scripts for index-->
 		<script type="text/javascript">
 
 	//disapiaring of preloader
@@ -298,28 +298,21 @@
 						}, 800);
 			    }
 
-			$.fn.witch_motion_stop = function()
-			{ 
+			$.fn.witch_motion_stop = function(){ 
 				clearInterval(witch_motion);  
 			}
 
 			$.fn.witch_motion_start();
 
-	//witch direction on scroll
+			//witch direction on scroll
  			scroll_posn = $(document).scrollLeft();
 
-			$(document).on("scroll",function()
-			{
+			$(document).on("scroll",function(){
 				var scroll_posn_new = $(document).scrollLeft();
-				if(scroll_posn_new >= scroll_posn )
-				{
-
+				if(scroll_posn_new >= scroll_posn ){
 					$('.moving_witch').css('left', '45%');
-					
 					witch_dirc = $('.moving_witch').css('transform');
-					//alert(witch_dirc);
-					if(witch_dirc == "matrix3d(-1, 0, -1.22465e-16, 0, 0, 1, 0, 0, 1.22465e-16, 0, -1, 0, 0, 0, 0, 1)")
-					{
+					if(witch_dirc == "matrix3d(-1, 0, -1.22465e-16, 0, 0, 1, 0, 0, 1.22465e-16, 0, -1, 0, 0, 0, 0, 1)"){
 						$('.moving_witch').css('transform', 'rotateY(360deg)');
 					}
 
@@ -447,6 +440,12 @@
 			{
 				$('.ajax_loading_bckgrnd').fadeIn(800);
 				$('.ajax_loading_div').removeClass('ajax_loading_entry');
+
+			});
+			$('.register').click(function()
+			{
+				$('.ajax_content').load('/register/');
+				return false;
 			});
 		</script>
 		
