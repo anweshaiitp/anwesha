@@ -226,84 +226,26 @@ foreach ($fbAlbums as $fbAlbum) {
       </div>
 
     </div>
+    
+  <!---ajax loader---->
 
-<!-- <article id="demo-default" class="demo">
-
-    <h2></h2>
-
-    <div id="coverflow">
-        <ul class="flip-items">
-            <?php
-                // foreach ($images as $imageURI) {
-                //  echo "<li data-flip-title=\"\">
-                   //          <img src=\"".$imageURI."\" height='500'>
-                   //      </li>";
-                // }
-            ?>
-            
-        </ul>
+    <div class="ajax_loading_bckgrnd">
+      <div class="ajax_back"></div>
     </div>
 
-<script>
-    var coverflow = $("#coverflow").flipster();
-</script>
-
-</article> -->
-<!-- 
-<article id="demo-carousel" class="demo">
-
-    <h2></h2>
-
-    <div id="carousel">
-        <ul class="flip-items">
-            <?php
-                // foreach ($images as $imageURI) {
-                //  echo "<li data-flip-title=\"\">
-                   //          <img src=\"".$imageURI."\" height='300'>
-                   //      </li>";
-                // }
-            ?>
-            
-        </ul>
+    <div class="ajax_loading_div ajax_loading_entry">
+      <img class="ajax_pin" src="../images/dragon.png"/>
+      <img class="close_icon" src="../images/close.png"/>
+      <img class="ajax_div_back" src="../images/ajax_div_back.png"/>
+      <div class="ajax_content"></div>
     </div>
 
-<script>
-    var carousel = $("#carousel").flipster({
-        style: 'carousel',
-        spacing: 0,
-    });
-</script>
-
-</article> -->
-<!-- 
-
-<article id="demo-wheel" class="demo">
-
-    <h2></h2>
-
-    <div id="wheel">
-        <ul>
-            <?php/**
-                foreach ($images as $imageURI) {
-                    echo "<li data-flip-title=\"\">
-                            <img src=\"".$imageURI."\" height='300'>
-                        </li>";
-                }**/
-            ?>
-            
-        </ul>
-    </div>
-
-<script>
-    var wheel = $("#wheel").flipster({
-        style: 'wheel',
-        spacing: 0
-    });
-</script>
 
 
-</article>
- -->
+  <!---footer---->
+    <p id="copyright">&copy 2018 Anwesha, IIT Patna </p>
+
+<!--------gallery content------------>
 
 <article id="demo-flat" class="demo">
 
@@ -401,11 +343,13 @@ foreach ($fbAlbums as $fbAlbum) {
         $('.ajax_loading_div').removeClass('ajax_loading_entry');
 
       });
+
       $('.register').click(function()
       {
         $('.ajax_content').load('/register_/');
         return false;
       });
+
   </script>
   <script type="text/javascript" src="../js/ajax.js"></script>
 
