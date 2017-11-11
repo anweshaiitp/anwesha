@@ -22,7 +22,6 @@
 		<meta property="og:image" content="images/preview.png">
 		<link rel="shortcut icon" href="favicon.ico">
 		<style type="text/css">
-
 			/* 3D Button */
 			.btn-3d {
 				position: fixed;
@@ -289,10 +288,10 @@
 			}
 			.back{
 		    -webkit-animation: backG 500ms cubic-bezier(0.815, 0.185, 0.215, 1); /* older webkit */
-				-webkit-animation: backG 500ms cubic-bezier(0.815, 0.185, 0.215, 1.400); 
-				   -moz-animation: backG 500ms cubic-bezier(0.815, 0.185, 0.215, 1.400); 
-				     -o-animation: backG 500ms cubic-bezier(0.815, 0.185, 0.215, 1.400); 
-				        animation: backG 500ms cubic-bezier(0.815, 0.185, 0.215, 1.400); /* custom */
+			-webkit-animation: backG 500ms cubic-bezier(0.815, 0.185, 0.215, 1.400); 
+			   -moz-animation: backG 500ms cubic-bezier(0.815, 0.185, 0.215, 1.400); 
+			     -o-animation: backG 500ms cubic-bezier(0.815, 0.185, 0.215, 1.400); 
+			        animation: backG 500ms cubic-bezier(0.815, 0.185, 0.215, 1.400); /* custom */
 				opacity: 0.5;
 			}
 			@-webkit-keyframes backG {
@@ -318,10 +317,10 @@
 
 			.btf{
 		    -webkit-animation: RbackG 500ms cubic-bezier(0.815, 0.185, 0.215, 1); /* older webkit */
-				-webkit-animation: RbackG 500ms cubic-bezier(0.815, 0.185, 0.215, 1.400); 
-				   -moz-animation: RbackG 500ms cubic-bezier(0.815, 0.185, 0.215, 1.400); 
-				     -o-animation: RbackG 500ms cubic-bezier(0.815, 0.185, 0.215, 1.400); 
-				        animation: RbackG 500ms cubic-bezier(0.815, 0.185, 0.215, 1.400); /* custom */
+			-webkit-animation: RbackG 500ms cubic-bezier(0.815, 0.185, 0.215, 1.400); 
+			   -moz-animation: RbackG 500ms cubic-bezier(0.815, 0.185, 0.215, 1.400); 
+			     -o-animation: RbackG 500ms cubic-bezier(0.815, 0.185, 0.215, 1.400); 
+			        animation: RbackG 500ms cubic-bezier(0.815, 0.185, 0.215, 1.400); /* custom */
 				opacity: 1;
 			}
 			@-webkit-keyframes RbackG {
@@ -519,24 +518,52 @@
 				<img class="reg_logo" src="../images/logo2.png">
 				<br>
 				<div class="reg_text">
-					Registration Desk
+					Registration
 				</div>
 				<br>
+				<div id="fb-root"></div>
+					<!-- FB Oauth -->
+				<script>(function(d, s, id) {
+				  var js, fjs = d.getElementsByTagName(s)[0];
+				  if (d.getElementById(id)) return;
+				  js = d.createElement(s); js.id = id;
+				  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=1088640574599664";
+				  fjs.parentNode.insertBefore(js, fjs);
+				}(document, 'script','email', 'facebook-jssdk'));
+
+				function checkLoginState() {
+				  FB.getLoginStatus(function(response) {
+				    console.log(response);
+				    return response;
+				  });
+				 // Here we run a very simple test of the Graph API after login is
+				   // successful.  See statusChangeCallback() for when this call is made.
+				   
+				}
+				</script>
+		<script src="/js/reg.js"></script>
 
 				<div class="form_div">
 					<form class="reg_form">
-						<p>Name <input type="text" name="name" placeholder="Enter Name" /></p>
+						<center><br>
+						Login using FB:<br>
+						<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with"  data-auto-logout-link="true" data-use-continue-as="true" data-scope="email,public_profile,user_location,user_birthday,user_about_me" onlogin="auth_response_change_callback();"></div><br>
+						OR:<br>
+						</center>
+						<div id="message"></div>
+						<input type="hidden" name="fbID" id="fbID">
+						<p>Name <input type="text" name="name" placeholder="Enter Name" required /></p>
 						
-						<p>Contact No <input type="number" name="contact" placeholder="Phone Number" /></p>
+						<p>Contact No <input type="number" name="mobile" placeholder="Phone Number" min="7000000000" max="9999999999" required/></p>
 						
 						<p>Email <input type="email" name="email" placeholder="something@else.com" /></p>
 						
-						<p>Date Of Birth <input type="date" name="dob"/></p>
+						<p>Date Of Birth <input type="date" name="DOB"/></p>
 						
-						<p>Sex <select name="sex"> 
-							<option value="choose"></option>
-							<option value="Male">Male</option>
-							<option value="Female">Female</option> 
+						<p>Sex <select name="gender"> 
+							<option value="choose">Select</option>
+							<option value="M">Male</option>
+							<option value="F">Female</option> 
 							</select>
 						</p>
 						
