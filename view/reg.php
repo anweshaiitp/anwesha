@@ -553,7 +553,7 @@
 						</div>
 						</center>
 
-					<form class="reg_form">
+					<form class="reg_form" id="reg_fr">
 						
 						<h3 id="message"></h3>
 						<input type="hidden" name="fbID" id="fbID">
