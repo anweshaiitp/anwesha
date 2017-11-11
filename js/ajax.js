@@ -47,7 +47,7 @@ $('.acco_load').click(function()
 //ajax for loading of register page
 $('.register').click(function()
 {
-	$('.ajax_content').load('../view/register.php');
+	$('.ajax_content').load('/register/');
 	return false;
 });
 
