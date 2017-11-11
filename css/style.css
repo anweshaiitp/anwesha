@@ -71,31 +71,6 @@ body
 
 /*-------floater-----------*/
 
-.reg_ca
-{
-	margin:0;
-	position: fixed;
-	top: .5%;
-	left:0;
-	background-image: url(../images/old_bck.png);
-	background-size: cover;
-	background-repeat: no-repeat;
-	z-index: 200;
-	width: 40%
-}
-
-.reg_ca img
-{
-	max-width: 5%;
-}
-
-.reg_ca a
-{
-	color: white;
-	text-decoration: none;
-	font-size:120%;
-}
-
 .register
 {
 	cursor: pointer;
@@ -181,50 +156,7 @@ body
 }
 
 /*---register page-------*/
-.reg_form
-{
-	width: 100%;
-	height: auto;
-	vertical-align: middle;
-	text-align: center;
-	color: white;
-	margin-top: 5%;
-	font-size: 140%;
-}
 
-.reg_form input, .reg_form select
-{
-	background: none;
-	border: none;
-	border-bottom: 2px white solid;
-	width: 60%;
-}
-
-.reg_form select
-{
-	color: black;
-	background: none;
-	border: none;
-	border-bottom: 2px white solid;
-	width: 60%;
-}
-
-#sub_but
-{
-	color: black;
-	border-radius: 7px;
-	width: 20%;
-	height: 40px;
-	font-size: 80%;
-
-	background: lightgray;
-	border: none;
-	border: 2px black solid;
-	border-radius: 8px;
-	display: block;
-	cursor: pointer;
-	margin: auto;
-}
 
 
 /*---login page-------*/
