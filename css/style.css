@@ -231,7 +231,7 @@ body
 	background-repeat: no-repeat;
 	background-size: 100%;
 	text-shadow: 1px 1px 10px black;
-	box-shadow: 3px 3px 1px #A52A2A;
+	box-shadow: 3px 3px 1px black;
 	border-radius: 5px;
 	cursor: pointer;
 }
@@ -1058,7 +1058,7 @@ body
 
 	.menu_toggle img
 	{
-		width: 15%;
+		width: 20%;
 	}
 
 	.menu_bar
