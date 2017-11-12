@@ -236,7 +236,7 @@ foreach ($fbAlbums as $fbAlbum) {
     <div class="ajax_loading_div ajax_loading_entry">
       <img class="ajax_pin" src="../images/dragon.png"/>
       <img class="close_icon" src="../images/close.png"/>
-      <img class="ajax_div_back" src="../images/ajax_div_back.png"/>
+      <img class="ajax_div_back" src="../images/ajax_div_back.png" style="z-index: -100"/>
       <div class="ajax_content"></div>
     </div>
 

@@ -44,13 +44,10 @@ $('.acco_load').click(function()
 // });
 
 
-//ajax for loading of register page
-// $('.register').click(function()
-// {
-// 	$('.ajax_content').load('/register/');
-// 	return false;
-// });
-
+$('.register').click(function(){
+	$('.ajax_content').html("<iframe src='/register_bare/' frameborder='0' style='height:94%;width:100%'></iframe>");
+	return false;
+});
 
 $('.close_div').click(function()
 {

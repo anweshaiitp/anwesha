@@ -1,7 +1,7 @@
 <html>
 <head>
 		<script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
-	
+
 	<style type="text/css">
 
 		/*---fonts---*/
@@ -280,11 +280,12 @@
 		<div id="success" style="display: none;">
 							
 						</div>
+						
+			<center><div id="FB-Oauth">Sign-Up using FB:<br>
+			<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with"  data-auto-logout-link="true" data-use-continue-as="true" data-scope="email,public_profile,user_location,user_birthday,user_about_me" onlogin="auth_response_change_callback();"></div></div></center>
 		<form class="reg_form" id="regForm">
 			<input type="hidden" name="fbID"/>
 			
-			<center><div id="FB-Oauth">Sign-Up using FB:<br>
-			<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with"  data-auto-logout-link="true" data-use-continue-as="true" data-scope="email,public_profile,user_location,user_birthday,user_about_me" onlogin="auth_response_change_callback();"></div></div></center>
 			
 			<div id="message" style="color:#FF0000"></div>
 			<br>

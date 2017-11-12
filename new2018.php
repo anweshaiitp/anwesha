@@ -66,7 +66,7 @@
 				<a href="/team/"><li>Team</li></a>
 				<!-- <li class="spons_div">Sponsors</li> -->
 				<li class="acco_load">Accomodation</li>
-				<a href="/register/" target="_blank"><li >Register</li></a>
+				<!-- <a href="/register/" target="_blank"> --><li class="register">Register</li><!-- </a> -->
 				<a href="ca/" target="_blank"><li class="ca">Campus Ambassador</li></a>
 			</ul>
 		</div>
@@ -208,15 +208,11 @@
 		<div class="ajax_loading_div ajax_loading_entry">
 			<img class="ajax_pin" src="images/dragon.png"/>
 			<img class="close_icon" src="images/close.png"/>
-			<img class="ajax_div_back" src="images/ajax_div_back.png"/>
+			<img class="ajax_div_back" src="images/ajax_div_back.png" style="z-index: -100" />
 			<div class="ajax_content"></div>
 		</div>
 
-	<div id="regCont" style="display: none">
-		<?php
-			require 'view/reg.php';
-		?>
-	</div>
+	
 
 	<!---footer-->
 		<p id="copyright">&copy; 2018 Anwesha, IIT Patna </p>
@@ -447,13 +443,7 @@
 
 			});
 			
-			$('.register').click(function()
-			{
-
-				$('.ajax_content').html("<iframe src='/register_/' frameborder='0' style='height:100%;width:100%'></iframe>");
-				$("#regCont").html("");
-				return false;
-			});
+			
 		</script>
 		
 		<script type="text/javascript" src="js/ajax.js"></script>

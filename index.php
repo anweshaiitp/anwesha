@@ -36,6 +36,8 @@ if (preg_match($base . '(ca|)_?([0-9]{4}|)$@', $url, $match)) {
 		require ('new2018.php');
 } elseif (preg_match($base . 'register/?$@', $url, $match)) {
 	require ('view/reg.php');
+} elseif (preg_match($base . 'register_bare/?$@', $url, $match)) {
+	require ('view/regbare.php');
 } elseif (preg_match($base . 'register_/?$@', $url, $match)) {
 	require ('view/register.php');
 } elseif (preg_match($base . 'leaderboard/api/?$@', $url, $match)) {
