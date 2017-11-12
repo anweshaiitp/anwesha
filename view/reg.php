@@ -567,7 +567,7 @@
 						</div>
 						</center>
 
-					<form class="reg_form">
+					<form class="reg_form"  action="javascript:" method="post">
 						
 						<h3 id="message"></h3>
 						<input type="hidden" name="fbID" id="fbID">

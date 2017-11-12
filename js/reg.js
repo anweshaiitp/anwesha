@@ -8,10 +8,22 @@
 		var college=$("[name='college']").val();
 		var fbID=$("[name='fbID']").val();
 		var city=$("[name='city']").val();
+		var password=$("[name='password']").val();
+		var password_=$("[name='password_']").val();
 		var dob=$("[name='DOB']").val();
 		var mobile=$("[name='mobile']").val();
 		var sex=$("[name='gender']").val();
 		var referalcode=$("[name='referalcode']").val();
+		if(password.length<6 || password==null ){
+			$("#message,#message2").fadeIn();
+			$("#message,#message2").html('<center>Error<br>Password too short, must be atleast 6 characters.</center>');
+			return;
+		}else if(password != password_){
+			$("#message,#message2").fadeIn();
+			$("#message,#message2").html('<center>Error<br>Password and confirmation don\'t match</center>');
+			return;
+		}
+
 		console.log("Request Sent");
 		$.post("/user/register/User/",
 			{        						
@@ -21,9 +33,10 @@
 				college: college,
 				city:city,
 				dob:dob,
+				password:password,
 				mobile:mobile,
 				sex:sex,
-				referalcode:referalcode
+				refcode:referalcode
 			},
 			function(data, status){
 			console.log("Response");

@@ -562,7 +562,7 @@
 						</div>
 						</center>
 
-					<form class="reg_form">
+					<form class="reg_form"  action="javascript:" method="post">
 						
 						<h3 id="message"></h3>
 						<input type="hidden" name="fbID" id="fbID">
@@ -570,9 +570,10 @@
 						
 						<p>Contact No <input type="number" name="mobile" placeholder="Phone Number" min="7000000000" max="9999999999" required/></p>
 						
-						<p>Email <input type="email" name="email" placeholder="something@else.com" /></p>
-						
-						<p>Date Of Birth <input type="date" name="DOB"/></p>
+						<p>Email <input type="email" name="email" placeholder="something@else.com" required/></p>
+						<p>Password <input type="password" name="password" placeholder="******" required/></p>					
+						<p>Confirm Password <input type="password" name="password_" placeholder="******" required/></p>					
+						<p>Date Of Birth <input type="date" name="DOB" required/></p>
 						
 						<p>Sex <select name="gender"> 
 							<option value="choose">Select</option>
@@ -581,11 +582,14 @@
 							</select>
 						</p>
 						
-						<p>College <input type="text" name="college"></p>
+						<p>College <input type="text" name="college" required></p>
 						
-						<p>City <input type="text" name="city"></p>
+						<p>City <input type="text" name="city" required></p>
 						<br>
-						<input id="sub_but" type="button" name="register" value="register"/>
+						<p>Referral Code <br>(Optional, provided by your campus ambassador)<input type="number" min="1000" max="9999" name="referalcode"></p>
+						<br>
+						<input id="sub_but" type="submit" name="register" value="register"/>
+						<h3 id="message2"></h3><br>
 						<br>
 					</form>
 				</div>
