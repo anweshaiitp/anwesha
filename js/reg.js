@@ -177,7 +177,7 @@
 	  	  console.log("parse",data[1]);
 	  	  console.log('fboatuth',data[1].pId);
 	  	  if(data[0]<1){
-			  $("#FB-Oauth").html("Hi! " +response.first_name+" <ul class='actions'><li><a  class='button'>Plese fill missing details below:</a></li></ul>");
+			  $("#FB-Oauth").html("Hi! " +response.first_name+"! <br>Plese fill missing details below:");
 			  
 			  $("#signUp").css("display","block");
 	  	  }else if(data[1].pId>1){
