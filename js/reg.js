@@ -13,7 +13,7 @@
 		var sex=$("[name='gender']").val();
 		var referalcode=$("[name='referalcode']").val();
 		console.log("Request Sent");
-		$.post("user/register/User/",
+		$.post("/user/register/User/",
 			{        						
 				name: name,
 				fbID:fbID,
@@ -65,7 +65,7 @@
 	var username=$("[name='username']").val();
 	var password=$("[name='password']").val();
 	console.log("Request Sent");
-	$.post("user/register/User/",
+	$.post("/user/register/User/",
 		{        						
 			password: password,
 			username:username,
@@ -113,7 +113,7 @@
 	    if(Lstatus.status == "connected"){
 	    	console.log("in");
 	    	clearInterval(refreshIntervalId);
-	    	$.get( "user/CAcheck/" + fbID + "/", function( data ) {
+	    	$.get( "/user/CAcheck/" + fbID + "/", function( data ) {
 	    	  // var obj = JSON.parse(data);
 	    	  console.log(data);
 	    	  console.log(data[1]);
