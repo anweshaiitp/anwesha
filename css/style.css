@@ -909,7 +909,8 @@ body
 
 .ajax_content
 {
-	margin-top: 8%;
+	z-index: 300;
+	margin-top: 6%;
 }
 
 /*--footer---*/
@@ -1040,7 +1041,6 @@ body
 		background-color: lightgray;
 		display: block;
 	}
-
 
 }
 
