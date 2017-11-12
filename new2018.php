@@ -68,7 +68,7 @@
 				<li class="acco_load">Accomodation</li>
 				<!-- <a href="/register/" target="_blank"> -->
 				<li class="register">Register</li>
-				<a href="ca/" target="_blank"><li class="ca">Campus Ambassador</li></a>
+				<li class="ca"><a href="/ca/" target="_blank">Campus Ambassador</a></li>
 			</ul>
 		</div>
 

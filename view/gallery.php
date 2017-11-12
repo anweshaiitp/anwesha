@@ -206,7 +206,7 @@ foreach ($fbAlbums as $fbAlbum) {
         <li><a href="/team/">Team</a></li>
         <!-- <li class="spons_div">Sponsors</li> -->
         <li class="acco_load">Accomodation</li>
-        <li class="register">Register</li>s
+        <li class="register">Register</li>
         <li class="ca"><a href="/ca/" target="_blank">Campus Ambassador</a></li>
       </ul>
     </div>
