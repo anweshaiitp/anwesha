@@ -176,8 +176,8 @@
 	  	  }
 	  	  console.log("parse",data[1]);
 	  	  console.log('fboatuth',data[1].pId);
-	  	  if(data[1].pId<=1){
-			  $("#FB-Oauth").html("Hi! " +response.first_name+" <ul class='actions'><li><a  class='button'>Plese fill missing details:</a></li></ul>");
+	  	  if(data[0]<1){
+			  $("#FB-Oauth").html("Hi! " +response.first_name+" <ul class='actions'><li><a  class='button'>Plese fill missing details below:</a></li></ul>");
 			  
 			  $("#signUp").css("display","block");
 	  	  }else if(data[1].pId>1){
