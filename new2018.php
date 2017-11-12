@@ -66,7 +66,8 @@
 				<a href="/team/"><li>Team</li></a>
 				<!-- <li class="spons_div">Sponsors</li> -->
 				<li class="acco_load">Accomodation</li>
-				<!-- <a href="/register/" target="_blank"> --><li class="register">Register</li><!-- </a> -->
+				<!-- <a href="/register/" target="_blank"> -->
+				<li class="register">Register</li>
 				<a href="ca/" target="_blank"><li class="ca">Campus Ambassador</li></a>
 			</ul>
 		</div>

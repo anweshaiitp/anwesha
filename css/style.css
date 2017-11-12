@@ -881,6 +881,7 @@ body
 
 .ajax_div_back
 {
+	display: none;
 	position: fixed;
 	top:0px;
 	left: 0px;
@@ -889,6 +890,7 @@ body
 	margin: auto;
 	width: 50%;
 	opacity: .1;
+	//z-index: 0;
 }
 
 .close_icon

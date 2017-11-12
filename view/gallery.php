@@ -205,7 +205,7 @@ foreach ($fbAlbums as $fbAlbum) {
         <li><a href="/team/">Team</a></li>
         <!-- <li class="spons_div">Sponsors</li> -->
         <li class="acco_load">Accomodation</li>
-        <a href="/register/" target="_blank"><li >Register</li></a>
+        <li class="register">Register</li>
         <li class="ca"><a href="/ca/" target="_blank">Campus Ambassador</a></li>
       </ul>
     </div>
@@ -344,11 +344,6 @@ foreach ($fbAlbums as $fbAlbum) {
 
       });
 
-      $('.register').click(function()
-      {
-        $('.ajax_content').load('/register_/');
-        return false;
-      });
 
   </script>
   <script type="text/javascript" src="../js/ajax.js"></script>
