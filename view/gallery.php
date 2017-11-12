@@ -35,7 +35,6 @@ foreach ($fbAlbums as $fbAlbum) {
     <meta name="viewport" content="width=device-width, initial-scale= 1">
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/style.css" rel="stylesheet">
     <link href="../images/logo_favi.png" rel="icon" >
 
     <link rel="stylesheet" href="demo.css">
@@ -182,7 +181,9 @@ foreach ($fbAlbums as $fbAlbum) {
         }
       @import url('https://fonts.googleapis.com/css?family=Lobster');
     </style>
-
+  
+  <link href="../css/style.css" rel="stylesheet">
+    
 </head>
 <body>
   <!---------header-----bar-->
@@ -205,7 +206,7 @@ foreach ($fbAlbums as $fbAlbum) {
         <li><a href="/team/">Team</a></li>
         <!-- <li class="spons_div">Sponsors</li> -->
         <li class="acco_load">Accomodation</li>
-        <li class="register">Register</li>
+        <li class="register">Register</li>s
         <li class="ca"><a href="/ca/" target="_blank">Campus Ambassador</a></li>
       </ul>
     </div>
