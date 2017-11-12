@@ -62,12 +62,12 @@
 				<li><a href="/">Home</a></li>
 				<!-- <li><a href="events/">Events</a></li> -->
 				<!-- <li class="sch_div">Schedule</li> -->
-				<li><a href="/gallery/">Gallery</a></li>
-				<li><a href="/team/">Team</a></li>
+				<a href="/gallery/"><li>Gallery</li></a>
+				<a href="/team/"><li>Team</li></a>
 				<!-- <li class="spons_div">Sponsors</li> -->
 				<li class="acco_load">Accomodation</li>
-				<li href="/register/" target="_blank">Register</li>
-				<li class="ca"><a href="ca/" target="_blank">Campus Ambassador</a></li>
+				<a href="/register/" target="_blank"><li >Register</li></a>
+				<a href="ca/" target="_blank"><li class="ca">Campus Ambassador</li></a>
 			</ul>
 		</div>
 
