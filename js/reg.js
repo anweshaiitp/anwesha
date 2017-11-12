@@ -14,11 +14,11 @@
 		var mobile=$("[name='mobile']").val();
 		var sex=$("[name='gender']").val();
 		var referalcode=$("[name='referalcode']").val();
-		if(password.length<6 || password==null ){
+		if((password.length<6 || password==null ) && !(fbID > 1 && fbID!=null && fbID!='')){//(fbID > 1 && fbID!=null ) implies fbID isset
 			$("#message,#message2").fadeIn();
 			$("#message,#message2").html('<center>Error<br>Password too short, must be atleast 6 characters.</center>');
 			return;
-		}else if(password != password_){
+		}else if((password != password_) && !(fbID > 1 && fbID!=null && fbID!='')){
 			$("#message,#message2").fadeIn();
 			$("#message,#message2").html('<center>Error<br>Password and confirmation don\'t match</center>');
 			return;
@@ -148,11 +148,10 @@
 	      	  $("input[name='name']").attr('disabled','true');
 	      }
 	      if(gender){
-  			var $radios = $('input:radio[name=gender]');
       		if(gender=='male'){
-      			$radios.filter('[value=M]').prop('checked', true);
+      			$('select>option:eq(1)').attr('selected', true);
       		} else if(gender=='female') {
-      			$radios.filter('[value=F]').prop('checked', true);
+      			$('select>option:eq(2)').attr('selected', true);
 
       		}
 	      	  $("input[name='gender']").attr('disabled','true');
@@ -174,6 +173,7 @@
 		      }
 	  	  // $("input[name='DOB']").attr('disabled','true');
 	  	  }
+	  	  $(".pswd").hide();
 	  	  console.log("parse",data[1]);
 	  	  console.log('fboatuth',data[1].pId);
 	  	  if(data[0]<1){
