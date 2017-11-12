@@ -45,7 +45,7 @@
 					console.log(data);
 
 					if(data[0]==1){
-						$("#success").html('<center><b>Registration Successful</b><br>Your Anwesha ID is : ANW'+data[1]['pId']+'<br>A confirmation email has been sent to '+email+'.</center>');
+						$("#success").html('<center><h3><b>Registration Successful</b><br>Your Anwesha ID is : ANW'+data[1]['pId']+'<br>A confirmation email has been sent to '+email+'.</h3></center>');
 						$("#success").fadeIn();
 						// $("#message").css('background','#5FAB22');
 						$("#success").css('color','#5FAB22');

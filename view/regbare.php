@@ -571,8 +571,8 @@
 						<p>Contact No <input type="number" name="mobile" placeholder="Phone Number" min="7000000000" max="9999999999" required/></p>
 						
 						<p>Email <input type="email" name="email" placeholder="something@else.com" required/></p>
-						<p>Password <input type="password" class="pswd" name="password" placeholder="******" /></p>					
-						<p>Confirm Password <input type="password" class="pswd" name="password_" placeholder="******" /></p>					
+						<p class="pswd">Password <input type="password"  name="password" placeholder="******" /></p>					
+						<p class="pswd" >Confirm Password <input type="password" name="password_" placeholder="******" /></p>					
 						<p>Date Of Birth <input type="date" name="DOB" required/></p>
 						
 						<p>Sex <select name="gender"> 
