@@ -165,10 +165,10 @@
 	  	  console.log('fboatuth',data[1].pId);
 	  	  if(data[1].pId<=1){
 			  $("#FB-Oauth").html("Hi! " +response.first_name+" <ul class='actions'><li><a  class='button'>Plese fill missing details:</a></li></ul>");
-			  // $(".reg_form").
+			  
 			  $("#signUp").css("display","block");
 	  	  }else if(data[1].pId>1){
-	  	  	$("#reg_fr").hide();
+	  	  	$(".reg_form").fadeOut();
 	  	  	$("#FB-Oauth").html("Hi! " +response.first_name+"<br>Already registered using this FB ID<br>Anwesha ID is :"+data[1].pId);
 	  	  	$(".login").html('<img src="images/witch.png"> Hi!'+response.first_name);
 	  	  }
@@ -177,6 +177,6 @@
 		}
     });
 	
-},5000);
+},1000);
 
 });
