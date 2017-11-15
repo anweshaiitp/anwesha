@@ -556,14 +556,14 @@
 						<div id="FB-Oauth">
 						Register using FB:<br>
 						<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with"  data-auto-logout-link="true" data-use-continue-as="true" data-scope="email,public_profile,user_location,user_birthday,user_about_me" onlogin="auth_response_change_callback();"></div></div>
-						OR:<br>
+						
 						<div id="success" style="display: none;">
 							
 						</div>
 						</center>
 
 					<form class="reg_form"  action="javascript:" method="post">
-						
+						OR:<br>
 						<h3 id="message"></h3>
 						<input type="hidden" name="fbID" id="fbID">
 						<p>Name <input type="text" name="name" placeholder="Enter Name" required /></p>
