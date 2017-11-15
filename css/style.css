@@ -830,7 +830,6 @@ body
 .ajax_back
 {
 	position: absolute;
-	/*/background: black;*/
 	opacity: .8;
 	width: 100%;
 	height: 100%;
@@ -840,7 +839,6 @@ body
 	animation-name: ajaz_back_anim;
 	animation-duration: 1s ;
 	animation-iteration-count:infinite;
-	/*//animation-fill-mode:both;*/
 	animation-direction: alternate-reverse;
 }
 
@@ -881,6 +879,7 @@ body
 
 .ajax_div_back
 {
+	display: none;
 	position: fixed;
 	top:0px;
 	left: 0px;
@@ -910,7 +909,7 @@ body
 .ajax_content
 {
 	z-index: 300;
-	margin-top: 6%;
+	margin-top: 4%;
 }
 
 /*--footer---*/

@@ -449,7 +449,7 @@
 				//padding-bottom: 2%;
 				border-radius: 10px;
 				margin-bottom: 1%;
-				box-shadow: 2px 2px 10px black;
+				//box-shadow: 2px 2px 10px black;
 				font-size: 120%;
 				vertical-align: middle;
 			}
@@ -523,12 +523,7 @@
 			</div> -->
 			
 			<div class="reg_form_div">
-				<img class="reg_logo" src="../images/logo2.png">
-				<br>
-				<div class="reg_text">
-					Registration
-				</div>
-				<br>
+				
 				<div id="fb-root"></div>
 					<!-- FB Oauth -->
 				<script>(function(d, s, id) {

@@ -1,41 +1,40 @@
 <?php
-        require_once 'vendor/autoload.php';
-        require 'defines.php';
-   // require_once 'library/facebook.php';
-    //try{
-$fbAlbums = array(
-    1506508526048454
-);
-$images = array();
-$fb = new \Facebook\Facebook([
-        'app_id' => $fbAppID,
-        'app_secret' => $fbAppSecret,
-          'default_graph_version' => 'v2.10',
-]);
-foreach ($fbAlbums as $fbAlbum) {
-    $GraphResponse = $fb->get("/$fbAlbum/photos?fields=images&limit=5","$fbAppID|$fbAppSecret");
-    $graphEdge = $GraphResponse->getGraphEdge();
-    //$photos2 = $photos->getField('images');
-    foreach($graphEdge as $graphNode){
-    //var_dump($photo->getField('images'))
-        foreach($graphNode->getField('images') as $photo){
-                $images[] = $photo->getField('source');
-                break;
-        }
-        
-    }
-}
-// var_dump($graphEdge);
+     require_once 'vendor/autoload.php';
+     require 'defines.php';
+     // require_once 'library/facebook.php';
+      //try{
+      $fbAlbums = array(
+          1506508526048454
+      );
+      $images = array();
+      $fb = new \Facebook\Facebook([
+              'app_id' => $fbAppID,
+              'app_secret' => $fbAppSecret,
+                'default_graph_version' => 'v2.10',
+      ]);
+      foreach ($fbAlbums as $fbAlbum) {
+          $GraphResponse = $fb->get("/$fbAlbum/photos?fields=images&limit=5","$fbAppID|$fbAppSecret");
+          $graphEdge = $GraphResponse->getGraphEdge();
+          //$photos2 = $photos->getField('images');
+          foreach($graphEdge as $graphNode){
+          //var_dump($photo->getField('images'))
+              foreach($graphNode->getField('images') as $photo){
+                      $images[] = $photo->getField('source');
+                      break;
+              }
+              
+          }
+      }
+  // var_dump($graphEdge);
 ?>
-<!doctype html>
-<html class="no-js">
+
+<html>
 <head>
     <title>Gallery | Anwesha 2018</title>
 
     <meta name="viewport" content="width=device-width, initial-scale= 1">
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/style.css" rel="stylesheet">
     <link href="../images/logo_favi.png" rel="icon" >
 
     <link rel="stylesheet" href="demo.css">
@@ -46,28 +45,19 @@ foreach ($fbAlbums as $fbAlbum) {
     <script src="/assets/jquery.flipster.min.js"></script>
 
     <style>
-        /*
-        * Base Template
-        * Combines HTML5 Boilerplate & Boostrap. Includes some basic templating.
-        * Authored by Stephen Shaw (shshaw@gmail.com)
-        */
-
-        /* @group Basics */
-
-        *,
-        *:before,
-        *:after {
-          box-sizing: border-box;
-        }
-
         body
         {
           background-image: url('/images/cloud.jpg');
           background-size: cover;
           background-repeat: no-repeat;
         }
-
-       
+/*
+        *,
+        *:before,
+        *:after {
+          box-sizing: border-box;
+        }
+  
         p { margin: 0 0 20px; }
 
         h1,
@@ -89,7 +79,7 @@ foreach ($fbAlbums as $fbAlbum) {
 
         /* @end */
 
-        .main-header {
+        /*.main-header {
           position: fixed;
           top: 0;
           bottom: 0;
@@ -102,11 +92,11 @@ foreach ($fbAlbums as $fbAlbum) {
         .main-header__nav {
           border-top: solid 1px #ccc;
           margin: 1em -1em;
-        }
+        }*/
         .flipster__nav{
             display: none !important;
         }
-        .main-header__nav a {
+        /*.main-header__nav a {
           display: block;
           padding: 0.5em 1em;
           border-bottom: solid 1px #ddd;
@@ -116,7 +106,8 @@ foreach ($fbAlbums as $fbAlbum) {
         .main-header__nav a:focus {
           color: #eee;
           background: #da0d25;
-        }
+        }*/
+
         .flipser
         @media (max-width: 800px)
         {
@@ -159,7 +150,7 @@ foreach ($fbAlbums as $fbAlbum) {
           width: fit-content;
           white-space: pre-wrap;
         }
-
+/*
         .button {
           display: inline-block;
           padding: 5px 10px;
@@ -179,10 +170,13 @@ foreach ($fbAlbums as $fbAlbum) {
         .button:focus {
           color: #7a0715;
           background: #f22840;
-        }
+        }*/
+        
       @import url('https://fonts.googleapis.com/css?family=Lobster');
     </style>
-
+  
+  <link href="../css/style.css" rel="stylesheet">
+    
 </head>
 <body>
   <!---------header-----bar-->
@@ -205,7 +199,7 @@ foreach ($fbAlbums as $fbAlbum) {
         <li><a href="/team/">Team</a></li>
         <!-- <li class="spons_div">Sponsors</li> -->
         <li class="acco_load">Accomodation</li>
-        <a href="/register/" target="_blank"><li >Register</li></a>
+        <li class="register">Register</li>
         <li class="ca"><a href="/ca/" target="_blank">Campus Ambassador</a></li>
       </ul>
     </div>
@@ -344,11 +338,6 @@ foreach ($fbAlbums as $fbAlbum) {
 
       });
 
-      $('.register').click(function()
-      {
-        $('.ajax_content').load('/register_/');
-        return false;
-      });
 
   </script>
   <script type="text/javascript" src="../js/ajax.js"></script>
