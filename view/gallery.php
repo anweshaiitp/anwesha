@@ -208,18 +208,6 @@
   <!-----doors---->
 
     <div class="menu_backgrnd"></div>
-
-    <div class="door">
-      <div class="left_door left_door_anim">
-        <img src="../images/door_left.png">
-        
-      </div>
-
-      <div class="right_door right_door_anim">
-        <img src="../images/door_right.png">
-      </div>
-
-    </div>
     
   <!---ajax loader---->
 
