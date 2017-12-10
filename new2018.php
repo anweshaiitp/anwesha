@@ -22,8 +22,8 @@
 
 	<!---------header-----bar-->
 		<div class="header_div">
-			<img id="header_div_bck" src="images/blood.jpg"/>
-		
+			<!-- <img id="header_div_bck" src="images/blood.jpg"/>
+		 -->
 			 <div class="menu_toggle">
 				<img src="images/skull_menu.png">
 				<span> MENU </span>

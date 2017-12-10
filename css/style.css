@@ -35,8 +35,10 @@ body
     height: 50px; 
     text-align: center;
     z-index: 200;
-    border-bottom:2px grey solid;
-    //background-image: url(/images/cross.jpg);
+    background: #4d0000;
+    /*background-image: url(/images/preloader_moving.png);
+	background-repeat: no-repeat;
+	background-size: cover;*/
 }
 
 #header_div_bck
@@ -44,9 +46,9 @@ body
 	position: absolute;;
 	top:0;
 	left:0;
-	height: 100%;
 	width: 100%;
 	z-index: -10;
+	display: none;
 }
 
 .menu_toggle img
@@ -56,7 +58,6 @@ body
 	display: block;
 	cursor: pointer;
 	width: 7%;
-	//background: green;
 }
 
 .header_div span
@@ -205,11 +206,9 @@ body
 	right: 0;
 	left: 0;
 	margin: auto;
-	/*//background: white;*/
 	z-index: 300;
 	text-align:center;
 	width: 20%;
-	/*//opacity: .8;*/
 	font-size: 120%;
 	color: white;
 }
@@ -230,7 +229,6 @@ body
 	background-image: url(/images/cross.jpg);
 	background-repeat: no-repeat;
 	background-size: 100%;
-	text-shadow: 1px 1px 10px black;
 	box-shadow: 3px 3px 1px black;
 	border-radius: 5px;
 	cursor: pointer;
@@ -238,7 +236,7 @@ body
 
 .menu_bar li:hover
 {
-	color: orange;
+	color: black;
 }
 
 .menu_bar a
@@ -249,7 +247,7 @@ body
 
 .menu_bar a:hover
 {
-	color: orange;
+	color: black;
 }
 
 .first_rot
@@ -275,63 +273,6 @@ body
 	background: black;
 }
 
-.left_door
-{
-	position: fixed;
-	top:0;
-	left:0;
-	transform-origin: left;
-	text-align: left;	
-	height:100%;
-	width: 35%;
-	z-index: 300;
-	padding:0;
-	margin: 0;
-	transition: .8s ease-out;
-	/*//background: green;*/
-	opacity: 1;
-	overflow: hidden
-}
-
-.left_door img
-{
-	/*//max-width: 90%;*/
-	height: 100%
-}
-
-.left_door_anim
-{
-	transform: rotateY(90deg);
-	opacity: 0;
-}
-
-.right_door
-{
-	position: fixed;
-	top:0;
-	right:0;
-	transform-origin: right;
-	text-align: right;
-	height:100%;
-	width: 35%;
-	z-index: 300;
-	padding:0;
-	margin: 0;
-	transition: .8s ease-out;
-}
-
-.right_door img
-{
-	/*//max-width: 90%;*/
-	height: 100%
-}
-
-.right_door_anim
-{
-	transform: rotateY(-90deg);
-	opacity: 0;
-}
-
 /*--------header bar---------------*/
 
 /*-------moving witch-----------*/
@@ -342,21 +283,8 @@ body
 	top:100px;
 	left: 40%;
 	z-index: 150;
-	max-width: 17%;
+	max-width: 13%;
 	transition: .8s;
-
-	/*//animation-name: witch_motion_anim;*/
-	animation-duration: .8s ;
-	animation-iteration-count:infinite;
-	/*//animation-fill-mode:both;*/
-	animation-direction: alternate-reverse;
-	
-}
-
-@keyframes witch_motion_anim
-{
-	0% {transform: rotate(5deg);}
-	100% {transform: rotate(-5deg);}
 }
 
 /*-------moving cloud-----------*/
@@ -375,7 +303,6 @@ body
 	opacity: 1;
 }
 
-
 .moving_cloud_div
 {
 	position: fixed;
@@ -385,7 +312,6 @@ body
 	z-index: 110;
 	margin:0;
 	padding: 0;
-	//background: green;
 }
 
 .moving_cloud_div img
@@ -401,11 +327,10 @@ body
 .moving_floor_div
 {
 	position: fixed;
-	bottom: 4%;
+	bottom: 0;
 	height: 50%;
 	width: 100%;
 	z-index: 10;
-	/*//background: red;*/
 }
 
 .moving_floor_div img
@@ -469,13 +394,13 @@ body
 	height: auto;
 	padding: 20px;
 	vertical-align: top;
-	background-image: url(/images/div_bck.jpg);
+	background: #ce980f;
 	display: inline-block;
 	box-shadow: 2px 2px 15px black;
 	font-size: 110%;
 	white-space: pre-line;
 	color: white;
-	text-shadow: 2px 2px 5px black;
+	//text-shadow: 2px 2px 5px black;
 }
 
 .about_anwesha p
@@ -488,7 +413,6 @@ body
 	padding: 2px;
 	padding-right: 10px;
 	border-radius: 5px;
-	
 }
 
 .anwesha_theme
@@ -497,9 +421,9 @@ body
 	height: auto;
 	padding: 5px;
 	vertical-align: top;
-	background-color: lightgray;
 	display: inline-block;
-	background-image: url(/images/div_bck.jpg);
+	background: #ce980f;
+	
 }
 
 
@@ -528,8 +452,8 @@ body
 .moving_wall_div
 {
 	position: fixed;
-	bottom: 4%;
-	height: 70%;
+	bottom: 0;
+	height: 50%;
 	width: 100%;
 	z-index: 10;
 	/*//background: red;*/
@@ -922,15 +846,13 @@ body
 	padding:0;
 	margin: 0;
 	padding: 5px;
-	background-image: url(/images/blood.jpg);
+	//background-image: url(/images/blood.jpg);
 	/*//background-repeat: no-repeat;*/
 	background-size: contain;
 	color: white;
 	text-shadow: 5px 5px 10px black;
 	text-align: center;
 	z-index: 150;
-/*	//font-weight: bold;
-	//background-color: red;*/
 }
 
 .mob_div
@@ -996,7 +918,6 @@ body
 		left:0;
 		width: 100%;
 		height: 60%;
-		/*//background: blue;*/
 		overflow-y:scroll;
 		margin: auto;
 		z-index: 150;
@@ -1037,7 +958,6 @@ body
 		height: auto;
 		padding: 5px;
 		margin:auto;
-		background-color: lightgray;
 		display: block;
 	}
 
@@ -1054,7 +974,7 @@ body
 
 	.menu_bar
 	{
-		width: 40%;
+		width: 50%;
 	}
 
 	.moving_witch
