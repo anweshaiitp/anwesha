@@ -196,7 +196,6 @@ body
 	margin: auto;
 }
 
-
 /*------------menu bar------------*/
 .menu_bar
 {
@@ -266,14 +265,81 @@ body
 	position: fixed;
 	top:0;
 	left: 0;
-	opacity: .8;
 	width: 100%;
 	height: 100%;
 	z-index: 160;
+}
+
+.overlay
+{
+	position: absolute;;
+	top:0;
+	left:0;
+	width: 100%;
+	height:100%;
 	background: black;
+	opacity: .9;
+}
+
+.creep
+{
+	position: absolute;
+	top:0;
+	height: 250px;
+	//background: red;
+}
+
+.boundary
+{
+	position: absolute;
+	bottom:0;
+	height: 250px;
+	//background: red;
 }
 
 /*--------header bar---------------*/
+
+/*-----date div--------*/
+.date
+{
+	//background: white;
+	position: fixed;
+	top: 50px;
+	left: 10px;
+	z-index: 120;
+	height: 200px;
+}
+
+.date img
+{
+	height: 100%;
+	animation-name: date_anim;
+	animation-duration: 10s ;
+	animation-iteration-count:infinite;
+	animation-fill-mode: backwards;
+	animation-direction: normal;
+	animation-timing-function: linear;
+}
+
+@keyframes date_anim
+{
+	0%{transform: rotate(360deg);}
+	100%{}
+}
+
+.date_text
+{
+	position: absolute;
+	text-align: center;
+	top:30%;
+	left:0;
+	right:0;
+	margin:auto;
+	font-weight: bold;
+	//background: grey;
+	font-size: 200%;
+	color: white;
+}
 
 /*-------moving witch-----------*/
 .moving_witch
@@ -327,7 +393,7 @@ body
 .moving_floor_div
 {
 	position: fixed;
-	bottom: 0;
+	bottom: 30px;
 	height: 50%;
 	width: 100%;
 	z-index: 10;
@@ -356,13 +422,13 @@ body
 	/*//overflow-x: hidden;*/
 }
 
-
 .anwesha_logo
 {
 	width: 30%;
 	/*//background: green;*/
 	display: inline-block;
 	vertical-align: top;
+	text-align: right;
 }
 
 .anwesha_logo img
@@ -396,7 +462,6 @@ body
 	vertical-align: top;
 	background: #ce980f;
 	display: inline-block;
-	box-shadow: 2px 2px 15px black;
 	font-size: 110%;
 	white-space: pre-line;
 	color: white;
@@ -620,19 +685,17 @@ body
 .events_div
 {
 	position: absolute;
-	bottom: 4%;
-	z-index: 150;
+	bottom: 6%;
+	z-index: 110;
 	width: 100%;
-	height: 70%;
+	height: 60%;
 	white-space: nowrap;
 	/*//padding-top: 2%;*/
 }
 
 .events_blank
 {
-	width: 900px;
-/*	//height: 100px;
-	//background: green;*/
+	width: 800px;
 	vertical-align:bottom;
 	display: inline-block;
 }
@@ -647,7 +710,7 @@ body
 	text-align: left;
 	font-size: 140%;
 	font-weight: bold;
-	background: #8b0000 ;
+	background: #8b0000;
 	padding: 2px;
 	padding-right: 10px;
 	border-radius: 5px;
@@ -679,14 +742,10 @@ body
 	display: inline-block;
 	text-decoration: none;
 	padding:1%;
-	/*//background: #7FFFD4;*/
-	background-image: url(/images/dark.png);
-	background-repeat: no-repeat;
-	background-size: cover;
-	color: lightgrey;
+	background: #ce980f;
+	color: white;
 	cursor: pointer;
 	border-radius: 3px;
-	box-shadow: 1px 1px 5px black;
 	margin-right:1%;
 }
 
@@ -837,22 +896,41 @@ body
 }
 
 /*--footer---*/
-#copyright
+.footer_div
 {
 	position: fixed;
-	bottom:0;
+	bottom:0px;
 	left:0;
 	width:100%;
 	padding:0;
 	margin: 0;
-	padding: 5px;
-	//background-image: url(/images/blood.jpg);
-	/*//background-repeat: no-repeat;*/
-	background-size: contain;
 	color: white;
-	text-shadow: 5px 5px 10px black;
 	text-align: center;
 	z-index: 150;
+	background-color: #ce980f; //#4d0000
+}
+
+.footer_div a
+{
+	margin-left: 3px;
+	color: silver;
+}
+
+.footer_div a:hover
+{
+	color: white;
+	text-decoration: none;
+}
+
+.footer_div img
+{
+	padding: 2px;
+	width: 2.5%;
+}
+
+.copyright
+{
+	text-align: center;
 }
 
 .mob_div
@@ -861,12 +939,69 @@ body
 	z-index: 0;
 }
 
-
 /*------------media queries--------------*/
-
-/*//900px*/
 @media screen and (max-width: 900px)
 {
+/*-----date div--------*/
+	.date
+	{
+		//background: white;
+		position: fixed;
+		top: 40px;
+		left: 5px;
+		height: 120px;
+	}
+
+	.date_text
+	{
+		position: absolute;
+		text-align: center;
+		top: 25%;
+		left:0;
+		right:0;
+		margin:auto;
+		font-weight: bold;
+		//background: grey;
+		font-size: 150%;
+		color: white;
+	}
+
+/*-----date div--------*/
+
+/*--footer---*/
+	.footer_div
+	{
+		position: fixed;
+		bottom:0px;
+		left:0;
+		width:100%;
+		padding:0;
+		margin: 0;
+		color: white;
+		text-align: center;
+		z-index: 150;
+		background-color: #ce980f; //#4d0000
+	}
+
+	.footer_div a
+	{
+		margin-left: 3px;
+		color: silver;
+	}
+
+	.footer_div a:hover
+	{
+		color: white;
+		text-decoration: none;
+	}
+
+	.footer_div img
+	{
+		padding: 1px;
+		width: 6.5%;
+	}
+
+
 	.header_div
 	{
 		height: 40px;

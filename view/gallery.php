@@ -204,11 +204,14 @@
       </ul>
     </div>
 
-
-  <!-----doors---->
-
-    <div class="menu_backgrnd"></div>
-    
+<!-----doors---->
+  <div class="menu_backgrnd">
+    <div class="overlay"></div>
+    <img class="creep" src="../images/creep.png">
+    <br>
+    <img class="boundary" src="../images/bound.png">
+  </div>
+  
   <!---ajax loader---->
 
     <div class="ajax_loading_bckgrnd">
@@ -222,10 +225,17 @@
       <div class="ajax_content"></div>
     </div>
 
+<!<!---footer-->
+  <div class="footer_div">
+    <a target="_blank" href="https://www.facebook.com/anwesha.iitpatna/"><img src="../images/social/fb.png"></a>
+    <a target="_blank" href="https://www.instagram.com/anwesha.iitp/"><img src="../images/social/insta.png"></a>
+    <a target="_blank" href="https://www.youtube.com/user/AnweshaIITP"><img src="../images/social/youtube.png"></a>
+    
+    <div class="copyright">
+      &copy; 2018 Anwesha, IIT Patna
+    </div>
+  </div>
 
-
-  <!---footer---->
-    <p id="copyright">&copy 2018 Anwesha, IIT Patna </p>
 
 <!--------gallery content------------>
 

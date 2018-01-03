@@ -456,7 +456,7 @@
 						<li><a href="https://www.instagram.com/anwesha.iitp/" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
 						<li><a href="https://www.youtube.com/user/AnweshaIITP" class="icon fa-youtube"><span class="label">Youtube</span></a></li>
 						
-						</ul>
+					</ul>
 
 					<ul class="copyright">
 						<li>Anwesha IIT Patna</li>
