@@ -1,391 +1,736 @@
 <html>
-	<head>
-		<title>Events | Anwesha 2018</title>
 
-		<meta name="viewport" content="width=device-width, initial-scale= 1">
+<head>
+    <title>Events | Anwesha 2018</title>
 
-		<link href="../css/bootstrap.min.css" rel="stylesheet">
-		<link href="../css/style.css" rel="stylesheet">
-		<link href="../images/logo_favi.png" rel="icon" >
+    <meta name="viewport" content="width=device-width, initial-scale= 1">
 
-	<!--------styling for events page---------->
-		<style type="text/css">
-			@media screen and (max-width: 900px)
-			{
-				.events_div
-				{
-					opacity: 1;
-					height: 60%;
-					width: 100%;
-					overflow-y: scroll;
-					text-align: center;
-					//background: magenta;
-				}
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/images/logo_favi.png" rel="icon">
 
-				.events_blank
-				{
-					display: block;
-					width: 95%;
-					margin:auto;
+    <!--------styling for events page---------->
+    <style type="text/css">
+        @media screen and (max-width: 900px) {
+            .events_div {
+                opacity: 1;
+                height: 60%;
+                width: 100%;
+                overflow-y: scroll;
+                text-align: center; //background: magenta;
+            }
 
-				}
+            .events_blank {
+                display: block;
+                width: 95%;
+                margin: auto;
+            }
 
-				#event_cat_div
-				{
-					display: block;
-					width: 90%;
-					margin:auto;
-				}
+            #event_cat_div {
+                display: block;
+                width: 90%;
+                margin: auto;
+            }
+        }
+    </style>
+</head>
 
-			}
+<body>
 
-		</style>
-	</head>
-	<body>
+    <!---------header-----bar-->
+    <div class="header_div">
+        <img id="header_div_bck" src="/images/blood.jpg" />
 
-	<!---------header-----bar-->
-		<div class="header_div">
-			<!-- <img id="header_div_bck" src="/images/blood.jpg"/>
-		 -->
-			 <div class="menu_toggle">
-				<img src="/images/skull_menu.png">
-				<span> MENU </span>
-			</div>
-		</div>
+        <div class="menu_toggle">
+            <img src="/images/skull_menu.png">
+            <span> MENU </span>
+        </div>
+    </div>
 
-	<!-----menu----bar------>
-		<div class="menu_bar">
-			<ul>
-				<li><a href="/">Home</a></li>
-				<!-- <li><a href="/events/">Events</a></li> -->
-				<!-- <li class="sch_div">Schedule</li> -->
-				<li><a href="/gallery/">Gallery</a></li>
-				<li><a href="/team/">Team</a></li>
-				<!-- <li class="spons_div">Sponsors</li> -->
-				<li class="acco_load">Accomodation</li>
-				<li class="register">Register</li>
-				<li class="ca"><a href="/ca/" target="_blank">Campus Ambassador</a></li>
-			</ul>
-		</div>
+    <!-----menu----bar------>
+    <div class="menu_bar">
+        <ul>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <!-- <li><a href="/events/">Events</a></li>
+				 -->
+            <!-- <li class="sch_div">Schedule</li> -->
+            <li>
+                <a href="/gallery/">Gallery</a>
+            </li>
+            <li>
+                <a href="/team/">Team</a>
+            </li>
+            <!-- <li class="spons_div">Sponsors</li> -->
+            <li class="acco_load">Accomodation</li>
+            <li class="register">Register</li>
+            <li class="ca">
+                <a href="/ca/" target="_blank">Campus Ambassador</a>
+            </li>
+        </ul>
+    </div>
 
-	<!-----doors---->
-		<div class="menu_backgrnd">
-			<div class="overlay"></div>
-			<img class="creep" src="../images/creep.png">
+
+    <!-----doors---->
+
+    <div class="menu_backgrnd"></div>
+
+    <!-----moving ----witch------>
+    <img id="moving_witch" class="moving_witch" src="/images/witch_right_1.png">
+
+    <!-----fixed ----cloud------>
+    <div class="cloud_div"></div>
+
+    <!-----moving ----cloud------>
+    <div class="moving_cloud_div">
+        <img src="/images/moving_cloud.png">
+    </div>
+
+    <!--events page content-------->
+
+    <div class="events_div">
+
+        <div class="events_blank">
+            <img src="/images/technical.png">
+        </div>
+
+        <div id="event_cat_div">
+            <p class="events_title">Technical Events</p>
+            <div id="events" class="tech_eve">
+            </div>
+
+            <div class="tech_content">
+            	<center> <img src="/images/load.gif" id="ajaxLoadWait" alt="" style="transform: scale(0.5);"> </center>
+                <div id="mainarea"  style='display:none;color:white;padding:2em'>
+                    <center>
+                        <div id="eve_cover">
+                            <span id="headwrap" style="">
+                                <br>
+                                <span id="extrabr"><br><br><br><br></span>
+                                <span id="headwr" style="display: inline">
+                                    <!-- <img src="http://via.placeholder.com/100x100" style="height: 50px;display: inline;" placeholder="Icon" id='eve_icon'>&nbsp;&nbsp;&nbsp;&nbsp; -->
+                                    <h1 id='eve_name' style="font-size: 5em;display: inline;margin-bottom: 10px;text-shadow: 0 0 10px #29d816">
+                                        Event Name
+                                    </h1>
+                                </span>
+                                <br>
+                                <span id='eve_tagline' style="font-size: 1.5em;margin-bottom: 30px;font-style: italic;text-shadow: #000000 0px 0px 20px;">
+                                    Event TagLine
+                                </span>
+                            </span>
+                        </div>
+                        <!-- <div id="dummyspace" style="width:100%;height:300px"></div> -->
+                        <br>
+                        <br>
+                        <br>
+                        <span style="font-size: 1.8em">Date:</span>
+                        <span id='eve_date' style="font-size: 1.8em;">
+                            DATE
+                        </span>
+                        <br>
+                        <br>
+                        <span style="font-size: 1.8em">Time:</span>
+                        <span id='eve_time' style="font-size: 1.8em;">
+                            TIME
+                        </span>
+                        <br>
+                        <br>
+                        <span style="font-size: 1.8em">Venue:</span>
+                        <span id='eve_venue' style="font-size: 1.8em;">
+                            VENUE
+                        </span>
+                        <br>
+                        <br>
+                        <div id='eve_organisers_head'>
+                            <span style="font-size: 1.8em">Organisers :</span>
+                            <div id='eve_organisers' style="">
+                                #Org1
+                                <br> #Org2
+                                <br>
+                            </div>
+                        </div>
+                        <br>
+                        <a href="" id="RuleBtn" target="_blank">Rulebook</a>
+                        <br>
+                        <br>
+                        <br>
+                        <!-- <a id="regbtn" placeholder="" >Register for Event</a> -->
+                        <!-- <a id="alt_regbtn" href="" target="_blank" placeholder="" style="display: none" >Register for Event</a> -->
+
+                        <br>
+                        <br>
+
+                        <span id='eve_short_desc' style="font-size: 1.5em;">
+                            Event Short Desc
+                        </span>
+                        <br>
+                        <span id='eve_long_desc' style="font-family: 'Roboto', sans-serif;font-size: 1.5em;text-align:justify;text-justify: inter-word;">
+                            Event Long Desc
+                        </span>
+                        <a href="" id="img_anchor" target="_blank">
+                            <img src="" style="display: none" height="200px" />
+                        </a>
+                    </center>
+                </div>
+            </div>
+        </div>
+
+        <div class="events_blank">
+            <img src="/images/cult.png">
+        </div>
+
+        <div id="event_cat_div">
+            <p class="events_title">Cultural Events</p>
+            <div id="events" class="cult_eve">
+            </div>
+
+            <div class="cult_content">
+            	<center> <img src="/images/load.gif" id="ajaxLoadWait" alt="" style="transform: scale(0.5);"> </center>
+            	<div id="mainarea"  style='display:none;color:white;padding:2em'>
+            	    <center>
+            	        <div id="eve_cover">
+            	            <span id="headwrap" style="">
+            	                <br>
+            	                <!-- <span id="extrabr"><br><br><br><br></span> -->
+            	                <span id="headwr" style="display: inline">
+            	                    <!-- <img src="http://via.placeholder.com/100x100" style="height: 50px;display: inline;" placeholder="Icon" id='eve_icon'>&nbsp;&nbsp;&nbsp;&nbsp; -->
+            	                    <h1 id='eve_name' style="font-size: 5em;display: inline;margin-bottom: 10px;text-shadow: 0 0 10px #29d816">
+            	                        Event Name
+            	                    </h1>
+            	                </span>
+            	                <br>
+            	                <span id='eve_tagline' style="font-size: 1.5em;margin-bottom: 30px;font-style: italic;text-shadow: #000000 0px 0px 20px;">
+            	                    Event TagLine
+            	                </span>
+            	            </span>
+            	        </div>
+            	        <!-- <div id="dummyspace" style="width:100%;height:300px"></div> -->
+            	        <br>
+            	        <br>
+            	        <br>
+            	        <span style="font-size: 1.8em">Date:</span>
+            	        <span id='eve_date' style="font-size: 1.8em;">
+            	            DATE
+            	        </span>
+            	        <br>
+            	        <br>
+            	        <span style="font-size: 1.8em">Time:</span>
+            	        <span id='eve_time' style="font-size: 1.8em;">
+            	            TIME
+            	        </span>
+            	        <br>
+            	        <br>
+            	        <span style="font-size: 1.8em">Venue:</span>
+            	        <span id='eve_venue' style="font-size: 1.8em;">
+            	            VENUE
+            	        </span>
+            	        <br>
+            	        <br>
+            	        <div id='eve_organisers_head'>
+            	            <span style="font-size: 1.8em">Organisers :</span>
+            	            <div id='eve_organisers' style="">
+            	                #Org1
+            	                <br> #Org2
+            	                <br>
+            	            </div>
+            	        </div>
+            	        <br>
+            	        <a href="" id="RuleBtn" target="_blank">Rulebook</a>
+            	        <br>
+            	        <br>
+            	        <br>
+            	        <!-- <a id="regbtn" placeholder="" >Register for Event</a> -->
+            	        <!-- <a id="alt_regbtn" href="" target="_blank" placeholder="" style="display: none" >Register for Event</a> -->
+
+            	        <br>
+            	        <br>
+
+            	        <span id='eve_short_desc' style="font-size: 1.5em;">
+            	            Event Short Desc
+            	        </span>
+            	        <br>
+            	        <span id='eve_long_desc' style="font-family: 'Roboto', sans-serif;font-size: 1.5em;text-align:justify;text-justify: inter-word;">
+            	            Event Long Desc
+            	        </span>
+            	        <a href="" id="img_anchor" target="_blank">
+            	            <img src="" style="display: none" height="200px" />
+            	        </a>
+            	    </center>
+            	</div>
+            </div>
+        </div>
+
+        <div class="events_blank">
+            <img src="/images/mang.png">
+        </div>
+
+        <div id="event_cat_div">
+            <p class="events_title">Management Events</p>
+            <div id="events" class="mgmt_eve">
+            </div>
+            <div class="mgmt_content">
+            	<center> <img src="/images/load.gif" id="ajaxLoadWait" alt="" style="transform: scale(0.5);"> </center>
+            	<div id="mainarea"  style='display:none;color:white;padding:2em'>
+            	    <center>
+            	        <div id="eve_cover">
+            	            <span id="headwrap" style="">
+            	                <br>
+            	                <!-- <span id="extrabr"><br><br><br><br></span> -->
+            	                <span id="headwr" style="display: inline">
+            	                    <!-- <img src="http://via.placeholder.com/100x100" style="height: 50px;display: inline;" placeholder="Icon" id='eve_icon'>&nbsp;&nbsp;&nbsp;&nbsp; -->
+            	                    <h1 id='eve_name' style="font-size: 5em;display: inline;margin-bottom: 10px;text-shadow: 0 0 10px #29d816">
+            	                        Event Name
+            	                    </h1>
+            	                </span>
+            	                <br>
+            	                <span id='eve_tagline' style="font-size: 1.5em;margin-bottom: 30px;font-style: italic;text-shadow: #000000 0px 0px 20px;">
+            	                    Event TagLine
+            	                </span>
+            	            </span>
+            	        </div>
+            	        <!-- <div id="dummyspace" style="width:100%;height:300px"></div> -->
+            	        <br>
+            	        <br>
+            	        <br>
+            	        <span style="font-size: 1.8em">Date:</span>
+            	        <span id='eve_date' style="font-size: 1.8em;">
+            	            DATE
+            	        </span>
+            	        <br>
+            	        <br>
+            	        <span style="font-size: 1.8em">Time:</span>
+            	        <span id='eve_time' style="font-size: 1.8em;">
+            	            TIME
+            	        </span>
+            	        <br>
+            	        <br>
+            	        <span style="font-size: 1.8em">Venue:</span>
+            	        <span id='eve_venue' style="font-size: 1.8em;">
+            	            VENUE
+            	        </span>
+            	        <br>
+            	        <br>
+            	        <div id='eve_organisers_head'>
+            	            <span style="font-size: 1.8em">Organisers :</span>
+            	            <div id='eve_organisers' style="">
+            	                #Org1
+            	                <br> #Org2
+            	                <br>
+            	            </div>
+            	        </div>
+            	        <br>
+            	        <a href="" id="RuleBtn" target="_blank">Rulebook</a>
+            	        <br>
+            	        <br>
+            	        <br>
+            	        <!-- <a id="regbtn" placeholder="" >Register for Event</a> -->
+            	        <!-- <a id="alt_regbtn" href="" target="_blank" placeholder="" style="display: none" >Register for Event</a> -->
+
+            	        <br>
+            	        <br>
+
+            	        <span id='eve_short_desc' style="font-size: 1.5em;">
+            	            Event Short Desc
+            	        </span>
+            	        <br>
+            	        <span id='eve_long_desc' style="font-family: 'Roboto', sans-serif;font-size: 1.5em;text-align:justify;text-justify: inter-word;">
+            	            Event Long Desc
+            	        </span>
+            	        <a href="" id="img_anchor" target="_blank">
+            	            <img src="" style="display: none" height="200px" />
+            	        </a>
+            	    </center>
+            	</div>
+            </div>
+        </div>
 			<br>
-			<img class="boundary" src="../images/bound.png">
-		</div>
-
-	<!-----moving ----witch------>
-		<img class="moving_witch" src="../images/witch_right_1.png">
-
-	<!-----fixed ----cloud------>
-		<div class="cloud_div"></div>
-
-	<!-----moving ----cloud------>
-		<div class="moving_cloud_div">
-			<img src="../images/moving_cloud.png">
-		</div>
-
-	<!--events page content-------->
-		<div class="events_div">
-			<div class="events_blank">
-				<img src="../images/technical.png">
-			</div>
-
-			<div id="event_cat_div">
-				<p class="events_title">Technical Events</p>
-				<ul id="events">
-					<li event_id="1">Static Rush</li>
-					<li event_id="2">Virtual Auto-Expo</li>
-					<li event_id="3">Robo War</li>
-					<li event_id="4">Aqua Soccer</li>
-				</ul>
-
-				<div class="tech_content"></div>
-			</div>
-
-			<div class="events_blank">
-				<img src="../images/cult.png">	
-			</div>
-
-			<div id="event_cat_div">
-				<p class="events_title">Cultural Events</p>
-				<ul id="events">
-					<li event_id="5">Band Wars</li>
-					<li event_id="6">Verb</li>
-					<li event_id="7">Symphony</li>
-					<li event_id="8">Heel Turn</li>
-				</ul>
-
-				<div class="cult_content"></div>
-			</div>
-
-			<div class="events_blank">
-				<img src="../images/mang.png">
-			</div>
-
-			<div id="event_cat_div">
-				<p class="events_title">Management Events</p>
-				<ul id="events">
-					<li event_id="9">B-Quiz</li>
-					<li event_id="10">Monopoly</li>
-					<li event_id="11">Stockmart</li>
-					<li event_id="12">Dad's Business</li>
-				</ul>
-				<div class="mang_content"></div>
-			</div>
-
-		</div>
-		
-
-	<!---ajax loader---->
-
-		<div class="ajax_loading_bckgrnd">
-			<div class="ajax_back"></div>
-		</div>
-
-		<div class="ajax_loading_div ajax_loading_entry">
-			<img class="ajax_pin" src="../images/dragon.png"/>
-			<img class="close_icon" src="../images/close.png"/>
-			<img class="ajax_div_back" src="../images/ajax_div_back.png"/>
-			<div class="ajax_content"></div>
-		</div>
-
-	<!---footer-->
-		<div class="footer_div">
-			<a target="_blank" href="https://www.facebook.com/anwesha.iitpatna/"><img src="../images/social/fb.png"></a>
-			<a target="_blank" href="https://www.instagram.com/anwesha.iitp/"><img src="../images/social/insta.png"></a>
-			<a target="_blank" href="https://www.youtube.com/user/AnweshaIITP"><img src="../images/social/youtube.png"></a>
-			
-			<div class="copyright">
-				&copy; 2018 Anwesha, IIT Patna
-			</div>
-		</div>
-
-	<!--scripts-->
-		<script type="text/javascript" src="../js/jquery.js"></script>
-		<script type="text/javascript" src="../js/jquery.mousewheel.js"></script>
-	<!--scripts for index---->
-		<script type="text/javascript">
-
-	//--horizontal----------- scrolling-->
-			$(document).ready(function() {
-			    $('body, html, *').mousewheel(function(e, delta) {
-			        // multiplying by 40 is the sensitivity, 
-			        // increase to scroll faster.
-			        this.scrollLeft -= (delta * 50);
-			        e.preventDefault();
-			    });
-
-			});
-
-	//-----menu toggle
-			$('.menu_toggle img').on("click",function()
-			{
-				span_text=$('.menu_toggle span').text();
-				if(span_text == "EXIT")
-				{
-					$('.left_door').addClass('left_door_anim');
-					$('.right_door').addClass('right_door_anim');
-					$('.menu_toggle span').text('MENU');
-					$('.menu_toggle img').attr('src', '/images/skull_menu.png');
-					$('.menu_backgrnd').fadeOut(800);
-					$('.menu_bar').slideUp(800);
-				}
-				else
-				{
-					$('.left_door').removeClass('left_door_anim');
-					$('.right_door').removeClass('right_door_anim');
-					$('.menu_toggle span').text('EXIT').fadeIn(800);
-					$('.menu_toggle img').attr('src', '/images/skull_exit.png');
-					$('.menu_backgrnd').fadeIn(800);
-					$('.menu_bar').slideDown(800);
-				}
-			});
-
-	//menu bar item css
-			var new_li= $('.menu_bar li').first();
-			new_li.addClass('first_rot');
-			var new_li= new_li.next().next();
-			new_li.addClass('first_rot');
-			var new_li= new_li.next().next();
-			new_li.addClass('secnd_rot');
-			var new_li= new_li.next().next().next();
-			new_li.addClass('secnd_rot');
-
-	//witch resting
-		witch_attr = $('.moving_witch').attr('src');
-
-		$.fn.witch_motion_start = function()
-			{ 
-	       		witch_motion= setInterval(function()
-					{ 
-						if(witch_attr=="/images/witch_right_1.png")
-						{
-							$('.moving_witch').attr('src', '/images/witch_right_2.png');
-							witch_attr = "/images/witch_right_2.png";
-						}
-						else if(witch_attr=="/images/witch_right_2.png")
-						{
-							$('.moving_witch').attr('src', '/images/witch_right_1.png');
-							witch_attr = "/images/witch_right_1.png";
-						}
-
-					}, 800);
-		    }
-
-			$.fn.witch_motion_stop = function()
-			{ 
-				clearInterval(witch_motion);  
-			}
-
-			$.fn.witch_motion_start();
-
-	//witch direction on scroll
- 			scroll_posn = $(document).scrollLeft();
-
-			$(document).on("scroll",function()
-			{
-				var scroll_posn_new = $(document).scrollLeft();
-				if(scroll_posn_new >= scroll_posn )
-				{
-
-					$('.moving_witch').css('left', '45%');
-					
-					witch_dirc = $('.moving_witch').css('transform');
-					//alert(witch_dirc);
-					if(witch_dirc == "matrix3d(-1, 0, -1.22465e-16, 0, 0, 1, 0, 0, 1.22465e-16, 0, -1, 0, 0, 0, 0, 1)")
-					{
-						$('.moving_witch').css('transform', 'rotateY(360deg)');
-					}
-
-					scroll_posn =scroll_posn_new;
-				}
-				else if(scroll_posn_new < scroll_posn )
-				{
-					$('.moving_witch').css('left', '35%');
-					//$.fn.witch_motion_stop();
-					scroll_posn =scroll_posn_new;
-					$('.moving_witch').css('transform', 'rotateY(180deg)');
-				}
-				else
-				{
-					$('.moving_witch').css('left', '40%');
-				}
-				
-			});
-
-	//cloud motion
-			$(document).scroll(function()
-			{
-				var window_pos = $(this).scrollLeft();
-				//alert(window_pos);
-				$('.moving_cloud_div img').css('left', -(window_pos * .05) + 'px');
-			});
+			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </div>
 
 
-	//ajax on menu items
-			$('.close_icon').click(function()
-			{
-				$('.ajax_loading_bckgrnd').fadeOut(800);
-				$('.ajax_loading_div').addClass('ajax_loading_entry');
-			});
+    <!---ajax loader---->
+
+    <div class="ajax_loading_bckgrnd">
+        <div class="ajax_back"></div>
+    </div>
+
+    <div class="ajax_loading_div ajax_loading_entry">
+        <img class="ajax_pin" src="/images/dragon.png" />
+        <img class="close_icon" src="/images/close.png" />
+        <img class="ajax_div_back" src="/images/ajax_div_back.png" />
+        <div class="ajax_content"></div>
+    </div>
+
+    <!---footer-->
+    <div class="footer_div">
+        <a target="_blank" href="https://www.facebook.com/anwesha.iitpatna/"><img src="../images/social/fb.png"></a>
+        <a target="_blank" href="https://www.instagram.com/anwesha.iitp/"><img src="../images/social/insta.png"></a>
+        <a target="_blank" href="https://www.youtube.com/user/AnweshaIITP"><img src="../images/social/youtube.png"></a>
+        
+        <div class="copyright">
+            &copy; 2018 Anwesha, IIT Patna
+        </div>
+    </div>
 
 
-			$('.spons_div').click(function()
-			{
-				$('.ajax_loading_bckgrnd').fadeIn(800);
-				$('.ajax_loading_div').removeClass('ajax_loading_entry');
-			});
+    <!--scripts-->
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/jquery.mousewheel.js"></script>
+   
+    <script type="text/javascript">
+    //--horizontal----------- scrolling-->
+        $(document).ready(function () {
+            var vscrollspace = 0;
+            var tr =($(".tech_content").position().left + $(".tech_content").width()); 
+            var tl = $(".tech_content").position().left; 
+            var cr =($(".cult_content").position().left + $(".cult_content").width()); 
+            var cl = $(".cult_content").position().left; 
+            var mr =($(".mgmt_content").position().left + $(".mgmt_content").width()); 
+            var ml = $(".mgmt_content").position().left; 
+            var sh = $("#event_cat_div").position().top;
+            $('body, html, *').mousewheel(function (e, delta) {
+                // multiplying by 40 is the sensitivity, 
+                // increase to scroll faster.
+                var currPos = e.clientX + window.pageXOffset ;
+                // if(( (currPos < tr && currPos > tl) ||  (currPos < cr && currPos > cl) ||  (currPos < mr && currPos > ml)) && ( e.clientY + window.pageYOffset) > sh ){
 
-			$('.sch_div').click(function()
-			{
-				$('.ajax_loading_bckgrnd').fadeIn(800);
-				$('.ajax_loading_div').removeClass('ajax_loading_entry');
-			});
+                // }else{
+                     this.scrollLeft -= (delta * 30);
+                    e.preventDefault();
+                // } 
+                // $("#event_cat_div").mousewheel(function(e_,e2){
+                //   // this.scrollLeft -= (delta * 30);
+                //     e.preventDefault();  
+                // })
+                   
+            });
 
-			$('.acco_load').click(function()
-			{
-				$('.ajax_loading_bckgrnd').fadeIn(800);
-				$('.ajax_loading_div').removeClass('ajax_loading_entry');
-			});
+        });
 
-			$('.register').click(function()
-			{
-				$('.ajax_loading_bckgrnd').fadeIn(800);
-				$('.ajax_loading_div').removeClass('ajax_loading_entry');
-			});
+  //-----menu toggle
+      $('.menu_toggle img').on("click",function()
+      {
+        span_text=$('.menu_toggle span').text();
+        if(span_text == "EXIT")
+        {
+          $('.menu_toggle span').text('MENU');
+          $('.menu_toggle img').attr('src', '/images/skull_menu.png');
+          $('.menu_backgrnd').fadeOut(800);
+          $('.menu_bar').slideUp(800);
+        }
+        else
+        {
+          $('.menu_toggle span').text('EXIT').fadeIn(800);
+          $('.menu_toggle img').attr('src', '/images/skull_exit.png');
+          $('.menu_backgrnd').fadeIn(800);
+          $('.menu_bar').slideDown(800);
+        }
+      });
 
-	//javascript for the events page
+      $('.menu_backgrnd').click(function()
+      {
+        $('.menu_toggle span').text('MENU');
+        $('.menu_toggle img').attr('src', '/images/skull_menu.png');
+        $('.menu_backgrnd').fadeOut(800);
+        $('.menu_bar').slideUp(800);
+      });
 
-	//mob scroll
-			mob_scroll_posn = $('.events_div').scrollTop();
+     //menu bar item css
+        var new_li = $('.menu_bar li').first();
+        new_li.addClass('first_rot');
+        var new_li = new_li.next().next();
+        new_li.addClass('first_rot');
+        var new_li = new_li.next().next();
+        new_li.addClass('secnd_rot');
+        var new_li = new_li.next().next().next();
+        new_li.addClass('secnd_rot');
 
-			$('.events_div').scroll(function()
-			{
-				var mob_pos = $(this).scrollTop();
+    //witch direction on moving mouse
+        $(document).ready( function ()
+        {
 
-			//cloud motion and floor motion
-				$('.moving_cloud_div img').css('left', -(mob_pos * .05) + 'px');
-				
-			//witch motion direction
-				mob_scroll_posn_new = $('.events_div').scrollTop();
+        // track and save the position of the mouse
+            $(document).mousemove( function(e) 
+            {
+                mouseX = e.pageX;
+                mouseY = e.pageY; 
+                
+                witchX = parseInt($('#moving_witch').css("left"));
+                witchY = parseInt($('#moving_witch').css("top"));
 
-				if(mob_scroll_posn_new >= mob_scroll_posn )
-				{
+                $('#moving_witch').css('top',mouseY);
+                $('#moving_witch').css('left',mouseX);
 
-					$('.moving_witch').css('left', '45%');
-					
-					witch_dirc = $('.moving_witch').css('transform');
-					
-					if(witch_dirc == "matrix3d(-1, 0, -1.22465e-16, 0, 0, 1, 0, 0, 1.22465e-16, 0, -1, 0, 0, 0, 0, 1)")
-					{
-						$('.moving_witch').css('transform', 'rotateY(360deg)');
-					}
+                
+                if(witchX < mouseX)
+                {
+                    $('#moving_witch').css('transform', 'rotateY(360deg)');
+                }
+                else
+                {
+                    $('#moving_witch').css('transform', 'rotateY(180deg)');
 
-					mob_scroll_posn =mob_scroll_posn_new;
-				}
-				else if(mob_scroll_posn_new < mob_scroll_posn )
-				{
-					$('.moving_witch').css('left', '35%');
+                }
+            });
 
-					$('.moving_witch').css('transform', 'rotateY(180deg)');
+        });
 
-					mob_scroll_posn =mob_scroll_posn_new;
-				}
-				else
-				{
-					$('.moving_witch').css('left', '40%');
-				}
+     //cloud motion
+        $(document).scroll(function () {
+            var window_pos = $(this).scrollLeft();
+            //alert(window_pos);
+            $('.moving_cloud_div img').css('left', -(window_pos * .05) + 'px');
+        });
 
-			});
 
-	//for loading of events in event content page
-			$('#events li').click(function()
-			{
-				event_id = $(this).attr('event_id');
-				
-				if(event_id<=4)
-				{
-					//alert('Technical');
-					$('.tech_content').load('events/' + event_id +'.php');
-				}
-				else if(event_id<=8 && event_id > 4)
-				{
-					//alert('cult');
-					$('.cult_content').load('events/' + event_id +'.php');
-				}
-				else if(event_id<=12 && event_id > 8)
-				{
-					//alert('mang');
-					$('.mang_content').load('events/' + event_id +'.php');
-				}
-			});
-			
-		</script>
-		
-		<script type="text/javascript" src="/js/ajax.js"></script>
+    //ajax on menu items
+        $('.close_icon').click(function () {
+            $('.ajax_loading_bckgrnd').fadeOut(800);
+            $('.ajax_loading_div').addClass('ajax_loading_entry');
+        });
 
-	</body>
+
+        $('.spons_div').click(function () {
+            $('.ajax_loading_bckgrnd').fadeIn(800);
+            $('.ajax_loading_div').removeClass('ajax_loading_entry');
+        });
+
+        $('.sch_div').click(function () {
+            $('.ajax_loading_bckgrnd').fadeIn(800);
+            $('.ajax_loading_div').removeClass('ajax_loading_entry');
+        });
+
+        $('.acco_load').click(function () {
+            $('.ajax_loading_bckgrnd').fadeIn(800);
+            $('.ajax_loading_div').removeClass('ajax_loading_entry');
+        });
+
+        $('.register').click(function () {
+            $('.ajax_loading_bckgrnd').fadeIn(800);
+            $('.ajax_loading_div').removeClass('ajax_loading_entry');
+        });
+
+    //mob scroll
+        mob_scroll_posn = $('.events_div').scrollTop();
+
+        $('.events_div').scroll(function () {
+            var mob_pos = $(this).scrollTop();
+
+            //cloud motion and floor motion
+            $('.moving_cloud_div img').css('left', -(mob_pos * .05) + 'px');
+
+        });
+
+  //for loading of events in event content page
+        function preloadImage(imageurl) {
+            var img = new Image();
+            img.src = imageurl;
+        }
+        
+
+        function eve_coverswitch(cat ,imgurl) {
+        	console.log("eve_coverswitch called with", imgurl);
+            if (imgurl == "" || imgurl == null) {
+                $(cat+" #eve_cover").css("background-image", "");
+                // $("#eve_cover").css("box-shadow","0 0 0 #FFFFFF");
+                $(cat+" #eve_name").css("font-size", "3em");
+                $(cat+' #eve_cover').css("height", "70px");
+                $(cat+" #extrabr").hide();
+            } else {
+                $(cat+' #eve_cover').css("height", "300px");
+                var ppurl = "url(";
+                ppurl += imgurl;
+                ppurl += ")";
+                $(cat+' #eve_cover').css("height", "300px");
+                $(cat+" #eve_cover").css("background-image", ppurl);
+                if ($(window).width() > 960) {
+                    $(cat + " #eve_name").css("font-size", "5em");
+                }
+                $("#extrabr").show();
+
+            }
+        }
+
+        function eve_imgswitch(imgurl) {
+
+            if (imgurl == "" || imgurl == null) {
+                $("#eve_img").attr("src", "");
+                $("#eve_img").hide();
+                $("#img_anchor").attr("href", "");
+            } else {
+
+                $("#eve_img").attr("src", imgurl);
+                $("#img_anchor").attr("href", imgurl);
+                $("#eve_img").show();
+            }
+        }
+        function emptyresp(cat) {
+
+            $(cat+ ' #eve_name').text("");
+            $(cat+ ' #eve_tagline').text("");
+            $(cat+ ' #eve_date').text("");
+            $(cat+ ' eve_time').text("");
+            $(cat+ ' eve_venue').text("");
+            $(cat+ ' eve_organisers').text("");
+            $(cat+ ' eve_short_desc').text("");
+            $(cat+ ' eve_long_desc').text("");
+            // $(cat+ ' regbtn').attr("placeholder", "");
+            // $(cat+ ' alt_regbtn').attr("href", "");
+            $(cat+ ' RuleBtn').attr("href", "");
+            $(cat+ ' RuleBtn').hide();
+            // eve_imgswitch("");
+            // eve_iconswitch("");
+            eve_coverswitch(cat ,"");
+            // $('#eve_cover').css("src","");
+        }
+        function getHTMLText(text) {
+         		if(text==null)
+         			return "";
+         		text = text.replace(/[\u00A0-\u9999<>\&]/gim, function(i) {
+				   return '&#'+i.charCodeAt(0)+';';
+				});
+				text = text.replace(/\n\n/g,"</br></p><p></br>").replace(/\n/g,"</br>");
+         		return ""+text+"";
+         	}
+        var events_data;
+        var eventsmap = [];
+        $.get("allEvents/", function (data, status) {
+            console.log("Event Status : " + data[0]);
+            if (status == 'success') {
+                events_data = data[1];
+                console.log("Events Data Updated");
+                //try to preload coverpic and icon pic
+                console.log("starting");
+               events_data.forEach(function(evntDat){
+               	console.log(typeof(evntDat));
+               		
+
+               	if(typeof(evntDat)=="Object" || evntDat.eveId>5)
+               		eventsmap[evntDat.eveId] = evntDat;
+                	console.log(typeof(evntDat));
+                	console.log(evntDat);
+                    preloadImage(evntDat['cover_url']);
+                    preloadImage(evntDat['icon_url']);
+
+                    	var widthYetT,widthYetC,widthYetM;
+                    		try{
+                    			widthYetT = $(".tech_eve span:last-child").position().left+$(".tech_eve span:last-child").width() - $(".tech_eve").position().left+ 100;
+                    			widthYetC = $(".cult_eve span:last-child").position().left+$(".cult_eve span:last-child").width() - $(".cult_eve").position().left+ 100;
+                    			widthYetM = $(".mgmt_eve span:last-child").position().left+$(".mgmt_eve span:last-child").width() - $(".mgmt_eve").position().left+ 100;
+			               	}catch(e){
+			               		widthYet =0;	
+        				   }
+                    	if(evntDat.code==1){
+                    		//tech
+                    		if(widthYet>$(".tech_eve").width()){
+                    			$(".tech_eve").append("<br>");
+                    		}
+                    		$(".tech_eve").append(" <span id='evetab"+evntDat.eveId+"' class='evetab' onclick='eveDisplay("+evntDat.eveId+")' event_id='"+evntDat.eveId+"'>"+evntDat.eveName+"</span>");
+                    	}else if(evntDat.code == 2){
+                    		//cult
+                    		if(widthYet>$(".cult_eve").width()){
+                    			$(".cult_eve").append("<br>");
+                    		}
+                    		$(".cult_eve").append(" <span id='evetab"+evntDat.eveId+"' class='evetab' onclick='eveDisplay("+evntDat.eveId+")' event_id='"+evntDat.eveId+"'>"+evntDat.eveName+"</span>");
+                    	}else if(evntDat.code == 3){
+                    		//mgmt
+                    		if(widthYet>$(".mgmt_eve").width()){
+                    			$(".mgmt_eve").append("<br>");
+                    		}
+                    		$(".mgmt_eve").append(" <span id='evetab"+evntDat.eveId+"' class='evetab' onclick='eveDisplay("+evntDat.eveId+")' event_id='"+evntDat.eveId+"'>"+evntDat.eveName+"</span>");
+                    	}
+                });
+               console.log("map",eventsmap);
+               //init all;
+               setTimeout(function(){
+	               $(".tech_eve span:first-child").click();
+	               // eve_coverswitch('.tech_content',eventsmap[$(".tech_eve span:first-child").attr('event_id')].cover_url);
+	               $(".cult_eve span:first-child").click();
+	               $(".mgmt_eve span:first-child").click();
+	               $(".tech_content #ajaxLoadWait").hide();
+	               $(".cult_content #ajaxLoadWait").hide();
+	               $(".mgmt_content #ajaxLoadWait").hide();
+	               $(".tech_content #mainarea").show();
+	               $(".cult_content #mainarea").show();
+	               $(".mgmt_content #mainarea").show();
+	               // $("#mainarea").show();
+               },1000);
+            } else
+                console.log("Unable to get Events Data");
+        }, "json");
+        function formatData(data){
+        	if(data==null)
+        		return "";
+        }
+        function fillEve(cat, dataToFill){
+        	console.log("filling",dataToFill)
+        	emptyresp(cat);
+        	$(cat+ ' #eve_name').html(getHTMLText(dataToFill.eveName));
+            $(cat+ ' #eve_tagline').html(getHTMLText(dataToFill.tagline));
+            $(cat+ ' #eve_date').html(getHTMLText((dataToFill.date)?dataToFill.date:"To be announced"));
+            $(cat+ ' #eve_time').html(getHTMLText((dataToFill.time)?dataToFill.time:"To be announced"));
+            $(cat+ ' #eve_venue').html(getHTMLText((dataToFill.venue)?dataToFill.venue:"To be announced"));
+            $(cat+ ' #eve_organisers').html(getHTMLText(dataToFill.organisers));
+            $(cat+ ' #eve_short_desc').html(getHTMLText(dataToFill.short_desc));
+            $(cat+ ' #eve_long_desc').html(getHTMLText(dataToFill.long_desc));
+            // $(cat+ ' #regbtn').attr("placeholder", ""));
+            // $(cat+ ' #alt_regbtn').attr("href", ""));
+            $(cat+ ' #RuleBtn').attr("href", dataToFill.rules_url);
+            if(dataToFill.rules_url==null)
+            	$(cat+ ' #RuleBtn').hide();
+            eve_coverswitch(cat, dataToFill.cover_url);
+        }
+        // $("#events > span").click(function(){
+        // 	console.log("clicked")
+        // 	$('.tech_eve').children().not(this).removeClass('active-tab');
+        // 	$(this).addClass('active-tab');
+        // 	fillEve("tech_content",eventsmap[$(this).attr('event_id')]);
+        // })
+        function eveDisplay(eveId){
+        	var type = "tech";
+        	if(eventsmap[eveId].code==1)
+        		type = "tech";
+        	else  if(eventsmap[eveId].code==2)
+        		type = "cult";
+        	else  if(eventsmap[eveId].code==3)
+        		type = "mgmt";
+        	console.log("clicked22")
+        	$('.'+type+'_eve').children().not("#evetab"+eveId).removeClass('active-tab');
+        	$("#evetab"+eveId).addClass('active-tab');
+        	fillEve("."+type+"_content",eventsmap[eveId]);
+        }
+
+        // $('#events li').click(function () {
+        //     event_id = $(this).attr('event_id');
+
+        //     if (event_id <= 4) {
+        //         //alert('Technical');
+        //         $('.tech_content').load('events/' + event_id + '.php');
+        //     } else if (event_id <= 8 && event_id > 4) {
+        //         //alert('cult');
+        //         $('.cult_content').load('events/' + event_id + '.php');
+        //     } else if (event_id <= 12 && event_id > 8) {
+        //         //alert('mang');
+        //         $('.mang_content').load('events/' + event_id + '.php');
+        //     }
+        // });
+    </script>
+
+<!---------stars in background---------->
+    <script src="js/jquery-stars.js"></script>
+    <script>
+        $(document).jstars({
+            image_path: 'images',
+            style: 'yellow',
+            frequency: 20,
+            delay: 400
+        });
+        
+    </script>
+
+    <script type="text/javascript" src="/js/ajax.js"></script>
+
+</body>
+
 </html>

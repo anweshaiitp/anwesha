@@ -274,8 +274,6 @@
         span_text=$('.menu_toggle span').text();
         if(span_text == "EXIT")
         {
-          $('.left_door').addClass('left_door_anim');
-          $('.right_door').addClass('right_door_anim');
           $('.menu_toggle span').text('MENU');
           $('.menu_toggle img').attr('src', '/images/skull_menu.png');
           $('.menu_backgrnd').fadeOut(800);
@@ -283,13 +281,19 @@
         }
         else
         {
-          $('.left_door').removeClass('left_door_anim');
-          $('.right_door').removeClass('right_door_anim');
           $('.menu_toggle span').text('EXIT').fadeIn(800);
           $('.menu_toggle img').attr('src', '/images/skull_exit.png');
           $('.menu_backgrnd').fadeIn(800);
           $('.menu_bar').slideDown(800);
         }
+      });
+
+      $('.menu_backgrnd').click(function()
+      {
+        $('.menu_toggle span').text('MENU');
+        $('.menu_toggle img').attr('src', '/images/skull_menu.png');
+        $('.menu_backgrnd').fadeOut(800);
+        $('.menu_bar').slideUp(800);
       });
 
   //menu bar item css
@@ -338,8 +342,20 @@
 
 
   </script>
-  <script type="text/javascript" src="../js/ajax.js"></script>
 
+<!---------stars in background---------->
+    <script src="../js/jquery-stars.js"></script>
+    <script>
+        $(document).jstars({
+            image_path: 'images',
+            style: 'yellow',
+            frequency: 20,
+            delay: 400
+        });
+        
+    </script>
+
+  <script type="text/javascript" src="../js/ajax.js"></script>
 
 </body>
 </html>

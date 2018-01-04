@@ -94,11 +94,11 @@ if($purp!=-1){
 		$title = "Update Info for Event no ".$match[2];
 		$purp = 3;
 
-		$fields = array( 'eveName', 'fee', 'day', 'tagline', 'date', 'time', 'venue', 'organisers', 'short_desc', 'long_desc', 'cover_url', 'icon_url', 'rules_url', 'owner1', 'owner2', 'owner3', 'owner4');
+		$fields = array( 'eveName', 'fee', 'day', 'tagline', 'date', 'time', 'venue', 'organisers', 'short_desc', 'long_desc', 'cover_url', 'icon_url', 'rules_url', 'owner1', 'owner2', 'owner3', 'owner4', 'owner5', 'owner6', 'owner7', 'owner8', 'owner9', 'owner10');
 		if(isset($_POST['eveName']) || isset($_POST['fee']) || isset($_POST['day']) || isset($_POST['size']) || isset($_POST['tagline']) || isset($_POST['date']) || isset($_POST['time']) || isset($_POST['venue']) || isset($_POST['organisers']) || isset($_POST['short_desc']) || isset($_POST['long_desc']) || isset($_POST['cover_url']) || isset($_POST['icon_url']) || isset($_POST['rules_url']) || isset($_POST['owner1']) || isset($_POST['owner2']) || isset($_POST['owner3']) || isset($_POST['owner4'])){
 			foreach ($fields as $fieldName ) {
 				if($_POST[$fieldName]=='' || $_POST[$fieldName]==null || empty($_POST[$fieldName]) ){
-					if(in_array($fieldName, array('fee','day','owner1','owner2','owner3','owner4'), TRUE)){
+					if(in_array($fieldName, array('fee','day','owner1','owner2','owner3','owner4','owner5','owner6','owner7','owner8','owner9','owner10'), TRUE)){
 						$_POST[$fieldName] = NULL;//might case some errors
 					}else{
 						$_POST[$fieldName] = '';
@@ -126,6 +126,12 @@ if($purp!=-1){
 			$owner2 = mysqli_real_escape_string($conn,$_POST['owner2']);
 			$owner3 = mysqli_real_escape_string($conn,$_POST['owner3']);
 			$owner4 = mysqli_real_escape_string($conn,$_POST['owner4']);
+			$owner5 = mysqli_real_escape_string($conn,$_POST['owner5']);
+			$owner6 = mysqli_real_escape_string($conn,$_POST['owner6']);
+			$owner7 = mysqli_real_escape_string($conn,$_POST['owner7']);
+			$owner8 = mysqli_real_escape_string($conn,$_POST['owner8']);
+			$owner9 = mysqli_real_escape_string($conn,$_POST['owner9']);
+			$owner10 = mysqli_real_escape_string($conn,$_POST['owner10']);
 			$intQuer = "";
 			if($fee!=null && $fee!='')
 				$intQuer.="`fee` = $fee, ";
@@ -139,6 +145,18 @@ if($purp!=-1){
 				$intQuer.="`owner3` = $owner3, ";
 			if($owner4!=null && $owner4!='')
 				$intQuer.="`owner4` = $owner4, ";
+			if($owner5!=null && $owner5!='')
+				$intQuer.="`owner5` = $owner5, ";
+			if($owner6!=null && $owner6!='')
+				$intQuer.="`owner6` = $owner6, ";
+			if($owner7!=null && $owner7!='')
+				$intQuer.="`owner7` = $owner7, ";
+			if($owner8!=null && $owner8!='')
+				$intQuer.="`owner8` = $owner8, ";
+			if($owner9!=null && $owner9!='')
+				$intQuer.="`owner9` = $owner9, ";
+			if($owner10!=null && $owner10!='')
+				$intQuer.="`owner10` = $owner10, ";
 
 			$query = "UPDATE `Events` SET `eveName` = '$eveName', $intQuer `tagline` = '$tagline', `date` = '$date', `time` = '$time', `venue` = '$venue', `organisers` = '$organisers', `short_desc` = '$short_desc', `long_desc` = '$long_desc', `cover_url` = '$cover_url', `icon_url` = '$icon_url', `rules_url` = '$rules_url' WHERE `Events`.`eveId` = ".$match[2].";";
 			if($result = mysqli_query($conn,$query)){
@@ -277,7 +295,7 @@ body {
 		$actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
 		if($purp==1)
 		foreach ($arr as $eve) {
-			if($eve["id"]=='' || $eve["id"]==null)
+			if($eve["id"]=='' || $eve["id"]==null || $eve["id"]==0)
 				continue;
 			$action = ($eve["id"]<10)? "Add New Event":"Edit Event";
 			$color = ($eve["id"]<10)? "is-warning":"is-success";
@@ -385,7 +403,7 @@ body {
 			</div>
 		</div>
 		<div class=\"field\">
-  			<label class=\"label\">Link to cover image</label>
+  			<label class=\"label\">Link to cover image for event to show on top of page (Eg: poster)</label>
 			<div class=\"control\">
 				<input class=\"input\" type=\"text\" name=\"cover_url\" placeholder=\"http://xyz.com/xyz.jpg\">
 			</div>
@@ -424,6 +442,42 @@ body {
   			<label class=\"label\">Admin4 of the event(enter 4 digits of anwesha ID)</label>
 			<div class=\"control\">
 				<input class=\"input\" type=\"number\" name=\"owner4\" min='1000' max='9999'>
+			</div>
+		</div>
+		<div class=\"field\">
+  			<label class=\"label\">Admin5 of the event(enter 4 digits of anwesha ID)</label>
+			<div class=\"control\">
+				<input class=\"input\" type=\"number\" name=\"owner5\" min='1000' max='9999'>
+			</div>
+		</div>
+		<div class=\"field\">
+  			<label class=\"label\">Admin6 of the event(enter 4 digits of anwesha ID)</label>
+			<div class=\"control\">
+				<input class=\"input\" type=\"number\" name=\"owner6\" min='1000' max='9999'>
+			</div>
+		</div>
+		<div class=\"field\">
+  			<label class=\"label\">Admin7 of the event(enter 4 digits of anwesha ID)</label>
+			<div class=\"control\">
+				<input class=\"input\" type=\"number\" name=\"owner7\" min='1000' max='9999'>
+			</div>
+		</div>
+		<div class=\"field\">
+  			<label class=\"label\">Admin8 of the event(enter 4 digits of anwesha ID)</label>
+			<div class=\"control\">
+				<input class=\"input\" type=\"number\" name=\"owner8\" min='1000' max='9999'>
+			</div>
+		</div>
+		<div class=\"field\">
+  			<label class=\"label\">Admin9 of the event(enter 4 digits of anwesha ID)</label>
+			<div class=\"control\">
+				<input class=\"input\" type=\"number\" name=\"owner9\" min='1000' max='9999'>
+			</div>
+		</div>
+		<div class=\"field\">
+  			<label class=\"label\">Admin10 of the event(enter 4 digits of anwesha ID)</label>
+			<div class=\"control\">
+				<input class=\"input\" type=\"number\" name=\"owner10\" min='1000' max='9999'>
 			</div>
 		</div>
 		    <button class=\"button is-link\">Update</button>

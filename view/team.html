@@ -140,9 +140,9 @@
 			<br>
 			<img class="boundary" src="../images/bound.png">
 		</div>
-	
-	<!-----moving ----witch------>
-		<img class="moving_witch" src="../images/witch_right_1.png">
+		
+<!-----moving ----witch------>
+	<img class="moving_witch" id="moving_witch" src="../images/witch_right_1.png">
 
 	<!-----fixed ----cloud------>
 		<div class="cloud_div"></div>
@@ -202,6 +202,7 @@
 
 		</div>	
 
+	
 	<!---ajax loader---->
 
 		<div class="ajax_loading_bckgrnd">
@@ -215,17 +216,19 @@
 			<div class="ajax_content"></div>
 		</div>
 
-	<!---footer-->
-		<div class="footer_div">
-			<a target="_blank" href="https://www.facebook.com/anwesha.iitpatna/"><img src="../images/social/fb.png"></a>
-			<a target="_blank" href="https://www.instagram.com/anwesha.iitp/"><img src="../images/social/insta.png"></a>
-			<a target="_blank" href="https://www.youtube.com/user/AnweshaIITP"><img src="../images/social/youtube.png"></a>
-			
-			<div class="copyright">
-				&copy; 2018 Anwesha, IIT Patna
-			</div>
-		</div>
+<!---footer-->
+	<div class="footer_div">
+		<a target="_blank" href="https://www.facebook.com/anwesha.iitpatna/"><img src="../images/social/fb.png"></a>
+		<a target="_blank" href="https://www.instagram.com/anwesha.iitp/"><img src="../images/social/insta.png"></a>
+		<a target="_blank" href="https://www.youtube.com/user/AnweshaIITP"><img src="../images/social/youtube.png"></a>
 		
+		<div class="copyright">
+			&copy; 2018 Anwesha, IIT Patna
+		</div>
+	</div>
+
+
+
 	<!--scripts-->
 		<script type="text/javascript" src="../assets/js/jquery.js"></script>
 		<script type="text/javascript" src="../assets/js/jquery.mousewheel.js"></script>
@@ -248,8 +251,6 @@
 				span_text=$('.menu_toggle span').text();
 				if(span_text == "EXIT")
 				{
-					$('.left_door').addClass('left_door_anim');
-					$('.right_door').addClass('right_door_anim');
 					$('.menu_toggle span').text('MENU');
 					$('.menu_toggle img').attr('src', '/images/skull_menu.png');
 					$('.menu_backgrnd').fadeOut(800);
@@ -257,13 +258,19 @@
 				}
 				else
 				{
-					$('.left_door').removeClass('left_door_anim');
-					$('.right_door').removeClass('right_door_anim');
 					$('.menu_toggle span').text('EXIT').fadeIn(800);
 					$('.menu_toggle img').attr('src', '/images/skull_exit.png');
 					$('.menu_backgrnd').fadeIn(800);
 					$('.menu_bar').slideDown(800);
 				}
+			});
+
+			$('.menu_backgrnd').click(function()
+			{
+				$('.menu_toggle span').text('MENU');
+				$('.menu_toggle img').attr('src', '/images/skull_menu.png');
+				$('.menu_backgrnd').fadeOut(800);
+				$('.menu_bar').slideUp(800);
 			});
 
 	//menu bar item css
@@ -276,66 +283,34 @@
 			var new_li= new_li.next().next().next();
 			new_li.addClass('secnd_rot');
 
-	//witch resting
-			witch_attr = $('.moving_witch').attr('src');
-
-			$.fn.witch_motion_start = function()
-				{ 
-		       		witch_motion= setInterval(function()
-						{ 
-							if(witch_attr=="../images/witch_right_1.png")
-							{
-								$('.moving_witch').attr('src', '../images/witch_right_2.png');
-								witch_attr = "../images/witch_right_2.png";
-							}
-							else if(witch_attr=="../images/witch_right_2.png")
-							{
-								$('.moving_witch').attr('src', '../images/witch_right_1.png');
-								witch_attr = "../images/witch_right_1.png";
-							}
-
-						}, 800);
-			    }
-
-			$.fn.witch_motion_stop = function()
-			{ 
-				clearInterval(witch_motion);  
-			}
-
-			$.fn.witch_motion_start();
-
-	//witch direction on scroll
- 			scroll_posn = $(document).scrollLeft();
-
-			$(document).on("scroll",function()
+	//witch direction on moving mouse
+			$(document).ready( function ()
 			{
-				var scroll_posn_new = $(document).scrollLeft();
-				if(scroll_posn_new >= scroll_posn )
-				{
 
-					$('.moving_witch').css('left', '45%');
-					
-					witch_dirc = $('.moving_witch').css('transform');
-					//alert(witch_dirc);
-					if(witch_dirc == "matrix3d(-1, 0, -1.22465e-16, 0, 0, 1, 0, 0, 1.22465e-16, 0, -1, 0, 0, 0, 0, 1)")
-					{
-						$('.moving_witch').css('transform', 'rotateY(360deg)');
-					}
+			// track and save the position of the mouse
+				$(document).mousemove( function(e) 
+				{
+					mouseX = e.pageX;
+					mouseY = e.pageY; 
+		  		 	
+		  		 	witchX = parseInt($('#moving_witch').css("left"));
+		  		 	witchY = parseInt($('#moving_witch').css("top"));
 
-					scroll_posn =scroll_posn_new;
-				}
-				else if(scroll_posn_new < scroll_posn )
-				{
-					$('.moving_witch').css('left', '35%');
-					//$.fn.witch_motion_stop();
-					scroll_posn =scroll_posn_new;
-					$('.moving_witch').css('transform', 'rotateY(180deg)');
-				}
-				else
-				{
-					$('.moving_witch').css('left', '40%');
-				}
-				
+					$('#moving_witch').css('top',mouseY);
+		  		 	$('#moving_witch').css('left',mouseX);
+
+		  		 	
+		  		 	if(witchX < mouseX)
+		  		 	{
+		  		 		$('#moving_witch').css('transform', 'rotateY(360deg)');
+		  		 	}
+		  		 	else
+		  		 	{
+		  		 		$('#moving_witch').css('transform', 'rotateY(180deg)');
+
+		  		 	}
+				});
+
 			});
 
 	//cloud motion
@@ -364,38 +339,6 @@
 			//cloud motion and floor motion
 				$('.moving_cloud_div img').css('left', -(mob_pos * .05) + 'px');
 				$('.moving_floor_div img').css('left', -(mob_pos * .4) + 'px');
-
-
-			//witch motion direction
-				mob_scroll_posn_new = $('.team_div').scrollTop();
-
-				if(mob_scroll_posn_new >= mob_scroll_posn )
-				{
-
-					$('.moving_witch').css('left', '45%');
-					
-					witch_dirc = $('.moving_witch').css('transform');
-					
-					if(witch_dirc == "matrix3d(-1, 0, -1.22465e-16, 0, 0, 1, 0, 0, 1.22465e-16, 0, -1, 0, 0, 0, 0, 1)")
-					{
-						$('.moving_witch').css('transform', 'rotateY(360deg)');
-					}
-
-					mob_scroll_posn =mob_scroll_posn_new;
-				}
-				else if(mob_scroll_posn_new < mob_scroll_posn )
-				{
-					$('.moving_witch').css('left', '35%');
-
-					$('.moving_witch').css('transform', 'rotateY(180deg)');
-
-					mob_scroll_posn =mob_scroll_posn_new;
-				}
-				else
-				{
-					$('.moving_witch').css('left', '40%');
-				}
-
 			});
 
 	//ajax on menu items
@@ -500,6 +443,18 @@
 				//alert('ka');
 				$('.team_loader').load('/rsp/');
 			});
+		</script>
+
+	<!---------stars in background---------->
+		<script src="js/jquery-stars.js"></script>
+		<script>
+			$(document).jstars({
+				image_path: 'images',
+				style: 'yellow',
+				frequency: 20,
+				delay: 400
+			});
+			
 		</script>
 
 		<script type="text/javascript" src="../js/ajax.js"></script>

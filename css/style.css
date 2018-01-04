@@ -342,15 +342,33 @@ body
 }
 
 /*-------moving witch-----------*/
-.moving_witch
+#moving_witch
 {
 	display: block;
-	position: fixed;
-	top:100px;
-	left: 40%;
+	position: absolute;
+	top: 15%;
+	left: 45%;
 	z-index: 150;
 	max-width: 13%;
-	transition: .8s;
+	transition: .8s linear;
+}
+
+.wleft 
+{
+        -moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        filter: FlipH;
+        -ms-filter: "FlipH";
+}
+.wright {
+        -moz-transform: scaleX(1);
+        -o-transform: scaleX(1);
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1);
+        filter: FlipH;
+        -ms-filter: "FlipH";
 }
 
 /*-------moving cloud-----------*/
@@ -362,9 +380,10 @@ body
 	width:100%;
 	height: 100%;
 	background: red;
-	background-image: url(/images/cloud.jpg);
-	background-repeat: no-repeat;
-	background-size: cover;
+	/*background-image: url(/images/cloud.jpg);*/
+	background-image: url('/images/tw_stars.jpg');
+	/*background-repeat: no-repeat;*/
+	/*background-size: cover;*/
 	z-index: -5;
 	opacity: 1;
 }
@@ -415,7 +434,7 @@ body
 	bottom: 7%;
 	z-index: 90;
 	width: 100%;
-	/*//background: red;*/
+	//background: yellow;
 	opacity: 1;
 	height: 60%;
 	white-space: nowrap;
@@ -424,22 +443,21 @@ body
 
 .anwesha_logo
 {
-	width: 30%;
-	/*//background: green;*/
-	display: inline-block;
-	vertical-align: top;
-	text-align: right;
+	width: 50%;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
 }
 
 .anwesha_logo img
 {
-	width: 80%;
-	/*//transform: rotate(20deg);*/
+	width: 60%;
+	//background: white;
 }
 
 .blank_div_thr
 {
-	width: 30%;
+	width: 25%;
 	height: 100px;
 	/*//background:orange;*/
 	display: inline-block;
@@ -685,17 +703,19 @@ body
 .events_div
 {
 	position: absolute;
-	bottom: 6%;
-	z-index: 110;
+	bottom: 4%;
+	z-index: 150;
 	width: 100%;
-	height: 60%;
+	height: 70%;
 	white-space: nowrap;
 	/*//padding-top: 2%;*/
 }
 
 .events_blank
 {
-	width: 800px;
+	width: 900px;
+/*	//height: 100px;
+	//background: green;*/
 	vertical-align:bottom;
 	display: inline-block;
 }
@@ -707,25 +727,34 @@ body
 .events_title
 {
 	color: white;
-	text-align: left;
-	font-size: 140%;
-	font-weight: bold;
-	background: #8b0000;
-	padding: 2px;
-	padding-right: 10px;
-	border-radius: 5px;
-	font-size: 160%;
+    text-align: left;
+    font-size: 140%;
+    font-weight: bold;
+    background: #63262229;
+    padding: 2px;
+    padding-right: 10px;
+    border-radius: 5px;
+    font-size: 160%;
+}
+.active-tab{
+	box-shadow: 0px 0px 50px #6b1b1bcc !important;
+	color: #f77575 !important;
 }
 
 #event_cat_div
 {
 	display: inline-block;
-	width: 800px;
-	height: 97%;
-	background: white;
-	padding: 1%;
-	vertical-align: top;
-	overflow-y: scroll;
+    width: 800px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 97%;
+    background: -webkit-linear-gradient(to right, #000000, #53346d);
+    /* background: #bfbfbf; */
+    background: linear-gradient(to right, #000000, #53346d);
+    padding: 1%;
+    box-shadow: #711d1d 1px -5px 20px 0px;
+    vertical-align: top;
+    overflow-y: auto;
 }
 
 #event_cat_div ul
@@ -735,17 +764,21 @@ body
 	text-align: right;
 }
 
-#event_cat_div li
+#event_cat_div li,#event_cat_div .evetab
 {
 	padding:0;
 	margin: 0;
 	display: inline-block;
 	text-decoration: none;
 	padding:1%;
-	background: #ce980f;
-	color: white;
+	/*//background: #7FFFD4;*/
+	background-image: url(/images/dark.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: lightgrey;
 	cursor: pointer;
 	border-radius: 3px;
+	box-shadow: 1px 1px 5px black;
 	margin-right:1%;
 }
 
@@ -753,8 +786,8 @@ body
 {
 	margin-top: 1%;
 	width: 100%;
-	background:yellow;
-	height: 100px;
+	/*background:yellow;*/
+	/*height: 100px;*/
 	text-align: left;
 }
 
@@ -762,15 +795,15 @@ body
 {
 	margin-top: 1%;
 	width: 100%;
-	background: green;
-	height: 100px;
+	/*background: green;*/
+	/*height: 100px;*/
 }
 
 .mang_content
 {
 	margin-top: 1%;
 	width: 100%;
-	background: orange;
+	/*background: orange;*/
 	height: 100px;
 }
 
@@ -847,7 +880,7 @@ body
 	opacity: 1;
 	transform: rotate(3deg);
 	transform-origin: 0% 0%;
-	overflow-y: scroll;
+	overflow-y: auto;
 }
 
 /*--syling ajax div---*/
@@ -1012,9 +1045,10 @@ body
 		width: 9%;
 	}
 
-	.moving_witch
+	#moving_witch
 	{
-		max-width: 25%;
+		max-width: 30%;
+		display: none;
 	}
 
 	.menu_bar
@@ -1110,11 +1144,6 @@ body
 	.menu_bar
 	{
 		width: 50%;
-	}
-
-	.moving_witch
-	{
-		max-width: 35%;
 	}
 
 	.anwesha_logo

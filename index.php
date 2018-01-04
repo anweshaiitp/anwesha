@@ -4,7 +4,7 @@ error_reporting(E_ALL | E_STRICT);  # ...but do log them
 ini_set('zlib_output_compression','On');
 
 ini_set("log_errors", 1);
-ini_set("error_log", "/tmp/php-error.log");
+ini_set("error_log", "errors.log");
 error_log($_SERVER['REMOTE_ADDR']);
 /**
 * New request lands in this class. After that it is routed accordingly to the respective controller.
