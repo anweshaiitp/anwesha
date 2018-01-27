@@ -47,7 +47,7 @@ $cover_url = null;
 			if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
 				echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
 
-				$cover_url = "http://anwesha.info/".$target_file;
+				$cover_url = "https://anwesha.info/".$target_file;
 				
 				
 			} else {
