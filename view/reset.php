@@ -52,14 +52,14 @@ body{
 	if($status == 0){
 		echo "<h2>Enter new password</h2><br>
 	<form action='' method='post'>
-		<input type='text' name='newPassword' placeholder='New Password' pattern='[a-zA-Z0-9]{6,30}' title='Password should be alpha number 6 to 30 digits'><h4>6 to 30 digits[alpha-numeric]</h4><br>
+		<input type='text' name='newPassword' placeholder='New Password' pattern='[a-zA-Z0-9]{6,30}' title='Password should consist only alphabets and numbers. Minimum 6 characters, maximum 30 characters'><br><h4>Password should consist only alphabets and numbers. Minimum 6 characters, maximum 30 characters</h4>
 		<input type='submit' value='Change Password'>
 	</form>";
 	} else {
 		echo "<h2>$message</h2><br><br>";
 		if($status == -1){
 			echo "<h3>Try again</h3><br><br><form action='' method='post'>
-		<input type='text' name='newPassword' placeholder='New Password' pattern='[a-zA-Z0-9]{6,30}' title='Password should be alpha number 6 to 30 digits'><h4>6 to 30 digits[alpha-numeric]</h4><br>
+		<input type='text' name='newPassword' placeholder='New Password' pattern='[a-zA-Z0-9]{6,30}' title='Password should consist only alphabets and numbers. Minimum 6 characters, maximum 30 characters'><br><h4>Password should consist only alphabets and numbers. Minimum 6 characters, maximum 30 characters</h4>
 		<input type='submit' value='Change Password'>
 	</form>";
 		}else{

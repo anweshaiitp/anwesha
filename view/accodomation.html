@@ -1,49 +1,327 @@
 <html>
-	<head>
-		<style type="text/css">
-			body
-			{
-				color: black;
-			}
-		</style>
-	</head>
-	<body>
-		<h1 style="text-align:right">Accommodation Policy</h1>
-		<ul>
-			<li>Accommodation will be provided only to the students who have a valid Student ID Card and Anwesha'18 ID.</li>
-			<li>Entry will be only through the 'Gate 1' of IIT Patna, all other gates will be closed for entry.</li>
-			
-			<li>All student participants must carry their valid College photo ID card. Students without valid photo identity card will not be allowed inside the campus during Anwesha'18</li>
-			
-			<li>Those carrying laptops and other valuable items will have to declare their belongings at the main gate and Registration Desk of Anwesha'18 through the form provided to them at the gate. Your belongings will be checked on your way out of IIT Patna and those who fail to produce their earlier mentioned declarations may have their belongings impounded.</li>
+<head>	
+	<style type="text/css">
 
-			<li>When you arrive at IIT Patna, you will have to come to registration desk. Your place of stay will be allotted then.</li>
-			<li>Accommodation would be strictly on first come first serve basis.</li>
-			<li>Priority will be given to students who have a longer duration of stay.</li>
-			<li>We shall provide you with mattresses, pillows, and a blanket. However, you are encouraged to carry your own blanket as well.</li>
-			<li>Accommodation will be given only after it has been confirmed by the Hospitality Group Members.</li>
-			<li>All those that don’t have confirmed accommodation inside the campus will not be allowed to use the accommodation facilities.</li>
-			
-			<li>Proper checks would be made to avoid any illegal stay. Any one failing to produce their receipts of accommodation would be heavily fined and may face legal actions.</li>
-			
-			<li>Carrying alcohol, drugs, sharp objects and explosives of any kind is strictly prohibited inside the campus. Any other item if deemed unsafe will be confiscated.</li>
+		@font-face
+		{
+			font-family: main_font;
+			src: url(../css/calibri.ttf);
+		}
+	
+		body
+		{
+			color: black;
+			padding: 5px;
+			font-family: main_font;
+		}
 
-			<li>Vehicles will not be allowed beyond parking lot near Gate 1.</li>
-			<li>Anwesha'18 and IIT Patna will not be responsible for any kind of mishaps and damage that may occur through the duration of stay for Anwesha'18.</li>
-			<li>In case of any discrepancies, decisions made by Hospitality committee will be final and bonding.</li>
+		.spons_anw
+		{
+			width: 60%;
+			margin: auto;
+			display: block;
+		}
+
+		.accod_tabs
+		{
+			text-align: center;
+		}
+
+		.accod_tabs button, .accod_accod_div button
+		{
+			padding:0;
+			margin: 0;
+			border: none;
+			padding: 10px;
+			margin: 4px;
+			/* background: #685d7b8c; */
+			/* background-image: linear-gradient(to top, #23919275 0%, #33086763 100%); */
+			/* color: lightgrey; */
+
+			/* font-size: 110%; */
+			/* border-radius: 3px; */
+			/* box-shadow: 0px 0px 5px black; */
+			cursor: pointer;
+		}
+		.genbtn{
+		    border: #FFFFFF solid 2px;
+		    background: rgba(238, 238, 238, 0);
+		    padding: 5px;
+		    box-shadow: #ffffff 0px 0px 7px 1px;
+		    text-align: center;
+		    font-size: 130%;
+		    font-weight: bold;
+		    cursor: pointer;
+		    border-radius: 5px;
+		    color: #FFFFFF;
+		    transition: color .5s, background .5s, text-shadow .5s;
+		    padding-right: 15px;
+		    padding-left: 15px;
+		    text-shadow: #FFFFFF 0px 0px 0px;
+	}
+.genbtn:hover {
+	background: rgba(238, 238, 238, 0.427);
+	/* color: #000000; */
+	text-shadow: #FFFFFF 2px 1px 5px;
+
+	box-shadow: #171717 0px 0px 12px 1px;
+}
+		 .accod_accod_div a
+		{
+			padding:0;
+			margin: 0;
+			border: none;
+			padding: 8px;
+			margin: 1px;
+			/* background: #685d7b8c; */
+			/* background-image: linear-gradient(to top, #23919275 0%, #33086763 100%); */
+			/* color: lightgrey; */
+
+			font-size: 110%;
+			border-radius: 3px;
+			/* box-shadow: 1px 1px 8px black; */
+			cursor: pointer;
+			text-decoration: none;
+		}
+
+		.accod_page_content
+		{
+			padding: 5px;
+			color: white;
+			font-size: 110%;
+			font-family: main_font;
+		}
+
+		.accod_page_content a
+		{
+			color: lightgrey;
+			text-decoration: none;
+		}
+
+		.accod_page_content ul
+		{
+			display: none;
+		}
+
+		.accod_page_content h1
+		{
+			color: #ce980f
+		}
+		
+		.ritz td
+		{
+			padding: 10px;
+			border: 1px solid white;
+			color: white;
+		}
+	</style>
+</head>
+<body>
+	<br><br><br><br><br>
+	
+	<img class="spons_anw" src="../images/anwesha.png">
+	<br>
+	<div class="accod_tabs">
+		<button class="genbtn general_accod_button">General Guidelines</button>
+		<button class="genbtn charges_accod_button">Charges</button>
+		<button class="genbtn here_accod_button">Getting Here</button>
+		<button class="genbtn accod_accod_button">Accommodation</button>
+		<button class="genbtn contact_accod_button">Contacts</button>
+	</div>
+
+	<div class="accod_page_content">
+		<ul class="general_accod_div">
+			<h1>General Guidelines</h1>
+
+			<li>Every student participant must carry his/her college ID card. Entry without a valid ID is not allowed.</li>
+			<li>Entry is only allowed through Gate 1 of the campus. All other gates will be closed for entry.</li>
+			<li>Accommodation will only be provided to students having a valid Anwesha'18 ID.</li>
+			<li>Participants carrying laptops and other valuable items must declare their belongings at the Registration Desk of Anwesha’18 through the form provided. Disclosure of any prior undeclared belongings may result in impounding of those items.</li>
+			<li>Accommodation will strictly be on first come first serve basis.</li>
+			<li>You can also avail online accommodation <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSc2SsNS7f-KQkBQiAJ9IE0Cv0Zyi9TY88EVJ9Ve-2xMrIVGbA/viewform">here</a> .</li>
+			<li>Prior accommodation (01/02/2018) can be availed only through online accommodation facility.</li>
+			<li>Priority will be given to students having a longer duration of stay.</li>
+			<li>Anwesha'18 will provide you with mattresses,blankets and pillows. You are encouraged to carry basic requirements for your stay.</li>
+			<li>Accommodation will be given only after it has been confirmed by the Hospitality committee.</li>
+			<li>Students not having confirmed accommodation inside the campus are not allowed to use the accommodation facilities.</li>
+			<li>The declared accommodation charges do not include meal.Though there will be various food joints available in campus during fest.Food will also be available in hostel mess on pay per meal basis.</li>
+			<li>In case of damage to the property of IIT Patna , hefty fine will be charged. </li>
+			<li>Alcohol, drugs and sharp objects are strictly prohibited inside the campus. Any other item if deemed unsafe will be confiscated.</li>
+			<li>Vehicles will not be allowed beyond the parking lot near Gate 1.</li>
+			<li>Anwesha'18 and IIT Patna will not be responsible for any mishaps that occur through the duration of stay for Anwesha'18.</li>
+			<li>In case of any discrepancy, the decision made by the Hospitality committee will be final and binding.</li>
+			
+		</ul>
+
+		<ul class="charges_accod_div">
+			<h1>Accomodation and Registration charges</h1>
+
+	    	The fest and accommodation charges per person are as follows:
+			
+			<li>The registration fee is Rs 100. Registration is compulsory for entry to the fest and participating in the events.</li>
+			<li>The ticket for the Band night costs Rs 150. You can register yourself and buy the Band night tickets for Rs. 200</li>
+			<li>The price for accommodation for a day is Rs. 150. For three days, the price is Rs. 400</li>
+			<li>If you wish to stay for more than 3 days, you will be charged Rs.500</li>
+			<br>
+
+			<div class="ritz grid-container" dir="ltr">
+				<table class="waffle" cellspacing="0" cellpadding="0">
+					<thead>
+						<tr>
+							<th class="row-header freezebar-origin-ltr"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr style='height:20px;'>
+							<th id="0R0" style="height: 20px;" class="row-headers-background">
+							</th>
+							<td>Services</td>
+							<td class="s0" dir="ltr">Amount</td>
+						</tr>
+						<tr style='height:20px;'>
+							<th id="0R1" style="height: 20px;" class="row-headers-background">
+							</th>
+							<td class="s0" dir="ltr">Registration</td>
+							<td class="s1" dir="ltr">100</td>
+						</tr>
+						<tr style='height:20px;'>
+							<th id="0R2" style="height: 20px;" class="row-headers-background">
+							</th>
+							<td class="s0" dir="ltr">Band pass </td>
+							<td class="s1" dir="ltr">150</td>
+						</tr>
+						<tr style='height:20px;'>
+							<th id="0R3" style="height: 20px;" class="row-headers-background">
+							</th>
+							<td class="s0" dir="ltr">Registration + band pass</td>
+							<td class="s1" dir="ltr">200</td>
+						</tr>
+						<tr style='height:20px;'>
+							<th id="0R4" style="height: 20px;" class="row-headers-background">
+							</th>
+							<td class="s0" dir="ltr">Accommodation per day </td>
+							<td class="s1" dir="ltr">150</td>
+						</tr>
+						<tr style='height:20px;'>
+							<th id="0R5" style="height: 20px;" class="row-headers-background">
+							</th>
+							<td class="s0" dir="ltr">Accommodation for 3 days</td>
+							<td class="s1" dir="ltr">400</td>
+						</tr>
+						<tr style='height:25px;'>
+							<th id="0R6" style="height: 25px;" class="row-headers-background">
+							</th>
+							<td class="s0" dir="ltr">Accommodation for 4 days</td>
+							<td class="s1" dir="ltr">500</td>
+						</tr>
+						<tr style='height:20px;'>
+							<th id="0R7" style="height: 20px;" class="row-headers-background">
+							</th>
+							<td class="s0" dir="ltr">T-shirt price</td>
+							<td class="s1" dir="ltr">300</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			
+		</ul>
+
+		<ul class="here_accod_div">
+			<h1>Getting Here</h1>
+
+			<li>The IIT Patna campus is located in Bihta, about 35 kms( about 1.5 hours) from Patna junction and 31km from Patna airport , 23 kms ( about 45 mins) from Danapur Railway Station and 5 kms ( about 15 mins) from Bihta railway station. The Campus is well connected by road to each of these major check points. You can readily hire a taxi to reach our campus.</li>
+			<li>BSRTC has special routes between the campus and Gandhi Maidan. <a href="https://www.iitp.ac.in/images/pdf/BSRTC%20Buses_Gandhi%20Maidan,%20Patna-Bihta,%20IIT%20Patna.pdf" target="_blank">Here's the schedule for the same</a></li>
+			<li>The approximate taxi fares from each of the stations can be calculated <a href="http://www.taxi-calculator.com/" target="_blank">here.</a></li>
+			<li><a href="https://www.google.co.in/maps/place/IIT+Patna+Main+Gate/@25.5357523,84.8488766,17z/data=!4m12!1m6!3m5!1s0x39ed577f6954a4ab:0x6ce8f1b9fc2aa02a!2sIndian+Institute+of+Technology+Patna!8m2!3d25.5357523!4d84.8510653!3m4!1s0x398d56788d553595:0xc65e6a27cdd29336!8m2!3d25.5335547!4d84.8554909" target="_blank">Click here for directions</a></li>
+		</ul>
+
+		<ul class="accod_accod_div">
+			<h1>Accommodation</h1>
+
+			<li>Before applying for online accommodation you must be registered to Anwesha'18 and must have a valid Anwesha'18 ID.</li>
+			<li>Payment will be made through Paytm only for online accommodation.</li>
+			<li>No amount will be refunded on cancellation of registration or accommodation.</li>
+			<li>On successful application of online accommodation, you will receive a confirmation mail.</li>
+			<li>Prior accommodation(01/02/2018) can be availed only through online accommodation facility. </li>
+			<li>You will be provided accommodation only after it has been confirmed by the Hospitality committee.</li>
+			<br>
+			<a class="genbtn" href="https://docs.google.com/forms/d/e/1FAIpQLSc2SsNS7f-KQkBQiAJ9IE0Cv0Zyi9TY88EVJ9Ve-2xMrIVGbA/viewform" target="_blank">Apply</a>
+		</ul>
+
+		<ul class="contact_accod_div">
+			<h1>Contacts</h1>
+			<span>Ashish Raj &nbsp; &nbsp; +91 97986 87323</span>
+			<br>
+			<span>Piyush Kumar Agarwal &nbsp; &nbsp; +91 7980183647</span>
+			<br>
+			<span>Solomon Joy &nbsp; &nbsp; +91 7093329167</span>
 
 		</ul>
 
-	<!-----scripts------>
-		<script type="text/javascript" src="js/jquery.js"></script>
-		<script type="text/javascript">
+	</div>
+	
+<!-----scripts------>
+	<script type="text/javascript" src="../js/jquery.js"></script>
+	<script type="text/javascript">
 	//ajax on menu items
-			$('.close_icon').click(function()
-			{
-				$('.ajax_loading_bckgrnd').fadeOut(800);
-				$('.ajax_loading_div').addClass('ajax_loading_entry');
-			});
-		</script>
-		
+		$('.close_icon').click(function()
+		{
+			$('.ajax_loading_bckgrnd').fadeOut(800);
+			$('.ajax_loading_div').fadeOut(800);
+		});
+
+		$('.general_accod_div').fadeIn(0);
+
+		$('.general_accod_button').click(function()
+		{
+			$('.general_accod_div').fadeIn(500);
+
+			$('.charges_accod_div').fadeOut(0);
+			$('.here_accod_div').fadeOut(0);
+			$('.accod_accod_div').fadeOut(0);
+			$('.contact_accod_div').fadeOut(0);
+		});
+
+		$('.charges_accod_button').click(function()
+		{
+			$('.charges_accod_div').fadeIn(500);
+
+			$('.general_accod_div').fadeOut(0);
+			$('.here_accod_div').fadeOut(0);
+			$('.accod_accod_div').fadeOut(0);
+			$('.contact_accod_div').fadeOut(0);
+		});
+
+		$('.here_accod_button').click(function()
+		{
+			$('.here_accod_div').fadeIn(500);
+
+			$('.charges_accod_div').fadeOut(0);
+			$('.general_accod_div').fadeOut(0);
+			$('.accod_accod_div').fadeOut(0);
+			$('.contact_accod_div').fadeOut(0);
+		});
+
+		$('.accod_accod_button').click(function()
+		{
+			$('.accod_accod_div').fadeIn(500);
+
+			$('.charges_accod_div').fadeOut(0);
+			$('.here_accod_div').fadeOut(0);
+			$('.general_accod_div').fadeOut(0);
+			$('.contact_accod_div').fadeOut(0);
+		});
+
+		$('.contact_accod_button').click(function()
+		{
+			$('.contact_accod_div').fadeIn(500);
+
+			$('.charges_accod_div').fadeOut(0);
+			$('.here_accod_div').fadeOut(0);
+			$('.general_accod_div').fadeOut(0);
+			$('.accod_accod_div').fadeOut(0);
+		});
+
+	</script>
 	</body>
 </html>

@@ -9,6 +9,7 @@ if($match[1]=='logout'){
     unset($_SESSION['user_name']);
     header('Location: /eventAdmin');
 }
+$isregmember = 0;
 $conn = mysqli_connect(SERVER_ADDRESS,USER_NAME,PASSWORD,DATABASE);
 	$purp = 0;
 	$arr = array();
@@ -35,6 +36,8 @@ $conn = mysqli_connect(SERVER_ADDRESS,USER_NAME,PASSWORD,DATABASE);
 if($purp!=-1){
 	$isSuperUser = Events::isSuperUser($_SESSION['userID'],$conn);
 	$resp = People::isSpecial($_SESSION['userID'],$conn);
+	if(isset($resp["isRegTeam"]) && $resp["isRegTeam"]>0)
+		$isregmember = 1;
 	///############# Home, logged in, List all events they are an admin for
 	if($match[1]==''){
 		$purp = 1;
@@ -83,8 +86,33 @@ if($purp!=-1){
 				$title = "Successfully added";
 				$purp = 21;
 			}
-			// $sql = "INSERT INTO `Events` (`eveId`, `eveName`, `fee`, `day`, `size`, `code`, `tagline`, `date`, `time`, `venue`, `organisers`, `short_desc`, `long_desc`, `cover_url`, `icon_url`, `rules_url`, `owner1`, `owner2`, `owner3`, `owner4`) VALUES ('16', 'Loul', NULL, '1', '1', '1', 'Loolwa', '12 jan', '12 baje', 'admin block', 'Guyzzz', 'This is some desc', 'This is some more desc.', 'http://coverurl', 'http://iconurl', 'http://rules.pdf', '1000', NULL, NULL, NULL);";
+			// $sql = "INSERT INTO `Events` (`eveId`, `eveName`, `fee`, `day`, `size`, `code`, `tagline`, `date`, `time`, `venue`, `organisers`, `short_desc`, `long_desc`, `cover_url`, `icon_url`, `rules_url`, `reg_url`, `owner1`, `owner2`, `owner3`, `owner4`) VALUES ('16', 'Loul', NULL, '1', '1', '1', 'Loolwa', '12 jan', '12 baje', 'admin block', 'Guyzzz', 'This is some desc', 'This is some more desc.', 'http://coverurl', 'http://iconurl', 'http://rules.pdf', '1000', NULL, NULL, NULL);";
 		}
+		///############# Update Event
+	}else if($match[1]== 'view'){
+		if(Events::isValidOrg($_SESSION['userID'],$match[2],$conn)[0]==-1 && !$isSuperUser){
+			echo "403";
+			die();
+		}
+		$purp = 5;
+		$title = "View Registrations";
+		$viewdat = [];
+		$sql = "SELECT p.name,p.pId,p.college,p.mobile,p.feePaid,p.qrurl FROM People p, Registration r WHERE (r.eveId = ".$match[2]." AND r.pId = p.pId)";
+        $result = mysqli_query($conn,$sql);
+        if(!$result){
+           $status = -1;
+           $httpstatus = 400;
+           $message = "SQL error";
+        } else {
+            $status = 1;
+           $httpstatus = 200;
+            $message = "";
+            while ($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
+                $viewdat[] = $row;
+            }
+            
+        }
+
 		///############# Update Event
 	}else if($match[1]== 'update'){
 		if(Events::isValidOrg($_SESSION['userID'],$match[2],$conn)[0]==-1 && !$isSuperUser){
@@ -94,8 +122,14 @@ if($purp!=-1){
 		$title = "Update Info for Event no ".$match[2];
 		$purp = 3;
 
-		$fields = array( 'eveName', 'fee', 'day', 'tagline', 'date', 'time', 'venue', 'organisers', 'short_desc', 'long_desc', 'cover_url', 'icon_url', 'rules_url', 'owner1', 'owner2', 'owner3', 'owner4', 'owner5', 'owner6', 'owner7', 'owner8', 'owner9', 'owner10');
-		if(isset($_POST['eveName']) || isset($_POST['fee']) || isset($_POST['day']) || isset($_POST['size']) || isset($_POST['tagline']) || isset($_POST['date']) || isset($_POST['time']) || isset($_POST['venue']) || isset($_POST['organisers']) || isset($_POST['short_desc']) || isset($_POST['long_desc']) || isset($_POST['cover_url']) || isset($_POST['icon_url']) || isset($_POST['rules_url']) || isset($_POST['owner1']) || isset($_POST['owner2']) || isset($_POST['owner3']) || isset($_POST['owner4'])){
+		foreach ($_POST as $key => $value) {
+			if($value!= null && $value!= '' ){
+				$_POST[$key] = htmlspecialchars($value, ENT_QUOTES);
+			}
+		}
+
+		$fields = array( 'eveName', 'fee', 'day', 'tagline', 'date', 'time', 'venue', 'organisers', 'short_desc', 'long_desc', 'cover_url', 'icon_url', 'rules_url', 'reg_url', 'owner1', 'owner2', 'owner3', 'owner4', 'owner5', 'owner6', 'owner7', 'owner8', 'owner9', 'owner10');
+		if(isset($_POST['eveName']) || isset($_POST['fee']) || isset($_POST['day']) || isset($_POST['size']) || isset($_POST['tagline']) || isset($_POST['date']) || isset($_POST['time']) || isset($_POST['venue']) || isset($_POST['organisers']) || isset($_POST['short_desc']) || isset($_POST['long_desc']) || isset($_POST['cover_url']) || isset($_POST['icon_url']) || isset($_POST['rules_url']) || isset($_POST['reg_url']) || isset($_POST['owner1']) || isset($_POST['owner2']) || isset($_POST['owner3']) || isset($_POST['owner4'])){
 			foreach ($fields as $fieldName ) {
 				if($_POST[$fieldName]=='' || $_POST[$fieldName]==null || empty($_POST[$fieldName]) ){
 					if(in_array($fieldName, array('fee','day','owner1','owner2','owner3','owner4','owner5','owner6','owner7','owner8','owner9','owner10'), TRUE)){
@@ -122,6 +156,7 @@ if($purp!=-1){
 			$cover_url = mysqli_real_escape_string($conn,$_POST['cover_url']);
 			$icon_url = mysqli_real_escape_string($conn,$_POST['icon_url']);
 			$rules_url = mysqli_real_escape_string($conn,$_POST['rules_url']);
+			$reg_url = mysqli_real_escape_string($conn,$_POST['reg_url']);
 			$owner1 = mysqli_real_escape_string($conn,$_POST['owner1']);
 			$owner2 = mysqli_real_escape_string($conn,$_POST['owner2']);
 			$owner3 = mysqli_real_escape_string($conn,$_POST['owner3']);
@@ -158,7 +193,7 @@ if($purp!=-1){
 			if($owner10!=null && $owner10!='')
 				$intQuer.="`owner10` = $owner10, ";
 
-			$query = "UPDATE `Events` SET `eveName` = '$eveName', $intQuer `tagline` = '$tagline', `date` = '$date', `time` = '$time', `venue` = '$venue', `organisers` = '$organisers', `short_desc` = '$short_desc', `long_desc` = '$long_desc', `cover_url` = '$cover_url', `icon_url` = '$icon_url', `rules_url` = '$rules_url' WHERE `Events`.`eveId` = ".$match[2].";";
+			$query = "UPDATE `Events` SET `eveName` = '$eveName', $intQuer `tagline` = '$tagline', `date` = '$date', `time` = '$time', `venue` = '$venue', `organisers` = '$organisers', `short_desc` = '$short_desc', `long_desc` = '$long_desc', `cover_url` = '$cover_url', `icon_url` = '$icon_url', `rules_url` = '$rules_url', `reg_url` = '$reg_url' WHERE `Events`.`eveId` = ".$match[2].";";
 			if($result = mysqli_query($conn,$query)){
 				$title = "Successfully Updated for ".$match[2];
 				$purp = 3;
@@ -212,7 +247,7 @@ if($purp!=-1){
 		$(document).ready(function(){
 			<?php
 				foreach ($arr as $key => $value) {
-					echo "$(\"[name=".$key."]\").val('$value');
+					echo "$(\"[name=".$key."]\").val(`$value`);
 					";
 				}
 			?>
@@ -234,6 +269,9 @@ body {
 		.field{
 			width:300px;
 		}
+		.table__wrapper {
+  overflow-x: auto;
+}
 	</style>
 </head>
 <body bgcolor="#00d0b2">
@@ -293,19 +331,25 @@ body {
 	<!-- Add new event part -->
 	<?php
 		$actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
-		if($purp==1)
-		foreach ($arr as $eve) {
-			if($eve["id"]=='' || $eve["id"]==null || $eve["id"]==0)
+		if($purp==1){
+			if($isregmember == 1){
+				echo "<a style='margin:20px' href='/payment/' class=\"button is-info is-outlined\">Payment portal</a>";
+			}
+			foreach ($arr as $eve) {
+				if($eve["id"]=='' || $eve["id"]==null || $eve["id"]==0)
 				continue;
-			$action = ($eve["id"]<10)? "Add New Event":"Edit Event";
-			$color = ($eve["id"]<10)? "is-warning":"is-success";
-			$action_ = ($eve["id"]<10)? "addEvent":"update";
-			echo "<a href='$actual_link/eventAdmin/$action_/".$eve['id']."'><div class=\"tags has-addons\" style=\"width:500px\">
-			      <span class=\"tag is-large is-dark\">".$eve['name']."</span>
-			      <span class=\"tag is-large is-info\">".$eve['id']."</span>
-			      <span class=\"tag is-large $color\">".$action."</span>
+				$action = ($eve["id"]<10)? "Add New Event":"Edit Event";
+				$vewreg = ($eve["id"]<10)? "":"<a href='$actual_link/eventAdmin/view/".$eve['id']."'><span class=\"tag is-large is-info\">View Registrations</span></a>";
+				$color = ($eve["id"]<10)? "is-warning":"is-success";
+				$action_ = ($eve["id"]<10)? "addEvent":"update";
+				echo "<div class=\"tags has-addons\" style=\"width:500px\">
+				<span class=\"tag is-large is-dark\">".$eve['name']."</span>
+				<span class=\"tag is-large is-info\">".$eve['id']."</span>
+				<a href='$actual_link/eventAdmin/$action_/".$eve['id']."'><span class=\"tag is-large $color\">".$action."</span></a>
+				$vewreg
 			    </div><br>
 			    ".PHP_EOL;
+			}
 		}
 	?>
 	<?php
@@ -389,21 +433,23 @@ body {
 			</div>
 		</div>
 		<div class=\"field\">
-  			<label class=\"label\">Short Description</label>
+  			<label class=\"label\">Short Description (Don't use a tilted apostrophie => &rsquo;, use the straight one => ' )</label>
 			<div class=\"control\">
 				 <textarea name='short_desc' class=\"input\" rows=\"4\" cols=\"4\" maxlength=\"400\">Short Desc about the event.
 				</textarea> 
 			</div>
 		</div>
 		<div class=\"field\">
-  			<label class=\"label\">Long Description</label>
+  			<label class=\"label\">Long Description (Don't use a tilted apostrophie => &rsquo;, use the straight one => ' )</label>
 			<div class=\"control\">
 				 <textarea name='long_desc' class=\"input\" rows=\"4\" cols=\"10\" maxlength=\"800\">Long Desc about the event.
 				</textarea> 
 			</div>
 		</div>
+		upload poster for link here:
+			<a href='/imgupload/".$match[2]."' target='_blank'>Upload poster</a>
 		<div class=\"field\">
-  			<label class=\"label\">Link to cover image for event to show on top of page (Eg: poster)</label>
+  			<label class=\"label\">Link to poster image for event to show on top of page </label>
 			<div class=\"control\">
 				<input class=\"input\" type=\"text\" name=\"cover_url\" placeholder=\"http://xyz.com/xyz.jpg\">
 			</div>
@@ -418,6 +464,12 @@ body {
   			<label class=\"label\">Link to rules pdf</label>
 			<div class=\"control\">
 				<input class=\"input\" type=\"text\" name=\"rules_url\" placeholder=\"http://xyz.com/xyz.pdf\">
+			</div>
+		</div>
+		<div class=\"field\">
+  			<label class=\"label\">Link to registration form (google forms etc.)</label>
+			<div class=\"control\">
+				<input class=\"input\" type=\"text\" name=\"reg_url\" placeholder=\"http://forms.google.com/xyz\">
 			</div>
 		</div>
 		<div class=\"field\">
@@ -497,6 +549,33 @@ if($purp == 4)
 ?>
 	
     <!-- delete end -->
+
+	<!-- viewreg -->
+	 <?php 
+            if($purp == 5){
+
+				echo "List of users registered for event:<div class='table__wrapper'><table class=\"table\">
+				<thead>
+					<tr>
+					<th><abbr title=\"Serial No.\">Sr.No.</abbr></th>
+					<th><abbr title=\"AnwID\">AnwID</abbr></th>
+					<th>Name</th>
+					<th>College</th>
+					<th>Mobile</th>
+					<th>Fee Paid</th>
+					<th>QRcode</th>
+					</tr>
+				</thead>
+				<tbody>";
+				foreach ($viewdat as $key=>$val) {
+					echo "<tr> <th>".($key+1)."</th> <td>ANW".$val['pId']."</td> <td>".$val['name']."</td> 
+						<td>".$val['college']."</td><td>".$val['mobile']."</td><td>".$val['feePaid']."</td><td><a href='http://anwesha.info/qr/anw".$val['pId'].".png' target='_blank'>View</td>
+						</tr>";
+				}
+				echo "</tbody> </table> </div>";
+				}
+				?>
+	<!-- view reg end -->
   </div>
 </section>
 	
