@@ -216,13 +216,15 @@
 		<div class="blank_div_fiv">
 		</div>
 		
-		<div class="anwesha_theme">
+		<div class="anwesha_theme" >
 			<p>Aftermovie 2017</p>
-			<video width="100%" poster="images/video.JPG" controls>
-			  <source src="movie.mp4" type="video/mp4">
-			  Your browser does not support the video tag.
-			</video>
+			<iframe id="ytiframe" width="100%" src="https://www.youtube.com/embed/ye_WnGmwbV0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 		</div>
+		<script>
+		$("document").ready(function(){
+			$("#ytiframe").height($("#ytiframe").width()*0.56);
+		});
+		</script>
 
 		<div class="blank_div_fiv">
 		</div>
