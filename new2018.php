@@ -10,7 +10,7 @@
 	  
 	  <meta itemprop="name" content="Anwesha2k18">
 	  <meta itemprop="description" content="Anwesha is a Techno-Cultural extravaganza by IIT Patna held every year in the spring.Since its inception in 2010, it has grown into one of the most anticipated student-organized youth festival.">
-	  <meta itemprop="image" content="http://anwesha.info/images/anw_theme.jpg">
+	  <meta itemprop="image" content="//anwesha.info/images/anw_theme.jpg">
 	  
 	  <meta name="twitter:card" content="summary_large_image">
 	  <meta name="twitter:site" content="@anweshaiitp">
@@ -18,12 +18,12 @@
 	  <meta name="twitter:description" content="Anwesha is a Techno-Cultural extravaganza by IIT Patna held every year in the spring.Since its inception in 2010, it has grown into one of the most anticipated student-organized youth festival.">
 	  <meta name="twitter:creator" content="@anweshaiitp">
 	  
-	  <meta name="twitter:image:src" content="http://anwesha.info/images/anw_theme.jpg">
+	  <meta name="twitter:image:src" content="//anwesha.info/images/anw_theme.jpg">
 	  
 	  <meta property="og:title" content="Anwesha2k18" />
 	  <meta property="og:type" content="article" />
-	  <meta property="og:url" content="http://anwesha.info/" />
-	  <meta property="og:image" content="http://anwesha.info/images/anw_theme.jpg" />
+	  <meta property="og:url" content="//anwesha.info/" />
+	  <meta property="og:image" content="//anwesha.info/images/anw_theme.jpg" />
 	  <meta property="og:description" content="Anwesha is a Techno-Cultural extravaganza by IIT Patna held every year in the spring. Since its inception in 2010, it has grown into one of the most anticipated student-organized youth festival." />
 	  <meta property="og:site_name" content="Anwesha2k18" />
 	  <meta property="article:published_time" content="2017-10-11T05:59:00+01:00" />
@@ -169,10 +169,7 @@
 
 		<div class="anwesha_theme" >
 			<p>Aftermovie 2017</p>
-			<video width="100%" poster="images/video.JPG" controls>
-			  <source src="movie.mp4" type="video/mp4">
-			  Your browser does not support the video tag.
-			</video>
+			<iframe width="100%" src="https://www.youtube.com/embed/ye_WnGmwbV0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 		</div>
 
 		<div class="blank_div_thr">

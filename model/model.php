@@ -1056,7 +1056,7 @@ class People{
             "bodyplain"=>$messagePlain,
             "purp"=>"confpswd",
             "title"=>"Account Confirmed",
-            "url"=>"http://anwesha.info",
+            "url"=>"https://anwesha.info",
             "btnname"=>"Visit Website"
         ];
         self::HTTPPost("https://anwesha2018.herokuapp.com/text", $nodemailerBody);

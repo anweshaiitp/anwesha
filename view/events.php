@@ -372,9 +372,9 @@
                         else
                             $("#regmsg").css("color","#ff0000");
                         if(data.http == 403){
-                            window.open('http://anwesha.info/login_bare/');
+                            window.open('https://anwesha.info/login_bare/');
                             console.log("403");
-                            $(currPar+ " #regmsg").html($(currPar + " #regmsg").text()+"<br> <a href='http://anwesha.info/login_bare/' target='_blank'>Login here</a>");
+                            $(currPar+ " #regmsg").html($(currPar + " #regmsg").text()+"<br> <a href='//anwesha.info/login_bare/' target='_blank'>Login here</a>");
                         }
                         if(data.status == true){
                             $(this).text('Registered!')
