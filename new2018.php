@@ -5,29 +5,64 @@
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
 	<link href="images/logo_favi.png" rel="icon" >
-		
-	<meta name="viewport" content="width=device-width, initial-scale= 1">
-	<script type="text/javascript" src="js/jquery.js"></script>
+	  <meta name="description" content="Anwesha is a Techno-Cultural extravaganza by IIT Patna held every year in the spring.Since its inception in 2010, it has grown into one of the most anticipated student-organized youth festival." />
+	  <META NAME="Keywords" CONTENT="Anwesha,IIT Patna,IITP,IIT,college,fest">
+	  
+	  <meta itemprop="name" content="Anwesha2k18">
+	  <meta itemprop="description" content="Anwesha is a Techno-Cultural extravaganza by IIT Patna held every year in the spring.Since its inception in 2010, it has grown into one of the most anticipated student-organized youth festival.">
+	  <meta itemprop="image" content="http://anwesha.info/images/anw_theme.jpg">
+	  
+	  <meta name="twitter:card" content="summary_large_image">
+	  <meta name="twitter:site" content="@anweshaiitp">
+	  <meta name="twitter:title" content="Anwesha2k18">
+	  <meta name="twitter:description" content="Anwesha is a Techno-Cultural extravaganza by IIT Patna held every year in the spring.Since its inception in 2010, it has grown into one of the most anticipated student-organized youth festival.">
+	  <meta name="twitter:creator" content="@anweshaiitp">
+	  
+	  <meta name="twitter:image:src" content="http://anwesha.info/images/anw_theme.jpg">
+	  
+	  <meta property="og:title" content="Anwesha2k18" />
+	  <meta property="og:type" content="article" />
+	  <meta property="og:url" content="http://anwesha.info/" />
+	  <meta property="og:image" content="http://anwesha.info/images/anw_theme.jpg" />
+	  <meta property="og:description" content="Anwesha is a Techno-Cultural extravaganza by IIT Patna held every year in the spring. Since its inception in 2010, it has grown into one of the most anticipated student-organized youth festival." />
+	  <meta property="og:site_name" content="Anwesha2k18" />
+	  <meta property="article:published_time" content="2017-10-11T05:59:00+01:00" />
+	  <meta property="article:modified_time" content="2017-10-12T19:08:47+01:00" />
+	  <meta property="article:section" content="Anwesha is a Techno-Cultural extravaganza by IIT Patna held every year in the spring.Since its inception in 2010, it has grown into one of the most anticipated student-organized youth festival." />
+		<meta name="viewport" content="width=device-width, initial-scale= 1">
 	
 </head>
 <body>
 <!-----preloader-->
 
-	<div class="preloader_div">
-	</div>
+	<div class="preloader_div"></div>
 
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script async type="text/javascript" src="js/jquery.mousewheel.js"></script>
+	
 	<script type="text/javascript">
 		$('.preloader_div').load("/preloader/");
+
+	//--horizontal----------- scrolling-->
+		$(document).ready(function() {
+		    $('body, html, *').mousewheel(function(e, delta) {
+		        // multiplying by 40 is the sensitivity, 
+		        // increase to scroll faster.
+		        this.scrollLeft -= (delta * 60);
+		        e.preventDefault();
+		    });
+
+		});
 	</script>
 
 
 <!---------header-----bar-->
-<div class="header_div">
-	 <div class="menu_toggle">
-		<img src="images/skull_menu.png">
-		<span> MENU </span>
+	<div class="header_div">
+		 <div class="menu_toggle">
+			<img src="images/skull_menu.png">
+			<span> MENU </span>
+		</div>
 	</div>
-</div>
 
 <!--------login------>
 	<div class="login_backgrnd"></div>
@@ -36,13 +71,13 @@
 	<div class="menu_bar">
 		<ul>
 			<li><a href="/">Home</a></li>
-			<!-- <li><a href="events/">Events</a></li> -->
+			<li><a href="/events/">Events</a></li>
 			<!-- <li class="sch_div">Schedule</li> -->
-			<a href="/gallery/"><li>Gallery</li></a>
-			<a href="/team/"><li>Team</li></a>
-			<!-- <li class="spons_div">Sponsors</li> -->
-			<li class="acco_load">Accomodation</li>
-			<!-- <a href="/register/" target="_blank"> -->
+			<li><a href="/gallery/">Gallery</a></li>
+			<li><a href="/team/">Team</a></li>
+			<!-- <li><a href="/events/">Events</a></li> -->
+			<li class="spons_div">Sponsors</li>
+			<li class="acco_load">Hospitality</li>
 			<li class="register">Register</li>
 			<li class="ca"><a href="/ca/" target="_blank">Campus Ambassador</a></li>
 		</ul>
@@ -65,7 +100,30 @@
 			FEB
 		</div>
 	</div>
+
+<!-----register fast---------->
+	<div class="reg_fast"><a target="_blank" href="/register_bare">REGISTER NOW</a></div>
 	
+<!-----login fast---------->
+	<div class="log_fast"><a target="_blank" href="/login_bare">LOGIN</a></div>
+	
+<!-----events update---------->
+	<div class="eve_updates">
+		<img src="images/bat.png">
+		<div class="eve_up_content">
+			<p>Event Updates</p>
+			<a target="_blank" href="http://njath.anwesha.info">NJATH</a><br>
+			<a target="_blank" href="https://www.facebook.com/anwesha.iitpatna/photos/a.973019692730676.1073741856.163423960356924/1799240730108564/?type=3&theater">USB</a>
+			<br>
+
+		</div>
+	</div>
+	
+<!-----right arrow button------>
+	<div class="right_arrow">
+		<img src="images/right_arrow.png">
+	</div>
+
 <!-----moving ----witch------>
 	<img class="moving_witch" id="moving_witch" src="images/witch_right_1.png">
 
@@ -85,7 +143,7 @@
 <!--horizontal scrolling div-------->
 	<div class="horizontal">
 		<div class="anwesha_logo">
-			<img src="images/logo_favi.png">
+			<img src="images/anwesha.png">
 		</div>
 
 		<div class="blank_div_thr">
@@ -109,7 +167,18 @@
 		<div class="blank_div_fiv">
 		</div>
 
-		<div class="anwesha_theme">
+		<div class="anwesha_theme" >
+			<p>Aftermovie 2017</p>
+			<video width="100%" poster="images/video.JPG" controls>
+			  <source src="movie.mp4" type="video/mp4">
+			  Your browser does not support the video tag.
+			</video>
+		</div>
+
+		<div class="blank_div_thr">
+		</div>
+
+		<div id="last_div_right" href="#go" class="anwesha_theme">
 			<p>Media Outreach</p>
 			<img src="images/media.jpg">
 		</div>
@@ -121,7 +190,7 @@
 <!---viewing div on mobile phone-->
 	<div class="mob_div">
 		<div class="anwesha_logo">
-			<img src="images/logo_favi.png">
+			<img src="images/anwesha.png">
 		</div>
 
 		<div class="blank_div_thr">
@@ -140,6 +209,17 @@
 			<p>Themed on WitchCraft</p>
 			<img src="images/anw_theme.jpg">
 
+		</div>
+
+		<div class="blank_div_fiv">
+		</div>
+		
+		<div class="anwesha_theme">
+			<p>Aftermovie 2017</p>
+			<video width="100%" poster="images/video.JPG" controls>
+			  <source src="movie.mp4" type="video/mp4">
+			  Your browser does not support the video tag.
+			</video>
 		</div>
 
 		<div class="blank_div_fiv">
@@ -161,10 +241,8 @@
 		<div class="ajax_back"></div>
 	</div>
 
-	<div class="ajax_loading_div ajax_loading_entry">
-		<img class="ajax_pin" src="images/dragon.png"/>
+	<div class="ajax_loading_div">
 		<img class="close_icon" src="images/close.png"/>
-		<img class="ajax_div_back" src="images/ajax_div_back.png" style="z-index: -100" />
 		<div class="ajax_content"></div>
 	</div>
 
@@ -181,30 +259,64 @@
 	</div>
 
 <!--scripts-->
-	<script type="text/javascript" src="js/jquery.js"></script>
-	<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
-
-<!--scripts for index-->
 	<script type="text/javascript">
 
-//disapiaring of preloader
-	$(window).on('load',function()
-	{
-		$('.preloader_div').addClass('preloader_div_anim').delay(3000).fadeOut(10);
-	});
-
-//--horizontal----------- scrolling-->
-		$(document).ready(function() {
-		    $('body, html, *').mousewheel(function(e, delta) {
-		        // multiplying by 40 is the sensitivity, 
-		        // increase to scroll faster.
-		        this.scrollLeft -= (delta * 40);
-		        e.preventDefault();
-		    });
-
+	//on clicking on right arrow
+		$('.right_arrow img').click(function()
+		{
+          	var pos = Math.floor($('#last_div_right').offset().left);
+ 
+            $('html, body').animate(
+            {
+                scrollLeft: pos
+            }, 2000);
 		});
 
-//-----menu toggle
+		$(window).scroll(function()
+		{
+			var right_arrow_pos = $(this).scrollLeft();
+			if(right_arrow_pos != 0)
+			{
+				$('.right_arrow').fadeOut(1000);
+			}
+			else
+			{
+				$('.right_arrow').fadeIn(1000);
+			}
+			
+		});
+
+	//disapiaring of preloader
+		$(window).on('load',function()
+		{
+			$('.preloader_div').addClass('preloader_div_anim').fadeOut(500);
+		});
+
+	//---witch motion
+		$(document).mousemove(function(e) 
+		{
+			mouseX = e.pageX;
+			mouseY = e.pageY; 
+			 	
+		 	witchX = parseInt($('#moving_witch').css("left"));
+		 	witchY = parseInt($('#moving_witch').css("top"));
+
+		$('#moving_witch').css('top',mouseY + 50);
+		 	$('#moving_witch').css('left',mouseX + 50);
+
+		 	
+		 	if(witchX < mouseX)
+		 	{
+		 		$('#moving_witch').css('transform', 'rotateY(360deg)');
+		 	}
+		 	else
+		 	{
+		 		$('#moving_witch').css('transform', 'rotateY(180deg)');
+
+		 	}
+		});
+
+	//-----menu toggle
 		$('.menu_toggle img').on("click",function()
 		{
 			span_text=$('.menu_toggle span').text();
@@ -232,47 +344,19 @@
 			$('.menu_bar').slideUp(800);
 		});
 
-//menu bar item css
+	//menu bar item css
 		var new_li= $('.menu_bar li').first();
 		new_li.addClass('first_rot');
 		var new_li= new_li.next().next();
 		new_li.addClass('first_rot');
 		var new_li= new_li.next().next();
 		new_li.addClass('secnd_rot');
+		var new_li= new_li.next().next();
+		new_li.addClass('first_rot');
 		var new_li= new_li.next().next().next();
 		new_li.addClass('secnd_rot');
 
-//witch direction on moving mouse
-		$(document).ready( function ()
-		{
-
-		// track and save the position of the mouse
-			$(document).mousemove( function(e) 
-			{
-				mouseX = e.pageX;
-				mouseY = e.pageY; 
-	  		 	
-	  		 	witchX = parseInt($('#moving_witch').css("left"));
-	  		 	witchY = parseInt($('#moving_witch').css("top"));
-
-				$('#moving_witch').css('top',mouseY);
-	  		 	$('#moving_witch').css('left',mouseX);
-
-	  		 	
-	  		 	if(witchX < mouseX)
-	  		 	{
-	  		 		$('#moving_witch').css('transform', 'rotateY(360deg)');
-	  		 	}
-	  		 	else
-	  		 	{
-	  		 		$('#moving_witch').css('transform', 'rotateY(180deg)');
-
-	  		 	}
-			});
-
-		});
-
-//cloud motion
+	//cloud motion
 		$(document).scroll(function()
 		{
 			var window_pos = $(this).scrollLeft();
@@ -280,7 +364,7 @@
 			$('.moving_cloud_div img').css('left', -(window_pos * .05) + 'px');
 		});
 
-//floor motion
+	//floor motion
 		$(document).scroll(function()
 		{
 			var window_pos = $(this).scrollLeft();
@@ -288,7 +372,7 @@
 			$('.moving_floor_div img').css('left', -(window_pos * .4) + 'px');
 		});
 
-//mob scroll
+	//mob scroll
 		mob_scroll_posn = $('.mob_div').scrollTop();
 
 		$('.mob_div').scroll(function()
@@ -300,42 +384,49 @@
 			$('.moving_floor_div img').css('left', -(mob_pos * .4) + 'px');
 		});
 
-//ajax on menu items
+	//ajax on menu items
 		$('.close_icon').click(function()
 		{
 			$('.ajax_loading_bckgrnd').fadeOut(800);
-			$('.ajax_loading_div').addClass('ajax_loading_entry');
+			$('.ajax_loading_div').fadeOut(800);
 		});
-
 
 		$('.spons_div').click(function()
 		{
 			$('.ajax_loading_bckgrnd').fadeIn(800);
-			$('.ajax_loading_div').removeClass('ajax_loading_entry');
+			$('.ajax_loading_div').fadeIn(800);
 		});
 
 		$('.sch_div').click(function()
 		{
 			$('.ajax_loading_bckgrnd').fadeIn(800);
-			$('.ajax_loading_div').removeClass('ajax_loading_entry');
+			$('.ajax_loading_div').fadeIn(800);
 		});
 
 		$('.acco_load').click(function()
 		{
 			$('.ajax_loading_bckgrnd').fadeIn(800);
-			$('.ajax_loading_div').removeClass('ajax_loading_entry');
+			$('.ajax_loading_div').fadeIn(800);
 		});
 		
 		$('.register').click(function()
 		{
 			$('.ajax_loading_bckgrnd').fadeIn(800);
-			$('.ajax_loading_div').removeClass('ajax_loading_entry');
-
+			$('.ajax_loading_div').fadeIn(800);
 		});
+
+		$('.log_fast').click(function()
+		{
+			$('.ajax_loading_bckgrnd').fadeIn(800);
+			$('.ajax_loading_div').fadeIn(800);
+			$('.ajax_content').html("<iframe src='/login_bare/' frameborder='0' style='width:100%;height:100%'></iframe>");
+	return false;
+		})
+
 	</script>
 
 <!---------stars in background---------->
-	<script src="js/jquery-stars.js"></script>
+	<script async src="js/jquery-stars.js"></script>
 	<script>
 		$(document).jstars({
 			image_path: 'images',
@@ -344,6 +435,16 @@
 			delay: 400
 		});
 		
+	</script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-90791019-1"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'UA-90791019-1');
 	</script>
 
 	<script type="text/javascript" src="js/ajax.js"></script>

@@ -270,6 +270,13 @@
 
 				
 				<div class="box container">
+				    <section>
+						<header>
+							<h3>CA's Experience</h3>
+						</header>
+						<blockquote> Being a campus ambassador in Anwesha was a wonderful experience. They provided me with a golden opportunity to be the prime face of my college and make the students aware about this great fest. Overall, it was a great experience to work as a CA in Anwesha. <br>-<b>Atul Anand</b> </blockquote>
+						<blockquote> Campus ambassador is one of the most influential student in his college. In my experience of working for Anwesha it was awesome to work as I interacted with many students as a leader. It also helped me a lot in enhancing my leadership quality and analytical skills <br>-<b>Shivam Porwal</b> </blockquote>
+					</section>
 					<!--<header>
 						<h2>Judging criteria:-</h2>
 					</header>
@@ -464,7 +471,15 @@
 
 				</div>
 			</div>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-90791019-1"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
 
+	gtag('config', 'UA-90791019-1');
+	</script>
 		<!-- Scripts -->
 			<script src="../assets/js/jquery.min.js"></script>
 			<script src="../assets/js/skel.min.js"></script>

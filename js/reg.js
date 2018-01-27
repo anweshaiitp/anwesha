@@ -1,11 +1,12 @@
 
 	$(document).ready(function(){
 	$("#sub_but").click(function(event){
+		$("#regloader").fadeIn();
 	//function submitF(){
 		// event.preventDefault();
 		var name=$("[name='name']").val();
 		var email=$("[name='email']").val();
-		var college=$("[name='college']").val();
+		var college=$("[name='college']").val().replace("'","");
 		var fbID=$("[name='fbID']").val();
 		var city=$("[name='city']").val();
 		var password=$("[name='password']").val();
@@ -43,9 +44,10 @@
 			console.log("Data: " + data + "\nStatus: " + status);
 				if(status=='success'){//$("#myloader").fadeOut();
 					console.log(data);
-
+					$("#regloader").fadeOut();
 					if(data[0]==1){
 						$("#success").html('<center><h3><b>Registration Successful</b><br>Your Anwesha ID is : ANW'+data[1]['pId']+'<br>A confirmation email has been sent to '+email+'.</h3></center>');
+						// $("#regloader").fadeOut();
 						$("#success").fadeIn();
 						// $("#message").css('background','#5FAB22');
 						$("#success").css('color','#5FAB22');
@@ -63,7 +65,7 @@
 				}else{//$("#myloader").fadeOut();
 						$("#message,#message2").fadeIn();
 						$("#message,#message2").html('An error occured.<br> Please try again.');
-						
+					$("#regloader").fadeOut();
 					    console.log("Failed "+data);
 
 					}

@@ -10,7 +10,6 @@
 
 	<!-----styling for team page------>
 		<style type="text/css">
-
 		/*------------team menu bar------------*/
 			.team_menu_bar
 			{
@@ -34,8 +33,8 @@
 				display: inline-block;
 				padding: .5%;
 				margin-left: .5%;
-				box-shadow: 3px 3px 1px black;
-				border-radius: 5px;
+				//box-shadow: 3px 3px 1px black;
+				border-radius: 2px;
 				cursor: pointer;
 			}
 
@@ -51,6 +50,11 @@
 				color: black;
 			}
 
+			.arts_cord, .cnd_cord, .cult_cord, .mpr_cord, .reg_cord, .spons_cord, .tech_cord, .web_cord, .web_dev_sub, .hospi_cord
+			{
+				display: none;
+			}
+			
 
 			@media screen and (max-width: 900px)
 			{
@@ -108,113 +112,498 @@
 	</head>
 	<body>
 
-	<!---------header-----bar-->
-		<div class="header_div">
-			<!-- <img id="header_div_bck" src="/images/blood.jpg"/>
-		 -->
-			 <div class="menu_toggle">
-				<img src="/images/skull_menu.png">
-				<span> MENU </span>
-			</div>
+<!---------header-----bar-->
+	<div class="header_div">
+		 <div class="menu_toggle">
+			<img src="../images/skull_menu.png">
+			<span> MENU </span>
 		</div>
+	</div>
 
-	<!-----menu----bar------>
-		<div class="menu_bar">
-			<ul>
-				<li><a href="/">Home</a></li>
-				<!-- <li><a href="/events/">Events</a></li> -->
-				<!-- <li class="sch_div">Schedule</li> -->
-				<li><a href="/gallery/">Gallery</a></li>
-				<li><a href="/team/">Team</a></li>
-				<!-- <li class="spons_div">Sponsors</li> -->
-				<li class="acco_load">Accomodation</li>
-				<li class="register">Register</li>
-				<li class="ca"><a href="/ca/" target="_blank">Campus Ambassador</a></li>
-			</ul>
-		</div>
+<!-----menu----bar------>
+	<div class="menu_bar">
+		<ul>
+			<li><a href="/">Home</a></li>
+			<li><a href="/events/">Events</a></li>
+			<!-- <li class="sch_div">Schedule</li> -->
+			<li><a href="/gallery/">Gallery</a></li>
+			<li><a href="/team/">Team</a></li>
+			<!-- <li><a href="/events/">Team</a></li> -->
+			<li class="spons_div">Sponsors</li>
+			<li class="acco_load">Hospitality</li>
+			<li class="register">Register</li>
+			<li class="ca"><a href="/ca/" target="_blank">Campus Ambassador</a></li>
+		</ul>
+	</div>
 
-	<!-----doors---->
-		<div class="menu_backgrnd">
-			<div class="overlay"></div>
-			<img class="creep" src="../images/creep.png">
-			<br>
-			<img class="boundary" src="../images/bound.png">
-		</div>
-		
+<!-----doors---->
+	<div class="menu_backgrnd">
+		<div class="overlay"></div>
+		<img class="creep" src="../images/creep.png">
+		<br>
+		<img class="boundary" src="../images/bound.png">
+	</div>
+	
 <!-----moving ----witch------>
 	<img class="moving_witch" id="moving_witch" src="../images/witch_right_1.png">
 
-	<!-----fixed ----cloud------>
-		<div class="cloud_div"></div>
+<!-----fixed ----cloud------>
+	<div class="cloud_div"></div>
 
-	<!-----moving ----cloud------>
-		<div class="moving_cloud_div">
-			<img src="../images/moving_cloud.png">
+<!-----moving ----cloud------>
+	<div class="moving_cloud_div">
+		<img src="../images/moving_cloud.png">
+	</div>
+
+<!-----moving ----wall------>
+	<div class="moving_wall_div">
+		<img src="../images/wanted_wall.png">
+		<!-- <img src="../images/wanted_wall.png"> -->
+	</div>
+
+<!---team div---->
+	<div class="team_div">
+		<div class="team_menu_bar">
+			<ul>
+				<a id="fest_cord"><li>Fest Coordinator</li></a>
+				<a id="mpr"><li>Media &amp; PR</li></a>
+				<a id="hospi"><li>Hospitality</li></a>
+				<a id="rsp"><li>Registration, Security &amp; Planning</li></a>
+				<a id="spons"><li>Marketing &amp; Sponsorship</li></a>
+				<a id="cult"><li>Cultural</li></a>
+				<a id="tech"><li>Technical</li></a>
+				<a id="arts"><li>Arts &amp; Welfare</li></a>
+				<a id="cnd"><li>Creatives &amp; Design</li></a>
+				<a id="webapp"><li>	Web &amp; App</li></a>
+				<a id="webdev"><li>Web Developers</li></a>
+
+			</ul>
 		</div>
 
-	<!-----moving ----wall------>
-		<div class="moving_wall_div">
-			<img src="../images/wanted_wall.png">
-			<!-- <img src="../images/wanted_wall.png"> -->
-		</div>
+		<div class="team_blank"></div>
+	
+	<!---------team loader------>
+		<div class="team_loader">
 
-	<!---team div---->
-		<div class="team_div">
-			<div class="team_menu_bar">
-				<ul>
-					<li><a id="fest_cord">Fest Coordinator</a></li>
-					<li><a id="mpr">Media & PR</a></li>
-					<li><a id="hospi">Hospitality</a></li>
-					<li><a id="rsp">Registration, Security & Planning</a></li>
-					<li><a id="spons">Marketing & Sponsorship</a></li>
-					<li><a id="cult">Cultural</a></li>
-					<li><a id="tech">Technical</a></li>
-					<li><a id="arts">Arts & Welfare</a></li>
-					<li><a id="cnd">Creatives & Design</a></li>
-					<li><a id="webapp">	Web & App</a></li>
-					<li><a id="webdev">Web Developers</a></li>
-
-				</ul>
-			</div>
-
-			<div class="team_blank"></div>
-		
-		<!---------team loader------>
-			<div class="team_loader">
-
-				<!-----fest cord------>
+		<!-----fest cord------>
+			<div class="fest_cord">
 				<div class="team_text"> Fest Coordinator</div>
+				<div class="team_mem">
+					<div class="mem_content">
+						<img src="../images/team/himanshu.jpg"/>
+						<br>
+						<span class="mem_name">Himanshu Barua</span>
+						<br>
+						<a>himanshu.cs15@iitp.ac.in</a>
+					</div>
+				</div>
+			</div>
+							
+		<!----Arts & Welfare---->
+			<div class="arts_cord">
+			
+				<div class="team_text">Arts & Welfare</div>
 
 				<div class="team_mem">
 					<div class="mem_content">
-						<img src="../images/team1.png"/>
+						<img src="../images/team/rajneesh.jpg"/>
 						<br>
-						<span class="mem_name">Himanshu Barua</span>
+						<span class="mem_name">Rajneesh Singh</span>
+						
+					</div>
+				</div>
+
+				<div class="team_blank"></div>
+					
+				<div class="team_mem">
+					<div class="mem_content">
+						<img src="../images/team/rajeev.jpg"/>
+						<br>
+						<span class="mem_name">Rajeev Verma</span>
+						<br>
+						<a>rajeev.ee15@iitp.ac.in</a>
+						<br>
+						<a>7294000948</a>
+					</div>
+				</div>
+
+				<div class="team_blank"></div>
+					
+				<div class="team_mem">
+					<div class="mem_content">
+						<img src="../images/team/manohar.jpg"/>
+						<br>
+						<span class="mem_name">Manohar Palavalasa</span>
+						
+					</div>
+				</div>
+			</div>
+
+		<!----Creatives & Design---->
+			<div class="cnd_cord">
+				<div class="team_text">Creatives & Design</div>
+
+				<div class="team_mem">
+					<div class="mem_content">
+						<img src="../images/team/abh_b.jpg"/>
+						<br>
+						<span class="mem_name">Abhishek Kumar</span>
+						<br>
+						<a>abhishek.ee15@iitp.ac.in</a>
+						<br>
+						<a>7261869560</a>
+					</div>
+				</div>
+
+				<div class="team_blank"></div>
+					
+				<div class="team_mem">
+					<div class="mem_content">
+						<img src="../images/team/nitesh.jpg"/>
+						<br>
+						<span class="mem_name">Nitesh Dwivedi</span>
 						<!-- <br>
 						<a href="mailto:aditya.me16@iitp.ac.in">aditya.me16@iitp.ac.in</a>
 						<br>
 						<a href="tel:7424947945">7424947945</a> -->
 					</div>
+				</div>
+
+				<div class="team_blank"></div>
+					
+				<div class="team_mem">
+					<div class="mem_content">
+						<img src="../images/team/shashwat.jpg"/>
+						<br>
+						<span class="mem_name">Shashwat Gupta</span>
+						<!-- <br>
+						<a href="mailto:aditya.me16@iitp.ac.in">aditya.me16@iitp.ac.in</a>
+						<br>
+						<a href="tel:7424947945">7424947945</a> -->
+					</div>
+				</div>
+
 			</div>
+
+		<!----cultural---->
+			<div class="cult_cord">
+				<div class="team_text">Cultural</div>
+
+				<div class="team_mem">
+					<div class="mem_content">
+						<img src="../images/team/rohit.JPG"/>
+						<br>
+						<span class="mem_name">Rohit Gupta</span>
+						<br>
+						<a>rohit.me15@iitp.ac.in</a>
+						<br>
+						<a>7042712975</a>
+					</div>
+				</div>
+
+				<div class="team_blank"></div>
+					
+				<div class="team_mem">
+					<div class="mem_content">
+						<img src="../images/team/vijay.jpg"/>
+						<br>
+						<span class="mem_name">Vijay Yadav</span>
+						<br>
+						<a>vijay.ch15@iitp.ac.in</a>
+						<br>
+						<a>9455061806</a>
+					</div>
+				</div>
 			</div>
 
-			<div class="team_blank"></div>
+		<!---hospi---->
+			<div class="hospi_cord">
+				<div class="team_text">Hospitality</div>
+		
+				<div class="team_mem">
+					<div class="mem_content">
+						<img src="../images/team/solomon.jpg"/>
+						<br>
+						<span class="mem_name">Solomon Joy</span>
+						
+					</div>
+				</div>
+				<div class="team_blank"></div>
+				
+				<div class="team_mem">
+					<div class="mem_content">
+						<img src="../images/team/piyush.jpeg"/>
+						<br>
+						<span class="mem_name">Piyush Kumar Agarwal</span>
+						<br>
+						<a>piyush.ee15@iitp.ac.in</a>
+						<br>
+						<a>7980183647</a>
+					</div>
+				</div>
+				<div class="team_blank"></div>
+				
+				<div class="team_mem">
+					<div class="mem_content">
+						<img src="../images/team/ashish.jpg"/>
+						<br>
+						<span class="mem_name">Ashish Raj</span>
+					
+					</div>
+				</div>
+			</div>
 
-		</div>	
-
+		<!---media---->
+			<div class="mpr_cord">
+				<div class="team_text">Media & PR</div>
+		
+				<div class="team_mem">
+					<div class="mem_content">
+						<img src="../images/team/shiv.jpg"/>
+						<br>
+						<span class="mem_name">Shivpreet Sharma</span>
+						<br>
+						<a>shivpreet.ce15@iitp.ac.in</a>
+						<br>
+						<a>8269502154</a>
+					</div>
+				</div>
+				<div class="team_blank"></div>
+				
+				<div class="team_mem">
+					<div class="mem_content">
+						<img src="../images/team/rahul.jpg"/>
+						<br>
+						<span class="mem_name">Rahul Jain</span>
+						<br>
+						<a>rahul.ce15@iitp.ac.in</a>
+						<br>
+						<a>7292986255</a>
+					</div>
+				</div>
+				<div class="team_blank"></div>
+				
+				<div class="team_mem">
+					<div class="mem_content">
+						<img src="../images/team/arin.jpg"/>
+						<br>
+						<span class="mem_name">Arinjaya Khare</span>
+						<br>
+						<a>arinjaya.cs15@iitp.ac.in</a>
+						<br>
+						<a>9431222254</a>
+					</div>
+				</div>
 	
-	<!---ajax loader---->
+			</div>
 
-		<div class="ajax_loading_bckgrnd">
-			<div class="ajax_back"></div>
-		</div>
+		<!---reg---->
+			<div class="reg_cord">
+				<div class="team_text">Registration, <br><br> Security & Planning</div>
+		
+				<div class="team_mem">
+					<div class="mem_content">
+						<img src="../images/team/niru.jpg"/>
+						<br>
+						<span class="mem_name">Niranjan Meena</span>
+						<br>
+						<a>niranjan.me15@iitp.ac.in</a>
+						<br>
+						<a>9555516461</a>
+					</div>
+				</div>
+				<div class="team_blank"></div>
+				
+				<div class="team_mem">
+					<div class="mem_content">
+						<img src="../images/team/hariraj.jpg"/>
+						<br>
+						<span class="mem_name">Hariraj Meena</span>
+						<br>
+						<a>hariraj.me15@iitp.ac.in</a>
+						<br>
+						<a>9166510630</a>
+					</div>
+				</div>
+				<div class="team_blank"></div>
+				
+				<div class="team_mem">
+					<div class="mem_content">
+						<img src="../images/team/sahil.jpg"/>
+						<br>
+						<span class="mem_name">Sahil Sharma</span>
+						
+					</div>
 
-		<div class="ajax_loading_div ajax_loading_entry">
-			<img class="ajax_pin" src="../images/dragon.png"/>
-			<img class="close_icon" src="../images/close.png"/>
-			<img class="ajax_div_back" src="../images/ajax_div_back.png" style="z-index: -100"/>
-			<div class="ajax_content"></div>
+				</div>
+				<div class="team_blank"></div>
+				
+				<div class="team_mem">
+					<div class="mem_content">
+						<img src="../images/team/abh_yd.jpg"/>
+						<br>
+						<span class="mem_name">Abhishek Yadav</span>
+					<!-- 	<br>
+						<a href="mailto:aditya.me16@iitp.ac.in">aditya.me16@iitp.ac.in</a>
+						<br>
+						<a href="tel:7424947945">7424947945</a> -->
+					</div>
+				</div>
+			
+			</div>
+
+		<!----spons---->
+			<div class="spons_cord">
+				<div class="team_text">Marketing & Sponsorship</div>
+
+				<div class="team_mem">
+					<div class="mem_content">
+						<img src="../images/team/ayush.jpg"/>
+						<br>
+						<span class="mem_name">Ayush Sharma</span>
+						<br>
+						<a>ayushsharma.cs15@iitp.ac.in</a>
+						<br>
+						<a>9661176887</a>
+					</div>
+				</div>
+
+				<div class="team_blank"></div>
+					
+				<div class="team_mem">
+					<div class="mem_content">
+						<img src="../images/team/himanshu.jpg"/>
+						<br>
+						<span class="mem_name">Himanshu Barua</span>
+						<br>
+						<a>himanshu.cs15@iitp.ac.in</a>
+						
+					</div>
+				</div>
+
+				<div class="team_blank"></div>
+					
+				<div class="team_mem">
+					<div class="mem_content">
+						<img src="../images/team/pranav.jpg"/>
+						<br>
+						<span class="mem_name">Pranav Mutharia</span>
+						<br>
+						<a>pranav.cs15@iitp.ac.in</a>
+						<br>
+						<a>9899802982</a>
+					</div>
+				</div>
+
+			</div>
+
+		<!----technical---->
+			<div class="tech_cord">
+				<div class="team_text">Technical</div>
+
+				<div class="team_mem">
+					<div class="mem_content">
+						<img src="../images/team/tarun.jpeg"/>
+						<br>
+						<span class="mem_name">Tarun Garg</span>
+						<br>
+						<a>tarungarg.cs15@iitp.ac.in</a>
+						<br>
+						<a>7597694454</a>
+					</div>
+				</div>
+
+				<div class="team_blank"></div>
+					
+				<div class="team_mem">
+					<div class="mem_content">
+						<img src="../images/team/debdeep.jpg"/>
+						<br>
+						<span class="mem_name">Debdeep Paul</span>
+						<br>
+						<a>debdeep.ee15@iitp.ac.in</a>
+						<br>
+						<a>9523865409</a>
+					</div>
+				</div>
+
+			</div>
+
+		<!----Web & App---->
+			<div class="web_cord">
+				<div class="team_text">Web & App</div>
+
+				<div class="team_mem">
+					<div class="mem_content">
+						<img src="../images/team/chirag.jpg"/>
+						<br>
+						<span class="mem_name">Chirag Wadhera</span>
+						<br>
+						<a>chirag.cs15@iitp.ac.in</a>
+						<br>
+						<a>9971281365</a>
+					</div>
+				</div>
+
+				<div class="team_blank"></div>
+					
+				<div class="team_mem">
+					<div class="mem_content">
+						<img src="../images/team/yogi.jpg"/>
+						<br>
+						<span class="mem_name">Yogendra Singh</span>
+						<br>
+						<a>yogendra.cs15@iitp.ac.in</a>
+						<br>
+						<a>7770878087</a>
+					</div>
+				</div>
+			</div>
+
+		<!----Web Developers---->
+			<div class="web_dev_sub">
+				<div class="team_text">Web Developers</div>
+
+				<div class="team_mem">
+					<div class="mem_content">
+						<img src="../images/team/aditya.jpg"/>
+						<br>
+						<span class="mem_name">Aditya Suman</span>
+						<br>
+						<a>aditya.me16@iitp.ac.in</a>
+						<br>
+						<a>7424947945</a>
+					</div>
+				</div>
+
+				<div class="team_blank"></div>
+					
+				<div class="team_mem">
+					<div class="mem_content">
+						<img src="../images/team/tameesh.jpg"/>
+						<br>
+						<span class="mem_name">Tameesh Biswas</span>
+						<br>
+						<a href='mailto:me@tameesh.in' target='_blank'>me@tameesh.in</a>
+						<br>
+						<a href='https://tameesh.in' target='_blank'>tameesh.in</a>
+					</div>
+				</div>
+
+			</div>
 		</div>
+	</div>
+
+<!---ajax loader-->
+
+	<div class="ajax_loading_bckgrnd">
+		<div class="ajax_back"></div>
+	</div>
+
+	<div class="ajax_loading_div">
+		<img class="close_icon" src="../images/close.png"/>
+		<div class="ajax_content"></div>
+	</div>
 
 <!---footer-->
 	<div class="footer_div">
@@ -227,237 +616,357 @@
 		</div>
 	</div>
 
+<!--scripts-->
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/jquery.mousewheel.js"></script>
+
+<script type="text/javascript">
+//--horizontal----------- scrolling-->
+	$(document).ready(function() {
+	    $('body, html, *').mousewheel(function(e, delta) {
+	        // multiplying by 40 is the sensitivity, 
+	        // increase to scroll faster.
+	        this.scrollLeft -= (delta * 60);
+	        e.preventDefault();
+	    });
+
+	});
+
+//-----menu toggle
+	$('.menu_toggle img').on("click",function()
+	{
+		span_text=$('.menu_toggle span').text();
+		if(span_text == "EXIT")
+		{
+			$('.menu_toggle span').text('MENU');
+			$('.menu_toggle img').attr('src', '/images/skull_menu.png');
+			$('.menu_backgrnd').fadeOut(800);
+			$('.menu_bar').slideUp(800);
+		}
+		else
+		{
+			$('.menu_toggle span').text('EXIT').fadeIn(800);
+			$('.menu_toggle img').attr('src', '/images/skull_exit.png');
+			$('.menu_backgrnd').fadeIn(800);
+			$('.menu_bar').slideDown(800);
+		}
+	});
+
+	$('.menu_backgrnd').click(function()
+	{
+		$('.menu_toggle span').text('MENU');
+		$('.menu_toggle img').attr('src', '/images/skull_menu.png');
+		$('.menu_backgrnd').fadeOut(800);
+		$('.menu_bar').slideUp(800);
+	});
 
 
-	<!--scripts-->
-		<script type="text/javascript" src="../assets/js/jquery.js"></script>
-		<script type="text/javascript" src="../assets/js/jquery.mousewheel.js"></script>
-
-		<script type="text/javascript">
-	//--horizontal----------- scrolling-->
-			$(document).ready(function() {
-			    $('body, html, *').mousewheel(function(e, delta) {
-			        // multiplying by 40 is the sensitivity, 
-			        // increase to scroll faster.
-			        this.scrollLeft -= (delta * 80);
-			        e.preventDefault();
-			    });
-
-			});
-
-	//-----menu toggle
-			$('.menu_toggle img').on("click",function()
-			{
-				span_text=$('.menu_toggle span').text();
-				if(span_text == "EXIT")
-				{
-					$('.menu_toggle span').text('MENU');
-					$('.menu_toggle img').attr('src', '/images/skull_menu.png');
-					$('.menu_backgrnd').fadeOut(800);
-					$('.menu_bar').slideUp(800);
-				}
-				else
-				{
-					$('.menu_toggle span').text('EXIT').fadeIn(800);
-					$('.menu_toggle img').attr('src', '/images/skull_exit.png');
-					$('.menu_backgrnd').fadeIn(800);
-					$('.menu_bar').slideDown(800);
-				}
-			});
-
-			$('.menu_backgrnd').click(function()
-			{
-				$('.menu_toggle span').text('MENU');
-				$('.menu_toggle img').attr('src', '/images/skull_menu.png');
-				$('.menu_backgrnd').fadeOut(800);
-				$('.menu_bar').slideUp(800);
-			});
-
-	//menu bar item css
-			var new_li= $('.menu_bar li').first();
-			new_li.addClass('first_rot');
-			var new_li= new_li.next().next();
-			new_li.addClass('first_rot');
-			var new_li= new_li.next().next();
-			new_li.addClass('secnd_rot');
-			var new_li= new_li.next().next().next();
-			new_li.addClass('secnd_rot');
-
-	//witch direction on moving mouse
-			$(document).ready( function ()
-			{
-
-			// track and save the position of the mouse
-				$(document).mousemove( function(e) 
-				{
-					mouseX = e.pageX;
-					mouseY = e.pageY; 
-		  		 	
-		  		 	witchX = parseInt($('#moving_witch').css("left"));
-		  		 	witchY = parseInt($('#moving_witch').css("top"));
-
-					$('#moving_witch').css('top',mouseY);
-		  		 	$('#moving_witch').css('left',mouseX);
-
-		  		 	
-		  		 	if(witchX < mouseX)
-		  		 	{
-		  		 		$('#moving_witch').css('transform', 'rotateY(360deg)');
-		  		 	}
-		  		 	else
-		  		 	{
-		  		 		$('#moving_witch').css('transform', 'rotateY(180deg)');
-
-		  		 	}
-				});
-
-			});
-
-	//cloud motion
-			$(document).scroll(function()
-			{
-				var window_pos = $(this).scrollLeft();
-				//alert(window_pos);
-				$('.moving_cloud_div img').css('left', -(window_pos * .05) + 'px');
-			});
-
-	//wall motion
-			$(document).scroll(function()
-			{
-				var window_pos = $(this).scrollLeft();
-				//alert(window_pos);
-				$('.moving_wall_div img').css('left', -(window_pos * .2) + 'px');
-			});
-
-	//mob scroll
-			mob_scroll_posn = $('.team_div').scrollTop();
-
-			$('.team_div').scroll(function()
-			{
-				var mob_pos = $(this).scrollTop();
-
-			//cloud motion and floor motion
-				$('.moving_cloud_div img').css('left', -(mob_pos * .05) + 'px');
-				$('.moving_floor_div img').css('left', -(mob_pos * .4) + 'px');
-			});
-
-	//ajax on menu items
-			$('.close_icon').click(function()
-			{
-				$('.ajax_loading_bckgrnd').fadeOut(800);
-				$('.ajax_loading_div').addClass('ajax_loading_entry');
-			});
+//menu bar item css
+	var new_li= $('.menu_bar li').first();
+	new_li.addClass('first_rot');
+	var new_li= new_li.next().next();
+	new_li.addClass('first_rot');
+	var new_li= new_li.next().next();
+	new_li.addClass('secnd_rot');
+	var new_li= new_li.next().next();
+	new_li.addClass('first_rot');
+	var new_li= new_li.next().next().next();
+	new_li.addClass('secnd_rot');
 
 
-			$('.spons_div').click(function()
-			{
-				$('.ajax_loading_bckgrnd').fadeIn(800);
-				$('.ajax_loading_div').removeClass('ajax_loading_entry');
-			});
+//witch direction on moving mouse
+	$(document).ready( function ()
+	{
 
-			$('.sch_div').click(function()
-			{
-				$('.ajax_loading_bckgrnd').fadeIn(800);
-				$('.ajax_loading_div').removeClass('ajax_loading_entry');
-			});
+	// track and save the position of the mouse
+		$(document).mousemove( function(e) 
+		{
+			mouseX = e.pageX;
+			mouseY = e.pageY; 
+  		 	
+  		 	witchX = parseInt($('#moving_witch').css("left"));
+  		 	witchY = parseInt($('#moving_witch').css("top"));
 
-			$('.acco_load').click(function()
-			{
-				$('.ajax_loading_bckgrnd').fadeIn(800);
-				$('.ajax_loading_div').removeClass('ajax_loading_entry');
-			});
+			$('#moving_witch').css('top',mouseY + 50);
+			 	$('#moving_witch').css('left',mouseX + 50);
+
+  		 	
+  		 	if(witchX < mouseX)
+  		 	{
+  		 		$('#moving_witch').css('transform', 'rotateY(360deg)');
+  		 	}
+  		 	else
+  		 	{
+  		 		$('#moving_witch').css('transform', 'rotateY(180deg)');
+
+  		 	}
+		});
+
+	});
+
+//cloud motion
+	$(document).scroll(function()
+	{
+		var window_pos = $(this).scrollLeft();
+		//alert(window_pos);
+		$('.moving_cloud_div img').css('left', -(window_pos * .05) + 'px');
+	});
+
+//wall motion
+	$(document).scroll(function()
+	{
+		var window_pos = $(this).scrollLeft();
+		//alert(window_pos);
+		$('.moving_wall_div img').css('left', -(window_pos * .2) + 'px');
+	});
+
+//mob scroll
+	mob_scroll_posn = $('.team_div').scrollTop();
+
+	$('.team_div').scroll(function()
+	{
+		var mob_pos = $(this).scrollTop();
+
+	//cloud motion and floor motion
+		$('.moving_cloud_div img').css('left', -(mob_pos * .05) + 'px');
+		$('.moving_floor_div img').css('left', -(mob_pos * .4) + 'px');
+	});
+
+//ajax on menu items
+	$('.close_icon').click(function()
+	{
+		$('.ajax_loading_bckgrnd').fadeOut(800);
+		$('.ajax_loading_div').fadeOut(800);
+	});
+
+	$('.spons_div').click(function()
+	{
+		$('.ajax_loading_bckgrnd').fadeIn(800);
+		$('.ajax_loading_div').fadeIn(800);
+	});
+
+	$('.sch_div').click(function()
+	{
+		$('.ajax_loading_bckgrnd').fadeIn(800);
+		$('.ajax_loading_div').fadeIn(800);
+	});
+
+	$('.acco_load').click(function()
+	{
+		$('.ajax_loading_bckgrnd').fadeIn(800);
+		$('.ajax_loading_div').fadeIn(800);
+	});
+
+	$('.register').click(function()
+	{
+		$('.ajax_loading_bckgrnd').fadeIn(800);
+		$('.ajax_loading_div').fadeIn(800);
+	});
+	
+//team mem ajax loader
+	$('#fest_cord').click(function()
+	{
+		$('.fest_cord').fadeIn(800);
+
+		$('.arts_cord').fadeOut(0);
+		$('.cnd_cord').fadeOut(0);
+		$('.cult_cord').fadeOut(0);
+		$('.hospi_cord').fadeOut(0);
+		$('.mpr_cord').fadeOut(0);
+		$('.reg_cord').fadeOut(0);
+		$('.spons_cord').fadeOut(0);
+		$('.tech_cord').fadeOut(0);
+		$('.web_cord').fadeOut(0);
+		$('.web_dev_sub').fadeOut(0);
+	});
+
+	$('#mpr').click(function()
+	{
+		$('.mpr_cord').fadeIn(800);
+
+		$('.arts_cord').fadeOut(0);
+		$('.cnd_cord').fadeOut(0);
+		$('.cult_cord').fadeOut(0);
+		$('.hospi_cord').fadeOut(0);
+		$('.fest_cord').fadeOut(0);
+		$('.reg_cord').fadeOut(0);
+		$('.spons_cord').fadeOut(0);
+		$('.tech_cord').fadeOut(0);
+		$('.web_cord').fadeOut(0);
+		$('.web_dev_sub').fadeOut(0);
+	});
 
 
-			$('.register').click(function()
-			{
-				$('.ajax_loading_bckgrnd').fadeIn(800);
-				$('.ajax_loading_div').removeClass('ajax_loading_entry');
-			});
-			
-	//team mem ajax loader
-			$('#fest_cord').click(function()
-			{
-				//alert('ka');
-				$('.team_loader').load('/fest_cord/');
-			});
+	$('#hospi').click(function()
+	{
+		$('.hospi_cord').fadeIn(800);
 
-			$('#mpr').click(function()
-			{
-				//alert('ka');
-				$('.team_loader').load('/mpr/');
-			});
+		$('.arts_cord').fadeOut(0);
+		$('.cnd_cord').fadeOut(0);
+		$('.cult_cord').fadeOut(0);
+		$('.mpr_cord').fadeOut(0);
+		$('.fest_cord').fadeOut(0);
+		$('.reg_cord').fadeOut(0);
+		$('.spons_cord').fadeOut(0);
+		$('.tech_cord').fadeOut(0);
+		$('.web_cord').fadeOut(0);
+		$('.web_dev_sub').fadeOut(0);
+	});
 
 
-			$('#hospi').click(function()
-			{
-				//alert('ka');
-				$('.team_loader').load('/hospi/');
-			});
+	$('#spons').click(function()
+	{
+		$('.spons_cord').fadeIn(800);
+
+		$('.arts_cord').fadeOut(0);
+		$('.cnd_cord').fadeOut(0);
+		$('.cult_cord').fadeOut(0);
+		$('.mpr_cord').fadeOut(0);
+		$('.fest_cord').fadeOut(0);
+		$('.reg_cord').fadeOut(0);
+		$('.hospi_cord').fadeOut(0);
+		$('.tech_cord').fadeOut(0);
+		$('.web_cord').fadeOut(0);
+		$('.web_dev_sub').fadeOut(0);
+	});
 
 
-			$('#spons').click(function()
-			{
-				//alert('ka');
-				$('.team_loader').load('/spons/');
-			});
+	$('#webdev').click(function()
+	{
+		$('.web_dev_sub').fadeIn(800);
 
+		$('.arts_cord').fadeOut(0);
+		$('.cnd_cord').fadeOut(0);
+		$('.cult_cord').fadeOut(0);
+		$('.mpr_cord').fadeOut(0);
+		$('.fest_cord').fadeOut(0);
+		$('.reg_cord').fadeOut(0);
+		$('.hospi_cord').fadeOut(0);
+		$('.tech_cord').fadeOut(0);
+		$('.web_cord').fadeOut(0);
+		$('.spons_cord').fadeOut(0);
+	});
 
-			$('#webdev').click(function()
-			{
-				//alert('ka');
-				$('.team_loader').load('/webdev/');
-			});
+	$('#webapp').click(function()
+	{
+		$('.web_cord').fadeIn(800);
 
-			$('#webapp').click(function()
-			{
-				//alert('ka');
-				$('.team_loader').load('/webapp/');
-			});
+		$('.arts_cord').fadeOut(0);
+		$('.cnd_cord').fadeOut(0);
+		$('.cult_cord').fadeOut(0);
+		$('.mpr_cord').fadeOut(0);
+		$('.fest_cord').fadeOut(0);
+		$('.reg_cord').fadeOut(0);
+		$('.hospi_cord').fadeOut(0);
+		$('.tech_cord').fadeOut(0);
+		$('.web_dev_sub').fadeOut(0);
+		$('.spons_cord').fadeOut(0);
+	});
 
-			$('#cnd').click(function()
-			{
-				//alert('ka');
-				$('.team_loader').load('/cnd/');
-			});
+	$('#cnd').click(function()
+	{
+		$('.cnd_cord').fadeIn(800);
 
-			$('#arts').click(function()
-			{
-				//alert('ka');
-				$('.team_loader').load('/arts/');
-			});
+		$('.arts_cord').fadeOut(0);
+		$('.web_cord').fadeOut(0);
+		$('.cult_cord').fadeOut(0);
+		$('.mpr_cord').fadeOut(0);
+		$('.fest_cord').fadeOut(0);
+		$('.reg_cord').fadeOut(0);
+		$('.hospi_cord').fadeOut(0);
+		$('.tech_cord').fadeOut(0);
+		$('.web_dev_sub').fadeOut(0);
+		$('.spons_cord').fadeOut(0);
+	});
 
-			$('#tech').click(function()
-			{
-				//alert('ka');
-				$('.team_loader').load('/tech/');
-			});
+	$('#arts').click(function()
+	{
+		$('.arts_cord').fadeIn(800);
 
-			$('#cult').click(function()
-			{
-				//alert('ka');
-				$('.team_loader').load('/cult/');
-			});
+		$('.cnd_cord').fadeOut(0);
+		$('.web_cord').fadeOut(0);
+		$('.cult_cord').fadeOut(0);
+		$('.mpr_cord').fadeOut(0);
+		$('.fest_cord').fadeOut(0);
+		$('.reg_cord').fadeOut(0);
+		$('.hospi_cord').fadeOut(0);
+		$('.tech_cord').fadeOut(0);
+		$('.web_dev_sub').fadeOut(0);
+		$('.spons_cord').fadeOut(0);
+	});
 
-			$('#rsp').click(function()
-			{
-				//alert('ka');
-				$('.team_loader').load('/rsp/');
-			});
-		</script>
+	$('#tech').click(function()
+	{
+		$('.tech_cord').fadeIn(800);
 
-	<!---------stars in background---------->
-		<script src="js/jquery-stars.js"></script>
-		<script>
-			$(document).jstars({
-				image_path: 'images',
-				style: 'yellow',
-				frequency: 20,
-				delay: 400
-			});
-			
-		</script>
+		$('.cnd_cord').fadeOut(0);
+		$('.web_cord').fadeOut(0);
+		$('.cult_cord').fadeOut(0);
+		$('.mpr_cord').fadeOut(0);
+		$('.fest_cord').fadeOut(0);
+		$('.reg_cord').fadeOut(0);
+		$('.hospi_cord').fadeOut(0);
+		$('.arts_cord').fadeOut(0);
+		$('.web_dev_sub').fadeOut(0);
+		$('.spons_cord').fadeOut(0);
+	});
 
-		<script type="text/javascript" src="../js/ajax.js"></script>
+	$('#cult').click(function()
+	{
+		$('.cult_cord').fadeIn(800);
+
+		$('.cnd_cord').fadeOut(0);
+		$('.web_cord').fadeOut(0);
+		$('.tech_cord').fadeOut(0);
+		$('.mpr_cord').fadeOut(0);
+		$('.fest_cord').fadeOut(0);
+		$('.reg_cord').fadeOut(0);
+		$('.hospi_cord').fadeOut(0);
+		$('.arts_cord').fadeOut(0);
+		$('.web_dev_sub').fadeOut(0);
+		$('.spons_cord').fadeOut(0);
+	});
+
+	$('#rsp').click(function()
+	{
+		$('.reg_cord').fadeIn(800);
+
+		$('.cnd_cord').fadeOut(0);
+		$('.web_cord').fadeOut(0);
+		$('.tech_cord').fadeOut(0);
+		$('.mpr_cord').fadeOut(0);
+		$('.fest_cord').fadeOut(0);
+		$('.cult_cord').fadeOut(0);
+		$('.hospi_cord').fadeOut(0);
+		$('.arts_cord').fadeOut(0);
+		$('.web_dev_sub').fadeOut(0);
+		$('.spons_cord').fadeOut(0);
+	});
+
+</script>
+
+<!---------stars in background---------->
+<script src="../js/jquery-stars.js"></script>
+<script>
+	$(document).jstars({
+		image_path: 'images',
+		style: 'yellow',
+		frequency: 20,
+		delay: 400
+	});
+	
+</script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-90791019-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'UA-90791019-1');
+	</script>
+
+<script type="text/javascript" src="../js/ajax.js"></script>
 
 	</body>
 </html>

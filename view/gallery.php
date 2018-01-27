@@ -38,11 +38,11 @@
     <link href="../images/logo_favi.png" rel="icon" >
 
     <link rel="stylesheet" href="demo.css">
-    <link rel="stylesheet" href="/assets/jquery.flipster.min.css">
+    <link rel="stylesheet" href="../css/jquery.flipster.min.css">
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
     
-    <script src="/assets/jquery.flipster.min.js"></script>
+    <script src="../js/jquery.flipster.min.js"></script>
 
     <style>
         body
@@ -181,9 +181,7 @@
 <body>
   <!---------header-----bar-->
     <div class="header_div">
-      <img id="header_div_bck" src="/images/blood.jpg"/>
-    
-       <div class="menu_toggle">
+      <div class="menu_toggle">
         <img src="/images/skull_menu.png">
         <span> MENU </span>
       </div>
@@ -193,12 +191,12 @@
     <div class="menu_bar">
       <ul>
         <li><a href="/">Home</a></li>
-        <!-- <li><a href="/events/">Events</a></li> -->
+        <li><a href="/events/">Events</a></li>
         <!-- <li class="sch_div">Schedule</li> -->
         <li><a href="/gallery/">Gallery</a></li>
         <li><a href="/team/">Team</a></li>
-        <!-- <li class="spons_div">Sponsors</li> -->
-        <li class="acco_load">Accomodation</li>
+        <li class="spons_div">Sponsors</li>
+        <li class="acco_load">Hospitality</li>
         <li class="register">Register</li>
         <li class="ca"><a href="/ca/" target="_blank">Campus Ambassador</a></li>
       </ul>
@@ -212,18 +210,16 @@
     <img class="boundary" src="../images/bound.png">
   </div>
   
-  <!---ajax loader---->
 
-    <div class="ajax_loading_bckgrnd">
-      <div class="ajax_back"></div>
-    </div>
+<!---ajax loader-->
+ <div class="ajax_loading_bckgrnd">
+    <div class="ajax_back"></div>
+  </div>
 
-    <div class="ajax_loading_div ajax_loading_entry">
-      <img class="ajax_pin" src="../images/dragon.png"/>
-      <img class="close_icon" src="../images/close.png"/>
-      <img class="ajax_div_back" src="../images/ajax_div_back.png" style="z-index: -100"/>
-      <div class="ajax_content"></div>
-    </div>
+  <div class="ajax_loading_div">
+    <img class="close_icon" src="../images/close.png"/>
+    <div class="ajax_content"></div>
+  </div>
 
 <!<!---footer-->
   <div class="footer_div">
@@ -265,7 +261,7 @@
 </article>
 
 <!--scripts-------->
-  <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" src="../js/jquery.js"></script>
   <script type="text/javascript">
   
   //-----menu toggle
@@ -296,50 +292,48 @@
         $('.menu_bar').slideUp(800);
       });
 
-  //menu bar item css
-      var new_li= $('.menu_bar li').first();
-      new_li.addClass('first_rot');
-      var new_li= new_li.next().next();
-      new_li.addClass('first_rot');
-      var new_li= new_li.next().next();
-      new_li.addClass('secnd_rot');
-      var new_li= new_li.next().next().next();
-      new_li.addClass('secnd_rot');
-
-//ajax on menu items
-      $('.close_icon').click(function()
-      {
-        $('.ajax_loading_bckgrnd').fadeOut(800);
-        $('.ajax_loading_div').addClass('ajax_loading_entry');
-      });
-
-
-      $('.spons_div').click(function()
-      {
-        $('.ajax_loading_bckgrnd').fadeIn(800);
-        $('.ajax_loading_div').removeClass('ajax_loading_entry');
-      });
-
-      $('.sch_div').click(function()
-      {
-        $('.ajax_loading_bckgrnd').fadeIn(800);
-        $('.ajax_loading_div').removeClass('ajax_loading_entry');
-      });
-
-      $('.acco_load').click(function()
-      {
-        $('.ajax_loading_bckgrnd').fadeIn(800);
-        $('.ajax_loading_div').removeClass('ajax_loading_entry');
-      });
+//menu bar item css
+    var new_li= $('.menu_bar li').first();
+    new_li.addClass('first_rot');
+    var new_li= new_li.next().next();
+    new_li.addClass('first_rot');
+    var new_li= new_li.next().next();
+    new_li.addClass('secnd_rot');
+    var new_li= new_li.next().next();
+    new_li.addClass('first_rot');
+    var new_li= new_li.next().next().next();
+    new_li.addClass('secnd_rot');
       
+//ajax on menu items
+    $('.close_icon').click(function()
+    {
+      $('.ajax_loading_bckgrnd').fadeOut(800);
+      $('.ajax_loading_div').fadeOut(800);
+    });
 
-      $('.register').click(function()
-      {
-        $('.ajax_loading_bckgrnd').fadeIn(800);
-        $('.ajax_loading_div').removeClass('ajax_loading_entry');
+    $('.spons_div').click(function()
+    {
+      $('.ajax_loading_bckgrnd').fadeIn(800);
+      $('.ajax_loading_div').fadeIn(800);
+    });
 
-      });
+    $('.sch_div').click(function()
+    {
+      $('.ajax_loading_bckgrnd').fadeIn(800);
+      $('.ajax_loading_div').fadeIn(800);
+    });
 
+    $('.acco_load').click(function()
+    {
+      $('.ajax_loading_bckgrnd').fadeIn(800);
+      $('.ajax_loading_div').fadeIn(800);
+    });
+    
+    $('.register').click(function()
+    {
+      $('.ajax_loading_bckgrnd').fadeIn(800);
+      $('.ajax_loading_div').fadeIn(800);
+    });
 
   </script>
 
@@ -354,6 +348,16 @@
         });
         
     </script>
+
+    	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-90791019-1"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'UA-90791019-1');
+	</script>
 
   <script type="text/javascript" src="../js/ajax.js"></script>
 

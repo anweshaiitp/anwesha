@@ -1,11 +1,12 @@
 <?php
+//echo "maintenance mode";die();
 ini_set('display_errors', '0');     # don't show any errors....
-error_reporting(E_ALL | E_STRICT);  # ...but do log them
+error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT);  # ...but do log them
 ini_set('zlib_output_compression','On');
 
 ini_set("log_errors", 1);
 ini_set("error_log", "errors.log");
-error_log($_SERVER['REMOTE_ADDR']);
+// error_log($_SERVER['REMOTE_ADDR']);
 /**
 * New request lands in this class. After that it is routed accordingly to the respective controller.
 * Also provides basic functions for loading models.
@@ -38,6 +39,10 @@ if (preg_match($base . '(ca|)_?([0-9]{4}|)$@', $url, $match)) {
 	require ('view/reg.php');
 } elseif (preg_match($base . 'register_bare/?$@', $url, $match)) {
 	require ('view/regbare.php');
+} elseif (preg_match($base . 'login_bare/?$@', $url, $match)) {
+	require ('view/login.php');
+} elseif (preg_match($base . 'reset_resend/?$@', $url, $match)) {
+	require ('view/resetresend.php');
 } elseif (preg_match($base . 'register_/?$@', $url, $match)) {
 	require ('view/register.php');
 } elseif (preg_match($base . 'leaderboard/api/?$@', $url, $match)) {
@@ -79,18 +84,17 @@ if (preg_match($base . '(ca|)_?([0-9]{4}|)$@', $url, $match)) {
 } elseif (preg_match($base . 'webdev/$@', $url, $match)) {
 	require ('view/team_cords/webdev.html');
 } elseif (preg_match($base . 'qrReg/([0-9A-Za-z]{4,50})/?$@', $url, $match)) {
+	// alog(json_encode($_POST)."___".json_encode($match));
 	require ('controller/qrReg.php');
 } elseif (preg_match($base . 'pay/([0-9]{4})/?$@', $url, $match)) {
+	alog(json_encode($_POST));
+	
 	require ('controller/pay.php');
 } elseif (preg_match($base . 'schedule_raw/?$@', $url, $match)) {
 	require ('view/schedule.html');
 } elseif (preg_match($base . 'preloader/?$@', $url, $match)) {
 	require ('view/preloader.html');
-} elseif (preg_match($base . 'auditions/?$@', $url, $match)) {
-	require ('view/multiCityAuditions.html');
-} elseif (preg_match($base . 'auditions/linefollow/$@', $url, $match)) {
-	require ('view/linefollow.html');
-} elseif ( preg_match($base .'faq/?$@', $url, $match ) ) {
+}  elseif ( preg_match($base .'faq/?$@', $url, $match ) ) {
 	require ('view/faq.php');
 } elseif (preg_match($base . 'gallery/?$@', $url, $match)) {
 	require ('view/gallery.php');
@@ -101,9 +105,16 @@ if (preg_match($base . '(ca|)_?([0-9]{4}|)$@', $url, $match)) {
 // } elseif ( preg_match($base .'cssLoader/home/?$@', $url, $match ) ) {
 // 	require ('controller/cssLoader.php');
 } elseif ( preg_match($base .'events/?$@', $url, $match ) ) {
-	require ('view/events.html');
-} elseif ( preg_match($base .'eventAdmin/?(|addEvent|update|delete|logout)/?([0-9]{0,9})/?([01])?$@', $url, $match ) ) {
+	require ('view/events.php');
+} elseif ( preg_match($base .'eventAdmin/?(|addEvent|update|delete|view|logout)/?([0-9]{0,9})/?([01])?$@', $url, $match ) ) {
 	require ('view/eventAdmin.php');
+} elseif ( preg_match($base .'imgupload/([0-9]{1,4})$@', $url, $match ) ) {
+	require ('view/imgupload.php');
+} elseif ( preg_match($base .'payment/?$@', $url, $match ) ) {
+	require ('view/payment.php');
+} elseif ( preg_match($base .'payment/delete/([0-9]+)?$@', $url, $match ) ) {
+	// echo json_encode($match);
+	require ('view/paymentdel.php');
 } elseif ( preg_match($base .'test/?$@', $url, $match ) ) {
 	require ('test.php');
 } elseif ( preg_match($base .'eventsData/?$@', $url, $match ) ) {
@@ -112,6 +123,11 @@ if (preg_match($base . '(ca|)_?([0-9]{4}|)$@', $url, $match)) {
 	require ('controller/allEvents.php');
 } elseif (preg_match($base . 'events/([0-9]{1,3})/?$@', $url, $match)) {
 	require ('controller/getSubEvents.php');
+} elseif (preg_match($base . 'events/getReg/([0-9]+)/?$@', $url, $match)) {
+	alog(json_encode($_POST));
+	require ('controller/getallregevent.php');
+} elseif (preg_match($base . 'totReg/?$@', $url)) {
+	require ('controller/totReg.php');
 } elseif (preg_match($base . 'user/register/User/?$@', $url)) {
 	require ('controller/userRegistration.php');
 } elseif (preg_match($base . 'user/CAcheck/([0-9]+)/?$@', $url, $match)) {
@@ -150,9 +166,8 @@ if (preg_match($base . '(ca|)_?([0-9]{4}|)$@', $url, $match)) {
 	require ('controller/forgetpasswdmail.php');
 } elseif (preg_match($base . 'resetpassword/([0-9]{4})/([A-Za-z0-9]{40})/$@', $url,$match)) {
 	require ('view/reset.php');
-} elseif (preg_match($base . 'resetpassword/([0-9]{4})/([A-Za-z0-9]{40})/now/?$@', $url,$match)) {
+} elseif (preg_match($base . 'resetpassword/([0-9]{4})/([A-Za-z0-9]{40})/now/?$@', $url,$match)){
 	require ('controller/forgetpassword_token.php');
-
 } elseif (preg_match($base . 'resend/([a-zA-Z0-9_.+-]+\@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+)/?$@', $url, $match)) {
 	require ('controller/resendVerification.php');
 } elseif (preg_match($base . 'download_records/(.*)$@', $url, $match)) {

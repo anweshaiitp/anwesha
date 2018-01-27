@@ -13,10 +13,44 @@
 	$pId = substr($match[1],0,4);
 	$hash = substr($match[1],3);
 	
+	
+	//auth
+	//  post: orgID
+    // post: authKey
+    // if(!isset($_POST["authKey"]) || !isset($_POST["orgID"])){
+    //      $retArr = [
+    //         "status"=>-1,
+    //         "http"=>403,
+    //         "message"=>"orgID or authKey not supplied"
+    //     ];
+
+    // echo json_encode($retArr);
+    // exit();
+    // }
+	//authend
+	$uID = $_POST['userID'];//tempstore
+	$orgID = $_POST['orgID'];
+	$_POST['userID'] = $orgID;
+	require('middleware/authMiddleware.php');
+
+
+    // $userID = mysqli_real_escape_string($conn, $_POST['orgID']);
+    // $privKey =  Auth::getUserPrivateKey($userID,$conn);
+    // if($privKey["key"] != $_POST["authKey"]){
+    //     $retArr = [
+    //         "status"=>-1,
+    //         "http"=>403,
+    //         "message"=>"Invalid authKey"
+    //     ];
+
+    // echo json_encode($retArr);
+    // exit();
+    // }
+
 	if($match[1] == $pId.sha1($pId.$AESKey)){
-		if(isset($_POST['orgID']) && isset($_POST['eveID'])){
+		if(isset($orgID) && isset($_POST['eveID'])){
 			// if($organiser = Events::isValidOrg($_POST['orgID'],$_POST['eveID'],$conn)){
-				$call = Events::regUser($_POST['orgID'],$_POST['eveID'],$pId,$conn);
+				$call = Events::regUser($orgID,$_POST['eveID'],$pId,$conn);
 				$status = $call[0];
 				$httpstatus = $call[1];
 				$message = $call[2];

@@ -114,31 +114,31 @@ class People{
 
         $error = null;
         if (strlen($n)<4 || strlen($n) > 40){
-            $error = 'Username is too long or too short';
+            $error = 'Username is too long or too short. Should not exceed 40 characters.';
         } else if (strlen($col)>=300){
-            $error = 'College Name too long';
+            $error = 'College Name too long. Error reference ID:'.alog('College Name too long'.$col);
         } else if (strlen($em)>=60){
-            $error = 'Email ID too long';
+            $error = 'Email ID too long. Error reference ID:'.alog('email too long'.$em);;
         } else if ($pass != null && strlen($pass)<5){
             $error = 'Password too short';
         } else if (strlen($cit)>=50){
-            $error = 'City name too long';
+            $error = 'City name too long. Error reference ID:'.alog('City Name too long'.$cit);
         }  else if (!preg_match('/^[a-zA-Z0-9.\s]*$/', $n)) {
-            $error = "Invalid Name";
+            $error = "Invalid Name. Error reference ID:".alog('Name inv'.$n);
         }  else if (!preg_match('/^[a-zA-Z0-9.\s]*$/', $col)) {
-            $error = "Invalid College Name";
+            $error = "Invalid College Name. Error reference ID:".alog('clg inv'.$col);
         }  else if (!preg_match('/^[MFmf]$/', $se)) {
-            $error = "Invalid Sex";
+            $error = "Invalid Sex. Error reference ID:".alog('gen inv'.$se);
         }  else if (!preg_match('/^[789][0-9]{9}$/', $mob)) {
-            $error = "Invalid Mobile Number ";
+            $error = "Invalid Mobile Number. Error reference ID:".alog('mob inv'.$mob);;
         }  else if (!filter_var($em, FILTER_VALIDATE_EMAIL)) {
-            $error = "Invalid Email-ID";
+            $error = "Invalid Email-ID. Error reference ID:".alog('em inv'.$em);;
         }  else if (!self::validateDate($db)) {
-            $error = "Invalid D.O.B [".$db."]";
+            $error = "Invalid D.O.B [".$db."]. Error reference ID:".alog('dob inv'.$db);
         }  else if (!preg_match('/^[a-zA-Z0-9.@]*$/', $cit)) {
-            $error = "Invalid City";
-        }  else if (!preg_match('/^([0-9]{4}|)$/', trim($rc))) {
-            $error = "Invalid Referral $rc Code";
+            $error = "Invalid City. Error reference ID:".alog('city inv'.$cit);
+        }  else if (!preg_match('/^([0-9]{4}|[9][0-9]{4}|)$/', trim($rc))) {
+            $error = "Invalid Referral $rc Code. Error reference ID:".alog('ref inv'.$rc);
         }
         $se = strtoupper($se);
         return $error;
@@ -179,6 +179,18 @@ class People{
 
     }
 
+    public static function HTTPPost($url, array $params) {
+        $query = http_build_query($params);
+        $ch    = curl_init();
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HEADER, false);
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $query);
+        $response = curl_exec($ch);
+        curl_close($ch);
+        return $response;
+    }
 
     function IsNullOrEmptyString($val){
         return (!isset($val) || trim($val)==='');
@@ -348,6 +360,15 @@ class People{
             $arr["special"] = $isSpecial;
         else
             $arr["special"]["count"] = 0;
+        $eve = People::getEvents($result_,$conn);
+        if(($eve[0] == 1) && count($eve) > 1){
+            $arr['1']['event'] = $eve[1];//dump all event data
+        } else {
+            $arr['1']['event'] = null;
+        }
+        $auth = Auth::getUserPrivateKey($result_,$conn);
+        if($auth["status"]==true)
+             $arr['1']['key'] = $auth["key"]; 
 
         return $arr;
     }
@@ -437,9 +458,9 @@ class People{
      * @return array       index 0 :- 1(success), -1(error);
      */
     public static function createUser($n,$fbID = null,$col,$se,$mob,$em,$pass = null,$db,$cit,$ca,$rc,$conn){
-        error_log('1');
+        // error_log('1');
         $error = self::validateData($n,$fbID,$col,$se,$mob,$em,$pass,$db,$cit,$rc);
-        error_log('Data validated');
+        // error_log('Data validated');
 
         if(isset($error)){
             $arr = array();
@@ -454,9 +475,15 @@ class People{
             mysqli_autocommit($conn,FALSE);
         
         try
-        {
-            error_log('Try: before select');
-            $sql = "SELECT pId FROM Pids LIMIT 1";
+        { 
+            $pidpref = "1" ;
+            if($rc>90000){
+                $pidnum = $rc%10000;
+                $pidpref = "pId >= $pidnum ORDER BY pId ASC";
+                $rc = null; //err?
+            }
+            // error_log('Try: before select');
+            $sql = "SELECT pId FROM Pids WHERE $pidpref LIMIT 1";
             $result = mysqli_query($conn, $sql);
             if(!$result || mysqli_num_rows($result)==0){
                 error_log(mysqli_error($conn));
@@ -467,7 +494,7 @@ class People{
                 $arr[]=$Err;
                 return $arr;
             }
-            error_log('before mysql fetch');
+            // error_log('before mysql fetch');
             $row = mysqli_fetch_assoc($result);
             $id = $row['pId'];
 
@@ -475,10 +502,10 @@ class People{
             $confirm = ($fbID)?1:0;
             $fbID = ($fbID)?$fbID:-time();
             $qrurl = self::genQR($id)[3];
-            error_log('time()');
+            // error_log('time()');
             $sqlInsert = "INSERT INTO People(name,fbID,pId,college,sex,mobile,email,dob,city,refcode,feePaid,confirm,qrurl) VALUES ('$n', $fbID, $id, '$col', '$se', '$mob', '$em', '$db', '$cit', '$rc', 0, $confirm, '$qrurl')";
             $result = mysqli_query($conn,$sqlInsert);
-            error_log('Query 2');
+            // error_log('Query 2');
             if(!$result){
 		$dup='';
 		if(strpos(mysqli_error($conn),"Duplicate entry")!==false){
@@ -495,7 +522,7 @@ class People{
 
             $sqlDeletePid="DELETE FROM Pids WHERE pId=$id";
             $result = mysqli_query($conn,$sqlDeletePid);
-            error_log('Query 3');
+            // error_log('Query 3');
 
             if(!$result){
                 $Err='An Internal Error Occured... Please try later. #'.alog(mysqli_error($conn));
@@ -509,7 +536,7 @@ class People{
             $password = (isset($pass))?"sha('".mysqli_real_escape_string($conn,$pass)."')":"NULL";
             $privateKey = (isset($pass))?"sha('".Auth::randomPassword()."')":"NULL";
             $sqlInsert = "INSERT INTO LoginTable(pId,password,privateKey,csrfToken,type) VALUES ($id,$password,$privateKey,'$token',1)";
-            error_log('Query 4');
+            // error_log('Query 4');
 
             $result = mysqli_query($conn,$sqlInsert);
             if(!$result){
@@ -521,21 +548,21 @@ class People{
                 return $arr;
             }
             if(!$ca) {
-            error_log('Before email');
+            // error_log('Before email');
 
                 // Mail will be send from Campus Ambassador
             self::Email($em,$n,$token,$id,$ca,!$confirm);
-            error_log('After email');
+            // error_log('After email');
                 mysqli_commit($conn);
-            error_log('MYSQLi Commit');
+            // error_log('MYSQLi Commit');
             }
 
             return self::getUser($id, $conn);
         } finally {
-            error_log('finally Commit');
+            // error_log('finally Commit');
             if(!$ca)
                 mysqli_autocommit($conn,TRUE);            
-            error_log('MYSQLi autoCommit');
+            // error_log('MYSQLi autoCommit');
         } 
     }
 
@@ -696,8 +723,10 @@ class People{
      * Need in case,after fixing mass bug on mail system 
      * @param  MySQLi $conn       database connection object
      */
-    public static function sendVerificationMailToAll($conn) {
-        $sql = "SELECT * FROM People NATURAL JOIN LoginTable WHERE type > 0 ";
+    public static function sendVerificationMailToAll($conn,$userarr) {
+        // $ids = join(",",$userarr); 
+        //3898,4960,8084,2798,1578,6701,6524,7486,3231,8496,3590,6063,3732,2745,9169,6041
+        $sql = "SELECT * FROM People NATURAL JOIN LoginTable WHERE pId IN ($userarr) ";
         $result = mysqli_query($conn, $sql);
         if($result){
             while ($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
@@ -705,11 +734,20 @@ class People{
                 $name = $row['name'];
                 $token = $row['csrfToken'];
                 $pid = $row['pId'];
-                People::Email($email,$name,$token,$pid,false);
-                echo "Email send to ". $email . "\n";
+                if($row['type']==2){   
+                    echo "CA : ";
+                    People::Email($email,$name,$token,$pid,1,0);
+                    // People::Email($emailId,$name,$link,$id,$ca,$ver = null);
+                }
+                else if($row['type']==1){   
+                    echo "regUser : ";
+                    People::Email($email,$name,$token,$pid,false,1);
+                }
+
+                echo " Email send to ". $email . "\n<br>".PHP_EOL;
             }
         } else {
-                echo "Error in Query Execution";
+                echo "Error in Query Execution". "\n<br>".PHP_EOL;
         }
     }
 
@@ -725,7 +763,7 @@ class People{
         $count = 0;
         $reg = 0;
         $eveIdarr = array();
-        $ownerQ = "owner1 = $userID || owner2 = $userID || owner3 = $userID || owner4 = $userID";
+        $ownerQ = "owner1 = $userID || owner2 = $userID || owner3 = $userID || owner4 = $userID || owner5 = $userID || owner6 = $userID || owner7 = $userID || owner8 = $userID || owner9 = $userID || owner10 = $userID";
         $sql = "SELECT eveName,eveId FROM Events WHERE ($ownerQ OR code IN (SELECT eveId FROM Events WHERE $ownerQ ))";
         $result = mysqli_query($conn, $sql);
         if($result){
@@ -804,7 +842,7 @@ class People{
         $baseURL = $baseURL . 'verifyEmail/User/';
         $link = $baseURL . '' . $id . '/' . $link;
         // mail($to,$subject,$message);
-        $message = "Hi $name,<br>Thank you for registering for $ANWESHA_YEAR. Your Registered Id is : <b>ANW$id</b>.<br>";
+        $message = "Thank you for registering for $ANWESHA_YEAR. Your Registered Id is : <b>ANW$id</b>.<br>";
         if($ver==1)
             $message .= " To complete your registration, you need to verify your email account. Click here for email verification link: $link .<br>";
         else
@@ -832,60 +870,72 @@ class People{
             $message .= "<br>Yor Registration QRcode is as below and is also attached to this email:<br>
             <img src='".$actual_link."/qr/anw".$id.".png' height='100' width='100' >";
         
-        $message .="<br>Thank You.
-            <br>Registration Desk
-            <br>
-            Anwesha 2018
-            <br>
-            IIT Patna
-            <br>
-            <br>
-            Anwesha Facebook Page - https://www.facebook.com/anwesha.iitpatna/
-            <br>
-            Anwesha Youtube channel - https://www.youtube.com/AnweshaIITP
-            <br>
-            Anwesha Instagram Page - https://www.instagram.com/anwesha.iitp
-            ";
+        // $message .="<br>Thank You.
+        //     <br>Registration Desk
+        //     <br>
+        //     Anwesha 2018
+        //     <br>
+        //     IIT Patna
+        //     <br>
+        //     <br>
+        //     Anwesha Facebook Page - https://www.facebook.com/anwesha.iitpatna/
+        //     <br>
+        //     Anwesha Youtube channel - https://www.youtube.com/AnweshaIITP
+        //     <br>
+        //     Anwesha Instagram Page - https://www.instagram.com/anwesha.iitp
+        //     ";
         $subject = "Email Verification, $ANWESHA_YEAR";
 
-        require('resources/PHPMailer/PHPMailerAutoload.php');
+        // require('resources/PHPMailer/PHPMailerAutoload.php');
         require('emailCredential.php');
 
-        $mail = new PHPMailer;
+        // $mail = new PHPMailer;
 
         // 0 = off (for production use)
         // 1 = client messages
         // 2 = client and server messages
         // 3 = verbose debug output
-        $mail->SMTPDebug = 0;
+        $SMTPDebug = 0;
 
-        $mail->isSMTP();                                      // Set mailer to use SMTP
-        $mail->Host = MAIL_HOST;  // Specify main and backup SMTP servers
-        $mail->SMTPAuth = MAIL_SMTP_AUTH;                               // Enable SMTP authentication
-        $mail->Username = MAIL_USERNAME;                 // SMTP username
-        $mail->Password = MAIL_PASSWORD;                           // SMTP password
-        $mail->SMTPSecure = MAIL_SMTP_SECURE;                            // Enable TLS encryption, `ssl` also accepted
-        $mail->Port = MAIL_PORT;                                    // TCP port to connect to
+        // $mail->isSMTP();                                      // Set mailer to use SMTP
+        $Host = MAIL_HOST;  // Specify main and backup SMTP servers
+        $SMTPAuth = MAIL_SMTP_AUTH;                               // Enable SMTP authentication
+        $Username = MAIL_USERNAME;                 // SMTP username
+        $Password = MAIL_PASSWORD;                           // SMTP password
+        $SMTPSecure = MAIL_SMTP_SECURE;                            // Enable TLS encryption, `ssl` also accepted
+        $Port = MAIL_PORT;                                    // TCP port to connect to
 
-        $mail->setFrom($ANWESHA_REG_EMAIL, 'Anwesha Registration & Planning Team');
-        $mail->addAddress($emailId, $name);     // Add a recipient
+        // $mail->setFrom($ANWESHA_REG_EMAIL, 'Anwesha Registration & Planning Team');
+        // $mail->addAddress($emailId, $name);     // Add a recipient
         // $mail->addAddress('ellen@example.com');               // Name is optional
-        $mail->addReplyTo($ANWESHA_REG_EMAIL, 'Registration & Planning Team');
+        // $mail->addReplyTo($ANWESHA_REG_EMAIL, 'Registration & Planning Team');
         // $mail->addCC('guptaaditya.13@gmail.com');
         // $mail->addBCC($ANWESHA_YEAR);
-        if(file_exists($qrDir))
-        $mail->addAttachment( $qrDir, 'qrcode.png');    // Optional name
-        // $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
-        $mail->isHTML(true);                                  // Set email format to HTML
+        // if(file_exists($qrDir))
+        // $mail->addAttachment( $qrDir, 'qrcode.png');    // Optional name
 
-        $mail->Subject = $subject;
-        $mail->Body    = $message;
+        // $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+        // $mail->isHTML(true);                                  // Set email format to HTML
+
+        // $mail->Subject = $subject;
+        // $mail->Body    = $message;
         $altBody = "Hi $name,\nThank you for registering for $ANWESHA_YEAR. Your Registered Id is : ANW$id. To complete your registration, you need to verify your email account. Click here for email verification link: $link .\n";
         if($ca)
             $altBody = $altBody."<br>Your Referal Code is last four digits of your AnweshaID. Or you can also share $ca_shareurl for other people registration.<br>";
         $altBody = $altBody . "In case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to <i>$ANWESHA_REG_EMAIL</i>. You can also visit our website $ANWESHA_URL for more information.\nThank You.\nRegistration Desk\n$ANWESHA_YEAR";
-        $mail->AltBody = $altBody;
-        $mail->send();
+        // $mail->AltBody = $altBody;
+        $nodemailerBody = [
+            "authID" => $NodeMailerAuthToken,
+            "emailTo"=> $emailId,
+            "emailSub"=>$subject,
+            "url"=>$link,
+            "name"=>$name,
+            "bodyhtml"=>$message,
+            "bodyplain"=>$altBody,
+            "anwID"=>$id
+        ];
+        self::HTTPPost("https://anwesha2018.herokuapp.com/qr", $nodemailerBody);
+        // $mail->send();
         // if(!$mail->send()) {
         //     echo 'Message could not be sent.';
         //     echo 'Mailer Error: ' . $mail->ErrorInfo;
@@ -901,7 +951,7 @@ class People{
      * @param string $title    title
      * @param string $content  Content To send
      */
-    public static function EmailWithText($emailId,$title,$content)
+    public static function EmailWithText($emailId,$title,$content,$url =null,$btnname = null)
     {
         require('defines.php');
         require('resources/PHPMailer/PHPMailerAutoload.php');
@@ -923,15 +973,31 @@ class People{
         $mail->SMTPSecure = MAIL_SMTP_SECURE;                            // Enable TLS encryption, `ssl` also accepted
         $mail->Port = MAIL_PORT;                                    // TCP port to connect to
 
-        $mail->setFrom($ANWESHA_REG_EMAIL, 'Anwesha Registration & Planning Team');
+        $mail->setFrom($ANWESHA_REG_EMAIL, 'Anwesha Web Team');
         $mail->addAddress($emailId);
-        $mail->addReplyTo($ANWESHA_REG_EMAIL, 'Registration & Planning Team');
+        $mail->addReplyTo($ANWESHA_REG_EMAIL, 'Web Team');
         $mail->isHTML(true);                                  // Set email format to HTML
 
         $mail->Subject = $title;
         $mail->Body    = $content;
-        $mail->AltBody = $content;;
-        $mail->send();
+        $mail->AltBody = $content;
+        if($btnname==null)
+            $btnname = "Reset Password";
+        $nodemailerBody = [
+            "authID" => $NodeMailerAuthToken,
+            "emailTo"=> $emailId,
+            "emailSub"=>$title,
+            "bodyhtml"=>$content,
+            "bodyplain"=>$content,
+            "purp"=>"evereg",
+            "title"=> $title,
+            "url"=>$url,
+            "btnname"=> $btnname 
+
+        ];
+        self::HTTPPost("https://anwesha2018.herokuapp.com/text", $nodemailerBody);
+
+        // $mail->send();
    
     }
 
@@ -942,7 +1008,7 @@ class People{
      * @param string $randPass      random generated string
      * @param int    $id               Anwesha Id for registered user
      */
-    public function passEmail( $emailId, $name, $randPass = null, $id, $conn) {
+    public static function passEmail( $emailId, $name, $randPass = null, $id, $conn) {
         // mail($to,$subject,$message);
         require('defines.php');
         $actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
@@ -950,11 +1016,11 @@ class People{
         $userEmail = $userObj['email'];
         $resetURL = $actual_link."/reset/".$userEmail;
         if(isset($randPass)){
-            $message = "Hi $name,<br>Thank you for registering for $ANWESHA_YEAR. Your Registered Id is : <b>ANW$id</b>.<br>Your temporary auto generated password is : <b>$randPass</b><br>You can change the password by clicking <a href='$resetURL'>Reset Password.</a><br>In case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to <i>$ANWESHA_REG_EMAIL</i>. You can also visit our website <i>$ANWESHA_URL</i> for more information.<br>Thank You.<br>Registration Desk<br>$ANWESHA_YEAR";
-            $messagePlain = "Hi $name,\nThank you for registering for $ANWESHA_YEAR. Your Registered Id is : ANW$id.\nYour temporary auto generated password is : $randPass\nYou can change the password by visiting $resetURL.\nIn case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to $ANWESHA_REG_EMAIL. You can also visit our website $ANWESHA_URL for more information.\nThank You.\nRegistration Desk\n$ANWESHA_YEAR";
+            $message = "Hi $name,<br>Thank you for registering for $ANWESHA_YEAR. Your Registered Id is : <b>ANW$id</b>.<br>Your temporary auto generated password is : <b>$randPass</b><br>You can change the password by clicking <a href='$resetURL'>Reset Password.</a><br>In case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to <i>$ANWESHA_REG_EMAIL</i>.";
+            $messagePlain = "Hi $name,\nThank you for registering for $ANWESHA_YEAR. Your Registered Id is : ANW$id.\nYour temporary auto generated password is : $randPass\nYou can change the password by visiting $resetURL.\nIn case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to $ANWESHA_REG_EMAIL. ";
         }else{
-            $message = "Hi $name,<br>Thank you for registering for $ANWESHA_YEAR. Your Registered Id is : <b>ANW$id</b>.<br>You can login using the password that you set during registration.<br>You can change the password by clicking <a href='$resetURL'>Reset Password.</a><br>In case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to <i>$ANWESHA_REG_EMAIL</i>. You can also visit our website <i>$ANWESHA_URL</i> for more information.<br>Thank You.<br>Registration Desk<br>$ANWESHA_YEAR";
-            $messagePlain = "Hi $name,\nThank you for registering for $ANWESHA_YEAR. Your Registered Id is : ANW$id.\nYou can login using the password that you set during registration.\nYou can change the password by visiting $resetURL.\nIn case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to $ANWESHA_REG_EMAIL. You can also visit our website $ANWESHA_URL for more information.\nThank You.\nRegistration Desk\n$ANWESHA_YEAR";
+            $message = "Hi $name,<br>Thank you for registering for $ANWESHA_YEAR. Your Registered Id is : <b>ANW$id</b>.<br>You can login using the password that you set during registration.<br>You can change the password by clicking <a href='$resetURL'>Reset Password.</a><br>In case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to <i>$ANWESHA_REG_EMAIL</i>.";
+            $messagePlain = "Hi $name,\nThank you for registering for $ANWESHA_YEAR. Your Registered Id is : ANW$id.\nYou can login using the password that you set during registration.\nYou can change the password by visiting $resetURL.\nIn case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to $ANWESHA_REG_EMAIL.";
         }
 
         $subject = "Account Confirmed, $ANWESHA_YEAR";
@@ -974,16 +1040,27 @@ class People{
         $mail->SMTPSecure = MAIL_SMTP_SECURE;                            // Enable TLS encryption, `ssl` also accepted
         $mail->Port = MAIL_PORT;                                    // TCP port to connect to
 
-        $mail->setFrom($ANWESHA_REG_EMAIL, 'Anwesha Registration & Planning Team');
+        $mail->setFrom($ANWESHA_REG_EMAIL, 'Anwesha Web Team');
         $mail->addAddress($emailId, $name);     // Add a recipient
-        $mail->addReplyTo($ANWESHA_REG_EMAIL, 'Registration & Planning Team');
+        $mail->addReplyTo($ANWESHA_REG_EMAIL, 'Web Team');
         $mail->isHTML(false);                                  // Set email format to HTML
 
         $mail->Subject = $subject;
         $mail->Body    = $message;
         $mail->AltBody = $messagePlain;
-        
-        $mail->send();
+        $nodemailerBody = [
+            "authID" => $NodeMailerAuthToken,
+            "emailTo"=> $emailId,
+            "emailSub"=>$subject,
+            "bodyhtml"=>$message,
+            "bodyplain"=>$messagePlain,
+            "purp"=>"confpswd",
+            "title"=>"Account Confirmed",
+            "url"=>"http://anwesha.info",
+            "btnname"=>"Visit Website"
+        ];
+        self::HTTPPost("https://anwesha2018.herokuapp.com/text", $nodemailerBody);
+        // $mail->send();
         
     }
 
@@ -1142,10 +1219,10 @@ class People{
         $mail->SMTPSecure = MAIL_SMTP_SECURE;                            // Enable TLS encryption, `ssl` also accepted
         $mail->Port = MAIL_PORT;                                    // TCP port to connect to
         
-        $mail->setFrom($ANWESHA_YEAR, 'Anwesha Registration & Planning Team');
+        $mail->setFrom($ANWESHA_YEAR, 'Anwesha Web');
         $mail->addAddress($emailId, $name);     // Add a recipient
         // $mail->addAddress('ellen@example.com');               // Name is optional
-        $mail->addReplyTo($ANWESHA_REG_EMAIL, 'Registration & Planning Team');
+        $mail->addReplyTo($ANWESHA_REG_EMAIL, 'Web');
         // $mail->addCC('guptaaditya.13@gmail.com');
         // $mail->addBCC($ANWESHA_YEAR);
 
@@ -1155,8 +1232,22 @@ class People{
 
         $mail->Subject = $subject;
         $mail->Body    = $message;
-        $mail->AltBody = "Hi $name,\nYou have been registered for event $eveName. Thank You!\nIn case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to $ANWESHA_REG_EMAIL. You can also visit our website http://2017.anwesha.info/ for more information.\nRegistration Desk\nAnwesha 2k17";;
-        $mail->send();
+        $altBody = "Hi $name,\nYou have been registered for event $eveName. Thank You!\nIn case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to $ANWESHA_REG_EMAIL. You can also visit our website http://2017.anwesha.info/ for more information.\nRegistration Desk\nAnwesha 2k17";
+        $mail->AltBody = $altBody;
+        $nodemailerBody = [
+            "authID" => $NodeMailerAuthToken,
+            "emailTo"=> $emailId,
+            "emailSub"=>$subject,
+            "bodyhtml"=>$message,
+            "bodyplain"=>$altBody,
+            "purp"=>"evereg",
+            "title"=>"Event Registered",
+            "url"=>"http://anwesha.info",
+            "btnname"=>"Visit Website"
+
+        ];
+        self::HTTPPost("https://anwesha2018.herokuapp.com/text", $nodemailerBody);
+        // $mail->send();
 
     }
 
@@ -1168,7 +1259,7 @@ class People{
      * @return array          associative array, index "status" is boolean, index "msg" carries corresponding message
      */
     public function registerEventUserSingle($userID, $eventID, $conn){
-        $sql = "INSERT INTO Registration VALUES ($eventID,$userID,null)";
+        $sql = "INSERT INTO Registration VALUES ($eventID,$userID,null,0)";
         $result = mysqli_query($conn,$sql);
         if($result){
             self::sendEventRegistrationEmail($userID,$eventID,$conn);
@@ -1466,7 +1557,7 @@ class Events{
 
     public static function isSuperUser($pId,$conn){
         $pId = mysqli_real_escape_string($conn,$pId);
-        $ownerQ = "owner1 = $pId || owner2 = $pId || owner3 = $pId || owner4 = $pId";
+        $ownerQ = "owner1 = $pId || owner2 = $pId || owner3 = $pId || owner4 = $pId || owner5 = $pId || owner6 = $pId || owner7 = $pId || owner8 = $pId || owner9 = $pId || owner10 = $pId";
         $sql = "SELECT count(eveId) as owner FROM Events E1 WHERE eveId = 0 AND ($ownerQ)";
         $result = mysqli_query($conn, $sql);
         $arr = array();
@@ -1500,7 +1591,7 @@ class Events{
 
     public static function isValidOrg($pId,$eveID,$conn){
         $eveID = mysqli_real_escape_string($conn,$eveID);
-        $ownerQ = "owner1 = $pId || owner2 = $pId || owner3 = $pId || owner4 = $pId";
+        $ownerQ = "owner1 = $pId || owner2 = $pId || owner3 = $pId || owner4 = $pId || owner5 = $pId || owner6 = $pId || owner7 = $pId || owner8 = $pId || owner9 = $pId || owner10 = $pId";
         $sql = "SELECT count(code) as owner FROM Events E1 
             WHERE 
                 eveId = $eveID AND (
@@ -1511,7 +1602,7 @@ class Events{
         $result = mysqli_query($conn, $sql);
         $arr = array();
         if(!$result || mysqli_num_rows($result)==0){
-            $error = "Internal Error #".alog(mysqli_error($conn));            
+            $error = " Internal Error #".alog(mysqli_error($conn). $sql );            
             $arr[]=-1;
             $arr[]=500;
             $arr[]=$error;
@@ -1542,7 +1633,7 @@ class Events{
         if(!$valid){
             return $valid;
         }
-        $sqlInsert = "INSERT INTO Registration(eveId,pId) VALUES ($eveID,$pId)";
+        $sqlInsert = "INSERT INTO Registration(eveId,pId,val) VALUES ($eveID,$pId,1)";
         $dup ="";
         $result = mysqli_query($conn,$sqlInsert);
         if(!$result){
@@ -1708,8 +1799,8 @@ class Auth
         $baseURL = $ANWESHA_URL;
         $url = $baseURL . "resetpassword/$userId/$token/";
         
-        $emailContent = "Hi $name,</br>We received a request to Reset to Anwesha Password. To reset your password Please click <a href='$url '>here</a>.</br></br>In case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to $ANWESHA_REG_EMAIL. You can also visit our website $ANWESHA_URL for more information.</br></br>Thank You.</br>Registration & Planning Team</br>$ANWESHA_YEAR";
-        People::EmailWithText($em,"Anwesha Password Reset",$emailContent);
+        $emailContent = "Hi $name,</br>We received a request to Reset to Anwesha Password. To reset your password Please click <a href='$url '>here</a>.</br></br>In case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to $ANWESHA_REG_EMAIL.";
+        People::EmailWithText($em,"Anwesha Password Reset",$emailContent,$url);
         $arr = array();
         $arr[]=1;
         $arr[]="Please check for new email on $em";
