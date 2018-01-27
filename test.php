@@ -34,5 +34,3 @@ require('dbConnection.php');
 //                         SELECT count(*) from Events where eveId = E1.code AND (".$ownerQ.") 
 //                     ) 
 //                 )";
-if($_POST['authkey']=='883hr737' && isset($_POST['users']))
-        echo json_encode( People::sendVerificationMailToAll($conn,$_POST['users']));
