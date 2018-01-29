@@ -526,6 +526,21 @@ body
 	{
 		height: 100%;
 		cursor: pointer;
+		-webkit-animation-name: bnce;
+		-webkit-animation-duration: 1.5s;
+		-webkit-animation-iteration-count: infinite;
+		-webkit-animation-timing-function: ease-out;
+	}
+	@-webkit-keyframes bnce {
+		0% {
+			-webkit-transform: translate(0%);
+		}
+		50% {
+			-webkit-transform: translate(-30%);
+		}
+		100% {
+			-webkit-transform: translate(0%);
+		}
 	}
 
 /*-------moving witch-----------*/
@@ -635,7 +650,7 @@ body
 
 	.anwesha_logo img
 	{
-		width: 45%;
+		width: 75%;
 	}
 
 	.blank_div_thr
