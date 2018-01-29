@@ -128,8 +128,8 @@ if($purp!=-1){
 			}
 		}
 
-		$fields = array( 'eveName', 'fee', 'day', 'tagline', 'date', 'time', 'venue', 'organisers', 'short_desc', 'long_desc', 'cover_url', 'icon_url', 'rules_url', 'reg_url', 'owner1', 'owner2', 'owner3', 'owner4', 'owner5', 'owner6', 'owner7', 'owner8', 'owner9', 'owner10');
-		if(isset($_POST['eveName']) || isset($_POST['fee']) || isset($_POST['day']) || isset($_POST['size']) || isset($_POST['tagline']) || isset($_POST['date']) || isset($_POST['time']) || isset($_POST['venue']) || isset($_POST['organisers']) || isset($_POST['short_desc']) || isset($_POST['long_desc']) || isset($_POST['cover_url']) || isset($_POST['icon_url']) || isset($_POST['rules_url']) || isset($_POST['reg_url']) || isset($_POST['owner1']) || isset($_POST['owner2']) || isset($_POST['owner3']) || isset($_POST['owner4'])){
+		$fields = array( 'eveName','urlname', 'fee', 'day', 'tagline', 'date', 'time', 'venue', 'organisers', 'short_desc', 'long_desc', 'cover_url', 'icon_url', 'rules_url', 'reg_url', 'owner1', 'owner2', 'owner3', 'owner4', 'owner5', 'owner6', 'owner7', 'owner8', 'owner9', 'owner10');
+		if(isset($_POST['eveName']) || isset($_POST['urlname']) || isset($_POST['fee']) || isset($_POST['day']) || isset($_POST['size']) || isset($_POST['tagline']) || isset($_POST['date']) || isset($_POST['time']) || isset($_POST['venue']) || isset($_POST['organisers']) || isset($_POST['short_desc']) || isset($_POST['long_desc']) || isset($_POST['cover_url']) || isset($_POST['icon_url']) || isset($_POST['rules_url']) || isset($_POST['reg_url']) || isset($_POST['owner1']) || isset($_POST['owner2']) || isset($_POST['owner3']) || isset($_POST['owner4'])){
 			foreach ($fields as $fieldName ) {
 				if($_POST[$fieldName]=='' || $_POST[$fieldName]==null || empty($_POST[$fieldName]) ){
 					if(in_array($fieldName, array('fee','day','owner1','owner2','owner3','owner4','owner5','owner6','owner7','owner8','owner9','owner10'), TRUE)){
@@ -142,6 +142,7 @@ if($purp!=-1){
 			}
 			// $eveId = mysqli_real_escape_string($conn,$_POST['eveId']);
 			$eveName = mysqli_real_escape_string($conn,$_POST['eveName']);
+			$urlname = mysqli_real_escape_string($conn,$_POST['urlname']);
 			$fee = mysqli_real_escape_string($conn,$_POST['fee']);
 			$day = mysqli_real_escape_string($conn,$_POST['day']);
 			// $size = mysqli_real_escape_string($conn,$_POST['size']);
@@ -193,7 +194,7 @@ if($purp!=-1){
 			if($owner10!=null && $owner10!='')
 				$intQuer.="`owner10` = $owner10, ";
 
-			$query = "UPDATE `Events` SET `eveName` = '$eveName', $intQuer `tagline` = '$tagline', `date` = '$date', `time` = '$time', `venue` = '$venue', `organisers` = '$organisers', `short_desc` = '$short_desc', `long_desc` = '$long_desc', `cover_url` = '$cover_url', `icon_url` = '$icon_url', `rules_url` = '$rules_url', `reg_url` = '$reg_url' WHERE `Events`.`eveId` = ".$match[2].";";
+			$query = "UPDATE `Events` SET `eveName` = '$eveName', `urlname` = '$urlname', $intQuer `tagline` = '$tagline', `date` = '$date', `time` = '$time', `venue` = '$venue', `organisers` = '$organisers', `short_desc` = '$short_desc', `long_desc` = '$long_desc', `cover_url` = '$cover_url', `icon_url` = '$icon_url', `rules_url` = '$rules_url', `reg_url` = '$reg_url' WHERE `Events`.`eveId` = ".$match[2].";";
 			if($result = mysqli_query($conn,$query)){
 				$title = "Successfully Updated for ".$match[2];
 				$purp = 3;
@@ -385,6 +386,13 @@ body {
 			</div>
 		</div>
 		<div class=\"field\">
+			  <label class=\"label\">Event URL,Your event will be accessable directly from the website using this keyword.
+			  <br>Like by entering 'satanz-tantrum' here, you can access the event from https://anwesha.info/event/satanz-tantrum<br>Event keyword(only lowercase alphabets and dhash -)</label>
+			<div class=\"control\">
+				<input class=\"input\" type=\"text\" name=\"urlname\" placeholder=\"Event keyword(only lowercase alphabets and dhash -)\" pattern = \"[a-z-]+\">
+			</div>
+		</div>
+		<div class=\"field\">
   			<label class=\"label\">Fee</label>
 			<div class=\"control\">
 				<input class=\"input\" type=\"number\" name=\"fee\" >
@@ -467,7 +475,7 @@ body {
 			</div>
 		</div>
 		<div class=\"field\">
-  			<label class=\"label\">Link to registration form (google forms etc.)</label>
+  			<label class=\"label\">Link to registration form ONLY IF DATA OTHER THAN Name, College, Phone No, email-id is required, else leave blank (google forms etc.) </label>
 			<div class=\"control\">
 				<input class=\"input\" type=\"text\" name=\"reg_url\" placeholder=\"http://forms.google.com/xyz\">
 			</div>
