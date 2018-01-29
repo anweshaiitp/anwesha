@@ -3,7 +3,7 @@
 ini_set('display_errors', '0');     # don't show any errors....
 error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT);  # ...but do log them
 ini_set('zlib_output_compression','On');
-
+date_default_timezone_set("Asia/Kolkata");
 ini_set("log_errors", 1);
 ini_set("error_log", "errors.log");
 // error_log($_SERVER['REMOTE_ADDR']);

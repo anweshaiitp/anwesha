@@ -30,7 +30,7 @@
 	  <meta property="article:modified_time" content="2017-10-12T19:08:47+01:00" />
 	  <meta property="article:section" content="Anwesha is a Techno-Cultural extravaganza by IIT Patna held every year in the spring.Since its inception in 2010, it has grown into one of the most anticipated student-organized youth festival." />
 		<meta name="viewport" content="width=device-width, initial-scale= 1">
-	
+	<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
 </head>
 <body>
 <!-----preloader-->
@@ -144,6 +144,30 @@
 	<div class="horizontal">
 		<div class="anwesha_logo">
 			<img src="images/anwesha.png">
+			<center style="
+			transform: translateY(-100%);
+			color: #fff;"> <h1 style="font-family: 'Indie Flower', cursive;font-size: 70px;">
+				<?php
+				$AnweshaDay1 = new DateTime('2018-02-02');
+				$today = new DateTime("now");
+				$datediff = date_diff($AnweshaDay1, $today);
+				$daycount = $datediff->d;
+				$invert = $datediff->invert;
+				// echo $invert."-".$daycount;
+				
+				// var_dump($datediff );
+				if($invert==1){
+					$plu = ($daycount==0)?"":"s";
+					echo ($daycount+1)." Day{$plu} To Go!";
+				}else{
+					if($daycount>2){
+						echo "";
+					}else{
+						echo "Day ".($daycount+1)." Is On!";
+					}
+				}
+				?>
+			</h1>   </center>
 		</div>
 
 		<div class="blank_div_thr">
