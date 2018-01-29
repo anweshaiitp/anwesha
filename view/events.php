@@ -1,7 +1,53 @@
 <html>
-<?php echo json_encode($match); ?>
 <head>
-    <title>Events | Anwesha 2018</title>
+    <?php if(isset($match[2])){
+        require('model/model.php');
+        require('dbConnection.php');
+        $conn = mysqli_connect(SERVER_ADDRESS,USER_NAME,PASSWORD,DATABASE);
+
+        $evedat = Events::getEventDetails($match[2],$conn);
+        if($evedat[0]==1){
+            $desc = ($evedat[1]['short_desc']==null || $evedat[1]['short_desc']=="")?$evedat[1]['short_desc']:$evedat[1]['long_desc'];
+            ?>
+            <link href="/images/logo_favi.png" rel="icon" >
+            <title><?php echo $evedat[1]['eveName']; ?> | Events | Anwesha '18</title>
+	  <meta name="description" content="<?php echo $desc; ?>" />
+	  <META NAME="Keywords" CONTENT="Anwesha,IIT Patna,IITP,IIT,college,fest,<?php echo $evedat[1]['eveName']; ?>">
+	  
+	  <meta itemprop="name" content="<?php echo $evedat[1]['eveName']; ?> | Events | Anwesha '18">
+	  <meta itemprop="description" content="<?php echo $desc; ?>">
+	  <meta itemprop="image" content="//anwesha.info/images/anw_theme.jpg">
+	  
+	  <meta name="twitter:card" content="summary_large_image">
+	  <meta name="twitter:site" content="@anweshaiitp">
+	  <meta name="twitter:title" content="<?php echo $evedat[1]['eveName']; ?> | Events | Anwesha '18">
+	  <meta name="twitter:description" content="<?php echo $desc; ?>">
+	  <meta name="twitter:creator" content="@anweshaiitp">
+	  
+	  <meta name="twitter:image:src" content="//anwesha.info/images/anw_theme.jpg">
+	  
+	  <meta property="og:title" content="<?php echo $evedat[1]['eveName']; ?> | Events | Anwesha '18" />
+	  <meta property="og:type" content="article" />
+	  <meta property="og:url" content="//anwesha.info/" />
+	  <meta property="og:image" content="//anwesha.info/images/anw_theme.jpg" />
+	  <meta property="og:description" content="<?php echo $desc; ?>" />
+	  <meta property="og:site_name" content="Anwesha2k18" />
+	  <meta property="article:published_time" content="2017-10-11T05:59:00+01:00" />
+	  <meta property="article:modified_time" content="2017-10-12T19:08:47+01:00" />
+	  <meta property="article:section" content="<?php echo $desc; ?>" />
+        <?php }
+    }else if(isset($match[1])){
+        if($match[1] == 1 ){
+            echo "<title>Technical Events | Anwesha 2018</title>";
+        }else if($match[1] == 2 ){
+            echo "<title>Cultural Events | Anwesha 2018</title>";
+        }else if($match[1] == 3 ){
+            echo "<title>Arts and Welfare Events | Anwesha 2018</title>";
+        }
+    }else{
+        echo "<title>Events | Anwesha 2018</title>";
+    } ?>
+    
 
     <meta name="viewport" content="width=device-width, initial-scale= 1">
 
