@@ -48,7 +48,7 @@
 		    $('body, html, *').mousewheel(function(e, delta) {
 		        // multiplying by 40 is the sensitivity, 
 		        // increase to scroll faster.
-		        this.scrollLeft -= (delta * 60);
+		        this.scrollLeft -= (delta * 40);
 		        e.preventDefault();
 		    });
 
@@ -151,9 +151,8 @@
 
 		<div class="about_anwesha">
 			<p> About Anwesha</p>
-			Anwesha is a quest. The annual Techno-Cultural Festival of Indian Institute of Technology Patna hosts Technical, Cultural, Literary, Eco and Management events. Since its genesis in 2010, Anwesha has gained great importance at an exponential rate and enjoys a cult status among the youths of Bihar. Eminent personalities such as chief minister Nitish Kumar, Padma Vibhushan, G. Madhavan Nair, R.K. Sihna (Dolphin Man of India), have been part of Anwesha's extravaganza in the past.
+			Anwesha is a Techno-Cultural extravaganza held every year in spring. Since its inception in 2010, it has grown into one of the most anticipated student-organized youth festival. From NASA Scientists to Dancing Idols, from Ethical Hackers to Heartthrob Singers, from Game Development to Gaming Wars, from Robotics to Dramatics, from Model United Nations to Foreign Exchange Conferences, from Sufi to Death Metal, Anwesha, with the tag "Think Dream Live", promises every youth to full-fill his/her dreams to the maximum. It involves student volunteers who work by interest and promote intellectualism and creativity through their organization and maintain the brand value of IIT. Anwesha meaning "Quest" in Sanskrit has been a quest for every participant to reach his full potential. Its latest edition received participation around 5000 and footfall of around 20000 involving many computer geeks, gaming freaks, technoholics, music & dance maniacs and rock bands hailing from well-known institutes across the country.
 		</div>
-
 
 		<div class="blank_div_fiv">
 		</div>
@@ -161,6 +160,32 @@
 		<div class="anwesha_theme">
 			<p>Themed on WitchCraft</p>
 			<img src="images/anw_theme.jpg">
+
+		</div>
+		<div class="blank_div_fiv">
+		</div>
+
+		<div class="anwesha_theme">
+			<p>Jack Eye Jones</p>
+			<img src="images/jack.jpg">
+
+		</div>
+
+		<div class="blank_div_fiv">
+		</div>
+
+		<div class="anwesha_theme">
+			<p>Nalayak - The Band</p>
+			<img src="images/nalayak.jpg">
+
+		</div>
+
+		<div class="blank_div_fiv">
+		</div>
+
+		<div class="anwesha_theme">
+			<p>Chaar Hazaari</p>
+			<img src="images/chaar.jpg">
 
 		</div>
 
@@ -200,7 +225,7 @@
 
 		<div class="about_anwesha">
 			<p> About Anwesha</p>
-			Anwesha is a quest. The annual Techno-Cultural Festival of Indian Institute of Technology Patna hosts Technical, Cultural, Literary, Eco and Management events. Since its genesis in 2010, Anwesha has gained great importance at an exponential rate and enjoys a cult status among the youths of Bihar. Eminent personalities such as chief minister Nitish Kumar, Padma Vibhushan, G. Madhavan Nair, R.K. Sihna (Dolphin Man of India), have been part of Anwesha's extravaganza in the past.
+			Anwesha is a Techno-Cultural extravaganza held every year in spring. Since its inception in 2010, it has grown into one of the most anticipated student-organized youth festival. From NASA Scientists to Dancing Idols, from Ethical Hackers to Heartthrob Singers, from Game Development to Gaming Wars, from Robotics to Dramatics, from Model United Nations to Foreign Exchange Conferences, from Sufi to Death Metal, Anwesha, with the tag "Think Dream Live", promises every youth to full-fill his/her dreams to the maximum. It involves student volunteers who work by interest and promote intellectualism and creativity through their organization and maintain the brand value of IIT. Anwesha meaning "Quest" in Sanskrit has been a quest for every participant to reach his full potential. Its latest edition received participation around 5000 and footfall of around 20000 involving many computer geeks, gaming freaks, technoholics, music & dance maniacs and rock bands hailing from well-known institutes across the country.
 		</div>
 
 
@@ -210,6 +235,33 @@
 		<div class="anwesha_theme">
 			<p>Themed on WitchCraft</p>
 			<img src="images/anw_theme.jpg">
+
+		</div>
+
+		<div class="blank_div_fiv">
+		</div>
+
+		<div class="anwesha_theme">
+			<p>Jack Eye Jones</p>
+			<img src="images/jack.jpg">
+
+		</div>
+
+		<div class="blank_div_fiv">
+		</div>
+
+		<div class="anwesha_theme">
+			<p>Nalayak - The Band</p>
+			<img src="images/nalayak.jpg">
+
+		</div>
+
+		<div class="blank_div_fiv">
+		</div>
+
+		<div class="anwesha_theme">
+			<p>Chaar Hazaari</p>
+			<img src="images/chaar.jpg">
 
 		</div>
 
@@ -373,7 +425,7 @@
 		{
 			var window_pos = $(this).scrollLeft();
 			//alert(window_pos);
-			$('.moving_floor_div img').css('left', -(window_pos * .4) + 'px');
+			$('.moving_floor_div img').css('left', -(window_pos * .3) + 'px');
 		});
 
 	//mob scroll
