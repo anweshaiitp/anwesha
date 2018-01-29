@@ -655,22 +655,21 @@ body
 
 	.blank_div_thr
 	{
-		width: 25%;
+		width: 20%;
 		height: 100px;
 		display: inline-block;
 	}
 
-
 	.blank_div_fiv
 	{
-		width: 40%;
+		width: 20%;
 		height: 100px;
 		display: inline-block;
 	}
 
 	.about_anwesha
 	{
-		width: 40%;
+		width: 45%;
 		height: auto;
 		padding: 20px;
 		border-radius: 15px;
