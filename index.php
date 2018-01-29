@@ -106,6 +106,10 @@ if (preg_match($base . '(ca|)_?([0-9]{4}|)$@', $url, $match)) {
 // 	require ('controller/cssLoader.php');
 } elseif ( preg_match($base .'events/?$@', $url, $match ) ) {
 	require ('view/events.php');
+} elseif ( preg_match($base .'event/([1-3])/?([0-9]{0,4})?/?$@', $url, $match ) ) {
+	require ('view/events.php');
+} elseif ( preg_match($base .'event/([a-zA-Z-]+)?$@', $url, $match ) ) {
+	require ('view/view_eve.php');
 } elseif ( preg_match($base .'eventAdmin/?(|addEvent|update|delete|view|logout)/?([0-9]{0,9})/?([01])?$@', $url, $match ) ) {
 	require ('view/eventAdmin.php');
 } elseif ( preg_match($base .'imgupload/([0-9]{1,4})$@', $url, $match ) ) {

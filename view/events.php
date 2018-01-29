@@ -1,13 +1,13 @@
 <html>
-
+<?php echo json_encode($match); ?>
 <head>
     <title>Events | Anwesha 2018</title>
 
     <meta name="viewport" content="width=device-width, initial-scale= 1">
 
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/style.css" rel="stylesheet">
-    <link href="../images/logo_favi.png" rel="icon">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/images/logo_favi.png" rel="icon">
 
     <!--------styling for events page---------->
     <style type="text/css">
@@ -29,7 +29,7 @@
 <!---------header-----bar-->
     <div class="header_div">
         <div class="menu_toggle">
-            <img src="../images/skull_menu.png">
+            <img src="/images/skull_menu.png">
             <span> MENU </span>
         </div>
     </div>
@@ -52,20 +52,20 @@
 <!-----doors---->
     <div class="menu_backgrnd">
         <div class="overlay"></div>
-        <img class="creep" src="../images/creep.png">
+        <img class="creep" src="/images/creep.png">
         <br>
-        <img class="boundary" src="../images/bound.png">
+        <img class="boundary" src="/images/bound.png">
     </div>
 
 <!-----moving ----witch------>
-    <img id="moving_witch" class="moving_witch" src="../images/witch_right_1.png">
+    <img id="moving_witch" class="moving_witch" src="/images/witch_right_1.png">
 
 <!-----fixed ----cloud------>
     <div class="cloud_div"></div>
 
 <!-----moving ----cloud------>
     <div class="moving_cloud_div">
-        <img src="../images/moving_cloud.png">
+        <img src="/images/moving_cloud.png">
     </div>
 
 <!--events page content-------->
@@ -76,7 +76,9 @@
             <button class="cult_button">Cultural</button>
             <button class="arts_button">Arts & Welfare</button>
         </div>
-
+        <?php if(isset($match[2])){?>
+            <center> <img src="/images/load.gif" id="bodyajaxLoadWait" alt="" style="transform: scale(0.5);"> </center>
+        <?php } ?>
         <div id="event_cat_div" class="tech_event">
 
             <p class="events_title">Technical Events</p>
@@ -318,15 +320,15 @@
     </div>
 
     <div class="ajax_loading_div">
-        <img class="close_icon" src="../images/close.png"/>
+        <img class="close_icon" src="/images/close.png"/>
         <div class="ajax_content"></div>
     </div>
 
 <!---footer-->
     <div class="footer_div">
-        <a target="_blank" href="https://www.facebook.com/anwesha.iitpatna/"><img src="../images/social/fb.png"></a>
-        <a target="_blank" href="https://www.instagram.com/anwesha.iitp/"><img src="../images/social/insta.png"></a>
-        <a target="_blank" href="https://www.youtube.com/user/AnweshaIITP"><img src="../images/social/youtube.png"></a>
+        <a target="_blank" href="https://www.facebook.com/anwesha.iitpatna/"><img src="/images/social/fb.png"></a>
+        <a target="_blank" href="https://www.instagram.com/anwesha.iitp/"><img src="/images/social/insta.png"></a>
+        <a target="_blank" href="https://www.youtube.com/user/AnweshaIITP"><img src="/images/social/youtube.png"></a>
         
         <div class="copyright">
             &copy; 2018 Anwesha, IIT Patna
@@ -335,7 +337,7 @@
 
 
  <!--scripts-->
-    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script type="text/javascript" src="/js/jquery.js"></script>
     <script type="text/javascript">
     var eveglid =-1;
     var currPar = "tech_content";
@@ -352,7 +354,8 @@
 
             $(document).on('click', '#RegBtn', function (e) {
                 console.log('this is the click');
-                e.preventDefault();
+                // if($(this).attr("href")!="" && $(this).attr("href")!=null )
+                // e.preventDefault();
                  console.log("/register/"+eveglid);
                 $.get( "/register/"+eveglid, function( data ) {
                         console.log("dat",data);
@@ -395,8 +398,13 @@
         });
 
 //for choosing events tabs
+<?php 
+    if(!isset($match[1]) && $match[1] != 1 ){
+?>
     $('.tech_event').fadeIn(1000);
-    
+<?php 
+    }
+?>
     $('.tech_button').click(function()
     {
         $('.tech_event').fadeIn(1000);
@@ -584,6 +592,8 @@
             // $(cat+ ' alt_regbtn').attr("href", "");
             $(cat+ ' #RuleBtn').attr("href", "");
             $(cat+ ' #RegBtn').attr("data-eveid", "-1");
+            $(cat+ ' #RegBtn').removeAttr("href");
+            $(cat+ ' #RegBtn').removeAttr("target");
             $(cat+ ' #regmsg').text('');
             $(cat+ ' #RuleBtn').hide();
             // $(cat+ ' #RegBtn').hide();
@@ -598,7 +608,7 @@
                 text = text.replace(/[\u00A0-\u9999<>\&]/gim, function(i) {
                    return '&#'+i.charCodeAt(0)+';';
                 });
-                text = text.replace(/\n\n/g,"</br></p><p></br>").replace(/\n/g,"</br>");
+                text = text.replace(/\n\n/g,"</br></p><p></br>").replace(/\n/g,"</br>").replace(/&quot;/g," ");
                 return ""+text+"";
             }
         var events_data;
@@ -653,6 +663,52 @@
                //init all;
                setTimeout(function(){
                    $(".tech_eve span:first-child").click();
+                   <?php
+                   $myvar = $match[2];
+                   
+                //    function getstr ($type,$myvar_){
+                //        if(isset($myvar_)){
+                //             return "$(\"evetab".$myvar_."\").click();";
+                //         }else{
+                //             return "$(\".{$type}_eve span:first-child\").click();";
+                //         }
+                //     }
+                   if(isset($match[1])){
+                    //    echo $match[1];
+                    $cat = "tech";
+                    echo "$('#bodyajaxLoadWait').fadeOut();";
+                       if($match[1]==1){
+                           $cat = "tech";
+                           echo "
+                            $('#tech_button').click();
+                            $('.tech_event').fadeIn(1000);
+                            $('.cult_event').fadeOut(0);
+                            $('.arts_event').fadeOut(0);";
+                       }else if($match[1]==2){
+                           $cat = "cult";
+                            echo "
+                            $('#cult_button').click();
+                            $('.cult_event').fadeIn(1000);
+                            $('.tech_event').fadeOut(0);
+                            $('.arts_event').fadeOut(0);";
+                       }else if($match[1]==3){
+                           $cat = "arts";
+                           echo "
+                            $('#arts_button').click();
+                            $('.arts_event').fadeIn(1000);
+                            $('.tech_event').fadeOut(0);
+                            $('.cult_event').fadeOut(0);";
+                       }
+                       if(isset($match[2])&& $match[2] != ""){
+                        echo "$('#evetab".$match[2]."').click();";
+                       }else{
+                           echo "$('.{$cat}_eve span:first-child').click();";
+                       }
+                    
+                   }
+                //    evetab42
+                   ?>
+
                    // eve_coverswitch('.tech_content',eventsmap[$(".tech_eve span:first-child").attr('event_id')].cover_url);
                    // $(".cult_eve span:first-child").click();
                    // $(".mgmt_eve span:first-child").click();
@@ -695,6 +751,13 @@
                 $(cat+ ' #RuleBtn').show();
             // $(cat+ ' #RegBtn').attr("", dataToFill.reg_url);
             $(cat+ ' #RegBtn').attr("data-eveid", dataToFill.eveId);
+            if(dataToFill.reg_url!=null && dataToFill.reg_url!=""){
+                $(cat+ ' #RegBtn').attr("href", dataToFill.reg_url);
+                $(cat+ ' #RegBtn').attr("target","_blank");
+            }else{
+                $(cat+ ' #RegBtn').removeAttr("href");
+                $(cat+ ' #RegBtn').removeAttr("target");
+            }
             $(cat+ ' #regmsg').text('');
             eveglid = dataToFill.eveId;
             console.log("eveglid",eveglid);
