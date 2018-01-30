@@ -3,7 +3,7 @@ Number.prototype.pad = function (size) {
   while (s.length < (size || 2)) { s = "0" + s; }
   return s;
 }
-
+var test =0;
 var questions = [
   { question: "What's your first name?", pattern: /^[a-zA-Z\s]{4,20}$/ },
   { question: "What's your last name?",  pattern: /^[a-zA-Z]{0,20}$/ },
@@ -108,7 +108,7 @@ var picker;
       {
         name: name,
         fbID: fbID,
-        // email: email,
+        email: email,
         college: college,
         city: city,
         dob: dob,
