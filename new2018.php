@@ -50,9 +50,9 @@
 				var hashsplit = window.location.hash.split('-');
 				console.log(hashsplit);
 				if(hashsplit[1]){
-					customhash = '#'+hashsplit[1];
+					// customhash = '#'+hashsplit[1];
 				}
-				if(hashsplit[0]=='#accomodation'){
+				if(hashsplit[0]=='#hospitality'){
 					$('.acco_load').click();
 				}else if(hashsplit[0]=='#sponsors'){
 					$('.spons_div').click();
