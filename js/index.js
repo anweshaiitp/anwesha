@@ -87,8 +87,9 @@ var picker;
     showCurrent()
   }
   function ajaxSend(){
-    $("#loadgif").fadeIn();
-    $("#progress").fadeOut();
+  $("#loadgif").fadeIn();
+  $("#centerLoader").fadeIn();
+  $("#progress").fadeOut();
     //function submitF(){
     // event.preventDefault();
     var name = questions[0].value + " " + questions[1].value;
@@ -107,7 +108,7 @@ var picker;
       {
         name: name,
         fbID: fbID,
-        email: email,
+        // email: email,
         college: college,
         city: city,
         dob: dob,
@@ -122,6 +123,8 @@ var picker;
         if (status == 'success') {//$("#myloader").fadeOut();
           console.log(data);
           $("#loadgif").fadeOut();
+          $("#centerLoader").fadeOut();
+          $(".center").fadeOut();
           if (data[0] == 1) {
             $("#postajaxmsg").html('<center><div class="posttext"><h3><b>Registration Successful</b><br>Your Anwesha ID is : ANW' + data[1]['pId'] + '.</h3></div></center>');
             $("#emailfill").text('Confirm Account using confirmation email sent on '+email);
@@ -151,6 +154,7 @@ var picker;
           $("#hideOnerr").fadeOut();
           $("#postajaxmsg").html('<div class="posttext">An error occured.<br> Please try again.</div>');
           $("#loadgif").fadeOut();
+          $("#centerLoader").fadeOut();
           console.log("Failed " + data);
 
         }
@@ -166,7 +170,7 @@ var picker;
     // add the h1 at the end with the welcome text
     var postajax = document.createElement('div');
     postajax.id = "postajax";
-    $(".center").html("<img id='loadgif' src='/images/load.gif' height'50px'>")
+    $("#centerLoader").html("<img id='loadgif' src='/images/load.gif' height'50px'>")
     // setTimeout(function() {
     //   register.parentElement.appendChild(postajax)    
     //   setTimeout(function() {postajax.style.opacity = 1}, 50)
