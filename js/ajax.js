@@ -1,13 +1,13 @@
 //ajax for accodomation page
 $('.acco_load').click(function()
 {
-	$('.ajax_content').html("<iframe src='/accodomation/' frameborder='0' style='width:100%;height:100%'></iframe>");
+	$('.ajax_content').html("<iframe src='/accodomation/"+customhash+"' frameborder='0' style='width:100%;height:100%'></iframe>");
 	return false;
 });
 
 $('.spons_div').click(function()
 {
-	$('.ajax_content').html("<iframe src='/sponsors/' frameborder='0' style='width:100%;height:100%'></iframe>");
+	$('.ajax_content').html("<iframe src='/sponsors/" + customhash+"' frameborder='0' style='width:100%;height:100%'></iframe>");
 	return false;
 });
 

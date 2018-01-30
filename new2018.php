@@ -41,10 +41,25 @@
 	<script async type="text/javascript" src="js/jquery.mousewheel.js"></script>
 	
 	<script type="text/javascript">
+	var customhash ='';
 		$('.preloader_div').load("/preloader/");
 
 	//--horizontal----------- scrolling-->
 		$(document).ready(function() {
+			if(window.location.hash){
+				var hashsplit = window.location.hash.split('-');
+				console.log(hashsplit);
+				if(hashsplit[1]){
+					customhash = '#'+hashsplit[1];
+				}
+				if(hashsplit[0]=='#accomodation'){
+					$('.acco_load').click();
+				}else if(hashsplit[0]=='#sponsors'){
+					$('.spons_div').click();
+				}else if(hashsplit[0]=='#register'){
+					$('.register').click();
+				}
+			}
 		    $('body, html, *').mousewheel(function(e, delta) {
 		        // multiplying by 40 is the sensitivity, 
 		        // increase to scroll faster.
@@ -102,7 +117,7 @@
 	</div>
 
 <!-----register fast---------->
-	<div class="reg_fast"><a target="_blank" href="/register_bare">REGISTER NOW</a></div>
+	<div class="reg_fast"><a onclick="$('.register').click();">REGISTER NOW</a></div>
 	
 <!-----login fast---------->
 	<div class="log_fast"><a target="_blank" href="/login_bare">LOGIN</a></div>
