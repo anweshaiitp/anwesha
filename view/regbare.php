@@ -55,7 +55,7 @@ require('defines.php');
 <body>
 	<!-- <center>  <h1 style="opacity:1 !important">Register!</h1></center> -->
 	<div id="progress"></div>
-	<!-- <div class="center">
+	<div class="center">
 		<div id="register">
 
 			<i id="progressButton" class="ion-android-arrow-forward next"></i>
@@ -70,8 +70,8 @@ require('defines.php');
 		
 		<br>
 		<a style="position:absolute;top:60%;left:50%;transform:translateX(-50%);color:white;" href="http://anwesha.info/reset_resend" target="_blank">Reset Password or Resend confirmation email</a>
-	</div> -->
-	<div id="verify" style="display:block;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)">
+	</div>
+	<div id="verify" style="display:none;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)">
 		<div id="postajaxmsg" class="inputbox">
 		</div>
 		<div id="hideOnerr">
