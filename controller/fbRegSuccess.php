@@ -52,7 +52,7 @@ $me_endpoint_url = 'https://graph.accountkit.com/'.$version.'/me?'.
 $data = doCurl($me_endpoint_url);
 $phone = isset($data['phone']) ? $data['phone']['number'] : '';
 $email = isset($data['email']) ? $data['email']['address'] : '';
-file_put_contents('./logs/mob.txt',"".((isset($data['phone']))?$data['phone']:"NOT")."\n");
+file_put_contents('./logs/mob.txt',"".((isset($data['phone']))?$data['phone']['number']:"NOT")."\n".PHP_EOL, FILE_APPEND | LOCK_EX);
 if(isset($data["error"])){
     $err = 1;
     $status =400;
