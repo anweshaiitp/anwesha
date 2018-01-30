@@ -86,7 +86,7 @@
             <li><a href="/">Home</a></li>
             <li><a href="/events/">Events</a></li>
             <!-- <li class="sch_div">Schedule</li> -->
-            <li><a href="/gallery/">Gallery</a></li>
+            <li><a href="https://www.facebook.com/pg/anwesha.iitpatna/photos/?ref=page_internal" target="_blank">Gallery</a></li>
             <li><a href="/team/">Team</a></li>
             <li class="spons_div">Sponsors</li>
             <li class="acco_load">Hospitality</li>
@@ -366,7 +366,7 @@
     </div>
 
     <div class="ajax_loading_div">
-        <img class="close_icon" src="/images/close.png"/>
+        <img class="close_icon" src="/images/close2.png"/>
         <div class="ajax_content"></div>
     </div>
 

@@ -1,4 +1,5 @@
 <?php
+header("Location: https://www.facebook.com/pg/anwesha.iitpatna/photos/?ref=page_internal");
      require_once 'vendor/autoload.php';
      require 'defines.php';
      // require_once 'library/facebook.php';
@@ -217,7 +218,7 @@
   </div>
 
   <div class="ajax_loading_div">
-    <img class="close_icon" src="../images/close.png"/>
+    <img class="close_icon" src="../images/close2.png"/>
     <div class="ajax_content"></div>
   </div>
 
