@@ -58,14 +58,15 @@
 		    padding-right: 15px;
 		    padding-left: 15px;
 		    text-shadow: #FFFFFF 0px 0px 0px;
-	}
-.genbtn:hover {
-	background: rgba(238, 238, 238, 0.427);
-	/* color: #000000; */
-	text-shadow: #FFFFFF 2px 1px 5px;
+		}
 
-	box-shadow: #171717 0px 0px 12px 1px;
-}
+	.genbtn:hover {
+		background: rgba(238, 238, 238, 0.427);
+		/* color: #000000; */
+		text-shadow: #FFFFFF 2px 1px 5px;
+
+		box-shadow: #171717 0px 0px 12px 1px;
+		}
 		 .accod_accod_div a
 		{
 			padding:0;
@@ -90,6 +91,8 @@
 			color: white;
 			font-size: 110%;
 			font-family: main_font;
+
+			//color: black;
 		}
 
 		.accod_page_content a
@@ -113,6 +116,8 @@
 			padding: 10px;
 			border: 1px solid white;
 			color: white;
+
+			//color: black;
 		}
 	</style>
 </head>
@@ -125,6 +130,7 @@
 		<button class="genbtn general_accod_button">General Guidelines</button>
 		<button class="genbtn charges_accod_button">Charges</button>
 		<button class="genbtn here_accod_button">Getting Here</button>
+		<button class="genbtn bus_accod_button">Bus Timing</button>
 		<button class="genbtn accod_accod_button">Accommodation</button>
 		<button class="genbtn contact_accod_button">Contacts</button>
 	</div>
@@ -258,6 +264,109 @@
 
 		</ul>
 
+		<ul class="bus_time_div">
+			<h1>Anwesha'18 External Bus Schedule</h1>
+			<h2>FROM PATNA TO IIT CAMPUS( BIHTA)</h2>
+
+			<div class="ritz grid-container" dir="ltr">
+				<table class="waffle" cellspacing="0" cellpadding="0">
+					<thead>
+						<tr>
+							<th class="row-header freezebar-origin-ltr"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr style='height:20px;'>
+							<th id="0R0" style="height: 20px;" class="row-headers-background">
+							</th>
+							<td><b>Time</b></td>
+						</tr>
+						<tr style='height:20px;'>
+							<th id="0R1" style="height: 20px;" class="row-headers-background">
+							</th>
+							<td class="s0" dir="ltr">10:00 AM</td>
+						</tr>
+						<tr style='height:20px;'>
+							<th id="0R2" style="height: 20px;" class="row-headers-background">
+							</th>
+							<td class="s0" dir="ltr">2:00 PM</td>
+						</tr>
+						<tr style='height:20px;'>
+							<th id="0R3" style="height: 20px;" class="row-headers-background">
+							</th>
+							<td class="s0" dir="ltr">6:00 PM</td>
+						</tr>
+						
+					</tbody>
+				</table>
+			</div>
+			<br><br>
+
+			<b>Bus 01 Route: </b>
+			<br>
+			Gate No. 1 -> Above Flyover (Bailey Road) -> Hartali More -> Patna Women's College (Patna High Court) -> A.N. College -> Old IIT Patna Campus (Bakhtiyarpur Engg. College).
+			<br><br>
+
+			<b>Bus 02 Route: </b>
+			<br>
+			Gate No. 1 -> Above Flyover (Bailey Road) -> Hartali More -> NIFT Patna -> CNLU (Mithapur).  
+			<br><br><br>
+
+			<div class="ritz grid-container" dir="ltr">
+				<table class="waffle" cellspacing="0" cellpadding="0">
+					<thead>
+						<tr>
+							<th class="row-header freezebar-origin-ltr"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr style='height:20px;'>
+							<th id="0R0" style="height: 20px;" class="row-headers-background">
+							</th>
+							<td><b>NOTE:</b></td>
+						</tr>
+						<tr style='height:20px;'>
+							<th id="0R1" style="height: 20px;" class="row-headers-background">
+							</th>
+							<td class="s0" dir="ltr">1.The time indicates the tentative start time of the bus from start location.</td>
+						</tr>
+						<tr style='height:20px;'>
+							<th id="0R2" style="height: 20px;" class="row-headers-background">
+							</th>
+							<td class="s0" dir="ltr">2.The Hospitality committee reserves the right to cancel the bus with or without prior information.</td>
+						</tr>
+						<tr style='height:20px;'>
+							<th id="0R3" style="height: 20px;" class="row-headers-background">
+							</th>
+							<td class="s0" dir="ltr">3.There can be delay due to unavoidable circumstance.</td>
+						</tr>
+
+						<tr style='height:20px;'>
+							<th id="0R1" style="height: 20px;" class="row-headers-background">
+							</th>
+							<td class="s0" dir="ltr">4.Any damage to the bus or any offensive behaviour during the journey may lead to serious actions.</td>
+						</tr>
+						<tr style='height:20px;'>
+							<th id="0R2" style="height: 20px;" class="row-headers-background">
+							</th>
+							<td class="s0" dir="ltr">5.Please board the bus after paying the fare and receiving the journey pass  and produce it when asked.</td>
+						</tr>
+						<tr style='height:20px;'>
+							<th id="0R3" style="height: 20px;" class="row-headers-background">
+							</th>
+							<td class="s0" dir="ltr">6.The passengers will be allowed to board only from above stops mentioned in route. No interim boarding will be permitted.</td>
+						</tr>
+						
+					</tbody>
+				</table>
+			</div>
+
+			<h3>The bus travel will cost Rs 30.00 for one side. Bus travel in night shift (after 10 pm) will cost Rs 50.00.</h3>
+
+
+		</ul>
+
+
 	</div>
 	
 <!-----scripts------>
@@ -280,8 +389,11 @@
 			$('.here_accod_div').fadeOut(0);
 			$('.accod_accod_div').fadeOut(0);
 			$('.contact_accod_div').fadeOut(0);
+			$('.bus_time_div').fadeOut(0);
+
 		});
 
+		
 		$('.charges_accod_button').click(function()
 		{
 			$('.charges_accod_div').fadeIn(500);
@@ -290,12 +402,25 @@
 			$('.here_accod_div').fadeOut(0);
 			$('.accod_accod_div').fadeOut(0);
 			$('.contact_accod_div').fadeOut(0);
+			$('.bus_time_div').fadeOut(0);
 		});
 
 		$('.here_accod_button').click(function()
 		{
 			$('.here_accod_div').fadeIn(500);
 
+			$('.charges_accod_div').fadeOut(0);
+			$('.general_accod_div').fadeOut(0);
+			$('.accod_accod_div').fadeOut(0);
+			$('.contact_accod_div').fadeOut(0);
+			$('.bus_time_div').fadeOut(0);
+		});
+
+		$('.bus_accod_button').click(function()
+		{
+			$('.bus_time_div').fadeIn(500);
+
+			$('.here_accod_div').fadeOut(0);
 			$('.charges_accod_div').fadeOut(0);
 			$('.general_accod_div').fadeOut(0);
 			$('.accod_accod_div').fadeOut(0);
@@ -310,6 +435,7 @@
 			$('.here_accod_div').fadeOut(0);
 			$('.general_accod_div').fadeOut(0);
 			$('.contact_accod_div').fadeOut(0);
+			$('.bus_time_div').fadeOut(0);
 		});
 
 		$('.contact_accod_button').click(function()
@@ -320,6 +446,7 @@
 			$('.here_accod_div').fadeOut(0);
 			$('.general_accod_div').fadeOut(0);
 			$('.accod_accod_div').fadeOut(0);
+			$('.bus_time_div').fadeOut(0);
 		});
 
 	</script>
