@@ -48,7 +48,7 @@ if(isset($data['access_token'])){
 }
 // Get Account Kit information
 $me_endpoint_url = 'https://graph.accountkit.com/'.$version.'/me?'.
-  'access_token='.$user_access_token;
+    'access_token='.$user_access_token;
 $data = doCurl($me_endpoint_url);
 $phone = isset($data['phone']) ? $data['phone']['number'] : '';
 $email = isset($data['email']) ? $data['email']['address'] : '';
@@ -58,22 +58,22 @@ if(isset($data["error"])){
     $msg = "Error in verifying account. Reference #".alog("fbcurl err".json_encode($data["error"]));
 }
 //verify with anwesha ID
-if(isset($_SESSION['fbSMSanwID']) && isset($_SESSION['fbSMSsessID']) && isset($_SESSION['fbSMSmob']) && isset($phone) && isset($user_access_token) && $csrfval==1 ){
+if(isset($_SESSION['fbSMSanwID']) && isset($_SESSION['fbSMSsessID']) && isset($_SESSION['fbSMSmob']) && isset($phone) && isset($user_access_token) && $csrfval==1 && $err==0 ){
     if($_SESSION['fbSMSsessID']==session_id()){
         // if(substr($phone,-10) == $_SESSION['fbSMSmob']){ //only for signed in :(
             $phVer = People::verifyMobile($_SESSION['fbSMSanwID'],$_SESSION['fbSMSmob'],$user_access_token,$conn);
             if($phVer[0]==1){
                 $err = 0;
                 $status =200;
-                $message = "Successfully Verified Account.";
+                $msg = "Successfully Verified Account.";
                 if(isset($_SESSION['userID'])){
                     $login = 1;
-                    $message = "Successfully Verified Account and Logged In.";
+                    $msg = "Successfully Verified Account and Logged In.";
                 }
             }else{
                 $err = 1;
                 $status =403;
-                $message = $phVer[1];
+                $msg = $phVer[1];
             }
         // }else{
         //     $err = 1;

@@ -1073,14 +1073,14 @@ class People{
             $arr[] = $error;
             return $arr;
         }else{
-            if($mobile!=$row['mobile']){
-            $error = "Invalid Mobile No.";
-            $arr = array();
-            $arr[] = -1;
-            $arr[] = $error;
-            return $arr;
-            }
             $row = mysqli_fetch_assoc($result);
+            if($mobile!=$row['mobile']){
+                $error = "Invalid Mobile No.";
+                $arr = array();
+                $arr[] = -1;
+                $arr[] = $error;
+                return $arr;
+            }
             $vemail = self::verifyEmail($id,$row['csrfToken'],$accessToken,$conn);
             if($vemail[0]==1){
                 $sql = "UPDATE LoginTable SET totalLogin = totalLogin + 1, lastLogin = NOW() WHERE pId = $id";
