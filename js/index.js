@@ -136,6 +136,7 @@ var picker;
             // $(".reg_form").fadeOut();
             // $(".login").fadeOut();
           } else {
+            $("#verify").fadeIn();
             $("#postajaxmsg").fadeIn();
             $("#hideOnerr").fadeOut();
             $("#postajaxmsg").html('<center><div class="posttext">Error<br>' + data[1] + '</div></center>');
@@ -145,6 +146,7 @@ var picker;
           //							    }, 500);
 
         } else {//$("#myloader").fadeOut();
+          $("#verify").fadeIn();
           $("#postajaxmsg").fadeIn();
           $("#hideOnerr").fadeOut();
           $("#postajaxmsg").html('<div class="posttext">An error occured.<br> Please try again.</div>');

@@ -500,7 +500,8 @@ class People{
 
             $time = time() ;
             $confirm = ($fbID)?1:0;
-            $fbID = ($fbID)?$fbID:-time();
+            if($fbID==null ||  $fbID=="")
+                $fbID = -time()*rand(1,5);
             $qrurl = self::genQR($id)[3];
             // error_log('time()');
             $sqlInsert = "INSERT INTO People(name,fbID,pId,college,sex,mobile,email,dob,city,refcode,feePaid,confirm,qrurl) VALUES ('$n', $fbID, $id, '$col', '$se', '$mob', '$em', '$db', '$cit', '$rc', 0, $confirm, '$qrurl')";
