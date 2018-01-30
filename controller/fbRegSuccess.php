@@ -58,7 +58,7 @@ if(isset($data["error"])){
     $msg = "Error in verifying account. Reference #".alog("fbcurl err".json_encode($data["error"]));
 }
 //verify with anwesha ID
-if(isset($_SESSION['fbSMSanwID']) && isset($_SESSION['fbSMSsessID']) && isset($_SESSION['fbSMSmob']) && isset($phone) && isset($user_access_token)){
+if(isset($_SESSION['fbSMSanwID']) && isset($_SESSION['fbSMSsessID']) && isset($_SESSION['fbSMSmob']) && isset($phone) && isset($user_access_token) && $csrfval==1 ){
     if($_SESSION['fbSMSsessID']==session_id()){
         if(substr($phone,-10) == $_SESSION['fbSMSmob']){
             $phVer = People::verifyMobile($_SESSION['fbSMSanwID'],$_SESSION['fbSMSmob'],$user_access_toke,$conn);

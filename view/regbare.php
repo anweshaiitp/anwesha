@@ -2,6 +2,7 @@
 session_start();
 require('model/model.php');
 require('dbConnection.php');
+require('defines.php'); 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -94,6 +95,13 @@ require('dbConnection.php');
   };
 function clog(data){
 	console.log(data);
+	data = jQuery.parseJSON(data);
+	if(data.status==200){
+		$("#hideOnerr").fadeOut();
+		$("#verify").append('<div class="inputbox"> '+data.message+'</div>');
+	}else{
+		$("#verify").append('<div class="inputbox"> '+data.message+'</div>');
+	}
 }
   // login callback
   function loginCallback(response) {
