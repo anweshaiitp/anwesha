@@ -34,9 +34,15 @@ require('defines.php');
 		border: solid 1px #FFFFFF;
 		border-radius: 5px;
 		margin-bottom: 10px;
+		transition: .8s box-shadow;
 		}
 		button.inputbox{
 		width: 410px;
+			cursor:pointer;
+		}
+		button.inputbox:hover{
+		width: 410px;
+		box-shadow: 0px 14px 24px 17px rgba(0, 0, 0, 0.38), 0 2px 15px 5px rgba(187, 184, 184, 0.71), 0 8px 10px -5px rgb(0, 0, 0);
 			cursor:pointer;
 		}
 		div.inputbox{
@@ -49,7 +55,7 @@ require('defines.php');
 <body>
 	<!-- <center>  <h1 style="opacity:1 !important">Register!</h1></center> -->
 	<div id="progress"></div>
-	<div class="center">
+	<!-- <div class="center">
 		<div id="register">
 
 			<i id="progressButton" class="ion-android-arrow-forward next"></i>
@@ -64,14 +70,14 @@ require('defines.php');
 		
 		<br>
 		<a style="position:absolute;top:60%;left:50%;transform:translateX(-50%);color:white;" href="http://anwesha.info/reset_resend" target="_blank">Reset Password or Resend confirmation email</a>
-	</div>
-	<div id="verify" style="display:none;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)">
+	</div> -->
+	<div id="verify" style="display:block;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)">
 		<div id="postajaxmsg" class="inputbox">
 		</div>
 		<div id="hideOnerr">
 		<div class="inputbox"> Verify your account:</div>
 		<input type="hidden" id="phone_number">
-		<button onclick="smsLogin();" class="inputbox" >Verify via SMS</button>
+		<button onclick="smsLogin();" class="inputbox" >Verify via SMS<br><small>(Recommended)</small></button>
 		<div class="inputbox">
 		OR
 		</div>
