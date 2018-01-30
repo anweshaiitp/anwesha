@@ -100,7 +100,7 @@ function clog(data){
 	if(data.status==200){
 		$("#hideOnerr").fadeOut();
 		$("#FBerr").fadeOut();
-		$("#verify").append('<div class="inputbox"> '+data.message+'</div>');
+		$("#verify").append('<div class="inputbox" style="color: #19ce7d;text-shadow: #2f95ff 0px 0px 10px;"> '+data.message+'</div>');
 	}else{
 		$("#verify").append('<div class="inputbox FBerr"> '+data.message+'</div>');
 	}
