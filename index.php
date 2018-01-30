@@ -134,6 +134,8 @@ if (preg_match($base . '(ca|)_?([0-9]{4}|)$@', $url, $match)) {
 	require ('controller/totReg.php');
 } elseif (preg_match($base . 'user/register/User/?$@', $url)) {
 	require ('controller/userRegistration.php');
+} elseif (preg_match($base . '/login/mobconfirm/?$@', $url)) {
+	require ('view/fbloginSuccess.php');
 } elseif (preg_match($base . 'user/CAcheck/([0-9]+)/?$@', $url, $match)) {
 	require ('controller/cacheck.php');
 } elseif (preg_match($base . 'user/special/([0-9]{4})/?$@', $url, $match)) {

@@ -10,10 +10,33 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 	<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Roboto:400,700'>
 	<link rel="stylesheet" href="/css/form.css">
+	<script src="https://sdk.accountkit.com/en_US/sdk.js"></script>
 	<style>
 		#postajax {
 			/* opacity: 0; */
 			transition: .8s ease-in-out;
+		}
+		.inputbox{
+			background: #fff;
+		/* position: relative; */
+		width: 410px;
+		padding: 2px 15px 20px 15px;
+		box-shadow: 0px 14px 24px 17px rgba(0, 0, 0, 0.38), 0 6px 30px 5px rgba(0, 0, 0, 0.71), 0 8px 10px -5px rgb(0, 0, 0);
+		background-color: #00000000;
+		color: #ffffff;
+		font-size: 20px;
+		padding: 20px !important;
+		border: solid 1px #FFFFFF;
+		border-radius: 5px;
+		margin-bottom: 10px;
+		}
+		button.inputbox{
+		width: 410px;
+			cursor:pointer;
+		}
+		div.inputbox{
+			width: 410px;
+			border: none !important;
 		}
 	</style>
 </head>
@@ -21,7 +44,7 @@
 <body>
 	<!-- <center>  <h1 style="opacity:1 !important">Register!</h1></center> -->
 	<div id="progress"></div>
-	<div class="center">
+	<!-- <div class="center">
 		<div id="register">
 
 			<i id="progressButton" class="ion-android-arrow-forward next"></i>
@@ -32,11 +55,85 @@
 				<div id="inputProgress"></div>
 			</div>
 
-		</div><br>
+		</div>
+		
+		<br>
 		<a style="position:absolute;top:60%;left:50%;transform:translateX(-50%);color:white;" href="http://anwesha.info/reset_resend" target="_blank">Reset Password or Resend confirmation email</a>
+	</div> -->
+	<div id="verify" style="display:block;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)">
+	<div id="postajaxmsg">
 	</div>
+		<div class="inputbox"> Verify your account:</div>
+		<input placeholder="phone number" class="inputbox" id="phone_number"/>
+		<button onclick="smsLogin();" class="inputbox" >Verify via SMS</button>
+		<div class="inputbox">OR</div>
+		<input placeholder="email" class="inputbox" id="email"/>
+		<button onclick="emailLogin();" class="inputbox" >Verify via Email</button>
+		</div>
 
 
+<script>
+  // initialize Account Kit with CSRF protection
+  AccountKit_OnInteractive = function(){
+    AccountKit.init(
+      {
+        appId:"1088640574599664", 
+        state:"76uig7827r872iu82y38", 
+        version:"v1.1",
+        fbAppEventsEnabled:true,
+        redirect:"https://beta.anwesha.info/login/mobconfirm"
+      }
+    );
+  };
+function clog(data){
+	console.log(data);
+}
+  // login callback
+  function loginCallback(response) {
+	  console.log(response);
+    if (response.status === "PARTIALLY_AUTHENTICATED") {
+      var code = response.code;
+	  var csrf = response.state;
+	  $.ajax({
+		type: "POST",
+		url: "/login/mobconfirm",
+		data: {code:response.code,csrf:response.state},
+		success: clog
+		});
+      // Send code to server to exchange for access token
+    }
+    else if (response.status === "NOT_AUTHENTICATED") {
+      // handle authentication failure
+    }
+    else if (response.status === "BAD_PARAMS") {
+      // handle bad parameters
+    }
+  }
+
+  // phone form submission handler
+  function smsLogin() {
+    var countryCode = "+91";
+    var phoneNumber = document.getElementById("phone_number").value;
+    AccountKit.login(
+      'PHONE', 
+      {countryCode: countryCode, phoneNumber: phoneNumber}, // will use default values if not specified
+      loginCallback
+    );
+  }
+
+
+  // email form submission handler
+  function emailLogin() {
+    var emailAddress = document.getElementById("email").value;
+    AccountKit.login(
+      'EMAIL',
+      {emailAddress: emailAddress},
+      loginCallback
+    );
+  }
+</script>
+
+    
 
 	<script src="https://dbushell.com/Pikaday/pikaday.js"></script>
 	<script src="/js/index.js"></script>

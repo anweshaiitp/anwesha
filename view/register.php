@@ -1,7 +1,8 @@
 <html>
 <head>
 		<script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
-
+<!-- HTTPS required. HTTP will give a 403 forbidden response -->
+<script src="https://sdk.accountkit.com/en_US/sdk.js"></script>
 	<style type="text/css">
 
 		/*---fonts---*/
@@ -259,7 +260,6 @@
 		  	  console.log('fboatuth',data[1].pId);
 		  	  if(data[1].pId<=1){
 				  $("#FB-Oauth").html("Hi! " +response.first_name+" <ul class='actions'><li><a  class='button'>Plese fill missing details:</a></li></ul>");
-				  
 				  $("#signUp").css("display","block");
 		  	  }else if(data[1].pId>1){
 		  	  	$(".reg_form").fadeOut();
