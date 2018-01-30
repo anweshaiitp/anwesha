@@ -1299,7 +1299,7 @@ class People{
         $sql = "INSERT INTO Registration VALUES ($eventID,$userID,null,0)";
         $result = mysqli_query($conn,$sql);
         if($result){
-            self::sendEventRegistrationEmail($userID,$eventID,$conn);
+            // self::sendEventRegistrationEmail($userID,$eventID,$conn);
             return array("status"=>true, "msg" => "You have been registered!");
         } else {
             return array("status"=>false, "msg"=> "Registration failed, already registered! #".alog(mysqli_error($conn)));

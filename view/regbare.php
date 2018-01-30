@@ -75,11 +75,11 @@ require('defines.php');
 		<div id="postajaxmsg" class="inputbox">
 		</div>
 		<div id="hideOnerr">
-		<div class="inputbox"> Verify your account:</div>
+		<div class="inputbox"><center> Verify your account:</center></div>
 		<input type="hidden" id="phone_number">
 		<button onclick="smsLogin();" class="inputbox" >Verify via SMS<br><small>(Recommended)</small></button>
-		<div class="inputbox">
-		OR
+		<div class="inputbox"><center>
+		OR</center>
 		</div>
 		<div id="emailfill" class="inputbox">
 		</div>
