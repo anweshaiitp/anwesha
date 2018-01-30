@@ -60,8 +60,8 @@ if(isset($data["error"])){
 //verify with anwesha ID
 if(isset($_SESSION['fbSMSanwID']) && isset($_SESSION['fbSMSsessID']) && isset($_SESSION['fbSMSmob']) && isset($phone) && isset($user_access_token) && $csrfval==1 ){
     if($_SESSION['fbSMSsessID']==session_id()){
-        if(substr($phone,-10) == $_SESSION['fbSMSmob']){
-            $phVer = People::verifyMobile($_SESSION['fbSMSanwID'],$_SESSION['fbSMSmob'],$user_access_toke,$conn);
+        // if(substr($phone,-10) == $_SESSION['fbSMSmob']){ //only for signed in :(
+            $phVer = People::verifyMobile($_SESSION['fbSMSanwID'],$_SESSION['fbSMSmob'],$user_access_token,$conn);
             if($phVer[0]==1){
                 $err = 0;
                 $status =200;
@@ -75,11 +75,11 @@ if(isset($_SESSION['fbSMSanwID']) && isset($_SESSION['fbSMSsessID']) && isset($_
                 $status =403;
                 $message = $phVer[1];
             }
-        }else{
-            $err = 1;
-            $status =403;
-            $msg = "Error in verifying account. Mobile Numbers don\'t match. Reference #".alog("mobno no match ".json_encode([$_SESSION['fbSMSsessID'],session_id()]));
-        }
+        // }else{
+        //     $err = 1;
+        //     $status =403;
+        //     $msg = "Error in verifying account. Mobile Numbers don\'t match. Reference #".alog("mobno no match ".json_encode([$_SESSION['fbSMSsessID'],session_id()]));
+        // }
     }else{
         $err = 1;
         $status =403;
