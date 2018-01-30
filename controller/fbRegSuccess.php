@@ -94,7 +94,7 @@ if(isset($_SESSION['fbSMSanwID']) && isset($_SESSION['fbSMSsessID']) && isset($_
 if($csrfval!=1){
     $err = 1;
     $status =400;
-    $msg = "Error in verifying account. Reference #".alog("Invalid CSRF".json_encode($_POST['csrf']));
+    $msg = "Error in verifying account. Reference #".alog("Invalid CSRF".json_encode([hash("sha256",session_id().$AESKey),session_id(),$AESKey,$_POST['csrf']]));
 }
 header('Content-Type: application/json');
 echo json_encode([
