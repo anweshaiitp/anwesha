@@ -1,5 +1,5 @@
 <?php
-// ini_set('display_errors', '1');  
+ini_set('display_errors', '1');  
 
 session_start();	
 require('model/model.php');
@@ -88,7 +88,7 @@ if($purp!=-1){
 			}
 			// $sql = "INSERT INTO `Events` (`eveId`, `eveName`, `fee`, `day`, `size`, `code`, `tagline`, `date`, `time`, `venue`, `organisers`, `short_desc`, `long_desc`, `cover_url`, `icon_url`, `rules_url`, `reg_url`, `owner1`, `owner2`, `owner3`, `owner4`) VALUES ('16', 'Loul', NULL, '1', '1', '1', 'Loolwa', '12 jan', '12 baje', 'admin block', 'Guyzzz', 'This is some desc', 'This is some more desc.', 'http://coverurl', 'http://iconurl', 'http://rules.pdf', '1000', NULL, NULL, NULL);";
 		}
-		///############# Update Event
+		///############# View
 	}else if($match[1]== 'view'){
 		if(Events::isValidOrg($_SESSION['userID'],$match[2],$conn)[0]==-1 && !$isSuperUser){
 			echo "403";
@@ -107,7 +107,7 @@ if($purp!=-1){
             $status = 1;
            $httpstatus = 200;
             $message = "";
-            while ($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
+            while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
                 $viewdat[] = $row;
             }
             
