@@ -31,9 +31,9 @@ if(hash("sha256",session_id().$AESKey)==$_POST['csrf']){
 $token_exchange_url = 'https://graph.accountkit.com/'.$version.'/access_token?'.
   'grant_type=authorization_code'.
   '&code='.$_POST['code'].
-  "&access_token=AA|$fbAppID|$fbAppSecret";
+  "&access_token=AA|$fbAppID|$fbAppSecretAccountKit";
 $data = doCurl($token_exchange_url);
-var_dump($data);
+// var_dump($data);
 if(isset($data["error"])){
     $err = 1;
     
@@ -60,7 +60,7 @@ if(isset($data["error"])){
 //verify with anwesha ID
 if(isset($_SESSION['fbSMSanwID']) && isset($_SESSION['fbSMSsessID']) && isset($_SESSION['fbSMSmob']) && isset($phone) && isset($user_access_token)){
     if($_SESSION['fbSMSsessID']==session_id()){
-        if($phone == $_SESSION['fbSMSmob']){
+        if(substr($phone,-10) == $_SESSION['fbSMSmob']){
             $phVer = People::verifyMobile($_SESSION['fbSMSanwID'],$_SESSION['fbSMSmob'],$user_access_toke,$conn);
             if($phVer[0]==1){
                 $err = 0;

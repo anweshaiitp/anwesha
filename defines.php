@@ -3,6 +3,7 @@ $AESKey = "key2";
 $fbAppID = 1088640574599664;
 $version = '<account_kit_api_version>';
 $fbAppSecret = 'key1';
+$fbAppSecretAccountKit = 'key2';
 $ANWESHA_YEAR = 'Anwesha 2k18';
 $ANWESHA_URL = 'https://anwesha.info/';
 $ANWESHA_REG_EMAIL = 'anweshaiitp@gmail.com';
