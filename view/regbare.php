@@ -95,12 +95,14 @@ require('defines.php');
   };
 function clog(data){
 	console.log(data);
-	data = jQuery.parseJSON(data);
+	if(typeof(data) == 'string')
+		data = jQuery.parseJSON(data);
 	if(data.status==200){
 		$("#hideOnerr").fadeOut();
+		$("#FBerr").fadeOut();
 		$("#verify").append('<div class="inputbox"> '+data.message+'</div>');
 	}else{
-		$("#verify").append('<div class="inputbox"> '+data.message+'</div>');
+		$("#verify").append('<div class="inputbox FBerr"> '+data.message+'</div>');
 	}
 }
   // login callback
@@ -118,10 +120,12 @@ function clog(data){
       // Send code to server to exchange for access token
     }
     else if (response.status === "NOT_AUTHENTICATED") {
-      // handle authentication failure
+	  // handle authentication failure
+	  $("#verify").append('<div class="inputbox FBerr"> Verification Interrupted. Please Try Again.</div>');
     }
     else if (response.status === "BAD_PARAMS") {
-      // handle bad parameters
+	  // handle bad parameters
+	  $("#verify").append('<div class="inputbox FBerr"> Verification Interrupted. Please Try Again.</div>');
     }
   }
 

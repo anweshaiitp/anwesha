@@ -2,7 +2,7 @@
 
 <?php
 session_start();
-ini_set('display_errors', '1'); 
+// ini_set('display_errors', '1'); 
 require('model/model.php');
 require('dbConnection.php');
 require('defines.php');
@@ -95,6 +95,7 @@ if($csrfval!=1){
     $status =400;
     $msg = "Error in verifying account. Reference #".alog("Invalid CSRF".json_encode($_POST['csrf']));
 }
+header('Content-Type: application/json');
 echo json_encode([
     "status"=>$status,
     "message"=>$msg,
