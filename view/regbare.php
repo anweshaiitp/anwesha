@@ -1,6 +1,10 @@
+<?php
+session_start();
+require('model/model.php');
+require('dbConnection.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta charset="UTF-8">
 	<title>Anwesha '18</title>
@@ -44,7 +48,7 @@
 <body>
 	<!-- <center>  <h1 style="opacity:1 !important">Register!</h1></center> -->
 	<div id="progress"></div>
-	<!-- <div class="center">
+	<div class="center">
 		<div id="register">
 
 			<i id="progressButton" class="ion-android-arrow-forward next"></i>
@@ -59,16 +63,19 @@
 		
 		<br>
 		<a style="position:absolute;top:60%;left:50%;transform:translateX(-50%);color:white;" href="http://anwesha.info/reset_resend" target="_blank">Reset Password or Resend confirmation email</a>
-	</div> -->
-	<div id="verify" style="display:block;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)">
-	<div id="postajaxmsg">
 	</div>
+	<div id="verify" style="display:none;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)">
+		<div id="postajaxmsg" class="inputbox">
+		</div>
+		<div id="hideOnerr">
 		<div class="inputbox"> Verify your account:</div>
-		<input placeholder="phone number" class="inputbox" id="phone_number"/>
+		<input type="hidden" id="phone_number">
 		<button onclick="smsLogin();" class="inputbox" >Verify via SMS</button>
-		<div class="inputbox">OR</div>
-		<input placeholder="email" class="inputbox" id="email"/>
-		<button onclick="emailLogin();" class="inputbox" >Verify via Email</button>
+		<div class="inputbox">
+		OR
+		</div>
+		<div id="emailfill" class="inputbox">
+		</div>
 		</div>
 
 
@@ -78,7 +85,7 @@
     AccountKit.init(
       {
         appId:"1088640574599664", 
-        state:"76uig7827r872iu82y38", 
+        state:"<?php echo hash("sha256",session_id().$AESKey); ?>", 
         version:"v1.1",
         fbAppEventsEnabled:true,
         redirect:"https://beta.anwesha.info/login/mobconfirm"
@@ -96,7 +103,7 @@ function clog(data){
 	  var csrf = response.state;
 	  $.ajax({
 		type: "POST",
-		url: "/login/mobconfirm",
+		url: "/reg/mobconfirm",
 		data: {code:response.code,csrf:response.state},
 		success: clog
 		});
@@ -123,14 +130,14 @@ function clog(data){
 
 
   // email form submission handler
-  function emailLogin() {
-    var emailAddress = document.getElementById("email").value;
-    AccountKit.login(
-      'EMAIL',
-      {emailAddress: emailAddress},
-      loginCallback
-    );
-  }
+//   function emailLogin() {
+//     var emailAddress = document.getElementById("email").value;
+//     AccountKit.login(
+//       'EMAIL',
+//       {emailAddress: emailAddress},
+//       loginCallback
+//     );
+//   }
 </script>
 
     

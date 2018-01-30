@@ -78,4 +78,10 @@ $result = People::createUser($name,$fbID,$college,$sex,$mobile,$email,$pass,$dob
 mysqli_close($conn);
 header('Content-type: application/json');
 echo json_encode($result);
+if($result[0]==1){
+	session_start();
+	$_SESSION['fbSMSanwID'] = $result[1]['pId'];
+	$_SESSION['fbSMSmob'] = $result[1]['mobile'];
+	$_SESSION['fbSMSsessID'] = session_id();
+}
 ?>

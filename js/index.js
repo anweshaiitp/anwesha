@@ -123,9 +123,12 @@ var picker;
           console.log(data);
           $("#loadgif").fadeOut();
           if (data[0] == 1) {
-            $("#postajaxmsg").html('<center><div class="posttext"><h3><b>Registration Successful</b><br>Your Anwesha ID is : ANW' + data[1]['pId'] + '<br>A confirmation email has been sent to ' + email + '.</h3></div></center>');
+            $("#postajaxmsg").html('<center><div class="posttext"><h3><b>Registration Successful</b><br>Your Anwesha ID is : ANW' + data[1]['pId'] + '.</h3></div></center>');
+            $("#emailfill").text('Confirm Account using confirmation email sent on '+email);
             // $("#regloader").fadeOut();
             $("#postajaxmsg").fadeIn();
+            $("#hideOnerr").fadeIn();
+            $("#phone_number").val(mobile);
             $("#verify").fadeIn();
             // $("#message").css('background','#5FAB22');
             // $("#success").css('color', '#5FAB22');
@@ -134,6 +137,7 @@ var picker;
             // $(".login").fadeOut();
           } else {
             $("#postajaxmsg").fadeIn();
+            $("#hideOnerr").fadeOut();
             $("#postajaxmsg").html('<center><div class="posttext">Error<br>' + data[1] + '</div></center>');
           }
           //							$('html, body').animate({
@@ -142,6 +146,7 @@ var picker;
 
         } else {//$("#myloader").fadeOut();
           $("#postajaxmsg").fadeIn();
+          $("#hideOnerr").fadeOut();
           $("#postajaxmsg").html('<div class="posttext">An error occured.<br> Please try again.</div>');
           $("#loadgif").fadeOut();
           console.log("Failed " + data);
