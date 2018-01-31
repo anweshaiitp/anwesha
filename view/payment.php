@@ -116,21 +116,27 @@ $conn = mysqli_connect(SERVER_ADDRESS,USER_NAME,PASSWORD,DATABASE);
         <span id="" data-amt="500" data-comment="Accommodation for four days" data-inc="0" class="button is-warning preset" >Accommodation x4 (500)</span>
         <span id="" data-amt="300" data-comment="T-Shirt" data-inc="0" class="button is-warning preset" >T-Shirt (300)</span>
         <script>
+                
             $(".preset").click(function(e){
+                var exp = '  &  ';
                 // console.log(parseInt($("#amount").val()));
                 e.preventDefault();
                 if($(this).data('inc')==0){
+                    if($("#amount").val()==0)
+                        exp = '';
                     $(this).data('inc',1);
                     $(this).removeClass('is-warning');
                     $(this).addClass('is-success');
                     $("#amount").val(parseInt($("#amount").val())+parseInt($(this).data('amt')));
-                    $("#comments").val($("#comments").val()+' '+$(this).data('comment'));
+                    
+                    $("#comments").val($("#comments").val()+exp+$(this).data('comment'));
                 }else{
                     $(this).data('inc',0);
                     $(this).addClass('is-warning');
                     $(this).removeClass('is-success');
                     $("#amount").val(parseInt($("#amount").val())-parseInt($(this).data('amt')));
-                     $("#comments").val($("#comments").val().replace(' '+$(this).data('comment'), ''));
+                     $("#comments").val($("#comments").val().replace($(this).data('comment'), ''));
+                     $("#comments").val($("#comments").val().replace('  &  ',''));
                 }
             });
         </script>
