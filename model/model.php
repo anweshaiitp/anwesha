@@ -541,7 +541,17 @@ class People{
 
             $result = mysqli_query($conn,$sqlInsert);
             if(!$result){
-                $Err = 'Problem in Creating login Id. Contact Registration team for help. #'.alog(mysqli_error($conn));
+                $Err = 'Problem in Creating login Id. Contact Registration team for help. Reference #'.alog(mysqli_error($conn));
+                $arr = array();
+                $arr[]=-1;
+                $arr[]=$Err;
+                mysqli_rollback($conn); 
+                return $arr;
+            }
+            $emailPrefInsert = "INSERT INTO `emailPrefs` (`pId`, `email`) VALUES ('$id', '$em');";
+            $result = mysqli_query($conn,$emailPrefInsert);
+            if(!$result){
+                $Err = 'Problem in Setting email preferences. Contact Registration team for help. Reference #'.alog(mysqli_error($conn));
                 $arr = array();
                 $arr[]=-1;
                 $arr[]=$Err;
@@ -1241,14 +1251,14 @@ class People{
     {
         require('defines.php');
         $user = People::getUser($userID,$conn);
-        $sql = "SELECT eveName FROM Events WHERE eveId = $eveID";
+        $sql = "SELECT eveName, FROM Events WHERE eveId = $eveID";
         $result = mysqli_query($conn,$sql);
         $row = mysqli_fetch_assoc($result);
         $eveName = $row['eveName'];
         $name = $user[1]['name'];
         $emailId = $user[1]['email'];
         // mail($to,$subject,$message);
-        $message = "Hi $name,<br>You have been registered for event<b> $eveName.</b> Thank You! <br>In case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to <i>$ANWESHA_REG_EMAIL</i>. You can also visit our website <i>$ANWESHA_URL</i> for more information.<br><br>Registration Desk<br>$ANWESHA_YEAR";
+        $message = "Hi $name,<br>You have been registered for event<b> $eveName.</b><br> Thank You! <br>In case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to <i>$ANWESHA_REG_EMAIL</i>. You can also visit our website <i>$ANWESHA_URL</i> for more information.<br><br>Registration Desk<br>$ANWESHA_YEAR";
         $subject = "$eveName Registration $ANWESHA_YEAR";
 
         require('resources/PHPMailer/PHPMailerAutoload.php');
