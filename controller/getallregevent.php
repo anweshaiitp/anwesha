@@ -28,7 +28,7 @@
             $status = 1;
            $httpstatus = 200;
             $message = "done";
-            while ($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
+            while ($row = mysqli_fetch_array($result)) {
                 $data[] = $row;
             }
             
