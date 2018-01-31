@@ -13,7 +13,7 @@
             <title><?php echo $evedat[1]['eveName']; ?> | Events | Anwesha '18</title>
 	  <meta name="description" content="<?php echo $desc; ?>" />
 	  <META NAME="Keywords" CONTENT="Anwesha,IIT Patna,IITP,IIT,college,fest,<?php echo $evedat[1]['eveName']; ?>">
-	  
+	  <meta name="theme-color" content="#2b2b2b">
 	  <meta itemprop="name" content="<?php echo $evedat[1]['eveName']; ?> | Events | Anwesha '18">
 	  <meta itemprop="description" content="<?php echo $desc; ?>">
 	  <meta itemprop="image" content="//anwesha.info/images/anw_theme.jpg">

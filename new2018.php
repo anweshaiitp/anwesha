@@ -87,6 +87,7 @@
 		<ul>
 			<li><a href="/">Home</a></li>
 			<li><a href="/events/">Events</a></li>
+			<meta name="theme-color" content="#2b2b2b">
 			<!-- <li class="sch_div">Schedule</li> -->
 			<li><a href="https://www.facebook.com/pg/anwesha.iitpatna/photos/?ref=page_internal" target="_blank">Gallery</a></li>
 			<li><a href="/team/">Team</a></li>
@@ -256,6 +257,21 @@
 	<div class="mob_div">
 		<div class="anwesha_logo">
 			<img src="images/anwesha.png">
+			<center style="
+			
+			color: #fff;"> <h1 style="font-family: 'Indie Flower', cursive;font-size: 50px;">
+			<?php
+				if($invert==1){
+					$plu = ($daycount==0)?"":"s";
+					echo ($daycount+1)." Day{$plu} To Go!";
+				}else{
+					if($daycount>2){
+						echo "";
+					}else{
+						echo "Day ".($daycount+1)." Is On!";
+					}
+				}
+				?></h1></center>
 		</div>
 
 		<div class="blank_div_thr">

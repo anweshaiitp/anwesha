@@ -36,4 +36,6 @@ require('defines.php');
 //                 )";
 
 // $conn = mysqli_connect(SERVER_ADDRESS,USER_NAME,PASSWORD,DATABASE);
-// People::sendVerificationMailToAll($conn);
+// session_start();
+// // People::sendVerificationMailToAll($conn);
+// echo json_encode(People::eventNotifyRegUsers(75,"Test","More content",$_SESSION['userID'],$conn));
