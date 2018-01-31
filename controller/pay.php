@@ -68,7 +68,7 @@
 	}
 
 if($httpstat == 200){
-	$trID = ($match[1]*1000000)+( time()%1000000 );
+	$trID = ($match[1]*10000)+( time()%10000 );
 	
 	$sql = " UPDATE `People` SET `feePaid` = `feePaid` + '$amt', `rcv` = '$registrar' WHERE `People`.`pId` = ".$match[1]."; ";
 	if($result = mysqli_query($conn, $sql)){
