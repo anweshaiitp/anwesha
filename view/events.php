@@ -89,7 +89,7 @@
             <li><a href="https://www.facebook.com/pg/anwesha.iitpatna/photos/?ref=page_internal" target="_blank">Gallery</a></li>
             <li><a href="/team/">Team</a></li>
             <li class="spons_div">Sponsors</li>
-            <li class="acco_load">Hospitality</li>
+            <li class="acco_load">Hospitality/Accomodation</li>
             <li class="register">Register</li>
             <li class="ca"><a href="/ca/" target="_blank">Campus Ambassador</a></li>
         </ul>
