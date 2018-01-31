@@ -730,7 +730,7 @@ class People{
         $sql = "SELECT * FROM People NATURAL JOIN LoginTable WHERE pId IN ($userarr) ";
         $result = mysqli_query($conn, $sql);
         if($result){
-            while ($row = mysqli_fetch_array($result)) {
+            while ($row = mysqli_fetch_assoc($result)) {
                 $email = $row['email'];
                 $name = $row['name'];
                 $token = $row['csrfToken'];

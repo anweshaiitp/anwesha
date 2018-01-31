@@ -13,7 +13,7 @@
     $eveId = $match[1];
     //post: userID
     //post: authKey
-    
+    $userID = mysqli_real_escape_string($conn,$_POST['userID']);
     require('middleware/authMiddleware.php');
 
 	if(Events::isValidOrg($userID,$eveId,$conn)[1]==200){//auth
@@ -28,7 +28,7 @@
             $status = 1;
            $httpstatus = 200;
             $message = "done";
-            while ($row = mysqli_fetch_array($result)) {
+            while ($row = mysqli_fetch_assoc($result)) {
                 $data[] = $row;
             }
             
