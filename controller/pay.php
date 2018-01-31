@@ -82,7 +82,8 @@ if($httpstat == 200){
 			$message = "Error appending to table. #".alog(mysqli_error($conn));
 		}else{
 		$user = People::getUser($match[1],$conn)[1];
-		$emailcontent = "Hi ".$user['name'].",<br>We have recieved an amount of <b>INR $amt/-</b> for your anwesha ID ANW".$user['pId'].". <br>Transaction ID is: <b>ANWTR$trID</b><br> Thank You for being a part of Anwesha'18! <br>In case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to <i>$ANWESHA_REG_EMAIL</i>.<br> You can also visit our website <i>$ANWESHA_URL</i> for more information.<br><br>Registration Desk<br>$ANWESHA_YEAR";
+		$purp = ($comments!='' && $comments!=null)?" for ".$comments:"";
+		$emailcontent = "Hi ".$user['name'].",<br>We have recieved an amount of <b>INR $amt/-</b> for your anwesha ID ANW".$user['pId']." $purp. <br>Transaction ID is: <b>ANWTR$trID</b><br>Please show your AnweshaQR code and valid identity proof during Anwesha'18 as a proof of payment.<br> Thank You for being a part of Anwesha'18! <br>In case you have any registration related queries feel free to contact $ANWESHA_REG_CONTACT or drop an email to <i>$ANWESHA_REG_EMAIL</i>.<br> You can also visit our website <i>$ANWESHA_URL</i> for more information.<br><br>Registration Desk<br>$ANWESHA_YEAR";
 		 People::EmailWithText($user["email"],"Payment Recieved",$emailcontent,"https://anwesha.info/","Visit Website");
 		}
 	}else{

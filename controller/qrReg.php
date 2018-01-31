@@ -32,7 +32,12 @@
 	$orgID = $_POST['orgID'];
 	$_POST['userID'] = $orgID;
 	require('middleware/authMiddleware.php');
-
+	$pastpay = [];
+	$sql = " SELECT * FROM payments WHERE pId = $pId ";
+	$result = mysqli_query($conn, $sql);
+	while($row = mysqli_fetch_assoc($result)){
+		$pastpay[] = $row;
+	}    
 
     // $userID = mysqli_real_escape_string($conn, $_POST['orgID']);
     // $privKey =  Auth::getUserPrivateKey($userID,$conn);
@@ -64,6 +69,7 @@
 			$status = 1;
 			$call = People::getUser($pId,$conn);
 			$message = $call[1];
+			$message["payments"] = $pastpay;
 			// $message = People::getUser($pId,$conn);
 			if($call[0]!=1){
 				$httpstatus = 400;

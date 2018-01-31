@@ -40,6 +40,8 @@ require('defines.php');
 		button.inputbox{
 		width: 410px;
 			cursor:pointer;
+			width: 90%;
+    transform: translateX(3%);
 		}
 		button.inputbox:hover{
 		width: 410px;
@@ -83,7 +85,7 @@ require('defines.php');
 		<div class="inputbox"><center>
 		OR</center>
 		</div>
-		<div id="emailfill" class="inputbox">
+		<div id="emailfill" class="inputbox" style="text-align: center;">
 		</div>
 		</div>
 

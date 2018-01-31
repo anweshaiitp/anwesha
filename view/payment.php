@@ -60,6 +60,9 @@ $conn = mysqli_connect(SERVER_ADDRESS,USER_NAME,PASSWORD,DATABASE);
                 background: #00d0b2;
     
     }
+    .preset{
+        margin:10px;
+    }
 		
 		.field{
 			width:300px;
@@ -104,16 +107,43 @@ $conn = mysqli_connect(SERVER_ADDRESS,USER_NAME,PASSWORD,DATABASE);
 				<input class='input' type='number' pattern="[0-9]{4}" required name='anwID' placeholder='Anwesha ID 4 digits'>
 			</div>
 		</div>
+        Preset :<br>
+        <span id="" data-amt="100" data-comment="Registration" data-inc="0" class="button is-warning preset" >Registration (100)</span>
+        <span id="" data-amt="150" data-comment="Band pass" data-inc="0" class="button is-warning preset" >Band pass (150)</span>
+        <span id="" data-amt="200" data-comment="Registration + band pass" data-inc="0" class="button is-warning preset" >Registration + band pass (200)</span><br>
+        <span id="" data-amt="150" data-comment="Accommodation for one day" data-inc="0" class="button is-warning preset" >Accommodation x1 (150)</span>
+        <span id="" data-amt="400" data-comment="Accommodation for three days" data-inc="0" class="button is-warning preset" >Accommodation x3 (400)</span>
+        <span id="" data-amt="500" data-comment="Accommodation for four days" data-inc="0" class="button is-warning preset" >Accommodation x4 (500)</span>
+        <span id="" data-amt="300" data-comment="T-Shirt" data-inc="0" class="button is-warning preset" >T-Shirt (300)</span>
+        <script>
+            $(".preset").click(function(e){
+                // console.log(parseInt($("#amount").val()));
+                e.preventDefault();
+                if($(this).data('inc')==0){
+                    $(this).data('inc',1);
+                    $(this).removeClass('is-warning');
+                    $(this).addClass('is-success');
+                    $("#amount").val(parseInt($("#amount").val())+parseInt($(this).data('amt')));
+                    $("#comments").val($("#comments").val()+' '+$(this).data('comment'));
+                }else{
+                    $(this).data('inc',0);
+                    $(this).addClass('is-warning');
+                    $(this).removeClass('is-success');
+                    $("#amount").val(parseInt($("#amount").val())-parseInt($(this).data('amt')));
+                     $("#comments").val($("#comments").val().replace(' '+$(this).data('comment'), ''));
+                }
+            });
+        </script>
 		<div class='field'>
   			<label class='label'>Amount Recieved INR</label>
 			<div class='control'>
-				<input class='input' type='number' pattern="[0-9]{1,5}" required name='amt' >
+				<input class='input' id="amount" type='number' pattern="[0-9]{1,5}" value = '0' required name='amt' >
 			</div>
 		</div>
         <div class='field'>
   			<label class='label'>For:</label>
 			<div class='control'>
-				<input class='input' type='text' placeholder='Registration/Accomodation/Band Pass' required name='comment' >
+				<input class='input' id="comments" type='text' placeholder='Registration/Accomodation/Band Pass' required name='comment' >
 			</div>
 		</div>
         <button id= "proc" class="button is-danger" >Proceed</button>
