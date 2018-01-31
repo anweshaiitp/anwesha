@@ -1300,10 +1300,118 @@ class People{
         $sql = "INSERT INTO Registration VALUES ($eventID,$userID,null,0)";
         $result = mysqli_query($conn,$sql);
         if($result){
-            // self::sendEventRegistrationEmail($userID,$eventID,$conn);
+            self::sendEventRegistrationEmail($userID,$eventID,$conn);
             return array("status"=>true, "msg" => "You have been registered!");
         } else {
             return array("status"=>false, "msg"=> "Registration failed, already registered! #".alog(mysqli_error($conn)));
+        }
+    }
+
+    /**
+     * Sends notification to all users enrolled in one event
+     * @param  int $userID  anwesha id of the user
+     * @param  int $eventID event id of the event
+     * @param  mysqli $conn    connection variable
+     * @return array          associative array, index "status" is boolean, index "msg" carries corresponding message
+     */
+    public function eventNotifyRegUsers($eventID, $title, $message, $registrar, $conn){
+        $sql = "SELECT p.name,p.pId,p.mobile,p.email FROM People p, Registration r WHERE (r.eveId = $eventID AND r.pId = p.pId)";
+        $result = mysqli_query($conn,$sql);
+        if($result){
+            $users = [];
+            while($row = mysqli_fetch_assoc($result)){
+                // $users[] = [
+                //     "pId"=>$row["pId"],
+                //     "name"=>$row["name"],
+                //     "email"=>$row["email"],
+                //     "mobile"=>$row["mobile"]
+                // ];
+                $users[] = $row["email"];
+                
+            }
+            $sql = "SELECT * FROM Events WHERE (eveId = $eventID)";
+            $result = mysqli_query($conn,$sql);
+            $event = [];
+            if($result){
+                $event = mysqli_fetch_assoc($result);
+
+            }
+            $admin = People::getUser($registrar,$conn);
+            $ValidOrg = Events::isValidOrg($registrar, $eventID, $conn);
+            if($ValidOrg[0]==-1){
+                return [
+                    "status"=>-1,
+                    "http"=>ValidOrg[1],
+                    "message"=>ValidOrg[2]
+                ];
+            }
+            if($admin[0]==-1){
+                return [
+                    "status"=>-1,
+                    "http"=>400,
+                    "message"=>$admin[1]
+                ];
+            }
+            // require('defines.php');
+            // require('resources/PHPMailer/PHPMailerAutoload.php');
+            // require('emailCredential.php');
+
+            // $mail = new PHPMailer;
+
+            // // 0 = off (for production use)
+            // // 1 = client messages
+            // // 2 = client and server messages
+            // // 3 = verbose debug output
+            // $mail->SMTPDebug = 0;
+
+            // $mail->isSMTP();                                      // Set mailer to use SMTP
+            // $mail->Host = MAIL_HOST;  // Specify main and backup SMTP servers
+            // $mail->SMTPAuth = MAIL_SMTP_AUTH;                               // Enable SMTP authentication
+            // $mail->Username = MAIL_USERNAME;                 // SMTP username
+            // $mail->Password = MAIL_PASSWORD;                           // SMTP password
+            // $mail->SMTPSecure = MAIL_SMTP_SECURE;                            // Enable TLS encryption, `ssl` also accepted
+            // $mail->Port = MAIL_PORT;                                    // TCP port to connect to
+
+            // $mail->setFrom($ANWESHA_REG_EMAIL, 'Anwesha Web Team');
+            // $mail->addAddress($emailId);
+            // $mail->addReplyTo($ANWESHA_REG_EMAIL, 'Web Team');
+            // $mail->isHTML(true);                                  // Set email format to HTML
+            // foreach($users as $user){
+            //     $mail->AddBCC($user);
+            // }
+            // $mail->Subject = $title;
+            // $mail->Body    = $content;
+            // $mail->AltBody = $content;
+            
+            //AWS SES Limit of 50 recepients
+            $offset = 0;
+            $netC = count($users);
+            $rem = [];
+            do{
+                $rem = array_slice($users,$offset,49);
+                $offset += 49;
+                  
+                $nodemailerBody = [
+                    "authID" => $NodeMailerAuthToken,
+                    "emailTo"=> $admin[1]["email"],
+                    "bcc"=> json_encode($rem),
+                    "emailSub"=>$event['eveName']."Event Update : ".$title,
+                    "bodyhtml"=>$message,
+                    "bodyplain"=>$message,
+                    "purp"=>"evereg",
+                    "title"=> $event['eveName']."Event Update : ".$title,
+                    "url"=>"https://anwesha.info/event/".$event['code']."/".$event["eveId"],
+                    "btnname"=> "View Event"
+
+                ];
+                self::HTTPPost("http://localhost:3000/text", $nodemailerBody);
+
+            }while(count($rem)>49);
+          
+            // $mail->send();
+            return array("status"=>true, "msg" => "Message sent to $netC users. !");
+        } else {
+            return array("status"=>false, "msg"=> "Function failed, already registered! #".alog(mysqli_error($conn)));
         }
     }
 
