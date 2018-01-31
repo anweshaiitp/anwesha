@@ -5,31 +5,33 @@
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
 	<link href="images/logo_favi.png" rel="icon" >
-	  <meta name="description" content="Anwesha is a Techno-Cultural extravaganza by IIT Patna held every year in the spring.Since its inception in 2010, it has grown into one of the most anticipated student-organized youth festival." />
-	  <META NAME="Keywords" CONTENT="Anwesha,IIT Patna,IITP,IIT,college,fest">
-	  
-	  <meta itemprop="name" content="Anwesha2k18">
-	  <meta itemprop="description" content="Anwesha is a Techno-Cultural extravaganza by IIT Patna held every year in the spring.Since its inception in 2010, it has grown into one of the most anticipated student-organized youth festival.">
-	  <meta itemprop="image" content="//anwesha.info/images/anw_theme.jpg">
-	  
-	  <meta name="twitter:card" content="summary_large_image">
-	  <meta name="twitter:site" content="@anweshaiitp">
-	  <meta name="twitter:title" content="Anwesha2k18">
-	  <meta name="twitter:description" content="Anwesha is a Techno-Cultural extravaganza by IIT Patna held every year in the spring.Since its inception in 2010, it has grown into one of the most anticipated student-organized youth festival.">
-	  <meta name="twitter:creator" content="@anweshaiitp">
-	  
-	  <meta name="twitter:image:src" content="//anwesha.info/images/anw_theme.jpg">
-	  
-	  <meta property="og:title" content="Anwesha2k18" />
-	  <meta property="og:type" content="article" />
-	  <meta property="og:url" content="//anwesha.info/" />
-	  <meta property="og:image" content="//anwesha.info/images/anw_theme.jpg" />
-	  <meta property="og:description" content="Anwesha is a Techno-Cultural extravaganza by IIT Patna held every year in the spring. Since its inception in 2010, it has grown into one of the most anticipated student-organized youth festival." />
-	  <meta property="og:site_name" content="Anwesha2k18" />
-	  <meta property="article:published_time" content="2017-10-11T05:59:00+01:00" />
-	  <meta property="article:modified_time" content="2017-10-12T19:08:47+01:00" />
-	  <meta property="article:section" content="Anwesha is a Techno-Cultural extravaganza by IIT Patna held every year in the spring.Since its inception in 2010, it has grown into one of the most anticipated student-organized youth festival." />
-		<meta name="viewport" content="width=device-width, initial-scale= 1">
+
+	<meta name="theme-color" content="#2b2b2b">
+	<meta name="description" content="Anwesha is a Techno-Cultural extravaganza by IIT Patna held every year in the spring.Since its inception in 2010, it has grown into one of the most anticipated student-organized youth festival." />
+	<META NAME="Keywords" CONTENT="Anwesha,IIT Patna,IITP,IIT,college,fest">
+	
+	<meta itemprop="name" content="Anwesha2k18">
+	<meta itemprop="description" content="Anwesha is a Techno-Cultural extravaganza by IIT Patna held every year in the spring.Since its inception in 2010, it has grown into one of the most anticipated student-organized youth festival.">
+	<meta itemprop="image" content="//anwesha.info/images/anw_theme.jpg">
+	
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@anweshaiitp">
+	<meta name="twitter:title" content="Anwesha2k18">
+	<meta name="twitter:description" content="Anwesha is a Techno-Cultural extravaganza by IIT Patna held every year in the spring.Since its inception in 2010, it has grown into one of the most anticipated student-organized youth festival.">
+	<meta name="twitter:creator" content="@anweshaiitp">
+	
+	<meta name="twitter:image:src" content="//anwesha.info/images/anw_theme.jpg">
+	
+	<meta property="og:title" content="Anwesha2k18" />
+	<meta property="og:type" content="article" />
+	<meta property="og:url" content="//anwesha.info/" />
+	<meta property="og:image" content="//anwesha.info/images/anw_theme.jpg" />
+	<meta property="og:description" content="Anwesha is a Techno-Cultural extravaganza by IIT Patna held every year in the spring. Since its inception in 2010, it has grown into one of the most anticipated student-organized youth festival." />
+	<meta property="og:site_name" content="Anwesha2k18" />
+	<meta property="article:published_time" content="2017-10-11T05:59:00+01:00" />
+	<meta property="article:modified_time" content="2017-10-12T19:08:47+01:00" />
+	<meta property="article:section" content="Anwesha is a Techno-Cultural extravaganza by IIT Patna held every year in the spring.Since its inception in 2010, it has grown into one of the most anticipated student-organized youth festival." />
+	<meta name="viewport" content="width=device-width, initial-scale= 1">
 	<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
 </head>
 <body>
@@ -87,7 +89,6 @@
 		<ul>
 			<li><a href="/">Home</a></li>
 			<li><a href="/events/">Events</a></li>
-			<meta name="theme-color" content="#2b2b2b">
 			<!-- <li class="sch_div">Schedule</li> -->
 			<li><a href="https://www.facebook.com/pg/anwesha.iitpatna/photos/?ref=page_internal" target="_blank">Gallery</a></li>
 			<li><a href="/team/">Team</a></li>
