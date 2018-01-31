@@ -1115,6 +1115,13 @@ class People{
             return $arr;
         }
         $row = mysqli_fetch_assoc($result);
+        if($row['type']==0 && $row['confirm']==1){
+            $error = "Anwesha ID already Confirmed! ANW".$id;
+            $arr = array();
+            $arr[] = 2;
+            $arr[] = $error;
+            return $arr;
+        }
         if(empty($token) || strcmp($token,$row['csrfToken'])!=0){
             $error = "Invalid Link, Link Expired or May be already Confirmed! #".$id;
             $arr = array();

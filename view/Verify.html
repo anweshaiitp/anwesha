@@ -2,9 +2,13 @@
 <html>
 <head>
 	<title>Anwesha - Verify Email</title>
+	<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Roboto:400,700'>
 	<style>
+		*{
+			font-family: 'Roboto', sans-serif;
+		}
 		body{
-			background:#efefef;
+			background:#252525;
 			overflow-x:hidden;
 		}
 		.box{
@@ -14,10 +18,25 @@
 			transform:translate(-50%,-50%);
 			background:#fff;
 			width:40%;
-			padding:1em;
-			box-shadow: 0.5em 0.5em 0.25em #888888;
-			border-radius:0.5em;
+			width: 410px;
+			padding: 2px 15px 20px 15px;
+			box-shadow: 0px 14px 24px 17px rgba(0, 0, 0, 0.38), 0 6px 30px 5px rgba(0, 0, 0, 0.71), 0 8px 10px -5px rgb(0, 0, 0);
+			background-color: #00000000;
+			color: #ffffff;
+			font-size: 20px;
+			padding: 20px !important;
+			border: solid 1px #272727;
+			border-radius: 5px;
+			margin-bottom: 10px;
+			transition: .8s box-shadow;
 		}
+		
+		button.inputbox:hover{
+		width: 410px;
+		box-shadow: 0px 14px 24px 17px rgba(0, 0, 0, 0.38), 0 2px 15px 5px rgba(187, 184, 184, 0.71), 0 8px 10px -5px rgb(0, 0, 0);
+			cursor:pointer;
+		}
+
 		#anwlogo{
 			position:absolute;
 			top:0;
@@ -32,19 +51,24 @@
 			padding:0.5em;
 			width:5em;
 		}
+		a{
+			color:#5b75de;
+		}
 	</style>
 </head>
 <body>
 <a href="//2017.anwesha.info"><img id="anwlogo" src="//anwesha.info/images/logo_favi.png"></a>
-<a href="//www.iitp.ac.in"><img id="iitplogo" src="//www.iitp.ac.in/images/logo_about.jpg"></a>
+<a href="//www.iitp.ac.in"><img id="iitplogo" src="/images/iitplogo.png"></a>
 <div class="box">
 <?php 
 $actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
 $str = ($verification[1])? "Your automatically generated password : " . $verification[1] . "<br> Please store it somewhere safe.": "You can now log in using the password you set during registration";
 if ($verification[0] == 1){
-	echo "Your registration for Anwesha2k18 has been successfully completed! <br> ". $str ;
+	echo "Your verification for Anwesha2k18 has been successfully completed! <br> ". $str ;
+}else if($verification[0] == 2){
+	 echo "". $verification[1]."<br>If you don't remember your password:";
 } else {
-	echo "Your registration for Anwesha2k18 was not successfull. If you think this is an error, contact the administrator. " . $verification[1];
+	echo "Your verification for Anwesha2k18 was not successfull. If you think this is an error, contact the administrator. " . $verification[1];
 	} ?>
 
 <br>
