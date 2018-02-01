@@ -125,15 +125,15 @@
 	<div class="log_fast"><a target="_blank" href="/login_bare">LOGIN</a></div>
 	
 <!-----events update---------->
-	<!-- <div class="eve_updates">
+	<div class="eve_updates">
 		<img src="images/bat.png">
 		<div class="eve_up_content">
 			<p>Event Updates</p>
-			<a target="_blank" href="https://www.facebook.com/anwesha.iitpatna/photos/a.973019692730676.1073741856.163423960356924/1799240730108564/?type=3&theater">USB</a>
+			<a target="_blank" href="https://drive.google.com/drive/u/0/folders/1HczT6qAr2NtA2Z27jlytm68pOhLjQd5L">CAD Maestro</a>
 			<br>
 
 		</div>
-	</div> -->
+	</div>
 	
 <!-----right arrow button------>
 	<div class="right_arrow">
