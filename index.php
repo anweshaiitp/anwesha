@@ -63,6 +63,8 @@ if (preg_match($base . '(ca|)_?([0-9]{4}|)$@', $url, $match)) {
 	require ('view/accodomation.html');
 } elseif (preg_match($base . 'pro-nites/([0-9]{0,5})$@', $url, $match)) {
 	require ('view/pronites.php');
+} elseif (preg_match($base . 'pro-nites/static/([a-zA-Z0-9]{1,20})$@', $url, $match)) {
+	require ('view/'.$match[1].'.html');
 } elseif (preg_match($base . 'fest_cord/$@', $url, $match)) {
 	require ('view/team_cords/fest_cord.html');
 }  elseif (preg_match($base . 'mpr/$@', $url, $match)) {

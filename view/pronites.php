@@ -81,13 +81,15 @@
 <body>
 	<br><br><br><br><br>
 <div id="fb-root"></div>
-<script>(function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.12&appId=1088640574599664&autoLogAppEvents=1';
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
+<script>
+// (function (d, s, id) {
+//         var js, fjs = d.getElementsByTagName(s)[0];
+//         if (d.getElementById(id)) return;
+//         js = d.createElement(s); js.id = id;
+//         js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.12&appId=1088640574599664&autoLogAppEvents=1';
+//         fjs.parentNode.insertBefore(js, fjs);
+//     }(document, 'script', 'facebook-jssdk'));
+</script>
 	<img class="spons_anw" src="../images/anwesha.png">
     <h2 style="font-size:3em;">Pro-Nites</h2>
     <div class="accod_tabs">
@@ -97,11 +99,12 @@
     <center>
         <?php $wid = (isset($match[1]))?($match[1]>750)?750:$match[1]:500;  ?>
     <h2 id="day1Pro">Day 1</h2>
-
-    <div class="fb-post" data-href="https://www.facebook.com/anwesha.iitpatna/photos/a.172775642755089.39709.163423960356924/1809745535724750/?type=3&amp;theater"
+<iframe class="pros" src="/pro-nites/static/sahil" width=<?php echo $wid;?> frameborder="0"></iframe>
+    <!-- <div class="fb-post" data-href="https://www.facebook.com/anwesha.iitpatna/photos/a.172775642755089.39709.163423960356924/1809745535724750/?type=3&amp;theater"
         data-width="<?php echo $wid;?>" data-show-text="true">
         <blockquote cite="https://www.facebook.com/anwesha.iitpatna/photos/a.172775642755089.39709.163423960356924/1809745535724750/?type=3"
 			class="fb-xfbml-parse-ignore">
+			
 			<img id='loadgif' src='/images/load.gif' height'50px'>
             <p>Hey people, what are you laughing at? Revisit your humor as Anwesha &#039;18 brings to you the EIC fame comedy wizard
                 Sahil Shah. #Anwesha18 #EverySpellIsAJourney #ThinkDreamLive
@@ -110,9 +113,10 @@
 			<a href="https://www.facebook.com/anwesha.iitpatna/photos/a.172775642755089.39709.163423960356924/1809745535724750/?type=3">Monday, January 29, 2018</a>
 			<img src="/images/sahil.jpg" alt="" style="width:100%">
         </blockquote>
-    </div><br><br>
+    </div>--><br><br> 
 	<!-- <img src="../images/spons/airtel.jpg"> -->
-    <div class="fb-post" data-href="https://www.facebook.com/JackEyeJones/photos/a.434576356571357.113881.403133126382347/1935549269807384/?type=3&amp;theater"
+	<iframe class="pros" src="/pro-nites/static/jack" width=<?php echo $wid;?> frameborder="0"></iframe>
+    <!-- <div class="fb-post" data-href="https://www.facebook.com/JackEyeJones/photos/a.434576356571357.113881.403133126382347/1935549269807384/?type=3&amp;theater"
         data-width="<?php echo $wid;?>" data-show-text="true">
         <blockquote cite="https://www.facebook.com/JackEyeJones/photos/a.434576356571357.113881.403133126382347/1935549269807384/?type=3"
 			class="fb-xfbml-parse-ignore">
@@ -123,8 +127,10 @@
 			<a href="https://www.facebook.com/JackEyeJones/photos/a.434576356571357.113881.403133126382347/1935549269807384/?type=3">Wednesday, January 24, 2018</a>
 			<img src="/images/jej.jpg" alt="" style="width:100%">
         </blockquote>
-    </div><br><br>
-    <div class="fb-video" data-href="https://www.facebook.com/anwesha.iitpatna/videos/1809771262388844/" data-width="<?php echo $wid;?>" data-show-text="false">
+	</div>-->
+	<br><br> 
+	<iframe style="height:<?php echo $wid*0.6; ?>" src="/pro-nites/static/jack2" width=<?php echo $wid;?> frameborder="0"></iframe>
+    <!-- <div class="fb-video" data-href="https://www.facebook.com/anwesha.iitpatna/videos/1809771262388844/" data-width="<?php echo $wid;?>" data-show-text="false">
         <blockquote cite="https://www.facebook.com/anwesha.iitpatna/videos/1809771262388844/" class="fb-xfbml-parse-ignore">
 			<a href="https://www.facebook.com/anwesha.iitpatna/videos/1809771262388844/"></a>
 			<img id='loadgif' src='/images/load.gif' height'50px'>
@@ -132,9 +138,10 @@
                 #4daystogo #Anwesha18 #EverySpellIsAJourney #ThinkDreamLive
             </p>Posted by
             <a href="https://www.facebook.com/anwesha.iitpatna/">Anwesha, IIT Patna</a> on Monday, January 29, 2018</blockquote>
-	</div><br>
+	</div> -->
 	<br>
-    <div class="fb-post" data-href="https://www.facebook.com/anwesha.iitpatna/photos/a.973019692730676.1073741856.163423960356924/1812119062154064/?type=3&amp;theater"
+	<br>
+    <!-- <div class="fb-post" data-href="https://www.facebook.com/anwesha.iitpatna/photos/a.973019692730676.1073741856.163423960356924/1812119062154064/?type=3&amp;theater"
         data-width="<?php echo $wid;?>" data-show-text="true">
         <blockquote cite="https://www.facebook.com/anwesha.iitpatna/photos/a.973019692730676.1073741856.163423960356924/1812119062154064/?type=3"
 			class="fb-xfbml-parse-ignore">
@@ -144,13 +151,18 @@
             <a href="https://www.facebook.com/anwesha.iitpatna/">Anwesha, IIT Patna</a> on&nbsp;
             <a href="https://www.facebook.com/anwesha.iitpatna/photos/a.973019692730676.1073741856.163423960356924/1812119062154064/?type=3">Wednesday, January 31, 2018</a>
         </blockquote>
-    </div><br>
+	</div> -->
+	<iframe class="pros" src="/pro-nites/static/bass" width=<?php echo $wid;?> frameborder="0"></iframe>
+	<br>
 
     
 	<h2 id="day2Pro">Day 3</h2>
 	<br>
-	<div class="fb-post" data-href="https://www.facebook.com/anwesha.iitpatna/photos/a.172775642755089.39709.163423960356924/1807465142619456/?type=3&amp;theater" data-width="<?php echo $wid;?>" data-show-text="true"><blockquote cite="https://www.facebook.com/anwesha.iitpatna/photos/a.172775642755089.39709.163423960356924/1807465142619456/?type=3" class="fb-xfbml-parse-ignore"><p>The rugged and the real, the truth but the surreal. This defines Anwesha and so does it describe &#039;Naalayak&#039; the band,...</p>Posted by <a href="https://www.facebook.com/anwesha.iitpatna/">Anwesha, IIT Patna</a> on&nbsp;<a href="https://www.facebook.com/anwesha.iitpatna/photos/a.172775642755089.39709.163423960356924/1807465142619456/?type=3">Saturday, January 27, 2018</a></blockquote></div> <br> <br>
-	<div class="fb-post" data-href="https://www.facebook.com/anwesha.iitpatna/photos/a.172775642755089.39709.163423960356924/1806286119404025/?type=3&amp;theater" data-width="500" data-show-text="true"><blockquote cite="https://www.facebook.com/anwesha.iitpatna/photos/a.172775642755089.39709.163423960356924/1806286119404025/?type=3" class="fb-xfbml-parse-ignore"><p>Every Spell is a Journey and this journey will leave you spellbound.  Music that transcends emotions and the stage that...</p>Posted by <a href="https://www.facebook.com/anwesha.iitpatna/">Anwesha, IIT Patna</a> on&nbsp;<a href="https://www.facebook.com/anwesha.iitpatna/photos/a.172775642755089.39709.163423960356924/1806286119404025/?type=3">Friday, January 26, 2018</a></blockquote></div>
+	<iframe class="pros" src="/pro-nites/static/nal" width=<?php echo $wid;?> frameborder="0"></iframe>
+	<br>
+	<iframe class="pros" src="/pro-nites/static/chaar" width=<?php echo $wid;?> frameborder="0"></iframe>
+	<!-- <div class="fb-post" data-href="https://www.facebook.com/anwesha.iitpatna/photos/a.172775642755089.39709.163423960356924/1807465142619456/?type=3&amp;theater" data-width="<?php echo $wid;?>" data-show-text="true"><blockquote cite="https://www.facebook.com/anwesha.iitpatna/photos/a.172775642755089.39709.163423960356924/1807465142619456/?type=3" class="fb-xfbml-parse-ignore"><p>The rugged and the real, the truth but the surreal. This defines Anwesha and so does it describe &#039;Naalayak&#039; the band,...</p>Posted by <a href="https://www.facebook.com/anwesha.iitpatna/">Anwesha, IIT Patna</a> on&nbsp;<a href="https://www.facebook.com/anwesha.iitpatna/photos/a.172775642755089.39709.163423960356924/1807465142619456/?type=3">Saturday, January 27, 2018</a></blockquote></div> <br> <br>
+	<div class="fb-post" data-href="https://www.facebook.com/anwesha.iitpatna/photos/a.172775642755089.39709.163423960356924/1806286119404025/?type=3&amp;theater" data-width="500" data-show-text="true"><blockquote cite="https://www.facebook.com/anwesha.iitpatna/photos/a.172775642755089.39709.163423960356924/1806286119404025/?type=3" class="fb-xfbml-parse-ignore"><p>Every Spell is a Journey and this journey will leave you spellbound.  Music that transcends emotions and the stage that...</p>Posted by <a href="https://www.facebook.com/anwesha.iitpatna/">Anwesha, IIT Patna</a> on&nbsp;<a href="https://www.facebook.com/anwesha.iitpatna/photos/a.172775642755089.39709.163423960356924/1806286119404025/?type=3">Friday, January 26, 2018</a></blockquote></div> -->
 <br> <br>
 
 	
@@ -159,6 +171,11 @@
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript">
 	//ajax on menu items
+	var block = document.getElementsByClassName("pros");
+        for (var i = 0; i < block.length; i++) {
+            block[i].style.height = "<?php echo $wid*0.93; ?>px";
+        }
+	// $(".pros").height();
 		$('.close_icon').click(function()
 		{
 			$('.ajax_loading_bckgrnd').fadeOut(800);
