@@ -20,11 +20,11 @@
         }
         body{
             margin: 0;
-            background: #10131d;
+            background: #252846;
         }
         .wh{
             color: #FFFFFF;
-            background: #10131d;
+            /* background: #10131d; */
         }
         .inputbox{
 			background: #fff;
@@ -100,13 +100,19 @@
                     $("#err").text("Invalid email.");
                 }else{
                     $.get( "/"+act+"/"+$("#inputField").val(), function( data ) {
-                    console.log(JSON.parse(data));
-                    if(JSON.parse(data)[1].substring(0,6)=='Please'){
+                        var tmpdat = data;
+                        try {
+                            data = JSON.parse(data);
+                        } catch (e) {
+                            data = tmpdat;
+                        }
+                    console.log(data);
+                    if(data[1].substring(0,6)=='Please'){
                         $("#err").fadeIn();
                         $("#err").css("color","#00ff00");
                     }
                     $("#err").fadeIn();
-                    $("#err").text(JSON.parse(data)[1]);
+                    $("#err").text(data[1]);
                     // alert( "Data recieved." );
                     });
                 }
