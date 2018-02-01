@@ -95,11 +95,11 @@ require('defines.php');
   AccountKit_OnInteractive = function(){
     AccountKit.init(
       {
-        appId:"1088640574599664", 
+        appId:"<?php echo $fbAppID;?>", 
         state:"<?php echo hash("sha256",session_id().$AESKey); ?>", 
         version:"v1.1",
         fbAppEventsEnabled:true,
-        redirect:"https://beta.anwesha.info/login/mobconfirm"
+        redirect:"https://anwesha.info/login/mobconfirm"
       }
     );
   };
