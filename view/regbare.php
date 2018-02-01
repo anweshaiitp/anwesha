@@ -57,6 +57,13 @@ require('defines.php');
 
 <body>
 	<!-- <center>  <h1 style="opacity:1 !important">Register!</h1></center> -->
+	<img src="/images/anwesha.png" style="
+    width: 80%;
+    position:  fixed;
+    left: 50%;
+    top: 20px;
+    transform: translateX(-50%);
+">
 	<div id="progress"></div>
 	<div id="centerLoader" style="z-index:100;position:absolute;top:60%;left:50%;transform:translateX(-50%);"></div>
 	<div class="center">

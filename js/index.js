@@ -127,7 +127,7 @@ var picker;
           $(".center").fadeOut();
           if (data[0] == 1) {
             $("#postajaxmsg").html('<center><div class="posttext"><h3><b>Registration Successful</b><br>Your Anwesha ID is : ANW' + data[1]['pId'] + '.</h3></div></center>');
-            $("#emailfill").text('Confirm Account using confirmation email sent on '+email);
+            $("#emailfill").text('Confirm Account using confirmation email sent on '+email+'.<br>If you didn\'t get the email, check your spam folder.');
             // $("#regloader").fadeOut();
             $("#postajaxmsg").fadeIn();
             $("#hideOnerr").fadeIn();

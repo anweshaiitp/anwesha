@@ -26,6 +26,33 @@
             color: #FFFFFF;
             background: #10131d;
         }
+        .inputbox{
+			background: #fff;
+		/* position: relative; */
+		/* width: 410px; */
+		padding: 2px 15px 20px 15px;
+		box-shadow: 0px 14px 24px 17px rgba(0, 0, 0, 0.38), 0 6px 30px 5px rgba(0, 0, 0, 0.71), 0 8px 10px -5px rgb(0, 0, 0);
+		background-color: #00000000;
+		color: #ffffff;
+		font-size: 20px;
+		padding: 20px !important;
+		border: solid 1px #FFFFFF;
+		border-radius: 5px;
+		margin-bottom: 10px;
+		transition: .8s box-shadow;
+		}
+		button.inputbox{
+		/* width: 410px; */
+			cursor:pointer;
+		}
+		button.inputbox:hover{
+		box-shadow: 0px 14px 24px 17px rgba(0, 0, 0, 0.38), 0 2px 15px 5px rgba(187, 184, 184, 0.71), 0 8px 10px -5px rgb(0, 0, 0);
+			cursor:pointer;
+		}
+		div.inputbox{
+			width: 410px;
+			border: none !important;
+		}
 	</style>
 </head>
 
@@ -39,17 +66,19 @@
     transform: translate(-50%,-50%);">
 
 			<!-- <i id="progressButton" class="ion-android-arrow-forward next"></i> -->
+            
         <h1 class="wh">Reset password or resend confirmation email</h1>
+        <h2 class="wh">If you didn't get the email, check your spam folder first.</h2>
 			<div id="inputContainer">
 
                 <h4 class="wh">Your emailID used for registration:</h4>
                 <form id="actionform">
-                <input class="wh" id="inputField" type="email" placeholder="email-ID" required autofocus style="font-size: 30px;" />
+                <input class="wh inputbox" id="inputField" type="email" placeholder="email-ID" required autofocus style="font-size: 30px;" />
                 
                 </form>
-                <h4 class="" id="err" style="color:#ff0000"></h4>
-                <button class="wh sub" id="" onclick="subm('reset')" data-action="reset" style="font-size: 30px;"  >Reset</button>
-                <button class="wh sub" onclick="subm('resend')" data-action="resend" style="font-size: 30px;"  >Resend email</button>
+                <h4 class="inputbox" id="err" style="display:none;color:#ff0000"></h4>
+                <button class="wh sub inputbox" id="" onclick="subm('reset')" data-action="reset" style="font-size: 30px;"  >Reset</button>
+                <button class="wh sub inputbox" onclick="subm('resend')" data-action="resend" style="font-size: 30px;"  >Resend email</button>
 			</div>
 
 		</div>
@@ -67,13 +96,16 @@
 // e.preventDefault();
 // console.log()
                 if(!validateEmail($("#inputField").val())){
+                    $("#err").fadeIn();
                     $("#err").text("Invalid email.");
                 }else{
                     $.get( "/"+act+"/"+$("#inputField").val(), function( data ) {
                     console.log(JSON.parse(data));
                     if(JSON.parse(data)[1].substring(0,6)=='Please'){
+                        $("#err").fadeIn();
                         $("#err").css("color","#00ff00");
                     }
+                    $("#err").fadeIn();
                     $("#err").text(JSON.parse(data)[1]);
                     // alert( "Data recieved." );
                     });
