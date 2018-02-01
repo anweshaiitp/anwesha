@@ -96,6 +96,8 @@
 			<li class="spons_div">Sponsors</li>
 			<li class="acco_load">Hospitality/Accomodation</li>
 			<li class="register">Register</li>
+			<li class="pro_div">Pro Nites</li>
+			<li class="guest_div">Guest Lecture</li>
 			<li class="ca"><a href="/ca/" target="_blank">Campus Ambassador</a></li>
 		</ul>
 	</div>
