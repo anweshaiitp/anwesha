@@ -525,7 +525,8 @@ body
 		border-radius: 0px 10px 0px 10px;
 	}
 	#leftnav .ginputbox{
-		line-height: 2.1;
+		line-height: 2.3;
+		padding: 8px;
 	}
 	a.ginputbox {
 		text-decoration: none;
