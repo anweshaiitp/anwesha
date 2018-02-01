@@ -88,7 +88,7 @@
 	<div class="menu_bar">
 		<ul>
 			<li><a href="/">Home</a></li>
-			<li><a href="/events/">Events</a></li>
+			<li><a id="evnts" href="/events/">Events</a></li>
 			<!-- <li class="sch_div">Schedule</li> -->
 			<li><a href="https://www.facebook.com/pg/anwesha.iitpatna/photos/?ref=page_internal" target="_blank">Gallery</a></li>
 			<li><a href="/team/">Team</a></li>
@@ -158,6 +158,14 @@
 
 <!--horizontal scrolling div-------->
 	<div class="horizontal">
+		<div id="leftnav" style="position:fixed;z-index:200;border-left:#000000;padding:  10px;border-radius: 0px 10px 0px 10px;border: solid #0f62bda6;;left:0px;top:50%;transform:translateY(-50%);">
+			<a class="ginputbox side " >Events</a><br>
+			<a class="ginputbox side proside">Pro-Nites</a><br>
+			<a class="ginputbox side guestside" >Guest Lectures</a><br>
+			<a class="ginputbox side" href="/team/">Team</a><br>
+			<a class="ginputbox side sponsside">Sponsors</a><br>
+			<a class="ginputbox side accodside">Accomodation</a><br>
+		</div>	
 		<div class="anwesha_logo">
 			<img src="images/anwesha.png">
 			<center style="
@@ -502,7 +510,7 @@
 			$('.ajax_loading_div').fadeOut(800);
 		});
 
-		$('.spons_div').click(function()
+		$('.spons_div,.sponsside,.acco_load,.accodside,.guest_div,.guestside,.pro_div,.proside').click(function()
 		{
 			$('.ajax_loading_bckgrnd').fadeIn(800);
 			$('.ajax_loading_div').fadeIn(800);

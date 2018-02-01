@@ -505,6 +505,42 @@ body
 		//border: 1px solid #685d7b8c;
 	}
 
+	.ginputbox {
+		background: #fff;
+		/* position: relative; */
+		/* padding: 2px 15px 20px 15px; */
+		box-shadow: 0px 14px 24px 17px rgba(0, 0, 0, 0.38), 0 6px 30px 5px rgba(0, 0, 0, 0.71), 0 8px 10px -5px rgb(0, 0, 0);
+		background-color: #00000000;
+		color: #ffffff;
+		
+		font-size: 20px;
+		padding: 10px;
+		margin:5px;
+		border: solid 1px #FFFFFF;
+		border-radius: 5px;
+		margin-bottom: 10px;
+		transition: .8s box-shadow, .8s color;
+		text-decoration: none;
+		cursor: pointer;
+		border-radius: 0px 10px 0px 10px;
+	}
+	#leftnav .ginputbox{
+		line-height: 2.1;
+	}
+	a.ginputbox {
+		text-decoration: none;
+		cursor: pointer;
+		transform: translateX(3%);
+	}
+	.ginputbox a{
+		color: #ffffff !important;
+	}
+	a.ginputbox:hover {
+		color: #b9b9b9 !important;
+		box-shadow: 0px 14px 24px 17px rgba(0, 0, 0, 0.38), 0 2px 15px 5px rgba(187, 184, 184, 0.71), 0 8px 10px -5px rgb(0, 0, 0);
+		cursor: pointer;
+	}
+
 	.eve_up_content a
 	{
 		color: lightgrey;
@@ -1136,7 +1172,7 @@ body
 	}
 
 	a,
-	a:visited {
+	a:visited:not(.side) {
 		text-decoration: none;
 		color: var(--color-ocean);
 		font-weight: 500;
@@ -1282,6 +1318,7 @@ body
 	{
 		position: absolute;
 		top: 5px;
+		z-index: 300;
 		right: 3px;
 		max-width: 5%;
 		cursor: pointer;
