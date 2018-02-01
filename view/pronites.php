@@ -107,7 +107,8 @@
                 Sahil Shah. #Anwesha18 #EverySpellIsAJourney #ThinkDreamLive
             </p>Posted by
             <a href="https://www.facebook.com/anwesha.iitpatna/">Anwesha, IIT Patna</a> on&nbsp;
-            <a href="https://www.facebook.com/anwesha.iitpatna/photos/a.172775642755089.39709.163423960356924/1809745535724750/?type=3">Monday, January 29, 2018</a>
+			<a href="https://www.facebook.com/anwesha.iitpatna/photos/a.172775642755089.39709.163423960356924/1809745535724750/?type=3">Monday, January 29, 2018</a>
+			<img src="/images/sahil.jpg" alt="" style="width:100%">
         </blockquote>
     </div><br><br>
 	<!-- <img src="../images/spons/airtel.jpg"> -->
@@ -119,7 +120,8 @@
             <p>First Stop in India is Patna Anwesha 18 Festival see you at the front ! IIT Patna Campus. on Friday the 2nd of February
                 ? #Festival #Dance #Anwesha18 NCM</p>Posted by
             <a href="https://www.facebook.com/JackEyeJones/">Jack Eye Jones</a> on&nbsp;
-            <a href="https://www.facebook.com/JackEyeJones/photos/a.434576356571357.113881.403133126382347/1935549269807384/?type=3">Wednesday, January 24, 2018</a>
+			<a href="https://www.facebook.com/JackEyeJones/photos/a.434576356571357.113881.403133126382347/1935549269807384/?type=3">Wednesday, January 24, 2018</a>
+			<img src="/images/jej.jpg" alt="" style="width:100%">
         </blockquote>
     </div><br><br>
     <div class="fb-video" data-href="https://www.facebook.com/anwesha.iitpatna/videos/1809771262388844/" data-width="<?php echo $wid;?>" data-show-text="false">
