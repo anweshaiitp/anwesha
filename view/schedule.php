@@ -107,7 +107,7 @@
 //     }(document, 'script', 'facebook-jssdk'));
 </script>
 	<img class="spons_anw" src="../images/anwesha.png">
-    <h2 style="font-size:3em;">Pro-Nites</h2>
+    <h2 style="font-size:3em;">Schedule</h2>
     <div class="accod_tabs vspace">
         <a id="day1" href="#day1Sch" class="ginputbox">Day 1</a>
         <a id="day2" href="#day2Sch" class="ginputbox ">Day 2</a>
