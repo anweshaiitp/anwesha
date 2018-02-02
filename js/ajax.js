@@ -24,6 +24,14 @@ $('.pro_div,.proside').click(function () {
 	return false;
 });
 
+$('.sch_div,.schside').click(function () {
+	var width = window.screen.width;
+	if (!width)
+		width = '';
+	$('.ajax_content').html("<iframe src='/schedule/' frameborder='0' style='width:100%;height:100%'></iframe>");
+	return false;
+});
+
 $('.register').click(function(){
 	$('.ajax_content').html("<iframe src='/register_bare/' frameborder='0' style='width:100%;height:100%'></iframe>");
 	return false;

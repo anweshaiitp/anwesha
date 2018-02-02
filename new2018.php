@@ -58,6 +58,10 @@
 					$('.acco_load').click();
 				}else if(hashsplit[0]=='#sponsors'){
 					$('.spons_div').click();
+				}else if(hashsplit[0]=='#schedule'){
+					$('.sch_div').click();
+				}else if(hashsplit[0]=='#pronites'){
+					$('.pro_div').click();
 				}else if(hashsplit[0]=='#register'){
 					$('.register').click();
 				}
@@ -97,6 +101,7 @@
 			<li class="acco_load">Hospitality/Accomodation</li>
 			<li class="register">Register</li>
 			<li class="pro_div">Pro Nites</li>
+			<li class="sch_div">Schedule</li>
 			<li class="guest_div">Guest Lecture</li>
 			<li class="ca"><a href="/ca/" target="_blank">Campus Ambassador</a></li>
 		</ul>
@@ -163,6 +168,7 @@
 		<div id="leftnav" style="position:fixed;z-index:200;border-left:#000000;padding:  10px;border-radius: 0px 10px 0px 10px;border: solid #0f62bda6;;left:0px;top:50%;transform:translateY(-50%);">
 			<a class="ginputbox side " >Events</a><br>
 			<a class="ginputbox side proside">Pro-Nites</a><br>
+			<a class="ginputbox side schside">Schedule</a><br>
 			<a class="ginputbox side guestside" >Guest Lectures</a><br>
 			<a class="ginputbox side" href="/team/">Team</a><br>
 			<a class="ginputbox side sponsside">Sponsors</a><br>
@@ -512,7 +518,7 @@
 			$('.ajax_loading_div').fadeOut(800);
 		});
 
-		$('.spons_div,.sponsside,.acco_load,.accodside,.guest_div,.guestside,.pro_div,.proside').click(function()
+		$('.spons_div,.sponsside,.acco_load,.accodside,.guest_div,.guestside,.pro_div,.proside,.sch_div,.schside').click(function()
 		{
 			$('.ajax_loading_bckgrnd').fadeIn(800);
 			$('.ajax_loading_div').fadeIn(800);

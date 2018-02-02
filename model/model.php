@@ -73,7 +73,7 @@ class People{
     var $time;
 
 
-    public static function __construct(){
+    public function __construct(){
         $this->$name = null;
         $this->$pId = null;
         $this->$college = null;
