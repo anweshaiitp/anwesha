@@ -73,7 +73,7 @@ class People{
     var $time;
 
 
-    public function __construct(){
+    public static function __construct(){
         $this->$name = null;
         $this->$pId = null;
         $this->$college = null;
@@ -144,7 +144,7 @@ class People{
         return $error;
     }
 
-    public function validateString($param){
+    public static function validateString($param){
 
         $error = 1;
         if (!preg_match('/^[a-zA-Z0-9.]*$/', $param)) {
@@ -160,7 +160,7 @@ class People{
      * @param  MySQLi object $conn variable containing connection details
      * @return boolean AnweshaID valid or not
      */
-    public function validateID($userIds,$size,$conn){
+    public static function validateID($userIds,$size,$conn){
         for($i=0; $i < $size; $i++ ){
             if( strlen($userIds[$i]) != 4 ){
                 return -1;
@@ -254,7 +254,7 @@ class People{
      * @param  MySQLi object $conn variable containing connection details
      * @return array       array
      */
-    public function getUserByEmail($emailID,$conn){
+    public static function getUserByEmail($emailID,$conn){
         $sql = " SELECT * FROM People WHERE `email` = '$emailID'";
         $result = mysqli_query($conn, $sql);
         if(!$result || mysqli_num_rows($result)!=1){
@@ -278,7 +278,7 @@ class People{
      * @param  MySQLi object $conn variable containing connection details
      * @return isCampusAmbassador
      */
-    public function checkIfCampusAmbassador($id,$conn){
+    public static function checkIfCampusAmbassador($id,$conn){
         $sql = "SELECT 1 FROM CampusAmberg WHERE pId = $id";
         $result = mysqli_query($conn, $sql);
         if(!$result || mysqli_num_rows($result)!=1){
@@ -292,7 +292,7 @@ class People{
      * @param  mysqli $conn connection link
      * @return array
      */
-    public function getUserLoginInfo($id,$conn){
+    public static function getUserLoginInfo($id,$conn){
         $sql = " SELECT * FROM LoginTable WHERE pId = $id";
         $result = mysqli_query($conn, $sql);
         if(!$result || mysqli_num_rows($result)!=1){
@@ -315,7 +315,7 @@ class People{
      * @param  mysqli $conn mysqli link
      * @return array       index 0 is 1 or -1, index 1 is array or string.
      */
-    public function getEvents($id, $conn){
+    public static function getEvents($id, $conn){
         $sql = "SELECT Events.eveName FROM Registration INNER JOIN Events ON Registration.eveId = Events.eveId AND Registration.pId = $id";
         $result = mysqli_query($conn, $sql);
         if(!$result){
@@ -373,7 +373,7 @@ class People{
         return $arr;
     }
 
-    public function getGroups($id, $conn){
+    public static function getGroups($id, $conn){
 
     }
 
@@ -660,7 +660,7 @@ class People{
      * @param  MySQLi $conn       database connection object
      * @return array             index 0 :- 1(success), -1(error);
      */
-    public function switchCampusAmbassador($anwid,$email,$address,$degree,$grad,$leader,$involvement,$threethings,$conn){
+    public static function switchCampusAmbassador($anwid,$email,$address,$degree,$grad,$leader,$involvement,$threethings,$conn){
         mysqli_autocommit($conn,FALSE);
         try
         {
@@ -1114,7 +1114,7 @@ class People{
      * @param int $id      Anwesha Id for registered user
      * @param string $token     Confirmation Token
      */
-    public function verifyEmail($id,$token,$FBaccToken = null,$conn){
+    public static function verifyEmail($id,$token,$FBaccToken = null,$conn){
         $sql = "SELECT * FROM People NATURAL JOIN LoginTable WHERE pId = $id";
         $result = mysqli_query($conn, $sql);
         if(!$result || mysqli_num_rows($result)!=1){
@@ -1209,7 +1209,7 @@ class People{
      * @param string $token     Confirmation Token
      * @param string $pass   New Password
      */
-    public function changePasswordResetToken($id,$token,$pass,$conn){
+    public static function changePasswordResetToken($id,$token,$pass,$conn){
         $sql = "SELECT csrfToken FROM LoginTable WHERE pId = '$id'";
         $result = mysqli_query($conn, $sql);
         if(!$result || mysqli_num_rows($result)!=1){
@@ -1247,7 +1247,7 @@ class People{
 
     }
 
-    public function sendEventRegistrationEmail($userID,$eveID,$conn)
+    public static function sendEventRegistrationEmail($userID,$eveID,$conn)
     {
         require('defines.php');
         $user = People::getUser($userID,$conn);
@@ -1313,7 +1313,7 @@ class People{
      * @param  mysqli $conn    connection variable
      * @return array          associative array, index "status" is boolean, index "msg" carries corresponding message
      */
-    public function registerEventUserSingle($userID, $eventID, $conn){
+    public static function registerEventUserSingle($userID, $eventID, $conn){
         $sql = "INSERT INTO Registration VALUES ($eventID,$userID,null,0)";
         $result = mysqli_query($conn,$sql);
         if($result){
@@ -1331,7 +1331,7 @@ class People{
      * @param  mysqli $conn    connection variable
      * @return array          associative array, index "status" is boolean, index "msg" carries corresponding message
      */
-    public function eventNotifyRegUsers($eventID, $title, $message, $registrar, $conn){
+    public static function eventNotifyRegUsers($eventID, $title, $message, $registrar, $conn){
         $sql = "SELECT p.name,p.pId,p.mobile,p.email FROM People p, Registration r WHERE (r.eveId = $eventID AND r.pId = p.pId)";
         $result = mysqli_query($conn,$sql);
         if($result){
@@ -1439,7 +1439,7 @@ class People{
      * @param  mysqli $conn    connection variable
      * @return int 1/-1 if valid/invalid group
      */
-    public function checkUserEventVacant($ID,$eId,$conn){
+    public static function checkUserEventVacant($ID,$eId,$conn){
         $sql="SELECT COUNT(*) FROM `Registration` WHERE `eveId` = '$eId' AND `pId` in (".implode(',',$ID).")";
         $result = mysqli_query($conn,$sql);
         if(!$result){
@@ -1461,7 +1461,7 @@ class People{
      * @param  mysqli $conn    connection variable
      * @return array          associative array, index "status" is boolean, index "msg" carries corresponding message
      */
-    public function registerGroupEvent($userIDs,$gsize,$eventID,$groupName,$conn)
+    public static function registerGroupEvent($userIDs,$gsize,$eventID,$groupName,$conn)
     {
 
         //Check if group name is valid
@@ -1569,7 +1569,7 @@ class People{
      * @param  MySQLi object $conn variable containing connection details
      * @return boolean AnweshaID valid or not
      */
-    public function validateAnweshaID($id,$conn){
+    public static function validateAnweshaID($id,$conn){
         if( strlen($id) != 4 ){
             return -1;
         }
@@ -1587,7 +1587,7 @@ class People{
     }
 
 
-    public function requestAccomodation($id,$dates,$conn)
+    public static function requestAccomodation($id,$dates,$conn)
     {
         
         if($id!=""){
@@ -1659,7 +1659,7 @@ class People{
  *
  */
 class Events{
-    public function getMainEvents($conn){
+    public static function getMainEvents($conn){
         $sql = " SELECT * FROM Events WHERE code = -1";
         $result = mysqli_query($conn, $sql);
         $arr = array();
@@ -1678,7 +1678,7 @@ class Events{
         return $arr;
     }
 
-    public function getAllEvents($conn){
+    public static function getAllEvents($conn){
     mysqli_set_charset($conn,"utf8");
     $sql = "SELECT * FROM Events";
         $result = mysqli_query($conn, $sql);
@@ -1698,7 +1698,7 @@ class Events{
         return $arr;
     }
 
-    public function getSubEvent($mainEvent,$conn){
+    public static function getSubEvent($mainEvent,$conn){
 
         $sql = "SELECT * FROM Events WHERE code = '$mainEvent'";
         $result = mysqli_query($conn, $sql);
@@ -1825,7 +1825,7 @@ class Events{
      * @param  mysqli $conn  mysqli connection variable
      * @return int        size of the event. -1 if event does not exist.
      */
-    public function getEventSize($eveID,$conn)
+    public static function getEventSize($eveID,$conn)
     {
         $sql = "SELECT size FROM Events WHERE eveId = $eveID";
         $result = mysqli_query($conn,$sql);
@@ -1848,7 +1848,7 @@ class Auth
      * @return string
      * generates a random string.
      */
-    public function randomPassword() {
+    public static function randomPassword() {
         $len=8;
         $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
         $pass = ''; //remember to declare $pass as an array
@@ -1867,7 +1867,7 @@ class Auth
      * @param  mysqli $conn   connection variable
      * @return array         associative array. index "status" is boolean, index "key" has usual meaning, index "msg" has te usual meaning.
      */
-    public function getUserPrivateKey($userID,$conn){
+    public static function getUserPrivateKey($userID,$conn){
 
         $sql = "SELECT privateKey FROM LoginTable WHERE pId = $userID";
         $result = mysqli_query($conn,$sql);
@@ -1886,7 +1886,7 @@ class Auth
      * @param  mysqli $conn     mysqli connection variable
      * @return array
      */
-    public function loginUser($userID,$password,$conn){
+    public static function loginUser($userID,$password,$conn){
 
         $password = sha1($password);
 
@@ -1909,7 +1909,7 @@ class Auth
 
     }
 
-    public function verifyPassword($userId,$password,$conn){
+    public static function verifyPassword($userId,$password,$conn){
         $password = sha1($password);
 
         $sql = "SELECT People.name, People.college, People.sex, People.mobile, People.email, People.dob, People.city, People.feePaid, People.confirm, People.time AS regTime, LoginTable.totalLogin, LoginTable.lastLogin, LoginTable.privateKey AS 'key' FROM People INNER JOIN LoginTable ON People.pId = LoginTable.pId AND People.pId = $userId AND LoginTable.password = '$password'";
@@ -1923,7 +1923,7 @@ class Auth
         }
     }
 
-    public function forgetPassword($eId,$conn){
+    public static function forgetPassword($eId,$conn){
         $sql = "SELECT P.pId as pId,name,email,type FROM People P JOIN LoginTable LT on LT.pId=P.pId WHERE email = '$eId'";
         $result = mysqli_query($conn,$sql);
         if(!$result OR mysqli_num_rows($result) != 1 ){
@@ -1977,12 +1977,12 @@ class Auth
      * @param  string $content       Data without hash
      * @return boolean                if new hashedData matches to the old one the true else false.
      */
-    public function authenticateRequest($privateKey,$hashedContent,$content){
+    public static function authenticateRequest($privateKey,$hashedContent,$content){
         $newHashed = hash_hmac('sha256',$content,$privateKey);
         return md5($newHashed) == md5($hashedContent);
     }
 
-    public function changePassword($userId, $newPassword, $conn){
+    public static function changePassword($userId, $newPassword, $conn){
         $password = sha1($newPassword);
         $privateKey = sha1(self::randomPassword());
         $sql = "UPDATE LoginTable SET password = '$password', privateKey = '$privateKey' WHERE pId = $userId";
@@ -1998,7 +1998,7 @@ class Auth
      * @param  int $ID ANW1234
      * @return associative array     index status says if format is valid or not, index key has the numeric part of it.
      */
-    public function sanitizeID($ID)
+    public static function sanitizeID($ID)
     {
         if(preg_match('/^ANW([0-9]{4})$/', $ID, $match)){
             return array("status" => true, "key" => $match[1]);
