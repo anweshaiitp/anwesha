@@ -28,7 +28,7 @@ if(($type==0)) {
 	echo json_encode(array(-1, "Account already verified."));
 	die();
 }
-People::Email($emailID, $user['name'], $loginInfo['csrfToken'], $pId);
+People::Email($emailID, $user['name'], $loginInfo['csrfToken'], $pId, ($type==1)?0:1);
 header('Content-type: application/json');
 echo json_encode(array(1,  "Verification link sent to registered email."));
 die();
