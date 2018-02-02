@@ -129,8 +129,8 @@
         </blockquote>
 	</div>-->
 	<br><br> 
-	<iframe style="height:<?php echo $wid*0.6; ?>" src="/pro-nites/static/jack2" width=<?php echo $wid;?> frameborder="0"></iframe>
-    <!-- <div class="fb-video" data-href="https://www.facebook.com/anwesha.iitpatna/videos/1809771262388844/" data-width="<?php echo $wid;?>" data-show-text="false">
+	<!-- <iframe style="height:<?php echo $wid*0.6; ?>" src="/pro-nites/static/jack2" width=<?php echo $wid;?> frameborder="0"></iframe> -->
+    <div class="fb-video" data-href="https://www.facebook.com/anwesha.iitpatna/videos/1809771262388844/" data-width="<?php echo $wid;?>" data-show-text="false">
         <blockquote cite="https://www.facebook.com/anwesha.iitpatna/videos/1809771262388844/" class="fb-xfbml-parse-ignore">
 			<a href="https://www.facebook.com/anwesha.iitpatna/videos/1809771262388844/"></a>
 			<img id='loadgif' src='/images/load.gif' height'50px'>
@@ -138,7 +138,7 @@
                 #4daystogo #Anwesha18 #EverySpellIsAJourney #ThinkDreamLive
             </p>Posted by
             <a href="https://www.facebook.com/anwesha.iitpatna/">Anwesha, IIT Patna</a> on Monday, January 29, 2018</blockquote>
-	</div> -->
+	</div>
 	<br>
 	<br>
     <!-- <div class="fb-post" data-href="https://www.facebook.com/anwesha.iitpatna/photos/a.973019692730676.1073741856.163423960356924/1812119062154064/?type=3&amp;theater"
