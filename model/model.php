@@ -1251,7 +1251,8 @@ class People{
     {
         require('defines.php');
         $user = People::getUser($userID,$conn);
-        $sql = "SELECT eveName, FROM Events WHERE eveId = $eveID";
+        $sql = "SELECT eveName,name,email FROM Events WHERE eveId = $eveID";
+        alog(mysqli_error($conn));
         $result = mysqli_query($conn,$sql);
         $row = mysqli_fetch_assoc($result);
         $eveName = $row['eveName'];
