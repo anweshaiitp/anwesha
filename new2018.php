@@ -165,7 +165,7 @@
 
 <!--horizontal scrolling div-------->
 	<div class="horizontal">
-		<div id="leftnav" style="position:fixed;z-index:200;border-left:#000000;padding:  10px;border-radius: 0px 10px 0px 10px;border: solid #0f62bda6;;left:0px;top:50%;transform:translateY(-50%);">
+		<!-- <div id="leftnav" style="position:fixed;z-index:200;border-left:#000000;padding:  10px;border-radius: 0px 10px 0px 10px;border: solid #0f62bda6;;left:0px;top:50%;transform:translateY(-50%);">
 			<a class="ginputbox side " href="/events/">Events</a><br>
 			<a class="ginputbox side proside">Pro-Nites</a><br>
 			<a class="ginputbox side schside">Schedule</a><br>
@@ -173,7 +173,7 @@
 			<a class="ginputbox side" href="/team/">Team</a><br>
 			<a class="ginputbox side sponsside">Sponsors</a><br>
 			<a class="ginputbox side accodside">Accomodation</a><br>
-		</div>	
+		</div> -->	
 		<div class="anwesha_logo">
 			<img src="images/anwesha.png">
 			<center style="
