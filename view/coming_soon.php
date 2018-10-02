@@ -193,7 +193,7 @@
 		}
 		#anwLogo{
 				position: absolute;
-		    background-image: url("images/logo2.png");
+		    background-image: url("assets/images/logo_favi.png");
 			top:0;
 			height: 500px;
 			width: 500px;

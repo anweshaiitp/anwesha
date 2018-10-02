@@ -34,7 +34,7 @@ preg_match('@(.*)index.php(.*)$@', $_SERVER['PHP_SELF'], $mat );
 $base = '@^'. $mat[1] ;
 
 if (preg_match($base . '(ca|)_?([0-9]{4}|)$@', $url, $match)) {
-		require ('new2018.php');
+		require ('view/coming_soon.php');
 } elseif (preg_match($base . 'register/?$@', $url, $match)) {
 	require ('view/reg.php');
 } elseif (preg_match($base . 'register_bare/?$@', $url, $match)) {
@@ -61,46 +61,15 @@ if (preg_match($base . '(ca|)_?([0-9]{4}|)$@', $url, $match)) {
 	require ('view/team.html');
 } elseif (preg_match($base . 'accodomation/$@', $url, $match)) {
 	require ('view/accodomation.html');
-} elseif (preg_match($base . 'pro-nites/([0-9]{0,5})$@', $url, $match)) {
-	require ('view/pronites.php');
-} elseif (preg_match($base . 'pro-nites/static/([a-zA-Z0-9]{1,20})$@', $url, $match)) {
-	require ('view/'.$match[1].'.html');
 } elseif (preg_match($base . 'schedule/?$@', $url, $match)) {
 	require ('view/schedule.php');
-} elseif (preg_match($base . 'fest_cord/$@', $url, $match)) {
-	require ('view/team_cords/fest_cord.html');
-}  elseif (preg_match($base . 'mpr/$@', $url, $match)) {
-	require ('view/team_cords/mpr.html');
-} elseif (preg_match($base . 'hospi/$@', $url, $match)) {
-	require ('view/team_cords/hospi.html');
-} elseif (preg_match($base . 'rsp/$@', $url, $match)) {
-	require ('view/team_cords/rsp.html');
-} elseif (preg_match($base . 'spons/$@', $url, $match)) {
-	require ('view/team_cords/spons.html');
-} elseif (preg_match($base . 'cult/$@', $url, $match)) {
-	require ('view/team_cords/cult.html');
-} elseif (preg_match($base . 'tech/$@', $url, $match)) {
-	require ('view/team_cords/tech.html');
-} elseif (preg_match($base . 'arts/$@', $url, $match)) {
-	require ('view/team_cords/arts.html');
-} elseif (preg_match($base . 'cnd/$@', $url, $match)) {
-	require ('view/team_cords/cnd.html');
-} elseif (preg_match($base . 'webapp/$@', $url, $match)) {
-	require ('view/team_cords/webapp.html');
-} elseif (preg_match($base . 'webdev/$@', $url, $match)) {
-	require ('view/team_cords/webdev.html');
 } elseif (preg_match($base . 'qrReg/([0-9A-Za-z]{4,50})/?$@', $url, $match)) {
 	// alog(json_encode($_POST)."___".json_encode($match));
 	require ('controller/qrReg.php');
 } elseif (preg_match($base . 'pay/([0-9]{4})/?$@', $url, $match)) {
-	alog(json_encode($_POST));
-	
+	// alog(json_encode($_POST));
 	require ('controller/pay.php');
-} elseif (preg_match($base . 'schedule_raw/?$@', $url, $match)) {
-	require ('view/schedule.html');
-} elseif (preg_match($base . 'preloader/?$@', $url, $match)) {
-	require ('view/preloader.html');
-}  elseif ( preg_match($base .'faq/?$@', $url, $match ) ) {
+} elseif ( preg_match($base .'faq/?$@', $url, $match ) ) {
 	require ('view/faq.php');
 } elseif (preg_match($base . 'gallery/?$@', $url, $match)) {
 	require ('view/gallery.php');
