@@ -2517,16 +2517,17 @@
 		position: relative;
 		text-align: center;*/
 		background-attachment: scroll,	scroll,	fixed;
-		background-image: url(images/top-3200.svg), url(../../images/pic02_.jpg);
+		background-image: url(images/top-3200.svg), url(../../images/pic02_.jpg),url(../img/ca_bg.jpeg);
 		background-repeat: no-repeat;
-		background-position: bottom center,	top left,	center center;
+		background-position: bottom center,	top left,	top left;
 		/* background-repeat: repeat-x,	repeat,	no-repeat; */
-		/* background-size: 3200px 460px,	auto,	cover; */
+		background-size: 3200px 460px,	auto,	cover; 
 		background-size: center;
 		color: rgba(255, 255, 255, 0.8);
 		padding: 10em 0 20em 0;
 		position: relative;
 		text-align: center;
+		
 	}
 
 		#header:before, #header:after {
@@ -2607,11 +2608,12 @@
 			margin: 0.25em 0 0 0;
 		}
 
+
 /* Footer */
 
 	#footer {
 		background-attachment: scroll;
-		background-color: #d17308;
+		background-color: #192642;
 		background-image: url("images/bottom-3200.svg");
 		background-position: top center;
 		background-repeat: repeat-x;
@@ -2836,11 +2838,10 @@
 		/* Header */
 
 			#header {
-				background-attachment: scroll,							scroll,							scroll;
-				background-image: url("images/top-1600.svg"), url("images/overlay.png"), url("../../images/header.jpg");
+				background-attachment: scroll,							scroll,							fixed;
 				background-size: 1600px 230px,					auto,							cover;
 				padding: 6em 0 12em 0;
-			}
+			} 
 
 				#header:before {
 					//height: calc(100% - 25px);
@@ -2886,7 +2887,7 @@
 		/* Basic */
 
 			body, input, select, textarea {
-				font-size: 12pt;
+				font-size: 10pt;
 			}
 
 	}
@@ -2905,6 +2906,10 @@
 			footer.major {
 				padding-left: 2em;
 				padding-right: 2em;
+			}
+
+			.content{
+				line-height: 1.4em;
 			}
 
 	}
@@ -2931,6 +2936,20 @@
 
 			header.major {
 				margin-bottom: 2em;
+			}
+
+			#FB-Oauth {
+				display: flex;
+				flex-direction: column;
+			}
+
+			.fb-text {
+				align-self: center;
+			}
+
+			.fb-login-button{
+				/* max-width: 10px; */
+				align-self: center;
 			}
 
 				header.major br {
@@ -2996,13 +3015,19 @@
 					width: 100%;
 				}
 
+				.content{
+					line-height: 1.4em;
+				}
+
 		/* Header */
 
 			#header {
-				background-image: url(images/top-3200.svg), url(../../images/pic02_.jpg);
-				background-size: cover;
-				padding: 3em 0 7em 0;
-			}
+				background-image: url(../img/pic02.jpg);
+				background-position: bottom center,	top left, top left;
+				/* background-repeat: repeat-x,	repeat,	no-repeat; */
+				
+				background-size: 100% 100%,	auto, auto; 
+			} 
 
 				#header:before {
 					//height: calc(100% - 20px);
@@ -3138,5 +3163,24 @@
 				#header br {
 					display: none;
 				}
+
+			
+				#FB-Oauth {
+					display: flex;
+					flex-direction: column;
+					max-width: 70vw;
+					margin-left: 15vw;
+					margin-right: 15vw;
+				}
+	
+				.fb-text {
+					align-self: center;
+				}
+	
+				.fb-login-button{
+					/* max-width: 10px; */
+					align-self: center;
+				}
+	
 
 	}

@@ -18,11 +18,13 @@
 				    left: 50%;
 				    /*position: absolute;*/
 				    /*transform: translateX(-50%);*/
+					/* width: 90% !important; */
+					width: 300px;
 			}
-			@media screen and (min-width: 600px) {
+			/*@media screen and (max-width: 600px) {
 			#FB-Oauth,#FB-Oauth2{
-				width: 400px;
-			}
+				width: 300px;
+			} */
 		</style>
 		<script>
 	$(document).ready(function(){
@@ -95,6 +97,7 @@
 		});
 		</script>
 	</head>
+
 	<body>
 	<div id="fb-root"></div>
 	<!-- FB Oauth -->
@@ -207,17 +210,22 @@
 
 	});
 	</script>
+
 		<!-- Header -->
-			<div id="header" >
-				<!-- <span class="logo icon "></span>--><br><br><br><br><h6>IIT Patna's</h6>
-				<h1>Anwesha</h1><br>
-				<h1>Campus Ambassador Programme</h1><br>
+			<div id="header"> <!-- style=" background:url(../assets/img/ca_bg.jpeg);background-repeat: no-repeat;background-size: 100% 100%;" -->
+				<!-- <span class="logo icon "></span>--><br><br><br><br><h6 style="color:red"><!-- IIT Patna's --></h6>
+				<!--
+				<h1 style="color:red">Anwesha</h1><br>
+				<h1 style="color:red">Campus Ambassador Programme</h1><br>
+				-->
+				<br><br><br><br><br>
 				<center>
 					
 				<div id="FB-Oauth">
-					Sign-Up with Facebook
-					<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with"  data-auto-logout-link="true" data-use-continue-as="true" data-scope="email,public_profile,user_location,user_birthday,user_about_me" onlogin="auth_response_change_callback();"></div><!-- <br>
-					<a id="test">This this</a> -->
+					<div class="fb-text">Sign-Up with Facebook</div>
+					<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with"  data-auto-logout-link="true" data-use-continue-as="true" data-scope="email,public_profile,user_location,user_birthday,user_about_me" onlogin="auth_response_change_callback();"></div>
+					
+					<!-- <br> <a id="test">This this</a> -->
 				</div>
 				</center>
 			
@@ -269,7 +277,7 @@
 				</div>
 
 				
-				<div class="box container">
+				<div class="box container blahh">
 				    <section>
 						<header>
 							<h3>CA's Experience</h3>
@@ -375,7 +383,7 @@
 						<center>
 							<h2>Step 1</h2>
 						<div id="FB-Oauth2">
-							 Facebook
+							 <div class="fb-text">Sign-Up with Facebook</div>
 							<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with"  data-auto-logout-link="true" data-use-continue-as="true" data-scope="email,public_profile,user_location,user_likes,user_posts,user_birthday,user_about_me" onlogin="auth_response_change_callback();"></div><!-- <br>
 							<a id="test">This this</a> -->
 						</div>
