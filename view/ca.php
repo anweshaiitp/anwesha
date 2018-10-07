@@ -424,7 +424,7 @@
 						</div>
 						<div class="row">
 							<div class="12u">
-								<textarea name="threethings" placeholder="Tell us 3 things you would do as a Campus Ambassador of Anwesha '18." rows="4" required></textarea>
+								<textarea name="threethings" placeholder="Tell us 3 things you would do as a Campus Ambassador of Anwesha '19." rows="4" required></textarea>
 							</div>
 						</div>
 						<div class="row">
