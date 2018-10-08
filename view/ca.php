@@ -247,14 +247,14 @@
 
 				<div class="box alt container">
 					<section class="feature left">
-						<a class="image icon  fa-retweet"><img src="../assets/images/pic07.png" alt="" height="700"/></a>
+						<a class="image icon  fa-retweet"><img src="../assets/images/pic07.jpg" alt="" height="700"/></a>
 						<div class="content">
 							<h3>What is Campus Ambassador?</h3>
 							<p>The Campus Ambassador Program (CA) is one of the leading publicity programs of Anwesha. Campus Ambassadors serve as the face of the one of the biggest cultural festival in North-East India in their college and are expected to increase outreach of the fest through on ground and social media publicity. Exciting prizes up for grab apart from the coveted Certificate and goodies.</p>
 						</div>
 					</section>
 					<section class="feature right">
-						<a class="image icon fa-sitemap"><img src="../assets/images/pic07.png" alt="" height="700"/></a>
+						<a class="image icon fa-sitemap"><img src="../assets/images/pic07.jpg" alt="" height="700"/></a>
 						<div class="content">
 							<h3>Why CA?</h3>
 							<p> This is an extremely edifying opportunity where one gets to improve their oratory skills and managerial skills by interacting with people and encouraging them to take part in a fest of such huge grandeur. Apart from  being advantageous on both personal and managerial grounds, working as a CA also comes with the additional perks of being conferred with a certificate from Anwesha, IIT Patna validating your work as a campus ambassador. Not to forget are the exhilaratinging prizes and goodies that a CA receives.
