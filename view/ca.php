@@ -18,11 +18,13 @@
 				    left: 50%;
 				    /*position: absolute;*/
 				    /*transform: translateX(-50%);*/
+					/* width: 90% !important; */
+					width: 300px;
 			}
-			@media screen and (min-width: 600px) {
+			/*@media screen and (max-width: 600px) {
 			#FB-Oauth,#FB-Oauth2{
-				width: 400px;
-			}
+				width: 300px;
+			} */
 		</style>
 		<script>
 	$(document).ready(function(){
@@ -95,6 +97,7 @@
 		});
 		</script>
 	</head>
+
 	<body>
 	<div id="fb-root"></div>
 	<!-- FB Oauth -->
@@ -207,17 +210,22 @@
 
 	});
 	</script>
+
 		<!-- Header -->
-			<div id="header" >
-				<!-- <span class="logo icon "></span>--><br><br><br><br><h6>IIT Patna's</h6>
-				<h1>Anwesha</h1><br>
-				<h1>Campus Ambassador Programme</h1><br>
+			<div id="header"> <!-- style=" background:url(../assets/img/ca_bg.jpeg);background-repeat: no-repeat;background-size: 100% 100%;" -->
+				<!-- <span class="logo icon "></span>--><br><br><br><br><h6 style="color:red"><!-- IIT Patna's --></h6>
+				<!--
+				<h1 style="color:red">Anwesha</h1><br>
+				<h1 style="color:red">Campus Ambassador Programme</h1><br>
+				-->
+				<br><br><br><br><br>
 				<center>
 					
 				<div id="FB-Oauth">
-					Sign-Up with Facebook
-					<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with"  data-auto-logout-link="true" data-use-continue-as="true" data-scope="email,public_profile,user_location,user_birthday,user_about_me" onlogin="auth_response_change_callback();"></div><!-- <br>
-					<a id="test">This this</a> -->
+					<div class="fb-text">Sign-Up with Facebook</div>
+					<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with"  data-auto-logout-link="true" data-use-continue-as="true" data-scope="email,public_profile,user_location,user_birthday,user_about_me" onlogin="auth_response_change_callback();"></div>
+					
+					<!-- <br> <a id="test">This this</a> -->
 				</div>
 				</center>
 			
@@ -229,15 +237,7 @@
 				<header class="major container 95%">
 				<h1 style="font-size: 40px">About us</h1><br>
 					<p>
-						Anwesha is a Techno-Cultural extravaganza held every year in spring.
-						Since its inception in 2010, it has grown into one of the most anticipated student-organized youth festival.
-
-						From NASA Scientists to Dancing Idols, from Ethical Hackers to Heartthrob Singers, from Game Development to Gaming Wars, from Robotics to Dramatics, from Model United Nations to Foreign Exchange Conferences, from Sufi to Death Metal, Anwesha, with the tag “Think Dream Live”, promises every youth to full-fill his/her dreams to the maximum.
-
-						It involves student volunteers who work by interest and promote intellectualism and creativity through their organization and maintain the brand value of IIT. Anwesha meaning “Quest” in Sanskrit has been a quest for every participant to reach his full potential.
-
-						Its latest edition received participation around 5000 and footfall of around 20000 involving many computer geeks, gaming freaks, technoholics, music & dance maniacs and rock bands hailing from well-known institutes across the country.
-
+						Anwesha is the annual techno-cultural extravaganza celebrated with utmost pomp and vigour, in spring. Since it's inception in 2010, it has grown into one of the most anticipated student organized youth festival. From NASA scientists to stupendous dancers, from ethical hackers to spellbinding singers, from game development to  gaming war, from robotics to dramatics, from Model United Nations to foreign exchange conferences, from Sufi to Death Metal, Anwesha, lives up to it's motto "Think. Dream. Live.", urging every individual to unleash their  inner passion to reach their ultimate dream. Student fraternity who work day in day out, pouring out all of their heart into promoting intellectualism and creativity, while also maintaing the brand value of one of the most prestigious institute of the nation, IIT. Anwesha, derived from the Sanskrit word meaning "quest" aims at unbridling the soul of every individual into the quest of finding one's self and reaching to his/her full potential. The latest edition of Anwesha saw a footfall of around ""the number"", of people belonging to a  plethora of sectos such as computer geeks, gaming freaks, technoholics, music maniacs, dance enthusiasts and rock bands hailing from well-known institutes across the country.
 					</p>
 					<!--
 					<p>Tellus erat mauris ipsum fermentum<br />
@@ -257,19 +257,14 @@
 						<a class="image icon fa-sitemap"><img src="../assets/images/pic07.png" alt="" height="700"/></a>
 						<div class="content">
 							<h3>Why CA?</h3>
-							<p>Improving your Speaking and managerial skills:<br>
-   An opportunity to improve your oration skills and managerial skills by interacting with people of your campus and encouraging them to take part and be a part of our fest.</p>
-   							<p>
-   								Earn Certificate and goodies:<br>
-   								Recieve a certificate of campus ambassador from Anwesha, IIT Patna authenticating your work as Campus Ambassador. Also, receive various goodies and prizes as perks.
-
+							<p> This is an extremely edifying opportunity where one gets to improve their oratory skills and managerial skills by interacting with people and encouraging them to take part in a fest of such huge grandeur. Apart from  being advantageous on both personal and managerial grounds, working as a CA also comes with the additional perks of being conferred with a certificate from Anwesha, IIT Patna validating your work as a campus ambassador. Not to forget are the exhilaratinging prizes and goodies that a CA receives.
    							</p>
 						</div>
 					</section>
 				</div>
 
 				
-				<div class="box container">
+				<div class="box container blahh">
 				    <section>
 						<header>
 							<h3>CA's Experience</h3>
@@ -375,7 +370,7 @@
 						<center>
 							<h2>Step 1</h2>
 						<div id="FB-Oauth2">
-							 Facebook
+							 <div class="fb-text">Sign-Up with Facebook</div>
 							<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with"  data-auto-logout-link="true" data-use-continue-as="true" data-scope="email,public_profile,user_location,user_likes,user_posts,user_birthday,user_about_me" onlogin="auth_response_change_callback();"></div><!-- <br>
 							<a id="test">This this</a> -->
 						</div>
@@ -429,7 +424,7 @@
 						</div>
 						<div class="row">
 							<div class="12u">
-								<textarea name="threethings" placeholder="Tell us 3 things you would do as a Campus Ambassador of Anwesha '18." rows="4" required></textarea>
+								<textarea name="threethings" placeholder="Tell us 3 things you would do as a Campus Ambassador of Anwesha '19." rows="4" required></textarea>
 							</div>
 						</div>
 						<div class="row">
