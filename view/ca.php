@@ -29,6 +29,7 @@
 		<script>
 	$(document).ready(function(){
 			$("#submit").click(function(event){
+				$("#myloader").fadeIn();
 			//function submitF(){
 					// event.preventDefault();
 					var name=$("[name='name']").val();
@@ -68,7 +69,7 @@
 						function(data, status){
     					console.log("Response");
     					console.log("Data: " + data + "\nStatus: " + status);
-    					if(status=='success'){//$("#myloader").fadeOut();
+    					if(status=='success'){$("#myloader").fadeOut();
     						console.log(data);
 
     						if(data[0]==1){
@@ -84,7 +85,7 @@
 //							        scrollTop: $("#header").offset().top
 //							    }, 500);
  
-    					}else{//$("#myloader").fadeOut();
+    					}else{$("#myloader").fadeOut();
     							$("#message,#message2").fadeIn();
     							$("#message,#message2").html('An error occured.<br> Please try again.');
     							
@@ -447,6 +448,7 @@
 						<div class="row">
 							<div class="12u">
 								<ul class="actions">
+									<img src="/assets/src/loader.gif" alt="" id= "myloader" style="display:none"><br>
 									<li><input type="submit" id="submit" value="Submit" /></li>
 								</ul>
 							</div>
