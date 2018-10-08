@@ -863,16 +863,16 @@ class People{
             $message = $message."<br>Hearty Congratulations!! You have been appointed as the Campus Ambassador for Anwesha 2k18 and now you are a part of our team which will take the responsibility of representing Anwesha in your college. Your registration ID  is $id.
                 <br>
 
-                 All you have to do is spread the news about Anwesha 2k18 - One of Eastern India’s  Largest  Festival,  and help your friends  live some of the best moment of life - learning & exploring themselves.
+                 All you have to do is spread the news about Anwesha 2k19 - One of Eastern India’s  Largest  Festival,  and help your friends  live some of the best moment of life - learning & exploring themselves.
                  <br>
-                On top of that you also get a chance to win exciting goodies with the top Campus Ambassador getting an opportunity to click a selfie with our celebrity guests at Anwesha 2k18.  
+                On top of that you also get a chance to win exciting goodies with the top Campus Ambassador getting an opportunity to click a selfie with our celebrity guests at Anwesha 2k19.  
                 <br>
                 Here is rulebook for the Campus Ambassador Program.
                 <br>
                 ".$ANWESHA_URL."ca_rulebook.pdf
                 <br>
                 <br>
-                Thank you for registering for Anwesha2k18.";
+                Thank you for registering for Anwesha2k19.";
 
         $message .= "In case you have any registration related queries feel free to contact, $ANWESHA_REG_CONTACT or drop an email to <i>$ANWESHA_REG_EMAIL</i>.
             <br> 
@@ -884,7 +884,7 @@ class People{
         // $message .="<br>Thank You.
         //     <br>Registration Desk
         //     <br>
-        //     Anwesha 2018
+        //     Anwesha 2019
         //     <br>
         //     IIT Patna
         //     <br>

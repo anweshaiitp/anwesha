@@ -282,7 +282,7 @@
    <ul class="default">
    	<li>Online registrations from your referral id - 80 snickles per registration</li>
    	<li>Upgrade profle photo / cover photo on facebook with Anwesha frame #Anwesha_2k18 in caption - 100 galleons per update</li>
-   	<li>Sharing posts on facebook with #Anwesha_2k18 in caption - 60 snuckles per share</li>
+   	<li>Sharing posts on facebook with #Anwesha_2k19 in caption - 60 snuckles per share</li>
    	<li>Offline registration from your referral id - 120 galleons per registration</li>
    	<li>Mailer's Forward Screenshot - 60pts per mail</li>
    	<li>Sharing Anwesha posts in Instagram Screenshot - 60pts per share</li>
