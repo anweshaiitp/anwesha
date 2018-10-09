@@ -135,7 +135,7 @@ class People{
             $error = "Invalid Email-ID. Error reference ID:".alog('em inv'.$em);;
         }  else if (!self::validateDate($db)) {
             $error = "Invalid D.O.B [".$db."]. Error reference ID:".alog('dob inv'.$db);
-        }  else if (!preg_match('/^[a-zA-Z0-9.@]*$/', $cit)) {
+        }  else if (!preg_match('/^[a-zA-Z0-9.@ ]*$/', $cit)) {
             $error = "Invalid City. Error reference ID:".alog('city inv'.$cit);
         }  else if (!preg_match('/^([0-9]{4}|[9][0-9]{4}|)$/', trim($rc))) {
             $error = "Invalid Referral $rc Code. Error reference ID:".alog('ref inv'.$rc);
