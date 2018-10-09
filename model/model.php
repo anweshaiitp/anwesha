@@ -247,7 +247,7 @@ class People{
         }
         return $arr;
     }
-
+f
     /**
      * to get People object with given email
      * @param  int $id   email id of user
@@ -869,7 +869,7 @@ class People{
                 <br>
                 Here is rulebook for the Campus Ambassador Program.
                 <br>
-                ".$ANWESHA_URL."/ca_rulebook/
+                ".$ANWESHA_URL."ca_rulebook/
                 <br>
                 <br>
                 Thank you for registering for Anwesha2k19.";
