@@ -229,7 +229,7 @@ header("Location: https://www.facebook.com/pg/anwesha.iitpatna/photos/?ref=page_
     <a target="_blank" href="https://www.youtube.com/user/AnweshaIITP"><img src="../images/social/youtube.png"></a>
     
     <div class="copyright">
-      &copy; 2018 Anwesha, IIT Patna
+      &copy; 2019 Anwesha, IIT Patna
     </div>
   </div>
 

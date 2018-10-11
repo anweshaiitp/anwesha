@@ -33,7 +33,7 @@ $url = $_SERVER['REQUEST_URI'];
 preg_match('@(.*)index.php(.*)$@', $_SERVER['PHP_SELF'], $mat );
 $base = '@^'. $mat[1] ;
 
-if (preg_match($base . '(ca|)_?([0-9]{4}|)$@', $url, $match)) {
+if (preg_match($base . '$@', $url, $match)) {
 		require ('view/coming_soon.php');
 } elseif (preg_match($base . 'register/?$@', $url, $match)) {
 	require ('view/reg.php');
@@ -53,6 +53,15 @@ if (preg_match($base . '(ca|)_?([0-9]{4}|)$@', $url, $match)) {
 } elseif ('/anw/ca/?i=1' == $url) {
         require ('view/ca.php');
         // header('Location: ../');
+} elseif (preg_match($base . 'ca_rulebook/?$@', $url, $match)) {
+	$name = 'assets/CA_Rulebook_2K19.pdf';
+	$content = file_get_contents($name);
+	header('Content-Type: application/pdf');
+	header('Content-Length: '.strlen( $content ));
+	header('Content-disposition: inline; filename=" CA Rulebook, Anwesha \'19"');
+	echo $content;
+	require ('');
+	// header('Location: ../');
 } elseif (preg_match($base . 'index.php?$@', $url, $match)) {
 	header('Location: ./');
 } elseif (preg_match($base . 'leaderboard/?$@', $url, $match)) {

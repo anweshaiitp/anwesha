@@ -65,11 +65,11 @@
 $actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
 $str = ($verification[1])? "Your automatically generated password : " . $verification[1] . "<br> Please store it somewhere safe.": "You can now log in using the password you set during registration";
 if ($verification[0] == 1){
-	echo "Your verification for Anwesha2k18 has been successfully completed! <br> ". $str ;
+	echo "Your verification for Anwesha2k19 has been successfully completed! <br> ". $str ;
 }else if($verification[0] == 2){
 	 echo "". $verification[1]."<br>If you don't remember your password:";
 } else {
-	echo "Your verification for Anwesha2k18 was not successfull. If you think this is an error, contact the administrator. " . $verification[1];
+	echo "Your verification for Anwesha2k19 was not successfull. If you think this is an error, contact the administrator. " . $verification[1];
 	} ?>
 
 <br>

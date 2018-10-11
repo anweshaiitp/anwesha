@@ -1793,6 +1793,7 @@
 
 	html, body {
 		height: 100%;
+		background: #192642;
 	}
 
 	body {
@@ -2725,6 +2726,7 @@
 		padding: 6em 0 5em 0;
 		position: relative;
 		z-index: 1;
+		background: #ffffff;
 	}
 
 		#main:before {

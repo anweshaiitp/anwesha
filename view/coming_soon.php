@@ -2,7 +2,7 @@
 <html >
 	<head>
 	<!--SEO-->
-	<META NAME="Title" CONTENT="Anwesha 2018 IIT Patna">
+	<META NAME="Title" CONTENT="Anwesha 2019 IIT Patna">
 	<META NAME="Keywords" CONTENT="Anwesha, Anwesha, Anwesha, IIT, IIT Patna, IIT P , IITP, Anwesha Fest, fest, cult, cultural">
 	<META NAME="Description" CONTENT="ANWESHA is a quest. The annual Techno-Cultural Festival of Indian Institute of Technology Patna hosts Technical, Cultural, Management, Arts and Welfare ...">
 	<META NAME="Subject" CONTENT="Anwesha IITP">
@@ -12,7 +12,7 @@
 	<meta name="theme-color" content="#496495">
 	<meta charset="UTF-8">
 	<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-	<title>Anwesha '18</title>
+	<title>Anwesha '19</title>
 	<script>
 		function preloadImage(imageurl)
 		{
