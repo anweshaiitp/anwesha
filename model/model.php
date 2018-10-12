@@ -860,7 +860,7 @@ f
             $message .= " Your registration is complete but you can also login using your email ID by verifying it first: $link .<br>";
         $ca_shareurl = $ANWESHA_URL . 'register_' . $id;
         if($ca)
-            $message = $message."<br>Hearty Congratulations!! You have been appointed as the Campus Ambassador for Anwesha 2k18 and now you are a part of our team which will take the responsibility of representing Anwesha in your college. Your registration ID  is $id.
+            $message = $message."<br>Hearty Congratulations!! You have been appointed as the Campus Ambassador for Anwesha 2k19 and now you are a part of our team which will take the responsibility of representing Anwesha in your college. Your registration ID  is $id.
                 <br>
 
                  All you have to do is spread the news about Anwesha 2k19 - One of Eastern India’s  Largest  Festival,  and help your friends  live some of the best moment of life - learning & exploring themselves.
