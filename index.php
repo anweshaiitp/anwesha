@@ -34,7 +34,7 @@ preg_match('@(.*)index.php(.*)$@', $_SERVER['PHP_SELF'], $mat );
 $base = '@^'. $mat[1] ;
 
 if (preg_match($base . '$@', $url, $match)) {
-		require ('view/coming_soon.php');
+		require ('view/index.html');
 } elseif (preg_match($base . 'register/?$@', $url, $match)) {
 	require ('view/reg.php');
 } elseif (preg_match($base . 'register_bare/?$@', $url, $match)) {
