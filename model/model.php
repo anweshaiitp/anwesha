@@ -247,7 +247,7 @@ class People{
         }
         return $arr;
     }
-f
+
     /**
      * to get People object with given email
      * @param  int $id   email id of user
