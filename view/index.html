@@ -2,7 +2,9 @@
 <html class="skrollr skrollr-desktop">
 <!-- @todo   -->
 <!-- https://codepen.io/Pc/pen/QywZga -->
+<!-- https://stackoverflow.com/questions/18726480/embed-html5-youtube-video-without-iframes -->
 <!-- https://stackoverflow.com/questions/27084876/stop-iframe-from-preventing-scrolling-of-parent-document -->
+<!-- https://github.com/alvarotrigo/fullPage.js/#fullpagejs -->
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
@@ -17,6 +19,7 @@
     <link href="/assets/css/css" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/home2019.css">
     <link href="https://fonts.googleapis.com/css?family=Charmonman|Mali|Pacifico" rel="stylesheet">
+    
 </head>
 
 <body class="body" data-gr-c-s-loaded="true" style="height: 3973px;">
@@ -26,6 +29,7 @@
     <div id="logo-white" data-300="opacity:0;" data-500="opacity:1;" class="skrollable skrollable-before" style="opacity: 0;">
         <a href="http://anwesha.info/" class="logolink" target="_blank"></a>
     </div>
+    <!-- Navigation Menu -->
     <div id="menu">
         <ul data-start="color:rgb(100,100,100); border-color:rgb(100,100,100); background: rgba(0,0,0,0.0);     box-shadow: 0 0 0px rgba(0,0,0,0);"
             data-500="color:rgb(255,255,255); border-color:rgb(255,255,255); background: rgba(0,0,0,0.7);     box-shadow: 0 0 10px rgba(0,0,0,1);"
@@ -51,7 +55,9 @@
             <li><a href="/ca" id="">Campus Ambassador</a></li>
         </ul>
     </div>
+    <!-- /Navigation Menu -->
 
+    <!-- Social Floating Links -->
     <div id="social">
         <span class="hashtag">#anwesha19</span>
         <a href="https://www.facebook.com/anwesha.iitpatna/" target="_blank"><img src="/assets/img/fb-black.png"><img
@@ -60,8 +66,9 @@
         <a href="https://www.instagram.com/anwesha.iitp/" target="_blank"><img src="/assets/img/ig.png"><img src="/assets/img/ig-w.png"
                 class="social-white" data-100="" data-500=" " style=""></a>
     </div>
+    <!-- /Social Floating Links -->
 
-    <section id="start-section" class="fp">
+    <section id="start-section" class="fp example-classname">
         <div class="bcg skrollable skrollable-between" data-start="opacity: 1; width: 100%; height: 100%; top: 0%; left: 0%;"
             data-100p="opacity: 0; width: 256%; height: 356%; top: -256%; left: -78%;" data-anchor-target="#start-section"
             style="opacity: 1; width: 100%; height: 100%; top: 0%; left: 0%;">
@@ -72,7 +79,7 @@
         </div>
     </section>
     <div id="skrollr-body">
-        <section id="After-Movie" class="fp">
+        <section id="After-Movie" class="fp example-classname" >
             <div class="plaxEl skrollable skrollable-between" data-start="opacity: 0;" data-80p="opacity: 0;" data-100p="opacity: 1;top:0;"
                 data-anchor-target="#start-section" style="opacity: 0; top: 0px;">
                 <div class="playbtn skrollable skrollable-before" id="playbtn" data-40p="transform:scale(0);" data-100p="transform:scale(1);"
@@ -84,8 +91,8 @@
                 </div>
             </div>
         </section>
-        <div id="About"></div>
-        <section id="synopsis-section" class="sec2">
+        <!-- <div id="About"></div> -->
+        <section id="synopsis-section" class="sec2 example-classname">
             <div class="synopsis">
                 <div class="syn-title">
                     <h1 class="anwName">Anwesha '19</h1>
@@ -106,7 +113,7 @@
 
             </div>
         </section>
-        <section id="synopsis-section" class="sec2">
+        <section id="synopsis-section" class="sec2 example-classname">
             <div class="synopsis" id="Sponsors">
                 <div class="syn-title">
                     <h1>Sponsors</h1>
@@ -118,7 +125,7 @@
                 </center>
             </div>
         </section>
-        <section id="tickets-section" class="sec2">
+        <section id="tickets-section" class="sec2 example-classname">
             <div id="Contact-Us"></div>
             <div class="syn-title">
                     <h1>Contact Us</h1>
@@ -132,7 +139,15 @@
     <script src="/assets/js/jquery.min.js"></script>
     <script src="/assets/js/skrollr.min.js"></script>
     <script src="/assets/js/skrollr.menu.min.js"></script>
+    <script src="https://projects.lukehaas.me/scrollify/script/jquery.scrollify.js"></script>
     <script src="/assets/js/app.js"></script>
+    <script>
+            $(function() {
+                $.scrollify({
+                section : ".example-classname",
+                });
+            });
+            </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-90791019-1"></script>
 	<script>
