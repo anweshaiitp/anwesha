@@ -1,6 +1,6 @@
 $(function () {
-    $("#afterMovieVideo").height($(window).height());    
-    $("#afterMovieVideo").width($(window).width());    
+    $("#afterMovieVideo").width($(window).width());   
+    $("#afterMovieVideo").height($(window).width()*(9/16));    
 });
 var isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
 if (isMobile) {
@@ -12,6 +12,8 @@ if (isMobile) {
     $("#mobile-nav").on("click", function () {
         $("#mobile-nav").hide();
     });
+}else{
+    
 }
 var s = skrollr.init();
 $(".plaxEl").on("click", function () {
