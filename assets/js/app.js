@@ -1,4 +1,7 @@
-
+$(function () {
+    $("#afterMovieVideo").height($(window).height());    
+    $("#afterMovieVideo").width($(window).width());    
+});
 var isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
 if (isMobile) {
     $(".mobile-nav-btn").show();
@@ -8,15 +11,6 @@ if (isMobile) {
     });
     $("#mobile-nav").on("click", function () {
         $("#mobile-nav").hide();
-    });
-    $(function () {
-        $("#afterMovieVideo").width($(window).width());    
-        $("#afterMovieVideo").height($(window).width()*(9/16));    
-    });
-}else{
-    $(function () {
-        $("#afterMovieVideo").height($(window).height());    
-        $("#afterMovieVideo").width($(window).width());    
     });
 }
 var s = skrollr.init();
