@@ -84,10 +84,17 @@
                 <div class="playbtn skrollable skrollable-before" id="playbtn" data-40p="transform:scale(0);" data-100p="transform:scale(1);"
                     style="transform: scale(0); display: none;"><img src="/assets/img/white-play.png" alt="play trailer"
                         class="trailer-icon"><span class="trailer-text">AfterMovie</span></div>
-                <div id="ytWrapper">
-                        <iframe id="afterMovieVideo" width="1665" height="731" src="https://www.youtube.com/embed/tare6Drw0Ng"
-                    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                </div>
+                
+                        <!-- <iframe id="afterMovieVideo" width="1665" height="731" src="https://www.youtube.com/embed/tare6Drw0Ng"
+                    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
+                            <br><br>
+                    <object width="100%" height = "100% id="afterMovieVideo">
+                        <param name="movie" value="https://www.youtube.com/embed/tare6Drw0Ng"/>
+                        <param name="allowFullScreen" value="true"/>
+                        <param name="allowscriptaccess" value="always"/>
+                        <embed src="http://www.youtube.com/embed/OcV0cbQJ5r8?html5=1&amp;rel=0&amp;hl=en_US&amp;version=3" class="youtube-player" type="text/html" allowscriptaccess="always" allowfullscreen="true"/>
+                    </object>
+                
             </div>
         </section>
         <!-- <div id="About"></div> -->
