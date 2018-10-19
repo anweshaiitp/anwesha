@@ -1,6 +1,34 @@
+var playerPlayingState = false;
+function callPlayer(frame_id, args) {
+    console.log("afterMovieVideo",playerPlayingState);
+    var func = (playerPlayingState)? "pauseVideo":"playVideo";
+    playerPlayingState = !playerPlayingState;
+    if (window.jQuery && frame_id instanceof jQuery) frame_id = frame_id.get(0).id;
+    var iframe = document.getElementById(frame_id);
+    if (iframe && iframe.tagName.toUpperCase() != 'IFRAME') {
+      iframe = iframe.getElementsByTagName('iframe')[0];
+    }
+    if (iframe) {
+      // Frame exists,
+      iframe.contentWindow.postMessage(JSON.stringify({
+        "event": "command",
+        "func": func,
+        "args": args || [],
+        "id": frame_id
+      }), "*");
+    }
+  }
 $(function () {
-    $("#afterMovieVideo").width($(window).width());   
-    $("#afterMovieVideo").height($(window).width()*(9/16));    
+    $("#afterMovieVideo iframe").width($(window).width());   
+    $("#afterMovieVideo iframe").height($(window).width()*(9/16));   
+    afterMovieOffset = $("#afterMovieVideo iframe").offset();
+    console.log(afterMovieOffset);
+    // $("#cover").css('top',afterMovieOffset.top);   
+    // $("#cover").click(function () { 
+    //     console.log('cl');
+    //     callPlayer("amParent","playVideo");
+        
+    // });
 });
 var isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
 if (isMobile) {
@@ -16,20 +44,7 @@ if (isMobile) {
     
 }
 var s = skrollr.init();
-$(".plaxEl").on("click", function () {
-    var elem = document.getElementById("trailer");
-    $("#playbtn").hide();
-    $(elem).show();
-    if (elem.requestFullscreen) {
-        elem.requestFullscreen();
-    } else if (elem.mozRequestFullScreen) {
-        elem.mozRequestFullScreen();
-    } else if (elem.webkitRequestFullscreen) {
-        elem.webkitRequestFullscreen();
-    }
-    elem.play();
-    ga('send', 'event', "video", "play");
-});
+
 skrollr.menu.init(s, {
     animate: true,
     easing: 'sqrt',

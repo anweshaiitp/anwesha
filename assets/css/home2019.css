@@ -6,6 +6,15 @@
     overflow-x: hidden;
     font-family: 'Mali', cursive;
 }
+#cover{
+    position: absolute;
+    top:0;
+    left:0px;
+    height:100%;
+    width:100%;
+    z-index: 2;
+    cursor: pointer;
+}
 .hashtag{
     text-shadow: #efe8e8 0px 0px 3px;
     color: #9e9e9e;
