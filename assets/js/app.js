@@ -19,11 +19,16 @@ function callPlayer(frame_id, args) {
     }
   }
 $(function () {
-    $("#afterMovieVideo iframe").width($(window).width());   
-    $("#afterMovieVideo iframe").height($(window).width()*(9/16));   
-    afterMovieOffset = $("#afterMovieVideo iframe").offset();
+    var afterMovieIframe =  $("#afterMovieVideo > iframe");
+    afterMovieIframe.width($(window).width());   
+    afterMovieIframe.height($(window).width()*(9/16));   
+    afterMovieOffset = afterMovieIframe.offset();
     console.log(afterMovieOffset);
-    // $("#cover").css('top',afterMovieOffset.top);   
+    if(!isMobile){
+        $("#cover").css('top',afterMovieOffset.top);   
+        $("#cover").height(afterMovieIframes.height());   
+
+    }
     // $("#cover").click(function () { 
     //     console.log('cl');
     //     callPlayer("amParent","playVideo");
