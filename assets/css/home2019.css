@@ -20,8 +20,10 @@
     color: #9e9e9e;
 }
 .anwName{
-    font-family: 'Pacifico', cursive !important;
-    text-align: center;
+    /* font-family: 'Pacifico', cursive !important;
+    text-align: center; */
+    max-width: 60%;
+    width: 350px;
 }
 #anwLogo{
     max-width: 80%;
@@ -334,7 +336,10 @@
     flex-direction: column;
     align-items: center
 }
-
+.aboutSection{
+    background-image: linear-gradient(to right, #050708e8, #010b1dc4, #250c05f5),url(/assets/images/aboutBG.jpg) !important;
+    
+}
 #synopsis-section .darkoverlay {
     display: none
 }

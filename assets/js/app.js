@@ -34,6 +34,7 @@ $(function () {
     //     callPlayer("amParent","playVideo");
         
     // });
+    // $("#map").width($(window).width());
 });
 var isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
 if (isMobile) {
