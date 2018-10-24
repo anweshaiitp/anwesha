@@ -2454,7 +2454,7 @@
 
 		.feature .content {
 			display: inline-block;
-			padding: 3.5em;
+			padding: 1.5em;
 			vertical-align: middle;
 			width: 48%;
 		}
@@ -2518,7 +2518,7 @@
 		position: relative;
 		text-align: center;*/
 		background-attachment: scroll,	scroll,	fixed;
-		background-image: url(images/top-3200.svg), url(../../images/pic02_.jpg),url(../img/ca_bg.jpeg);
+		background-image: url("images/top-3200.svg"),url(""),url(../img/ca_bg.jpeg);
 		background-repeat: no-repeat;
 		background-position: bottom center,	top left,	top left;
 		/* background-repeat: repeat-x,	repeat,	no-repeat; */
@@ -2834,7 +2834,9 @@
 			}
 
 				.feature .content {
-					padding: 2.5em;
+
+					padding: 1em;
+					font-size: 12px;
 				}
 
 		/* Header */
@@ -3024,7 +3026,7 @@
 		/* Header */
 
 			#header {
-				background-image: url(../img/pic02.jpg);
+				background-image: url(../img/ca_mobile.jpeg);
 				background-position: bottom center,	top left, top left;
 				/* background-repeat: repeat-x,	repeat,	no-repeat; */
 				

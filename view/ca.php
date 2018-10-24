@@ -238,8 +238,7 @@
 				<header class="major container 95%">
 				<h1 style="font-size: 40px">About us</h1><br>
 					<p>
-						Anwesha is the annual techno-cultural extravaganza celebrated with utmost pomp and vigour, in spring. Since it's inception in 2010, it has grown into one of the most anticipated student organized youth festival. From NASA scientists to stupendous dancers, from ethical hackers to spellbinding singers, from game development to  gaming war, from robotics to dramatics, from Model United Nations to foreign exchange conferences, from Sufi to Death Metal, Anwesha, lives up to it's motto "Think. Dream. Live.", urging every individual to unleash their  inner passion to reach their ultimate dream. Student fraternity who work day in day out, pouring out all of their heart into promoting intellectualism and creativity, while also maintaing the brand value of one of the most prestigious institute of the nation, IIT. Anwesha, derived from the Sanskrit word meaning "quest" aims at unbridling the soul of every individual into the quest of finding one's self and reaching to his/her full potential. The latest edition of Anwesha saw a footfall of around ""the number"", of people belonging to a  plethora of sectos such as computer geeks, gaming freaks, technoholics, music maniacs, dance enthusiasts and rock bands hailing from well-known institutes across the country.
-					</p>
+					Anwesha is the annual techno-cultural extravaganza celebrated with utmost pomp and vigour, in spring. Since it's inception in 2010, it has grown into one of the most anticipated student organized youth festival. From NASA scientists to stupendous dancers, from ethical hackers to spellbinding singers, from game development to  gaming war, from robotics to dramatics, from Model United Nations to foreign exchange conferences, from Sufi to Death Metal, Anwesha, lives up to it's motto "Think. Dream. Live.", urging every individual to unleash their  inner passion to reach their ultimate dream. Student fraternity who work day in day out, pouring out all of their heart into promoting intellectualism and creativity, while also maintaing the brand value of one of the most prestigious institute of the nation, IIT. Anwesha, derived from the Sanskrit word meaning "quest" aims at unbridling the soul of every individual into the quest of finding one's self and reaching to his/her full potential. The latest edition of Anwesha saw a footfall of around 15 K, of people belonging to a  plethora of sectos such as computer geeks, gaming freaks, technoholics, music maniacs, dance enthusiasts and rock bands hailing from well-known institutes across the country.					</p>
 					<!--
 					<p>Tellus erat mauris ipsum fermentum<br />
 					etiam vivamus nunc nibh morbi.</p>
@@ -251,15 +250,18 @@
 						<a class="image icon  fa-retweet"><img src="../assets/images/pic07.jpg" alt="" height="700"/></a>
 						<div class="content">
 							<h3>What is Campus Ambassador?</h3>
-							<p>The Campus Ambassador Program (CA) is one of the leading publicity programs of Anwesha. Campus Ambassadors serve as the face of the one of the biggest cultural festival in North-East India in their college and are expected to increase outreach of the fest through on ground and social media publicity. Exciting prizes up for grab apart from the coveted Certificate and goodies.</p>
+							<p>
+							The Campus Ambassador program is one of the leading publicity programs of  Anwesha The promotion of the fest in the respective colleges is assigned to the campus ambassadors. They serve as the intermediaries who bridge the gap between their college and our campus i.e, as a nodal point for any kind of communication or promotion. Campus ambassadors act as the face of one of the biggest cultural festival in the entire North-East India and are entrusted with the job of increasing the outreach of the fest through on field and social media publicity. The campus ambassadors are entitled to exciting prizes, apart from the coveted certificate and many other goodies.							
+							</p>
 						</div>
 					</section>
 					<section class="feature right">
 						<a class="image icon fa-sitemap"><img src="../assets/images/pic07.jpg" alt="" height="700"/></a>
 						<div class="content">
 							<h3>Why CA?</h3>
-							<p> This is an extremely edifying opportunity where one gets to improve their oratory skills and managerial skills by interacting with people and encouraging them to take part in a fest of such huge grandeur. Apart from  being advantageous on both personal and managerial grounds, working as a CA also comes with the additional perks of being conferred with a certificate from Anwesha, IIT Patna validating your work as a campus ambassador. Not to forget are the exhilaratinging prizes and goodies that a CA receives.
-   							</p>
+							<p> 
+							This is an extremely edifying opportunity where one gets to improve their oratory skills and managerial skills by interacting with people and encouraging them to take part in a fest of such huge grandeur. Apart from  being advantageous on both personal and managerial grounds, working as a CA also comes with the additional perks of being conferred with an assured certificate from Anwesha, IIT Patna validating your work as a campus ambassador. Not to forget are the exhilaratinging prizes and goodies that a CA receives.   							
+							</p>
 						</div>
 					</section>
 				</div>
@@ -270,7 +272,7 @@
 						<header>
 							<h3>CA's Experience</h3>
 						</header>
-						<blockquote> Anwesha .. whenever I think about it...the word comes in my mind is....#teamwork & path provider of talents..Before anwesha...I was just a boy in my college...but when I participated in 2k17 addition..i got a chance to work & perform with super talented guys..  now..it's just because of Anwesha..I am cultural Coordinator of my College..In short it brings ...a revolutionary changes in my life... Thanks team anwesha<br>-<b>Arya S Prince</b> </blockquote>
+						<blockquote> Anwesha .. whenever I think about it...the word comes in my mind is....#teamwork & path provider of talents..Before anwesha...I was just a boy in my college...but when I participated in 2k17 addition..i got a chance to work & perform with super talented guys..  now..it's just because of Anwesha..I am cultural Coordinator of my College..In short it brings ...a revolutionary changes in my life... Thanks team anwesha<br>-<b>Aryan S Prince</b> </blockquote>
 						<blockquote> Hello IITP, I remember I went Anwesha when I was in the first year of my college .I was scared but yeah that experience pulled me again and again and Anwesha 2K18 was my third year in a row.And this year was Damn amazing..The theme was magical ..The environment was spellbinding. And Yeah The thing you guys implemented this year this College ambassador thing was really great idea.. I really enjoyed working and sharing the notifications of Anwesha 2k18 In between of those times sometimes I started feeling like I am the part of the Team and yeah It was great being a part of such great environment and such enthusiastic People.. Anwesha is not just a college fest it feels like it's a Festival that comes every year and we all celebrate it together.. 🖤 <br>-<b>Mridul Choudhary</b> </blockquote>
 						<blockquote>As you mentioned Anwesha the biggest techno-cultural fest of north-east India being a campus ambassador for it was an amazing experience.You'll organised the whole function perfectly.I not only enjoyed being working as the campus ambassador but also enjoyed your fest.The participants from my college were also very happy by your organisation.Hope to continue to work with you all more as i gained a good experience. Thank you for selecting me as the campus ambassador of my college. <br>-<b>Kamal Kant</b> </blockquote>
 					</section>
