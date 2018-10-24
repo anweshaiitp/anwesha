@@ -31,8 +31,14 @@
 #landingContent .anwName{
     font-size: 3em;
 }
+@font-face {
+    font-family: 'PTC55F';
+    src: url('../fonts/FoglihtenNo07.otf') format('truetype');
+  }
+
 .themeName {
-    font-family: 'Charmonman', cursive !important;
+    font-family: PTC55F, cursive !important;
+    font-size: 32px !important;
 }
 #logo,
 #logo-white {
@@ -353,6 +359,7 @@
 }
 
 .syn-title {
+    padding-bottom: 40px;
     display: flex;
     flex-direction: column;
     align-items: center
@@ -387,6 +394,7 @@
 }
 
 #synopsis-section .synopsis h3 {
+    font-size: x-large;
     margin-top: 40px
 }
 
