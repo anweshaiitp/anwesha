@@ -1,0 +1,32 @@
+.bcg{
+    background-image: url(../img/aud-bg.jpg);
+}
+.aud-head{
+    color: white;
+    font-size: 3.5em;
+    text-align:center;
+}
+
+.aud-button{
+    width: 90vh;
+    height: 20vw;
+}
+
+.rotate {
+
+    /* Safari */
+    -webkit-transform: rotate(-90deg);
+    
+    /* Firefox */
+    -moz-transform: rotate(-90deg);
+    
+    /* IE */
+    -ms-transform: rotate(-90deg);
+    
+    /* Opera */
+    -o-transform: rotate(-90deg);
+    
+    /* Internet Explorer */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    
+    }
