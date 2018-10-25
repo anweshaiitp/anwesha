@@ -17,8 +17,13 @@
     <meta property="og:image" content="/favicon.ico">
     <link href="/assets/css/css" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/home2019.css">
+    <link rel="stylesheet" href="/assets/css/aud.css">
     <link href="https://fonts.googleapis.com/css?family=Charmonman|Mali|Pacifico" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </head>
 
 <body class="body" data-gr-c-s-loaded="true" style="height: 3973px;">
@@ -35,12 +40,9 @@
             data-500="color:rgb(255,255,255); border-color:rgb(255,255,255); background: rgba(0,0,0,0.2);     box-shadow: 0 0 10px rgba(0,0,0,1);"
             class="skrollable skrollable-between" style="border-radius:20px;color: rgb(255, 255, 255); border-color: rgb(255, 255, 255); background: rgba(0, 0, 0, 0.2); box-shadow: rgba(0, 0, 0, 1) 0px 0px 0px;">
             <!-- <li id="home-link"><a href="#start-section">HOME</a></li> -->
-            <li><a href="#After-Movie" id="">After-Movie</a></li>
-            <li><a href="#About" id="">About</a></li>
-            <li><a href="#" id="">Sponsors</a></li>
-            <li><a href="#Contact-Us" id="">Contact Us</a></li>
-            <li><a href="/ca" id="">Campus Ambassador</a></li>
-            <li><a href="/ca" id="">Auditions</a></li>
+            <li><a href="#After-Movie" id="">Home</a></li>
+            <li><a href="#About" id="">Dhanbad</a></li>
+            
         </ul>
     </div>
     <div id="mobile-nav-btn" class="mobile-nav-btn dark skrollable skrollable-before" data-100="opacity:1;" data-500="opacity:0; "
@@ -49,12 +51,8 @@
     <div id="mobile-nav">
         <img src="/assets/img/close.png" class="close" alt="close menu" width="32" height="32">
         <ul>
-            <li><a href="#After-Movie" id="">After-Movie</a></li>
-            <li><a href="#About" id="">About</a></li>
-            <li><a href="#" id="">Sponsors</a></li>
-            <li><a href="#Contact-Us" id="">Contact Us</a></li>
-            <li><a href="/ca" id="">Campus Ambassador</a></li>
-            <li><a href="/ca" id="">Auditions</a></li>
+            <li><a href="#After-Movie" id="">Home</a></li>
+            <li><a href="#About" id="">Dhanbad</a></li>
         </ul>
     </div>
     <!-- /Navigation Menu -->
@@ -76,7 +74,10 @@
             style="opacity: 1; width: 100%; height: 100%; top: 0%; left: 0%;">
             <div id="landingContent" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)">
                 <!-- <img id="anwLogo" src="/assets/img/logo_favi.png" alt=""> -->
-                <!-- <h1 class="anwName">Anwesha '19</h1> -->
+                <h1 class="aud-head">Anwesha '19<br>
+                Multi-city Auditions</h1>
+
+
             </div>
         </div>
     </section>
@@ -84,36 +85,57 @@
         <section id="After-Movie" class="fp example-classname" >
             <div class="plaxEl skrollable skrollable-between" data-start="opacity: 0;" data-80p="opacity: 0;" data-100p="opacity: 1;top:0;"
                 data-anchor-target="#start-section" style="opacity: 0; top: 0px;" id="amParent">
-                <div >
-                        <iframe width="1600" height="800" frameborder="0" title="YouTube video player" type="text/html" scrolling="no" src="https://www.youtube.com/embed/tare6Drw0Ng?feature=oembed&controls=1&hd=1&modestbranding=1&autohide=1&showinfo=0&enablejsapi=1"></iframe>
-                </div>
+
+
+                <button type="button" class="btn btn-primary aud-button rotate" data-toggle="modal" data-target="#myModal" data-backdrop="true">Dhanbad</button>
+                <button type="button" class="btn btn-primary aud-button rotate" data-toggle="modal" data-target="#myModal" data-backdrop="true">Kanpur</button>
+                <button type="button" class="btn btn-primary aud-button rotate" data-toggle="modal" data-target="#myModal" data-backdrop="true">Lucknow</button>
+                <button type="button" class="btn btn-primary aud-button rotate" data-toggle="modal" data-target="#myModal" data-backdrop="true">Ranchi</button>
+                <button type="button" class="btn btn-primary aud-button rotate" data-toggle="modal" data-target="#myModal" data-backdrop="true">Varanasi</button>
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog">
+                    
+                      <!-- Modal content-->
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h4 class="modal-title">Dhanbad, Jharkhand</h4>
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                          <b><p>Date- 28/10/2018</p></b>
+                          <b><p> Time - 9:00 AM</p></b>
+                            <b><p>Venue - KK College of Engineering and Management</p></b>
+                           <p>
+                            The events we will be conducting the auditions for, are:<br><br>
+                            <b>1. Syngphony:</b> for all the music enthusiasts out there, this is just what you need to come out of your coccoon and show the world the magic your voice and your instrument possess.
+                            <br>
+                            <b>2. Heel Turn: </b>Do your legs fail to control themselves whenever you hear some catchy tune? This is for all the dancers who wish to prove themselves in the field.
+                            <br>
+                            <b>3. Maidaan-e-jung:</b> Has acting always amused you? Have an absolute knack for acting? Here we are with our event that lets you unleash the actor hidden within.
+                            <br>
+                            <b>4. Mr. And Miss. Anwesha: </b> Think you have the wits and the looks to take away the much coveted title? In the quest for the best, here we present to you the perfect platform to bring out the model inside you. 
+                            <br>
+                            <b>5. Fashion Walk:</b> It is the path that leads you to Mr. and Miss Anwesha.
+                           </p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                      
+                    </div>
+                  </div>
+            
+            
+            
+            
+            
             </div>
         </section>
                                 
                         <!-- </a>  -->
 
-        <div id="About"></div>
-        <section id="synopsis-section" class="aboutSection sec2 example-classname">
-            <div class="synopsis">
-                <div class="syn-title">
-                    <img src="/assets/images/name.png" id="anwName" alt="Anwesha '19" style="max-width:90%;height:80px;">
-                    <h2 class="themeName">the impeccable showman's odyssey</h2>
-                </div>
-                <h3>About Anwesha</h3>
-                <p>Anwesha is a Techno-Cultural extravaganza held every year in spring. Since its inception in 2010, it
-                    has grown into one of the most anticipated student-organized youth festival. From NASA Scientists
-                    to Dancing Idols, from Ethical Hackers to Heartthrob Singers, from Game Development to Gaming Wars,
-                    from Robotics to Dramatics, from Model United Nations to Foreign Exchange Conferences, from Sufi to
-                    Death Metal, Anwesha, with the tag "Think Dream Live", promises every youth to full-fill his/her
-                    dreams to the maximum. It involves student volunteers who work by interest and promote
-                    intellectualism and creativity through their organization and maintain the brand value of IIT.
-                    Anwesha meaning "Quest" in Sanskrit has been a quest for every participant to reach his full
-                    potential. Its latest edition received participation around 5000 and footfall of around 20000
-                    involving many computer geeks, gaming freaks, technoholics, music & dance maniacs and rock bands
-                    hailing from well-known institutes across the country.</p>
-
-            </div>
-        </section>
+        
         <section id="tickets-section" class="sec2 example-classname">
             <div id="Contact-Us"></div>
             <div class="syn-title">
