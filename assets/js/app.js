@@ -1,4 +1,22 @@
+// Section Scroll 
+var currState = "start-section"
+
+var nextState = {
+    "start-section":"After-Movie",
+    "After-Movie":"About",
+    "About":"Contact-Us",
+    "Contact-Us":0
+};
+
+var prevState = {
+    "start-section":0,
+    "After-Movie":"start-section",
+    "About":"After-Movie",
+    "Contact-Us":"About"
+};
+
 var throttled = _.throttle(handleScroll, 1000,{trailing: false});
+
 function debounce(method, delay, e) {
     clearTimeout(method._tId);
     method._tId= setTimeout(function(){
@@ -6,19 +24,7 @@ function debounce(method, delay, e) {
     }, delay);
 }
 
-var currState = "start-section"
-var nextState = {
-    "start-section":"After-Movie",
-    "After-Movie":"About",
-    "About":"Contact-Us",
-    "Contact-Us":0
-};
-var prevState = {
-    "start-section":0,
-    "After-Movie":"start-section",
-    "About":"After-Movie",
-    "Contact-Us":"About"
-};
+
 function handleScroll(e) { 
     if(e.deltaY>0){
         if(nextState[currState]!=0){
@@ -26,6 +32,8 @@ function handleScroll(e) {
             behavior: 'smooth', 
             block: 'start'
             });
+            document.querySelector("#dot-"+currState).classList.remove('active')
+            document.querySelector("#dot-"+nextState[currState]).classList.add('active')
             currState = nextState[currState];
         }
     }else{
@@ -34,14 +42,17 @@ function handleScroll(e) {
             behavior: 'smooth', 
             block: 'start'
             });
+            document.querySelector("#dot-"+currState).classList.remove('active')
+            document.querySelector("#dot-"+prevState[currState]).classList.add('active')
             currState = prevState[currState];
         }
     }
- }
+}
+
 window.addEventListener("wheel", function(e){
     // debounce(handleScroll,100,e)
     throttled(e);
-    });
+});
     
 var playerPlayingState = false;
 function callPlayer(frame_id, args) {
@@ -63,6 +74,8 @@ function callPlayer(frame_id, args) {
       }), "*");
     }
   } 
+
+// Aftermovie Iframe sizes
 $(function () {
     var afterMovieIframe =  $("#afterMovieVideo > iframe");
     afterMovieIframe.width($(window).width());   
@@ -77,12 +90,20 @@ $(function () {
         $("#cover").hide();
         // document.body.addEventListener('touchmove', function(e){ e.preventDefault(); });
     }
-    // $("#cover").click(function () { 
-    //     console.log('cl');
-    //     callPlayer("amParent","playVideo");
-        
-    // });
-    // $("#map").width($(window).width());
+
+    // side section click navigation handler
+    $(".dot").click(function () {
+        if ($(this).hasClass('active')){}
+        else{
+            $("#dot-"+currState).removeClass('active');
+            $(this).addClass('active');
+            document.querySelector("#"+$(this).attr('id').substring(4)).scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start'
+            });
+            currState = $(this).attr('id').substring(4);
+        }
+    })
 });
 var isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
 if (isMobile) {
