@@ -20,12 +20,87 @@
 				    /*transform: translateX(-50%);*/
 					/* width: 90% !important; */
 					width: 300px;
+                                        
 			}
 			/*@media screen and (max-width: 600px) {
 			#FB-Oauth,#FB-Oauth2{
 				width: 300px;
 			} */
-		</style>
+                        @media screen and (max-width:980px){
+                            section blockquote{
+                            font-size: 1.2em;
+                        }}
+                        @media screen and (max-width:736px){
+                            .imgClass{
+                            position: absolute;
+                            
+                        }
+                        .imgClass img{
+                            max-width: 100%;
+                            height: auto;
+                        }
+                        .img1{
+                            height: 180px;
+                            bottom: 40px;
+                            left: 40px;
+                            width: 150px;
+                        }
+                        .img2{
+                            top: 0px;
+                            height: 200px;
+                            width: 100px;
+                            right: 0px;
+                        }
+                        .img3{
+                            top: 0px;
+                            left: 0px;
+                            height: 100px;
+                            width:100px;
+                            
+                            
+                        }
+                        .img4{
+                            top: 5%;
+                            left: 0px;
+                            width: 300px;
+                           margin: 0px auto;
+                            
+                        }
+                        .imgcontainer{
+                            top: 0px;
+                            left: 0;
+                            width: 100%;
+                            right: 0;
+                        }
+                        #header{
+                            height: 100% ;
+                            width: 100% ;
+                            
+                        }
+                        #header center{
+                            position:absolute;
+                            width: 100%;
+                            top: 61%;
+                            z-index:20;
+                            left: -11px;
+                            margin-top: -100px;
+                        }
+                        .feature .content :last-child{
+                            text-align: justify;
+                        }
+                        section blockquote{
+                            font-size: 1.1em;
+                        }
+                        }
+                        
+                        
+                        @media screen and (min-width:737px){
+                            .imgClass{
+                                display:none;
+                            }
+                            
+                        }
+                        		</style>
 		<script>
 	$(document).ready(function(){
 			$("#submit").click(function(event){
@@ -229,6 +304,15 @@
 					<!-- <br> <a id="test">This this</a> -->
 				</div>
 				</center>
+                                <div class="imgClass img1"><img src="../assets/img/1.png"></div>
+                                <div class="imgClass img2"><img src="../assets/img/2.png"></div>
+                                <div class="imgClass img3"><img src="../assets/img/3.png"></div>
+                                <div class="imgcontainer imgClass">
+                                    <div class=" img4"><img src="../assets/img/4.png">
+                                    </div>
+                                </div>
+                                
+                                
 			
 			</div>
 
@@ -488,4 +572,5 @@
 			<script src="../assets/js/main.js"></script>
 
 	</body>
+        
 </html>
