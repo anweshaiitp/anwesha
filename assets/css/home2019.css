@@ -4,6 +4,7 @@
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    overflow-y: hidden;
     font-family: 'Mali', cursive;
 }
 #cover{
@@ -408,7 +409,7 @@
 }
 
 #tickets-section {
-    background-image: url(../img/av1.jpg);
+    /* background-image: url(../img/av1.jpg); */
     display: flex;
     justify-content: center;
     flex-direction: column;

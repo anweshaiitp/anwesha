@@ -1,3 +1,48 @@
+var throttled = _.throttle(handleScroll, 1000,{trailing: false});
+function debounce(method, delay, e) {
+    clearTimeout(method._tId);
+    method._tId= setTimeout(function(){
+        method(e);
+    }, delay);
+}
+
+var currState = "start-section"
+var nextState = {
+    "start-section":"After-Movie",
+    "After-Movie":"About",
+    "About":"Contact-Us",
+    "Contact-Us":0
+};
+var prevState = {
+    "start-section":0,
+    "After-Movie":"start-section",
+    "About":"After-Movie",
+    "Contact-Us":"About"
+};
+function handleScroll(e) { 
+    if(e.deltaY>0){
+        if(nextState[currState]!=0){
+            document.querySelector("#"+nextState[currState]).scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start'
+            });
+            currState = nextState[currState];
+        }
+    }else{
+        if(prevState[currState]!=0){
+            document.querySelector("#"+prevState[currState]).scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start'
+            });
+            currState = prevState[currState];
+        }
+    }
+ }
+window.addEventListener("wheel", function(e){
+    // debounce(handleScroll,100,e)
+    throttled(e);
+    });
+    
 var playerPlayingState = false;
 function callPlayer(frame_id, args) {
     console.log("afterMovieVideo",playerPlayingState);
@@ -17,7 +62,7 @@ function callPlayer(frame_id, args) {
         "id": frame_id
       }), "*");
     }
-  }
+  } 
 $(function () {
     var afterMovieIframe =  $("#afterMovieVideo > iframe");
     afterMovieIframe.width($(window).width());   
@@ -26,8 +71,11 @@ $(function () {
     console.log(afterMovieOffset);
     if(!isMobile){
         $("#cover").css('top',afterMovieOffset.top);   
-        $("#cover").height(afterMovieIframes.height());   
+        $("#cover").height(afterMovieIframe.height());   
 
+    }else{
+        $("#cover").hide();
+        // document.body.addEventListener('touchmove', function(e){ e.preventDefault(); });
     }
     // $("#cover").click(function () { 
     //     console.log('cl');
