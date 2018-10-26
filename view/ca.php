@@ -358,7 +358,7 @@
                                     <div class=" img4"><img src="../assets/img/4.png">
                                     </div>
                                 </div>
-                                <div class="imgClass type2 img5"><img src="../assets/img/CA.png" class="coin-face"></div>
+                                <div class="imgClass type2 img5"><img src="../assets/img/CA.png" ></div>
                                 <div class="imgClass type2 img6 "><img src="../assets/img/CA Text.png"></div>
                                 
                                 
