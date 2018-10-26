@@ -1,0 +1,17 @@
+-# NEW VERSION: https://codepen.io/mican/pen/RyjZgm
+
+%article.gallery
+  - [1081, 1014, 267, 266, 634, 923, 682, 173, 943].each do |i|
+    - height = 200 * [5,6,7,8].shuffle.first.to_i
+    - width =  200 * [5,6,7,8].shuffle.first.to_i
+    %a.gallery-link{:href => "https://unsplash.it/#{width}/#{height}?image=#{i}"}
+      %figure.gallery-image
+        %img{src: "https://unsplash.it/#{width}/#{height}?image=#{i}", width: width, height: height}
+        %figcaption Photo caption
+        
+        
+%footer#footer{role: 'contentinfo'}
+
+  .container
+    %a.logo{href: 'https://codepen.io/collection/XRoxGR', rel: 'home'} Calibration theme
+    %a.copy{href: 'https://mobilemarkup.com', target: '_blank'} &copy; mobileMarkup.com
