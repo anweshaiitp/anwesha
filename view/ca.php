@@ -8,6 +8,17 @@
 		<link rel="stylesheet" href="../assets/css/main.css" />
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 		<!--[if lte IE 8]><link rel="stylesheet" href="../assets/css/ie8.css" /><![endif]-->
+		<link rel="stylesheet" href="/assets/css/home2019.css">
+    <link rel="stylesheet" href="/assets/css/aud.css">
+    <script src="https://cdn.rawgit.com/michalsnik/aos/2.0.4/dist/aos.js"></script>
+    <link rel='stylesheet' href='https://cdn.rawgit.com/michalsnik/aos/2.0.4/dist/aos.css'>
+
+    <link href="https://fonts.googleapis.com/css?family=Charmonman|Mali|Pacifico" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 		<style>
                     .imgClass{
                             position: absolute;
@@ -334,6 +345,37 @@
 	});
 	</script>
 
+		<div id="menu">
+        <ul data-start="color:rgb(255,255,255); border-color:rgb(255,255,255); background: rgba(0,0,0,0.2);     box-shadow: 0 0 0px rgba(0,0,0,1);"
+            data-500="color:rgb(255,255,255); border-color:rgb(255,255,255); background: rgba(0,0,0,0.2);     box-shadow: 0 0 10px rgba(0,0,0,1);"
+            class="skrollable skrollable-between" style="border-radius:20px;color: rgb(255, 255, 255); border-color: rgb(255, 255, 255); background: rgba(0, 0, 0, 0.2); box-shadow: rgba(0, 0, 0, 1) 0px 0px 0px;">
+            <!-- <li id="home-link"><a href="#start-section">HOME</a></li> -->
+			<li><a href="/" id="">Back to Website</a></li>
+			<li><a href="#main" id="">About</a></li>
+            <li><a href="#leader" id="">Leaderboard</a></li>
+            
+            
+            
+            
+        </ul>
+    </div>
+    <div id="mobile-nav-btn" class="mobile-nav-btn dark skrollable skrollable-before" data-100="opacity:1;" data-500="opacity:0; "
+        style="opacity: 1;"></div>
+    <div class="mobile-nav-btn white skrollable skrollable-before" data-100="opacity:0;" data-500="opacity:1; " style="opacity: 0;"></div>
+    <div id="mobile-nav">
+        <img src="/assets/img/close.png" class="close" alt="close menu" width="32" height="32">
+        <ul>
+			<li><a href="/" id="">Back to Website</a></li>
+			<li><a href="#main" id="">About</a></li>
+            <li><a href="#leader" id="">Leaderboard</a></li>
+            
+            
+            
+            
+        </ul>
+    </div>
+    <!-- /Navigation Menu -->
+
 		<!-- Header -->
 			<div id="header"> <!-- style=" background:url(../assets/img/ca_bg.jpeg);background-repeat: no-repeat;background-size: 100% 100%;" -->
 				<!-- <span class="logo icon "></span>--><br><br><br><br><h6 style="color:red"><!-- IIT Patna's --></h6>
@@ -358,7 +400,7 @@
                                     <div class=" img4"><img src="../assets/img/4.png">
                                     </div>
                                 </div>
-                                <div class="imgClass type2 img5"><img src="../assets/img/CA.png" class="coin-face"></div>
+                                <div class="imgClass type2 img5"><img src="../assets/img/CA.png" ></div>
                                 <div class="imgClass type2 img6 "><img src="../assets/img/CA Text.png"></div>
                                 
                                 
@@ -620,6 +662,12 @@
 			<script src="../assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="../assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="../assets/js/main.js"></script>
+
+
+    <script src="/assets/js/skrollr.min.js"></script>
+    <script src="/assets/js/skrollr.menu.min.js"></script>
+    <script src="https://projects.lukehaas.me/scrollify/script/jquery.scrollify.js"></script>
+    <script src="/assets/js/app.js"></script>
 
 	</body>
         
