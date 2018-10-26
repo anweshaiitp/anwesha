@@ -9,6 +9,17 @@
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 		<!--[if lte IE 8]><link rel="stylesheet" href="../assets/css/ie8.css" /><![endif]-->
 		<style>
+                    .imgClass{
+                            position: absolute;
+                            
+                        }
+                        .imgClass img{
+                            max-width: 100%;
+                            height: auto;
+                        }
+                    
+                    
+                    
 			#FB-Oauth,#FB-Oauth2{
 				padding: 10px;
 				    background-color: rgba(98, 153, 193, 0.76);
@@ -25,20 +36,52 @@
 			/*@media screen and (max-width: 600px) {
 			#FB-Oauth,#FB-Oauth2{
 				width: 300px;
-			} */
+			}} */
+                        @media screen and (max-width:4000px){
+                            .img6{
+                                top: 0px;
+                                right: 0px;
+                                width: 490px;
+                            }
+                            .img5{
+                                top: 0px;
+                                left: 0px;
+                                width: 400px;
+                            }
+                        }
+                        @media screen and (max-width:1100px){
+                            .img5{
+                                top: 0px;
+                                left: 0px;
+                                width: 300px;
+                            }
+                            .img6{
+                                top: 0px;
+                                right: 0px;
+                                width: 400px;
+                            }
+                        }
                         @media screen and (max-width:980px){
                             section blockquote{
                             font-size: 1.2em;
-                        }}
+                        }
+                        
+                        }
+                        @media screen and (max-width:900px){
+                            .img6{
+                                top: 0px;
+                                right: 0px;
+                                width: 320px;
+                            }
+                            .img5{
+                                top: 0px;
+                                left: 0px;
+                                width: 300px;
+                            }
+                        }
+                        
                         @media screen and (max-width:736px){
-                            .imgClass{
-                            position: absolute;
                             
-                        }
-                        .imgClass img{
-                            max-width: 100%;
-                            height: auto;
-                        }
                         .img1{
                             height: 180px;
                             bottom: 40px;
@@ -91,11 +134,15 @@
                         section blockquote{
                             font-size: 1.1em;
                         }
+                        .type2{
+                            display: none;
+                        }
                         }
                         
                         
                         @media screen and (min-width:737px){
-                            .imgClass{
+                            
+                            .type1{
                                 display:none;
                             }
                             
@@ -304,13 +351,16 @@
 					<!-- <br> <a id="test">This this</a> -->
 				</div>
 				</center>
-                                <div class="imgClass img1"><img src="../assets/img/1.png"></div>
-                                <div class="imgClass img2"><img src="../assets/img/2.png"></div>
-                                <div class="imgClass img3"><img src="../assets/img/3.png"></div>
-                                <div class="imgcontainer imgClass">
+                                <div class="imgClass type1 img1"><img src="../assets/img/1.png"></div>
+                                <div class="imgClass type1 img2"><img src="../assets/img/2.png"></div>
+                                <div class="imgClass type1 img3"><img src="../assets/img/3.png"></div>
+                                <div class="imgcontainer type1 imgClass">
                                     <div class=" img4"><img src="../assets/img/4.png">
                                     </div>
                                 </div>
+                                <div class="imgClass type2 img5"><img src="../assets/img/CA.png" class="coin-face"></div>
+                                <div class="imgClass type2 img6 "><img src="../assets/img/CA Text.png"></div>
+                                
                                 
                                 
 			
