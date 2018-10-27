@@ -27,8 +27,17 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-  
- 
+    <style>
+           @media screen and (max-width:737px){
+                            
+                            #logo-white{
+                                display:none;
+                            }
+                            #multicitytext{
+                                size:2px !important;
+                            }
+           }
+    </style>
 
 </head>
 
@@ -42,9 +51,9 @@
     </div>
     <!-- Navigation Menu -->
     <div id="menu">
-        <ul data-start="color:rgb(255,255,255); border-color:rgb(255,255,255); background: rgba(0,0,0,0.2);     box-shadow: 0 0 0px rgba(0,0,0,1);"
-            data-500="color:rgb(255,255,255); border-color:rgb(255,255,255); background: rgba(0,0,0,0.2);     box-shadow: 0 0 10px rgba(0,0,0,1);"
-            class="skrollable skrollable-between" style="border-radius:20px;color: rgb(255, 255, 255); border-color: rgb(255, 255, 255); background: rgba(0, 0, 0, 0.2); box-shadow: rgba(0, 0, 0, 1) 0px 0px 0px;">
+        <ul data-start="color:rgb(0,0,0); border-color:rgb(0,0,0); background: rgba(255,255,255,0.9);     box-shadow: 0 0 0px rgba(255,255,255,1);"
+            data-500="color:rgb(0,0,0); border-color:rgb(0,0,0); background: rgba(255,255,255,0.9);     box-shadow: 0 0 10px rgba(255,255,255,1);"
+            class="skrollable skrollable-between" style="border-radius:20px;color: rgb(0,0,0); border-color: rgb(0,0,0); background: rgba(255,255,255,0.9); box-shadow: rgba(255,255,255,0, 1) 0px 0px 0px;">
             <!-- <li id="home-link"><a href="#start-section">HOME</a></li> -->
             <li><a href="#After-Movie" id="">After-Movie</a></li>
             <li><a href="#About" id="">About</a></li>
@@ -58,8 +67,8 @@
     <div id="mobile-nav-btn" class="mobile-nav-btn dark skrollable skrollable-before" data-100="opacity:1;" data-500="opacity:0; "
         style="opacity: 1;"></div>
     <div class="mobile-nav-btn white skrollable skrollable-before" data-100="opacity:0;" data-500="opacity:1; " style="opacity: 0;"></div>
-    <div id="mobile-nav">
-        <img src="/assets/img/close.png" class="close" alt="close menu" width="32" height="32">
+    <div id="mobile-nav" style="background-color:black">
+        <img src="/assets/img/close.png" class="close" alt="close menu" width="30" height="30">
         <ul>
             <li><a href="#After-Movie" id="">After-Movie</a></li>
             <li><a href="#About" id="">About</a></li>
@@ -128,37 +137,61 @@
             </div>
         </section>
         <div class="audition">
-            <div class="synopsis justify-content-center row" id="Audition">
-                    <div class="col-4 aud-head">
-                        <h1>
+                <div class="row row-content" style="text-align: center">
+                    <div class="col-12">
                             <br>
-                            Anwesha </h1><h3>presents</h3>
-                            <h2>Multi-city Auditions
+                            <h1>
+                                Anwesha 
+                            </h1>
+                            
+                            <h2>presents</h2>
+                            
+                            <h3>Multi-city 
                                 <br>
-                            </h2>
-                        </h1>
-                    </div>
+                                Auditions
+                                <br>
+                            </h3>
+                        </div>
+                    
+                </div>
+                    <div class="synopsis justify-content-center row" id="Audition">
                     <br>
                     <div class="w-100"></div>
                     <br>
                     <br>
-                <button type="button" class="btn aud-button col-7 col-md-3 dhanbad" data-toggle="modal" data-target="#myModal" data-backdrop="true" data-aos="fade-right" data-aos-easing="ease-in-sine" style="background-color: transparent;"><span></span></button>
-                <button type="button" class="btn aud-button col-7 col-md-3 offset-md-1 soon" data-toggle="modal" data-target="#myModal2" data-backdrop="true" data-aos="zoom-in-up" style="background-color: transparent;"></button>
-                <div class="w-100"></div>
-                <br><br>
-                <button type="button" class="btn aud-button col-7 col-md-3 soon" data-toggle="modal" data-target="#myModal2" data-backdrop="true" data-aos="zoom-in" style="background-color: transparent;"></button>
-                <button type="button" class="btn aud-button col-7 col-md-3 offset-md-1 soon" data-toggle="modal" data-target="#myModal2" data-backdrop="true" data-aos="zoom-in-down" style="background-color: transparent;"></button>
-                <div class="w-100"></div>
-                
-                <br><br>
-                <button type="button" class="btn aud-button col-7 col-md-3 soon" data-toggle="modal" data-target="#myModal2" data-backdrop="true" data-aos="fade-up-left" style="background-color: transparent;"></button>
-                
-                
-                
-                <div class="modal fade" id="myModal" role="dialog">
-                    <div class="modal-dialog">
+                    <div class="col-12 col-md-6" style="text-align:center;padding-bottom:20px">
+                        <a data-target="#myModal" data-toggle="modal"><img width="60%" src="../assets/img/dhanbad.png"></a>
+                    </div>
+                    <div class="col-12 col-md-6" style="text-align:center;padding-bottom:20px">
+                        <img width="60%" src="../assets/img/soon.png">
+                    </div>
+                    <div class="col-12 col-md-6" style="text-align:center;padding-bottom:20px">
+                        <img width="60%" src="../assets/img/soon.png">
+                    </div>
+
+                    <!-- <img class="col-12 col-md-6" src="../assets/img/dhanbad2.png"> -->
                     
-                      <!-- Modal content-->
+                    <!-- <img class="col-12 col-md-6" src="../assets/img/dhanbad2.png"> -->
+                <!-- <button type="button" class="btn aud-button col-7 col-md-3 dhanbad" data-toggle="modal" data-target="#myModal" style="background-color: transparent;"><span></span></button>
+                <button type="button" class="btn aud-button col-7 col-md-3 offset-md-1 soon" data-toggle="modal" data-target="#myModal2" style="background-color: transparent;" ></button> -->
+                <!-- <div class="w-100"></div> -->
+                <br><br>
+                <!-- data-backdrop="true" data-aos="zoom-in-up"  -->
+
+                <!-- <button type="button" class="btn aud-button col-7 col-md-3 soon" data-toggle="modal" data-target="#myModal2" data-backdrop="true" data-aos="zoom-in" style="background-color: transparent;"></button>
+                <button type="button" class="btn aud-button col-7 col-md-3 offset-md-1 soon" data-toggle="modal" data-target="#myModal2" data-backdrop="true" data-aos="zoom-in-down" style="background-color: transparent;"></button>
+                -->
+                <div class="w-100"></div>
+                
+                <br><br>
+                <!-- <button type="button" class="btn aud-button col-7 col-md-3 soon" data-toggle="modal" data-target="#myModal2" data-backdrop="false"  style="background-color: transparent;"></button> -->
+                
+               
+                
+                <!-- <div class="modal fade" id="myModal" role="dialog" data-backdrop="false">
+                    <div class="modal-sm modal-dialog-centered modal-dialog">
+                    
+                      
                       <div class="modal-content">
                         <div class="modal-header">
                           <h4 class="modal-title">Dhanbad, Jharkhand</h4>
@@ -185,17 +218,18 @@
                             AOS.init({
                                 duration: 1000
                             });
-                            </script>           <div class="modal-footer">
+                            </script>          
+                             <div class="modal-footer">
                           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div> -->
 
-                  <div class="modal fade" id="myModal2" role="dialog">
-                    <div class="modal-dialog">
+                  <!-- <div class="modal fade" id="myModal2" role="dialog" data-backdrop="false">
+                    <div class="modal-dialog modal-dialog-centered">
                     
-                      <!-- Modal content-->
+                      
                       <div class="modal-content">
                         <div class="modal-header">
                           <h4 class="modal-title">Comming Soon</h4>
@@ -209,7 +243,7 @@
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div> -->
             
 
             </div>
@@ -241,8 +275,39 @@
     <script>
         AOS.init({
             duration: 1000
-        });
+        });  
         </script>
+         <div tabindex="-1" class="modal fade" id="myModal"  role="dialog" aria-hidden="true" aria-labelledby="myModalLabel">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                        <div class="modal-header">
+                                <h4 class="modal-title">Dhanbad, Jharkhand</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                    <div class="modal-body">
+                            <b><p>Date- 28/10/2018</p></b>
+                            <b><p> Time - 9:00 AM</p></b>
+                              <b><p>Venue - KK College of Engineering and Management</p></b>
+                             <p>
+                              The events we will be conducting the auditions for, are:<br><br>
+                              <b>1. Syngphony:</b> for all the music enthusiasts out there, this is just what you need to come out of your coccoon and show the world the magic your voice and your instrument possess.
+                              <br>
+                              <b>2. Heel Turn: </b>Do your legs fail to control themselves whenever you hear some catchy tune? This is for all the dancers who wish to prove themselves in the field.
+                              <br>
+                              <b>3. Maidaan-e-jung:</b> Has acting always amused you? Have an absolute knack for acting? Here we are with our event that lets you unleash the actor hidden within.
+                              <br>
+                              <b>4. Mr. And Miss. Anwesha: </b> Think you have the wits and the looks to take away the much coveted title? In the quest for the best, here we present to you the perfect platform to bring out the model inside you. 
+                              <br>
+                              <b>5. Fashion Walk:</b> It is the path that leads you to Mr. and Miss Anwesha.
+                             </p>
+                    </div>
+                    <div class="modal-footer">
+                      <button class="btn btn-primary" type="button" data-dismiss="modal">Close</button>
+                      <!-- <button class="btn btn-primary" type="button">Save changes</button> -->
+                    </div>
+                  </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+              </div><!-- /.modal -->
 
 </body>
 

@@ -60,8 +60,8 @@
     position: fixed;
     right: 20px;
     top: 20px;
-    width: 20px;
-    height: 20px;
+    width: 40px;
+    height: 40px;
     background: #333;
     background: url(../img/menu.png) no-repeat center center;
     background-size: contain;
@@ -71,8 +71,8 @@
 
 
 .mobile-nav-btn.white {
-    background: url(../img/menu-white.png) no-repeat center center;
-    background-size: 48px 22px
+    background: url(../img/menu.png) no-repeat center center;
+    background-size: 40px 40px
 }
 
 #mobile-nav {
@@ -110,7 +110,7 @@
     padding: 20px 0;
     text-align: center;
     font-size: 30px;
-    color: #333;
+    color:white;
     text-decoration: none
 }
 
@@ -353,7 +353,7 @@
   .rot
 	{
 		animation-name: date_anim;
-        animation-duration: 1.5s ;
+        animation-duration: 3s ;
         perspective: 500px;
         perspective-origin: 0%;
         transform-style: preserve-3d;
@@ -365,19 +365,21 @@
 	@keyframes date_anim
 	{
 		0%{transform: rotateY(90deg);}
-        100%{transform: rotateY(-90deg);}
+        20%{transform: rotateY(-90deg);}
+        40%{transform: rotateY(0deg);}
+        100%{transform: rotateY(0deg);}
     }
 
   .coin-face {
     display: block;
     /* background: url("https://99designs-blog.imgix.net/wp-content/uploads/2016/02/99d-logo.png?auto=format&q=60&w=128&h=128&fit=crop&crop=faces") repeat center center; */
     
-    -webkit-animation: flip 2s infinite;
-            animation: flip 2s infinite;
+    -webkit-animation: flip 5s infinite;
+            animation: flip 5s infinite;
     -webkit-transform-style: preserve-3d;
             transform-style: preserve-3d;
-  } height: 200px;
-  . height: 200px;fore {
+  } 
+  .coin-face::before {
     content: '';
     z-index: -1;
     display: block;

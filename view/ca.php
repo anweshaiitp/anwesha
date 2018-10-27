@@ -19,19 +19,27 @@
                         }
                     
                     
-                    
-			#FB-Oauth,#FB-Oauth2{
+                    .fb2css{
+						padding: 10px;
+				    background-color: rgba(98, 153, 193, 0.76);
+				    margin: 30px;
+				    border-radius: 10px;
+				    left: 50%;
+				    /*position: absolute;*/
+				    /*transform: translateX(-50%);*/
+					width: 85% !important;
+					width: 300px;		
+					}
+			#FB-Oauth{
 				padding: 10px;
 				    background-color: rgba(98, 153, 193, 0.76);
-				    
 				    margin: 30px;
 				    border-radius: 10px;
 				    left: 50%;
 				    /*position: absolute;*/
 				    /*transform: translateX(-50%);*/
 					/* width: 90% !important; */
-					width: 300px;
-                                        
+					width: 300px;                     
 			}
 			/*@media screen and (max-width: 600px) {
 			#FB-Oauth,#FB-Oauth2{
@@ -343,11 +351,9 @@
 				-->
 				<br><br><br><br><br>
 				<center>
-					
 				<div id="FB-Oauth">
 					<div class="fb-text">Sign-Up with Facebook</div>
 					<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with"  data-auto-logout-link="true" data-use-continue-as="true" data-scope="email,public_profile,user_location,user_birthday,user_about_me" onlogin="auth_response_change_callback();"></div>
-					
 					<!-- <br> <a id="test">This this</a> -->
 				</div>
 				</center>
@@ -503,7 +509,7 @@
 						<h2>Sign-Up</h2>
 						<center>
 							<h2>Step 1</h2>
-						<div id="FB-Oauth2">
+						<div id="FB-Oauth2" class="fb2css">
 							 <div class="fb-text">Sign-Up with Facebook</div>
 							<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with"  data-auto-logout-link="true" data-use-continue-as="true" data-scope="email,public_profile,user_location,user_likes,user_posts,user_birthday,user_about_me" onlogin="auth_response_change_callback();"></div><!-- <br>
 							<a id="test">This this</a> -->
