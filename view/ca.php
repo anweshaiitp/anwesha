@@ -355,15 +355,11 @@
                                 <div class="imgClass type1 img2"><img src="../assets/img/2.png"></div>
                                 <div class="imgClass type1 img3"><img src="../assets/img/3.png"></div>
                                 <div class="imgcontainer type1 imgClass">
-                                    <div class=" img4"><img src="../assets/img/4.png">
-                                    </div>
+                                    <div class=" img4"><img src="../asse ts/img/4.png">
                                 </div>
-                                <div class="imgClass type2 img5"><img src="../assets/img/CA.png"></div>
+                                </div>
+                                <div class="imgClass type2 img5 "><a href="/" style="border-color:rgb(0,0,0,0)"><img src="../assets/img/CA.png"></a></div>
                                 <div class="imgClass type2 img6 "><img src="../assets/img/CA Text.png"></div>
-                                
-                                
-                                
-			
 			</div>
 
 		<!-- Main -->
