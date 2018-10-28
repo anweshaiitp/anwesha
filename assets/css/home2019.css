@@ -4,6 +4,7 @@
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    overflow-y: hidden;
     font-family: 'Mali', cursive;
 }
 #cover{
@@ -53,6 +54,31 @@
 
 #logo-white {
     background-image: url('/assets/img/logo_favi.png')
+}
+
+#floating-dots{
+    position: fixed;
+    top:50%;
+    right:10px;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+
+.dot {
+    height: 7px;
+    border: solid 1px #847c7c96;
+    width: 7px;
+    background-color: #100606bf;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-transition: background-color .5s ease-in;
+    -moz-transition: background-color .5s ease-in;
+    -o-transition: background-color .5s ease-in;
+    transition: background-color .5s ease-in;
+  }
+.active{
+    background-color: #8c8585b8 !important;
 }
 
 .mobile-nav-btn {
@@ -501,7 +527,7 @@
 }
 
 #tickets-section {
-    background-image: url(../img/av1.jpg);
+    /* background-image: url(../img/av1.jpg); */
     display: flex;
     justify-content: center;
     flex-direction: column;
