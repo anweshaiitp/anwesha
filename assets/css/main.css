@@ -1907,7 +1907,7 @@
 			position: relative;
 			top: -1em;
 			color: #888888;
-			//text-transform: uppercase;
+			/*text-transform: uppercase;*/
 			letter-spacing: 0.075em;
 		}
 
@@ -2461,6 +2461,7 @@
 
 			.feature .content h3 {
 				margin-bottom: 0.5em;
+				font-size: 15px;
 			}
 
 			.feature .content :last-child {
@@ -2505,6 +2506,48 @@
 			padding-top: 0;
 		}
 
+
+		/*coin flip*/
+		@-webkit-keyframes flip {
+			to {
+			  -webkit-transform: rotateY(360deg);
+					  transform: rotateY(360deg);
+			}
+		  }
+		  @keyframes flip {
+			to {
+			  -webkit-transform: rotateY(360deg);
+					  transform: rotateY(360deg);
+			}
+		  }
+		  .coin-face {
+			display: block;
+			/* background: url("https://99designs-blog.imgix.net/wp-content/uploads/2016/02/99d-logo.png?auto=format&q=60&w=128&h=128&fit=crop&crop=faces") repeat center center; */
+			
+			-webkit-animation: flip 2s infinite;
+					animation: flip 2s infinite;
+			-webkit-transform-style: preserve-3d;
+					transform-style: preserve-3d;
+		  }
+		  .coin-face::before {
+			content: '';
+			z-index: -1;
+			display: block;
+			/* background: url("https://99designs-blog.imgix.net/wp-content/uploads/2016/02/99d-logo.png?auto=format&q=60&w=128&h=128&fit=crop&crop=faces") repeat center center; */
+			
+			-webkit-transform: translateZ(4px);
+					transform: translateZ(4px);
+		  }
+		  .coin-face::after {
+			display: block;
+		
+			-webkit-transform: rotateY(90deg) translateX(-2px);
+					transform: rotateY(90deg) translateX(-2px);
+			-webkit-transform-style: preserve-3d;
+					transform-style: preserve-3d;
+		  }
+		/*coin flip*/
+
 /* Header */
 
 	#header {
@@ -2518,7 +2561,7 @@
 		position: relative;
 		text-align: center;*/
 		background-attachment: scroll,	scroll,	fixed;
-		background-image: url("images/top-3200.svg"),url(""),url(../img/ca_bg.jpeg);
+		background-image: url("images/top-3200.svg"),url(""),url(../img/ca_back.png);
 		background-repeat: no-repeat;
 		background-position: bottom center,	top left,	top left;
 		/* background-repeat: repeat-x,	repeat,	no-repeat; */
@@ -2541,7 +2584,7 @@
 		}
 
 		#header:before {
-			//height: calc(100% - 50px);
+			/*height: calc(100% - 50px);*/
 			opacity: 0.15;
 			top: 0;
 		}
@@ -2812,7 +2855,8 @@
 			}
 
 				header.major p {
-					font-size: 1.15em;
+					font-size: 16px;
+                    text-align: justify;
 				}
 
 			footer.major {
@@ -2830,13 +2874,13 @@
 		/* Feature */
 
 			.feature {
-				height: 18em;
+				height: 23em;
 			}
 
 				.feature .content {
 
 					padding: 1em;
-					font-size: 12px;
+					font-size: 14px;
 				}
 
 		/* Header */
@@ -2848,7 +2892,7 @@
 			} 
 
 				#header:before {
-					//height: calc(100% - 25px);
+					/*height: calc(100% - 25px);*/
 				}
 
 				#header:after {
@@ -2925,11 +2969,11 @@
 		/* Basic */
 
 			h2 {
-				font-size: 1em;
+				font-size: 1.2em;
 			}
 
 			h3 {
-				font-size: 1em;
+				font-size: 1.3em;
 			}
 
 		/* Section/Article */
@@ -2961,7 +3005,8 @@
 				}
 
 				header.major p {
-					font-size: 0.8em;
+					font-size: 16px;
+                    text-align: justify;
 				}
 
 			footer.major {
@@ -3026,7 +3071,7 @@
 		/* Header */
 
 			#header {
-				background-image: url(../img/ca_mobile.jpeg);
+				background-image: url(../img/xyz.png);
 				background-position: bottom center,	top left, top left;
 				/* background-repeat: repeat-x,	repeat,	no-repeat; */
 				
@@ -3034,7 +3079,7 @@
 			} 
 
 				#header:before {
-					//height: calc(100% - 20px);
+					/*height: calc(100% - 20px);*/
 				}
 
 				#header:after {

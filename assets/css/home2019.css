@@ -29,9 +29,7 @@
 #anwLogo{
     max-width: 80%;
 }
-#landingContent .anwName{
-    font-size: 3em;
-}
+
 @font-face {
     font-family: 'PTC55F';
     src: url('../fonts/FoglihtenNo07.otf') format('truetype');
@@ -84,14 +82,15 @@
 }
 
 .mobile-nav-btn {
+    cursor: pointer;
     position: fixed;
     right: 20px;
     top: 20px;
-    width: 48px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
     background: #333;
     background: url(../img/menu.png) no-repeat center center;
-    background-size: 48px 22px;
+    background-size: contain;
     display: none;
     z-index: 101
 }
@@ -330,14 +329,13 @@
     background: #000
 }
 
-
-
 .bcg {
-    background-image: url(../img/bg.jpg);
+    background-image: url(../img/home_ibg.jpeg);
     background-color: #000;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+    object-fit: cover;
     height: 100%;
     width: 100%;
     position: fixed;
@@ -345,6 +343,84 @@
     left: 0;
     pointer-events: none
 }
+
+#landingContent
+{
+    position:absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    height: 100%;
+}
+
+#landingContent img
+{
+    margin-top: 3%;
+    width: 40%;
+    line-height: 0%;
+}
+
+
+/*coin flip*/
+@-webkit-keyframes flip {
+    to {
+      -webkit-transform: rotateY(360deg);
+              transform: rotateY(360deg);
+    }
+  }
+  @keyframes flip {
+    to {
+      -webkit-transform: rotateY(360deg);
+              transform: rotateY(360deg);
+    }
+  }
+
+  .rot
+	{
+		animation-name: date_anim;
+        animation-duration: 1.5s ;
+        perspective: 500px;
+        perspective-origin: 0%;
+        transform-style: preserve-3d;
+        animation-iteration-count:infinite;
+		animation-direction: alternate-reverse;
+		animation-timing-function: linear;
+	}
+
+	@keyframes date_anim
+	{
+		0%{transform: rotateY(90deg);}
+        100%{transform: rotateY(-90deg);}
+    }
+
+  .coin-face {
+    display: block;
+    /* background: url("https://99designs-blog.imgix.net/wp-content/uploads/2016/02/99d-logo.png?auto=format&q=60&w=128&h=128&fit=crop&crop=faces") repeat center center; */
+    
+    -webkit-animation: flip 2s infinite;
+            animation: flip 2s infinite;
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+  } height: 200px;
+  . height: 200px;fore {
+    content: '';
+    z-index: -1;
+    display: block;
+    /* background: url("https://99designs-blog.imgix.net/wp-content/uploads/2016/02/99d-logo.png?auto=format&q=60&w=128&h=128&fit=crop&crop=faces") repeat center center; */
+    
+    -webkit-transform: translateZ(4px);
+            transform: translateZ(4px);
+  }
+  .coin-face::after {
+    display: block;
+
+    -webkit-transform: rotateY(90deg) translateX(-2px);
+            transform: rotateY(90deg) translateX(-2px);
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+  }
+/*coin flip*/
 
 .tickets-btn {
     color: #fff;
@@ -410,6 +486,23 @@
 @media only screen and (max-width:760px) {
     #synopsis-section .synopsis h1 {
         font-size: 2.1em
+    }
+
+    .bcg
+    {
+        object-position: center;
+        object-fit: contain;
+        background-position: center;
+        background-position-x: 47%;
+        background-position-y: 50%;
+
+    }
+
+    #landingContent img
+    {
+        margin-top: 45%;
+        width: 70%;
+        line-height: 0%;
     }
 }
 
