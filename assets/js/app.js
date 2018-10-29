@@ -120,19 +120,19 @@ if (isMobile) {
 }else{
     
 }
-var s = skrollr.init();
+// var s = skrollr.init();
 
-skrollr.menu.init(s, {
-    animate: true,
-    easing: 'sqrt',
-    scale: 1,
-    duration: function (currentTop, targetTop) {
-        return 500;
-    },
-    complexLinks: false,
-    change: function (newHash, newTopPosition) {},
-    updateUrl: false
-});
+// skrollr.menu.init(s, {
+//     animate: true,
+//     easing: 'sqrt',
+//     scale: 1,
+//     duration: function (currentTop, targetTop) {
+//         return 500;
+//     },
+//     complexLinks: false,
+//     change: function (newHash, newTopPosition) {},
+//     updateUrl: false
+// });
 window.addEventListener("load", function () {
     setTimeout(function () {
         window.scrollTo(0, 1);
