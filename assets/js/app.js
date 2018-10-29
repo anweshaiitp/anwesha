@@ -4,7 +4,8 @@ var currState = "start-section"
 var nextState = {
     "start-section":"After-Movie",
     "After-Movie":"About",
-    "About":"Contact-Us",
+    "About":"Multi-city",
+    "Multi-city":"Contact-Us",
     "Contact-Us":0
 };
 
@@ -12,7 +13,8 @@ var prevState = {
     "start-section":0,
     "After-Movie":"start-section",
     "About":"After-Movie",
-    "Contact-Us":"About"
+    "Multi-city":"About",
+    "Contact-Us":"Multi-city",
 };
 
 var throttled = _.throttle(handleScroll, 1000,{trailing: false});
