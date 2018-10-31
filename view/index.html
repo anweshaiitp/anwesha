@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="skrollr skrollr-desktop">
+<html>
 <!-- @todo   -->
 <!-- https://codepen.io/Pc/pen/QywZga -->
 <!-- https://stackoverflow.com/questions/18726480/embed-html5-youtube-video-without-iframes -->
@@ -20,13 +20,20 @@
     <link rel="stylesheet" href="/assets/css/aud.css">
     <script src="https://cdn.rawgit.com/michalsnik/aos/2.0.4/dist/aos.js"></script>
     <link rel='stylesheet' href='https://cdn.rawgit.com/michalsnik/aos/2.0.4/dist/aos.css'>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollify/1.0.19/jquery.scrollify.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Charmonman|Mali|Pacifico" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <script>
+        $(function() {
+          $.scrollify({
+            section : ".skrolll",
+          });
+        });
+      </script>
     <style>
            @media screen and (max-width:737px){
                             
@@ -42,11 +49,11 @@
 </head>
 
 <body class="body" data-gr-c-s-loaded="true" style="height: 3973px;">
-    <a href="javascript:void callPlayer(&quot;afterMovieVideo&quot;)"></a>
-    <div id="logo" data-100="opacity:1;" data-500="opacity:0; " class="skrollable skrollable-before" style="opacity: 1;">
+    <a href="javascript:void callPlayer(&quot;afterMovieVideo&quot;)"><div class="cover"></div></a>
+    <div id="logo" data-100="opacity:1;" data-500="opacity:0; " class="" style="opacity: 1;">
         <a href="http://anwesha.info/" class="logolink" target="_blank"></a>
     </div>
-    <div id="logo-white" data-300="opacity:0;" data-500="opacity:1;" class="skrollable skrollable-before" style="opacity: 0;">
+    <div id="logo-white" data-300="opacity:0;" data-500="opacity:1;" class="" style="">
         <a href="http://anwesha.info/" class="logolink" target="_blank"></a>
     </div>
     <!-- Navigation Menu -->
@@ -57,16 +64,16 @@
             <!-- <li id="home-link"><a href="#start-section">HOME</a></li> -->
             <li><a href="#After-Movie" id="">After-Movie</a></li>
             <li><a href="#About" id="">About</a></li>
-            <li><a href="#" id="">Sponsors</a></li>
+            <li><a href="/view/spons.html" id="">Sponsors</a></li>
             <li><a href="#Contact-Us" id="">Contact Us</a></li>
             <li><a href="#Audition" id="">Auditions</a></li>
             <li><a href="/ca" id="">Campus Ambassador</a></li>
             
         </ul>
     </div>
-    <div id="mobile-nav-btn" class="mobile-nav-btn dark skrollable skrollable-before" data-100="opacity:1;" data-500="opacity:0; "
+    <div id="mobile-nav-btn" class="mobile-nav-btn dark " data-100="opacity:1;" data-500="opacity:0; "
         style="opacity: 1;"></div>
-    <div class="mobile-nav-btn white skrollable skrollable-before" data-100="opacity:0;" data-500="opacity:1; " style="opacity: 0;"></div>
+    <div class="mobile-nav-btn white " data-100="opacity:0;" data-500="opacity:1; " style=""></div>
     <div id="mobile-nav" style="background-color:black">
         <img src="/assets/img/close.png" class="close" alt="close menu" width="30" height="30">
         <ul>
@@ -92,30 +99,31 @@
     </div>
     <!-- /Social Floating Links -->
 
-    <section id="start-section" class="fp example-classname">
-        <div class="bcg skrollable skrollable-between" data-start="opacity: 1; width: 100%; height: 100%; top: 0%; left: 0%;"
-            data-100p="opacity: 0; width: 256%; height: 356%; top: -256%; left: -78%;" data-anchor-target="#start-section">
-           
-            <div class="rot" id="landingContent" >
-                <img src="/assets/img/home_img.png" />
-            </div>
-        </div>
-    </section>
+    
     <div id="skrollr-body">
-        <section id="After-Movie" class="fp example-classname" >
-            <div class="plaxEl skrollable skrollable-between" data-start="opacity: 0;" data-80p="opacity: 0;" data-100p="opacity: 1;top:0;"
-                data-anchor-target="#start-section" style="opacity: 0; top: 0px;" id="amParent">
-                <div >
-                        <iframe width="1600" height="800" frameborder="0" title="YouTube video player" type="text/html"  src="https://www.youtube.com/embed/tare6Drw0Ng?feature=oembed&controls=1&hd=1&modestbranding=1&autohide=1&showinfo=0&enablejsapi=1"></iframe>
+        <section id="start-section" class="fp skrolll">
+            <div class="bcg skrollable skrollable-between" data-start="opacity: 1; width: 100%; height: 100%; top: 0%; left: 0%;"
+                data-100p=" width: 256%; height: 356%; top: -256%; left: -78%;" data-anchor-target="#start-section">
+                
+                <div class="rot" id="landingContent" >
+                    <img src="/assets/img/home_img.png" />
+                </div>
+            </div>
+        </section>
+        <section id="After-Movie" class="fp skrolll">
+            <div class="plaxEl skrollable skrollable-between" data-start="" data-80p="" data-100p="opacity: 1;top:0;"
+                data-anchor-target="#start-section" style=" top: 0px;" id="amParent">
+                <div id="afterMovieVideo_">
+                        <iframe width="160" height="80" frameborder="0" title="YouTube video player" type="text/html"  src="https://www.youtube.com/embed/tare6Drw0Ng?feature=oembed&controls=1&hd=1&modestbranding=1&autohide=1&showinfo=0&enablejsapi=1"></iframe>
                 </div>
             </div>
         </section>
     
                                 
-                        <!-- </a>  -->
+            <!-- </a>  -->
 
         <div id="About"></div>
-        <section id="synopsis-section" class="aboutSection sec2 example-classname ">
+        <section id="synopsis-section" class="aboutSection sec2 skrolll ">
             <div class="synopsis">
                 <div class="syn-title">
                     <img src="/assets/images/name.png" id="anwName" alt="Anwesha '19" style="max-width:90%;height:80px;">
@@ -136,7 +144,7 @@
 
             </div>
         </section>
-        <div class="audition">
+        <div class="audition skrolll">
                 <div class="row row-content" style="text-align: center">
                     <div class="col-12">
                             <br>
@@ -160,7 +168,7 @@
                     <br>
                     <br>
                     <div class="col-12 col-md-6" style="text-align:center;padding-bottom:20px">
-                        <a data-target="#myModal" data-toggle="modal"><img width="60%" src="../assets/img/dhanbad.png"></a>
+                        <a data-target="#myModal" data-toggle="modal"><img width="60%" class="shake" src="../assets/img/dhanbad.png"></a>
                     </div>
                     <div class="col-12 col-md-6" style="text-align:center;padding-bottom:20px">
                         <img width="60%" src="../assets/img/soon.png">
@@ -250,7 +258,7 @@
             <br><br>
         </div>
     
-        <section id="tickets-section" class="sec2 example-classname">
+        <section id="tickets-section" class="sec2 skrolll">
             <div id="Contact-Us"></div>
             <div class="syn-title">
                     <h1>Contact Us</h1>
@@ -267,17 +275,20 @@
     </div>
 
     <script src="/assets/js/jquery.min.js"></script>
-    <script src="/assets/js/skrollr.min.js"></script>
-    <script src="/assets/js/skrollr.menu.min.js"></script>
     <script src="https://projects.lukehaas.me/scrollify/script/jquery.scrollify.js"></script>
     <script src="/assets/js/app.js"></script>
 
     <script>
-        AOS.init({
-            duration: 1000
-        });  
+        $('#myModal').modal().on('shown', function(){
+            $('body').css('overflow', 'hidden');
+        }).on('hidden', function(){
+            $('body').css('overflow', 'auto');
+        })
+        // AOS.init({
+        //     duration: 1000
+        // });  
         </script>
-         <div tabindex="-1" class="modal fade" id="myModal"  role="dialog" aria-hidden="true" aria-labelledby="myModalLabel">
+         <div tabindex="-1" class="modal fade modal-open" id="myModal" role="dialog" aria-hidden="true" aria-labelledby="myModalLabel">
                 <div class="modal-dialog">
                   <div class="modal-content">
                         <div class="modal-header">

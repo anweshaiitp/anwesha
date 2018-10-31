@@ -312,7 +312,7 @@
     object-fit: cover;
     height: 100%;
     width: 100%;
-    position: fixed;
+    /* position: fixed; */
     top: 0;
     left: 0;
     pointer-events: none
@@ -521,11 +521,24 @@
     justify-content: space-evenly
 }
 
+
+/* body.modal-open {
+    position: fixed;
+    overflow: hidden;
+    left:0;
+    right:0;
+} */
+
+.modal-open{
+    overflow: hidden;
+}
+
 @media only screen and (max-width:760px) {
     #social {
         display: flex;
         right: 20px;
-        left: 20px
+        left: 20px;
+        padding-bottom:15px;
     }
 
     #social span {
