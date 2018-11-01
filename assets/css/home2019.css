@@ -6,6 +6,11 @@
     overflow-x: hidden;
     font-family: 'Mali', cursive;
 }
+
+.row{
+    margin-right: unset;
+}
+
 #cover{
     position: absolute;
     top:0;
@@ -538,7 +543,7 @@
         display: flex;
         right: 20px;
         left: 20px;
-        padding-bottom:15px;
+        /* padding-bottom:15px; */
     }
 
     #social span {

@@ -1,0 +1,282 @@
+%gallery-image-caption
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%,-50%)
+  font-size: 14px
+  color: rgba(white,0)
+  padding: 1em
+  transition: all .2s ease
+  font-weight: 600
+  max-width: calc(100% - 9em)
+  line-height: 1.25
+  text-align: center
+  box-sizing: border-box
+
+
+  &:before, &:after
+    content: ''
+    position: absolute
+    background: rgba(black,.2)
+    width: 100%
+    height: 100%
+    padding: 1em
+    transition: all .3s ease-in-out
+    opacity: 0
+    z-index: -1
+
+  &:before, &:after
+    right: 100%
+    bottom: 100%
+  &:after
+    left: 100%
+    top: 100%
+
+  &.visible
+    color: rgba(white,1)
+    text-shadow: 0 0 1px rgba(black,.2)
+    transition: all .2s ease .3s
+    &:before, &:after
+      opacity: 1
+    &:before
+      right: -1.5em
+      bottom: -1.5em
+    &:after
+      left: -1.5em
+      top: -1.5em
+
+html
+  -moz-osx-font-smoothing: grayscale
+  -webkit-font-smoothing: antialiased
+  text-rendering: optimizelegibility
+    
+body
+  font-family: 'Montserrat', sans-serif
+    
+.gallery
+  
+  column-gap: 0
+  @media (min-width: 480px)
+    column-count: 2
+  @media (min-width: 1260px)
+    column-count: 3
+
+.gallery-image
+  position: relative
+  margin: 0
+  padding: 0
+  &:before, &:after
+    content: ''
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    border: 16px solid rgba(black,.1)
+    transition: all .2s
+    will-change: border
+  &:after
+    border-width: 0
+
+  img
+    display: block
+    max-width: 100%
+    height: auto
+    
+  html:not(.touch) &
+    overflow: hidden
+    figcaption
+      @extend %gallery-image-caption
+    &:hover
+      &:before
+        border-width: 16px
+      &:after
+        border-width: 32px
+      figcaption
+        @extend %gallery-image-caption.visible
+
+  .touch &
+    figcaption
+      @extend %gallery-image-caption
+      @extend %gallery-image-caption.visible
+      top: auto
+      bottom: 2em
+      
+.mfp-with-zoom
+  .mfp-container, &.mfp-bg
+    opacity: 0
+    backface-visibility: hidden
+    transition: all 0.3s ease-out
+
+  &.mfp-bg
+    background-color: rgba(black,.9)
+
+  &.mfp-ready
+    .mfp-container
+      opacity: 1
+    &.mfp-bg
+      opacity: 1
+  &.mfp-removing
+    .mfp-container, &.mfp-bg
+      opacity: 0
+
+
+  // .mfp-no-margins
+  img.mfp-img
+    padding: 0
+  .mfp-figure:after
+    top: 0
+    bottom: 0
+  .mfp-container
+    padding: 0
+
+  .mfp-content
+    overflow: hidden
+
+
+  .mfp-bottom-bar
+    top: auto
+    bottom: 0
+    margin-top: 0
+
+  .mfp-title
+    @extend %gallery-image-caption
+    top: auto
+    bottom: 2em
+
+  &.mfp-ready .mfp-title
+    @extend %gallery-image-caption.visible
+
+
+
+
+.mfp-arrow
+  opacity: 1
+  margin-top: 0!important
+  width: 20%
+  height: 30%
+  // background: rgba(black,.2)!important
+  transform: translateY(-50%)
+
+  &:hover, &:focus
+
+  &:before, &:after
+    margin: 0
+    border: none
+    width: 2rem
+    height: 2rem
+
+    transform: rotate(-45deg) translate(-50%,-100%)
+    opacity: 1
+    top: 50%
+    left: 50%
+    transition: all .15s
+
+  &:active
+    transform: translateY(-50%) scale(.95)
+
+.mfp-arrow-left
+  left: 0
+  &:before, &:after
+    border-top: 2px solid white
+    border-left: 2px solid white
+  &:before
+  &:after
+    margin-left: 2rem
+
+  &:hover, &:active
+    &:before, 
+      margin-left: 2rem
+    &:after
+      margin-left: 0
+
+.mfp-arrow-right
+  right: 0
+  &:before, &:after
+    border-right: 2px solid white
+    border-bottom: 2px solid white
+  &:before
+  &:after
+    margin-left: 2rem
+
+  &:hover
+    &:before, 
+      margin-left: 2rem
+    &:after
+      margin-left: 0
+
+
+
+button.mfp-close
+  opacity: 1
+  margin-top: 0!important
+  width: 20%
+  height: 30%
+  font: 0/0 serif
+  text-shadow: none
+  color: transparent
+  &:hover, &:focus
+
+  &:before, &:after
+    content: ''
+    position: absolute
+    top: 50%
+    left: 50%
+    margin: 0
+    border: none
+    width: 2rem
+    height: 2rem
+    opacity: 1
+    transition: all .15s
+    transform-origin: 0 0
+    border-top: 2px solid white
+    border-left: 2px solid white
+    
+
+  &:before
+    transform: rotate(-45deg)
+  &:after
+    transform: rotate(135deg)
+  &:hover
+    &:before
+      transform: rotate(135deg)
+    &:after
+      transform: rotate(315deg)
+
+  &:active
+    transform: scale(.95)
+
+a
+  text-decoration: none
+  color: inherit
+  
+[id=footer]
+  margin-top: 10vh
+  padding: 10vh 0
+  text-align: center
+  .container
+    position: relative
+    &:before, &:after
+      content: ''
+      position: absolute
+      bottom: 100%
+      left: 20px
+      z-index: 10
+      border-top: 2px solid
+      width: 10%
+      margin-bottom: 10vh
+    &:after
+      left: auto
+      right: 20px
+
+  *
+    display: block
+    + *
+      margin-top: 5vh
+  .logo
+    font-weight: 600
+    font-size: 1.5em
+  .copy
+    text-transform: uppercase
+    font-size: .75em
+    font-weight: 600

@@ -12,7 +12,8 @@
 .audition{
     background-image: url(../img/Multicity.jpg);
     background-size: cover;
-    width : 101%;
+	width : 100%;
+	box-shadow: 0px 0px 20px 8px #000 inset;
 }
 
 .dhanbad{
@@ -48,3 +49,5 @@
 	-webkit-animation-iteration-count: infinite;
 	-webkit-animation-timing-function: linear;
 }
+
+.shadow {-webkit-filter: drop-shadow(10px 10px 10px green);filter: drop-shadow(10px 10px 10px green);}
