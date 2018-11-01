@@ -35,19 +35,27 @@
           $.scrollify({
             section : ".skrolll",
           });
-          $("#splash").delay(500).fadeOut(2000);
+          $("#splash > #init").fadeOut("fast",function(){});
+          $("#splash").addClass("bg2");
+          $("#splash").delay(4000).fadeOut(1000);  
         });
+
+        function preloadImage(url){
+            var img=new Image();
+            img.src=url;
+        }
+        preloadImage('/assets/img/card.gif');
   </script>
       
     <style>
         @media screen and (max-width:737px){
                         
-                        #logo-white{
-                            display:none;
-                        }
-                        #multicitytext{
-                            size:2px !important;
-                        }
+            #logo-white{
+                display:none;
+            }
+            #multicitytext{
+                size:2px !important;
+            }
         }
         #splash{
             position: fixed;
@@ -55,17 +63,27 @@
             left:0;
             width: 100%;
             height: 100%;
-            background-color: #000;
+            background: #000;
+            
             z-index: 10000;
+        }
+        .bg2{
+            background: url('/assets/img/card.gif'), #000 !important;
+            background-size: cover !important;
+            background-position: center !important;
         }
     </style>
 
 </head>
 
-<body class="body" data-gr-c-s-loaded="true" style="height: 3973px;">
+<body class="body" data-gr-c-s-loaded="true" style="">
+    <img src="/assets/img/card.gif" width="0" height="0" alt="">
     <div id="splash">
+        <div id="init">
+            Loading...
+        </div>
     <!-- Splash Screen -->
-        
+        <!-- <img src="/assets/img/card.gif" style="width:100%;height:100%;position: fixed;top:0px;left:0px;z-index: 10000;" alt="">     -->
     </div>
     <a href="javascript:void callPlayer(&quot;afterMovieVideo&quot;)"><div class="cover"></div></a>
     <div id="logo" data-100="opacity:1;" data-500="opacity:0; " class="" style="opacity: 1;">
@@ -131,11 +149,10 @@
             </div>
         </section>
         <section id="After-Movie" class="fp skrolll">
-            <div class="plaxEl skrollable skrollable-between" data-start="" data-80p="" data-100p="opacity: 1;top:0;"
-                data-anchor-target="#start-section" style=" top: 0px;" id="amParent">
-                <div id="afterMovieVideo_">
-                        <iframe width="160" height="80" frameborder="0" title="YouTube video player" type="text/html"  src="https://www.youtube.com/embed/tare6Drw0Ng?feature=oembed&controls=1&hd=1&modestbranding=1&autohide=1&showinfo=0&enablejsapi=1"></iframe>
-                </div>
+            <div id="afterMovieVideo" style="position: absolute;
+            transform: translateY(-50%);
+            top: 150%;">    
+                    <iframe width="160" height="80" frameborder="0" title="YouTube video player" type="text/html"  src="https://www.youtube.com/embed/tare6Drw0Ng?feature=oembed&controls=1&hd=1&modestbranding=1&autohide=1&showinfo=0&enablejsapi=1"></iframe>
             </div>
         </section>
     
