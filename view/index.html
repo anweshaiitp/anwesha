@@ -35,23 +35,38 @@
           $.scrollify({
             section : ".skrolll",
           });
+          $("#splash").delay(500).fadeOut(2000);
         });
-      </script>
+  </script>
+      
     <style>
-           @media screen and (max-width:737px){
-                            
-                            #logo-white{
-                                display:none;
-                            }
-                            #multicitytext{
-                                size:2px !important;
-                            }
-           }
+        @media screen and (max-width:737px){
+                        
+                        #logo-white{
+                            display:none;
+                        }
+                        #multicitytext{
+                            size:2px !important;
+                        }
+        }
+        #splash{
+            position: fixed;
+            top:0;
+            left:0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            z-index: 10000;
+        }
     </style>
 
 </head>
 
 <body class="body" data-gr-c-s-loaded="true" style="height: 3973px;">
+    <div id="splash">
+    <!-- Splash Screen -->
+        
+    </div>
     <a href="javascript:void callPlayer(&quot;afterMovieVideo&quot;)"><div class="cover"></div></a>
     <div id="logo" data-100="opacity:1;" data-500="opacity:0; " class="" style="opacity: 1;">
         <a href="http://anwesha.info/" class="logolink" target="_blank"></a>
@@ -63,7 +78,7 @@
     <div id="menu">
         <ul data-start="color:rgb(0,0,0); border-color:rgb(0,0,0); background: rgba(255,255,255,0.9);     box-shadow: 0 0 0px rgba(255,255,255,1);"
             data-500="color:rgb(0,0,0); border-color:rgb(0,0,0); background: rgba(255,255,255,0.9);     box-shadow: 0 0 10px rgba(255,255,255,1);"
-            class="skrollable skrollable-between" style="border-radius:20px;color: rgb(0,0,0); border-color: rgb(0,0,0); background: rgba(255,255,255,0.9); box-shadow: rgba(255,255,255,0, 1) 0px 0px 0px;">
+            class="skrollable skrollable-between" style="border-radius:20px;color: rgb(0,0,0); border-color: rgb(0,0,0); background: rgba(255,255,255,0.9); box-shadow: rgba(255,255,255,1) 0px 0px 30px;">
             <!-- <li id="home-link"><a href="#start-section">HOME</a></li> -->
             <li><a href="#After-Movie" id="">After-Movie</a></li>
             <li><a href="#About" id="">About</a></li>
@@ -71,6 +86,7 @@
             <li><a href="#Contact-Us" id="">Contact Us</a></li>
             <li><a href="#Audition" id="">Auditions</a></li>
             <li><a href="/ca" id="">Campus Ambassador</a></li>
+            <li><a href="/gallery" id="">Gallery</a></li>
             
         </ul>
     </div>
@@ -86,6 +102,7 @@
             <li><a href="#Contact-Us" id="">Contact Us</a></li>
             <li><a href="#Audition" id="">Auditions</a></li>
             <li><a href="/ca" id="">Campus Ambassador</a></li>
+            <li><a href="/gallery" id="">Gallery</a></li>
             
         </ul>
     </div>
@@ -350,7 +367,7 @@
                 if (isMobile){
                     $(".modalTrig").on("click",function () {
                     $.scrollify.disable();
-                    console.log("bak1");
+                    // console.log("bak1");
                     })
                     $(".modalClose").on("click", function () {
                         $.scrollify.enable();

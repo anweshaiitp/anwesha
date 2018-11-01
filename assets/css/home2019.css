@@ -112,9 +112,10 @@
 
 #mobile-nav li a {
     display: block;
-    padding: 20px 0;
+    padding: 10px 0;
     text-align: center;
-    font-size: 30px;
+    font-size: 25px;
+    font-family: PTC55F, cursive !important;
     color:white;
     text-decoration: none
 }
