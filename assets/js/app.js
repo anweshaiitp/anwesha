@@ -40,9 +40,11 @@ $(function () {
         // $("#cover").css('top',afterMovieOffset.top);   
         $(".cover").height(afterMovieIframe.height());   
         $(".cover").width(afterMovieIframe.width());   
-
+        
+    }else{
+        // $("#afterMovieVideo").css('transform','translateY('+ ($(window).height()-iframeH)/2 +')');
     }
-    $("#afterMovieVideo").css('top',max($(window).height() + ($(window).height()-iframeH)/2, $(window).height()));   
+    $("#afterMovieVideo").css('top',Math.max($(window).height() + ($(window).height()-iframeH)/2, $(window).height()));   
     // $("#cover").click(function () { 
     //     console.log('cl');
     //     callPlayer("amParent","playVideo");
