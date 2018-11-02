@@ -16,19 +16,33 @@ function callPlayer(frame_id, args) {
         "args": args || [],
         "id": frame_id
       }), "*");
-    }
+    // }
   }
+}
 $(function () {
     var afterMovieIframe =  $("#afterMovieVideo > iframe");
-    afterMovieIframe.width($(window).width());   
-    afterMovieIframe.height($(window).width()*(9/16));   
+    var windowH = $(window).height();
+    var windowW = $(window).width();
+    var iframeH = 0;
+    if (windowH < windowW*(9/16)){
+        iframeH = $(window).height();
+        afterMovieIframe.height(iframeH);
+        afterMovieIframe.width(iframeH*(16/9));
+    }else{
+        afterMovieIframe.width($(window).width());   
+        afterMovieIframe.height($(window).width()*(9/16));   
+        iframeH = $(window).width()*(9/16);
+    }
     afterMovieOffset = afterMovieIframe.offset();
     console.log(afterMovieOffset);
     if(!isMobile){
-        $("#cover").css('top',afterMovieOffset.top);   
-        $("#cover").height(afterMovieIframe.height());   
+        // afterMovieIframe.css('top','0px');   
+        // $("#cover").css('top',afterMovieOffset.top);   
+        $(".cover").height(afterMovieIframe.height());   
+        $(".cover").width(afterMovieIframe.width());   
 
     }
+    $("#afterMovieVideo").css('top',max($(window).height() + ($(window).height()-iframeH)/2, $(window).height()));   
     // $("#cover").click(function () { 
     //     console.log('cl');
     //     callPlayer("amParent","playVideo");
@@ -72,3 +86,8 @@ if (isMobile) {
 AOS.init({
     duration: 1000
   });
+$(window).bind("load", function() {
+    $("#splash").addClass("bg2");
+    $("#splash > #init").fadeOut("fast",function(){});
+    $("#splash").delay(4000).fadeOut(1000);      
+ });
