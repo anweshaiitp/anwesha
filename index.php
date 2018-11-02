@@ -60,8 +60,6 @@ if (preg_match($base . '$@', $url, $match)) {
 	header('Content-Length: '.strlen( $content ));
 	header('Content-disposition: inline; filename=" CA Rulebook, Anwesha \'19"');
 	echo $content;
-	require ('');
-	// header('Location: ../');
 } elseif (preg_match($base . 'index.php?$@', $url, $match)) {
 	header('Location: ./');
 } elseif (preg_match($base . 'leaderboard/?$@', $url, $match)) {
