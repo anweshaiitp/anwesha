@@ -129,7 +129,7 @@ class People{
             $error = "Invalid College Name. Error reference ID:".alog('clg inv'.$col);
         }  else if (!preg_match('/^[MFmf]$/', $se)) {
             $error = "Invalid Sex. Error reference ID:".alog('gen inv'.$se);
-        }  else if (!preg_match('/^[789][0-9]{9}$/', $mob)) {
+        }  else if (!preg_match('/^[56789][0-9]{9}$/', $mob)) {
             $error = "Invalid Mobile Number. Error reference ID:".alog('mob inv'.$mob);;
         }  else if (!filter_var($em, FILTER_VALIDATE_EMAIL)) {
             $error = "Invalid Email-ID. Error reference ID:".alog('em inv'.$em);;
