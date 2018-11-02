@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gallery | Anwesha</title>
+  <link href="/assets/css/css" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/home2019.css">
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat:300,600'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css'>
+
+      <link rel="stylesheet" href="/assets/gallery/css/style.css">
+
+      <style>
+      @import url(https://fonts.googleapis.com/css?family=Fjalla+One);
+
+body {
+  font-family: 'Fjalla One', sans-serif;
+  padding-left:107px;
+  padding-right:107px;
+  background-repeat: no-repeat;
+  background-size: 100vw;
+  background-color: black;
+  padding-bottom: 100px;
+}
+
+#logo,
+#logo-white {
+    /* background: url('') no-repeat; */
+    background-size: 47.4px 47.4px;
+    width: 47.4px;
+    height: 47.4px;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 100;
+    transition-timing-function: ease
+}
+
+#logo-white {
+    background-image: url('/assets/img/logo_favi2.png')
+}
+
+
+.button {
+  float: left;
+  position: relative;
+  bottom: -65px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-10deg);
+  color: #e55643;
+  text-transform: uppercase;
+  opacity: 0;
+  visibility: hidden;
+  cursor: pointer;
+}
+.button span {
+  transform: skew(-10deg);
+  display: block;
+  float: left;
+  text-shadow: #533d4a 1px 1px, #533d4a 2px 2px, #533d4a 3px 3px, #533d4a 4px 4px;
+}
+
+h1 {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 42px;
+  margin: 0;
+  line-height: 47px;
+  letter-spacing: 2px;
+}
+
+.title {
+  transform: translateX(-50%) rotate(-10deg);
+  display: block;
+  float: left;
+  left: 50%;
+  position: relative;
+}
+.title span {
+  transform: skew(-10deg);
+  display: block;
+  float: left;
+  text-shadow: #533d4a 1px 1px, #533d4a 2px 2px, #533d4a 3px 3px, #533d4a 4px 4px, #533d4a 5px 5px, #533d4a 6px 6px;
+  min-width: 10px;
+  min-height: 10px;
+  position: relative;
+}
+
+.title:nth-child(1) {
+  color: #e55643;
+}
+.title:nth-child(2) {
+  color: #2b9f5e;
+}
+.title:nth-child(3) {
+  color: #f1c83c;
+}
+
+      </style>
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/lettering.js/0.7.0/jquery.lettering.min.js"></script>
+      
+
+      <style>
+        .heading{
+          width: 50vw;
+          margin-left: 18vw;
+        }
+
+        .gallery-image{
+          padding: 10px;
+        }
+
+        .shadow {
+          -webkit-filter: drop-shadow(4px 4px 5px white);
+          filter: drop-shadow(4px 4px 5px white);
+        }
+
+        @media (max-width: 700px){
+          body{
+            padding:37px;
+          }
+          .container2{
+            margin-top: -30px;
+          }
+          h1{
+            font-size: 36px;
+          }
+          .heading{
+          width: 90vw;
+          margin-left: -5vw;
+        }
+        }
+
+        
+      </style>
+
+</head>
+
+<body>
+    
+    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.2';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+<div id="logo" data-100="opacity:1;" data-500="opacity:1; " style="opacity: 1;">
+    <a href="http://anwesha.info/" class="logolink" target="_blank"></a>
+  </div>
+  <div id="logo-white" data-300="opacity:1;" data-500="opacity:1;" style="">
+    <a href="http://anwesha.info/" class="logolink" target="_blank"></a>
+  </div>
+
+
+
+<!-- Navigation Menu -->
+<div id="menu">
+    <ul data-start="color:rgb(0,0,0); border-color:rgb(0,0,0); background: rgba(255,255,255,0.9);     box-shadow: 0 0 0px rgba(255,255,255,1);"
+      data-500="color:rgb(0,0,0); border-color:rgb(0,0,0); background: rgba(255,255,255,0.9);     box-shadow: 0 0 10px rgba(255,255,255,1);"
+      class="skrollable skrollable-between" style="border-radius:20px;color: rgb(0,0,0); border-color: rgb(0,0,0); background: rgba(255,255,255,0.9); box-shadow: rgba(255,255,255,1) 0px 0px 30px;">
+      <!-- <li id="home-link"><a href="#start-section">HOME</a></li> -->
+      <li><a href="/" id="">Back to Home Page</a></li>
+      <!-- <li><a href="/view/index.html/#About" id="">About</a></li>
+      <li><a href="/view/spons.html" id="">Sponsors</a></li>
+      <li><a href="/view/index.html/#Contact-Us" id="">Contact Us</a></li>
+      <li><a href="/view/index.html/#Audition" id="">Auditions</a></li>
+      <li><a href="/view/ca.php" id="">Campus Ambassador</a></li> -->
+      
+    </ul>
+  </div>
+  <div id="mobile-nav-btn" class="mobile-nav-btn dark " data-100="opacity:1;" data-500="opacity:0; "
+    style="opacity: 1;"></div>
+  <div class="mobile-nav-btn white " data-100="opacity:0;" data-500="opacity:1; " style=""></div>
+  <div id="mobile-nav" style="background-color:black">
+    <img src="/assets/img/close.png" class="close" alt="close menu" width="30" height="30">
+    <ul>
+      <li><a href="/" id="">Back to Home Page</a></li>
+    
+      
+    </ul>
+  </div>
+  <!-- /Navigation Menu -->
+
+
+  <footer id='footer' role='contentinfo'>
+
+    
+
+      
+    <img class="heading" src="/assets/gallery/pura.png">
+          
+        
+      
+        
+  </footer>
+  <br><br><br><br>
+  <article class='gallery'>
+  <a class='gallery-link' href='https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/27657119_1824874750878495_4637146170031457954_n.jpg?_nc_cat=103&_nc_ht=scontent-bom1-1.xx&oh=d9e3766827269a78843f914bbbbd07c8&oe=5C85E15F'>
+    <figure class='gallery-image shadow'>
+      
+      <img height='1400' src='https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/27657119_1824874750878495_4637146170031457954_n.jpg?_nc_cat=103&_nc_ht=scontent-bom1-1.xx&oh=d9e3766827269a78843f914bbbbd07c8&oe=5C85E15F' width='1000'>
+      <figcaption class = "hide"></figcaption>
+    </figure>
+  </a>
+  
+  
+  <a class='gallery-link' href='https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/27657336_1820752207957416_4214388365846105664_n.jpg?_nc_cat=110&_nc_ht=scontent-bom1-1.xx&oh=69f1cf4a7be3826fc100d7cafdb1bd47&oe=5C524426'>
+    <figure class='gallery-image shadow'>
+      <img height='1600' src='https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/27657336_1820752207957416_4214388365846105664_n.jpg?_nc_cat=110&_nc_ht=scontent-bom1-1.xx&oh=69f1cf4a7be3826fc100d7cafdb1bd47&oe=5C524426' width='1400'>
+      <figcaption class = "hide"></figcaption>
+    </figure>
+  </a>
+  <a class='gallery-link' href='https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/27751911_1820752451290725_4339633796346963630_n.jpg?_nc_cat=101&_nc_ht=scontent-bom1-1.xx&oh=f6a139a7a979279d6786a92ebe9ee5fd&oe=5C53D4EC'>
+    <figure class='gallery-image shadow'>
+      <img height='1200' src='https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/27751911_1820752451290725_4339633796346963630_n.jpg?_nc_cat=101&_nc_ht=scontent-bom1-1.xx&oh=f6a139a7a979279d6786a92ebe9ee5fd&oe=5C53D4EC' width='1400'>
+      <figcaption class = "hide"></figcaption>
+    </figure>
+  </a>
+  <a class='gallery-link' href='https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/27545014_1820751607957476_842587134644224829_n.jpg?_nc_cat=100&_nc_ht=scontent-bom1-1.xx&oh=05000f183da3998d207147523f1b4306&oe=5C5413C0'>
+    <figure class='gallery-image shadow'>
+      <img height='1600' src='https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/27545014_1820751607957476_842587134644224829_n.jpg?_nc_cat=100&_nc_ht=scontent-bom1-1.xx&oh=05000f183da3998d207147523f1b4306&oe=5C5413C0' width='1600'>
+      <figcaption class = "hide"></figcaption>
+    </figure>
+  </a>
+  <a class='gallery-link' href='https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/27544563_1820752501290720_2495884125407611192_n.jpg?_nc_cat=101&_nc_ht=scontent-bom1-1.xx&oh=a1d2a8a1149b32876d1353a1467d350c&oe=5C54AFE3'>
+    <figure class='gallery-image shadow'>
+      <img height='1200' src='https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/27544563_1820752501290720_2495884125407611192_n.jpg?_nc_cat=101&_nc_ht=scontent-bom1-1.xx&oh=a1d2a8a1149b32876d1353a1467d350c&oe=5C54AFE3' width='1200'>
+      <figcaption class = "hide"></figcaption>
+    </figure>
+  </a>
+  <a class='gallery-link' href='https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/27749771_1822473204451983_5745264569018203478_n.jpg?_nc_cat=102&_nc_ht=scontent-bom1-1.xx&oh=c2abd18d01aff7cbbbeec1b7adce57cd&oe=5C812FA7'>
+    <figure class='gallery-image shadow'>
+      <img height='1200' src='https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/27749771_1822473204451983_5745264569018203478_n.jpg?_nc_cat=102&_nc_ht=scontent-bom1-1.xx&oh=c2abd18d01aff7cbbbeec1b7adce57cd&oe=5C812FA7' width='1600'>
+      <figcaption class = "hide"></figcaption>
+    </figure>
+  </a>
+  <a class='gallery-link' href='https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/27655453_1822473511118619_2176233339581911078_n.jpg?_nc_cat=102&_nc_ht=scontent-bom1-1.xx&oh=0d85928661dff09a58214fd26ce0822d&oe=5C49C826'>
+    <figure class='gallery-image shadow'>
+      <img height='1000' src='https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/27655453_1822473511118619_2176233339581911078_n.jpg?_nc_cat=102&_nc_ht=scontent-bom1-1.xx&oh=0d85928661dff09a58214fd26ce0822d&oe=5C49C826' width='1600'>
+      <figcaption class = "hide"></figcaption>
+    </figure>
+  </a>
+  <a class='gallery-link' href='https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/27655087_1822473581118612_2109245312683440429_n.jpg?_nc_cat=106&_nc_ht=scontent-bom1-1.xx&oh=5727990a38e76e2a88b917faf871682b&oe=5C4BDC5D'>
+    <figure class='gallery-image shadow'>
+      <img height='1600' src='https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/27655087_1822473581118612_2109245312683440429_n.jpg?_nc_cat=106&_nc_ht=scontent-bom1-1.xx&oh=5727990a38e76e2a88b917faf871682b&oe=5C4BDC5D' width='1600'>
+      <figcaption class = "hide"></figcaption>
+    </figure>
+  </a>
+  <a class='gallery-link' href='https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/27655288_1820750781290892_138366471062403085_n.jpg?_nc_cat=105&_nc_ht=scontent-bom1-1.xx&oh=2c75aa2d2961a4b96905775c8cfd5053&oe=5C4D8DE3'>
+    <figure class='gallery-image shadow'>
+      <img height='1600' src='https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/27655288_1820750781290892_138366471062403085_n.jpg?_nc_cat=105&_nc_ht=scontent-bom1-1.xx&oh=2c75aa2d2961a4b96905775c8cfd5053&oe=5C4D8DE3' width='1400'>
+      <figcaption class = "hide"></figcaption>
+    </figure>
+  </a>
+  <a class='gallery-link' href='https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/27752210_1824874450878525_7376720865947706829_n.jpg?_nc_cat=111&_nc_ht=scontent-bom1-1.xx&oh=adcb12bc783d8bc0b504b1187752f50b&oe=5C4D002C'>
+    <figure class='gallery-image shadow'>
+      <img height='1600' src='https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/27752210_1824874450878525_7376720865947706829_n.jpg?_nc_cat=111&_nc_ht=scontent-bom1-1.xx&oh=adcb12bc783d8bc0b504b1187752f50b&oe=5C4D002C' width='1400'>
+      <figcaption class = "hide"></figcaption>
+    </figure>
+  </a>
+  <a class='gallery-link' href='https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/27749854_1824873997545237_3937629622072467708_n.jpg?_nc_cat=106&_nc_ht=scontent-bom1-1.xx&oh=b1db8d60c8c5aa721979c5c33f77297e&oe=5C4512B3'>
+    <figure class='gallery-image shadow'>
+      <img height='1600' src='https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/27749854_1824873997545237_3937629622072467708_n.jpg?_nc_cat=106&_nc_ht=scontent-bom1-1.xx&oh=b1db8d60c8c5aa721979c5c33f77297e&oe=5C4512B3' width='1400'>
+      <figcaption class = "hide"></figcaption>
+    </figure>
+  </a>
+  <a class='gallery-link' href='https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/27858400_1820751857957451_365040203147471775_n.jpg?_nc_cat=109&_nc_ht=scontent-bom1-1.xx&oh=a1d09577b6a6c5951a7d70e32024801b&oe=5C469014'>
+    <figure class='gallery-image shadow'>
+      <img height='1600' src='https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/27858400_1820751857957451_365040203147471775_n.jpg?_nc_cat=109&_nc_ht=scontent-bom1-1.xx&oh=a1d09577b6a6c5951a7d70e32024801b&oe=5C469014' width='1400'>
+      <figcaption class = "hide"></figcaption>
+    </figure>
+  </a>
+  <a class='gallery-link' href='https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/27654553_1820751697957467_906287495234822995_n.jpg?_nc_cat=104&_nc_ht=scontent-bom1-1.xx&oh=4cfb8d63e19635d4a4c5f1c5357b75b2&oe=5C89F31E'>
+    <figure class='gallery-image shadow'>
+      <img height='1600' src='https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/27654553_1820751697957467_906287495234822995_n.jpg?_nc_cat=104&_nc_ht=scontent-bom1-1.xx&oh=4cfb8d63e19635d4a4c5f1c5357b75b2&oe=5C89F31E' width='1400'>
+      <figcaption class = "hide"></figcaption>
+    </figure>
+  </a>
+  <a class='gallery-link' href='https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/27545529_1820751407957496_177269107452486300_n.jpg?_nc_cat=102&_nc_ht=scontent-bom1-1.xx&oh=f0bd46804abae8467cd75d61c63d6695&oe=5C75F91E'>
+    <figure class='gallery-image shadow'>
+      <img height='1600' src='https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/27545529_1820751407957496_177269107452486300_n.jpg?_nc_cat=102&_nc_ht=scontent-bom1-1.xx&oh=f0bd46804abae8467cd75d61c63d6695&oe=5C75F91E' width='1400'>
+      <figcaption class = "hide"></figcaption>
+    </figure>
+  </a>
+  <a class='gallery-link' href='https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/27658021_1822472424452061_1622012936493401895_n.jpg?_nc_cat=102&_nc_ht=scontent-bom1-1.xx&oh=8fd31f21e3bf8d82b1590dcbb86a0a6b&oe=5C7F9A50'>
+    <figure class='gallery-image shadow'>
+      <img height='1600' src='https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/27658021_1822472424452061_1622012936493401895_n.jpg?_nc_cat=102&_nc_ht=scontent-bom1-1.xx&oh=8fd31f21e3bf8d82b1590dcbb86a0a6b&oe=5C7F9A50' width='1400'>
+      <figcaption class = "hide"></figcaption>
+    </figure>
+  </a>
+  <a class='gallery-link' href='https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/27654876_1822472024452101_6596066373376543446_n.jpg?_nc_cat=103&_nc_ht=scontent-bom1-1.xx&oh=7807e2cc3ea9f9cfdf2cf8b16d50e596&oe=5C8876D1'>
+    <figure class='gallery-image shadow'>
+      <img height='1600' src='https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/27654876_1822472024452101_6596066373376543446_n.jpg?_nc_cat=103&_nc_ht=scontent-bom1-1.xx&oh=7807e2cc3ea9f9cfdf2cf8b16d50e596&oe=5C8876D1' width='1400'>
+      <figcaption class = "hide"></figcaption>
+    </figure>
+  </a>
+  <a class='gallery-link' href='https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/27657007_1822472201118750_1669520361287435439_n.jpg?_nc_cat=106&_nc_ht=scontent-bom1-1.xx&oh=8c65af75eafa22d1c06a585f58831065&oe=5C434541'>
+    <figure class='gallery-image shadow'>
+      <img height='1600' src='https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/27657007_1822472201118750_1669520361287435439_n.jpg?_nc_cat=106&_nc_ht=scontent-bom1-1.xx&oh=8c65af75eafa22d1c06a585f58831065&oe=5C434541' width='1400'>
+      <figcaption class = "hide"></figcaption>
+    </figure>
+  </a>
+  <a class='gallery-link' href='https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/27867631_1822469621119008_2205782000662615607_n.jpg?_nc_cat=102&_nc_ht=scontent-bom1-1.xx&oh=f1297087e216a384735fe8dd6c715c43&oe=5C3FDDDF'>
+    <figure class='gallery-image shadow'>
+      <img height='1600' src='https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/27867631_1822469621119008_2205782000662615607_n.jpg?_nc_cat=102&_nc_ht=scontent-bom1-1.xx&oh=f1297087e216a384735fe8dd6c715c43&oe=5C3FDDDF' width='1400'>
+      <figcaption class = "hide"></figcaption>
+    </figure>
+  </a>
+  <a class='gallery-link' href='https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/27973534_1822471111118859_6363397950040851762_n.jpg?_nc_cat=101&_nc_ht=scontent-bom1-1.xx&oh=bb3376be639851a6218f18648ddf7add&oe=5C40C759'>
+    <figure class='gallery-image shadow'>
+      <img height='1600' src='https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/27973534_1822471111118859_6363397950040851762_n.jpg?_nc_cat=101&_nc_ht=scontent-bom1-1.xx&oh=bb3376be639851a6218f18648ddf7add&oe=5C40C759' width='1400'>
+      <figcaption class = "hide"></figcaption>
+    </figure>
+  </a>
+  <a class='gallery-link' href='https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/27655227_1822471564452147_4472215031031822362_n.jpg?_nc_cat=104&_nc_ht=scontent-bom1-1.xx&oh=cc73138c2dea03db2f7734e4055b6520&oe=5C3EE70B'>
+    <figure class='gallery-image shadow'>
+      <img height='1600' src='https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/27655227_1822471564452147_4472215031031822362_n.jpg?_nc_cat=104&_nc_ht=scontent-bom1-1.xx&oh=cc73138c2dea03db2f7734e4055b6520&oe=5C3EE70B' width='1400'>
+      <figcaption class = "hide"></figcaption>
+    </figure>
+  </a>
+  <a class='gallery-link' href='https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/27867902_1822471831118787_106095294689587136_n.jpg?_nc_cat=109&_nc_ht=scontent-bom1-1.xx&oh=4f6c6cf865c00e1853f3239d68056451&oe=5C40D6CD'>
+    <figure class='gallery-image shadow'>
+      <img height='1600' src='https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/27867902_1822471831118787_106095294689587136_n.jpg?_nc_cat=109&_nc_ht=scontent-bom1-1.xx&oh=4f6c6cf865c00e1853f3239d68056451&oe=5C40D6CD' width='1400'>
+      <figcaption class = "hide"></figcaption>
+    </figure>
+  </a>
+</article>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js'></script>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js'></script>
+
+
+
+  
+
+    <script  src="/assets/gallery/js/index.js"></script>
+    <script>
+        $(document).ready(function() {
+        $(".title").lettering();
+        $(".button").lettering();
+      });
+      
+      
+      
+      
+      
+      $(document).ready(function() {
+        animation();
+      }, 1000);
+      
+      $('.button').click(function() {
+        animation();
+      });
+      
+      
+      function animation() {
+        var title1 = new TimelineMax();
+        title1.to(".button", 0, {visibility: 'hidden', opacity: 0})
+        title1.staggerFromTo(".title span", 0.5, 
+        {ease: Back.easeOut.config(1.7), opacity: 0, bottom: -80},
+        {ease: Back.easeOut.config(1.7), opacity: 1, bottom: 0}, 0.05);
+        title1.to(".button", 0.2, {visibility: 'visible' ,opacity: 1})
+      }
+        </script>
+
+<!-- <script src="/assets/js/app.js"></script> -->
+
+
+</body>
+
+</html>

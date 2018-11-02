@@ -34,7 +34,7 @@ preg_match('@(.*)index.php(.*)$@', $_SERVER['PHP_SELF'], $mat );
 $base = '@^'. $mat[1] ;
 
 if (preg_match($base . '$@', $url, $match)) {
-		require ('view/coming_soon.php');
+		require ('view/index.html');
 } elseif (preg_match($base . 'register/?$@', $url, $match)) {
 	require ('view/reg.php');
 } elseif (preg_match($base . 'register_bare/?$@', $url, $match)) {
@@ -60,8 +60,6 @@ if (preg_match($base . '$@', $url, $match)) {
 	header('Content-Length: '.strlen( $content ));
 	header('Content-disposition: inline; filename=" CA Rulebook, Anwesha \'19"');
 	echo $content;
-	require ('');
-	// header('Location: ../');
 } elseif (preg_match($base . 'index.php?$@', $url, $match)) {
 	header('Location: ./');
 } elseif (preg_match($base . 'leaderboard/?$@', $url, $match)) {
@@ -81,7 +79,7 @@ if (preg_match($base . '$@', $url, $match)) {
 } elseif ( preg_match($base .'faq/?$@', $url, $match ) ) {
 	require ('view/faq.php');
 } elseif (preg_match($base . 'gallery/?$@', $url, $match)) {
-	require ('view/gallery.php');
+	require ('view/gallery.html');
 } elseif (preg_match($base . 'sponsors/?$@', $url, $match)) {
 	require ('view/spons.html');
 } elseif (preg_match($base . 'switchca/$@', $url, $match)) {

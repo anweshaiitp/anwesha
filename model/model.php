@@ -129,7 +129,7 @@ class People{
             $error = "Invalid College Name. Error reference ID:".alog('clg inv'.$col);
         }  else if (!preg_match('/^[MFmf]$/', $se)) {
             $error = "Invalid Sex. Error reference ID:".alog('gen inv'.$se);
-        }  else if (!preg_match('/^[789][0-9]{9}$/', $mob)) {
+        }  else if (!preg_match('/^[56789][0-9]{9}$/', $mob)) {
             $error = "Invalid Mobile Number. Error reference ID:".alog('mob inv'.$mob);;
         }  else if (!filter_var($em, FILTER_VALIDATE_EMAIL)) {
             $error = "Invalid Email-ID. Error reference ID:".alog('em inv'.$em);;
@@ -876,7 +876,7 @@ class People{
 
         $message .= "In case you have any registration related queries feel free to contact, $ANWESHA_REG_CONTACT or drop an email to <i>$ANWESHA_REG_EMAIL</i>.
             <br> 
-            You can also visit our website <i>$ANWESHA_URL</i> for more information.";
+            You can also visit our website <i>$ANWESHA_URL</i> for more information. Watch the official aftermovie for Anwesha 2k18 here:<br><a href='https://www.youtube.com/watch?v=tare6Drw0Ng'><img src='https://i.ytimg.com/vi/tare6Drw0Ng/hqdefault.jpg' height='200'></a>";
         if(file_exists($qrDir))
             $message .= "<br>Yor Registration QRcode is as below and is also attached to this email:<br>
             <img src='".$actual_link."/qr/anw".$id.".png' height='100' width='100' >";

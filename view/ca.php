@@ -9,23 +9,153 @@
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 		<!--[if lte IE 8]><link rel="stylesheet" href="../assets/css/ie8.css" /><![endif]-->
 		<style>
-			#FB-Oauth,#FB-Oauth2{
+                    .imgClass{
+                            position: absolute;
+                            
+                        }
+                        .imgClass img{
+                            max-width: 100%;
+                            height: auto;
+                        }
+                    
+                    
+                    .fb2css{
+						padding: 10px;
+				    background-color: rgba(98, 153, 193, 0.76);
+				    margin: 30px;
+				    border-radius: 10px;
+				    left: 50%;
+				    /*position: absolute;*/
+				    /*transform: translateX(-50%);*/
+					width: 85% !important;
+					width: 300px;		
+					}
+			#FB-Oauth{
 				padding: 10px;
 				    background-color: rgba(98, 153, 193, 0.76);
-				    
 				    margin: 30px;
 				    border-radius: 10px;
 				    left: 50%;
 				    /*position: absolute;*/
 				    /*transform: translateX(-50%);*/
 					/* width: 90% !important; */
-					width: 300px;
+					width: 300px;                     
 			}
 			/*@media screen and (max-width: 600px) {
 			#FB-Oauth,#FB-Oauth2{
 				width: 300px;
-			} */
-		</style>
+			}} */
+                        @media screen and (max-width:4000px){
+                            .img6{
+                                top: 0px;
+                                right: 0px;
+                                width: 490px;
+                            }
+                            .img5{
+                                top: 0px;
+                                left: 0px;
+                                width: 400px;
+                            }
+                        }
+                        @media screen and (max-width:1100px){
+                            .img5{
+                                top: 0px;
+                                left: 0px;
+                                width: 300px;
+                            }
+                            .img6{
+                                top: 0px;
+                                right: 0px;
+                                width: 400px;
+                            }
+                        }
+                        @media screen and (max-width:980px){
+                            section blockquote{
+                            font-size: 1.2em;
+                        }
+                        
+                        }
+                        @media screen and (max-width:900px){
+                            .img6{
+                                top: 0px;
+                                right: 0px;
+                                width: 320px;
+                            }
+                            .img5{
+                                top: 0px;
+                                left: 0px;
+                                width: 300px;
+                            }
+                        }
+                        
+                        @media screen and (max-width:736px){
+                            
+                        .img1{
+                            height: 180px;
+                            bottom: 40px;
+                            left: 40px;
+                            width: 150px;
+                        }
+                        .img2{
+                            top: 0px;
+                            height: 200px;
+                            width: 100px;
+                            right: 0px;
+                        }
+                        .img3{
+                            top: 0px;
+                            left: 0px;
+                            height: 100px;
+                            width:100px;
+                            
+                            
+                        }
+                        .img4{
+                            top: 5%;
+                            left: 0px;
+                            width: 300px;
+                           margin: 0px auto;
+                            
+                        }
+                        .imgcontainer{
+                            top: 0px;
+                            left: 0;
+                            width: 100%;
+                            right: 0;
+                        }
+                        #header{
+                            height: 100% ;
+                            width: 100% ;
+                            
+                        }
+                        #header center{
+                            position:absolute;
+                            width: 100%;
+                            top: 61%;
+                            z-index:20;
+                            left: -11px;
+                            margin-top: -100px;
+                        }
+                        .feature .content :last-child{
+                            text-align: justify;
+                        }
+                        section blockquote{
+                            font-size: 1.1em;
+                        }
+                        .type2{
+                            display: none;
+                        }
+                        }
+                        
+                        
+                        @media screen and (min-width:737px){
+                            
+                            .type1{
+                                display:none;
+                            }
+                            
+                        }
+                        		</style>
 		<script>
 	$(document).ready(function(){
 			$("#submit").click(function(event){
@@ -221,15 +351,21 @@
 				-->
 				<br><br><br><br><br>
 				<center>
-					
 				<div id="FB-Oauth">
 					<div class="fb-text">Sign-Up with Facebook</div>
 					<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with"  data-auto-logout-link="true" data-use-continue-as="true" data-scope="email,public_profile,user_location,user_birthday,user_about_me" onlogin="auth_response_change_callback();"></div>
-					
 					<!-- <br> <a id="test">This this</a> -->
 				</div>
 				</center>
-			
+                                <div class="imgClass type1 img1"><img src="../assets/img/1.png"></div>
+                                <div class="imgClass type1 img2"><img src="../assets/img/2.png"></div>
+                                <div class="imgClass type1 img3"><img src="../assets/img/3.png"></div>
+                                <div class="imgcontainer type1 imgClass">
+                                    <div class=" img4"><img src="../assets/img/4.png">
+                                </div>
+                                </div>
+                                <div class="imgClass type2 img5 "><a href="/" style="border-color:rgb(0,0,0,0)"><img src="../assets/img/CA.png"></a></div>
+                                <div class="imgClass type2 img6 "><img src="../assets/img/CA Text.png"></div>
 			</div>
 
 		<!-- Main -->
@@ -238,8 +374,7 @@
 				<header class="major container 95%">
 				<h1 style="font-size: 40px">About us</h1><br>
 					<p>
-						Anwesha is the annual techno-cultural extravaganza celebrated with utmost pomp and vigour, in spring. Since it's inception in 2010, it has grown into one of the most anticipated student organized youth festival. From NASA scientists to stupendous dancers, from ethical hackers to spellbinding singers, from game development to  gaming war, from robotics to dramatics, from Model United Nations to foreign exchange conferences, from Sufi to Death Metal, Anwesha, lives up to it's motto "Think. Dream. Live.", urging every individual to unleash their  inner passion to reach their ultimate dream. Student fraternity who work day in day out, pouring out all of their heart into promoting intellectualism and creativity, while also maintaing the brand value of one of the most prestigious institute of the nation, IIT. Anwesha, derived from the Sanskrit word meaning "quest" aims at unbridling the soul of every individual into the quest of finding one's self and reaching to his/her full potential. The latest edition of Anwesha saw a footfall of around ""the number"", of people belonging to a  plethora of sectos such as computer geeks, gaming freaks, technoholics, music maniacs, dance enthusiasts and rock bands hailing from well-known institutes across the country.
-					</p>
+					Anwesha is the annual techno-cultural extravaganza celebrated with utmost pomp and vigour, in spring. Since it's inception in 2010, it has grown into one of the most anticipated student organized youth festival. From NASA scientists to stupendous dancers, from ethical hackers to spellbinding singers, from game development to  gaming war, from robotics to dramatics, from Model United Nations to foreign exchange conferences, from Sufi to Death Metal, Anwesha, lives up to it's motto "Think. Dream. Live.", urging every individual to unleash their  inner passion to reach their ultimate dream. Student fraternity who work day in day out, pouring out all of their heart into promoting intellectualism and creativity, while also maintaing the brand value of one of the most prestigious institute of the nation, IIT. Anwesha, derived from the Sanskrit word meaning "quest" aims at unbridling the soul of every individual into the quest of finding one's self and reaching to his/her full potential. The latest edition of Anwesha saw a footfall of around 15 K, of people belonging to a  plethora of sectos such as computer geeks, gaming freaks, technoholics, music maniacs, dance enthusiasts and rock bands hailing from well-known institutes across the country.					</p>
 					<!--
 					<p>Tellus erat mauris ipsum fermentum<br />
 					etiam vivamus nunc nibh morbi.</p>
@@ -251,15 +386,18 @@
 						<a class="image icon  fa-retweet"><img src="../assets/images/pic07.jpg" alt="" height="700"/></a>
 						<div class="content">
 							<h3>What is Campus Ambassador?</h3>
-							<p>The Campus Ambassador Program (CA) is one of the leading publicity programs of Anwesha. Campus Ambassadors serve as the face of the one of the biggest cultural festival in North-East India in their college and are expected to increase outreach of the fest through on ground and social media publicity. Exciting prizes up for grab apart from the coveted Certificate and goodies.</p>
+							<p>
+							The Campus Ambassador program is one of the leading publicity programs of  Anwesha The promotion of the fest in the respective colleges is assigned to the campus ambassadors. They serve as the intermediaries who bridge the gap between their college and our campus i.e, as a nodal point for any kind of communication or promotion. Campus ambassadors act as the face of one of the biggest cultural festival in the entire North-East India and are entrusted with the job of increasing the outreach of the fest through on field and social media publicity. The campus ambassadors are entitled to exciting prizes, apart from the coveted certificate and many other goodies.							
+							</p>
 						</div>
 					</section>
 					<section class="feature right">
 						<a class="image icon fa-sitemap"><img src="../assets/images/pic07.jpg" alt="" height="700"/></a>
 						<div class="content">
 							<h3>Why CA?</h3>
-							<p> This is an extremely edifying opportunity where one gets to improve their oratory skills and managerial skills by interacting with people and encouraging them to take part in a fest of such huge grandeur. Apart from  being advantageous on both personal and managerial grounds, working as a CA also comes with the additional perks of being conferred with a certificate from Anwesha, IIT Patna validating your work as a campus ambassador. Not to forget are the exhilaratinging prizes and goodies that a CA receives.
-   							</p>
+							<p> 
+							This is an extremely edifying opportunity where one gets to improve their oratory skills and managerial skills by interacting with people and encouraging them to take part in a fest of such huge grandeur. Apart from  being advantageous on both personal and managerial grounds, working as a CA also comes with the additional perks of being conferred with an assured certificate from Anwesha, IIT Patna validating your work as a campus ambassador. Not to forget are the exhilaratinging prizes and goodies that a CA receives.   							
+							</p>
 						</div>
 					</section>
 				</div>
@@ -270,7 +408,7 @@
 						<header>
 							<h3>CA's Experience</h3>
 						</header>
-						<blockquote> Anwesha .. whenever I think about it...the word comes in my mind is....#teamwork & path provider of talents..Before anwesha...I was just a boy in my college...but when I participated in 2k17 addition..i got a chance to work & perform with super talented guys..  now..it's just because of Anwesha..I am cultural Coordinator of my College..In short it brings ...a revolutionary changes in my life... Thanks team anwesha<br>-<b>Arya S Prince</b> </blockquote>
+						<blockquote> Anwesha .. whenever I think about it...the word comes in my mind is....#teamwork & path provider of talents..Before anwesha...I was just a boy in my college...but when I participated in 2k17 addition..i got a chance to work & perform with super talented guys..  now..it's just because of Anwesha..I am cultural Coordinator of my College..In short it brings ...a revolutionary changes in my life... Thanks team anwesha<br>-<b>Aryan S Prince</b> </blockquote>
 						<blockquote> Hello IITP, I remember I went Anwesha when I was in the first year of my college .I was scared but yeah that experience pulled me again and again and Anwesha 2K18 was my third year in a row.And this year was Damn amazing..The theme was magical ..The environment was spellbinding. And Yeah The thing you guys implemented this year this College ambassador thing was really great idea.. I really enjoyed working and sharing the notifications of Anwesha 2k18 In between of those times sometimes I started feeling like I am the part of the Team and yeah It was great being a part of such great environment and such enthusiastic People.. Anwesha is not just a college fest it feels like it's a Festival that comes every year and we all celebrate it together.. 🖤 <br>-<b>Mridul Choudhary</b> </blockquote>
 						<blockquote>As you mentioned Anwesha the biggest techno-cultural fest of north-east India being a campus ambassador for it was an amazing experience.You'll organised the whole function perfectly.I not only enjoyed being working as the campus ambassador but also enjoyed your fest.The participants from my college were also very happy by your organisation.Hope to continue to work with you all more as i gained a good experience. Thank you for selecting me as the campus ambassador of my college. <br>-<b>Kamal Kant</b> </blockquote>
 					</section>
@@ -371,7 +509,7 @@
 						<h2>Sign-Up</h2>
 						<center>
 							<h2>Step 1</h2>
-						<div id="FB-Oauth2">
+						<div id="FB-Oauth2" class="fb2css">
 							 <div class="fb-text">Sign-Up with Facebook</div>
 							<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with"  data-auto-logout-link="true" data-use-continue-as="true" data-scope="email,public_profile,user_location,user_likes,user_posts,user_birthday,user_about_me" onlogin="auth_response_change_callback();"></div><!-- <br>
 							<a id="test">This this</a> -->
@@ -486,4 +624,5 @@
 			<script src="../assets/js/main.js"></script>
 
 	</body>
+        
 </html>
