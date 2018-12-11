@@ -9,14 +9,14 @@
         if($evedat[0]==1){
             $desc = ($evedat[1]['short_desc']==null || $evedat[1]['short_desc']=="")?$evedat[1]['short_desc']:$evedat[1]['long_desc'];
             ?>
-            <link href="/images/logo_favi.png" rel="icon" >
+            <link href="assets/images/logo_favi.png" rel="icon" >
             <title><?php echo $evedat[1]['eveName']; ?> | Events | Anwesha '18</title>
 	  <meta name="description" content="<?php echo $desc; ?>" />
 	  <META NAME="Keywords" CONTENT="Anwesha,IIT Patna,IITP,IIT,college,fest,<?php echo $evedat[1]['eveName']; ?>">
 	  <meta name="theme-color" content="#2b2b2b">
 	  <meta itemprop="name" content="<?php echo $evedat[1]['eveName']; ?> | Events | Anwesha '18">
 	  <meta itemprop="description" content="<?php echo $desc; ?>">
-	  <meta itemprop="image" content="//anwesha.info/images/anw_theme.jpg">
+	  <meta itemprop="image" content="//anwesha.info/assets/images/anw_theme.jpg">
 	  
 	  <meta name="twitter:card" content="summary_large_image">
 	  <meta name="twitter:site" content="@anweshaiitp">
@@ -24,12 +24,12 @@
 	  <meta name="twitter:description" content="<?php echo $desc; ?>">
 	  <meta name="twitter:creator" content="@anweshaiitp">
 	  
-	  <meta name="twitter:image:src" content="//anwesha.info/images/anw_theme.jpg">
+	  <meta name="twitter:image:src" content="//anwesha.info/assets/images/anw_theme.jpg">
 	  
 	  <meta property="og:title" content="<?php echo $evedat[1]['eveName']; ?> | Events | Anwesha '18" />
 	  <meta property="og:type" content="article" />
 	  <meta property="og:url" content="//anwesha.info/" />
-	  <meta property="og:image" content="//anwesha.info/images/anw_theme.jpg" />
+	  <meta property="og:image" content="//anwesha.info/assets/images/anw_theme.jpg" />
 	  <meta property="og:description" content="<?php echo $desc; ?>" />
 	  <meta property="og:site_name" content="Anwesha2k18" />
 	  <meta property="article:published_time" content="2017-10-11T05:59:00+01:00" />
@@ -51,9 +51,9 @@
 
     <meta name="viewport" content="width=device-width, initial-scale= 1">
 
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/style.css" rel="stylesheet">
-    <link href="/images/logo_favi.png" rel="icon">
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/css/styleevent.css" rel="stylesheet">
+    <link href="/assets/images/logo_favi.png" rel="icon">
 
     <!--------styling for events page---------->
     <style type="text/css">
@@ -75,7 +75,7 @@
 <!---------header-----bar-->
     <div class="header_div">
         <div class="menu_toggle">
-            <img src="/images/skull_menu.png">
+            <img src="/assets/images/skull_menu.png">
             <span> MENU </span>
         </div>
     </div>
@@ -98,20 +98,20 @@
 <!-----doors---->
     <div class="menu_backgrnd">
         <div class="overlay"></div>
-        <img class="creep" src="/images/creep.png">
+        <img class="creep" src="/assets/images/creep.png">
         <br>
-        <img class="boundary" src="/images/bound.png">
+        <img class="boundary" src="/assets/images/bound.png">
     </div>
 
 <!-----moving ----witch------>
-    <img id="moving_witch" class="moving_witch" src="/images/witch_right_1.png">
+    <img id="moving_witch" class="moving_witch" src="/assets/images/witch_right_1.png">
 
 <!-----fixed ----cloud------>
     <div class="cloud_div"></div>
 
 <!-----moving ----cloud------>
     <div class="moving_cloud_div">
-        <img src="/images/moving_cloud.png">
+        <img src="/assets/images/moving_cloud.png">
     </div>
 
 <!--events page content-------->
@@ -123,7 +123,7 @@
             <button class="arts_button">Arts & Welfare</button>
         </div>
         <?php if(isset($match[2])){?>
-            <center> <img src="/images/load.gif" id="bodyajaxLoadWait" alt="" style="transform: scale(0.5);"> </center>
+            <center> <img src="/assets/images/load.gif" id="bodyajaxLoadWait" alt="" style="transform: scale(0.5);"> </center>
         <?php } ?>
         <div id="event_cat_div" class="tech_event">
 
@@ -132,7 +132,7 @@
             </div>
 
             <div class="tech_content">
-                <center> <img src="/images/load.gif" id="ajaxLoadWait" alt="" style="transform: scale(0.5);"> </center>
+                <center> <img src="/assets/images/load.gif" id="ajaxLoadWait" alt="" style="transform: scale(0.5);"> </center>
                 <div id="mainarea"  style='display:none;color:white;padding:2em'>
                     <center>
                         <div id="">
@@ -366,15 +366,15 @@
     </div>
 
     <div class="ajax_loading_div">
-        <img class="close_icon" src="/images/close2.png"/>
+        <img class="close_icon" src="/assets/images/close2.png"/>
         <div class="ajax_content"></div>
     </div>
 
 <!---footer-->
     <div class="footer_div">
-        <a target="_blank" href="https://www.facebook.com/anwesha.iitpatna/"><img src="/images/social/fb.png"></a>
-        <a target="_blank" href="https://www.instagram.com/anwesha.iitp/"><img src="/images/social/insta.png"></a>
-        <a target="_blank" href="https://www.youtube.com/user/AnweshaIITP"><img src="/images/social/youtube.png"></a>
+        <a target="_blank" href="https://www.facebook.com/anwesha.iitpatna/"><img src="/assets/images/social/fb.png"></a>
+        <a target="_blank" href="https://www.instagram.com/anwesha.iitp/"><img src="/assets/images/social/insta.png"></a>
+        <a target="_blank" href="https://www.youtube.com/user/AnweshaIITP"><img src="/assets/images/social/youtube.png"></a>
         
         <div class="copyright">
             &copy; 2018 Anwesha, IIT Patna
@@ -383,7 +383,7 @@
 
 
  <!--scripts-->
-    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.js"></script>
     <script type="text/javascript">
     var eveglid =-1;
     var currPar = "tech_content";
@@ -489,7 +489,7 @@
         else
         {
           $('.menu_toggle span').text('EXIT').fadeIn(800);
-          $('.menu_toggle img').attr('src', '/images/skull_exit.png');
+          $('.menu_toggle img').attr('src', '/assets/images/skull_exit.png');
           $('.menu_backgrnd').fadeIn(800);
           $('.menu_bar').slideDown(800);
         }
@@ -498,7 +498,7 @@
       $('.menu_backgrnd').click(function()
       {
         $('.menu_toggle span').text('MENU');
-        $('.menu_toggle img').attr('src', '/images/skull_menu.png');
+        $('.menu_toggle img').attr('src', '/assets/images/skull_menu.png');
         $('.menu_backgrnd').fadeOut(800);
         $('.menu_bar').slideUp(800);
       });
@@ -850,7 +850,7 @@
     </script>
 
 
-    <script type="text/javascript" src="/js/ajax.js"></script>
+    <script type="text/javascript" src="/assets/js/ajax.js"></script>
 
 </body>
 
