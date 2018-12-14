@@ -112,7 +112,7 @@ body
 	position: fixed;
 	width: 60%;
 	height: 100%;
-	background-image: url(/images/floater_back.jpg);
+	background-image: url(/assets/images/floater_back.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 	z-index: 320;
@@ -224,7 +224,7 @@ body
 		padding: 2%;
 		margin-top: 4%;
 		margin-bottom: 4%;
-		background-image: url(/images/cross.jpg);
+		background-image: url(/assets/images/cross.jpg);
 		background-repeat: no-repeat;
 		background-size: 100%;
 		box-shadow: 3px 3px 1px black;
@@ -620,7 +620,7 @@ body
 		height: 100%;
 		background: red;
 		/*background-image: url(/images/cloud.jpg);*/
-		background-image: url('/images/tw_stars.jpg');
+		background-image: url('/assets/images/tw_stars.jpg');
 		/*background-repeat: no-repeat;*/
 		/*background-size: cover;*/
 		z-index: -5;
@@ -837,7 +837,7 @@ body
 		vertical-align: bottom;
 		width: 220px;
 		height: 280px;
-		background-image: url(/images/team_mem_bck.png);
+		background-image: url(/assets/images/team_mem_bck.png);
 		background-repeat: none;
 		background-size: cover;
 		text-align: center;
@@ -971,7 +971,7 @@ body
 		padding: 5px;
 		margin: 5px;
 		/*//background: #7FFFD4;*/
-		background-image: url(/images/dark.png);
+		background-image: url(/assets/images/dark.png);
 		background-repeat: no-repeat;
 		background-size: cover;
 		color: lightgrey;

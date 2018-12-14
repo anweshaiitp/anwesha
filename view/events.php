@@ -1,5 +1,6 @@
 <html>
 <head>
+<link rel="stylesheet" href="../assets/css/home2019.css">
     <?php if(isset($match[2])){
         require('model/model.php');
         require('dbConnection.php');
@@ -38,14 +39,14 @@
         <?php }
     }else if(isset($match[1])){
         if($match[1] == 1 ){
-            echo "<title>Technical Events | Anwesha 2018</title>";
+            echo "<title>Technical Events | Anwesha 2019</title>";
         }else if($match[1] == 2 ){
-            echo "<title>Cultural Events | Anwesha 2018</title>";
+            echo "<title>Cultural Events | Anwesha 2019</title>";
         }else if($match[1] == 3 ){
-            echo "<title>Arts and Welfare Events | Anwesha 2018</title>";
+            echo "<title>Arts and Welfare Events | Anwesha 2019</title>";
         }
     }else{
-        echo "<title>Events | Anwesha 2018</title>";
+        echo "<title>Events | Anwesha 2019</title>";
     } ?>
     
 
@@ -72,28 +73,33 @@
 
 <body>
 
-<!---------header-----bar-->
-    <div class="header_div">
-        <div class="menu_toggle">
-            <img src="/assets/images/skull_menu.png">
-            <span> MENU </span>
-        </div>
-    </div>
 
 <!-----menu----bar------>
-    <div class="menu_bar">
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/events/">Events</a></li>
-            <!-- <li class="sch_div">Schedule</li> -->
-            <li><a href="https://www.facebook.com/pg/anwesha.iitpatna/photos/?ref=page_internal" target="_blank">Gallery</a></li>
-            <li><a href="/team/">Team</a></li>
-            <li class="spons_div">Sponsors</li>
-            <li class="acco_load">Hospitality/Accomodation</li>
-            <li class="register">Register</li>
-            <li class="ca"><a href="/ca/" target="_blank">Campus Ambassador</a></li>
-        </ul>
-    </div>
+<div id="menu">
+    <ul data-start="color:rgb(0,0,0); border-color:rgb(0,0,0); background: rgba(255,255,255,0.9);     box-shadow: 0 0 0px rgba(255,255,255,1);"
+      data-500="color:rgb(0,0,0); border-color:rgb(0,0,0); background: rgba(255,255,255,0.9);     box-shadow: 0 0 10px rgba(255,255,255,1);"
+      class="skrollable skrollable-between" style="border-radius:20px;color: rgb(0,0,0); border-color: rgb(0,0,0); background: rgba(255,255,255,0.9); box-shadow: rgba(255,255,255,0, 1) 0px 0px 0px;">
+      <!-- <li id="home-link"><a href="#start-section">HOME</a></li> -->
+      <li><a href="/" id="">Back to Home Page</a></li>
+      <!-- <li><a href="/view/index.html/#About" id="">About</a></li>
+      <li><a href="/view/spons.html" id="">Sponsors</a></li>
+      <li><a href="/view/index.html/#Contact-Us" id="">Contact Us</a></li>
+      <li><a href="/view/index.html/#Audition" id="">Auditions</a></li>
+      <li><a href="/view/ca.php" id="">Campus Ambassador</a></li> -->
+      
+    </ul>
+  </div>
+  <div id="mobile-nav-btn" class="mobile-nav-btn dark " data-100="opacity:1;" data-500="opacity:0; "
+    style="opacity: 1;"></div>
+  <div class="mobile-nav-btn white " data-100="opacity:0;" data-500="opacity:1; " style=""></div>
+  <div id="mobile-nav" style="background-color:black">
+    <img src="/assets/img/close.png" class="close" alt="close menu" width="30" height="30">
+    <ul>
+      <li><a href="/view/index.html" id="">Back to Home Page</a></li>
+    
+      
+    </ul>
+  </div>
 
 <!-----doors---->
     <div class="menu_backgrnd">
@@ -104,7 +110,7 @@
     </div>
 
 <!-----moving ----witch------>
-    <img id="moving_witch" class="moving_witch" src="/assets/images/witch_right_1.png">
+    
 
 <!-----fixed ----cloud------>
     <div class="cloud_div"></div>
@@ -377,7 +383,7 @@
         <a target="_blank" href="https://www.youtube.com/user/AnweshaIITP"><img src="/assets/images/social/youtube.png"></a>
         
         <div class="copyright">
-            &copy; 2018 Anwesha, IIT Patna
+            &copy; 2019 Anwesha, IIT Patna
         </div>
     </div>
 
