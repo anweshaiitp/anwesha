@@ -618,9 +618,9 @@ body
 		left:0;
 		width:100%;
 		height: 100%;
-		background: red;
+		background: rgba(0,0,0,0.8);
 		/*background-image: url(/images/cloud.jpg);*/
-		background-image: url('/images/tw_stars.jpg');
+/*		background-image: url('/images/tw_stars.jpg');*/
 		/*background-repeat: no-repeat;*/
 		/*background-size: cover;*/
 		z-index: -5;
@@ -886,34 +886,128 @@ body
 		position: absolute;
 		top: 100px;
 		width: 100%;
-		//background: black;
+/*		background: black;*/
 		text-align: center;
 		z-index: 110;
 	}
-
+        .active{
+            background: #545f60 !important;
+            color: #6edeef !important;
+            outline: none;
+        }
 	.events_tab
 	{
 		width: 100%;
 		margin: auto;
-		//padding: 5px;
+/*		padding: 5px;*/
 	}
+        .events_tab {
+	width: 390px;
+	height: 80px;
+	margin: 0 auto;
+	list-style: none;
+	overflow: hidden;
+  padding: 0;
+}
+.events_tab button {	
+	float: left;
+	width: 130px;
 
-	.events_tab button
+  
+}
+.events_tab button{
+	position: relative;
+	display: block;
+	height: 30px;
+	margin-top: 40px;
+	padding: 10px 0 0 0;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 18px;
+	text-align: center;	
+	text-decoration: none;
+	color: #ffffff;
+	background: #6edeef;
+	-webkit-box-shadow: 8px 12px 25px 2px rgba(0,0,0,0.4);
+	   -moz-box-shadow: 8px 12px 25px 2px rgba(0,0,0,0.4);
+	        box-shadow: 8px 12px 25px 2px rgba(0,0,0,0.4);
+	        	border: 0px solid #000000;
+	-webkit-transition: padding 0.2s ease, margin 0.2s ease;
+       -moz-transition: padding 0.2s ease, margin 0.2s ease;
+         -o-transition: padding 0.2s ease, margin 0.2s ease;
+        -ms-transition: padding 0.2s ease, margin 0.2s ease;
+            transition: padding 0.2s ease, margin 0.2s ease;
+}
+.events_tab button:first-child  {
+	z-index: 3;
+  -webkit-border-top-left-radius: 8px;
+-moz-border-radius-topleft: 8px;
+border-top-left-radius: 8px;
+}
+.events_tab button:nth-child(2)  {
+	z-index: 2;
+}
+.events_tab button:last-child  {
+	z-index: 1;
+  -webkit-box-shadow: 2px 8px 25px -2px rgba(0,0,0,0.3);
+	   -moz-box-shadow: 2px 8px 25px -2px rgba(0,0,0,0.3);
+	        box-shadow: 2px 8px 25px -2px rgba(0,0,0,0.3);
+  -webkit-border-top-right-radius: 8px;
+-moz-border-radius-topright: 8px;
+border-top-right-radius: 8px;
+}
+.events_tab button:hover {
+	margin: 35px 0 0 0;
+	padding: 10px 0 5px 0;
+}
+.events_tab button.active {
+	margin: 30px 0 0 0;
+	padding: 10px 0 10px 0;
+	background: #545f60;
+	color: #6edeef;
+	color: #ff6831;
+	z-index: 4;
+	outline: none;
+}
+.events_tab:before,
+.events_tab:after {
+    content: " ";  
+    display: table;  
+}
+.events_tab:after {
+    clear: both;
+}
+/*	.events_tab button
 	{
-		padding:0;
-		margin: 0;
+		
+		margin: -2px;
 		border: none;
 		padding: 10px;
-		margin: 5px;
-		background: #685d7b8c;
-		background-image: linear-gradient(to top, #23919275 0%, #33086763 100%);
-		color: lightgrey;
-
-		font-size: 120%;
-		border-radius: 3px;
-		box-shadow: 1px 1px 8px black;
+		background: #6EDEEF;
+		color: white;
+                font-size: 120%;
+		letter-spacing: 1px;
+		
 	}
-	
+        .events_tab button:first-child{
+            -webkit-border-top-left-radius: 8px;
+            -moz-border-radius-topleft: 8px;
+            border-top-left-radius: 8px;
+        }
+        .events_tab button:last-child{
+            -webkit-border-top-right-radius: 8px;
+            -moz-border-radius-topright: 8px;
+            border-top-right-radius: 8px;
+        }
+        .events_tab button:active{
+            color: #6edeef;
+            background-color: #545F60;
+            padding: 10px;
+            margin: 0;
+            font-size: 120%;
+            border-radius: 3px;
+            outline: none;
+        }*/
+        
 	#mainarea>center>div:nth-child(1)
 	{
 		padding: 10px;
@@ -929,22 +1023,21 @@ body
 		margin: auto;
 		border-top-left-radius: 10px;
 	    border-top-right-radius: 10px;
-	    background: -webkit-linear-gradient(to right, #000000ba, #53346da8);
-	    background: linear-gradient(to right, #000000ba, #53346da8);
+            background: #545F60;
 	    padding: 10px;
 	    transition: 1s;
-	    margin-top: 50px;
+/*	    margin-top: 50px;*/
 		
 		display: none;
 	}
 
 	.events_title
 	{
-		color: white;
-	    text-align: left;
+            color: white;
+	    text-align: center;
 	    font-size: 140%;
 	    font-weight: bold;
-	    background: #63262229;
+/*	    background: #63262229;*/
 	    padding: 2px;
 	    padding-right: 10px;
 	    border-radius: 5px;
@@ -986,7 +1079,7 @@ body
 		width: 100%;
 		text-align: left;
 		overflow: hidden;
-		//background: red;
+/*		background: red;*/
 	}
 
 	#RuleBtn, #RegBtn
