@@ -57,7 +57,7 @@
     <link href="/assets/images/logo_favi.png" rel="icon">
 
     <!--------styling for events page---------->
-    <style type="text/css">
+<!--    <style type="text/css">
         body
         {
             overflow-y: scroll;
@@ -68,11 +68,12 @@
         @media screen and (max-width: 900px) {
            
         }
-    </style>
+    </style>-->
 </head>
 
 <body>
 
+<<<<<<< HEAD
 
 <!-----menu----bar------>
 <div id="menu">
@@ -100,31 +101,59 @@
       
     </ul>
   </div>
+=======
+<!---------header-----bar-->
+    <div class="header_div">
+        <div class="menu_toggle">
+            <img src="/assets/img/backarrow.png">
+            
+        </div>
+    </div>
+
+<!-----menu----bar------>
+<!--    <div class="menu_bar">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/events/">Events</a></li>
+             <li class="sch_div">Schedule</li> 
+            <li><a href="https://www.facebook.com/pg/anwesha.iitpatna/photos/?ref=page_internal" target="_blank">Gallery</a></li>
+            <li><a href="/team/">Team</a></li>
+            <li class="spons_div">Sponsors</li>
+            <li class="acco_load">Hospitality/Accomodation</li>
+            <li class="register">Register</li>
+            <li class="ca"><a href="/ca/" target="_blank">Campus Ambassador</a></li>
+        </ul>
+    </div>-->
+>>>>>>> e78462f4b634fb0917658656fb092d771ac90e8c
 
 <!-----doors---->
-    <div class="menu_backgrnd">
+<!--    <div class="menu_backgrnd">
         <div class="overlay"></div>
         <img class="creep" src="/assets/images/creep.png">
         <br>
         <img class="boundary" src="/assets/images/bound.png">
-    </div>
+    </div>-->
 
 <!-----moving ----witch------>
+<<<<<<< HEAD
     
+=======
+<!--    <img id="moving_witch" class="moving_witch" src="/assets/images/witch_right_1.png">-->
+>>>>>>> e78462f4b634fb0917658656fb092d771ac90e8c
 
 <!-----fixed ----cloud------>
     <div class="cloud_div"></div>
 
 <!-----moving ----cloud------>
     <div class="moving_cloud_div">
-        <img src="/assets/images/moving_cloud.png">
+<!--        <img src="/assets/images/moving_cloud.png">-->
     </div>
 
 <!--events page content-------->
     <div class="events_div">
 
         <div class="events_tab">
-            <button class="tech_button">Technical</button>
+            <button class="tech_button active">Technical</button>
             <button class="cult_button">Cultural</button>
             <button class="arts_button">Arts & Welfare</button>
         </div>
@@ -377,7 +406,7 @@
     </div>
 
 <!---footer-->
-    <div class="footer_div">
+<!--    <div class="footer_div">
         <a target="_blank" href="https://www.facebook.com/anwesha.iitpatna/"><img src="/assets/images/social/fb.png"></a>
         <a target="_blank" href="https://www.instagram.com/anwesha.iitp/"><img src="/assets/images/social/insta.png"></a>
         <a target="_blank" href="https://www.youtube.com/user/AnweshaIITP"><img src="/assets/images/social/youtube.png"></a>
@@ -385,11 +414,23 @@
         <div class="copyright">
             &copy; 2019 Anwesha, IIT Patna
         </div>
-    </div>
+    </div>-->
 
 
  <!--scripts-->
     <script type="text/javascript" src="/assets/js/jquery.js"></script>
+    <script type="text/javascript">
+    (function($) {
+
+	tabs =  $(".events_tab button");
+//        console.log(tabs);
+        tabs.click(function(){
+            tabs.removeClass('active');
+            $(this).addClass('active');
+        })
+	
+	})(jQuery);
+    </script>
     <script type="text/javascript">
     var eveglid =-1;
     var currPar = "tech_content";
@@ -450,12 +491,12 @@
         });
 
 //for choosing events tabs
-<?php 
-    if(!isset($match[1]) && $match[1] != 1 ){
+    <?php 
+ if(!isset($match[1]) && $match[1] != 1 ){
 ?>
     $('.tech_event').fadeIn(1000);
-<?php 
-    }
+    <?php 
+   }
 ?>
     $('.tech_button').click(function()
     {
@@ -665,7 +706,7 @@
             }
         var events_data;
         var eventsmap = [];
-        $.get("/allEvents/", function (data, status) {
+        $.get("./eve.json", function (data, status) {
             console.log("Event Status : " + data[0]);
             if (status == 'success') {
                 events_data = data[1];
