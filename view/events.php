@@ -124,6 +124,9 @@
             <li class="ca"><a href="/ca/" target="_blank">Campus Ambassador</a></li>
         </ul>
     </div>-->
+<<<<<<< HEAD
+>>>>>>> e78462f4b634fb0917658656fb092d771ac90e8c
+=======
 >>>>>>> e78462f4b634fb0917658656fb092d771ac90e8c
 
 <!-----doors---->
@@ -136,7 +139,11 @@
 
 <!-----moving ----witch------>
 <<<<<<< HEAD
+<<<<<<< HEAD
     
+=======
+<!--    <img id="moving_witch" class="moving_witch" src="/assets/images/witch_right_1.png">-->
+>>>>>>> e78462f4b634fb0917658656fb092d771ac90e8c
 =======
 <!--    <img id="moving_witch" class="moving_witch" src="/assets/images/witch_right_1.png">-->
 >>>>>>> e78462f4b634fb0917658656fb092d771ac90e8c

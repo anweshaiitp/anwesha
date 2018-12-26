@@ -620,7 +620,11 @@ body
 		height: 100%;
 		background: rgba(0,0,0,0.8);
 		/*background-image: url(/images/cloud.jpg);*/
+<<<<<<< HEAD
 		background-image: url('/assets/images/tw_stars.jpg');
+=======
+/*		background-image: url('/images/tw_stars.jpg');*/
+>>>>>>> e78462f4b634fb0917658656fb092d771ac90e8c
 		/*background-repeat: no-repeat;*/
 		/*background-size: cover;*/
 		z-index: -5;
