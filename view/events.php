@@ -644,7 +644,7 @@
             }
         var events_data;
         var eventsmap = [];
-        $.get("./eve.json/", function (data, status) {
+        $.get("https://www.anwesha.info/allEvents", function (data, status) {
             console.log("Event Status : " + data[0]);
             if (status == 'success') {
                 events_data = data[1];
