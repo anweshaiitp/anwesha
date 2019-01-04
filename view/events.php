@@ -257,7 +257,7 @@
                 <div id="accordion">
                     <h3>TECHNICAL EVENTS</h3>
                         <div>
-                            <ul>
+                            <ul id="techEvents">
                             <li>aaaaa</li>
                             <li>aaaaaa</li>
                             <li>aaaaaaa</li>
@@ -266,7 +266,7 @@
                         </div>
                     <h3>CULTURAL EVENTS</h3>
                         <div>
-                            <ul>
+                            <ul id="cultEvents">
                             <li>aaaaa</li>
                             <li>aaaaaa</li>
                             <li>aaaaaaa</li>
@@ -275,7 +275,7 @@
                         </div>
                     <h3>ARTS & WELFARE EVENTS</h3>
                         <div>
-                            <ul>
+                            <ul id="artsEvents">
                             <li>aaaaa</li>
                             <li>aaaaaa</li>
                             <li>aaaaaaa</li>
@@ -423,6 +423,188 @@
 
     }) 
     </script>
+	<script>
+		//for loading of events in event content page
+        function preloadImage(imageurl) {
+            var img = new Image();
+            img.src = imageurl;
+        }
+        
+        function eve_coverswitch(cat ,imgurl) {
+            console.log("eve_coverswitch called with", imgurl);
+            if (imgurl == "" || imgurl == null) {
+                $(cat+" #eve_cover").attr("src", "");
+                // $("#eve_cover").css("box-shadow","0 0 0 #FFFFFF");
+                $(cat+" #eve_name").css("font-size", "3em");
+                $(cat+' #eve_cover').hide();
+                $(cat+" #extrabr").hide();
+                $(cat + " #coveranc").attr("src","#");
+            } else {
+                $(cat+" #eve_cover").attr("src", imgurl);
+                $(cat+' #eve_cover').show();
+                $(cat + " #coveranc").attr("src", imgurl);
+                if ($(window).width() > 960) {
+                    $(cat + " #eve_name").css("font-size", "5em");
+                }
+                $("#extrabr").show();
+            }
+        }
+        function eve_imgswitch(imgurl) {
+            if (imgurl == "" || imgurl == null) {
+                $("#eve_img").attr("src", "");
+                $("#eve_img").hide();
+                $("#img_anchor").attr("href", "");
+            } else {
+                $("#eve_img").attr("src", imgurl);
+                $("#img_anchor").attr("href", imgurl);
+                $("#eve_img").show();
+            }
+        }
+        function emptyresp(cat) {
+            $(cat+ ' #eve_name').text("");
+            $(cat+ ' #eve_tagline').text("");
+            $(cat+ ' #eve_date').text("");
+            $(cat+ ' #eve_time').text("");
+            $(cat+ ' #eve_venue').text("");
+            $(cat+ ' #eve_organisers').text("");
+            $(cat+ ' #eve_short_desc').text("");
+            $(cat+ ' #eve_long_desc').text("");
+            // $(cat+ ' regbtn').attr("placeholder", "");
+            // $(cat+ ' alt_regbtn').attr("href", "");
+            $(cat+ ' #RuleBtn').attr("href", "");
+            $(cat+ ' #RegBtn').attr("data-eveid", "-1");
+            $(cat+ ' #RegBtn').removeAttr("href");
+            $(cat+ ' #RegBtn').removeAttr("target");
+            $(cat+ ' #regmsg').text('');
+            $(cat+ ' #RuleBtn').hide();
+            // $(cat+ ' #RegBtn').hide();
+            // eve_imgswitch("");
+            // eve_iconswitch("");
+            eve_coverswitch(cat ,"");
+            // $('#eve_cover').css("src","");
+        }
+        function getHTMLText(text) {
+                if(text==null)
+                    return "";
+                text = text.replace(/[\u00A0-\u9999<>\&]/gim, function(i) {
+                   return '&#'+i.charCodeAt(0)+';';
+                });
+                text = text.replace(/\n\n/g,"</br></p><p></br>").replace(/\n/g,"</br>").replace(/&quot;/g," ");
+                return ""+text+"";
+            }
+        var events_data;
+        var eventsmap = [];
+        $.get("/allEvents", function (data, status) {
+            console.log("Event Status : " + data[0]);
+            if (status == 'success') {
+                events_data = data[1];
+                console.log("Events Data Updated");
+                //try to preload coverpic and icon pic
+                console.log("starting");
+               events_data.forEach(function(evntDat){
+                console.log(typeof(evntDat));
+                    
+                if(typeof(evntDat)=="Object" || evntDat.eveId>5)
+                    eventsmap[evntDat.eveId] = evntDat;
+                    console.log(typeof(evntDat));
+                    console.log(evntDat);
+                    preloadImage(evntDat['cover_url']);
+                    preloadImage(evntDat['icon_url']);
+                        //var widthYetT,widthYetC,widthYetM;
+                        //    try{
+                        //        widthYetT = $(".tech_eve span:last-child").position().left+$(".tech_eve span:last-child").width() - $(".tech_eve").position().left+ 100;
+                         //       widthYetC = $(".cult_eve span:last-child").position().left+$(".cult_eve span:last-child").width() - $(".cult_eve").position().left+ 100;
+                          //      widthYetM = $(".mgmt_eve span:last-child").position().left+$(".mgmt_eve span:last-child").width() - $(".mgmt_eve").position().left+ 100;
+                          //  }catch(e){
+                           //     widthYet =0;    
+                          // }
+                        if(evntDat.code==1){
+                            //tech
+                            //if(widthYet>$(".tech_eve").width()){
+                            //    $(".tech_eve").append("<br>");
+                            //}
+                            $("#techEvents").append(" <span id='evetab"+evntDat.eveId+"' class='evetab' onclick='eveDisplay("+evntDat.eveId+")' event_id='"+evntDat.eveId+"'>"+evntDat.eveName+"</span>");
+                        }else if(evntDat.code == 2){
+                            //cult
+//                             if(widthYet>$(".cult_eve").width()){
+//                                 $(".cult_eve").append("<br>");
+//                             }
+                            $("#cultEvents").append(" <span id='evetab"+evntDat.eveId+"' class='evetab' onclick='eveDisplay("+evntDat.eveId+")' event_id='"+evntDat.eveId+"'>"+evntDat.eveName+"</span>");
+                        }else if(evntDat.code == 3){
+                            //mgmt
+//                             if(widthYet>$(".mgmt_eve").width()){
+//                                 $(".mgmt_eve").append("<br>");
+//                             }
+                            $("#artsEvents").append(" <span id='evetab"+evntDat.eveId+"' class='evetab' onclick='eveDisplay("+evntDat.eveId+")' event_id='"+evntDat.eveId+"'>"+evntDat.eveName+"</span>");
+                        }
+                });
+               console.log("map",eventsmap);
+
+            } else
+                console.log("Unable to get Events Data");
+        }, "json");
+        function formatData(data){
+            if(data==null)
+                return "";
+        }
+        function fillEve(cat, dataToFill){
+            console.log("filling",dataToFill);
+            emptyresp(cat);
+            currPar = cat;
+            $(cat+ ' #eve_name').html(getHTMLText(dataToFill.eveName));
+            $(cat+ ' #eve_tagline').html(getHTMLText(dataToFill.tagline));
+            $(cat+ ' #eve_date').html(getHTMLText((dataToFill.date)?dataToFill.date:"To be announced"));
+            $(cat+ ' #eve_time').html(getHTMLText((dataToFill.time)?dataToFill.time:"To be announced"));
+            $(cat+ ' #eve_venue').html(getHTMLText((dataToFill.venue)?dataToFill.venue:"To be announced"));
+            $(cat+ ' #eve_organisers').html(getHTMLText(dataToFill.organisers));
+            $(cat+ ' #eve_short_desc').html(getHTMLText(dataToFill.short_desc));
+            $(cat+ ' #eve_long_desc').html(getHTMLText(dataToFill.long_desc));
+            // $(cat+ ' #regbtn').attr("placeholder", ""));
+            // $(cat+ ' #alt_regbtn').attr("href", ""));
+            $(cat+ ' #RuleBtn').attr("href", dataToFill.rules_url);
+            if(dataToFill.rules_url==null || dataToFill.rules_url=="")
+                $(cat+ ' #RuleBtn').hide();
+            else
+                $(cat+ ' #RuleBtn').show();
+            // $(cat+ ' #RegBtn').attr("", dataToFill.reg_url);
+            $(cat+ ' #RegBtn').attr("data-eveid", dataToFill.eveId);
+            if(dataToFill.reg_url!=null && dataToFill.reg_url!=""){
+                $(cat+ ' #RegBtn').attr("href", dataToFill.reg_url);
+                $(cat+ ' #RegBtn').attr("target","_blank");
+            }else{
+                $(cat+ ' #RegBtn').removeAttr("href");
+                $(cat+ ' #RegBtn').removeAttr("target");
+            }
+            $(cat+ ' #regmsg').text('');
+            eveglid = dataToFill.eveId;
+            console.log("eveglid",eveglid);
+            // if(dataToFill.reg_url==null || dataToFill.reg_url=="")
+            //     $(cat+ ' #RegBtn').hide();
+            // else
+            //     $(cat+ ' #RegBtn').show();
+            eve_coverswitch(cat, dataToFill.cover_url);
+        }
+        // $("#events > span").click(function(){
+        //  console.log("clicked")
+        //  $('.tech_eve').children().not(this).removeClass('active-tab');
+        //  $(this).addClass('active-tab');
+        //  fillEve("tech_content",eventsmap[$(this).attr('event_id')]);
+        // })
+        function eveDisplay(eveId){
+            var type = "tech";
+            if(eventsmap[eveId].code==1)
+                type = "tech";
+            else  if(eventsmap[eveId].code==2)
+                type = "cult";
+            else  if(eventsmap[eveId].code==3)
+                type = "mgmt";
+            console.log("clicked22")
+            $('.'+type+'_eve').children().not("#evetab"+eveId).removeClass('active-tab');
+            $("#evetab"+eveId).addClass('active-tab');
+            fillEve("."+type+"_content",eventsmap[eveId]);
+        }
+
+		</script>
 </body>
 
 </html>
