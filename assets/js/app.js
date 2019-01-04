@@ -19,6 +19,7 @@ function callPlayer(frame_id, args) {
     // }
   }
 }
+var isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
 $(function () {
     var afterMovieIframe =  $("#afterMovieVideo > iframe");
     var windowH = $(window).height();
@@ -52,7 +53,6 @@ $(function () {
     // });
     // $("#map").width($(window).width());
 });
-var isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
 if (isMobile) {
     $(".mobile-nav-btn").show();
     $("#cta, #menu").hide();
