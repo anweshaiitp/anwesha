@@ -423,20 +423,20 @@
         function eve_coverswitch(cat ,imgurl) {
             console.log("eve_coverswitch called with", imgurl);
             if (imgurl == "" || imgurl == null) {
-                $(cat+" #eve_cover").attr("src", "");
+                $(".event_bg").attr("src", "");
                 // $("#eve_cover").css("box-shadow","0 0 0 #FFFFFF");
-                $(cat+" #eve_name").css("font-size", "3em");
-                $(cat+' #eve_cover').hide();
-                $(cat+" #extrabr").hide();
-                $(cat + " #coveranc").attr("src","#");
+                $(".event_bg").css("font-size", "3em");
+                $('.event_bg').hide();
+                $(".event_bg").hide();
+                $(".event_bg").attr("src","#");
             } else {
-                $(cat+" #eve_cover").attr("src", imgurl);
-                $(cat+' #eve_cover').show();
-                $(cat + " #coveranc").attr("src", imgurl);
-                if ($(window).width() > 960) {
-                    $(cat + " #eve_name").css("font-size", "5em");
-                }
-                $("#extrabr").show();
+                $(".event_bg").attr("src", imgurl);
+                $('.event_bg').show();
+//                 $(cat + " #coveranc").attr("src", imgurl);
+//                 if ($(window).width() > 960) {
+//                     $(cat + " #eve_name").css("font-size", "5em");
+//                 }
+//                 $("#extrabr").show();
             }
         }
         function eve_imgswitch(imgurl) {
