@@ -15,6 +15,8 @@
           padding: 0;
           }
 
+
+
           /* Header */
           .header {
           background-color: #1c1c1c;
@@ -237,11 +239,17 @@ a:hover {
 .event_container {
   margin: 0 auto;
   width: 780px;
-  height: 640px;
+  height: 730px;
   background: #F0F0ED;
   border-radius: 5px;
   position: relative;
   transition: all ease-in-out 1s;
+}
+
+@media screen and (max-width:532px){
+  .event_container{
+    height:960px;
+  }
 }
 
 .event_info {
@@ -280,7 +288,8 @@ a:hover {
 }
 
 .headwrap {
-  padding: 190px 0 0 280px;
+  padding-top:50px;
+  padding-left:20px;
 }
 .headwrap .title1 {
   color: white;
@@ -363,4 +372,13 @@ a:hover {
 }
 .event_organisers a:hover {
   text-decoration: none;
+}
+
+.event_description::after,.event_description::before{
+  clear: both;
+  display: table;
+  content: "";
+}
+.refrence{
+  height: 50px;
 }

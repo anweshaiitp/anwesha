@@ -28,6 +28,9 @@
             padding: 0;
             }
   
+            body{
+                background-color: black;
+            }
             /* Header */
             .header {
             background-color: #1c1c1c;
@@ -48,7 +51,7 @@
             .main {
             background: url(https://static-cdn.sr.se/sida/images/3117/787c33ac-5689-4e1c-aaf3-7db96093015a.jpg) no-repeat center center; 
             background-size: cover;
-            height: 125%;
+            height: 100%;
             }
 
             .row{
@@ -245,7 +248,23 @@
             text-decoration: none;
         }
         .caption a:hover{
-            color: rgba(255,255,255,0.8);
+            color: rgba(0,0,0,0.8) ;
+        }
+        @media screen and (max-width:532px){
+            .event_container{
+                width:100%;
+                
+            }
+            .event_details{
+                width: auto;
+                padding-left: 0px;
+            }
+            /*new added*/
+            .headwrap .title1{
+                font-size: 28px;
+            }
+            
+
         }
     </style>
     <title>Events | Anwesha '19</title>
@@ -281,7 +300,7 @@
     <div class="main">
       
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-10 col-md-3">
                 <div id="accordion">
                     <h3>TECHNICAL EVENTS</h3>
                         <div>
@@ -301,29 +320,31 @@
                         </div>
                 </div>
             </div>
-            <div class="col-md-9" style="opacity: 0.9">              
+    
+            <div class="col-10 col-md-9" style="opacity: 0.9">              
                  <div class="tech_event">
                     <div class="event_container">
                         
                         <div class="event_info">
                             <div class="headwrap">
-                            <div class="title1" id="eve_name">Event Title</div>
-                            <div class="title2" id="eve_tagline">Event tagline</div>    
+                            <div class="title1" id="eve_name">Static Rush</div>
+   
                             </div> <!-- end details -->
                         </div> <!-- end hero -->
                         <div class="event_description">
                             <div class="event_timing">
-                                <span class="tag" id="eve_date">Date</span>
-                                <span class="tag" id="eve_time">Time</span>
-                                <span class="tag" id="eve_venue">venue </span>
+                                <span class="tag" id="eve_date">2nd Feb</span>
+                                <span class="tag" id="eve_time">1 pm</span>
+                                <br>
+                                <span class="tag" id="eve_venue">Boys Hostel, IITP </span>
                             </div> 
                             <div class="event_details">
                                 <div id="event_short_desc">
-                                    <p style="color:#1c1c1c" id="eve_short_desc">Here will be event short description <a href="#" id="ReadMore">read more</a></p>
+                                    <p style="color:#1c1c1c" id="eve_short_desc">Remember snakes and ladders? Wanna live through it in the real world? <a href="#" id="ReadMore">read more</a></p>
 
                                 </div>
                             <div id="event_long_desc">
-                                <p style="color:#1c1c1c" id="eve_long_desc">Remember snakes and ladders? Wanna live through it in the real world? Then Static Rush is your ultimate platform with a twist of electronics. With unlimited adventure and enthralling fun packed in every step you take, this one game will make you remember your childhood and with electronics embedded this one event is surely gonna be in your good books. <a href="#" id="ShowLess">show less</a></p>
+                                <p style="color:#1c1c1c" id="eve_long_desc"> Then Static Rush is your ultimate platform with a twist of electronics. With unlimited adventure and enthralling fun packed in every step you take, this one game will make you remember your childhood and with electronics embedded this one event is surely gonna be in your good books. <a href="#" id="ShowLess">show less</a></p>
                             </div>
                             <div id="event_organisers">
                                 <h3 style="color:#1c1c1c">Organisers:</h3>
@@ -381,6 +402,77 @@
                 $("#ReadMore").css({"display":"block"});
                 return false;
             })
+            //            new added from here
+            mq = window.matchMedia('(min-width:811px)');
+                mq1 = window.matchMedia('(max-width:810px)');
+                mq2 = window.matchMedia('(max-width:532px)');
+                wh = window.innerHeight;
+                dh = document.documentElement.clientHeight;
+                if(wh >= dh){
+                    $('.main').css({"height":"100%"});
+                }
+                else{
+                    $('.main').css({"height":"auto"});
+                }
+            $("#ReadMore").click(function(){
+                content_height = $(".event_container").height();
+                event_long_desc_height = $("#event_long_desc").height();
+                if(mq.matches){
+                    $(".event_container").css({"height":content_height + event_long_desc_height});
+//                     console.log("width is greater than 811px")
+                    
+                }
+                else{
+                    if(mq1.matches){
+                        if(mq2.matches){
+                            $(".event_container").css('height', content_height + event_long_desc_height +'px');
+//                            console.log("width is less than 532px")
+                        }
+                        else{
+                            $(".event_container").css('height', content_height + event_long_desc_height +'px');
+//                             console.log("width is less than 810px")
+                        }
+                    }
+                    
+                }
+//                $(".event_container").css({"height":"750px"});
+                
+                
+                $(this).fadeOut(1000, function(){
+                    $("#event_long_desc").slideDown(1000);
+                    $(".event_container").slideDown(1000);
+                });
+                return false;
+            })
+            $("#ShowLess").click(function(){
+                content_height = $(".event_container").height();
+                event_long_desc_height = $("#event_long_desc").height();
+                if(mq.matches){
+                    $(".event_container").css({"height":content_height - event_long_desc_height});
+//                     console.log("width is greater than 811px");
+                    
+                    
+                }
+                else{
+                    if(mq1.matches){
+                        if(mq2.matches){
+                            $(".event_container").css('height', content_height - event_long_desc_height +'px');
+//                            console.log("width is less than 532px")
+                        }
+                        else{
+                            $(".event_container").css('height', content_height - event_long_desc_height +'px');
+//                             console.log("width is less than 810px")
+                        }
+                    }
+                }
+//                $(".event_container").css({"height":"640px"});
+                
+                $("#event_long_desc").slideUp(800,function(){
+                    $("#ReadMore").fadeIn(800);
+                });
+                
+                return false;
+            }) 
 
     }) 
     </script>
