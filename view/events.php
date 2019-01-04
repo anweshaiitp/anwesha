@@ -100,7 +100,9 @@
                     100%{background-position:0% 82%}
                 }
             
-
+	    #techEvents > li, #cultEvents > li, #artEvents > li{
+	    	cursor:pointer;
+	    }
 
             .ui-accordion-content {
             font-family: Roboto, sans-serif;
@@ -334,29 +336,28 @@
                         <img src="https://static-cdn.sr.se/sida/images/3117/787c33ac-5689-4e1c-aaf3-7db96093015a.jpg" alt="cover"   width="220" class="event_bg" />
                         <div class="event_info">
                             <div class="headwrap">
-                            <div class="title1" id="event_name">Event Title</div>
-                            <div class="title2" id="event_tagline">Event tagline</div>    
+                            <div class="title1" id="eve_name">Event Title</div>
+                            <div class="title2" id="eve_tagline">Event tagline</div>    
                             </div> <!-- end details -->
                         </div> <!-- end hero -->
                         <div class="event_description">
                             <div class="event_timing">
-                                <span class="tag" id="event_date">Date</span>
-                                <span class="tag" id="event_time">Time</span>
-                                <span class="tag" id="event_venue">venue </span>
+                                <span class="tag" id="eve_date">Date</span>
+                                <span class="tag" id="eve_time">Time</span>
+                                <span class="tag" id="eve_venue">venue </span>
                             </div> 
                             <div class="event_details">
                                 <div id="event_short_desc">
-                                    <p style="color:#1c1c1c">Here will be event short description <a href="#" id="ReadMore">read more</a></p>
+                                    <p style="color:#1c1c1c" id="eve_short_desc">Here will be event short description <a href="#" id="ReadMore">read more</a></p>
 
                                 </div>
                             <div id="event_long_desc">
-                                <p style="color:#1c1c1c">Remember snakes and ladders? Wanna live through it in the real world? Then Static Rush is your ultimate platform with a twist of electronics. With unlimited adventure and enthralling fun packed in every step you take, this one game will make you remember your childhood and with electronics embedded this one event is surely gonna be in your good books. <a href="#" id="ShowLess">show less</a></p>
+                                <p style="color:#1c1c1c" id="eve_long_desc">Remember snakes and ladders? Wanna live through it in the real world? Then Static Rush is your ultimate platform with a twist of electronics. With unlimited adventure and enthralling fun packed in every step you take, this one game will make you remember your childhood and with electronics embedded this one event is surely gonna be in your good books. <a href="#" id="ShowLess">show less</a></p>
                             </div>
                             <div id="event_organisers">
                                 <h3 style="color:#1c1c1c">Organisers:</h3>
                                 <ul style="list-style-type:none;color: #1c1c1c">
-                                <li>Harpreet singh 9198495152</li>
-                                <li>Gaurav Kataria 9198495152</li>
+                                <li id="eve_organisers"></li>
                                 </ul>
                             </div style="background-color:#1c1c1c"> 
                                 <a href="https://docs.google.com/document/d/144GNxbiGseMmnSxlZEH3WQaZzyFQ7YI0WaW9Y2edmfk/edit?usp=sharing" id="RuleBtn">Rulebook</a>
@@ -450,22 +451,22 @@
             }
         }
         function emptyresp(cat) {
-            $(cat+ ' #eve_name').text("");
-            $(cat+ ' #eve_tagline').text("");
-            $(cat+ ' #eve_date').text("");
-            $(cat+ ' #eve_time').text("");
-            $(cat+ ' #eve_venue').text("");
-            $(cat+ ' #eve_organisers').text("");
-            $(cat+ ' #eve_short_desc').text("");
-            $(cat+ ' #eve_long_desc').text("");
+            $('#eve_name').text("");
+            $('#eve_tagline').text("");
+            $('#eve_date').text("");
+            $('#eve_time').text("");
+            $('#eve_venue').text("");
+            $('#eve_organisers').text("");
+            $('#eve_short_desc').text("");
+            $('#eve_long_desc').text("");
             // $(cat+ ' regbtn').attr("placeholder", "");
             // $(cat+ ' alt_regbtn').attr("href", "");
-            $(cat+ ' #RuleBtn').attr("href", "");
-            $(cat+ ' #RegBtn').attr("data-eveid", "-1");
-            $(cat+ ' #RegBtn').removeAttr("href");
-            $(cat+ ' #RegBtn').removeAttr("target");
-            $(cat+ ' #regmsg').text('');
-            $(cat+ ' #RuleBtn').hide();
+            $('#RuleBtn').attr("href", "");
+            $('#RegBtn').attr("data-eveid", "-1");
+            $('#RegBtn').removeAttr("href");
+            $('#RegBtn').removeAttr("target");
+            $('#regmsg').text('');
+            $('#RuleBtn').hide();
             // $(cat+ ' #RegBtn').hide();
             // eve_imgswitch("");
             // eve_iconswitch("");
@@ -540,31 +541,31 @@
             console.log("filling",dataToFill);
             emptyresp(cat);
             currPar = cat;
-            $(cat+ ' #eve_name').html(getHTMLText(dataToFill.eveName));
-            $(cat+ ' #eve_tagline').html(getHTMLText(dataToFill.tagline));
-            $(cat+ ' #eve_date').html(getHTMLText((dataToFill.date)?dataToFill.date:"To be announced"));
-            $(cat+ ' #eve_time').html(getHTMLText((dataToFill.time)?dataToFill.time:"To be announced"));
-            $(cat+ ' #eve_venue').html(getHTMLText((dataToFill.venue)?dataToFill.venue:"To be announced"));
-            $(cat+ ' #eve_organisers').html(getHTMLText(dataToFill.organisers));
-            $(cat+ ' #eve_short_desc').html(getHTMLText(dataToFill.short_desc));
-            $(cat+ ' #eve_long_desc').html(getHTMLText(dataToFill.long_desc));
+            $('#eve_name').html(getHTMLText(dataToFill.eveName));
+            $('#eve_tagline').html(getHTMLText(dataToFill.tagline));
+            $('#eve_date').html(getHTMLText((dataToFill.date)?dataToFill.date:"To be announced"));
+            $('#eve_time').html(getHTMLText((dataToFill.time)?dataToFill.time:"To be announced"));
+            $('#eve_venue').html(getHTMLText((dataToFill.venue)?dataToFill.venue:"To be announced"));
+            $('#eve_organisers').html(getHTMLText(dataToFill.organisers));
+            $('#eve_short_desc').html(getHTMLText(dataToFill.short_desc));
+            $('#eve_long_desc').html(getHTMLText(dataToFill.long_desc));
             // $(cat+ ' #regbtn').attr("placeholder", ""));
             // $(cat+ ' #alt_regbtn').attr("href", ""));
-            $(cat+ ' #RuleBtn').attr("href", dataToFill.rules_url);
+            $('#RuleBtn').attr("href", dataToFill.rules_url);
             if(dataToFill.rules_url==null || dataToFill.rules_url=="")
-                $(cat+ ' #RuleBtn').hide();
+                $('#RuleBtn').hide();
             else
-                $(cat+ ' #RuleBtn').show();
+                $('#RuleBtn').show();
             // $(cat+ ' #RegBtn').attr("", dataToFill.reg_url);
-            $(cat+ ' #RegBtn').attr("data-eveid", dataToFill.eveId);
+            $('#RegBtn').attr("data-eveid", dataToFill.eveId);
             if(dataToFill.reg_url!=null && dataToFill.reg_url!=""){
-                $(cat+ ' #RegBtn').attr("href", dataToFill.reg_url);
-                $(cat+ ' #RegBtn').attr("target","_blank");
+                $('#RegBtn').attr("href", dataToFill.reg_url);
+                $('#RegBtn').attr("target","_blank");
             }else{
-                $(cat+ ' #RegBtn').removeAttr("href");
-                $(cat+ ' #RegBtn').removeAttr("target");
+                $('#RegBtn').removeAttr("href");
+                $('#RegBtn').removeAttr("target");
             }
-            $(cat+ ' #regmsg').text('');
+            $('#regmsg').text('');
             eveglid = dataToFill.eveId;
             console.log("eveglid",eveglid);
             // if(dataToFill.reg_url==null || dataToFill.reg_url=="")
