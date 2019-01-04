@@ -258,28 +258,17 @@
                     <h3>TECHNICAL EVENTS</h3>
                         <div>
                             <ul id="techEvents">
-                            <li>aaaaa</li>
-                            <li>aaaaaa</li>
-                            <li>aaaaaaa</li>
-                            <li>aaaaaaaa</li>
+                            
                             </ul>
                         </div>
                     <h3>CULTURAL EVENTS</h3>
                         <div>
                             <ul id="cultEvents">
-                            <li>aaaaa</li>
-                            <li>aaaaaa</li>
-                            <li>aaaaaaa</li>
-                            <li>aaaaaaaa</li>
                             </ul>
                         </div>
                     <h3>ARTS & WELFARE EVENTS</h3>
                         <div>
                             <ul id="artsEvents">
-                            <li>aaaaa</li>
-                            <li>aaaaaa</li>
-                            <li>aaaaaaa</li>
-                            <li>aaaaaaaa</li>
                             </ul>
                         </div>
                 </div>
@@ -523,19 +512,19 @@
                             //if(widthYet>$(".tech_eve").width()){
                             //    $(".tech_eve").append("<br>");
                             //}
-                            $("#techEvents").append(" <span id='evetab"+evntDat.eveId+"' class='evetab' onclick='eveDisplay("+evntDat.eveId+")' event_id='"+evntDat.eveId+"'>"+evntDat.eveName+"</span>");
+                            $("#techEvents").append(" <li id='evetab"+evntDat.eveId+"' class='evetab' onclick='eveDisplay("+evntDat.eveId+")' event_id='"+evntDat.eveId+"'>"+evntDat.eveName+"</li>");
                         }else if(evntDat.code == 2){
                             //cult
 //                             if(widthYet>$(".cult_eve").width()){
 //                                 $(".cult_eve").append("<br>");
 //                             }
-                            $("#cultEvents").append(" <span id='evetab"+evntDat.eveId+"' class='evetab' onclick='eveDisplay("+evntDat.eveId+")' event_id='"+evntDat.eveId+"'>"+evntDat.eveName+"</span>");
+                            $("#cultEvents").append(" <li id='evetab"+evntDat.eveId+"' class='evetab' onclick='eveDisplay("+evntDat.eveId+")' event_id='"+evntDat.eveId+"'>"+evntDat.eveName+"</li>");
                         }else if(evntDat.code == 3){
                             //mgmt
 //                             if(widthYet>$(".mgmt_eve").width()){
 //                                 $(".mgmt_eve").append("<br>");
 //                             }
-                            $("#artsEvents").append(" <span id='evetab"+evntDat.eveId+"' class='evetab' onclick='eveDisplay("+evntDat.eveId+")' event_id='"+evntDat.eveId+"'>"+evntDat.eveName+"</span>");
+                            $("#artsEvents").append(" <li id='evetab"+evntDat.eveId+"' class='evetab' onclick='eveDisplay("+evntDat.eveId+")' event_id='"+evntDat.eveId+"'>"+evntDat.eveName+"</li>");
                         }
                 });
                console.log("map",eventsmap);
