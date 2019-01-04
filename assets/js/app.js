@@ -19,6 +19,7 @@ function callPlayer(frame_id, args) {
     // }
   }
 }
+var isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
 $(function () {
     var afterMovieIframe =  $("#afterMovieVideo > iframe");
     var windowH = $(window).height();
@@ -40,11 +41,11 @@ $(function () {
         // $("#cover").css('top',afterMovieOffset.top);   
         $(".cover").height(afterMovieIframe.height());   
         $(".cover").width(afterMovieIframe.width());   
-        
+        $("#afterMovieVideo").css('top',Math.max($(window).height() + ($(window).height()-iframeH)/2, $(window).height()));           
     }else{
         // $("#afterMovieVideo").css('transform','translateY('+ ($(window).height()-iframeH)/2 +')');
     }
-    $("#afterMovieVideo").css('top',Math.max($(window).height() + ($(window).height()-iframeH)/2, $(window).height()));   
+
     // $("#cover").click(function () { 
     //     console.log('cl');
     //     callPlayer("amParent","playVideo");
@@ -52,7 +53,6 @@ $(function () {
     // });
     // $("#map").width($(window).width());
 });
-var isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
 if (isMobile) {
     $(".mobile-nav-btn").show();
     $("#cta, #menu").hide();
