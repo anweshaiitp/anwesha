@@ -248,7 +248,7 @@
             color: rgba(255,255,255,0.8);
         }
     </style>
-    <title>Events | Anwesha 2019</title>
+    <title>Events | Anwesha '19</title>
 </head>
 <body>
 
