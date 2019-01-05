@@ -28,6 +28,9 @@
             padding: 0;
             }
   
+            body{
+                background-color: black;
+            }
             /* Header */
             .header {
             background-color: #1c1c1c;
@@ -48,7 +51,7 @@
             .main {
             background: url(https://static-cdn.sr.se/sida/images/3117/787c33ac-5689-4e1c-aaf3-7db96093015a.jpg) no-repeat center center; 
             background-size: cover;
-            height: 125%;
+            height: 100%;
             }
 
             .row{
@@ -245,7 +248,23 @@
             text-decoration: none;
         }
         .caption a:hover{
-            color: rgba(255,255,255,0.8);
+            color: rgba(0,0,0,0.8) ;
+        }
+        @media screen and (max-width:532px){
+            .event_container{
+                width:100%;
+                
+            }
+            .event_details{
+                width: auto;
+                padding-left: 0px;
+            }
+            /*new added*/
+            .headwrap .title1{
+                font-size: 28px;
+            }
+            
+
         }
     </style>
     <title>Events | Anwesha '19</title>
@@ -309,7 +328,7 @@
                         <div class="event_info">
                             <div class="headwrap">
                             <div class="title1" id="eve_name">Static Rush</div>
-                            <div class="title2" id="eve_tagline">Event tagline</div>    
+   
                             </div> <!-- end details -->
                         </div> <!-- end hero -->
                         <div class="event_description">
@@ -383,6 +402,77 @@
                 $("#ReadMore").css({"display":"block"});
                 return false;
             })
+            //            new added from here
+            mq = window.matchMedia('(min-width:811px)');
+                mq1 = window.matchMedia('(max-width:810px)');
+                mq2 = window.matchMedia('(max-width:532px)');
+                wh = window.innerHeight;
+                dh = document.documentElement.clientHeight;
+                if(wh >= dh){
+                    $('.main').css({"height":"100%"});
+                }
+                else{
+                    $('.main').css({"height":"auto"});
+                }
+            $("#ReadMore").click(function(){
+                content_height = $(".event_container").height();
+                event_long_desc_height = $("#event_long_desc").height();
+                if(mq.matches){
+                    $(".event_container").css({"height":content_height + event_long_desc_height});
+//                     console.log("width is greater than 811px")
+                    
+                }
+                else{
+                    if(mq1.matches){
+                        if(mq2.matches){
+                            $(".event_container").css('height', content_height + event_long_desc_height +'px');
+//                            console.log("width is less than 532px")
+                        }
+                        else{
+                            $(".event_container").css('height', content_height + event_long_desc_height +'px');
+//                             console.log("width is less than 810px")
+                        }
+                    }
+                    
+                }
+//                $(".event_container").css({"height":"750px"});
+                
+                
+                $(this).fadeOut(1000, function(){
+                    $("#event_long_desc").slideDown(1000);
+                    $(".event_container").slideDown(1000);
+                });
+                return false;
+            })
+            $("#ShowLess").click(function(){
+                content_height = $(".event_container").height();
+                event_long_desc_height = $("#event_long_desc").height();
+                if(mq.matches){
+                    $(".event_container").css({"height":content_height - event_long_desc_height});
+//                     console.log("width is greater than 811px");
+                    
+                    
+                }
+                else{
+                    if(mq1.matches){
+                        if(mq2.matches){
+                            $(".event_container").css('height', content_height - event_long_desc_height +'px');
+//                            console.log("width is less than 532px")
+                        }
+                        else{
+                            $(".event_container").css('height', content_height - event_long_desc_height +'px');
+//                             console.log("width is less than 810px")
+                        }
+                    }
+                }
+//                $(".event_container").css({"height":"640px"});
+                
+                $("#event_long_desc").slideUp(800,function(){
+                    $("#ReadMore").fadeIn(800);
+                });
+                
+                return false;
+            }) 
 
     }) 
     </script>
