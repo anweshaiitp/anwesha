@@ -12,6 +12,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <link href="/assets/css/styleevent.css" rel="stylesheet">
     
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/css/home2019.css">
 
     <style>
         *,
@@ -100,14 +103,16 @@
                     100%{background-position:0% 82%}
                 }
             
-	    #techEvents > li, #cultEvents > li, #artEvents > li{
+	    #techEvents > li, #cultEvents > li, #artsEvents > li{
 	    	cursor:pointer;
 	    }
+
 
             .ui-accordion-content {
             font-family: Roboto, sans-serif;
             font-size: 14px;
             padding: 0px 20px;
+            height: 420px;
             }
 
             .ui-accordion-content ul {
@@ -243,14 +248,35 @@
             color: rgba(255,255,255,0.8);
         }
     </style>
+    <title>Events | Anwesha 2019</title>
 </head>
 <body>
 
-    <div class="header">
-      <div class="container">
-            <p>Back to Home Page</p>
-      </div>
-    </div>
+<div id="menu">
+    <ul data-start="color:rgb(0,0,0); border-color:rgb(0,0,0); background: rgba(255,255,255,0.9);     box-shadow: 0 0 0px rgba(255,255,255,1);"
+      data-500="color:rgb(0,0,0); border-color:rgb(0,0,0); background: rgba(255,255,255,0.9);     box-shadow: 0 0 10px rgba(255,255,255,1);"
+      class="skrollable skrollable-between" style="border-radius:20px;color: rgb(0,0,0); border-color: rgb(0,0,0); background: rgba(255,255,255,0.9); box-shadow: rgba(255,255,255,0, 1) 0px 0px 0px;">
+      <!-- <li id="home-link"><a href="#start-section">HOME</a></li> -->
+      <li><a href="/" id="">Back to Home Page</a></li>
+      <!-- <li><a href="/view/index.html/#About" id="">About</a></li>
+      <li><a href="/view/spons.html" id="">Sponsors</a></li>
+      <li><a href="/view/index.html/#Contact-Us" id="">Contact Us</a></li>
+      <li><a href="/view/index.html/#Audition" id="">Auditions</a></li>
+      <li><a href="/view/ca.php" id="">Campus Ambassador</a></li> -->
+      
+    </ul>
+  </div>
+  <div id="mobile-nav-btn" class="mobile-nav-btn dark " data-100="opacity:1;" data-500="opacity:0; "
+    style="opacity: 1;"></div>
+  <div class="mobile-nav-btn white " data-100="opacity:0;" data-500="opacity:1; " style=""></div>
+  <div id="mobile-nav" style="background-color:black">
+    <img src="/assets/img/close.png" class="close" alt="close menu" width="30" height="30">
+    <ul>
+      <li><a href="/view/index.html" id="">Back to Home Page</a></li>
+    
+      
+    </ul>
+  </div>
   
     <div class="main">
       
@@ -275,65 +301,10 @@
                         </div>
                 </div>
             </div>
-            <div class="col-md-9" style="opacity: 0.9">
-<!--                <div class="tech_content">
-                    <div id="mainarea" style="color: white; padding: 2em;">
-                    <center>
-                        <div id="">
-                            <span id="headwrap" style="">
-                                <span id="headwr" style="display: inline">
-                                     <img src="http://via.placeholder.com/100x100" style="height: 50px;display: inline;" placeholder="Icon" id='eve_icon'>&nbsp;&nbsp;&nbsp;&nbsp; 
-                                    <h1 id="eve_name" style="font-size: 3em;">Static Rush</h1>
-                                </span>
-                                <br>
-                                <span id="eve_tagline" style="font-size: 1.5em;margin-bottom: 30px;font-style: italic;text-shadow: #000000 0px 0px 20px;"></span>
-                            </span>
-                        </div>
-                        <br>
-                         <div id="dummyspace" style="width:100%;height:300px"></div> 
-                        <a target="_blank" id="coveranc" src="#">
-                            <img src="" alt="" id="eve_cover" style="max-width: 80%; max-height: 50%; display: none;">
-                        </a>
-                        <br><br>
-
-                        <span id="eve_short_desc" style="font-size: 1.5em;">Remember snakes and ladders? Wanna live through it in the real world? Then Static Rush is your ultimate platform with a twist of electronics. With unlimited adventure and enthralling fun packed in every step you take, this one game will make you remember your childhood and with electronics embedded this one event is surely gonna be in your good books. </span>
-                        <br>
-                        <span id="eve_long_desc" style="font-family: 'Roboto', sans-serif;font-size: 1.5em;text-align:justify;text-justify: inter-word;"></span>
-                        <br>
-
-                        <span style="font-size: 1.8em">Date:</span>
-                        <span id="eve_date" style="font-size: 1.8em;">2nd Feb</span>
-                        <br>
-                        <br>
-                        <span style="font-size: 1.8em">Time:</span>
-                        <span id="eve_time" style="font-size: 1.8em;">1pm</span>
-                        <br>
-                        <br>
-                        <span style="font-size: 1.8em">Venue:</span>
-                        <span id="eve_venue" style="font-size: 1.8em;">Boys Hostel,IIT Patna</span>
-                        <br>
-                        <br>
-                        <div id="eve_organisers_head">
-                            <span style="font-size: 1.8em">Organisers :</span>
-                            <div id="eve_organisers" style="">Harpreet  91 9041083838
-                            <br>Gaurav Kataria  9479965760</div>
-                        </div>
-                        <h3 id="regmsg"></h3>
-                        <br>
-                       
-                        <a href="https://docs.google.com/document/d/144GNxbiGseMmnSxlZEH3WQaZzyFQ7YI0WaW9Y2edmfk/edit?usp=sharing" id="RuleBtn" target="_blank" style="display: inline-block;">Rulebook</a>
-                        <a id="RegBtn" data-eveid="10">Register</a>
-                        <br>
-
-                        <a href="" id="img_anchor" target="_blank">
-                            <img src="" style="display: none" height="200px">
-                        </a>
-                    </center>
-                </div>
-                </div>-->
+            <div class="col-md-9" style="opacity: 0.9">              
                  <div class="tech_event">
                     <div class="event_container">
-                        <img src="https://static-cdn.sr.se/sida/images/3117/787c33ac-5689-4e1c-aaf3-7db96093015a.jpg" alt="cover"   width="220" class="event_bg" />
+                        
                         <div class="event_info">
                             <div class="headwrap">
                             <div class="title1" id="eve_name">Event Title</div>
@@ -484,7 +455,7 @@
             }
         var events_data;
         var eventsmap = [];
-        $.get("/allEvents", function (data, status) {
+        $.get("/view/eve.json", function (data, status) {
             console.log("Event Status : " + data[0]);
             if (status == 'success') {
                 events_data = data[1];
