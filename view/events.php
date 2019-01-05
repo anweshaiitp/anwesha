@@ -308,24 +308,24 @@
                         
                         <div class="event_info">
                             <div class="headwrap">
-                            <div class="title1" id="eve_name">Event Title</div>
+                            <div class="title1" id="eve_name">Static Rush</div>
                             <div class="title2" id="eve_tagline">Event tagline</div>    
                             </div> <!-- end details -->
                         </div> <!-- end hero -->
                         <div class="event_description">
                             <div class="event_timing">
-                                <span class="tag" id="eve_date">Date</span>
-                                <span class="tag" id="eve_time">Time</span>
+                                <span class="tag" id="eve_date">2nd Feb</span>
+                                <span class="tag" id="eve_time">1 pm</span>
                                 <br>
-                                <span class="tag" id="eve_venue">venue </span>
+                                <span class="tag" id="eve_venue">Boys Hostel, IITP </span>
                             </div> 
                             <div class="event_details">
                                 <div id="event_short_desc">
-                                    <p style="color:#1c1c1c" id="eve_short_desc">Here will be event short description <a href="#" id="ReadMore">read more</a></p>
+                                    <p style="color:#1c1c1c" id="eve_short_desc">Remember snakes and ladders? Wanna live through it in the real world? <a href="#" id="ReadMore">read more</a></p>
 
                                 </div>
                             <div id="event_long_desc">
-                                <p style="color:#1c1c1c" id="eve_long_desc">Remember snakes and ladders? Wanna live through it in the real world? Then Static Rush is your ultimate platform with a twist of electronics. With unlimited adventure and enthralling fun packed in every step you take, this one game will make you remember your childhood and with electronics embedded this one event is surely gonna be in your good books. <a href="#" id="ShowLess">show less</a></p>
+                                <p style="color:#1c1c1c" id="eve_long_desc"> Then Static Rush is your ultimate platform with a twist of electronics. With unlimited adventure and enthralling fun packed in every step you take, this one game will make you remember your childhood and with electronics embedded this one event is surely gonna be in your good books. <a href="#" id="ShowLess">show less</a></p>
                             </div>
                             <div id="event_organisers">
                                 <h3 style="color:#1c1c1c">Organisers:</h3>
