@@ -267,7 +267,7 @@
 
         }
     </style>
-    <title>Events | Anwesha '19</title>
+    <title>Events | Anwesha '19 IITP</title>
 </head>
 <body>
 
