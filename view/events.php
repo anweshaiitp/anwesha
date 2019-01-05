@@ -281,7 +281,7 @@
     <div class="main">
       
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-10 col-md-3">
                 <div id="accordion">
                     <h3>TECHNICAL EVENTS</h3>
                         <div>
@@ -301,7 +301,8 @@
                         </div>
                 </div>
             </div>
-            <div class="col-md-9" style="opacity: 0.9">              
+    
+            <div class="col-10 col-md-9" style="opacity: 0.9">              
                  <div class="tech_event">
                     <div class="event_container">
                         
@@ -315,6 +316,7 @@
                             <div class="event_timing">
                                 <span class="tag" id="eve_date">Date</span>
                                 <span class="tag" id="eve_time">Time</span>
+                                <br>
                                 <span class="tag" id="eve_venue">venue </span>
                             </div> 
                             <div class="event_details">
@@ -455,7 +457,7 @@
             }
         var events_data;
         var eventsmap = [];
-        $.get("/allEvents", function (data, status) {
+        $.get("/view/eve.json", function (data, status) {
             console.log("Event Status : " + data[0]);
             if (status == 'success') {
                 events_data = data[1];
