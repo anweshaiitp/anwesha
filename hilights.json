@@ -2,7 +2,8 @@
 {"title":"A",
 "desc":"abcd",
 "img":"",
- "button":"View More"
+ "button":"View More",
+  "action":"https://youtube.com"
 },
 {"title":"B",
 "desc":"abcd",
