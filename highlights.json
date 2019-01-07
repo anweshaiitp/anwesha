@@ -1,0 +1,16 @@
+[
+{"title":"A",
+"desc":"abcd",
+"bgcolor":"#2d659cb5",
+ "img":"https://www.w3schools.com/w3css/img_snowtops.jpg",
+ "button":"View More",
+  "action":"https://youtube.com"
+},
+{"title":"B",
+"desc":"abcd",
+"bgcolor":"#2d659cb5",
+ "img":"https://www.w3schools.com/w3css/img_lights.jpg",
+ "button":"View More",
+  "action":"https://youtube.com"
+}
+]
