@@ -265,13 +265,7 @@
                     <iframe width="160" height="80" frameborder="0" title="YouTube video player" type="text/html"  src="https://www.youtube.com/embed/tare6Drw0Ng?feature=oembed&controls=1&hd=1&modestbranding=1&autohide=1&showinfo=0&enablejsapi=1"></iframe>
             </div>
         </section>
-  <?php
-    $hilightsFile = "hilights.json";
-    $staticF = file_get_contents($hilightsFile);
-    $staticD = json_decode($staticF, true);
 
-    foreach ($staticD as $value) {
-?>
   
 
         <div class="swiper-container sec2 skrolll" id = "#not">
@@ -325,8 +319,14 @@
                         </div>
                     </div>
                 </div>
-        <?php  }  ?>        
-                
+           
+ <?php
+    $hilightsFile = "hilights.json";
+    $staticF = file_get_contents($hilightsFile);
+    $staticD = json_decode($staticF, true);
+
+    foreach ($staticD as $value) {
+?> 
                 <div class="swiper-slide">
                     <div class="bg-image img2">
   <!--                      <img src="2.jpg" alt=""/>-->
@@ -380,7 +380,7 @@
                     </div>
                 </div>
                 
-                
+                  <?php  }  ?>   
                 <div class="swiper-slide">
                     <div class="bg-image img3">
   <!--                      <img src="3.jpg" alt=""/>-->
