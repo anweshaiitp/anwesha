@@ -283,14 +283,14 @@
                     <div class="bg-image img2">
   <!--                      <img src="2.jpg" alt=""/>-->
                     </div>
-                    <div class="bg-color"></div>
+                    <div class="bg-color" style="background-color:<?php  echo $value["bgcolor"] !important; ?>;"></div>
                     <div class="container">
                         <div class="content">
                             <div class="col1">
                                 <h1><?php  echo $value["title"];  ?></h1>
                                 <p><?php  echo $value["desc"];  ?>
                                     <br>
-                                    <button><?php  echo $value["button"];  ?></button>
+                                    <button onclick="location.href='<?php  echo $value["action"];  ?>';"><?php  echo $value["button"];  ?></button>
                                 </p>
                                 <br>
   <!--                              <p>
