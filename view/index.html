@@ -273,17 +273,17 @@
                 
            
  <?php
-    $hilightsFile = "hilights.json";
+    $hilightsFile = "highlights.json";
     $staticF = file_get_contents($hilightsFile);
     $staticD = json_decode($staticF, true);
 
     foreach ($staticD as $value) {
 ?> 
                 <div class="swiper-slide">
-                    <div class="bg-image img2" style="background-color:<?php echo $value["img"] !important; ?>;">
+                    <div class="bg-image img2" style="background-color:<?php echo $value["img"]; ?> !important;">
   <!--                      <img src="2.jpg" alt=""/>-->
                     </div>
-                    <div class="bg-color" style="background-color:<?php  echo $value["bgcolor"] !important; ?>;"></div>
+                    <div class="bg-color" style="background-color:<?php echo $value["bgcolor"]; ?> !important;"></div>
                     <div class="container">
                         <div class="content">
                             <div class="col1">
