@@ -347,7 +347,7 @@
                             </div> 
                             <div class="event_details">
                                 <div id="event_short_desc">
-                                    <p style="color:#1c1c1c" id="eve_short_desc">Remember snakes and ladders? Wanna live through it in the real world? <a href="#" id="ReadMore">read more</a></p>
+                                    <p style="color:#1c1c1c" id="eve_short_desc">Remember snakes and ladders? Wanna live through it in the real world? Then Static Rush is your ultimate platform with a twist of electronics. With unlimited adventure and enthralling fun packed in every step you take, this one game will make you remember your childhood and with electronics embedded this one event is surely gonna be in your good books.</p>
 
                                 </div>
                             <div id="event_long_desc">
