@@ -265,7 +265,14 @@
                     <iframe width="160" height="80" frameborder="0" title="YouTube video player" type="text/html"  src="https://www.youtube.com/embed/tare6Drw0Ng?feature=oembed&controls=1&hd=1&modestbranding=1&autohide=1&showinfo=0&enablejsapi=1"></iframe>
             </div>
         </section>
-    
+  <?php
+    $hilightsFile = "hilights.json";
+    $staticF = file_get_contents($hilightsFile);
+    $staticD = json_decode($staticF, true);
+
+    foreach ($staticD as $value) {
+?>
+  
 
         <div class="swiper-container sec2 skrolll" id = "#not">
             <div class="swiper-wrapper">
@@ -277,13 +284,10 @@
                     <div class="container">
                         <div  class="content">
                             <div class="col1">
-                                <h1>Event title</h1>
-                                <p>SimpleBar is not intended to be used on the body element! 
-                                    I don't recommend wrapping your entire web page inside a custom scroll as it will often badly affect 
-                                    the user experience (slower scroll performance compared to the native body scroll, 
-                                    no native scroll behaviours like click on track, etc.
+                                <h1><?php  echo $value["title"];  ?></h1>
+                                <p><?php  echo $value["desc"];  ?>
                                     <br>
-                                    <button>Lineup</button>
+                                    <button><?php  echo $value["button"];  ?></button>
                                 </p>
                                 <br>
   <!--                              <p>
@@ -321,6 +325,8 @@
                         </div>
                     </div>
                 </div>
+        <?php  }  ?>        
+                
                 <div class="swiper-slide">
                     <div class="bg-image img2">
   <!--                      <img src="2.jpg" alt=""/>-->
@@ -373,6 +379,8 @@
                         </div>
                     </div>
                 </div>
+                
+                
                 <div class="swiper-slide">
                     <div class="bg-image img3">
   <!--                      <img src="3.jpg" alt=""/>-->
