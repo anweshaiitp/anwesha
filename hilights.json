@@ -1,13 +1,16 @@
 [
 {"title":"A",
 "desc":"abcd",
-"img":"",
+"bgcolor":"#2d659cb5",
+ "img":"https://www.w3schools.com/w3css/img_snowtops.jpg",
  "button":"View More",
   "action":"https://youtube.com"
 },
 {"title":"B",
 "desc":"abcd",
-"img":"",
-  "button":"View More"
+"bgcolor":"#2d659cb5",
+ "img":"https://www.w3schools.com/w3css/img_lights.jpg",
+ "button":"View More",
+  "action":"https://youtube.com"
 }
 ]
