@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<!--SEO-->
-		<meta name="Title" content="Anwesha 2018 IIT Patna">
+		<meta name="Title" content="Anwesha 2019 IIT Patna">
 		<meta name="Keywords" content="Anwesha, Anwesha, Anwesha, IIT, IIT Patna, IIT P , IITP, Anwesha Fest, fest, cult, cultural">
 		<meta name="Description" content="ANWESHA is a quest. The annual Techno-Cultural Festival of Indian Institute of Technology Patna hosts Technical, Cultural, Management, Arts and Welfare ...">
 		<meta name="Subject" content="Anwesha IITP">
@@ -10,8 +10,12 @@
 		<link rel="stylesheet" href="assets/css/desktop.css" media="only screen and (min-width: 960px)">
 		<meta name="theme-color" content="#496495">
 		<meta charset="UTF-8">
+		<script src="assets/js/jquery.min.js" type="text/javascript"></script>
+		<script src="assets/js/particles_conf.js" type="text/javascript"></script>
 		<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-		<title>Anwesha '18</title>
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.3/particles.js" rel="stylesheet">
+		
+		<title>Anwesha '19</title>
 		<script>
 			function preloadImage(imageurl)
 			{
@@ -413,9 +417,9 @@
             
 			.reg_text
 			{
-				margin: 0 20%;
+				margin: 0 11%;
 				text-align: center;
-				font-size: 170%;
+				font-size: 150%;
 				background: white;
 				border-radius: 5px;
 				padding: .6%;
@@ -563,7 +567,7 @@
 				   
 				}
 				</script>
-		<script src="/js/reg.js"></script>
+		<script src="assets/js/reg.js"></script>
 
 				<div class="form_div">
 					<div class="wrapper" style="display:flex;justify-content:center;align-items:center;text-align:center">
@@ -575,11 +579,9 @@
                         <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with"  data-auto-logout-link="true" data-use-continue-as="true" data-scope="email,public_profile,user_location,user_birthday,user_about_me" onlogin="auth_response_change_callback();"></div>
                     </div>
                     <div class="wrapper" style="display:flex;justify-content:center;align-items:center;text-align:center">
-                        <span style="background:#fff">OR:</span>
+                        <span style="background:#fff;padding: 1%;border-radius: 80px;">OR:</span>
                     </div>
 						<div id="success" style="display: none">
-							
-						
                     </div>
 
 					<form class="reg_form"  action="javascript:" method="post">
@@ -592,14 +594,6 @@
                                 <div class="inputbox">
                                     <input type="text" name="name" required />
                                     <label>Name</label>
-                                </div>
-                                <div class="inputbox">
-                                    <input type="number" name="mobile" min="7000000000" max="9999999999" required/>
-                                    <label>Contact No</label>
-                                </div>
-                                <div class="inputbox">
-                                    <input type="email" name="email"/>
-                                    <label>Email</label>
                                 </div>
                                 <div class="inputbox notrequired">
                                     <input type="date" name="DOB"/>
@@ -619,13 +613,24 @@
                                 <div class="inputbox notrequired">
                                     <input type="text" name="city">
                                     <label>City</label>
+								</div>
+								<div class="inputbox">
+                                    <input type="number" name="mobile" min="7000000000" max="9999999999" required/>
+                                    <label>Contact No</label>
+                                </div>
+                                <div class="inputbox">
+                                    <input type="email" name="email"/>
+                                    <label>Email</label>
+                                </div>
+								<div class="inputbox">
+                                    <input type="text" name="password">
+                                    <label>Password</label>
                                 </div>
                                 <div class="inputbox">
                                     <input id="sub_but" type="button" name="register" value="Register"/>
                                 </div>
                             </div>
                         </div>
-                        
 					</form>
 				</div>
 			</div>
@@ -646,8 +651,7 @@
 				});
 			</script>
 
-			<script src="../assets/js/particles_conf.js" type="text/javascript">
-			</script>
+			
 		
 	</body>
 </html>

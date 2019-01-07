@@ -55,6 +55,8 @@
             }
 
             .row{
+                /* margin-top:10px; */
+                padding-top:40px;
                 margin-right: 0%;
                 margin-left: 0%;
             }
@@ -250,6 +252,11 @@
         .caption a:hover{
             color: rgba(0,0,0,0.8) ;
         }
+        @media screen and (max-width:810px){
+            .event_container{
+                width:500px;
+            }
+        }
         @media screen and (max-width:532px){
             .event_container{
                 width:100%;
@@ -324,7 +331,7 @@
             <div class="col-10 col-md-9" style="opacity: 0.9">              
                  <div class="tech_event">
                     <div class="event_container">
-                        
+                    <!-- <img src="https://static-cdn.sr.se/sida/images/3117/787c33ac-5689-4e1c-aaf3-7db96093015a.jpg" alt="cover"   width="220" class="event_bg" /> -->
                         <div class="event_info">
                             <div class="headwrap">
                             <div class="title1" id="eve_name">Static Rush</div>
@@ -351,10 +358,11 @@
                                 <ul style="list-style-type:none;color: #1c1c1c">
                                 <li id="eve_organisers"></li>
                                 </ul>
-                            </div style="background-color:#1c1c1c"> 
-                                <a href="https://docs.google.com/document/d/144GNxbiGseMmnSxlZEH3WQaZzyFQ7YI0WaW9Y2edmfk/edit?usp=sharing" id="RuleBtn">Rulebook</a>
-                                <a id="RegBtn" data-eveid="10">Register</a>
-                            </div> 
+                                <div class="refrence">
+                                    <a href="https://docs.google.com/document/d/144GNxbiGseMmnSxlZEH3WQaZzyFQ7YI0WaW9Y2edmfk/edit?usp=sharing" id="RuleBtn">Rulebook</a>
+                                    <a id="RegBtn" data-eveid="10">Register</a>
+                                </div> 
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -389,9 +397,9 @@
                 $(".back").fadeOut(100);
                 return false;
             })
-            $("#ReadMore").click(function(){
+           /* $("#ReadMore").click(function(){
                 $(".event_container").css({"height":"750px"});
-//                $(".event_container").slideDown(1000);
+                $(".event_container").slideDown(1000);
                 $("#event_long_desc").slideDown(1000);
                 $(this).css({"display":"none"});
                 return false;
@@ -402,6 +410,7 @@
                 $("#ReadMore").css({"display":"block"});
                 return false;
             })
+            */
             //            new added from here
             mq = window.matchMedia('(min-width:811px)');
                 mq1 = window.matchMedia('(max-width:810px)');

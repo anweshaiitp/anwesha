@@ -1,221 +1,8 @@
-@import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);
-@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css);
+/*@import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css);*/
 *, *:before, *:after {
   box-sizing: border-box;
 }
-
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
-          html,
-          body {
-          margin: 0;
-          padding: 0;
-          }
-
-
-
-          /* Header */
-          .header {
-          background-color: #1c1c1c;
-          font-family: 'Oswald', sans-serif;
-          }
-
-          .header p {
-          color: #fff;
-          font-size: 16px;
-          text-align: center;
-          margin: 0;
-          padding: 10px;
-          text-transform: uppercase;
-          cursor: pointer;
-          }
-
-          /* Main */
-          .main {
-          background: url(https://static-cdn.sr.se/sida/images/3117/787c33ac-5689-4e1c-aaf3-7db96093015a.jpg) no-repeat center center; 
-          background-size: cover;
-/*            height: 100%;*/
-          }
-
-          .row{
-              margin-right: 0%;
-              margin-left: 0%;
-          }
-
-          #accordion {
-          background-color: black;
-          border: 1px solid black;
-          margin-top: 20px;
-          }
-
-          .ui-accordion-header {
-          background-color:black;
-          border-bottom: 3px solid gray;
-          color: #fff;
-          cursor: pointer;
-          font-family: 'Oswald', sans-serif;
-          font-size: 30px;
-          margin: 5px;
-          outline: 0;
-          padding: 8px 20px;
-          text-transform: uppercase;
-              background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
-              background-size: 1800% 1800%;
-
-              -webkit-animation: rainbow 18s ease infinite;
-              -z-animation: rainbow 18s ease infinite;
-              -o-animation: rainbow 18s ease infinite;
-              animation: rainbow 18s ease infinite;
-          }
-
-              @-webkit-keyframes rainbow {
-                  0%{background-position:0% 82%}
-                  50%{background-position:100% 19%}
-                  100%{background-position:0% 82%}
-              }
-              @-moz-keyframes rainbow {
-                  0%{background-position:0% 82%}
-                  50%{background-position:100% 19%}
-                  100%{background-position:0% 82%}
-              }
-              @-o-keyframes rainbow {
-                  0%{background-position:0% 82%}
-                  50%{background-position:100% 19%}
-                  100%{background-position:0% 82%}
-              }
-              @keyframes rainbow { 
-                  0%{background-position:0% 82%}
-                  50%{background-position:100% 19%}
-                  100%{background-position:0% 82%}
-              }
-          
-
-
-          .ui-accordion-content {
-          font-family: Roboto, sans-serif;
-          font-size: 14px;
-          padding: 0px 20px;
-          }
-
-          .ui-accordion-content ul {
-          list-style: none;
-          padding: 0;
-          }
-
-          .ui-accordion-content li {
-          padding: 1px 0;
-          color: #fff;
-          }
-
-          .main .col-md-9{
-              margin-top: 20px;
-          }
-#mainarea>center>div:nth-child(1)
-{
-  padding: 10px;
-  border-radius: 10px;
-  background: #63262229;
-  box-shadow: #48b3c7 0px 0px 10px;	   
-}
-      #RuleBtn, #RegBtn
-{
-  margin: 0;
-  padding: 0;
-  color: black;
-  text-decoration: none;
-  padding: 10px;
-  border-radius: 3px;
-  font-size: 125%;
-  font-weight: bold;
-  margin: 5px;
-  background: white;
-/*		display: inline-block;*/
-  height: 35px;
-  vertical-align: middle;
-              box-sizing: inherit;
-}
-      @-webkit-keyframes spinner {
-  from { -webkit-transform: rotateY(-180deg);    }
-  to   { -webkit-transform: rotateY(0deg); }
-}
-
-
-      @keyframes spinner {
-          from {
-            -moz-transform: rotateY(-180deg);
-            -ms-transform: rotateY(-180deg);
-            transform: rotateY(-180deg);
-          }
-          to {
-            -moz-transform: rotateY(0deg);
-            -ms-transform: rotateY(0deg);
-            transform: rotateY(0deg);
-          }
-        }
-      .back{
-          background-color: whitesmoke;
-          opacity: 0.9;
-          margin-left: -15px;
-/*            margin-right: -15px;*/
-          width: 100%;
-          height: 100% ;
-          
-      }
-      .back iframe{
-/*            position: absolute;*/
-          height: inherit;
-          width: 100%;
-          border: none;
-          backface-visibility:             hidden;
-      -moz-backface-visibility:    hidden;
-      -ms-backface-visibility:     hidden;
-      -o-backface-visibility:      hidden;
-      -webkit-backface-visibility: hidden;
-      }
-      .col-md-9{
-          margin: 1em auto;
-          -webkit-perspective: 1200px;
-          -moz-perspective: 1200px;
-          -ms-perspective: 1200px;
-          perspective: 1200px;
-      }
-      iframe{
-          
-          -webkit-animation-name: spinner;
-  -webkit-animation-timing-function: ease-in-out;
-  -webkit-animation-iteration-count: 1;
-  -webkit-animation-duration: 1s;
-
-  animation-name: spinner;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: 1;
-  animation-duration: 1s;
-
-  -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
-  -ms-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-      }
-      .caption{
-          display: none;
-          position: absolute;
-          top: 10;
-          left: 0;
-          color: black;
-          background-color: white;
-          padding: 8px 12px;
-          border-radius: 8px;
-      }
-      .caption a{
-          color: black;
-          text-decoration: none;
-      }
-      .caption a:hover{
-          color: rgba(255,255,255,0.8);
-      }
 
 body {
   background: #43423E;
@@ -239,17 +26,11 @@ a:hover {
 .event_container {
   margin: 0 auto;
   width: 780px;
-  height: 730px;
+/*  height: 640px;*/
   background: #F0F0ED;
   border-radius: 5px;
   position: relative;
   transition: all ease-in-out 1s;
-}
-
-@media screen and (max-width:532px){
-  .event_container{
-    height:960px;
-  }
 }
 
 .event_info {
@@ -272,6 +53,7 @@ a:hover {
   left: 0;
   background: red;
   background: url("https://static-cdn.sr.se/sida/images/3117/787c33ac-5689-4e1c-aaf3-7db96093015a.jpg");
+  background-size: contain;
   z-index: -1;
   -webkit-transform: skewY(-2.2deg);
           transform: skewY(-2.2deg);
@@ -288,8 +70,7 @@ a:hover {
 }
 
 .headwrap {
-  padding-top:50px;
-  padding-left:20px;
+  padding: 190px 0 0 33px;
 }
 .headwrap .title1 {
   color: white;
@@ -325,7 +106,7 @@ a:hover {
 
 .event_description {
   bottom: 0px;
-  height: 200px;
+/*  height: 200px;*/
   font-size: 16px;
   line-height: 26px;
   color: #B1B0AC;
@@ -373,12 +154,12 @@ a:hover {
 .event_organisers a:hover {
   text-decoration: none;
 }
-
+/*new added*/
 .event_description::after,.event_description::before{
-  clear: both;
-  display: table;
-  content: "";
+    clear: both;
+    display: table;
+    content: "";
 }
 .refrence{
-  height: 50px;
+    height: 50px;
 }
