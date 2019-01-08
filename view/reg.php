@@ -557,17 +557,14 @@
 				  fjs.parentNode.insertBefore(js, fjs);
 				}(document, 'script','email', 'facebook-jssdk'));
 
-				function checkLoginState() {
-				  FB.getLoginStatus(function(response) {
-				    console.log(response);
-				    return response;
-				  });
-				 // Here we run a very simple test of the Graph API after login is
-				   // successful.  See statusChangeCallback() for when this call is made.
-				   
+// 				function checkLoginState() {
+// 				  FB.getLoginStatus(function(response) {
+// 				    console.log(response);
+// 				    return response;
+// 				  });
 				}
 				</script>
-		<script src="assets/js/reg.js"></script>
+		<script src="/assets/js/reg.js"></script>
 
 				<div class="form_div">
 					<div class="wrapper" style="display:flex;justify-content:center;align-items:center;text-align:center">
@@ -623,8 +620,12 @@
                                     <label>Email</label>
                                 </div>
 								<div class="inputbox">
-                                    <input type="text" name="password">
+                                    <input minlength=6 type="text" name="password">
                                     <label>Password</label>
+                                </div>
+					<div class="inputbox">
+                                    <input type="text" pattern="\d{0,4}" placeholder="1234" name="refcode">
+                                    <label>CA Referral Code (Optional)</label>
                                 </div>
                                 <div class="inputbox">
                                     <input id="sub_but" type="button" name="register" value="Register"/>
@@ -632,9 +633,10 @@
                             </div>
                         </div>
 					</form>
+					
 				</div>
 			</div>
-
+<a style="" href="http://anwesha.info/reset_resend" target="_blank">Reset Password or Resend confirmation email</a>
 
 
 	<!-- Scripts -->
