@@ -349,8 +349,8 @@
 
 #landingContent img
 {
-    margin-top: 3%;
-    width: 40%;
+    margin-top: 5%;
+    width: 37%;
     line-height: 0%;
 }
 
@@ -358,7 +358,7 @@
 .base {
     width: 50px;
     border-top: 5px solid gray;
-    margin-left: 10%;
+    margin-left: 85%;
     text-align: center;
     position: relative;
     padding: 0 0 30px;
@@ -375,7 +375,7 @@
   .thread {
     display: inline-block;
     width: 2px;
-    height: 80px;
+    height: 250px;
     background: black;
     border-radius: 5px;
     position: relative;
