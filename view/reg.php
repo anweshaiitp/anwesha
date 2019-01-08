@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<!--SEO-->
-		<meta name="Title" content="Anwesha 2018 IIT Patna">
+		<meta name="Title" content="Anwesha 2019 IIT Patna">
 		<meta name="Keywords" content="Anwesha, Anwesha, Anwesha, IIT, IIT Patna, IIT P , IITP, Anwesha Fest, fest, cult, cultural">
 		<meta name="Description" content="ANWESHA is a quest. The annual Techno-Cultural Festival of Indian Institute of Technology Patna hosts Technical, Cultural, Management, Arts and Welfare ...">
 		<meta name="Subject" content="Anwesha IITP">
@@ -10,8 +10,12 @@
 		<link rel="stylesheet" href="assets/css/desktop.css" media="only screen and (min-width: 960px)">
 		<meta name="theme-color" content="#496495">
 		<meta charset="UTF-8">
+		<script src="assets/js/jquery.min.js" type="text/javascript"></script>
+		<script src="assets/js/particles_conf.js" type="text/javascript"></script>
 		<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-		<title>Anwesha '18</title>
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.3/particles.js" rel="stylesheet">
+		
+		<title>Anwesha '19</title>
 		<script>
 			function preloadImage(imageurl)
 			{
@@ -379,12 +383,23 @@
 
 		<!-- styling for the registration div -->
 		<style type="text/css">
+            body{
+                    background: url(https://images5.alphacoders.com/533/533971.jpg);
+                    background-attachment: fixed;
+                    background-size: cover;
+                background-position: center;
+                }
+            .logohome{
+                position: fixed;
+                z-index: 9999;
+                top: 0;
+                left: 0;
+            }
 			.reg_form_div
 			{
-				width: 50%;
+				width: 70%;
 				height: auto;
-				//background: red;
-				z-index: 5000000000;
+				z-index: 500;
 				position: absolute;
 				top:0;
 				margin: auto;
@@ -392,83 +407,46 @@
 				right: 0;
 				padding: 2%;	
 				font-family: Ubuntu;
-				//overflow-y: scroll;
 			}
-
 			.reg_logo
 			{
 				max-width: 25%;
 				display: block;
 				margin: auto;
-
 			}
-
+            
 			.reg_text
 			{
-				margin-left: 5%;
-				margin-right: 5%;
+				margin: 0 11%;
 				text-align: center;
-				font-size: 170%;
+				font-size: 150%;
 				background: white;
 				border-radius: 5px;
 				padding: .6%;
 				box-shadow: 3px 3px 20px black;
 			}
-
-			.form_div
-			{
-				text-align: center;
-				/*/background: white;*/
-				border-radius: 10px;
-				//border: 2px solid black;
-				//opacity: .8;
-				//padding: 1%;
-			}
+            
 			#FB-Oauth,#FB-Oauth2{
-							padding: 10px;
-							    background-color: rgba(98, 153, 193, 0.76);
-							    
-							    margin: 30px;
-							    border-radius: 10px;
-							    /*left: 50%;*/
-							    /*position: absolute;*/
-							    /*transform: translateX(-50%);*/
-						}
-						@media screen and (min-width: 600px) {
-						#FB-Oauth,#FB-Oauth2{
-							width: 400px;
-						}
-			.reg_form
-			{
-				margin: auto;
-				width: 80%;
+                padding: 10px;
+                    background-color: rgba(98, 153, 193, 0.76);
+                    margin: 10px 0;
+                    border-radius: 10px;
+            }
+            #FB_Oauth{
+                margin: 0;
+            }
+			
 
-				text-align: center;
-				text-align: right;
-			}
-
-			.reg_form p
-			{
-				background: white;
-				padding: 2%;
-				//padding-bottom: 2%;
-				border-radius: 10px;
-				margin-bottom: 1%;
-				box-shadow: 2px 2px 10px black;
-				font-size: 120%;
-				vertical-align: middle;
-			}
 
 			.reg_form input, .reg_form select
 			{
-
+                outline: none;
 				background: none;
 				border: none;
 				border-bottom: 2px black solid;
 				width: 280px;
 				height: 30px;
 				vertical-align: middle;
-				//text-align: right
 			}
 
 			#sub_but
@@ -484,40 +462,77 @@
 				display: block;
 				box-shadow: 2px 2px 10px black;
 				cursor: pointer;
+                line-height: 10px;
 			}
-
-
-
-			/*  media queries */
-			@media screen and (max-width: 800px)
+            #sub_but:hover
 			{
-
-				.reg_logo
-				{
-					max-width: 30%;
-					display: block;
-					margin: auto;
-
-				}
-
-				.reg_form_div
-				{
-					width: 90%;
-					padding: 1%;	
-				}
-
-				.reg_text
-				{
-					margin: auto;
-					text-align: center;
-					font-size: 120%;
-				}
+				background: #03a9f4;
+                color: #fff;
 			}
+            
 
 		</style>
+
+        
+        <style>
+            body{
+                margin: 0;
+                padding: 0;
+            }
+            .wrapper{
+                box-sizing: border-box;
+                max-width: 600px;
+                margin: 20px auto;
+            }
+            .box{
+                background: rgba(255,255,255,0.87);
+                padding: 30px;
+                box-sizing: border-box;
+                box-shadow: 2px 2px 10px black;
+                border-radius: 10px;
+            }
+            .box .inputbox{
+                position: relative;
+                margin: 20px 0;
+            }
+            .box .inputbox input{
+                width: 100%;
+                padding: 10px 0;
+                margin-bottom: 10px;
+                font-size: 16px;
+                color: #03a9f4;
+                background: transparent;
+                border: none;
+                outline: none;
+                border-bottom: 2px solid #03a9f4;
+                letter-spacing: 1px;
+            }
+            
+            .box select{
+                width: 100%;
+                margin-bottom: 20px;
+                font-size: 16px;
+                color: #000;
+                background: transparent;
+                border: none;
+                outline: none;
+                border-bottom: 2px solid #03a9f4;
+                letter-spacing: 1px;
+            }
+            .box .inputbox label{
+                position: absolute;
+                top: -24px;
+                left: 0;
+                padding: 10px 0;
+                font-size: 16px;
+                color: #000;
+                pointer-events: none;
+                transition: .5s;
+            }
+        </style>
 	</head>
 	<body>
-			
+        <div class="logohome"><a href="/"><img src="/assets/img/logo_favi.png" width="80px"></a></div>
 			<div class="bloc-logo">
 			    <canvas id="logo-canvas" width="730" height="675"></canvas>
 			    <a href="index.html" class="logo-mask">Granim.js</a>
@@ -528,8 +543,6 @@
 			</div>
 			
 			<div class="reg_form_div">
-				<img class="reg_logo" src="../images/logo2.png">
-				<br>
 				<div class="reg_text">
 					Registration
 				</div>
@@ -544,58 +557,86 @@
 				  fjs.parentNode.insertBefore(js, fjs);
 				}(document, 'script','email', 'facebook-jssdk'));
 
-				function checkLoginState() {
-				  FB.getLoginStatus(function(response) {
-				    console.log(response);
-				    return response;
-				  });
-				 // Here we run a very simple test of the Graph API after login is
-				   // successful.  See statusChangeCallback() for when this call is made.
-				   
+// 				function checkLoginState() {
+// 				  FB.getLoginStatus(function(response) {
+// 				    console.log(response);
+// 				    return response;
+// 				  });
 				}
 				</script>
-		<script src="/js/reg.js"></script>
+		<script src="/assets/js/reg.js"></script>
 
 				<div class="form_div">
-					<center><br>
+					<div class="wrapper" style="display:flex;justify-content:center;align-items:center;text-align:center">
 						<div id="FB-Oauth">
 						Register using FB:<br>
-						<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with"  data-auto-logout-link="true" data-use-continue-as="true" data-scope="email,public_profile,user_location,user_birthday,user_about_me" onlogin="auth_response_change_callback();"></div></div>
-						OR:<br>
-						<div id="success" style="display: none;">
-							
 						</div>
-						</center>
+                    </div>
+                    <div class="wrapper" style="display:flex;justify-content:center;align-items:center">
+                        <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with"  data-auto-logout-link="true" data-use-continue-as="true" data-scope="email,public_profile,user_location,user_birthday,user_about_me" onlogin="auth_response_change_callback();"></div>
+                    </div>
+                    <div class="wrapper" style="display:flex;justify-content:center;align-items:center;text-align:center">
+                        <span style="background:#fff;padding: 1%;border-radius: 80px;">OR:</span>
+                    </div>
+						<div id="success" style="display: none">
+                    </div>
 
 					<form class="reg_form"  action="javascript:" method="post">
 						
 						<h3 id="message"></h3>
 						<input type="hidden" name="fbID" id="fbID">
-						<p>Name <input type="text" name="name" placeholder="Enter Name" required /></p>
-						
-						<p>Contact No <input type="number" name="mobile" placeholder="Phone Number" min="7000000000" max="9999999999" required/></p>
-						
-						<p>Email <input type="email" name="email" placeholder="something@else.com" /></p>
-						
-						<p>Date Of Birth <input type="date" name="DOB"/></p>
-						
-						<p>Sex <select name="gender"> 
-							<option value="choose">Select</option>
-							<option value="M">Male</option>
-							<option value="F">Female</option> 
-							</select>
-						</p>
-						
-						<p>College <input type="text" name="college"></p>
-						
-						<p>City <input type="text" name="city"></p>
-						<br>
-						<input id="sub_but" type="button" name="register" value="register"/>
-						<br>
+                        
+                        <div class="container wrapper">
+                            <div class="box">
+                                <div class="inputbox">
+                                    <input type="text" name="name" required />
+                                    <label>Name</label>
+                                </div>
+                                <div class="inputbox notrequired">
+                                    <input type="date" name="DOB"/>
+                                    <label>Date Of Birth</label>
+                                </div>
+                                <div class="inputbox">
+                                    <select name="gender"> 
+                                        <option value="choose">Gender</option>
+                                        <option value="M">Male</option>
+                                        <option value="F">Female</option> 
+							         </select>
+                                </div>
+                                <div class="inputbox notrequired">
+                                    <input type="text" name="college">
+                                    <label>College</label>
+                                </div>
+                                <div class="inputbox notrequired">
+                                    <input type="text" name="city">
+                                    <label>City</label>
+								</div>
+								<div class="inputbox">
+                                    <input type="number" name="mobile" min="7000000000" max="9999999999" required/>
+                                    <label>Contact No</label>
+                                </div>
+                                <div class="inputbox">
+                                    <input type="email" name="email"/>
+                                    <label>Email</label>
+                                </div>
+								<div class="inputbox">
+                                    <input minlength=6 type="text" name="password">
+                                    <label>Password</label>
+                                </div>
+					<div class="inputbox">
+                                    <input type="text" pattern="\d{0,4}" placeholder="1234" name="refcode">
+                                    <label>CA Referral Code (Optional)</label>
+                                </div>
+                                <div class="inputbox">
+                                    <input id="sub_but" type="button" name="register" value="Register"/>
+                                </div>
+                            </div>
+                        </div>
 					</form>
+					
 				</div>
 			</div>
-
+<a style="" href="http://anwesha.info/reset_resend" target="_blank">Reset Password or Resend confirmation email</a>
 
 
 	<!-- Scripts -->
@@ -606,19 +647,13 @@
 				    opacity: [1, 1],
 				    states : {
 				        "default-state": {
-				            gradients: [
-				                ['#337e87', '#326d5e'],
-				                ['#37a4b2', '#48418e'],
-				                ['#816287', '#492966']
-				            ],
-				            transitionSpeed: 1500
+				            transitionSpeed: 2000
 				        }
 				    }
 				});
 			</script>
 
-			<script src="../assets/js/particles_conf.js" type="text/javascript">
-			</script>
+			
 		
 	</body>
 </html>

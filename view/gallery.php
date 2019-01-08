@@ -31,7 +31,7 @@ header("Location: https://www.facebook.com/pg/anwesha.iitpatna/photos/?ref=page_
 
 <html>
 <head>
-    <title>Gallery | Anwesha 2018</title>
+    <title>Gallery | Anwesha 2019</title>
 
     <meta name="viewport" content="width=device-width, initial-scale= 1">
 

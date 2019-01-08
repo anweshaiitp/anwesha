@@ -9,7 +9,7 @@
 }
 
 .audition {
-	background: radial-gradient(#9c0e0ed9, #ce7f2354, #94826c9e), url(../img/Multicity.jpg);
+	background: url(../img/Multicity.jpg);
 	background-size: cover;
 	width: 100%;
 	box-shadow: 0px 0px 60px 3px #000 inset;
@@ -83,6 +83,6 @@
 }
 
 .shadow {
-	-webkit-filter: drop-shadow(10px 10px 10px #a55617);
-	filter: drop-shadow(10px 10px 10px #a55617);
+	-webkit-filter: drop-shadow(10px 10px 10px white);
+	filter: drop-shadow(10px 10px 10px white);
 }

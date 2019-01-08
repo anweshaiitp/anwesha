@@ -55,6 +55,8 @@
             }
 
             .row{
+                /* margin-top:10px; */
+                padding-top:40px;
                 margin-right: 0%;
                 margin-left: 0%;
             }
@@ -250,7 +252,15 @@
         .caption a:hover{
             color: rgba(0,0,0,0.8) ;
         }
+        @media screen and (max-width:810px){
+            .event_container{
+                width:500px;
+            }
+        }
         @media screen and (max-width:532px){
+            .headwrap{
+                padding: 140px 0px 0px 19px;
+            }
             .event_container{
                 width:100%;
                 
@@ -324,8 +334,9 @@
             <div class="col-10 col-md-9" style="opacity: 0.9">              
                  <div class="tech_event">
                     <div class="event_container">
-                        
+                    <!-- <img src="https://static-cdn.sr.se/sida/images/3117/787c33ac-5689-4e1c-aaf3-7db96093015a.jpg" alt="cover"   width="220" class="event_bg" /> -->
                         <div class="event_info">
+                        <div class="bg-image"></div>
                             <div class="headwrap">
                             <div class="title1" id="eve_name">Static Rush</div>
    
@@ -340,7 +351,7 @@
                             </div> 
                             <div class="event_details">
                                 <div id="event_short_desc">
-                                    <p style="color:#1c1c1c" id="eve_short_desc">Remember snakes and ladders? Wanna live through it in the real world? <a href="#" id="ReadMore">read more</a></p>
+                                    <p style="color:#1c1c1c" id="eve_short_desc">Remember snakes and ladders? Wanna live through it in the real world? Then Static Rush is your ultimate platform with a twist of electronics. With unlimited adventure and enthralling fun packed in every step you take, this one game will make you remember your childhood and with electronics embedded this one event is surely gonna be in your good books.</p>
 
                                 </div>
                             <div id="event_long_desc">
@@ -351,15 +362,16 @@
                                 <ul style="list-style-type:none;color: #1c1c1c">
                                 <li id="eve_organisers"></li>
                                 </ul>
-                            </div style="background-color:#1c1c1c"> 
-                                <a href="https://docs.google.com/document/d/144GNxbiGseMmnSxlZEH3WQaZzyFQ7YI0WaW9Y2edmfk/edit?usp=sharing" id="RuleBtn">Rulebook</a>
-                                <a id="RegBtn" data-eveid="10">Register</a>
-                            </div> 
+                                <div class="refrence">
+                                    <a href="https://docs.google.com/document/d/144GNxbiGseMmnSxlZEH3WQaZzyFQ7YI0WaW9Y2edmfk/edit?usp=sharing" id="RuleBtn">Rulebook</a>
+                                    <a id="RegBtn" data-eveid="10">Register</a>
+                                </div> 
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="back" style="display: none;">
-                    <iframe src="https://docs.google.com/document/d/144GNxbiGseMmnSxlZEH3WQaZzyFQ7YI0WaW9Y2edmfk/preview" ></iframe>
+                    <iframe src="https://drive.google.com/file/d/1ZI2Ws5u2ZnNGYsRF2z9ZKI_BCyN4JICL/preview" ></iframe>
                     <div class="caption"><a href="#" id="toEvent">BACK</a></div>
                 </div>
 
@@ -389,9 +401,9 @@
                 $(".back").fadeOut(100);
                 return false;
             })
-            $("#ReadMore").click(function(){
+           /* $("#ReadMore").click(function(){
                 $(".event_container").css({"height":"750px"});
-//                $(".event_container").slideDown(1000);
+                $(".event_container").slideDown(1000);
                 $("#event_long_desc").slideDown(1000);
                 $(this).css({"display":"none"});
                 return false;
@@ -402,12 +414,16 @@
                 $("#ReadMore").css({"display":"block"});
                 return false;
             })
+            */
             //            new added from here
             mq = window.matchMedia('(min-width:811px)');
                 mq1 = window.matchMedia('(max-width:810px)');
                 mq2 = window.matchMedia('(max-width:532px)');
                 wh = window.innerHeight;
+                console.log(wh);
+
                 dh = document.documentElement.clientHeight;
+                console.log(dh);
                 if(wh >= dh){
                     $('.main').css({"height":"100%"});
                 }
@@ -473,8 +489,25 @@
                 
                 return false;
             }) 
-
-    }) 
+            bg_naturalHeight =0;
+            bg_naturalWidth =0;
+            bg_url = $(".bg-image").css('background-image').replace('url(','').replace(')','').replace(/\"/gi, "");
+//            console.log(bg_url);
+            preloaderImage(bg_url);
+            function preloaderImage(imageurl) {
+            var img = new Image();
+            img.src = imageurl;
+            img.onload = function(){
+            bg_naturalHeight = img.naturalHeight;
+            bg_naturalWidth = img.naturalWidth;
+//            console.log("height " + bg_naturalHeight);
+//            console.log("width " + bg_naturalWidth);
+            bg_aspectRatio = bg_naturalHeight/bg_naturalWidth;
+            event_info_height = bg_aspectRatio*$('.event_info').width();
+            $('.event_info').css('height',event_info_height);
+            }
+            
+    }})
     </script>
 	<script>
 		//for loading of events in event content page
