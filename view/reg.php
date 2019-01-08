@@ -616,7 +616,6 @@
                         <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with"  data-auto-logout-link="true" data-use-continue-as="true" data-scope="email,public_profile,user_location,user_birthday,user_about_me" onlogin="auth_response_change_callback();">
                         </div>
                         
-                        <span style="background: rgba(255,255,255,.8); padding:5px; border-radius:10px">OR</span>
                     </div>
 						<div id="success" style="display: none">
                     </div>
