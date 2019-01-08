@@ -575,7 +575,6 @@
                 }
             }
             .form_div{
-                padding-bottom: 5px;
                 background: rgba(255,255,255,.8);
                 border-radius: 10px;
                 color: #03a9f4;
