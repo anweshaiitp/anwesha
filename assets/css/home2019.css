@@ -355,7 +355,6 @@
 }
 
 /*register*/
-@media only screen and (max-width:760px){
 .base {
     width: 50px;
     border-top: 5px solid gray;
@@ -424,7 +423,8 @@
     font-size:25px;
     text-align: center;
     color:white;
-    margin-top: -3px;
+    margin-top: -5px;
+    text-transform: uppercase;
 
   }
   
@@ -436,6 +436,87 @@
       transform: rotate(-20deg);
     }
   }
+@media only screen and (max-width:760px){
+    .base {
+        width: 50px;
+        border-top: 5px solid gray;
+        margin-left: 10%;
+        text-align: center;
+        position: relative;
+        padding: 0 0 30px;
+      }
+      
+      .holder {
+        width: 30px;
+        height: 20px;
+        background: black;
+        margin: auto;
+        border-radius: 0 0 50% 50%;
+      }
+      
+      .thread {
+        display: inline-block;
+        width: 2px;
+        height: 80px;
+        background: black;
+        border-radius: 5px;
+        position: relative;
+        transform-origin: 50% 0;
+        animation: moveIt 3.5s ease-in-out infinite;
+      }
+      
+      .thread:after {
+        content: "";
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: red;
+        border: 2px solid white;
+        top: -4.5px;
+        left: -3.5px;
+      }
+      
+      .knob {
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        top: -18px;
+        left: -4.5px;
+        border: 2px solid rgba(255, 255, 255, .5);
+        border-radius: 50%;
+        border-bottom: 2px solid transparent;
+      }
+      
+      .pendulum {
+        width: 140px;
+        height: 30px;
+        background: -moz-linear-gradient(to right, black, #c13434 10%, #c13434 90%,black);
+        background: -o-linear-gradient(to right, black, #c13434 10%, #c13434 90%,black);
+        background: -ms-linear-gradient(to right, black, #c13434 10%, #c13434 90%,black);
+        background: linear-gradient(to right, black, #c13434 10%, #c13434 90%,black);
+       border-radius:10%;
+        position: absolute;
+        bottom: -10px;
+        left: -70px;
+        
+      }
+      .pendulumtext{
+        font-size:25px;
+        text-align: center;
+        color:white;
+        margin-top: -3px;
+    
+      }
+      
+      @keyframes moveIt {
+        0%, 100% {
+          transform: rotate(15deg);
+        }
+        50% {
+          transform: rotate(-15deg);
+        }
+      }
 }
 /*register*/
 /*coin flip*/

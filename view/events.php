@@ -1,6 +1,7 @@
 <html>
 <head>
     <link href='https://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
     <!-- Latest compiled and minified CSS -->
     
@@ -109,9 +110,24 @@
                 }
             
 	    #techEvents > li, #cultEvents > li, #artsEvents > li{
-	    	cursor:pointer;
-	    }
+            cursor:pointer;
+            display: inline-block;
+            padding: 8px 12px;
+            font-size:16px;
+            /* border-radius:.5rem; */
+            box-shadow: 0px 0px 6px 4px white;
+            margin: 11px 5px 0px;
+            background-color: black;
+            font-family: 'Oswald', sans-serif;
+            text-transform:uppercase;
+}
 
+
+	    }
+        #techEvents > li:hover, #cultEvents > li:hover, #artsEvents > li:hover{
+            cursor:pointer;
+            
+        }
 
             .ui-accordion-content {
             font-family: Roboto, sans-serif;
@@ -507,7 +523,9 @@
             $('.event_info').css('height',event_info_height);
             }
             
-    }})
+            }
+            $('.ui-accordion-content').css({"height":"auto"});
+    })
     </script>
 	<script>
 		//for loading of events in event content page
@@ -580,7 +598,7 @@
             }
         var events_data;
         var eventsmap = [];
-        $.get("/allEvents", function (data, status) {
+        $.get("/view/eve.json", function (data, status) {
             console.log("Event Status : " + data[0]);
             if (status == 'success') {
                 events_data = data[1];

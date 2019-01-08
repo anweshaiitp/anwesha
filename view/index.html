@@ -58,6 +58,12 @@
             #multicitytext{
                 size:2px !important;
             }
+            .clown img{
+                display:none;
+            }
+            .clown div{
+                bottom:-70px !important;
+            }
         }
         #splash{
             position: fixed;
@@ -181,7 +187,19 @@
         font-size: 120%;
         margin-bottom: 0px;
     }
-    
+    .clown a{
+        text-decoration: none;
+        color:#fff;
+    }
+    .clown a:hover{
+        cursor:pointer;
+    }
+    .container-not{
+        height: 100%;
+    width: 100%;
+    position: relative;
+    transform: translateY(100%);
+    }
 </style>
 
 </head>
@@ -189,14 +207,14 @@
 <body class="body" data-gr-c-s-loaded="true" >
 
 
-
-    <div class="clown" style="position: fixed; top:20%;left:-20%;z-index: 500; ">
-        <img src="../assets/img/clowngif.gif" style="transform:rotateY(180deg);">
-        <div style="cursor:pointer;position: absolute;z-index: 501;top:70%;left:35%;padding:20px;background-color: red;color:black; opacity: 0.8;">
-            <a href="#not" style="color:black">NOTIFICATIONS</a>
+<!-- <div class="container-not">
+    <div class="clown" style="position: fixed; bottom:84px;left:0px;z-index: 500; ">
+        <img src="/assets/img/notification.gif">
+        <div style="cursor:pointer;position: absolute;z-index: 501;bottom:-44px;left:0px;border:2px solid white;padding:8px 12px;background-color:rgba(0,0,0,0.4);color:black;">
+            <a href="#not">NOTIFICATIONS</a>
         </div>
     </div>
-
+</div> -->
 
 
     <img src="/assets/img/card.gif" width="0" height="0" alt="">
@@ -267,7 +285,17 @@
             <div class="bcg skrollable skrollable-between" data-start="opacity: 1; width: 100%; height: 100%; top: 0%; left: 0%;"
                 data-100p=" width: 256%; height: 356%; top: -256%; left: -78%;" data-anchor-target="#start-section">
                 <!-- <a style="position: absolute;bottom:10px;left:0px;"><img style="max-width: 120px" src="/assets/img/notification.gif" alt="Notifications"></a> -->
-                <!-- <div class="base">
+                <div class="clown" style="position: absolute; bottom:84px;left:0px;">
+                    <img src="/assets/img/notification.gif">
+                    <div style="cursor:pointer;position: absolute;bottom:-44px;left:0px;border:2px solid white;padding:8px 12px;background-color:rgba(0,0,0,0.4);color:black;">
+                        <a href="#not">NOTIFICATIONS</a>
+                    </div>
+                    
+                </div>
+                <!-- <div style="cursor:pointer;position: absolute;height:50px;bottom:50%;left:50%;margin-bottom:-150px;margin-right:-40px;border:2px solid white;padding:8px 12px;background-color:rgba(0,0,0,0.4);color:black;">
+                    1-3rd Feb
+                </div> -->
+                <div class="base">
                     <div class="holder"></div>
                     <div class="thread">
                       <div class="knob">s</div>
@@ -275,7 +303,7 @@
                         <div class="pendulumtext">Register</div>
                     </div>
                     </div>
-                </div>                -->
+                </div>               
 
                 <style>
                 
@@ -432,6 +460,13 @@
   //                        $('.col2').fadeIn('slow',function(){})
   //                    })
   //                })
+                    // $(document).ready(function(){
+                        // $(window).on('scroll',function(){
+                            // $('.clown').css({"display":"none"})
+                        // })
+                    // })
+
+                    
                   
           </script>
                                 
