@@ -2,13 +2,18 @@
     -webkit-overflow-scrolling: touch;
 }
 
+@font-face {
+    font-family: navbarfont;
+    src: url(/assets/fonts/LemonMilklight.otf);
+  }
+
 .body {
     background: #000;
     color: #333;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    font-family: 'Mali', cursive;
+    font-size: 18px;
 }
 
 .row{
@@ -90,7 +95,8 @@
     position: fixed;
     background: #fff;
     z-index: 102;
-    display: none
+    display: none;
+    margin-top: -30px; 
 }
 
 #mobile-nav .close {
@@ -126,8 +132,11 @@
 
 #menu {
     z-index: 100;
+    width: max-content;
+    width: -moz-max-content;
     top: 20px;
     position: fixed;
+    font-family: 'navbarfont', cursive;
     transform: translateX(-50%);
     left: 50%
 }
@@ -345,7 +354,90 @@
     line-height: 0%;
 }
 
+/*register*/
+@media only screen and (max-width:760px){
+.base {
+    width: 50px;
+    border-top: 5px solid gray;
+    margin-left: 10%;
+    text-align: center;
+    position: relative;
+    padding: 0 0 30px;
+  }
+  
+  .holder {
+    width: 30px;
+    height: 20px;
+    background: black;
+    margin: auto;
+    border-radius: 0 0 50% 50%;
+  }
+  
+  .thread {
+    display: inline-block;
+    width: 2px;
+    height: 80px;
+    background: black;
+    border-radius: 5px;
+    position: relative;
+    transform-origin: 50% 0;
+    animation: moveIt 3.5s ease-in-out infinite;
+  }
+  
+  .thread:after {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: red;
+    border: 2px solid white;
+    top: -4.5px;
+    left: -3.5px;
+  }
+  
+  .knob {
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: -18px;
+    left: -4.5px;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 50%;
+    border-bottom: 2px solid transparent;
+  }
+  
+  .pendulum {
+    width: 140px;
+    height: 30px;
+    background: -moz-linear-gradient(to right, black, #c13434 10%, #c13434 90%,black);
+    background: -o-linear-gradient(to right, black, #c13434 10%, #c13434 90%,black);
+    background: -ms-linear-gradient(to right, black, #c13434 10%, #c13434 90%,black);
+    background: linear-gradient(to right, black, #c13434 10%, #c13434 90%,black);
+   border-radius:10%;
+    position: absolute;
+    bottom: -10px;
+    left: -70px;
+    
+  }
+  .pendulumtext{
+    font-size:25px;
+    text-align: center;
+    color:white;
+    margin-top: -3px;
 
+  }
+  
+  @keyframes moveIt {
+    0%, 100% {
+      transform: rotate(20deg);
+    }
+    50% {
+      transform: rotate(-20deg);
+    }
+  }
+}
+/*register*/
 /*coin flip*/
 @-webkit-keyframes flip {
     to {
@@ -441,7 +533,7 @@
 #synopsis-section .synopsis {
     z-index: 3;
     position: relative;
-    max-width: 700px;
+    max-width: 1000px;
     padding: 40px;
     padding-bottom: 80px
 }
@@ -548,11 +640,13 @@
         display: flex;
         right: 20px;
         left: 20px;
+        margin-bottom:-14px;
         /* padding-bottom:15px; */
     }
 
     #social span {
-        margin-right: auto
+        margin-right: auto;
+        /* margin-bottom:-25px; */
     }
 
     #social .social-white {
