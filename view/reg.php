@@ -573,12 +573,11 @@
                 .referral-code-span{
                     font-size:.5em;
                 }
-                .form_div{
-                    padding-bottom: 5px;
-                    background: rgba(255,255,255,.8);
-                    border-radius: 10px;
-                    color: #03a9f4;
-                }
+            }
+            .form_div{
+                background: rgba(255,255,255,.8);
+                border-radius: 10px;
+                color: #03a9f4;
             }
         </style>
 	</head>
