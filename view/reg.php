@@ -437,6 +437,7 @@
 				padding: .6%;
 				box-shadow: 3px 3px 20px black;
                 font-family: regfont;
+                color: #03a9f4;
 			}
             @media(max-width:900px)
             {
@@ -572,6 +573,12 @@
                 .referral-code-span{
                     font-size:.5em;
                 }
+                .form_div{
+                    padding-bottom: 5px;
+                    background: rgba(255,255,255,.8);
+                    border-radius: 10px;
+                    color: #03a9f4;
+                }
             }
         </style>
 	</head>
@@ -611,12 +618,7 @@
 		<script src="/assets/js/reg.js"></script>
 
 				<div class="form_div">
-					<div class="wrapper" style="display:flex;justify-content:center;align-items:center;text-align:center">
-                        
-                        <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with"  data-auto-logout-link="true" data-use-continue-as="true" data-scope="email,public_profile,user_location,user_birthday,user_about_me" onlogin="auth_response_change_callback();">
-                        </div>
-                        
-                    </div>
+					
 						<div id="success" style="display: none">
                     </div>
                 </div>
