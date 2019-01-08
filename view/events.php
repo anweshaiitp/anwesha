@@ -258,6 +258,9 @@
             }
         }
         @media screen and (max-width:532px){
+            .headwrap{
+                padding: 140px 0px 0px 19px;
+            }
             .event_container{
                 width:100%;
                 
@@ -333,6 +336,7 @@
                     <div class="event_container">
                     <!-- <img src="https://static-cdn.sr.se/sida/images/3117/787c33ac-5689-4e1c-aaf3-7db96093015a.jpg" alt="cover"   width="220" class="event_bg" /> -->
                         <div class="event_info">
+                        <div class="bg-image"></div>
                             <div class="headwrap">
                             <div class="title1" id="eve_name">Static Rush</div>
    
@@ -367,7 +371,7 @@
                     </div>
                 </div>
                 <div class="back" style="display: none;">
-                    <iframe src="https://docs.google.com/document/d/144GNxbiGseMmnSxlZEH3WQaZzyFQ7YI0WaW9Y2edmfk/preview" ></iframe>
+                    <iframe src="https://drive.google.com/file/d/1ZI2Ws5u2ZnNGYsRF2z9ZKI_BCyN4JICL/preview" ></iframe>
                     <div class="caption"><a href="#" id="toEvent">BACK</a></div>
                 </div>
 
@@ -416,7 +420,10 @@
                 mq1 = window.matchMedia('(max-width:810px)');
                 mq2 = window.matchMedia('(max-width:532px)');
                 wh = window.innerHeight;
+                console.log(wh);
+
                 dh = document.documentElement.clientHeight;
+                console.log(dh);
                 if(wh >= dh){
                     $('.main').css({"height":"100%"});
                 }
@@ -482,8 +489,25 @@
                 
                 return false;
             }) 
-
-    }) 
+            bg_naturalHeight =0;
+            bg_naturalWidth =0;
+            bg_url = $(".bg-image").css('background-image').replace('url(','').replace(')','').replace(/\"/gi, "");
+//            console.log(bg_url);
+            preloaderImage(bg_url);
+            function preloaderImage(imageurl) {
+            var img = new Image();
+            img.src = imageurl;
+            img.onload = function(){
+            bg_naturalHeight = img.naturalHeight;
+            bg_naturalWidth = img.naturalWidth;
+//            console.log("height " + bg_naturalHeight);
+//            console.log("width " + bg_naturalWidth);
+            bg_aspectRatio = bg_naturalHeight/bg_naturalWidth;
+            event_info_height = bg_aspectRatio*$('.event_info').width();
+            $('.event_info').css('height',event_info_height);
+            }
+            
+    }})
     </script>
 	<script>
 		//for loading of events in event content page
