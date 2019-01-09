@@ -63,8 +63,8 @@
             }
 
             #accordion {
-            background-color: black;
-            border: 1px solid black;
+            /*background-color: black;*/
+            /*border: 1px solid black;*/
             margin-top: 20px;
             }
 
@@ -271,6 +271,13 @@
         .caption a:hover{
             color: rgba(254,254,254,0.8) ;
         }
+        @media screen and (min-width:1500px){
+            .back{
+                margin: 0px auto;
+                width: 80%;
+                position: relative;
+            }
+        }
         @media screen and (max-width:810px){
             .event_container{
                 width:500px;
@@ -296,7 +303,9 @@
                 margin: 0px auto;
                 position: relative;
             }
-
+            .back iframe{
+                height: 80%;
+            }
         }
     </style>
     <title>Events | Anwesha '19 IITP</title>
@@ -385,7 +394,7 @@
                                 <li id="eve_organisers"></li>
                                 </ul>
                                 <div class="refrence">
-                                    <a href="https://docs.google.com/document/d/144GNxbiGseMmnSxlZEH3WQaZzyFQ7YI0WaW9Y2edmfk/edit?usp=sharing" id="RuleBtn">Rulebook</a>
+                                    <a href="#" id="RuleBtn">Rulebook</a>
                                     <a id="RegBtn" data-eveid="10">Register</a>
                                 </div> 
                             </div>
@@ -394,7 +403,7 @@
                 </div>
                  </div>
                 <div class="back" style="display: none;">
-                    <iframe src="https://drive.google.com/file/d/1ZI2Ws5u2ZnNGYsRF2z9ZKI_BCyN4JICL/preview" ></iframe>
+                    <iframe src="#" ></iframe>
                     <div class="caption"><a href="#" id="toEvent">BACK</a></div>
                 </div>
 
@@ -411,21 +420,40 @@
             collapsible: true
             });
             $("#RuleBtn").click(function(){
-                var rule_url = $('#RuleBtn').attr('href');
-                $('iframe').attr('src',rule_url.replace('/edit?usp=sharing','/preview'));
-                $(".tech_event").fadeOut(800,function(){
-                    $(".back").fadeIn(800);
-                });
-
                 
+                var rule_url = "";
+                $('iframe').attr('src',rule_url);
+//                $(".tech_event").fadeOut(100,function(){
+//                    $(".back").fadeIn(800);
+//                });
+                   $(".tech_event").css({"display":"none"});
+                   $(".back").fadeIn(800);
+                 rule_url = $('#RuleBtn').attr('href');
+//                var str1 = "https://drive.google.com/open?id";
+//                if( rule_url.match(/https://drive.google.com/open?id)){
+//                    console.log("string matches");
+//                }
+                    rule_url = rule_url.substr(33);
+//                    console.log(rule_url);
+                $('iframe').attr('src',"https://drive.google.com/file/d/" + rule_url + "/preview");
                 $(".caption").fadeIn(1000);
+                if(mq3.matches){
+                var button_width = $('.caption').innerWidth();
+                console.log("width is greater than 1500px");
+                $('.caption').css({"left": - button_width});
+                };
             return false;
             })
             $("#toEvent").click(function(){
+                $('iframe').attr('src','');
                 $(".tech_event").fadeIn(1000);
                 $(".back").fadeOut(100);
                 return false;
-            })
+            });
+            $('li').click(function(){
+                 $('html,body').animate({
+            scrollTop: $(".tech_event").offset().top},'slow');
+            });
            /* $("#ReadMore").click(function(){
                 $(".event_container").css({"height":"750px"});
                 $(".event_container").slideDown(1000);
@@ -444,6 +472,7 @@
                 mq = window.matchMedia('(min-width:811px)');
                 mq1 = window.matchMedia('(max-width:810px)');
                 mq2 = window.matchMedia('(max-width:532px)');
+                mq3 = window.matchMedia('(min-width:1500px)');
                 wh = window.innerHeight;
                 console.log(wh);
 
@@ -459,6 +488,7 @@
             else{
                 $('.main').css({"height":"auto"});
             }
+            
             $("#ReadMore").click(function(){
                 content_height = $(".event_container").height();
                 event_long_desc_height = $("#event_long_desc").height();
@@ -550,15 +580,15 @@
         function eve_coverswitch(cat ,imgurl) {
             console.log("eve_coverswitch called with", imgurl);
             if (imgurl == "" || imgurl == null) {
-                $(".event_bg").attr("src", "");
+                $(".bg-image").css({"background-image":"url('https://www.iitp.ac.in/hostel/images/anwesha/img1.jpg')"});
                 // $("#eve_cover").css("box-shadow","0 0 0 #FFFFFF");
-                $(".event_bg").css("font-size", "3em");
-                $('.event_bg').hide();
-                $(".event_bg").hide();
-                $(".event_bg").attr("src","#");
+//                $(".bg-image").css("font-size", "3em");
+//                $('.bg-image').hide();
+//                $(".bg-image").hide();
+//                $(".bg-image").attr("src","#");
             } else {
-                $(".event_bg").attr("src", imgurl);
-                $('.event_bg').show();
+                $(".bg-image").css({"background-image":"url(" + imgurl + ")"});
+                $('.bg-image').show();
 //                 $(cat + " #coveranc").attr("src", imgurl);
 //                 if ($(window).width() > 960) {
 //                     $(cat + " #eve_name").css("font-size", "5em");
@@ -611,7 +641,7 @@
             }
         var events_data;
         var eventsmap = [];
-        $.get("/view/eve.json", function (data, status) {
+        $.get("/allEvents", function (data, status) {
             console.log("Event Status : " + data[0]);
             if (status == 'success') {
                 events_data = data[1];
@@ -668,6 +698,10 @@
             console.log("filling",dataToFill);
             emptyresp(cat);
             currPar = cat;
+            if($('.tech_event').css('display') == "none"){
+                $('.tech_event').css({"display":"block"});
+                $('.back').css({"display":"none"});
+            }
             $('#eve_name').html(getHTMLText(dataToFill.eveName));
             $('#eve_tagline').html(getHTMLText(dataToFill.tagline));
             $('#eve_date').html(getHTMLText((dataToFill.date)?dataToFill.date:"To be announced"));
@@ -699,8 +733,8 @@
             //     $(cat+ ' #RegBtn').hide();
             // else
             //     $(cat+ ' #RegBtn').show();
-            eve_coverswitch(cat, dataToFill.cover_url);
-        }
+            eve_coverswitch(cat, dataToFill.icon_url);
+       }
         // $("#events > span").click(function(){
         //  console.log("clicked")
         //  $('.tech_eve').children().not(this).removeClass('active-tab');
