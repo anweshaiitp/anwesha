@@ -200,11 +200,88 @@
     position: relative;
     transform: translateY(100%);
     }
+    
+    .register-div-pc{
+        z-index: 9999;
+        width: 300px;
+        height: 150px;
+        position: absolute;
+        top: 220px;
+        right: 0;
+    }
+    .register-div-pc a{
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+    .register-div-mobile{
+        display: none;
+    }
+    @media(max-width:760px)
+    {
+        .register-div-pc{
+            display: none;
+        }
+        .register-div-mobile{
+            z-index: 9999;
+            display: block;
+            width: 200px;
+            height: 50px;
+            position: absolute;
+            top: 100px;
+            left 0;
+        }
+        .register-div-mobile a{
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .noti-div-pc{
+        z-index: 9999;
+        width: 300px;
+        height: 250px;
+        position: absolute;
+        top: 380px;
+        left: 0;
+    }
+    .noti-div-pc a{
+        display: block;
+        width: 100%;
+        height: 100%;
+    } 
+    @media(max-width:360px)
+    {
+        .noti-div-pc{
+            width: 180px;
+            height: 50px;
+            top: 580px;
+        }
+    }
+    @media(max-width:760px)
+    {
+        .noti-div-pc{
+            width: 180px;
+            top: 580px;
+        }
+    }
+    @media(max-width:738px)
+    {
+        .noti-div-pc{
+            width: 180px;
+            height: 50px;
+            top: 580px;
+        }
+    }
+        
 </style>
 
 </head>
 
 <body class="body" data-gr-c-s-loaded="true" >
+    <div class="register-div-pc"><a href="/register"></a></div>
+    <div class="register-div-mobile"><a href="/register"></a></div>
+    <div class="noti-div-pc"><a href="#3"></a></div>
 
 
 <!-- <div class="container-not">
@@ -224,9 +301,6 @@
         </div>
     <!-- Splash Screen -->
         <!-- <img src="/assets/img/card.gif" style="width:100%;height:100%;position: fixed;top:0px;left:0px;z-index: 10000;" alt="">     -->
-    </div>
-    <div id="logo" data-100="opacity:1;" data-500="opacity:0; " style="opacity: 1;">
-        <a href="http://anwesha.info/" class="logolink" target="_blank"></a>
     </div>
     <div id="logo-white" data-300="opacity:0;" data-500="opacity:1;" >
         <a href="http://anwesha.info/" class="logolink" target="_blank"></a>
@@ -333,7 +407,7 @@
 
     foreach ($staticD as $value) {
 ?> 
-                <div class="swiper-slide">
+                <div class="swiper-slide" id="3">
                     <div class="bg-image img2" style="background-image:url('<?php echo $value["img"]; ?>') !important;">
   <!--                      <img src="2.jpg" alt=""/>-->
                     </div>
