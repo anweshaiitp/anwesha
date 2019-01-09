@@ -433,27 +433,36 @@
 //                if( rule_url.match(/https://drive.google.com/open?id)){
 //                    console.log("string matches");
 //                }
+//                    var str1 = "https://drive.google.com/file/d/d/";
+//                    var str2 = "https://drive.google.com/open?id";
+//                if(rule_url.match(str1)){
+//                    console.log("str1 matches");
+//                    rule_url = rule_url.replace('/view','/preview');
+//                    $('iframe').attr('src', rule_url);
+//                }else if(rule_url.match(str2)){
+//                    console.log("str2 matches");
                     rule_url = rule_url.substr(33);
+                    $('iframe').attr("src","https://drive.google.com/file/d/" + rule_url + "/preview");
+                    
 //                    console.log(rule_url);
-                $('iframe').attr('src',"https://drive.google.com/file/d/" + rule_url + "/preview");
+                
                 $(".caption").fadeIn(1000);
                 if(mq3.matches){
                 var button_width = $('.caption').innerWidth();
                 console.log("width is greater than 1500px");
                 $('.caption').css({"left": - button_width});
                 };
-            return false;
-            })
+            return false;})
             $("#toEvent").click(function(){
                 $('iframe').attr('src','');
                 $(".tech_event").fadeIn(1000);
                 $(".back").fadeOut(100);
                 return false;
             });
-            $('li').click(function(){
-                 $('html,body').animate({
-            scrollTop: $(".tech_event").offset().top},'slow');
-            });
+//            $('li').click(function(){
+//                 $('html,body').animate({
+//            scrollTop: $(".tech_event").offset().top},'slow');
+//            });
            /* $("#ReadMore").click(function(){
                 $(".event_container").css({"height":"750px"});
                 $(".event_container").slideDown(1000);
@@ -624,6 +633,7 @@
             $('#RegBtn').removeAttr("target");
             $('#regmsg').text('');
             $('#RuleBtn').hide();
+            $('iframe').attr('src',"");
             // $(cat+ ' #RegBtn').hide();
             // eve_imgswitch("");
             // eve_iconswitch("");
@@ -641,7 +651,7 @@
             }
         var events_data;
         var eventsmap = [];
-        $.get("/allEvents", function (data, status) {
+        $.get("/view/eve.json", function (data, status) {
             console.log("Event Status : " + data[0]);
             if (status == 'success') {
                 events_data = data[1];
