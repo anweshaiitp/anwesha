@@ -707,7 +707,7 @@
             $("#evetab"+eveId).addClass('active-tab');
             fillEve("."+type+"_content",eventsmap[eveId]);
         }
-
+// 	<?php echo json_encode($match).PHP_EOL; if(isset($match[2])) { echo "eveDisplay(".$match[2].");"; }?>
 		</script>
 </body>
 
