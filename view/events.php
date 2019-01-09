@@ -123,7 +123,7 @@
 }
 
 
-	    }
+	    
         #techEvents > li:hover, #cultEvents > li:hover, #artsEvents > li:hover{
             cursor:pointer;
             
@@ -173,11 +173,11 @@
 		vertical-align: middle;
                 box-sizing: inherit;
 	}
-        @-webkit-keyframes spinner {
+/*        @-webkit-keyframes spinner {
     from { -webkit-transform: rotateY(-180deg);    }
     to   { -webkit-transform: rotateY(0deg); }
   }
-  @-webkit-keyframes spinner back {
+  @-webkit-keyframes spinner-back {
     from { -webkit-transform: rotateY(0deg);    }
     to   { -webkit-transform: rotateY(180deg); }
   }
@@ -195,7 +195,7 @@
               transform: rotateY(0deg);
             }
           }
-          @keyframes spinner back {
+          @keyframes spinner-back {
             from {
               -moz-transform: rotateY(0deg);
               -ms-transform: rotateY(0deg);
@@ -206,14 +206,14 @@
               -ms-transform: rotateY(180deg);
               transform: rotateY(180deg);
             }
-          }
+          }*/
         .back{
             background-color: whitesmoke;
             opacity: 0.9;
             margin-left: -15px;
 /*            margin-right: -15px;*/
             width: 100%;
-            height: 80% ;
+            /*height: 80% ;*/
             
         }
         .back iframe{
@@ -257,16 +257,19 @@
             top: 10;
             left: 0;
             color: black;
-            background-color: white;
+            background-color: black;
             padding: 8px 12px;
-            border-radius: 8px;
+            /*border-radius: 8px;*/
+            box-shadow: 0px 0px 6px 4px white;
+            
         }
         .caption a{
-            color: black;
+            color: white;
+            font-family: 'Oswald', sans-serif;
             text-decoration: none;
         }
         .caption a:hover{
-            color: rgba(0,0,0,0.8) ;
+            color: rgba(254,254,254,0.8) ;
         }
         @media screen and (max-width:810px){
             .event_container{
@@ -289,7 +292,10 @@
             .headwrap .title1{
                 font-size: 28px;
             }
-            
+            .back{
+                margin: 0px auto;
+                position: relative;
+            }
 
         }
     </style>
@@ -386,12 +392,13 @@
                         </div>
                     </div>
                 </div>
+                 </div>
                 <div class="back" style="display: none;">
                     <iframe src="https://drive.google.com/file/d/1ZI2Ws5u2ZnNGYsRF2z9ZKI_BCyN4JICL/preview" ></iframe>
                     <div class="caption"><a href="#" id="toEvent">BACK</a></div>
                 </div>
 
-            </div>
+            
         </div>
   
     </div>
@@ -404,6 +411,8 @@
             collapsible: true
             });
             $("#RuleBtn").click(function(){
+                var rule_url = $('#RuleBtn').attr('href');
+                $('iframe').attr('src',rule_url.replace('/edit?usp=sharing','/preview'));
                 $(".tech_event").fadeOut(800,function(){
                     $(".back").fadeIn(800);
                 });
@@ -432,7 +441,7 @@
             })
             */
             //            new added from here
-            mq = window.matchMedia('(min-width:811px)');
+                mq = window.matchMedia('(min-width:811px)');
                 mq1 = window.matchMedia('(max-width:810px)');
                 mq2 = window.matchMedia('(max-width:532px)');
                 wh = window.innerHeight;
@@ -440,12 +449,16 @@
 
                 dh = document.documentElement.clientHeight;
                 console.log(dh);
+                if(mq.matches){
                 if(wh >= dh){
                     $('.main').css({"height":"100%"});
                 }
                 else{
                     $('.main').css({"height":"auto"});
-                }
+                }}
+            else{
+                $('.main').css({"height":"auto"});
+            }
             $("#ReadMore").click(function(){
                 content_height = $(".event_container").height();
                 event_long_desc_height = $("#event_long_desc").height();
@@ -598,7 +611,7 @@
             }
         var events_data;
         var eventsmap = [];
-        $.get("/allEvents", function (data, status) {
+        $.get("/view/eve.json", function (data, status) {
             console.log("Event Status : " + data[0]);
             if (status == 'success') {
                 events_data = data[1];
