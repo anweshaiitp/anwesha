@@ -1,647 +1,599 @@
 <html>
 <head>
-    <?php if(isset($match[2])){
-        require('model/model.php');
-        require('dbConnection.php');
-        $conn = mysqli_connect(SERVER_ADDRESS,USER_NAME,PASSWORD,DATABASE);
-
-        $evedat = Events::getEventDetails($match[2],$conn);
-        if($evedat[0]==1){
-            $desc = ($evedat[1]['short_desc']==null || $evedat[1]['short_desc']=="")?$evedat[1]['short_desc']:$evedat[1]['long_desc'];
-            ?>
-            <link href="/images/logo_favi.png" rel="icon" >
-            <title><?php echo $evedat[1]['eveName']; ?> | Events | Anwesha '18</title>
-	  <meta name="description" content="<?php echo $desc; ?>" />
-	  <META NAME="Keywords" CONTENT="Anwesha,IIT Patna,IITP,IIT,college,fest,<?php echo $evedat[1]['eveName']; ?>">
-	  <meta name="theme-color" content="#2b2b2b">
-	  <meta itemprop="name" content="<?php echo $evedat[1]['eveName']; ?> | Events | Anwesha '18">
-	  <meta itemprop="description" content="<?php echo $desc; ?>">
-	  <meta itemprop="image" content="//anwesha.info/images/anw_theme.jpg">
-	  
-	  <meta name="twitter:card" content="summary_large_image">
-	  <meta name="twitter:site" content="@anweshaiitp">
-	  <meta name="twitter:title" content="<?php echo $evedat[1]['eveName']; ?> | Events | Anwesha '18">
-	  <meta name="twitter:description" content="<?php echo $desc; ?>">
-	  <meta name="twitter:creator" content="@anweshaiitp">
-	  
-	  <meta name="twitter:image:src" content="//anwesha.info/images/anw_theme.jpg">
-	  
-	  <meta property="og:title" content="<?php echo $evedat[1]['eveName']; ?> | Events | Anwesha '18" />
-	  <meta property="og:type" content="article" />
-	  <meta property="og:url" content="//anwesha.info/" />
-	  <meta property="og:image" content="//anwesha.info/images/anw_theme.jpg" />
-	  <meta property="og:description" content="<?php echo $desc; ?>" />
-	  <meta property="og:site_name" content="Anwesha2k18" />
-	  <meta property="article:published_time" content="2017-10-11T05:59:00+01:00" />
-	  <meta property="article:modified_time" content="2017-10-12T19:08:47+01:00" />
-	  <meta property="article:section" content="<?php echo $desc; ?>" />
-        <?php }
-    }else if(isset($match[1])){
-        if($match[1] == 1 ){
-            echo "<title>Technical Events | Anwesha 2018</title>";
-        }else if($match[1] == 2 ){
-            echo "<title>Cultural Events | Anwesha 2018</title>";
-        }else if($match[1] == 3 ){
-            echo "<title>Arts and Welfare Events | Anwesha 2018</title>";
-        }
-    }else{
-        echo "<title>Events | Anwesha 2018</title>";
-    } ?>
+    <link href='https://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+    <!-- Latest compiled and minified CSS -->
     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <link href="/assets/css/styleevent.css" rel="stylesheet">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport" content="width=device-width, initial-scale= 1">
+    <link rel="stylesheet" href="../assets/css/home2019.css">
 
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/style.css" rel="stylesheet">
-    <link href="/images/logo_favi.png" rel="icon">
+    <style>
+        *,
+	*:before,
+	*:after {
+		box-sizing: border-box;
+	}
+            html,
+            body {
+            margin: 0;
+            padding: 0;
+            }
+  
+            body{
+                background-color: black;
+            }
+            /* Header */
+            .header {
+            background-color: #1c1c1c;
+            font-family: 'Oswald', sans-serif;
+            }
 
-    <!--------styling for events page---------->
-    <style type="text/css">
-        body
-        {
-            overflow-y: scroll;
-        }
-        #RegBtn{
+            .header p {
+            color: #fff;
+            font-size: 16px;
+            text-align: center;
+            margin: 0;
+            padding: 10px;
+            text-transform: uppercase;
+            cursor: pointer;
+            }
+  
+            /* Main */
+            .main {
+            background: url(https://static-cdn.sr.se/sida/images/3117/787c33ac-5689-4e1c-aaf3-7db96093015a.jpg) no-repeat center center; 
+            background-size: cover;
+            height: 100%;
+            }
+
+            .row{
+                /* margin-top:10px; */
+                padding-top:40px;
+                margin-right: 0%;
+                margin-left: 0%;
+            }
+
+            #accordion {
+            background-color: black;
+            border: 1px solid black;
+            margin-top: 20px;
+            }
+
+            .ui-accordion-header {
+            background-color:black;
+            border-bottom: 3px solid gray;
+            color: #fff;
+            cursor: pointer;
+            font-family: 'Oswald', sans-serif;
+            font-size: 30px;
+            margin: 5px;
+            outline: 0;
+            padding: 8px 20px;
+            text-transform: uppercase;
+                background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+                background-size: 1800% 1800%;
+
+                -webkit-animation: rainbow 18s ease infinite;
+                -z-animation: rainbow 18s ease infinite;
+                -o-animation: rainbow 18s ease infinite;
+                animation: rainbow 18s ease infinite;
+            }
+
+                @-webkit-keyframes rainbow {
+                    0%{background-position:0% 82%}
+                    50%{background-position:100% 19%}
+                    100%{background-position:0% 82%}
+                }
+                @-moz-keyframes rainbow {
+                    0%{background-position:0% 82%}
+                    50%{background-position:100% 19%}
+                    100%{background-position:0% 82%}
+                }
+                @-o-keyframes rainbow {
+                    0%{background-position:0% 82%}
+                    50%{background-position:100% 19%}
+                    100%{background-position:0% 82%}
+                }
+                @keyframes rainbow { 
+                    0%{background-position:0% 82%}
+                    50%{background-position:100% 19%}
+                    100%{background-position:0% 82%}
+                }
+            
+	    #techEvents > li, #cultEvents > li, #artsEvents > li{
             cursor:pointer;
+            display: inline-block;
+            padding: 8px 12px;
+            font-size:16px;
+            /* border-radius:.5rem; */
+            box-shadow: 0px 0px 6px 4px white;
+            margin: 11px 5px 0px;
+            background-color: black;
+            font-family: 'Oswald', sans-serif;
+            text-transform:uppercase;
+}
+
+
+	    
+        #techEvents > li:hover, #cultEvents > li:hover, #artsEvents > li:hover{
+            cursor:pointer;
+            
         }
-        @media screen and (max-width: 900px) {
-           
+
+            .ui-accordion-content {
+            font-family: Roboto, sans-serif;
+            font-size: 14px;
+            padding: 0px 20px;
+            height: 420px;
+            }
+
+            .ui-accordion-content ul {
+            list-style: none;
+            padding: 0;
+            }
+
+            .ui-accordion-content li {
+            padding: 1px 0;
+            color: #fff;
+            }
+
+            .main .col-md-9{
+                margin-top: 20px;
+            }
+#mainarea>center>div:nth-child(1)
+	{
+		padding: 10px;
+		border-radius: 10px;
+		background: #63262229;
+		box-shadow: #48b3c7 0px 0px 10px;	   
+	}
+        #RuleBtn, #RegBtn
+	{
+		margin: 0;
+		padding: 0;
+		color: black;
+		text-decoration: none;
+		padding: 10px;
+		border-radius: 3px;
+		font-size: 125%;
+		font-weight: bold;
+		margin: 5px;
+		background: white;
+/*		display: inline-block;*/
+		height: 35px;
+		vertical-align: middle;
+                box-sizing: inherit;
+	}
+/*        @-webkit-keyframes spinner {
+    from { -webkit-transform: rotateY(-180deg);    }
+    to   { -webkit-transform: rotateY(0deg); }
+  }
+  @-webkit-keyframes spinner-back {
+    from { -webkit-transform: rotateY(0deg);    }
+    to   { -webkit-transform: rotateY(180deg); }
+  }
+
+ 
+        @keyframes spinner {
+            from {
+              -moz-transform: rotateY(-180deg);
+              -ms-transform: rotateY(-180deg);
+              transform: rotateY(-180deg);
+            }
+            to {
+              -moz-transform: rotateY(0deg);
+              -ms-transform: rotateY(0deg);
+              transform: rotateY(0deg);
+            }
+          }
+          @keyframes spinner-back {
+            from {
+              -moz-transform: rotateY(0deg);
+              -ms-transform: rotateY(0deg);
+              transform: rotateY(0deg);
+            }
+            to {
+              -moz-transform: rotateY(180deg);
+              -ms-transform: rotateY(180deg);
+              transform: rotateY(180deg);
+            }
+          }*/
+        .back{
+            background-color: whitesmoke;
+            opacity: 0.9;
+            margin-left: -15px;
+/*            margin-right: -15px;*/
+            width: 100%;
+            /*height: 80% ;*/
+            
+        }
+        .back iframe{
+/*            position: absolute;*/
+            height: 100%;
+            width: 100%;
+            border: none;
+            /*backface-visibility:             hidden;
+        -moz-backface-visibility:    hidden;
+        -ms-backface-visibility:     hidden;
+        -o-backface-visibility:      hidden;
+        -webkit-backface-visibility: hidden;*/
+        }
+        .col-md-9 {
+            margin: 1em auto;
+            /*-webkit-perspective: 1200px;
+            -moz-perspective: 1200px;
+            -ms-perspective: 1200px;
+            perspective: 1200px;*/
+        }
+        iframe{
+            
+            /*-webkit-animation-name: spinner;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-duration: 1s;
+
+    animation-name: spinner;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+    animation-duration: 1s;
+
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;*/
+        }
+        .caption{
+            display: none;
+            position: absolute;
+            top: 10;
+            left: 0;
+            color: black;
+            background-color: black;
+            padding: 8px 12px;
+            /*border-radius: 8px;*/
+            box-shadow: 0px 0px 6px 4px white;
+            
+        }
+        .caption a{
+            color: white;
+            font-family: 'Oswald', sans-serif;
+            text-decoration: none;
+        }
+        .caption a:hover{
+            color: rgba(254,254,254,0.8) ;
+        }
+        @media screen and (max-width:810px){
+            .event_container{
+                width:500px;
+            }
+        }
+        @media screen and (max-width:532px){
+            .headwrap{
+                padding: 140px 0px 0px 19px;
+            }
+            .event_container{
+                width:100%;
+                
+            }
+            .event_details{
+                width: auto;
+                padding-left: 0px;
+            }
+            /*new added*/
+            .headwrap .title1{
+                font-size: 28px;
+            }
+            .back{
+                margin: 0px auto;
+                position: relative;
+            }
+
         }
     </style>
+    <title>Events | Anwesha '19 IITP</title>
 </head>
-
 <body>
 
-<!---------header-----bar-->
-    <div class="header_div">
-        <div class="menu_toggle">
-            <img src="/images/skull_menu.png">
-            <span> MENU </span>
-        </div>
-    </div>
-
-<!-----menu----bar------>
-    <div class="menu_bar">
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/events/">Events</a></li>
-            <!-- <li class="sch_div">Schedule</li> -->
-            <li><a href="https://www.facebook.com/pg/anwesha.iitpatna/photos/?ref=page_internal" target="_blank">Gallery</a></li>
-            <li><a href="/team/">Team</a></li>
-            <li class="spons_div">Sponsors</li>
-            <li class="acco_load">Hospitality/Accomodation</li>
-            <li class="register">Register</li>
-            <li class="ca"><a href="/ca/" target="_blank">Campus Ambassador</a></li>
-        </ul>
-    </div>
-
-<!-----doors---->
-    <div class="menu_backgrnd">
-        <div class="overlay"></div>
-        <img class="creep" src="/images/creep.png">
-        <br>
-        <img class="boundary" src="/images/bound.png">
-    </div>
-
-<!-----moving ----witch------>
-    <img id="moving_witch" class="moving_witch" src="/images/witch_right_1.png">
-
-<!-----fixed ----cloud------>
-    <div class="cloud_div"></div>
-
-<!-----moving ----cloud------>
-    <div class="moving_cloud_div">
-        <img src="/images/moving_cloud.png">
-    </div>
-
-<!--events page content-------->
-    <div class="events_div">
-
-        <div class="events_tab">
-            <button class="tech_button">Technical</button>
-            <button class="cult_button">Cultural</button>
-            <button class="arts_button">Arts & Welfare</button>
-        </div>
-        <?php if(isset($match[2])){?>
-            <center> <img src="/images/load.gif" id="bodyajaxLoadWait" alt="" style="transform: scale(0.5);"> </center>
-        <?php } ?>
-        <div id="event_cat_div" class="tech_event">
-
-            <p class="events_title">Technical Events</p>
-            <div id="events" class="tech_eve">
-            </div>
-
-            <div class="tech_content">
-                <center> <img src="/images/load.gif" id="ajaxLoadWait" alt="" style="transform: scale(0.5);"> </center>
-                <div id="mainarea"  style='display:none;color:white;padding:2em'>
-                    <center>
-                        <div id="">
-                            <span id="headwrap" style="">
-                                <span id="headwr" style="display: inline">
-                                    <!-- <img src="http://via.placeholder.com/100x100" style="height: 50px;display: inline;" placeholder="Icon" id='eve_icon'>&nbsp;&nbsp;&nbsp;&nbsp; -->
-                                    <h1 id='eve_name'>
-                                        Event Name
-                                    </h1>
-                                </span>
-                                <br>
-                                <span id='eve_tagline' style="font-size: 1.5em;margin-bottom: 30px;font-style: italic;text-shadow: #000000 0px 0px 20px;">
-                                    Event TagLine
-                                </span>
-                            </span>
+<div id="menu">
+    <ul data-start="color:rgb(0,0,0); border-color:rgb(0,0,0); background: rgba(255,255,255,0.9);     box-shadow: 0 0 0px rgba(255,255,255,1);"
+      data-500="color:rgb(0,0,0); border-color:rgb(0,0,0); background: rgba(255,255,255,0.9);     box-shadow: 0 0 10px rgba(255,255,255,1);"
+      class="skrollable skrollable-between" style="border-radius:20px;color: rgb(0,0,0); border-color: rgb(0,0,0); background: rgba(255,255,255,0.9); box-shadow: rgba(255,255,255,0, 1) 0px 0px 0px;">
+      <!-- <li id="home-link"><a href="#start-section">HOME</a></li> -->
+      <li><a href="/" id="">Back to Home Page</a></li>
+      <!-- <li><a href="/view/index.html/#About" id="">About</a></li>
+      <li><a href="/view/spons.html" id="">Sponsors</a></li>
+      <li><a href="/view/index.html/#Contact-Us" id="">Contact Us</a></li>
+      <li><a href="/view/index.html/#Audition" id="">Auditions</a></li>
+      <li><a href="/view/ca.php" id="">Campus Ambassador</a></li> -->
+      
+    </ul>
+  </div>
+  <div id="mobile-nav-btn" class="mobile-nav-btn dark " data-100="opacity:1;" data-500="opacity:0; "
+    style="opacity: 1;"></div>
+  <div class="mobile-nav-btn white " data-100="opacity:0;" data-500="opacity:1; " style=""></div>
+  <div id="mobile-nav" style="background-color:black">
+    <img src="/assets/img/close.png" class="close" alt="close menu" width="30" height="30">
+    <ul>
+      <li><a href="/view/index.html" id="">Back to Home Page</a></li>
+    
+      
+    </ul>
+  </div>
+  
+    <div class="main">
+      
+        <div class="row">
+            <div class="col-10 col-md-3">
+                <div id="accordion">
+                    <h3>TECHNICAL EVENTS</h3>
+                        <div>
+                            <ul id="techEvents">
+                            
+                            </ul>
                         </div>
-                        <br>
-                        <!-- <div id="dummyspace" style="width:100%;height:300px"></div> -->
-                        <a target="_blank" id="coveranc"><img src="" alt="" id="eve_cover" style="max-width:80%;max-height:50%"></a>
-                        <br><br>
-
-                        <span id='eve_short_desc' style="font-size: 1.5em;">
-                            Event Short Desc
-                        </span>
-                        <br>
-                        <span id='eve_long_desc' style="font-family: 'Roboto', sans-serif;font-size: 1.5em;text-align:justify;text-justify: inter-word;">
-                            Event Long Desc
-                        </span>
-                        <br>
-
-                        <span style="font-size: 1.8em">Date:</span>
-                        <span id='eve_date' style="font-size: 1.8em;">
-                            DATE
-                        </span>
-                        <br>
-                        <br>
-                        <span style="font-size: 1.8em">Time:</span>
-                        <span id='eve_time' style="font-size: 1.8em;">
-                            TIME
-                        </span>
-                        <br>
-                        <br>
-                        <span style="font-size: 1.8em">Venue:</span>
-                        <span id='eve_venue' style="font-size: 1.8em;">
-                            VENUE
-                        </span>
-                        <br>
-                        <br>
-                        <div id='eve_organisers_head'>
-                            <span style="font-size: 1.8em">Organisers :</span>
-                            <div id='eve_organisers' style="">
-                                
-                            </div>
+                    <h3>CULTURAL EVENTS</h3>
+                        <div>
+                            <ul id="cultEvents">
+                            </ul>
                         </div>
-                        <h3 id="regmsg"></h3>
-                        <br>
-                        <a href="" id="RuleBtn" target="_blank">Rulebook</a>
-                        <a id="RegBtn" data-eveid="-1" >Register</a>
-                        <br>
-
-                        <a href="" id="img_anchor" target="_blank">
-                            <img src="" style="display: none" height="200px" />
-                        </a>
-                    </center>
+                    <h3>ARTS & WELFARE EVENTS</h3>
+                        <div>
+                            <ul id="artsEvents">
+                            </ul>
+                        </div>
                 </div>
             </div>
-        </div>
+    
+            <div class="col-10 col-md-9" style="opacity: 0.9">              
+                 <div class="tech_event">
+                    <div class="event_container">
+                    <!-- <img src="https://static-cdn.sr.se/sida/images/3117/787c33ac-5689-4e1c-aaf3-7db96093015a.jpg" alt="cover"   width="220" class="event_bg" /> -->
+                        <div class="event_info">
+                        <div class="bg-image"></div>
+                            <div class="headwrap">
+                            <div class="title1" id="eve_name">Static Rush</div>
+   
+                            </div> <!-- end details -->
+                        </div> <!-- end hero -->
+                        <div class="event_description">
+                            <div class="event_timing">
+                                <span class="tag" id="eve_date">2nd Feb</span>
+                                <span class="tag" id="eve_time">1 pm</span>
+                                <br>
+                                <span class="tag" id="eve_venue">Boys Hostel, IITP </span>
+                            </div> 
+                            <div class="event_details">
+                                <div id="event_short_desc">
+                                    <p style="color:#1c1c1c" id="eve_short_desc">Remember snakes and ladders? Wanna live through it in the real world? Then Static Rush is your ultimate platform with a twist of electronics. With unlimited adventure and enthralling fun packed in every step you take, this one game will make you remember your childhood and with electronics embedded this one event is surely gonna be in your good books.</p>
 
-        <div id="event_cat_div"  class="cult_event">
-            <p class="events_title">Cultural Events</p>
+                                </div>
+                            <div id="event_long_desc">
+                                <p style="color:#1c1c1c" id="eve_long_desc"> Then Static Rush is your ultimate platform with a twist of electronics. With unlimited adventure and enthralling fun packed in every step you take, this one game will make you remember your childhood and with electronics embedded this one event is surely gonna be in your good books. <a href="#" id="ShowLess">show less</a></p>
+                            </div>
+                            <div id="event_organisers">
+                                <h3 style="color:#1c1c1c">Organisers:</h3>
+                                <ul style="list-style-type:none;color: #1c1c1c">
+                                <li id="eve_organisers"></li>
+                                </ul>
+                                <div class="refrence">
+                                    <a href="https://docs.google.com/document/d/144GNxbiGseMmnSxlZEH3WQaZzyFQ7YI0WaW9Y2edmfk/edit?usp=sharing" id="RuleBtn">Rulebook</a>
+                                    <a id="RegBtn" data-eveid="10">Register</a>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 </div>
+                <div class="back" style="display: none;">
+                    <iframe src="https://drive.google.com/file/d/1ZI2Ws5u2ZnNGYsRF2z9ZKI_BCyN4JICL/preview" ></iframe>
+                    <div class="caption"><a href="#" id="toEvent">BACK</a></div>
+                </div>
+
             
-            <div id="events" class="cult_eve">
-            </div>
-
-            <div class="cult_content">
-                <center> <img src="/images/load.gif" id="ajaxLoadWait" alt="" style="transform: scale(0.5);"> </center>
-                <div id="mainarea"  style='display:none;color:white;padding:2em'>
-                    <center>
-                        <div id="">
-                            <span id="headwrap" style="">
-                                <br>
-                                <!-- <span id="extrabr"><br><br><br><br></span> -->
-                                <span id="headwr" style="display: inline">
-                                    <!-- <img src="http://via.placeholder.com/100x100" style="height: 50px;display: inline;" placeholder="Icon" id='eve_icon'>&nbsp;&nbsp;&nbsp;&nbsp; -->
-                                    <h1 id='eve_name'>
-                                        Event Name
-                                    </h1>
-                                </span>
-                                <br>
-                                <span id='eve_tagline' style="font-size: 1.5em;margin-bottom: 30px;font-style: italic;text-shadow: #000000 0px 0px 20px;">
-                                    Event TagLine
-                                </span>
-                            </span>
-                        </div>
-                        <br>
-                        <!-- <div id="dummyspace" style="width:100%;height:300px"></div> -->
-                        <a target="_blank" id="coveranc"><img src="" alt="" id="eve_cover" style="max-width:80%;max-height:50%"></a>
-                        <br><br>
-
-                        <span id='eve_short_desc' style="font-size: 1.5em;">
-                            Event Short Desc
-                        </span>
-                        <br>
-                        <span id='eve_long_desc' style="font-family: 'Roboto', sans-serif;font-size: 1.5em;text-align:justify;text-justify: inter-word;">
-                            Event Long Desc
-                        </span>
-
-                        <span style="font-size: 1.8em">Date:</span>
-                        <span id='eve_date' style="font-size: 1.8em;">
-                            DATE
-                        </span>
-                        <br>
-                        
-                        <span style="font-size: 1.8em">Time:</span>
-                        <span id='eve_time' style="font-size: 1.8em;">
-                            TIME
-                        </span>
-                        <br>
-                        
-                        <span style="font-size: 1.8em">Venue:</span>
-                        <span id='eve_venue' style="font-size: 1.8em;">
-                            VENUE
-                        </span>
-                        <br>
-                        
-                        <div id='eve_organisers_head'>
-                            <span style="font-size: 1.8em">Organisers :</span>
-                            <div id='eve_organisers' style="">
-                                #Org1
-                            </div>
-                        </div>
-                        <h3 id="regmsg"></h3>
-                        <br>
-                        <a href="" id="RuleBtn" target="_blank">Rulebook</a>
-                        <a id="RegBtn" data-eveid="-1" >Register</a>
-                        <br>
-
-                        <a href="" id="img_anchor" target="_blank">
-                            <img src="" style="display: none" height="200px" />
-                        </a>
-                    </center>
-                </div>
-            </div>
         </div>
-
-        <div id="event_cat_div"  class="arts_event">
-            <p class="events_title">Arts & Welfare Events</p>
-
-            <div id="events" class="mgmt_eve">
-            </div>
-
-            <div class="mgmt_content">
-                <center> <img src="/images/load.gif" id="ajaxLoadWait" alt="" style="transform: scale(0.5);"> </center>
-                <div id="mainarea"  style='display:none;color:white;padding:2em'>
-                    <center>
-                        <div id="">
-                            <span id="headwrap" style="">
-                                <br>
-                                <!-- <span id="extrabr"><br><br><br><br></span> -->
-                                <span id="headwr" style="display: inline">
-                                    <!-- <img src="http://via.placeholder.com/100x100" style="height: 50px;display: inline;" placeholder="Icon" id='eve_icon'>&nbsp;&nbsp;&nbsp;&nbsp; -->
-                                    <h1 id='eve_name'>
-                                        Event Name
-                                    </h1>
-                                </span>
-                                <br>
-                                <span id='eve_tagline' style="font-size: 1.5em;margin-bottom: 30px;font-style: italic;text-shadow: #000000 0px 0px 20px;">
-                                    Event TagLine
-                                </span>
-                            </span>
-                        </div>
-                        <br>
-                        <!-- <div id="dummyspace" style="width:100%;height:300px"></div> -->
-                        <a target="_blank" id="coveranc">
-                            <img src="" alt="" id="eve_cover" style="max-width:80%;max-height:50%">
-                        </a>
-                        <br><br>
-                        
-                        <span id='eve_short_desc' style="font-size: 1.5em;">
-                            Event Short Desc
-                        </span>
-                        <br>
-                        <span id='eve_long_desc' style="font-family: 'Roboto', sans-serif;font-size: 1.5em;text-align:justify;text-justify: inter-word;">
-                            Event Long Desc
-                        </span>
-                        <br>
-
-                        <span style="font-size: 1.8em">Date:</span>
-                        <span id='eve_date' style="font-size: 1.8em;">
-                            DATE
-                        </span>
-                        <br>
-                        <span style="font-size: 1.8em">Time:</span>
-                        <span id='eve_time' style="font-size: 1.8em;">
-                            TIME
-                        </span>
-                        <br>
-                        <span style="font-size: 1.8em">Venue:</span>
-                        <span id='eve_venue' style="font-size: 1.8em;">
-                            VENUE
-                        </span>
-                        <br>
-                        <br>
-                        <div id='eve_organisers_head'>
-                            <span style="font-size: 1.8em">Organisers :</span>
-                            <div id='eve_organisers'>
-                                #Org1
-                            </div>
-                        </div>
-                        <h3 id="regmsg"></h3>
-                        <br>
-                        <a href="" id="RuleBtn" target="_blank">Rulebook</a>
-                        <a id="RegBtn" data-eveid="-1" >Register</a>
-                        <br>
-
-                        <a href="" id="img_anchor" target="_blank">
-                            <img src="" style="display: none" height="200px" />
-                        </a>
-                    </center>
-                </div>
-            </div>
-        </div>
-
-        <br><br>
+  
     </div>
 
-<!---ajax loader-->
-
-    <div class="ajax_loading_bckgrnd">
-        <div class="ajax_back"></div>
-    </div>
-
-    <div class="ajax_loading_div">
-        <img class="close_icon" src="/images/close2.png"/>
-        <div class="ajax_content"></div>
-    </div>
-
-<!---footer-->
-    <div class="footer_div">
-        <a target="_blank" href="https://www.facebook.com/anwesha.iitpatna/"><img src="/images/social/fb.png"></a>
-        <a target="_blank" href="https://www.instagram.com/anwesha.iitp/"><img src="/images/social/insta.png"></a>
-        <a target="_blank" href="https://www.youtube.com/user/AnweshaIITP"><img src="/images/social/youtube.png"></a>
-        
-        <div class="copyright">
-            &copy; 2018 Anwesha, IIT Patna
-        </div>
-    </div>
-
-
- <!--scripts-->
-    <script type="text/javascript" src="/js/jquery.js"></script>
-    <script type="text/javascript">
-    var eveglid =-1;
-    var currPar = "tech_content";
-        $(document).ready(function() {
-
-            var vscrollspace = 0;
-            var tr =($(".tech_content").position().left + $(".tech_content").width()); 
-            var tl = $(".tech_content").position().left; 
-            var cr =($(".cult_content").position().left + $(".cult_content").width()); 
-            var cl = $(".cult_content").position().left; 
-            var mr =($(".mgmt_content").position().left + $(".mgmt_content").width()); 
-            var ml = $(".mgmt_content").position().left; 
-            var sh = $("#event_cat_div").position().top;
-
-            $(document).on('click', '#RegBtn', function (e) {
-                console.log('this is the click');
-                // if($(this).attr("href")!="" && $(this).attr("href")!=null )
-                // e.preventDefault();
-                 console.log("/register/"+eveglid);
-                $.get( "/register/"+eveglid, function( data ) {
-                        console.log("dat",data);
-                            var databkp = data;
-                        try {
-                            data = jQuery.parseJSON(data);
-                        }
-                        catch(error) {
-                            data = databkp;
-                        }
-
-                        console.log("dat",data);
-                        // alert(data.msg);
-                        $(currPar + " #regmsg").text(data["msg"]);
-                        if(data.http==200)
-                            $("#regmsg").css("color","#00ff00");
-                        else
-                            $("#regmsg").css("color","#ff0000");
-                        if(data.http == 403){
-                            window.open('https://anwesha.info/login_bare/');
-                            console.log("403");
-                            $(currPar+ " #regmsg").html($(currPar + " #regmsg").text()+"<br> <a href='//anwesha.info/login_bare/' target='_blank'>Login here</a>");
-                        }
-                        if(data.status == true){
-                            $(this).text('Registered!')
-                        }
-                    });
+    <script>
+  
+        $(document).ready(function(){
+            $("#event_long_desc").css({"display":"none"});
+            $("#accordion").accordion({
+            collapsible: true
             });
-            // $("#RegBtn").on('click',function(){
-            //     // console.log("/register/"+eveglid);
-            //     // $.get( "/register/"+eveglid, function( data ) {
-            //     //         console.log("dat",data);
-            //     //         alert(data.msg);
-            //     //         if(data.status == true){
-            //     //             $(this).text('Registered!')
-            //     //         }
-            //     //     });
-            // });
-
-        });
-
-//for choosing events tabs
-<?php 
-    if(!isset($match[1]) && $match[1] != 1 ){
-?>
-    $('.tech_event').fadeIn(1000);
-<?php 
-    }
-?>
-    $('.tech_button').click(function()
-    {
-        $('.tech_event').fadeIn(1000);
-
-        $('.cult_event').fadeOut(0);
-        $('.arts_event').fadeOut(0);
-    });
-
-    $('.cult_button').click(function()
-    {
-        $('.cult_event').fadeIn(1000);
-        $(".cult_eve span:first-child").click();
-        $('.tech_event').fadeOut(0);
-        $('.arts_event').fadeOut(0);
-    });
-
-    $('.arts_button').click(function()
-    {
-        $('.arts_event').fadeIn(1000);
-        $(".mgmt_eve span:first-child").click();
-        $('.tech_event').fadeOut(0);
-        $('.cult_event').fadeOut(0);
-    });
-
-//-----menu toggle
-      $('.menu_toggle img').on("click",function()
-      {
-        span_text=$('.menu_toggle span').text();
-        if(span_text == "EXIT")
-        {
-          $('.menu_toggle span').text('MENU');
-          $('.menu_toggle img').attr('src', '/images/skull_menu.png');
-          $('.menu_backgrnd').fadeOut(800);
-          $('.menu_bar').slideUp(800);
-        }
-        else
-        {
-          $('.menu_toggle span').text('EXIT').fadeIn(800);
-          $('.menu_toggle img').attr('src', '/images/skull_exit.png');
-          $('.menu_backgrnd').fadeIn(800);
-          $('.menu_bar').slideDown(800);
-        }
-      });
-
-      $('.menu_backgrnd').click(function()
-      {
-        $('.menu_toggle span').text('MENU');
-        $('.menu_toggle img').attr('src', '/images/skull_menu.png');
-        $('.menu_backgrnd').fadeOut(800);
-        $('.menu_bar').slideUp(800);
-      });
-
-//menu bar item css
-        var new_li= $('.menu_bar li').first();
-        new_li.addClass('first_rot');
-        var new_li= new_li.next().next();
-        new_li.addClass('first_rot');
-        var new_li= new_li.next().next();
-        new_li.addClass('secnd_rot');
-        var new_li= new_li.next().next();
-        new_li.addClass('first_rot');
-        var new_li= new_li.next().next().next();
-        new_li.addClass('secnd_rot');
-
-//witch direction on moving mouse
-        $(document).ready( function ()
-        {
-
-        // track and save the position of the mouse
-            $(document).mousemove( function(e) 
-            {
-                mouseX = e.pageX;
-                mouseY = e.pageY; 
-                
-                witchX = parseInt($('#moving_witch').css("left"));
-                witchY = parseInt($('#moving_witch').css("top"));
-
-                $('#moving_witch').css('top',mouseY + 50);
-                $('#moving_witch').css('left',mouseX + 50);
+            $("#RuleBtn").click(function(){
+                var rule_url = $('#RuleBtn').attr('href');
+                $('iframe').attr('src',rule_url.replace('/edit?usp=sharing','/preview'));
+                $(".tech_event").fadeOut(800,function(){
+                    $(".back").fadeIn(800);
+                });
 
                 
-                if(witchX < mouseX)
-                {
-                    $('#moving_witch').css('transform', 'rotateY(360deg)');
+                $(".caption").fadeIn(1000);
+            return false;
+            })
+            $("#toEvent").click(function(){
+                $(".tech_event").fadeIn(1000);
+                $(".back").fadeOut(100);
+                return false;
+            })
+           /* $("#ReadMore").click(function(){
+                $(".event_container").css({"height":"750px"});
+                $(".event_container").slideDown(1000);
+                $("#event_long_desc").slideDown(1000);
+                $(this).css({"display":"none"});
+                return false;
+            })
+            $("#ShowLess").click(function(){
+                $(".event_container").css({"height":"640px"});
+                $("#event_long_desc").slideUp(800);
+                $("#ReadMore").css({"display":"block"});
+                return false;
+            })
+            */
+            //            new added from here
+                mq = window.matchMedia('(min-width:811px)');
+                mq1 = window.matchMedia('(max-width:810px)');
+                mq2 = window.matchMedia('(max-width:532px)');
+                wh = window.innerHeight;
+                console.log(wh);
+
+                dh = document.documentElement.clientHeight;
+                console.log(dh);
+                if(mq.matches){
+                if(wh >= dh){
+                    $('.main').css({"height":"100%"});
                 }
-                else
-                {
-                    $('#moving_witch').css('transform', 'rotateY(180deg)');
-
+                else{
+                    $('.main').css({"height":"auto"});
+                }}
+            else{
+                $('.main').css({"height":"auto"});
+            }
+            $("#ReadMore").click(function(){
+                content_height = $(".event_container").height();
+                event_long_desc_height = $("#event_long_desc").height();
+                if(mq.matches){
+                    $(".event_container").css({"height":content_height + event_long_desc_height});
+//                     console.log("width is greater than 811px")
+                    
                 }
-            });
-
-        });
-
-     //cloud motion
-        $(document).scroll(function () {
-            var window_pos = $(this).scrollLeft();
-            //alert(window_pos);
-            $('.moving_cloud_div img').css('left', -(window_pos * .05) + 'px');
-        });
-
-//ajax on menu items
-        $('.close_icon').click(function()
-        {
-            $('.ajax_loading_bckgrnd').fadeOut(800);
-            $('.ajax_loading_div').fadeOut(800);
-        });
-
-        $('.spons_div').click(function()
-        {
-            $('.ajax_loading_bckgrnd').fadeIn(800);
-            $('.ajax_loading_div').fadeIn(800);
-        });
-
-        $('.sch_div').click(function()
-        {
-            $('.ajax_loading_bckgrnd').fadeIn(800);
-            $('.ajax_loading_div').fadeIn(800);
-        });
-
-        $('.acco_load').click(function()
-        {
-            $('.ajax_loading_bckgrnd').fadeIn(800);
-            $('.ajax_loading_div').fadeIn(800);
-        });
-        
-        $('.register').click(function()
-        {
-            $('.ajax_loading_bckgrnd').fadeIn(800);
-            $('.ajax_loading_div').fadeIn(800);
-        });
-
-//for loading of events in event content page
+                else{
+                    if(mq1.matches){
+                        if(mq2.matches){
+                            $(".event_container").css('height', content_height + event_long_desc_height +'px');
+//                            console.log("width is less than 532px")
+                        }
+                        else{
+                            $(".event_container").css('height', content_height + event_long_desc_height +'px');
+//                             console.log("width is less than 810px")
+                        }
+                    }
+                    
+                }
+//                $(".event_container").css({"height":"750px"});
+                
+                
+                $(this).fadeOut(1000, function(){
+                    $("#event_long_desc").slideDown(1000);
+                    $(".event_container").slideDown(1000);
+                });
+                return false;
+            })
+            $("#ShowLess").click(function(){
+                content_height = $(".event_container").height();
+                event_long_desc_height = $("#event_long_desc").height();
+                if(mq.matches){
+                    $(".event_container").css({"height":content_height - event_long_desc_height});
+//                     console.log("width is greater than 811px");
+                    
+                    
+                }
+                else{
+                    if(mq1.matches){
+                        if(mq2.matches){
+                            $(".event_container").css('height', content_height - event_long_desc_height +'px');
+//                            console.log("width is less than 532px")
+                        }
+                        else{
+                            $(".event_container").css('height', content_height - event_long_desc_height +'px');
+//                             console.log("width is less than 810px")
+                        }
+                    }
+                }
+//                $(".event_container").css({"height":"640px"});
+                
+                $("#event_long_desc").slideUp(800,function(){
+                    $("#ReadMore").fadeIn(800);
+                });
+                
+                return false;
+            }) 
+            bg_naturalHeight =0;
+            bg_naturalWidth =0;
+            bg_url = $(".bg-image").css('background-image').replace('url(','').replace(')','').replace(/\"/gi, "");
+//            console.log(bg_url);
+            preloaderImage(bg_url);
+            function preloaderImage(imageurl) {
+            var img = new Image();
+            img.src = imageurl;
+            img.onload = function(){
+            bg_naturalHeight = img.naturalHeight;
+            bg_naturalWidth = img.naturalWidth;
+//            console.log("height " + bg_naturalHeight);
+//            console.log("width " + bg_naturalWidth);
+            bg_aspectRatio = bg_naturalHeight/bg_naturalWidth;
+            event_info_height = bg_aspectRatio*$('.event_info').width();
+            $('.event_info').css('height',event_info_height);
+            }
+            
+            }
+            $('.ui-accordion-content').css({"height":"auto"});
+    })
+    </script>
+	<script>
+		//for loading of events in event content page
         function preloadImage(imageurl) {
             var img = new Image();
             img.src = imageurl;
         }
         
-
         function eve_coverswitch(cat ,imgurl) {
             console.log("eve_coverswitch called with", imgurl);
             if (imgurl == "" || imgurl == null) {
-                $(cat+" #eve_cover").attr("src", "");
+                $(".event_bg").attr("src", "");
                 // $("#eve_cover").css("box-shadow","0 0 0 #FFFFFF");
-                $(cat+" #eve_name").css("font-size", "3em");
-                $(cat+' #eve_cover').hide();
-                $(cat+" #extrabr").hide();
-                $(cat + " #coveranc").attr("src","#");
+                $(".event_bg").css("font-size", "3em");
+                $('.event_bg').hide();
+                $(".event_bg").hide();
+                $(".event_bg").attr("src","#");
             } else {
-                $(cat+" #eve_cover").attr("src", imgurl);
-                $(cat+' #eve_cover').show();
-                $(cat + " #coveranc").attr("src", imgurl);
-                if ($(window).width() > 960) {
-                    $(cat + " #eve_name").css("font-size", "5em");
-                }
-                $("#extrabr").show();
-
+                $(".event_bg").attr("src", imgurl);
+                $('.event_bg').show();
+//                 $(cat + " #coveranc").attr("src", imgurl);
+//                 if ($(window).width() > 960) {
+//                     $(cat + " #eve_name").css("font-size", "5em");
+//                 }
+//                 $("#extrabr").show();
             }
         }
-
         function eve_imgswitch(imgurl) {
-
             if (imgurl == "" || imgurl == null) {
                 $("#eve_img").attr("src", "");
                 $("#eve_img").hide();
                 $("#img_anchor").attr("href", "");
             } else {
-
                 $("#eve_img").attr("src", imgurl);
                 $("#img_anchor").attr("href", imgurl);
                 $("#eve_img").show();
             }
         }
         function emptyresp(cat) {
-
-            $(cat+ ' #eve_name').text("");
-            $(cat+ ' #eve_tagline').text("");
-            $(cat+ ' #eve_date').text("");
-            $(cat+ ' #eve_time').text("");
-            $(cat+ ' #eve_venue').text("");
-            $(cat+ ' #eve_organisers').text("");
-            $(cat+ ' #eve_short_desc').text("");
-            $(cat+ ' #eve_long_desc').text("");
+            $('#eve_name').text("");
+            $('#eve_tagline').text("");
+            $('#eve_date').text("");
+            $('#eve_time').text("");
+            $('#eve_venue').text("");
+            $('#eve_organisers').text("");
+            $('#eve_short_desc').text("");
+            $('#eve_long_desc').text("");
             // $(cat+ ' regbtn').attr("placeholder", "");
             // $(cat+ ' alt_regbtn').attr("href", "");
-            $(cat+ ' #RuleBtn').attr("href", "");
-            $(cat+ ' #RegBtn').attr("data-eveid", "-1");
-            $(cat+ ' #RegBtn').removeAttr("href");
-            $(cat+ ' #RegBtn').removeAttr("target");
-            $(cat+ ' #regmsg').text('');
-            $(cat+ ' #RuleBtn').hide();
+            $('#RuleBtn').attr("href", "");
+            $('#RegBtn').attr("data-eveid", "-1");
+            $('#RegBtn').removeAttr("href");
+            $('#RegBtn').removeAttr("target");
+            $('#regmsg').text('');
+            $('#RuleBtn').hide();
             // $(cat+ ' #RegBtn').hide();
             // eve_imgswitch("");
             // eve_iconswitch("");
@@ -659,7 +611,7 @@
             }
         var events_data;
         var eventsmap = [];
-        $.get("/allEvents/", function (data, status) {
+        $.get("/view/eve.json", function (data, status) {
             console.log("Event Status : " + data[0]);
             if (status == 'success') {
                 events_data = data[1];
@@ -669,106 +621,42 @@
                events_data.forEach(function(evntDat){
                 console.log(typeof(evntDat));
                     
-
                 if(typeof(evntDat)=="Object" || evntDat.eveId>5)
                     eventsmap[evntDat.eveId] = evntDat;
                     console.log(typeof(evntDat));
                     console.log(evntDat);
                     preloadImage(evntDat['cover_url']);
                     preloadImage(evntDat['icon_url']);
-
-                        var widthYetT,widthYetC,widthYetM;
-                            try{
-                                widthYetT = $(".tech_eve span:last-child").position().left+$(".tech_eve span:last-child").width() - $(".tech_eve").position().left+ 100;
-                                widthYetC = $(".cult_eve span:last-child").position().left+$(".cult_eve span:last-child").width() - $(".cult_eve").position().left+ 100;
-                                widthYetM = $(".mgmt_eve span:last-child").position().left+$(".mgmt_eve span:last-child").width() - $(".mgmt_eve").position().left+ 100;
-                            }catch(e){
-                                widthYet =0;    
-                           }
+                        //var widthYetT,widthYetC,widthYetM;
+                        //    try{
+                        //        widthYetT = $(".tech_eve span:last-child").position().left+$(".tech_eve span:last-child").width() - $(".tech_eve").position().left+ 100;
+                         //       widthYetC = $(".cult_eve span:last-child").position().left+$(".cult_eve span:last-child").width() - $(".cult_eve").position().left+ 100;
+                          //      widthYetM = $(".mgmt_eve span:last-child").position().left+$(".mgmt_eve span:last-child").width() - $(".mgmt_eve").position().left+ 100;
+                          //  }catch(e){
+                           //     widthYet =0;    
+                          // }
                         if(evntDat.code==1){
                             //tech
-                            if(widthYet>$(".tech_eve").width()){
-                                $(".tech_eve").append("<br>");
-                            }
-                            $(".tech_eve").append(" <span id='evetab"+evntDat.eveId+"' class='evetab' onclick='eveDisplay("+evntDat.eveId+")' event_id='"+evntDat.eveId+"'>"+evntDat.eveName+"</span>");
+                            //if(widthYet>$(".tech_eve").width()){
+                            //    $(".tech_eve").append("<br>");
+                            //}
+                            $("#techEvents").append(" <li id='evetab"+evntDat.eveId+"' class='evetab' onclick='eveDisplay("+evntDat.eveId+")' event_id='"+evntDat.eveId+"'>"+evntDat.eveName+"</li>");
                         }else if(evntDat.code == 2){
                             //cult
-                            if(widthYet>$(".cult_eve").width()){
-                                $(".cult_eve").append("<br>");
-                            }
-                            $(".cult_eve").append(" <span id='evetab"+evntDat.eveId+"' class='evetab' onclick='eveDisplay("+evntDat.eveId+")' event_id='"+evntDat.eveId+"'>"+evntDat.eveName+"</span>");
+//                             if(widthYet>$(".cult_eve").width()){
+//                                 $(".cult_eve").append("<br>");
+//                             }
+                            $("#cultEvents").append(" <li id='evetab"+evntDat.eveId+"' class='evetab' onclick='eveDisplay("+evntDat.eveId+")' event_id='"+evntDat.eveId+"'>"+evntDat.eveName+"</li>");
                         }else if(evntDat.code == 3){
                             //mgmt
-                            if(widthYet>$(".mgmt_eve").width()){
-                                $(".mgmt_eve").append("<br>");
-                            }
-                            $(".mgmt_eve").append(" <span id='evetab"+evntDat.eveId+"' class='evetab' onclick='eveDisplay("+evntDat.eveId+")' event_id='"+evntDat.eveId+"'>"+evntDat.eveName+"</span>");
+//                             if(widthYet>$(".mgmt_eve").width()){
+//                                 $(".mgmt_eve").append("<br>");
+//                             }
+                            $("#artsEvents").append(" <li id='evetab"+evntDat.eveId+"' class='evetab' onclick='eveDisplay("+evntDat.eveId+")' event_id='"+evntDat.eveId+"'>"+evntDat.eveName+"</li>");
                         }
                 });
                console.log("map",eventsmap);
-               //init all;
-               setTimeout(function(){
-                   $(".tech_eve span:first-child").click();
-                   <?php
-                   $myvar = $match[2];
-                   
-                //    function getstr ($type,$myvar_){
-                //        if(isset($myvar_)){
-                //             return "$(\"evetab".$myvar_."\").click();";
-                //         }else{
-                //             return "$(\".{$type}_eve span:first-child\").click();";
-                //         }
-                //     }
-                   if(isset($match[1])){
-                    //    echo $match[1];
-                    $cat = "tech";
-                    echo "$('#bodyajaxLoadWait').fadeOut();";
-                       if($match[1]==1){
-                           $cat = "tech";
-                           echo "
-                            $('#tech_button').click();
-                            $('.tech_event').fadeIn(1000);
-                            $('.cult_event').fadeOut(0);
-                            $('.arts_event').fadeOut(0);";
-                       }else if($match[1]==2){
-                           $cat = "cult";
-                            echo "
-                            $('#cult_button').click();
-                            $('.cult_event').fadeIn(1000);
-                            $('.tech_event').fadeOut(0);
-                            $('.arts_event').fadeOut(0);";
-                       }else if($match[1]==3){
-                           $cat = "arts";
-                           echo "
-                            $('#arts_button').click();
-                            $('.arts_event').fadeIn(1000);
-                            $('.tech_event').fadeOut(0);
-                            $('.cult_event').fadeOut(0);";
-                       }
-                       if(isset($match[2])&& $match[2] != ""){
-                        echo "$('#evetab".$match[2]."').click();";
-                       }else{
-                           echo "$('.{$cat}_eve span:first-child').click();";
-                       }
-                    
-                   }
-                //    evetab42
-                   ?>
 
-                   // eve_coverswitch('.tech_content',eventsmap[$(".tech_eve span:first-child").attr('event_id')].cover_url);
-                   // $(".cult_eve span:first-child").click();
-                   // $(".mgmt_eve span:first-child").click();
-                   // setTimeout(() => {
-                   //      $(".tech_eve span:first-child").click();
-                   // }, 1000);
-                   $(".tech_content #ajaxLoadWait").hide();
-                   $(".cult_content #ajaxLoadWait").hide();
-                   $(".mgmt_content #ajaxLoadWait").hide();
-                   $(".tech_content #mainarea").show();
-                   $(".cult_content #mainarea").show();
-                   $(".mgmt_content #mainarea").show();
-                   // $("#mainarea").show();
-               },1000);
             } else
                 console.log("Unable to get Events Data");
         }, "json");
@@ -780,31 +668,31 @@
             console.log("filling",dataToFill);
             emptyresp(cat);
             currPar = cat;
-            $(cat+ ' #eve_name').html(getHTMLText(dataToFill.eveName));
-            $(cat+ ' #eve_tagline').html(getHTMLText(dataToFill.tagline));
-            $(cat+ ' #eve_date').html(getHTMLText((dataToFill.date)?dataToFill.date:"To be announced"));
-            $(cat+ ' #eve_time').html(getHTMLText((dataToFill.time)?dataToFill.time:"To be announced"));
-            $(cat+ ' #eve_venue').html(getHTMLText((dataToFill.venue)?dataToFill.venue:"To be announced"));
-            $(cat+ ' #eve_organisers').html(getHTMLText(dataToFill.organisers));
-            $(cat+ ' #eve_short_desc').html(getHTMLText(dataToFill.short_desc));
-            $(cat+ ' #eve_long_desc').html(getHTMLText(dataToFill.long_desc));
+            $('#eve_name').html(getHTMLText(dataToFill.eveName));
+            $('#eve_tagline').html(getHTMLText(dataToFill.tagline));
+            $('#eve_date').html(getHTMLText((dataToFill.date)?dataToFill.date:"To be announced"));
+            $('#eve_time').html(getHTMLText((dataToFill.time)?dataToFill.time:"To be announced"));
+            $('#eve_venue').html(getHTMLText((dataToFill.venue)?dataToFill.venue:"To be announced"));
+            $('#eve_organisers').html(getHTMLText(dataToFill.organisers));
+            $('#eve_short_desc').html(getHTMLText(dataToFill.short_desc));
+            $('#eve_long_desc').html(getHTMLText(dataToFill.long_desc));
             // $(cat+ ' #regbtn').attr("placeholder", ""));
             // $(cat+ ' #alt_regbtn').attr("href", ""));
-            $(cat+ ' #RuleBtn').attr("href", dataToFill.rules_url);
+            $('#RuleBtn').attr("href", dataToFill.rules_url);
             if(dataToFill.rules_url==null || dataToFill.rules_url=="")
-                $(cat+ ' #RuleBtn').hide();
+                $('#RuleBtn').hide();
             else
-                $(cat+ ' #RuleBtn').show();
+                $('#RuleBtn').show();
             // $(cat+ ' #RegBtn').attr("", dataToFill.reg_url);
-            $(cat+ ' #RegBtn').attr("data-eveid", dataToFill.eveId);
+            $('#RegBtn').attr("data-eveid", dataToFill.eveId);
             if(dataToFill.reg_url!=null && dataToFill.reg_url!=""){
-                $(cat+ ' #RegBtn').attr("href", dataToFill.reg_url);
-                $(cat+ ' #RegBtn').attr("target","_blank");
+                $('#RegBtn').attr("href", dataToFill.reg_url);
+                $('#RegBtn').attr("target","_blank");
             }else{
-                $(cat+ ' #RegBtn').removeAttr("href");
-                $(cat+ ' #RegBtn').removeAttr("target");
+                $('#RegBtn').removeAttr("href");
+                $('#RegBtn').removeAttr("target");
             }
-            $(cat+ ' #regmsg').text('');
+            $('#regmsg').text('');
             eveglid = dataToFill.eveId;
             console.log("eveglid",eveglid);
             // if(dataToFill.reg_url==null || dataToFill.reg_url=="")
@@ -832,26 +720,8 @@
             $("#evetab"+eveId).addClass('active-tab');
             fillEve("."+type+"_content",eventsmap[eveId]);
         }
-
-        // $('#events li').click(function () {
-        //     event_id = $(this).attr('event_id');
-
-        //     if (event_id <= 4) {
-        //         //alert('Technical');
-        //         $('.tech_content').load('events/' + event_id + '.php');
-        //     } else if (event_id <= 8 && event_id > 4) {
-        //         //alert('cult');
-        //         $('.cult_content').load('events/' + event_id + '.php');
-        //     } else if (event_id <= 12 && event_id > 8) {
-        //         //alert('mang');
-        //         $('.mang_content').load('events/' + event_id + '.php');
-        //     }
-        // });
-    </script>
-
-
-    <script type="text/javascript" src="/js/ajax.js"></script>
-
+// 	<?php echo json_encode($match).PHP_EOL; if(isset($match[2])) { echo "eveDisplay(".$match[2].");"; }?>
+		</script>
 </body>
 
 </html>

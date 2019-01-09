@@ -1,0 +1,170 @@
+/*@import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css);*/
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  background: #43423E;
+}
+
+a {
+  text-decoration: none;
+  color: #5C7FB8;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.tech_event {
+  font: 14px/22px "Lato", Arial, sans-serif;
+  color: #A9A8A3;
+/*  padding: 40px 0;*/
+}
+
+.event_container {
+  margin: 0 auto;
+  width: 780px;
+/*  height: 640px;*/
+  background: #F0F0ED;
+  border-radius: 5px;
+  position: relative;
+  transition: all ease-in-out 1s;
+}
+
+.event_info {
+  height: 342px;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.bg-image {
+  /* content: ''; */
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  /* background: red; */
+  background-image: url("https://www.iitp.ac.in/hostel/images/anwesha/img1.jpg");
+  background-size: contain;
+  z-index: -1;
+  -webkit-transform: skewY(-2.2deg);
+          transform: skewY(-2.2deg);
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+  -webkit-backface-visibility: hidden;
+}
+
+.event_bg {
+  position: absolute;
+  top: 160px;
+  left: 40px;
+  z-index: 2;
+}
+
+.headwrap {
+  padding: 190px 0 0 33px;
+}
+.headwrap .title1 {
+  color: white;
+  font-size: 44px;
+  margin-bottom: 13px;
+  position: relative;
+  display: inline-block;
+  background-color:rgba(0,0,0,0.5);
+  border-radius: 1.5rem;
+  padding: 15px 12px;
+  box-shadow: 0px 0px 8px 4px white;
+}
+.headwrap .title1 span {
+  position: absolute;
+  top: 3px;
+  margin-left: 12px;
+  background: #C4AF3D;
+  border-radius: 5px;
+  color: #544C21;
+  font-size: 14px;
+  padding: 0px 4px;
+}
+.headwrap .title2 {
+  color: #C7C1BA;
+  font-size: 23px;
+  font-weight: 300;
+  margin-bottom: 15px;
+}
+/*.headwrap .likes {
+  margin-left: 24px;
+}
+.headwrap .likes:before {
+  content: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/icon_like.png");
+  position: relative;
+  top: 2px;
+  padding-right: 7px;
+}*/
+
+.event_description {
+  bottom: 0px;
+/*  height: 200px;*/
+  font-size: 16px;
+  line-height: 26px;
+  color: #B1B0AC;
+}
+
+.event_timing {
+  padding-left: 50px;
+  padding-top: 120px;
+  width: 220px;
+  float: left;
+  text-align: center;
+}
+
+.tag {
+  background: white;
+  border-radius: 10px;
+  padding: 3px 8px;
+  font-size: 14px;
+  margin-right: 4px;
+  line-height: 35px;
+  cursor: pointer;
+}
+
+.tag:hover {
+  background: #ddd;
+}
+
+.event_details {
+  padding-left: 41px;
+  padding-top: 30px;
+  margin-left: 20px;
+  width: 480px;
+  float: left;
+}
+
+.event_organisers {
+  margin-top: 23px;
+}
+.event_organisers img {
+  cursor: pointer;
+}
+.event_organisers img:hover {
+  opacity: 0.6;
+}
+.event_organisers a:hover {
+  text-decoration: none;
+}
+/*new added*/
+.event_description::after,.event_description::before{
+    clear: both;
+    display: table;
+    content: "";
+}
+.refrence{
+    height: 50px;
+}

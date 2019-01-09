@@ -15,7 +15,7 @@ require('defines.php');
 	<link rel='stylesheet prefetch' href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 	<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Roboto:400,700'>
-	<link rel="stylesheet" href="/css/form.css">
+	<link rel="stylesheet" href="/assets/css/form.css">
 	<script src="https://sdk.accountkit.com/en_US/sdk.js"></script>
 	<style>
 		#postajax {
@@ -57,7 +57,7 @@ require('defines.php');
 
 <body>
 	<!-- <center>  <h1 style="opacity:1 !important">Register!</h1></center> -->
-	<img src="/images/anwesha.png" style="
+	<img src="/assets/images/anwesha.png" style="
     width: 80%;
     position:  fixed;
     left: 50%;
@@ -172,7 +172,7 @@ function clog(data){
     
 
 	<script src="https://dbushell.com/Pikaday/pikaday.js"></script>
-	<script src="/js/index.js"></script>
+	<script src="/assets/js/index.js"></script>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-90791019-1"></script>
 	<script>

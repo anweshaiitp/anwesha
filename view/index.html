@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<!-- @todo   -->
+<!-- @todo  -->
 <!-- https://codepen.io/Pc/pen/QywZga -->
 <!-- https://stackoverflow.com/questions/18726480/embed-html5-youtube-video-without-iframes -->
 <!-- https://stackoverflow.com/questions/27084876/stop-iframe-from-preventing-scrolling-of-parent-document -->
@@ -29,6 +29,11 @@
 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="/assets/css/home2019.css">
+
+  <link href="https://fonts.googleapis.com/css?family=Aleo|Lato|Merriweather|Open+Sans|Roboto" rel="stylesheet">
+        <link href="../assets/css/simplebar.css" rel="stylesheet" type="text/css"/>
+        <link href="../assets/css/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../assets/css/swiper.min.css" rel="stylesheet" type="text/css"/>
   
   <script>
         $(function() {
@@ -53,6 +58,12 @@
             #multicitytext{
                 size:2px !important;
             }
+            .clown img{
+                display:none;
+            }
+            .clown div{
+                bottom:-70px !important;
+            }
         }
         #splash{
             position: fixed;
@@ -69,11 +80,152 @@
             background-size: cover !important;
             background-position: center !important;
         }
+        #registerBtn{
+            background-color: #fff;
+            padding: 5px;
+            border-radius: 5px;
+            box-shadow: #cccbc7 0px 0px 10px 3px;
+        }
+         a, u {
+            text-decoration: none;
+        }
     </style>
+
+<style>
+    *,*::before,*::after{
+        box-sizing: border-box;
+    }
+    html{
+        height: 100%;
+        
+    }
+    body{
+        height: 100%;
+        margin: 0px;
+        font-family: 'Lato', sans-serif;
+
+    }
+    .swiper-slide{
+/*                position: relative;
+        height: 100%;
+        width: 100%;*/
+        margin: auto 0px;
+/*                text-align: center;*/
+/*                display: flex;*/
+/*                font-size: 120%;*/
+        justify-content: center;
+    }
+    .swiper-container{
+        height: 100%;
+/*                width: 600px;*/
+        position: relative;
+    }
+    .bg-image{
+        position: absolute;
+        height: 100vh;
+        width: 100%;
+        z-index: -2;
+        text-align: center;
+    }
+    .bg-image.img1{
+        background:  url('1.jpg')  no-repeat center  ;
+/*                background-position: center;
+        background-repeat: no-repeat;*/
+        background-size: cover;
+    }
+    .bg-image.img2{
+        background:  url('2.jpg')  no-repeat center   ;
+        background-size: cover;
+    }
+    .bg-image.img3{
+        background:   url('2.jpg')  no-repeat center  ;
+        background-size: cover;
+    }
+/*            .bg-image img{
+        max-width: 100%;
+        margin: 0px auto;
+        text-align: center;
+    }*/
+    .bg-color{
+        position: absolute;
+        height: 100vh;
+        width: 100%;
+        z-index: -1;
+        background-color: #007aff;
+        opacity: 0.75;
+    }
+    .container{
+        color: white;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+    }
+    .content{
+        position: relative;
+/*                overflow: auto;*/
+        margin: 50px auto 80px auto;
+        width: 80%;
+/*                display: flex;*/
+        height: calc(100vh - 130px);
+/*                flex-wrap: wrap;*/
+    }
+    .col1,.col2{
+/*                flex: 1 0 300px;*/
+        padding: 10px 20px;
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+    }
+    .col2{
+        overflow: auto;
+    }
+    button{
+        font-family: 'Lato', sans-serif;
+        cursor: pointer;
+        border: 3px solid white;
+        background-color: transparent;
+        color: white;
+        border-radius: 15px;
+        padding: 2px 28px;
+    }
+    h1,h2,h3{
+        text-transform: uppercase;
+    }
+    p{
+        font-size: 120%;
+        margin-bottom: 0px;
+    }
+    .clown a{
+        text-decoration: none;
+        color:#fff;
+    }
+    .clown a:hover{
+        cursor:pointer;
+    }
+    .container-not{
+        height: 100%;
+    width: 100%;
+    position: relative;
+    transform: translateY(100%);
+    }
+</style>
 
 </head>
 
-<body class="body" data-gr-c-s-loaded="true" style="">
+<body class="body" data-gr-c-s-loaded="true" >
+
+
+<!-- <div class="container-not">
+    <div class="clown" style="position: fixed; bottom:84px;left:0px;z-index: 500; ">
+        <img src="/assets/img/notification.gif">
+        <div style="cursor:pointer;position: absolute;z-index: 501;bottom:-44px;left:0px;border:2px solid white;padding:8px 12px;background-color:rgba(0,0,0,0.4);color:black;">
+            <a href="#not">NOTIFICATIONS</a>
+        </div>
+    </div>
+</div> -->
+
+
     <img src="/assets/img/card.gif" width="0" height="0" alt="">
     <div id="splash">
         <div id="init" style="color: #fff">
@@ -82,10 +234,10 @@
     <!-- Splash Screen -->
         <!-- <img src="/assets/img/card.gif" style="width:100%;height:100%;position: fixed;top:0px;left:0px;z-index: 10000;" alt="">     -->
     </div>
-    <div id="logo" data-100="opacity:1;" data-500="opacity:0; " class="" style="opacity: 1;">
+    <div id="logo" data-100="opacity:1;" data-500="opacity:0; " style="opacity: 1;">
         <a href="http://anwesha.info/" class="logolink" target="_blank"></a>
     </div>
-    <div id="logo-white" data-300="opacity:0;" data-500="opacity:1;" class="" style="">
+    <div id="logo-white" data-300="opacity:0;" data-500="opacity:1;" >
         <a href="http://anwesha.info/" class="logolink" target="_blank"></a>
     </div>
     <!-- Navigation Menu -->
@@ -101,12 +253,14 @@
             <li><a href="#Audition" id="">Auditions</a></li>
             <li><a href="/ca" id="">Campus Ambassador</a></li>
             <li><a href="/gallery" id="">Gallery</a></li>
+            <li><a href="/events" id="">Events</a></li>
+            <li><a href="#highlights" id="">Highlights</a></li>
             
         </ul>
     </div>
     <div id="mobile-nav-btn" class="mobile-nav-btn dark " data-100="opacity:1;" data-500="opacity:0; "
         style="opacity: 1;"></div>
-    <div class="mobile-nav-btn white " data-100="opacity:0;" data-500="opacity:1; " style=""></div>
+    <div class="mobile-nav-btn white " data-100="opacity:0;" data-500="opacity:1; "></div>
     <div id="mobile-nav" style="background-color:black">
         <img src="/assets/img/close.png" class="close" alt="close menu" width="30" height="30">
         <ul>
@@ -117,7 +271,9 @@
             <li><a href="#Audition" id="">Auditions</a></li>
             <li><a href="/ca" id="">Campus Ambassador</a></li>
             <li><a href="/gallery" id="">Gallery</a></li>
-            
+            <li><a href="/events" id="">Events</a></li>
+            <li><a href="#highlights" id="">Highlights</a></li>
+            <li><a href="/register" id="">Register</a></li>
         </ul>
     </div>
     <!-- /Navigation Menu -->
@@ -125,11 +281,12 @@
     <!-- Social Floating Links -->
     <div id="social">
         <span class="hashtag">#anwesha19</span>
+        <a href="/register" class="hashtag hidemob" id="registerBtn" >Register</a>
         <a href="https://www.facebook.com/anwesha.iitpatna/" target="_blank"><img src="/assets/img/fb-black.png"><img
                 src="/assets/img/fb-w.png" class="social-white" data-100=""
-                data-500="opacity:1; " style=""></a>
+                data-500="opacity:1; " ></a>
         <a href="https://www.instagram.com/anwesha.iitp/" target="_blank"><img src="/assets/img/ig.png"><img src="/assets/img/ig-w.png"
-                class="social-white" data-100="" data-500=" " style=""></a>
+                class="social-white" data-100="" data-500=" " ></a>
     </div>
     <!-- /Social Floating Links -->
 
@@ -138,9 +295,33 @@
         <section id="start-section" class="fp skrolll">
             <div class="bcg skrollable skrollable-between" data-start="opacity: 1; width: 100%; height: 100%; top: 0%; left: 0%;"
                 data-100p=" width: 256%; height: 356%; top: -256%; left: -78%;" data-anchor-target="#start-section">
+                <!-- <a style="position: absolute;bottom:10px;left:0px;"><img style="max-width: 120px" src="/assets/img/notification.gif" alt="Notifications"></a> -->
+<!--                 <div class="clown" style="position: absolute; bottom:84px;left:0px;">
+                    <img src="/assets/img/notification.gif">
+                    <div style="cursor:pointer;position: absolute;bottom:-44px;left:0px;border:2px solid white;padding:8px 12px;background-color:rgba(0,0,0,0.4);color:black;">
+                        <a href="#not">NOTIFICATIONS</a>
+                    </div>
+                    
+                </div> -->
+                <!-- <div style="cursor:pointer;position: absolute;height:50px;bottom:50%;left:50%;margin-bottom:-150px;margin-right:-40px;border:2px solid white;padding:8px 12px;background-color:rgba(0,0,0,0.4);color:black;">
+                    1-3rd Feb
+                </div> -->
+<!--                 <div class="base">
+                    <div class="holder"></div>
+                    <div class="thread">
+                      <div class="knob">s</div>
+                      <div class="pendulum">
+                        <div class="pendulumtext">Register</div>
+                    </div>
+                    </div>
+                </div>               
+ -->
+                <style>
                 
+                
+                </style>
                 <div class="rot" id="landingContent" >
-                    <img src="/assets/img/home_img.png" />
+                    <img src="/assets/img/home_img1.png" />
                 </div>
             </div>
         </section>
@@ -149,7 +330,156 @@
                     <iframe width="160" height="80" frameborder="0" title="YouTube video player" type="text/html"  src="https://www.youtube.com/embed/tare6Drw0Ng?feature=oembed&controls=1&hd=1&modestbranding=1&autohide=1&showinfo=0&enablejsapi=1"></iframe>
             </div>
         </section>
-    
+
+  
+
+        <div class="swiper-container sec2 skrolll" id = "highlights">
+            <div class="swiper-wrapper">
+                
+           
+ <?php
+    $hilightsFile = "highlights.json";
+    $staticF = file_get_contents($hilightsFile);
+    $staticD = json_decode($staticF, true);
+
+    foreach ($staticD as $value) {
+?> 
+                <div class="swiper-slide">
+                    <div class="bg-image img2" style="background-image:url('<?php echo $value["img"]; ?>') !important;">
+  <!--                      <img src="2.jpg" alt=""/>-->
+                    </div>
+                    <div class="bg-color" style="background-color:<?php echo $value["bgcolor"]?> !important"></div>
+                    <div class="container">
+                        <div class="content">
+                            <div class="col1">
+                                <h1><?php  echo $value["title"];  ?></h1>
+                                <p><?php  echo $value["desc"];  ?>
+                                    <br>
+                                    <button onclick="location.href='<?php  echo $value["action"];  ?>';"><?php  echo $value["button"];  ?></button>
+                                </p>
+                                <br>
+  <!--                              <p>
+                                   Call park out she wife face mean. Invitation excellence imprudence understood it continuing to. 
+                                   Ye show done an into. Fifteen winding related may hearted colonel are way studied. 
+                                   County suffer twenty or marked no moment in he. Meet shew or said like he. 
+                                   Valley silent cannot things so remain oh to elinor. Far merits season better tended any age hunted. 
+                                </p>-->
+                            </div>
+  <!--                          <div class="col2">
+                                <h3>generes</h3>
+                                <h4>International music festival</h4>
+                                <p>
+                                    He difficult contented we determine ourselves me am earnestly. Hour no find it park. Eat welcomed any husbands moderate. 
+                                    Led was misery played waited almost cousin living. Of intention contained is by middleton am. 
+                                    Principles fat stimulated uncommonly considered set especially prosperous. Sons at park mr meet as fact like.<br>
+                                    <button>Lineup</button>
+                                </p>
+                                <br>
+                                <h4>Theater fest</h4>
+                                <p>Surrounded affronting favourable no mr. Lain knew like half she yet joy. Be than dull as seen very shot. 
+                                    Attachment ye so am travelling estimating projecting is. Off fat address attacks his besides. 
+                                    Suitable settling mr attended no doubtful feelings. Any over for say bore such sold five but hung. 
+                                    <br>
+                                    <button>Say Goodbye</button>
+                                </p>
+                                <br>
+                                <h4>Nothing man</h4>
+                                <p>
+                                    Improved own provided blessing may peculiar domestic. Sight house has sex never. No visited raising gravity outward subject my cottage mr be. 
+                                    Hold do at tore in park feet near my case. Invitation at understood occasional sentiments insipidity inhabiting in. 
+                                    Off melancholy alteration principles old. Is do speedily kindness properly oh. Respect article painted cottage he is offices parlors. 
+                                  </p>
+                            </div>-->
+                        </div>
+                    </div>
+                </div>
+                
+                  <?php  }  ?>   
+                
+                
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- Add Arrows -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+          <div class="social-media-icon">
+              
+          </div>
+          <script src="../assets/js/jquery.min.js" type="text/javascript"></script>
+          <script src="../assets/js/swiper.min.js" type="text/javascript"></script>
+          <script src="../assets/js/simplebar.js" type="text/javascript"></script>
+          <script>
+            var swiper = new Swiper('.swiper-container', {
+                slidesPerView: 1,
+                autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
+  //              effect: 'cube',
+  //              cubeEffect: {
+  //        shadow: false,
+  //        slideShadows: false,
+  ////        shadowOffset: 20,
+  //        shadowScale: 0.94,
+  //      },
+                spaceBetween: 30,
+                keyboard: {
+                  enabled: true,
+              onlyInViewport: false,
+                      },
+                  loop: true,
+  //              grabCursor: true,
+                pagination: {
+                  el: '.swiper-pagination',
+                  clickable: true,
+                },
+                navigation: {
+                  nextEl: '.swiper-button-next',
+                  prevEl: '.swiper-button-prev',
+                },
+              });
+          </script>
+          <script>
+  //            $(document).ready(function(){
+                  mq = window.matchMedia('(max-width:749px)');
+                  if(mq.matches){
+                      $('.content').each(function(){
+                          $(this).attr('data-simplebar','');
+                      });
+                      $('.content').each(function(index){
+                          new SimpleBar($(this)[index]);
+                      })
+                  }
+                  else{
+                      $('.col2').each(function(){
+                          $(this).attr('data-simplebar','');
+                      });
+                      $('.col2').each(function(index){
+                          new SimpleBar($(this)[index]);
+                      })
+                  }
+  //                $(document).ready(function(){
+  //                    $('.col1').each(function(){
+  //                        $(this).effect('drop',{direction:'left'},1000).show();
+  //                    })
+  //                })
+  //            })
+  //                $(document).ready(function(){
+  //                    $('.col1').fadeIn('slow',function(){
+  //                        $('.col2').fadeIn('slow',function(){})
+  //                    })
+  //                })
+                    $(document).ready(function(){
+                        $(".pendulumtext").on('click',function(){
+                            window.location = "/register";
+                        });
+                    });
+
+                    
+                  
+          </script>
                                 
             <!-- </a>  -->
 
@@ -176,14 +506,14 @@
             </div>
         </section>
         <div class="audition skrolll">
-                <div class="row row-content" style="text-align: center">
+                <div class="row row-content" style="text-align: center;padding-top: 50px">
                     <div class="col-12">
                             <br>
                             <h1>
                                 Anwesha 
                             </h1>
                             
-                            <h2>presents</h2>
+                            <h2 style="font-size:26px;">presents</h2>
                             
                             <h3>Multi-city 
                                 <br>
@@ -204,9 +534,9 @@
                     <div class="col-sm-12 col-md-3" style="text-align:center;padding-bottom:20px;cursor:pointer;">
                         <a data-target="#myModal2" class="modalTrig" data-toggle="modal"><img width="80%" class="shake shadow" src="../assets/img/Kanpur.png" ></a>
                     </div>
-                    <div class="col-sm-12 col-md-3" style="text-align:center;padding-bottom:20px">
+                    <!-- <div class="col-sm-12 col-md-3" style="text-align:center;padding-bottom:20px">
                         <img width="80%" class="shake shadow" src="../assets/img/coming.png">
-                    </div>
+                    </div> -->
 
                     <!-- <img class="col-12 col-md-6" src="../assets/img/dhanbad2.png"> -->
                     
@@ -297,8 +627,9 @@
                 </div>
                 <br><br><br>
             <a target="_blank" href="https://www.facebook.com/anwesha.iitpatna/" class="tickets-btn">Facebook</a><br>
-            <a target="_blank" href="mailto:pr@anwesha.info" class="tickets-btn">e-mail:pr@anwesha.info</a><br>
-            <a target="_blank" href="tel:+919462728970" class="tickets-btn">Phone:+91-9462728970</a>
+            <a target="_blank" href="mailto:anweshaiitp@gmail.com" class="tickets-btn">e-mail : anweshaiitp@gmail.com</a><br>
+            <a target="_blank" href="tel:+919867794441" class="tickets-btn">Phone : +91-9867794441</a>
+            <a target="_blank" href="tel:+917509116834" class="tickets-btn">Phone : +91-7509116834</a>
             <br><br><br>
             <!-- <div class="mapouter"><div class="gmap_canvas"><iframe id="map" height="400" id="gmap_canvas" src="https://maps.google.com/maps?q=iit%20patna&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div><style>#map{width:100%;}.mapouter{text-align:right;height:500px;width:100%;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:100%;}</style></div> -->
         </section>
@@ -351,7 +682,7 @@
                     <div class="modal-body">
                             <b><p>Date- 3/11/2018</p></b>
                             <b><p> Time - 10:00 AM</p></b>
-                              <b><p>Venue - HBTU Auditorium, Nawabganj, Kanpur</p></b>
+                              <b><p>Venue - CSA Auditorium, Nawabganj, Kanpur</p></b>
                              <p>
                               The events we will be conducting the auditions for, are:<br><br>
                               <b>1. Syngphony:</b> for all the music enthusiasts out there, this is just what you need to come out of your coccoon and show the world the magic your voice and your instrument possess.
@@ -384,6 +715,7 @@
                         $.scrollify.enable();
                         // document.body.style.overflowY=null;
                     });
+                    $(".hidemob").hide();
                 }
             </script>
 
