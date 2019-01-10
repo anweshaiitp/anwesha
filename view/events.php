@@ -396,7 +396,7 @@
                                 </ul>
                                 <div class="refrence">
                                     <a href="#" id="RuleBtn">Rulebook</a>
-                                    <a id="RegBtn" data-eveid="10">Register</a>
+<!--                                     <a id="RegBtn" data-eveid="10">Register</a> -->
                                 </div> 
                             </div>
                         </div>
