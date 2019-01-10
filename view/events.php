@@ -311,6 +311,10 @@
                 padding-left: 20px;
                 text-align: left;
             }
+		.bg-image{
+                transform: skewY(0deg);
+                -webkit-transform: skewY(0deg);
+            }
         }
     </style>
     <title>Events | Anwesha '19 IITP</title>
