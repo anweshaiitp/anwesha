@@ -50,7 +50,7 @@
   
             /* Main */
             .main {
-            background: url(https://static-cdn.sr.se/sida/images/3117/787c33ac-5689-4e1c-aaf3-7db96093015a.jpg) no-repeat center center; 
+            background: url(/assets/img/anw_bg.jpeg) no-repeat center center; 
             background-size: cover;
             height: 100%;
             }
@@ -159,6 +159,7 @@
         #RuleBtn, #RegBtn
 	{
 		margin: 0;
+		/*hi*/
 		padding: 0;
 		color: black;
 		text-decoration: none;
@@ -306,6 +307,10 @@
             .back iframe{
                 height: 80%;
             }
+            .event_timing{
+                padding-left: 20px;
+                text-align: left;
+            }
         }
     </style>
     <title>Events | Anwesha '19 IITP</title>
@@ -375,7 +380,7 @@
                         </div> <!-- end hero -->
                         <div class="event_description">
                             <div class="event_timing">
-                                <span class="tag" id="eve_date">2nd Feb</span>
+                                <span class="tag" id="eve_date">2nd Feb</span><br>
                                 <span class="tag" id="eve_time">1 pm</span>
                                 <br>
                                 <span class="tag" id="eve_venue">Boys Hostel, IITP </span>
@@ -386,15 +391,16 @@
 
                                 </div>
                             <div id="event_long_desc">
-                                <p style="color:#1c1c1c" id="eve_long_desc"> Then Static Rush is your ultimate platform with a twist of electronics. With unlimited adventure and enthralling fun packed in every step you take, this one game will make you remember your childhood and with electronics embedded this one event is surely gonna be in your good books. <a href="#" id="ShowLess">show less</a></p>
+                                <p style="color:#1c1c1c" id="eve_long_desc"></p>
                             </div>
                             <div id="event_organisers">
                                 <h3 style="color:#1c1c1c">Organisers:</h3>
                                 <ul style="list-style-type:none;color: #1c1c1c">
-                                <li id="eve_organisers"></li>
+                                <li id="eve_organisers">Umang Jain (6394708415)
+                                    <br>Rahul Anand (9430056694)</li>
                                 </ul>
                                 <div class="refrence">
-                                    <a href="#" id="RuleBtn">Rulebook</a>
+                                    <a href="https://drive.google.com/open?id=1-OQFzE9tvPPAt-ulEFWf_hghgLRfV9wO" id="RuleBtn">Rulebook</a>
                                     <a id="RegBtn" data-eveid="10">Register</a>
                                 </div> 
                             </div>
@@ -419,74 +425,16 @@
             $("#accordion").accordion({
             collapsible: true
             });
-            $("#RuleBtn").click(function(){
-                
-                var rule_url = "";
-                $('iframe').attr('src',rule_url);
-//                $(".tech_event").fadeOut(100,function(){
-//                    $(".back").fadeIn(800);
-//                });
-                   $(".tech_event").css({"display":"none"});
-                   $(".back").fadeIn(800);
-                 rule_url = $('#RuleBtn').attr('href');
-//                var str1 = "https://drive.google.com/open?id";
-//                if( rule_url.match(/https://drive.google.com/open?id)){
-//                    console.log("string matches");
-//                }
-//                    var str1 = "https://drive.google.com/file/d/d/";
-//                    var str2 = "https://drive.google.com/open?id";
-//                if(rule_url.match(str1)){
-//                    console.log("str1 matches");
-//                    rule_url = rule_url.replace('/view','/preview');
-//                    $('iframe').attr('src', rule_url);
-//                }else if(rule_url.match(str2)){
-//                    console.log("str2 matches");
-                    rule_url = rule_url.substr(33);
-                    $('iframe').attr("src","https://drive.google.com/file/d/" + rule_url + "/preview");
-                    
-//                    console.log(rule_url);
-                
-                $(".caption").fadeIn(1000);
-                if(mq3.matches){
-                var button_width = $('.caption').innerWidth();
-                console.log("width is greater than 1500px");
-                $('.caption').css({"left": - button_width});
-                };
-            return false;})
-            $("#toEvent").click(function(){
-                $('iframe').attr('src','');
-                $(".tech_event").fadeIn(1000);
-                $(".back").fadeOut(100);
-                return false;
-            });
-//            $('li').click(function(){
-//                 $('html,body').animate({
-//            scrollTop: $(".tech_event").offset().top},'slow');
-//            });
-           /* $("#ReadMore").click(function(){
-                $(".event_container").css({"height":"750px"});
-                $(".event_container").slideDown(1000);
-                $("#event_long_desc").slideDown(1000);
-                $(this).css({"display":"none"});
-                return false;
-            })
-            $("#ShowLess").click(function(){
-                $(".event_container").css({"height":"640px"});
-                $("#event_long_desc").slideUp(800);
-                $("#ReadMore").css({"display":"block"});
-                return false;
-            })
-            */
-            //            new added from here
+            $('.ui-accordion-content').css({"height":"auto"});
+//                new added from here
                 mq = window.matchMedia('(min-width:811px)');
                 mq1 = window.matchMedia('(max-width:810px)');
                 mq2 = window.matchMedia('(max-width:532px)');
                 mq3 = window.matchMedia('(min-width:1500px)');
                 wh = window.innerHeight;
-                console.log(wh);
-
+//                console.log(wh);
                 dh = document.documentElement.clientHeight;
-                console.log(dh);
+//                console.log(dh);
                 if(mq.matches){
                 if(wh >= dh){
                     $('.main').css({"height":"100%"});
@@ -498,71 +446,123 @@
                 $('.main').css({"height":"auto"});
             }
             
-            $("#ReadMore").click(function(){
-                content_height = $(".event_container").height();
-                event_long_desc_height = $("#event_long_desc").height();
-                if(mq.matches){
-                    $(".event_container").css({"height":content_height + event_long_desc_height});
-//                     console.log("width is greater than 811px")
-                    
-                }
-                else{
-                    if(mq1.matches){
-                        if(mq2.matches){
-                            $(".event_container").css('height', content_height + event_long_desc_height +'px');
-//                            console.log("width is less than 532px")
-                        }
-                        else{
-                            $(".event_container").css('height', content_height + event_long_desc_height +'px');
-//                             console.log("width is less than 810px")
-                        }
-                    }
-                    
-                }
-//                $(".event_container").css({"height":"750px"});
-                
-                
-                $(this).fadeOut(1000, function(){
-                    $("#event_long_desc").slideDown(1000);
-                    $(".event_container").slideDown(1000);
-                });
-                return false;
-            })
-            $("#ShowLess").click(function(){
-                content_height = $(".event_container").height();
-                event_long_desc_height = $("#event_long_desc").height();
-                if(mq.matches){
-                    $(".event_container").css({"height":content_height - event_long_desc_height});
-//                     console.log("width is greater than 811px");
-                    
-                    
-                }
-                else{
-                    if(mq1.matches){
-                        if(mq2.matches){
-                            $(".event_container").css('height', content_height - event_long_desc_height +'px');
-//                            console.log("width is less than 532px")
-                        }
-                        else{
-                            $(".event_container").css('height', content_height - event_long_desc_height +'px');
-//                             console.log("width is less than 810px")
-                        }
-                    }
-                }
-//                $(".event_container").css({"height":"640px"});
-                
-                $("#event_long_desc").slideUp(800,function(){
-                    $("#ReadMore").fadeIn(800);
-                });
-                
-                return false;
-            }) 
+            
             bg_naturalHeight =0;
             bg_naturalWidth =0;
             bg_url = $(".bg-image").css('background-image').replace('url(','').replace(')','').replace(/\"/gi, "");
 //            console.log(bg_url);
             preloaderImage(bg_url);
-            function preloaderImage(imageurl) {
+            
+            
+    });
+            $(".refrence").on('click','a#RuleBtn',function(){
+                var rule_url = "";
+                $('iframe').attr('src',rule_url);
+//                $(".tech_event").fadeOut(100,function(){
+//                    $(".back").fadeIn(800);
+//                });
+                   $(".tech_event").css({"display":"none"});
+                   $(".back").fadeIn();
+                    rule_url = $('#RuleBtn').attr('href');
+                    rule_url = rule_url.substr(33);
+                    $('iframe').attr("src","https://drive.google.com/file/d/" + rule_url + "/preview");
+                    
+//                    console.log(rule_url);
+                
+                $(".caption").fadeIn(1000);
+                if(mq3.matches){
+                var button_width = $('.caption').innerWidth();
+                console.log("width is greater than 1500px");
+                $('.caption').css({"left": - button_width});
+                };
+            return false;});
+            $("#toEvent").click(function(){
+                $('iframe').attr('src','');
+                $(".tech_event").fadeIn(1000);
+                $(".back").fadeOut(100);
+                return false;
+            });
+    
+    </script>
+	<script>
+            $(".event_details").on('click','a#ReadMore',function(){
+                $('#event_long_desc').fadeIn(1000,function(){
+                    $('#ReadMore').fadeOut(100);
+//                    $(".event_description").slideDown()
+                    eve_info__height = $(".event_info").height();
+                    event_desc_height = $(".event_description").height();
+                    if(mq.matches){
+                    $(".event_container").css('height',eve_info__height + event_desc_height +'px');
+                     console.log("width is greater than 811px")
+                    
+                    }
+                    else{
+                    if(mq1.matches){
+                        if(mq2.matches){
+                            $(".event_container").css('height', eve_info__height + event_desc_height +'px');
+                            console.log("width is less than 532px")
+                        }
+                        else{
+                            $(".event_container").css('height', eve_info__height + event_desc_height +'px');
+                             console.log("width is less than 810px")
+                        }
+                    }
+                    
+                    }
+                });
+                
+//                $(".event_container").css({"height":"750px"});
+                
+                
+//                $(this).fadeOut(1000, function(){
+//                    $("#event_long_desc").slideDown(1000);
+//                    $(".event_container").slideDown(1000);
+//                });
+                return false;
+            });
+            $(".event_details").on('click','a#ShowLess',function(){
+                eve_info__height = $(".event_info").height();
+                event_desc_height = 0;
+                $('#event_long_desc').fadeOut(500,function(){
+                    $("#ReadMore").fadeIn(800);
+                    event_desc_height = $(".event_description").height();
+                    if(mq.matches){
+                    $(".event_container").css('height',eve_info__height + event_desc_height + 'px');
+//                     console.log("width is greater than 811px");
+                    
+                    
+                    }
+                    else{
+                    if(mq1.matches){
+                        if(mq2.matches){
+                            $(".event_container").css('height', eve_info__height + event_desc_height +'px');
+//                            console.log("width is less than 532px")
+                        }
+                        else{
+                            $(".event_container").css('height', eve_info__height + event_desc_height +'px');
+//                             console.log("width is less than 810px")
+                            }
+                        }
+                    }
+                });
+                
+//                content_height = $(".event_container").height();
+//                event_long_desc_height = $("#event_long_desc").height();
+                
+//                $(".event_container").css({"height":"640px"});
+                
+//                $("#event_long_desc").slideUp(800,function(){
+                    
+//                });
+                
+                return false;
+            }) ;
+		//for loading of events in event content page
+        function preloadImage(imageurl) {
+            var img = new Image();
+            img.src = imageurl;
+        }
+        function preloaderImage(imageurl) {
             var img = new Image();
             img.src = imageurl;
             img.onload = function(){
@@ -576,16 +576,6 @@
             }
             
             }
-            $('.ui-accordion-content').css({"height":"auto"});
-    })
-    </script>
-	<script>
-		//for loading of events in event content page
-        function preloadImage(imageurl) {
-            var img = new Image();
-            img.src = imageurl;
-        }
-        
         function eve_coverswitch(cat ,imgurl) {
             console.log("eve_coverswitch called with", imgurl);
             if (imgurl == "" || imgurl == null) {
@@ -604,6 +594,8 @@
 //                 }
 //                 $("#extrabr").show();
             }
+            bg_url = $(".bg-image").css('background-image').replace('url(','').replace(')','').replace(/\"/gi, "");
+            preloaderImage(bg_url);
         }
         function eve_imgswitch(imgurl) {
             if (imgurl == "" || imgurl == null) {
@@ -633,7 +625,7 @@
             $('#RegBtn').removeAttr("target");
             $('#regmsg').text('');
             $('#RuleBtn').hide();
-            $('iframe').attr('src',"");
+            $('iframe').attr('src','');
             // $(cat+ ' #RegBtn').hide();
             // eve_imgswitch("");
             // eve_iconswitch("");
@@ -651,7 +643,7 @@
             }
         var events_data;
         var eventsmap = [];
-        $.get("/view/eve.json", function (data, status) {
+        $.get("/allEvents", function (data, status) {
             console.log("Event Status : " + data[0]);
             if (status == 'success') {
                 events_data = data[1];
@@ -714,12 +706,18 @@
             }
             $('#eve_name').html(getHTMLText(dataToFill.eveName));
             $('#eve_tagline').html(getHTMLText(dataToFill.tagline));
-            $('#eve_date').html(getHTMLText((dataToFill.date)?dataToFill.date:"To be announced"));
-            $('#eve_time').html(getHTMLText((dataToFill.time)?dataToFill.time:"To be announced"));
-            $('#eve_venue').html(getHTMLText((dataToFill.venue)?dataToFill.venue:"To be announced"));
+            $('#eve_date').html('Date:'+getHTMLText((dataToFill.date)?dataToFill.date:"To be announced"));
+            $('#eve_time').html('Time:'+ getHTMLText((dataToFill.time)?dataToFill.time:"To be announced"));
+            $('#eve_venue').html('Venue:' +getHTMLText((dataToFill.venue)?dataToFill.venue:"To be announced"));
             $('#eve_organisers').html(getHTMLText(dataToFill.organisers));
+        if(getHTMLText(dataToFill.long_desc) =="" | getHTMLText(dataToFill.long_desc) == null){
             $('#eve_short_desc').html(getHTMLText(dataToFill.short_desc));
-            $('#eve_long_desc').html(getHTMLText(dataToFill.long_desc));
+            $('#eve_short_desc').html(getHTMLText(dataToFill.long_desc));
+            }
+            else{
+            $('#eve_short_desc').html(getHTMLText(dataToFill.short_desc)+ '<a href="#" id="ReadMore"> read more</a>');
+            $('#eve_long_desc').html(getHTMLText(dataToFill.long_desc) + '<a href="#" id="ShowLess"> show less</a>');
+            }
             // $(cat+ ' #regbtn').attr("placeholder", ""));
             // $(cat+ ' #alt_regbtn').attr("href", ""));
             $('#RuleBtn').attr("href", dataToFill.rules_url);
@@ -739,6 +737,8 @@
             $('#regmsg').text('');
             eveglid = dataToFill.eveId;
             console.log("eveglid",eveglid);
+            $("#event_long_desc").css({"display":"none"});
+            $(".event_container").css({"height":"auto"});
             // if(dataToFill.reg_url==null || dataToFill.reg_url=="")
             //     $(cat+ ' #RegBtn').hide();
             // else
