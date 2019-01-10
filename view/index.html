@@ -47,6 +47,34 @@
             img.src=url;
         }
         preloadImage('/assets/img/card.gif');
+        
+        function fixDialoguePosition(windowHeight,dialogueHeight){
+            dialogueHeight = (windowHeight - dialogueHeight)/2;
+            return dialogueHeight;
+        }
+        $("#close").on('click',function(){
+            $("#login").show();
+            fixedTop();
+        });
+        $("#loginTrigger").on('click',function(){
+            $("#login").show();
+            fixedTop();
+            return false;
+        });
+        $(document).click(function(event){ 
+            if(!$(event.target).closest('#log-form').length) {
+                if($('#login').is(":visible")) {
+                $('#login').hide();
+                }
+            };        
+        });
+        function fixedTop(){
+            var wH = $(".login-container").height();
+//            if($("#login").is(':visible')){
+            var dh = $(".login-form").height();
+            var dhTop  = fixDialoguePosition(wH,dh);
+            $(".login-form").css('top',dhTop);
+        }
   </script>
       
     <style>
@@ -211,6 +239,64 @@
     position: relative;
     transform: translateY(100%);
     }
+   /*login dialogue*/
+   .login-container{
+       z-index: 1000;
+       position: fixed;
+       height: 100vh;
+       width: 100vw;
+       top: 0;
+       left: 0;
+       display: none;
+       background-color: rgba(0,0,0,0.8);
+   }
+   .login-form{
+       width:100%;
+       margin: 0px auto;
+       position: absolute;
+       text-align: center;
+       /*height: 300px;*/
+   }
+   .login-form form{
+       /*width: 100%;*/
+       padding:16px 32px;
+       display:inline-block;
+       text-align: center;
+   }
+   .login-form form ul{
+       list-style-type: none;
+       padding-left: 0px;
+   }
+   .login-form ul li{
+       margin-bottom: 20px;
+   }
+   .login-form ul li input{
+       text-align: center;
+       border-width: 0px;
+       border-radius: 1rem;
+       outline-color:  transparent;
+   }
+   .close-btn{
+       position: absolute;
+       right: 0;
+       top: 0;
+       color: #fff;
+       margin-right: 10px;
+       font-size: 76px;
+       padding: 8px 12px 0px 0px;
+   }
+   .close-btn:hover{
+       color: rgba(255,255,255,0.8);
+       cursor: pointer;
+   }
+   .login-button{
+       position: fixed;
+       z-index:200;
+       right: 0px;
+       top:0px;
+       margin-top: 20px;
+       margin-right: 10px;
+   }
 </style>
 
 </head>
@@ -284,14 +370,30 @@
     <div id="social">
         <span class="hashtag">#anwesha19</span>
         <a href="/register" class="hashtag hidemob" id="registerBtn" >Register</a>
+        
         <a href="https://www.facebook.com/anwesha.iitpatna/" target="_blank"><img src="/assets/img/fb-black.png"><img
                 src="/assets/img/fb-w.png" class="social-white" data-100=""
                 data-500="opacity:1; " ></a>
         <a href="https://www.instagram.com/anwesha.iitp/" target="_blank"><img src="/assets/img/ig.png"><img src="/assets/img/ig-w.png"
                 class="social-white" data-100="" data-500=" " ></a>
     </div>
+<!--     <div class="login-button">
+        <button id="loginTrigger" onclick="document.getElementById('login').style.display = 'block'">Login</button>
+    </div> -->
     <!-- /Social Floating Links -->
-
+    <div class="login-container" id="login">
+        <div class="login-form">
+            <form action="" id="log-form">
+                <ul>
+                    <li><h3 class="anw_login_title" style="color:#fff;margin-bottom: 40px;">Anwesha</h3></li>
+                    <li><input type="text" placeholder="ANWESHA ID" required="" name="anw_id" id="anw_id" class="login-field"></li>
+                    <li><input type="password" placeholder="PASSWORD" required="" name="anw_pass" id="anw_pass" class="login-field"></li>
+                    <li><button type="submit" id="btn_submit" class="submit-btn">Login</button></li>
+                </ul>
+            </form>
+        </div>
+        <div class="close-btn" id="close">&times;</div>
+    </div>
     
     <div id="skrollr-body">
         <section id="start-section" class="fp skrolll">
