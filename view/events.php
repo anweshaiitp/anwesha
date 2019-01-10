@@ -676,23 +676,25 @@
                             //if(widthYet>$(".tech_eve").width()){
                             //    $(".tech_eve").append("<br>");
                             //}
-                            $("#techEvents").append(" <li id='evetab"+evntDat.eveId+"' class='evetab' onclick='eveDisplay("+evntDat.eveId+")' event_id='"+evntDat.eveId+"'>"+evntDat.eveName+"</li>");
+                            $("#techEvents").append(" <li id='evetab"+evntDat.eveId+"' class='evetab' onclick='eveDisplay("+evntDat.eveId+")' eventUrl='"+evntDat.urlname+"' event_id='"+evntDat.eveId+"'>"+evntDat.eveName+"</li>");
                         }else if(evntDat.code == 2){
                             //cult
 //                             if(widthYet>$(".cult_eve").width()){
 //                                 $(".cult_eve").append("<br>");
 //                             }
-                            $("#cultEvents").append(" <li id='evetab"+evntDat.eveId+"' class='evetab' onclick='eveDisplay("+evntDat.eveId+")' event_id='"+evntDat.eveId+"'>"+evntDat.eveName+"</li>");
+                            $("#cultEvents").append(" <li id='evetab"+evntDat.eveId+"' class='evetab' onclick='eveDisplay("+evntDat.eveId+")' eventUrl='"+evntDat.urlname+"' event_id='"+evntDat.eveId+"'>"+evntDat.eveName+"</li>");
                         }else if(evntDat.code == 3){
                             //mgmt
 //                             if(widthYet>$(".mgmt_eve").width()){
 //                                 $(".mgmt_eve").append("<br>");
 //                             }
-                            $("#artsEvents").append(" <li id='evetab"+evntDat.eveId+"' class='evetab' onclick='eveDisplay("+evntDat.eveId+")' event_id='"+evntDat.eveId+"'>"+evntDat.eveName+"</li>");
+                            $("#artsEvents").append(" <li id='evetab"+evntDat.eveId+"' class='evetab' onclick='eveDisplay("+evntDat.eveId+")' eventUrl='"+evntDat.urlname+"' event_id='"+evntDat.eveId+"'>"+evntDat.eveName+"</li>");
                         }
                 });
                console.log("map",eventsmap);
-
+	<?php if(isset($match[2])) { ?>
+		$("[eventUrl='<?php echo $match[1]; ?>']").click();
+	<?php  }?>
             } else
                 console.log("Unable to get Events Data");
         }, "json");
@@ -768,7 +770,7 @@
             $("#evetab"+eveId).addClass('active-tab');
             fillEve("."+type+"_content",eventsmap[eveId]);
         }
-// 	<?php echo json_encode($match).PHP_EOL; if(isset($match[2])) { echo "eveDisplay(".$match[2].");"; }?>
+// 	
 		</script>
 </body>
 
