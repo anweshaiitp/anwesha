@@ -693,7 +693,7 @@
                 });
                console.log("map",eventsmap);
 	<?php if(isset($match[1])) { ?>
-		$("[eventUrl='<?php echo $match[1]; ?>']").click();
+		setTimeout(function(){ $("[eventUrl='<?php echo $match[1]; ?>']").click(); }, 3000);
 	<?php  }?>
             } else
                 console.log("Unable to get Events Data");
