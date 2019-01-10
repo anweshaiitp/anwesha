@@ -408,7 +408,8 @@
                                 </ul>
                                 <div class="refrence">
                                     <a href="https://drive.google.com/open?id=1-OQFzE9tvPPAt-ulEFWf_hghgLRfV9wO" id="RuleBtn">Rulebook</a>
-                                    <a id="RegBtn" data-eveid="10">Register</a>
+<!--                                     <a id="RegBtn" data-eveid="10">Register</a> -->
+
                                 </div> 
                             </div>
                         </div>
