@@ -88,7 +88,7 @@ if (preg_match($base . '$@', $url, $match)) {
 // 	require ('controller/cssLoader.php');
 } elseif ( preg_match($base .'events/?$@', $url, $match ) ) {
 	require ('view/events.php');
-} elseif ( preg_match($base .'event/([1-3])/?([0-9]{0,4})?/?$@', $url, $match ) ) {
+} elseif ( preg_match($base .'event/(.*)/?$@', $url, $match ) ) {
 	require ('view/events.php');
 } elseif ( preg_match($base .'event/([a-zA-Z-]+)?$@', $url, $match ) ) {
 	require ('view/view_eve.php');
