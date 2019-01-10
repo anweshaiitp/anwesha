@@ -13,7 +13,7 @@
 		var dob=$("[name='DOB']").val();
 		var mobile=$("[name='mobile']").val();
 		var sex=$("[name='gender']").val();
-		var referalcode=$("[name='referalcode']").val();
+		var referalcode=$("[name='refcode']").val();
 		if((password.length<6 || password==null ) && !(fbID > 1 && fbID!=null && fbID!='')){//(fbID > 1 && fbID!=null ) implies fbID isset
 			$("#message,#message2").fadeIn();
 			$("#message,#message2").html('<center>Error<br>Password too short, must be atleast 6 characters.</center>');
