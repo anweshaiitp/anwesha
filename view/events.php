@@ -611,7 +611,7 @@
             }
         var events_data;
         var eventsmap = [];
-        $.get("/view/eve.json", function (data, status) {
+        $.get("/allEvents", function (data, status) {
             console.log("Event Status : " + data[0]);
             if (status == 'success') {
                 events_data = data[1];
