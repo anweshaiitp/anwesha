@@ -54,7 +54,7 @@ if (preg_match($base . '$@', $url, $match)) {
         require ('view/ca.php');
         // header('Location: ../');
 } elseif (preg_match($base . 'ca_rulebook/?$@', $url, $match)) {
-	$name = 'assets/CA_Rulebook_2K19.pdf';
+	$name = 'assets/Campus Ambassador Rulebook.pdf';
 	$content = file_get_contents($name);
 	header('Content-Type: application/pdf');
 	header('Content-Length: '.strlen( $content ));
