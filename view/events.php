@@ -378,8 +378,11 @@
                         <div class="event_info">
                         <div class="bg-image"></div>
                             <div class="headwrap">
+		    	<?php if(isset($match[1])) { ?>
+				<div class="title1" id="eve_name"><?php echo ucwords(str_replace("-",' ',$match[1])); ?></div>
+			<?php  } else {?>
                             <div class="title1" id="eve_name">Static Rush</div>
-   
+   			<?php  } ?>
                             </div> <!-- end details -->
                         </div> <!-- end hero -->
                         <div class="event_description">
