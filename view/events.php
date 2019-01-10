@@ -159,6 +159,7 @@
         #RuleBtn, #RegBtn
 	{
 		margin: 0;
+		/*hi*/
 		padding: 0;
 		color: black;
 		text-decoration: none;
