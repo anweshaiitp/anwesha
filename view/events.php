@@ -692,7 +692,7 @@
                         }
                 });
                console.log("map",eventsmap);
-	<?php if(isset($match[2])) { ?>
+	<?php if(isset($match[1])) { ?>
 		$("[eventUrl='<?php echo $match[1]; ?>']").click();
 	<?php  }?>
             } else
