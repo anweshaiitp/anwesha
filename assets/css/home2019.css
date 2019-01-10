@@ -117,7 +117,8 @@
 }
 
 #mobile-nav li {
-    display: block
+    margin: -4px;
+    display: block;
 }
 
 #mobile-nav li a {
@@ -349,8 +350,8 @@
 
 #landingContent img
 {
-    margin-top: 5%;
-    width: 37%;
+    margin-top: 7%;
+    width: 33%;
     line-height: 0%;
 }
 

@@ -397,7 +397,7 @@
                 body{
                     background: url(https://images5.alphacoders.com/533/533971.jpg) no-repeat;
                     background-attachment: fixed;
-                    background-size: auto 100%;
+                    background-size: auto 130%;
                     background-position: center;
                 }
             }

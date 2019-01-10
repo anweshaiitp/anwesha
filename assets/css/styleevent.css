@@ -118,7 +118,7 @@ a:hover {
 }
 
 .event_timing {
-  padding-left: 50px;
+  padding-left: 34px;
   padding-top: 120px;
   width: 220px;
   float: left;
@@ -126,7 +126,8 @@ a:hover {
 }
 
 .tag {
-  background: white;
+    color: white;
+  background: black;
   border-radius: 10px;
   padding: 3px 8px;
   font-size: 14px;
@@ -136,7 +137,9 @@ a:hover {
 }
 
 .tag:hover {
-  background: #ddd;
+  background: #fff;
+  color: black;
+  border: 2px solid black;
 }
 
 .event_details {
