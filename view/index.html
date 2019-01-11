@@ -992,14 +992,14 @@ svg {
         
         function mainImg(){
             var img = new Image();
-            img.src = $(".rot img").attr('src');
+            img.src = $("#landingContent img").attr('src');
             img.onload = function(){
             bg_naturalHeight = img.naturalHeight;
             bg_naturalWidth = img.naturalWidth;
             bg_aspectRatio = bg_naturalWidth/bg_naturalHeight;
             imgWidth = ch * bg_aspectRatio;
-            $(".rot img").css('width',imgWidth);
-            $(".rot img").css({"margin-top":"75px"});
+            $("#landingContent img").css('width',imgWidth);
+            $("#landingContent img").css({"margin-top":"75px"});
             }
         }
     });
