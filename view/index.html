@@ -48,33 +48,7 @@
         }
         preloadImage('/assets/img/card.gif');
         
-        function fixDialoguePosition(windowHeight,dialogueHeight){
-            dialogueHeight = (windowHeight - dialogueHeight)/2;
-            return dialogueHeight;
-        }
-        $("#close").on('click',function(){
-            $("#login").show();
-            fixedTop();
-        });
-        $("#loginTrigger").on('click',function(){
-            $("#login").show();
-            fixedTop();
-            return false;
-        });
-        $(document).click(function(event){ 
-            if(!$(event.target).closest('#log-form').length) {
-                if($('#login').is(":visible")) {
-                $('#login').hide();
-                }
-            };        
-        });
-        function fixedTop(){
-            var wH = $(".login-container").height();
-//            if($("#login").is(':visible')){
-            var dh = $(".login-form").height();
-            var dhTop  = fixDialoguePosition(wH,dh);
-            $(".login-form").css('top',dhTop);
-        }
+        
   </script>
       
     <style>
@@ -312,9 +286,10 @@
    }
    .login-form form{
        /*width: 100%;*/
-       padding:16px 32px;
+       padding:32px 64px;
        display:inline-block;
        text-align: center;
+       background-color: rgba(0,0,0,1.4);
    }
    .login-form form ul{
        list-style-type: none;
@@ -349,6 +324,26 @@
        top:0px;
        margin-top: 20px;
        margin-right: 10px;
+   }
+    .login-button button:hover,.login-form form li button:hover{
+       color: rgba(254,254,254,0.8);
+   }
+   @media screen and (max-width:1242px){
+    .login-button{
+        left:0px;
+       bottom:0px;
+       top:unset;
+       right:unset;
+       margin-left:10px;
+       margin-bottom:20px;
+       }
+   }
+   @media screen and (max-width:500px){
+       .login-button{
+           bottom:unset;
+           top: 0px;
+           
+       }
    }
 </style>
 
@@ -439,9 +434,9 @@
         <a href="https://www.instagram.com/anwesha.iitp/" target="_blank"><img src="/assets/img/ig.png"><img src="/assets/img/ig-w.png"
                 class="social-white" data-100="" data-500=" " ></a>
     </div>
-<!--     <div class="login-button">
-        <button id="loginTrigger" onclick="document.getElementById('login').style.display = 'block'">Login</button>
-    </div> -->
+    <div class="login-button">
+        <button id="loginTrigger">Login</button>
+    </div>
     <!-- /Social Floating Links -->
     <div class="login-container" id="login">
         <div class="login-form">
@@ -893,7 +888,35 @@
 
   gtag('config', 'UA-90791019-1');
 </script>
-
+    <script>
+        function fixDialoguePosition(windowHeight,dialogueHeight){
+            dialogueHeight = (windowHeight - dialogueHeight)/2;
+            return dialogueHeight;
+        }
+        $("#login").on('click','#close',function(){
+            $("#login").show();
+            fixedTop();
+        });
+        $(".login-button").on('click','button#loginTrigger',function(){
+            $("#login").show();
+            fixedTop();
+            return false;
+        });
+        $(document).click(function(event){ 
+            if(!$(event.target).closest('#log-form').length) {
+                if($('#login').is(":visible")) {
+                $('#login').hide();
+                }
+            };        
+        });
+        function fixedTop(){
+            var wH = $(".login-container").height();
+//            if($("#login").is(':visible')){
+            var dh = $(".login-form").height();
+            var dhTop  = fixDialoguePosition(wH,dh);
+            $(".login-form").css('top',dhTop);
+        }
+    </script>
 </body>
 
 </html>
