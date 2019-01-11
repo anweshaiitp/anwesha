@@ -889,6 +889,27 @@
   gtag('config', 'UA-90791019-1');
 </script>
     <script>
+        $(document).ready(function(){
+        ch = $("#landingContent").height();
+        ch = ch-50;
+        mq = window.matchMedia('(min-width:460px)');
+        if(mq.matches){
+            mainImg();
+        }
+        
+        function mainImg(){
+            var img = new Image();
+            img.src = $(".rot img").attr('src');
+            img.onload = function(){
+            bg_naturalHeight = img.naturalHeight;
+            bg_naturalWidth = img.naturalWidth;
+            bg_aspectRatio = bg_naturalWidth/bg_naturalHeight;
+            imgWidth = ch * bg_aspectRatio;
+            $(".rot img").css('width',imgWidth);
+            $(".rot img").css({"margin-top":"50px"});
+            }
+        }
+    });
         function fixDialoguePosition(windowHeight,dialogueHeight){
             dialogueHeight = (windowHeight - dialogueHeight)/2;
             return dialogueHeight;
