@@ -667,7 +667,7 @@
                                     <label>Email</label>
                                 </div>
 								<div class="inputbox">
-                                    <input minlength=6 type="text" name="password">
+                                    <input minlength=6 type="password" name="password">
                                     <label>Password</label>
                                 </div>
 					           <div class="inputbox">
