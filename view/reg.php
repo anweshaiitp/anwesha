@@ -384,7 +384,7 @@
 		<!-- styling for the registration div -->
 		<style type="text/css">
             body{
-                    background: url(https://images5.alphacoders.com/533/533971.jpg) no-repeat;
+                    background: url(/assets/img/bgregister.jpg) no-repeat;
                     background-attachment: fixed;
                     background-size: 100% 100%;
                     background-position: top;
@@ -409,12 +409,12 @@
             }
 			.reg_form_div
 			{
-				width: 70%;
+                width: 80%;
+                margin: auto;
 				height: auto;
 				z-index: 500;
 				position: absolute;
 				top:0;
-				margin: auto;
 				left: 0;
 				right: 0;
 				padding: 2%;	
@@ -510,6 +510,12 @@
                 box-sizing: border-box;
                 max-width: 600px;
                 margin: 20px auto;
+            }
+            @media(max-width: 450px){
+                
+            .wrapper{
+                margin: 20px 0;
+            }
             }
             .box{
                 background: rgba(255,255,255,0.87);
@@ -661,7 +667,7 @@
                                     <label>Email</label>
                                 </div>
 								<div class="inputbox">
-                                    <input minlength=6 type="text" name="password">
+                                    <input minlength=6 type="password" name="password">
                                     <label>Password</label>
                                 </div>
 					           <div class="inputbox">
