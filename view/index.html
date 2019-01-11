@@ -347,6 +347,63 @@
    }
 </style>
 
+<style>
+        
+.date{
+    position: absolute;
+    bottom: 0;
+    width: 200px;
+    height: 200px;
+    background-size: 0.12em 100%;
+    font: 6em/1 Arial;
+    overflow: hidden;
+}
+.text--line {
+  font-size: 0.5em;
+}
+svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+    transform: translateY(50px) scale(2.5);
+}
+.text-copy {
+  fill: none;
+  stroke: white;
+  stroke-dasharray: 7% 28%;
+  stroke-width: 3px;
+  animation: stroke-offset 9s infinite linear;
+}
+.text-copy:nth-child(1) {
+  stroke: #360745;
+  stroke-dashoffset: 7%;
+}
+.text-copy:nth-child(2) {
+  stroke: #d61c59;
+  stroke-dashoffset: 14%;
+}
+.text-copy:nth-child(3) {
+  stroke: #e7d84b;
+  stroke-dashoffset: 21%;
+}
+.text-copy:nth-child(4) {
+  stroke: #efeac5;
+  stroke-dashoffset: 28%;
+}
+.text-copy:nth-child(5) {
+  stroke: #1b8798;
+  stroke-dashoffset: 35%;
+}
+@keyframes stroke-offset {
+  50% {
+    stroke-dashoffset: 35%;
+    stroke-dasharray: 0 87.5%;
+  }
+}
+
+            
+    </style>
+
 </head>
 
 <body class="body" data-gr-c-s-loaded="true" >
@@ -453,7 +510,43 @@
     </div>
     
     <div id="skrollr-body">
-        <section id="start-section" class="fp skrolll">
+        <section id="start-section" class="fp skrolll" style="position: relative">
+            <div class="date">
+                <svg viewBox="0 0 800 600">
+                        <symbol id="s-text">
+                          <text text-anchor="middle"
+                                x="50%"
+                                y="35%"
+                                class="text--line"
+                                >
+                            1-3rd
+                          </text>
+                          <text text-anchor="middle"
+                                x="50%"
+                                y="48%"
+                                class="text--line2"
+                                >
+                            Feb
+                          </text>
+
+                        </symbol>
+
+                        <g class="g-ants">
+                          <use xlink:href="#s-text"
+                            class="text-copy"></use>     
+                          <use xlink:href="#s-text"
+                            class="text-copy"></use>     
+                          <use xlink:href="#s-text"
+                            class="text-copy"></use>     
+                          <use xlink:href="#s-text"
+                            class="text-copy"></use>     
+                          <use xlink:href="#s-text"
+                            class="text-copy"></use>     
+                        </g>
+
+
+                      </svg>
+            </div>
             <div class="bcg skrollable skrollable-between" data-start="opacity: 1; width: 100%; height: 100%; top: 0%; left: 0%;"
                 data-100p=" width: 256%; height: 356%; top: -256%; left: -78%;" data-anchor-target="#start-section">
                 <!-- <a style="position: absolute;bottom:10px;left:0px;"><img style="max-width: 120px" src="/assets/img/notification.gif" alt="Notifications"></a> -->
