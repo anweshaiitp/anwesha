@@ -891,7 +891,7 @@
     <script>
         $(document).ready(function(){
         ch = $("#landingContent").height();
-        ch = ch-50;
+        ch = ch-75;
         mq = window.matchMedia('(min-width:460px)');
         if(mq.matches){
             mainImg();
@@ -906,7 +906,7 @@
             bg_aspectRatio = bg_naturalWidth/bg_naturalHeight;
             imgWidth = ch * bg_aspectRatio;
             $(".rot img").css('width',imgWidth);
-            $(".rot img").css({"margin-top":"50px"});
+            $(".rot img").css({"margin-top":"75px"});
             }
         }
     });
