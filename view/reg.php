@@ -384,11 +384,23 @@
 		<!-- styling for the registration div -->
 		<style type="text/css">
             body{
-                    background: url(https://images5.alphacoders.com/533/533971.jpg);
+                    background: url(/assets/img/bgregister.jpg) no-repeat;
                     background-attachment: fixed;
-                    background-size: cover;
-                background-position: center;
+                    background-size: 100% 100%;
+                    background-position: top;
                 }
+            @font-face{
+                font-family: regfont;
+                src: url(/assets/fonts/LemonMilk.otf);
+            }
+            @media(max-width:532px){
+                body{
+                    background: url(https://images5.alphacoders.com/533/533971.jpg) no-repeat;
+                    background-attachment: fixed;
+                    background-size: auto 130%;
+                    background-position: center;
+                }
+            }
             .logohome{
                 position: fixed;
                 z-index: 9999;
@@ -397,12 +409,12 @@
             }
 			.reg_form_div
 			{
-				width: 70%;
+                width: 80%;
+                margin: auto;
 				height: auto;
 				z-index: 500;
 				position: absolute;
 				top:0;
-				margin: auto;
 				left: 0;
 				right: 0;
 				padding: 2%;	
@@ -417,14 +429,24 @@
             
 			.reg_text
 			{
-				margin: 0 11%;
+				margin: 0 18%;
 				text-align: center;
 				font-size: 150%;
-				background: white;
+				background: rgba(255,255,255,.8);
 				border-radius: 5px;
 				padding: .6%;
 				box-shadow: 3px 3px 20px black;
+                font-family: regfont;
+                color: #03a9f4;
 			}
+            @media(max-width:900px)
+            {
+                .reg_text
+                {
+                    margin: 0 11%;
+                }
+            }
+            
             
 			#FB-Oauth,#FB-Oauth2{
                 padding: 10px;
@@ -475,14 +497,25 @@
 
         
         <style>
+            @font-face{
+                font-family: regfont;
+                src: url(/assets/fonts/LemonMilk.otf);
+            }
             body{
                 margin: 0;
                 padding: 0;
+                font-family: sans-serif;
             }
             .wrapper{
                 box-sizing: border-box;
                 max-width: 600px;
                 margin: 20px auto;
+            }
+            @media(max-width: 450px){
+                
+            .wrapper{
+                margin: 20px 0;
+            }
             }
             .box{
                 background: rgba(255,255,255,0.87);
@@ -529,6 +562,29 @@
                 pointer-events: none;
                 transition: .5s;
             }
+            .reset-password{
+                text-align: center;
+            }
+            .reset-password a{
+                text-decoration: none;
+                color: #03a9f4;
+            }
+            .reset-password a:hover{
+                text-decoration: underline;
+            }
+            .referral-code-span{
+                font-size:.7em
+            }
+            @media(max-width:346px){
+                .referral-code-span{
+                    font-size:.5em;
+                }
+            }
+            .form_div{
+                background: rgba(255,255,255,.8);
+                border-radius: 10px;
+                color: #03a9f4;
+            }
         </style>
 	</head>
 	<body>
@@ -567,27 +623,18 @@
 		<script src="/assets/js/reg.js"></script>
 
 				<div class="form_div">
-					<div class="wrapper" style="display:flex;justify-content:center;align-items:center;text-align:center">
-						<div id="FB-Oauth">
-						Register using FB:<br>
-						</div>
-                    </div>
-                    <div class="wrapper" style="display:flex;justify-content:center;align-items:center">
-                        <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with"  data-auto-logout-link="true" data-use-continue-as="true" data-scope="email,public_profile,user_location,user_birthday,user_about_me" onlogin="auth_response_change_callback();"></div>
-                    </div>
-                    <div class="wrapper" style="display:flex;justify-content:center;align-items:center;text-align:center">
-                        <span style="background:#fff;padding: 1%;border-radius: 80px;">OR:</span>
-                    </div>
+					
 						<div id="success" style="display: none">
                     </div>
-
-					<form class="reg_form"  action="javascript:" method="post">
+                </div>
+                    
+            <div class="container wrapper">
+                <div class="box">
+					<form class="reg_form" action="javascript:" method="post">
 						
 						<h3 id="message"></h3>
 						<input type="hidden" name="fbID" id="fbID">
                         
-                        <div class="container wrapper">
-                            <div class="box">
                                 <div class="inputbox">
                                     <input type="text" name="name" required />
                                     <label>Name</label>
@@ -620,26 +667,28 @@
                                     <label>Email</label>
                                 </div>
 								<div class="inputbox">
-                                    <input minlength=6 type="text" name="password">
+                                    <input minlength=6 type="password" name="password">
                                     <label>Password</label>
                                 </div>
-					<div class="inputbox">
+					           <div class="inputbox">
                                     <input type="text" pattern="\d{0,4}" placeholder="1234" name="refcode">
-                                    <label>CA Referral Code (Optional)</label>
+                                   <label>CA Referral Code <span class="referral-code-span">(Optional)</span></label>
                                 </div>
                                 <div class="inputbox">
                                     <input id="sub_but" type="button" name="register" value="Register"/>
                                 </div>
-                            </div>
+                            </form>
+                                <div class="reset-password">
+                                <a style="" href="http://anwesha.info/reset_resend" target="_blank">Reset Password or Resend confirmation email</a>
+                                </div>
                         </div>
-					</form>
-					
+                    </div>
 				</div>
-			</div>
-<a style="" href="http://anwesha.info/reset_resend" target="_blank">Reset Password or Resend confirmation email</a>
+            
 
 
 	<!-- Scripts -->
+            <script src="/assets/js/particles_conf.js"></script>
 			<script>
 				var granimInstance = new Granim({
 				    element: '#logo-canvas',
@@ -654,6 +703,15 @@
 			</script>
 
 			
-		
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-90791019-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-90791019-1');
+</script>
+
 	</body>
 </html>

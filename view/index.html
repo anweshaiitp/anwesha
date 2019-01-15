@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<!-- @todo   -->
+<!-- @todo  -->
 <!-- https://codepen.io/Pc/pen/QywZga -->
 <!-- https://stackoverflow.com/questions/18726480/embed-html5-youtube-video-without-iframes -->
 <!-- https://stackoverflow.com/questions/27084876/stop-iframe-from-preventing-scrolling-of-parent-document -->
@@ -47,6 +47,8 @@
             img.src=url;
         }
         preloadImage('/assets/img/card.gif');
+        
+        
   </script>
       
     <style>
@@ -57,6 +59,12 @@
             }
             #multicitytext{
                 size:2px !important;
+            }
+            .clown img{
+                display:none;
+            }
+            .clown div{
+                bottom:-70px !important;
             }
         }
         #splash{
@@ -74,6 +82,68 @@
             background-size: cover !important;
             background-position: center !important;
         }
+        #registerBtn{
+            background-color: #fff;
+            padding: 5px;
+            border-radius: 5px;
+            box-shadow: #cccbc7 0px 0px 10px 3px;
+        }
+         a, u {
+            text-decoration: none;
+        }
+        .Loadingcontainer {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 100vh;
+/*           background-color: #ededed; */
+        }
+        .loader_ {
+          max-width: 15rem;
+          width: 100%;
+          height: auto;
+          stroke-linecap: round;
+        }
+        circle {
+          fill: none;
+          stroke-width: 3.5;
+          animation-name: preloader;
+          animation-duration: 3s;
+          animation-iteration-count: infinite;
+          animation-timing-function: ease-in-out;
+          transform-origin: 170px 170px;
+          will-change: transform;
+        }
+        circle:nth-of-type(1) {
+          stroke-dasharray: 550px;
+        }
+        circle:nth-of-type(2) {
+          stroke-dasharray: 500px;
+        }
+        circle:nth-of-type(3) {
+          stroke-dasharray: 450px;
+        }
+        circle:nth-of-type(4) {
+          stroke-dasharray: 300px;
+        }
+        circle:nth-of-type(1) {
+          animation-delay: -0.15s;
+        }
+        circle:nth-of-type(2) {
+          animation-delay: -0.3s;
+        }
+        circle:nth-of-type(3) {
+          animation-delay: -0.45s;
+        }
+        circle:nth-of-type(4) {
+          animation-delay: -0.6s;
+        }
+        @keyframes preloader {
+          50% {
+            transform: rotate(360deg);
+          }
+        }
+
     </style>
 
 <style>
@@ -161,6 +231,8 @@
         position: absolute;
         bottom: 0px;
         left: 0px;
+        background-color: rgba(0,0,0,0.5);
+        border-radius: 7%;
     }
     .col2{
         overflow: auto;
@@ -181,28 +253,185 @@
         font-size: 120%;
         margin-bottom: 0px;
     }
-    
+    .clown a{
+        text-decoration: none;
+        color:#fff;
+    }
+    .clown a:hover{
+        cursor:pointer;
+    }
+    .container-not{
+        height: 100%;
+    width: 100%;
+    position: relative;
+    transform: translateY(100%);
+    }
+   /*login dialogue*/
+   .login-container{
+       z-index: 1000;
+       position: fixed;
+       height: 100vh;
+       width: 100vw;
+       top: 0;
+       left: 0;
+       display: none;
+       background-color: rgba(0,0,0,0.8);
+   }
+   .login-form{
+       width:100%;
+       margin: 0px auto;
+       position: absolute;
+       text-align: center;
+       /*height: 300px;*/
+   }
+   .login-form form{
+       /*width: 100%;*/
+       padding:32px 64px;
+       display:inline-block;
+       text-align: center;
+       background-color: rgba(0,0,0,1.4);
+   }
+   .login-form form ul{
+       list-style-type: none;
+       padding-left: 0px;
+   }
+   .login-form ul li{
+       margin-bottom: 20px;
+   }
+   .login-form ul li input{
+       text-align: center;
+       border-width: 0px;
+       border-radius: 1rem;
+       outline-color:  transparent;
+   }
+   .close-btn{
+       position: absolute;
+       right: 0;
+       top: 0;
+       color: #fff;
+       margin-right: 10px;
+       font-size: 76px;
+       padding: 8px 12px 0px 0px;
+   }
+   .close-btn:hover{
+       color: rgba(255,255,255,0.8);
+       cursor: pointer;
+   }
+   .login-button{
+       position: fixed;
+       z-index:200;
+       right: 0px;
+       top:0px;
+       margin-top: 20px;
+       margin-right: 10px;
+   }
+    .login-button button:hover,.login-form form li button:hover{
+       color: rgba(254,254,254,0.8);
+   }
+   @media screen and (max-width:1242px){
+    .login-button{
+        left:0px;
+       bottom:0px;
+       top:unset;
+       right:unset;
+       margin-left:10px;
+       margin-bottom:35px;
+       }
+   }
+   @media screen and (max-width:500px){
+       .login-button{
+           bottom:unset;
+           top: 0px;
+           
+       }
+   }
 </style>
+
+<style>
+        
+.date{
+    position: absolute;
+    bottom: 0;
+    width: 200px;
+    height: 200px;
+    background-size: 0.12em 100%;
+    font: 10em/1 Arial;
+    overflow: hidden;
+}
+.text--line {
+  font-size: 0.5em;
+}
+svg#date_container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+    transform: translateY(50px) scale(2.5);
+}
+.text-copy {
+  fill: none;
+  stroke: white;
+  stroke-dasharray: 7% 28%;
+  stroke-width: 5px;
+  animation: stroke-offset 10s infinite linear;
+}
+.text-copy:nth-child(1) {
+  stroke: #360745;
+  stroke-dashoffset: 7%;
+}
+.text-copy:nth-child(2) {
+  stroke: #d61c59;
+  stroke-dashoffset: 14%;
+}
+.text-copy:nth-child(3) {
+  stroke: #e7d84b;
+  stroke-dashoffset: 21%;
+}
+.text-copy:nth-child(4) {
+  stroke: #efeac5;
+  stroke-dashoffset: 28%;
+}
+.text-copy:nth-child(5) {
+  stroke: #1b8798;
+  stroke-dashoffset: 35%;
+}
+@keyframes stroke-offset {
+  90% {
+    stroke-dashoffset: 35%;
+    stroke-dasharray: 0 87.5%;
+  }
+}
+
+            
+    </style>
 
 </head>
 
 <body class="body" data-gr-c-s-loaded="true" >
 
 
-
-    <div class="clown" style="position: fixed; top:20%;left:-20%;z-index: 500; ">
-        <img src="../assets/img/clowngif.gif" style="transform:rotateY(180deg);">
-        <div style="cursor:pointer;position: absolute;z-index: 501;top:70%;left:35%;padding:20px;background-color: red;color:black; opacity: 0.8;">
-            <a href="#not" style="color:black">NOTIFICATIONS</a>
+<!-- <div class="container-not">
+    <div class="clown" style="position: fixed; bottom:84px;left:0px;z-index: 500; ">
+        <img src="/assets/img/notification.gif">
+        <div style="cursor:pointer;position: absolute;z-index: 501;bottom:-44px;left:0px;border:2px solid white;padding:8px 12px;background-color:rgba(0,0,0,0.4);color:black;">
+            <a href="#not">NOTIFICATIONS</a>
         </div>
     </div>
-
+</div> -->
 
 
     <img src="/assets/img/card.gif" width="0" height="0" alt="">
     <div id="splash">
-        <div id="init" style="color: #fff">
-            Loading...
+        <div id="init" style="color: #fff;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">
+            <div class="Loadingcontainer">
+
+            <svg class="loader_" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 340">
+                 <circle cx="170" cy="170" r="160" stroke="#E2007C"/>
+                 <circle cx="170" cy="170" r="135" stroke="#404041"/>
+                 <circle cx="170" cy="170" r="110" stroke="#E2007C"/>
+                 <circle cx="170" cy="170" r="85" stroke="#404041"/>
+            </svg>
+
+        </div>
         </div>
     <!-- Splash Screen -->
         <!-- <img src="/assets/img/card.gif" style="width:100%;height:100%;position: fixed;top:0px;left:0px;z-index: 10000;" alt="">     -->
@@ -227,7 +456,7 @@
             <li><a href="/ca" id="">Campus Ambassador</a></li>
             <li><a href="/gallery" id="">Gallery</a></li>
             <li><a href="/events" id="">Events</a></li>
-            <li><a href="#not" id="">Notifications</a></li>
+            <li><a href="#highlights" id="">Highlights</a></li>
             
         </ul>
     </div>
@@ -245,7 +474,8 @@
             <li><a href="/ca" id="">Campus Ambassador</a></li>
             <li><a href="/gallery" id="">Gallery</a></li>
             <li><a href="/events" id="">Events</a></li>
-            <li><a href="#not" id="">Notifications</a></li>
+            <li><a href="#highlights" id="">Highlights</a></li>
+            <li><a href="/register" id="">Register</a></li>
         </ul>
     </div>
     <!-- /Navigation Menu -->
@@ -253,21 +483,84 @@
     <!-- Social Floating Links -->
     <div id="social">
         <span class="hashtag">#anwesha19</span>
+        <a href="/register" class="hashtag hidemob" id="registerBtn" >Register</a>
+        
         <a href="https://www.facebook.com/anwesha.iitpatna/" target="_blank"><img src="/assets/img/fb-black.png"><img
                 src="/assets/img/fb-w.png" class="social-white" data-100=""
                 data-500="opacity:1; " ></a>
         <a href="https://www.instagram.com/anwesha.iitp/" target="_blank"><img src="/assets/img/ig.png"><img src="/assets/img/ig-w.png"
                 class="social-white" data-100="" data-500=" " ></a>
     </div>
+<!--     <div class="login-button">
+        <button id="loginTrigger">Login</button>
+    </div> -->
     <!-- /Social Floating Links -->
-
+    <div class="login-container" id="login">
+        <div class="login-form">
+            <form action="" id="log-form">
+                <ul>
+                    <li><h3 class="anw_login_title" style="color:#fff;margin-bottom: 40px;">Anwesha</h3></li>
+                    <li><input type="text" placeholder="ANWESHA ID" required="" name="anw_id" id="anw_id" class="login-field"></li>
+                    <li><input type="password" placeholder="PASSWORD" required="" name="anw_pass" id="anw_pass" class="login-field"></li>
+                    <li><button type="submit" id="btn_submit" class="submit-btn">Login</button></li>
+                </ul>
+            </form>
+        </div>
+        <div class="close-btn" id="close">&times;</div>
+    </div>
     
     <div id="skrollr-body">
-        <section id="start-section" class="fp skrolll">
+        <section id="start-section" class="fp skrolll" style="position: relative">
+            <div class="date">
+                <svg viewBox="0 0 800 600" id="date_container">
+                        <symbol id="s-text">
+                          <text text-anchor="middle"
+                                x="50%"
+                                y="35%"
+                                class="text--line"
+                                >
+                            1-3rd
+                          </text>
+                          <text text-anchor="middle"
+                                x="50%"
+                                y="48%"
+                                class="text--line2"
+                                >
+                            Feb
+                          </text>
+
+                        </symbol>
+
+                        <g class="g-ants">
+                          <use xlink:href="#s-text"
+                            class="text-copy"></use>     
+                          <use xlink:href="#s-text"
+                            class="text-copy"></use>     
+                          <use xlink:href="#s-text"
+                            class="text-copy"></use>     
+                          <use xlink:href="#s-text"
+                            class="text-copy"></use>     
+                          <use xlink:href="#s-text"
+                            class="text-copy"></use>     
+                        </g>
+
+
+                      </svg>
+            </div>
             <div class="bcg skrollable skrollable-between" data-start="opacity: 1; width: 100%; height: 100%; top: 0%; left: 0%;"
                 data-100p=" width: 256%; height: 356%; top: -256%; left: -78%;" data-anchor-target="#start-section">
                 <!-- <a style="position: absolute;bottom:10px;left:0px;"><img style="max-width: 120px" src="/assets/img/notification.gif" alt="Notifications"></a> -->
-                <!-- <div class="base">
+<!--                 <div class="clown" style="position: absolute; bottom:84px;left:0px;">
+                    <img src="/assets/img/notification.gif">
+                    <div style="cursor:pointer;position: absolute;bottom:-44px;left:0px;border:2px solid white;padding:8px 12px;background-color:rgba(0,0,0,0.4);color:black;">
+                        <a href="#not">NOTIFICATIONS</a>
+                    </div>
+                    
+                </div> -->
+                <!-- <div style="cursor:pointer;position: absolute;height:50px;bottom:50%;left:50%;margin-bottom:-150px;margin-right:-40px;border:2px solid white;padding:8px 12px;background-color:rgba(0,0,0,0.4);color:black;">
+                    1-3rd Feb
+                </div> -->
+<!--                 <div class="base">
                     <div class="holder"></div>
                     <div class="thread">
                       <div class="knob">s</div>
@@ -275,13 +568,13 @@
                         <div class="pendulumtext">Register</div>
                     </div>
                     </div>
-                </div>                -->
-
+                </div>               
+ -->
                 <style>
                 
                 
                 </style>
-                <div class="rot" id="landingContent" >
+                <div id="landingContent" >
                     <img src="/assets/img/home_img.png" />
                 </div>
             </div>
@@ -294,7 +587,7 @@
 
   
 
-        <div class="swiper-container sec2 skrolll" id = "#not">
+        <div class="swiper-container sec2 skrolll" id = "highlights">
             <div class="swiper-wrapper">
                 
            
@@ -432,6 +725,13 @@
   //                        $('.col2').fadeIn('slow',function(){})
   //                    })
   //                })
+                    $(document).ready(function(){
+                        $(".pendulumtext").on('click',function(){
+                            window.location = "/register";
+                        });
+                    });
+
+                    
                   
           </script>
                                 
@@ -669,9 +969,68 @@
                         $.scrollify.enable();
                         // document.body.style.overflowY=null;
                     });
+                    $(".hidemob").hide();
                 }
             </script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-90791019-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'UA-90791019-1');
+</script>
+    <script>
+        $(document).ready(function(){
+        ch = $("#landingContent").height();
+        ch = ch-75;
+        mq = window.matchMedia('(min-width:460px)');
+        if(mq.matches){
+            mainImg();
+        }
+        
+        function mainImg(){
+            var img = new Image();
+            img.src = $("#landingContent img").attr('src');
+            img.onload = function(){
+            bg_naturalHeight = img.naturalHeight;
+            bg_naturalWidth = img.naturalWidth;
+            bg_aspectRatio = bg_naturalWidth/bg_naturalHeight;
+            imgWidth = ch * bg_aspectRatio;
+            $("#landingContent img").css('width',imgWidth);
+            $("#landingContent img").css({"margin-top":"75px"});
+            }
+        }
+    });
+        function fixDialoguePosition(windowHeight,dialogueHeight){
+            dialogueHeight = (windowHeight - dialogueHeight)/2;
+            return dialogueHeight;
+        }
+        $("#login").on('click','#close',function(){
+            $("#login").show();
+            fixedTop();
+        });
+        $(".login-button").on('click','button#loginTrigger',function(){
+            $("#login").show();
+            fixedTop();
+            return false;
+        });
+        $(document).click(function(event){ 
+            if(!$(event.target).closest('#log-form').length) {
+                if($('#login').is(":visible")) {
+                $('#login').hide();
+                }
+            };        
+        });
+        function fixedTop(){
+            var wH = $(".login-container").height();
+//            if($("#login").is(':visible')){
+            var dh = $(".login-form").height();
+            var dhTop  = fixDialoguePosition(wH,dh);
+            $(".login-form").css('top',dhTop);
+        }
+    </script>
 </body>
 
 </html>

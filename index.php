@@ -54,7 +54,7 @@ if (preg_match($base . '$@', $url, $match)) {
         require ('view/ca.php');
         // header('Location: ../');
 } elseif (preg_match($base . 'ca_rulebook/?$@', $url, $match)) {
-	$name = 'assets/CA_Rulebook_2K19.pdf';
+	$name = 'assets/Campus Ambassador Rulebook.pdf';
 	$content = file_get_contents($name);
 	header('Content-Type: application/pdf');
 	header('Content-Length: '.strlen( $content ));
@@ -88,7 +88,7 @@ if (preg_match($base . '$@', $url, $match)) {
 // 	require ('controller/cssLoader.php');
 } elseif ( preg_match($base .'events/?$@', $url, $match ) ) {
 	require ('view/events.php');
-} elseif ( preg_match($base .'event/([1-3])/?([0-9]{0,4})?/?$@', $url, $match ) ) {
+} elseif ( preg_match($base .'event/(.*)/?$@', $url, $match ) ) {
 	require ('view/events.php');
 } elseif ( preg_match($base .'event/([a-zA-Z-]+)?$@', $url, $match ) ) {
 	require ('view/view_eve.php');
