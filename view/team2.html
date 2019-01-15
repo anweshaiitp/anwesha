@@ -23,6 +23,107 @@
 	-moz-animation: Gradient 15s ease infinite;
 	animation: Gradient 15s ease infinite;
 }
+.mobile-nav-btn {
+    cursor: pointer;
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    width: 40px;
+    height: 40px;
+    background: #333;
+    background: url(../img/menu.png) no-repeat center center;
+    background-size: contain;
+    display: none;
+    z-index: 101
+}
+
+
+.mobile-nav-btn.white {
+    background: url(../img/menu.png) no-repeat center center;
+    background-size: 40px 40px
+}
+
+#mobile-nav {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    background: #fff;
+    z-index: 102;
+    display: none;
+    margin-top: -30px; 
+}
+
+#mobile-nav .close {
+    position: absolute;
+    top: 20px;
+    right: 20px
+}
+
+#mobile-nav ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    align-content: center;
+    height: 100%
+}
+
+#mobile-nav li {
+    margin: -4px;
+    display: block;
+}
+
+#mobile-nav li a {
+    display: block;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 25px;
+    font-family: PTC55F, cursive !important;
+    color:white;
+    text-decoration: none
+}
+
+#menu {
+    z-index: 100;
+    width: max-content;
+    width: -moz-max-content;
+    top: 20px;
+    position: fixed;
+    font-family: 'navbarfont', cursive;
+    transform: translateX(-50%);
+    left: 50%
+}
+
+#menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0
+}
+
+#menu li {
+    display: inline-block;
+    border-bottom: 1px solid transparent;
+    cursor: pointer
+}
+
+#menu li a {
+    display: block;
+    padding: 5px;
+    text-decoration: none;
+    color: inherit
+}
+
+#menu li a:visited {
+    text-decoration: none;
+    color: inherit
+}
+
+#menu li:hover {
+    border-bottom: 1px solid #333;
+    border-color: inherit
+}
 
 @-webkit-keyframes Gradient {
 	0% {
@@ -77,6 +178,34 @@ h2{
 </head>
 
 <body>
+
+<!-- Navigation Menu -->
+<div id="menu">
+        <ul data-start="color:rgb(0,0,0); border-color:rgb(0,0,0); background: rgba(255,255,255,0.9);     box-shadow: 0 0 0px rgba(255,255,255,1);"
+          data-500="color:rgb(0,0,0); border-color:rgb(0,0,0); background: rgba(255,255,255,0.9);     box-shadow: 0 0 10px rgba(255,255,255,1);"
+          class="skrollable skrollable-between" style="border-radius:20px;color: rgb(0,0,0); border-color: rgb(0,0,0); background: rgba(255,255,255,0.9); box-shadow: rgba(255,255,255,1) 0px 0px 30px;">
+          <!-- <li id="home-link"><a href="#start-section">HOME</a></li> -->
+          <li><a href="/" id="">Back to Home Page</a></li>
+          <!-- <li><a href="/view/index.html/#About" id="">About</a></li>
+          <li><a href="/view/spons.html" id="">Sponsors</a></li>
+          <li><a href="/view/index.html/#Contact-Us" id="">Contact Us</a></li>
+          <li><a href="/view/index.html/#Audition" id="">Auditions</a></li>
+          <li><a href="/view/ca.php" id="">Campus Ambassador</a></li> -->
+          
+        </ul>
+      </div>
+      <div id="mobile-nav-btn" class="mobile-nav-btn dark " data-100="opacity:1;" data-500="opacity:0; "
+        style="opacity: 1;"></div>
+      <div class="mobile-nav-btn white " data-100="opacity:0;" data-500="opacity:1; " style=""></div>
+      <div id="mobile-nav" style="background-color:black">
+        <img src="/assets/img/close.png" class="close" alt="close menu" width="30" height="30">
+        <ul>
+          <li><a href="/" id="">Back to Home Page</a></li>
+        
+          
+        </ul>
+      </div>
+      <!-- /Navigation Menu -->
 
     <div class = "title-text">Anwesha '19</div>
     <h2>The Impeccable Creators of the Impeccable Extravaganza</h2>
