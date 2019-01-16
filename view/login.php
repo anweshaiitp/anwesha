@@ -123,7 +123,8 @@
 					if(status=='success'){//$("#myloader").fadeOut();
 						console.log(data);
 						if(data["status"]==200){
-							$("#success").html('Logged In!<br>');
+							$("#success").html('Logged In!<br>Redirecting to events...<br>');
+							window.location = '/events'
 							$("#success").fadeIn();
 							// $("#message").css('background','#5FAB22');
 							$(".Lformarea").fadeOut();
