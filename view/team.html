@@ -69,29 +69,32 @@
   align-items: center;
 }
 .cannon__path--lg {
-  height: 100%;
+  height: 200%; 
+  -webkit-transform: rotate(30deg);
+          transform: rotate(30deg);
 }
 .cannon__path--md {
-  height: 95%;
+  height: 180%;
+
 }
 .cannon__path--sm {
-  height: 90%;
+  height: 160%;
 }
 .cannon__path--angle-2 {
-  -webkit-transform: rotate(-15deg);
-          transform: rotate(-15deg);
-}
-.cannon__path--angle-1 {
-  -webkit-transform: rotate(-7.5deg);
-          transform: rotate(-7.5deg);
-}
-.cannon__path--angle1 {
-  -webkit-transform: rotate(7.5deg);
-          transform: rotate(7.5deg);
-}
-.cannon__path--angle2 {
   -webkit-transform: rotate(15deg);
           transform: rotate(15deg);
+}
+.cannon__path--angle-1 {
+  -webkit-transform: rotate(22.5deg);
+          transform: rotate(22.5deg);
+}
+.cannon__path--angle1 {
+  -webkit-transform: rotate(37.5deg);
+          transform: rotate(37.5deg);
+}
+.cannon__path--angle2 {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
 }
 .cannon__confetti {
   flex: 0 1 auto;
@@ -197,17 +200,18 @@
 
 .party-popper {
   position: absolute;
-  left: 50%;
-  bottom: 5vh;
-  font-size: 2em;
-  -webkit-transform: translateX(-50%) rotate(-45deg);
-          transform: translateX(-50%) rotate(-45deg);
+  left: 4%;
+  bottom: 2vh;
+  font-size: 4em;
+  -webkit-transform: translateX(-50%) rotate(-15deg);
+          transform: translateX(-50%) rotate(-15deg);
 }
 
 .cannon {
   position: absolute;
   bottom: 5vh;
-  left: 50%;
+  left: 4%;
+ 
 }
 
     body {
@@ -377,13 +381,22 @@ h2{
 
 <body>
         <div class="party-popper" style="z-index:500;position: fixed;">🎉</div>
-        <div class="cannon" style="z-index:500;position:fixed">
+        
+        <div class="cannon" style="z-index:500;position:fixed;">
             <div class="cannon__path cannon__path--sm cannon__path--angle-2">
                 <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-3"></div>
                 <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-1"></div>
                 <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-2"></div>
                 <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-1"></div>
                 <div class="cannon__confetti-spacer"></div>
+                <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-3"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-1"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-2"></div>
+                <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-1"></div>
+                <div class="cannon__confetti-spacer"></div>
+
+
+                
             </div>
             <div class="cannon__path cannon__path--md cannon__path--angle-1">
                 <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-2"></div>
@@ -392,6 +405,13 @@ h2{
                 <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-1"></div>
                 <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-4"></div>
                 <div class="cannon__confetti-spacer"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-2"></div>
+                <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-2"></div>
+                <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-3"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-1"></div>
+                <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-4"></div>
+                <div class="cannon__confetti-spacer"></div>
+
             </div>
             <div class="cannon__path cannon__path--lg cannon__path--angle0">
                 <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-1"></div>
@@ -399,6 +419,13 @@ h2{
                 <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-2"></div>
                 <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-3"></div>
                 <div class="cannon__confetti-spacer"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-1"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-4"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-2"></div>
+                <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-3"></div>
+                <div class="cannon__confetti-spacer"></div>
+
+
             </div>
             <div class="cannon__path cannon__path--md cannon__path--angle1">
                 <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-3"></div>
@@ -407,6 +434,14 @@ h2{
                 <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-3"></div>
                 <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-2"></div>
                 <div class="cannon__confetti-spacer"></div>
+                <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-3"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-1"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-4"></div>
+                <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-3"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-2"></div>
+                <div class="cannon__confetti-spacer"></div>
+
+
             </div>
             <div class="cannon__path cannon__path--sm cannon__path--angle2">
                 <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-2"></div>
@@ -414,6 +449,14 @@ h2{
                 <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-4"></div>
                 <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-1"></div>
                 <div class="cannon__confetti-spacer"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-2"></div>
+                <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-3"></div>
+                <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-4"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-1"></div>
+                <div class="cannon__confetti-spacer"></div>
+
+
+            
             </div>
         </div>
 <!-- Navigation Menu -->
