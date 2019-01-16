@@ -1050,7 +1050,9 @@ svg#date_container {
         });
         $(".login-button").on('click','button#loginTrigger',function(){
 	if($(this).text() == 'Logout'){
-            window.location = '/logout';
+	    $.get( "/logout", function( data ) {
+		$(".login-button").text("Login");
+	    });
             return;
         }
             $("#login").show();
