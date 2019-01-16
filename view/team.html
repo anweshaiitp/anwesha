@@ -12,16 +12,230 @@
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.0/css/font-awesome.css'>
 
       <link rel="stylesheet" href="/assets/css/team2.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <style>
+
+
+/* debug */
+/* Cannon */
+.cannon {
+  height: 70vh;
+  width: 1px;
+  position: fixed;
+  -webkit-transform-origin: 50% 100%;
+          transform-origin: 50% 100%;
+  -webkit-animation: cannon-explosion 1.2s cubic-bezier(0.18, 0.89, 0.32, 1.28) both;
+          animation: cannon-explosion 1.2s cubic-bezier(0.18, 0.89, 0.32, 1.28) both;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  /* Paths */
+  /* Confettis */
+}
+@-webkit-keyframes cannon-explosion {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes cannon-explosion {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.cannon__path {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  -webkit-transform-origin: 50% 100%;
+          transform-origin: 50% 100%;
+  padding-bottom: 30%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.cannon__path--lg {
+  height: 200%; 
+  -webkit-transform: rotate(30deg);
+          transform: rotate(30deg);
+}
+.cannon__path--md {
+  height: 180%;
+
+}
+.cannon__path--sm {
+  height: 160%;
+}
+.cannon__path--angle-2 {
+  -webkit-transform: rotate(15deg);
+          transform: rotate(15deg);
+}
+.cannon__path--angle-1 {
+  -webkit-transform: rotate(22.5deg);
+          transform: rotate(22.5deg);
+}
+.cannon__path--angle1 {
+  -webkit-transform: rotate(37.5deg);
+          transform: rotate(37.5deg);
+}
+.cannon__path--angle2 {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.cannon__confetti {
+  flex: 0 1 auto;
+  -webkit-animation-duration: 1.2s;
+          animation-duration: 1.2s;
+  -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  /* Types */
+  /* Colors */
+}
+.cannon__confetti:nth-child(even) {
+  -webkit-animation-name: confetti-rotate-l;
+          animation-name: confetti-rotate-l;
+}
+@-webkit-keyframes confetti-rotate-l {
+  0% {
+    -webkit-transform: rotate(0) scaleY(1);
+            transform: rotate(0) scaleY(1);
+  }
+  50% {
+    -webkit-transform: rotate(2turn) scaleY(1.5);
+            transform: rotate(2turn) scaleY(1.5);
+  }
+  100% {
+    -webkit-transform: rotate(2.05turn) scaleY(1);
+            transform: rotate(2.05turn) scaleY(1);
+  }
+}
+@keyframes confetti-rotate-l {
+  0% {
+    -webkit-transform: rotate(0) scaleY(1);
+            transform: rotate(0) scaleY(1);
+  }
+  50% {
+    -webkit-transform: rotate(2turn) scaleY(1.5);
+            transform: rotate(2turn) scaleY(1.5);
+  }
+  100% {
+    -webkit-transform: rotate(2.05turn) scaleY(1);
+            transform: rotate(2.05turn) scaleY(1);
+  }
+}
+.cannon__confetti:nth-child(odd) {
+  -webkit-animation-name: confetti-rotate-r;
+          animation-name: confetti-rotate-r;
+}
+@-webkit-keyframes confetti-rotate-r {
+  0% {
+    -webkit-transform: rotate(0) scaleY(1);
+            transform: rotate(0) scaleY(1);
+  }
+  50% {
+    -webkit-transform: rotate(-2turn) scaleY(1.5);
+            transform: rotate(-2turn) scaleY(1.5);
+  }
+  100% {
+    -webkit-transform: rotate(-2.05turn) scaleY(1);
+            transform: rotate(-2.05turn) scaleY(1);
+  }
+}
+@keyframes confetti-rotate-r {
+  0% {
+    -webkit-transform: rotate(0) scaleY(1);
+            transform: rotate(0) scaleY(1);
+  }
+  50% {
+    -webkit-transform: rotate(-2turn) scaleY(1.5);
+            transform: rotate(-2turn) scaleY(1.5);
+  }
+  100% {
+    -webkit-transform: rotate(-2.05turn) scaleY(1);
+            transform: rotate(-2.05turn) scaleY(1);
+  }
+}
+.cannon__confetti--ribbon {
+  height: 1em;
+  width: .5em;
+  border-radius: .1em;
+}
+.cannon__confetti--flake {
+  height: .5em;
+  width: .5em;
+  border-radius: 50%;
+}
+.cannon__confetti--color-1 {
+  background-color: #feb535;
+}
+.cannon__confetti--color-2 {
+  background-color: #bea4ff;
+}
+.cannon__confetti--color-3 {
+  background-color: #ff6e83;
+}
+.cannon__confetti--color-4 {
+  background-color: #58cafe;
+}
+
+
+
+.party-popper {
+  position: absolute;
+  left: 4%;
+  bottom: 2vh;
+  font-size: 4em;
+  -webkit-transform: translateX(-50%) rotate(-15deg);
+          transform: translateX(-50%) rotate(-15deg);
+}
+
+.cannon {
+  position: absolute;
+  bottom: 5vh;
+  left: 4%;
+ 
+}
+.hr-theme-slash-2 {
+  display: flex;
+}
+.hr-theme-slash-2 .hr-line {
+  width: 100%;
+  position: relative;
+  margin: 15px;
+  border-bottom: 1px solid #000;
+}
+.hr-theme-slash-2 .hr-icon {
+  position: relative;
+  top: 3px;
+  color: #ff0000;
+}
+
     body {
 	width: 100wh;
 	height: 90vh;
 	color: #fff;
 	background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
-	background-size: 400% 400%;
-	-webkit-animation: Gradient 15s ease infinite;
-	-moz-animation: Gradient 15s ease infinite;
-	animation: Gradient 15s ease infinite;
+	background-size: 100% 1000%;
+
 }
 .mobile-nav-btn {
     cursor: pointer;
@@ -173,12 +387,93 @@ h2{
 	-moz-animation: Gradient 15s ease infinite;
 	animation: Gradient 15s ease infinite;
 }
+
+
+
 </style>
   
 </head>
 
 <body>
+        <div class="party-popper" style="z-index:500;position: fixed;">🎉</div>
+        
+        <div class="cannon" style="z-index:500;position:fixed;">
+            <div class="cannon__path cannon__path--sm cannon__path--angle-2">
+                <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-3"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-1"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-2"></div>
+                <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-1"></div>
+                <div class="cannon__confetti-spacer"></div>
+                <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-3"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-1"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-2"></div>
+                <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-1"></div>
+                <div class="cannon__confetti-spacer"></div>
 
+
+                
+            </div>
+            <div class="cannon__path cannon__path--md cannon__path--angle-1">
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-2"></div>
+                <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-2"></div>
+                <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-3"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-1"></div>
+                <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-4"></div>
+                <div class="cannon__confetti-spacer"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-2"></div>
+                <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-2"></div>
+                <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-3"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-1"></div>
+                <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-4"></div>
+                <div class="cannon__confetti-spacer"></div>
+
+            </div>
+            <div class="cannon__path cannon__path--lg cannon__path--angle0">
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-1"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-4"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-2"></div>
+                <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-3"></div>
+                <div class="cannon__confetti-spacer"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-1"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-4"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-2"></div>
+                <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-3"></div>
+                <div class="cannon__confetti-spacer"></div>
+
+
+            </div>
+            <div class="cannon__path cannon__path--md cannon__path--angle1">
+                <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-3"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-1"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-4"></div>
+                <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-3"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-2"></div>
+                <div class="cannon__confetti-spacer"></div>
+                <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-3"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-1"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-4"></div>
+                <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-3"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-2"></div>
+                <div class="cannon__confetti-spacer"></div>
+
+
+            </div>
+            <div class="cannon__path cannon__path--sm cannon__path--angle2">
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-2"></div>
+                <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-3"></div>
+                <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-4"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-1"></div>
+                <div class="cannon__confetti-spacer"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-2"></div>
+                <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-3"></div>
+                <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-4"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-1"></div>
+                <div class="cannon__confetti-spacer"></div>
+
+
+            
+            </div>
+        </div>
 <!-- Navigation Menu -->
 <div id="menu">
         <ul data-start="color:rgb(0,0,0); border-color:rgb(0,0,0); background: rgba(255,255,255,0.9);     box-shadow: 0 0 0px rgba(255,255,255,1);"
@@ -207,8 +502,8 @@ h2{
       </div>
       <!-- /Navigation Menu -->
 
-    <div class = "title-text">Anwesha '19</div>
-    <h2>The Impeccable Creators of the Impeccable Extravaganza</h2>
+    <div class = "title-text"><span style="font-family: wolf; font-size:2.5em;">Anwesha '19</span></div>
+    <h2><span style="font-family: lemonMilk">The Impeccable Creators of the Impeccable Extravaganza</span></h2>
     <br><br>
       <section class="our-team-section">
         <div class="container">
@@ -232,9 +527,7 @@ h2{
                         </ul>
                     </div>
                 </div>
-            </div>
-            <br><br>
-            <div class="row justify-content-center">
+
                     <div class="col-lg-3 col-md-6 col-sm-6">
                         <div class="our-team">
                             <div class="pic">
@@ -256,6 +549,12 @@ h2{
                     </div>
                 </div>
                 <br><br>
+                <div class="hr-theme-slash-2">
+                        <div class="hr-line"></div>
+                        <div class="hr-icon"><i class="material-icons">favorite</i></div>
+                        <div class="hr-line"></div>
+                      </div>
+                      <br><br>
             <div class = "row justify-content-center">
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="our-team">
@@ -300,6 +599,12 @@ h2{
                 
             </div>
             <br><br>
+            <div class="hr-theme-slash-2">
+                    <div class="hr-line"></div>
+                    <div class="hr-icon"><i class="material-icons">favorite</i></div>
+                    <div class="hr-line"></div>
+                  </div>
+                  <br><br>
             <div class = "row justify-content-center">
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="our-team">
@@ -364,6 +669,12 @@ h2{
             </div>
 
             <br><br>
+            <div class="hr-theme-slash-2">
+                    <div class="hr-line"></div>
+                    <div class="hr-icon"><i class="material-icons">favorite</i></div>
+                    <div class="hr-line"></div>
+                  </div>
+                  <br><br>
             <div class = "row justify-content-center">
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="our-team">
@@ -428,6 +739,12 @@ h2{
             </div>
 
             <br><br>
+            <div class="hr-theme-slash-2">
+                    <div class="hr-line"></div>
+                    <div class="hr-icon"><i class="material-icons">favorite</i></div>
+                    <div class="hr-line"></div>
+                  </div>
+                  <br><br>
             <div class = "row justify-content-center">
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="our-team">
@@ -472,6 +789,12 @@ h2{
 </div>
 
                 <br><br>
+                <div class="hr-theme-slash-2">
+                        <div class="hr-line"></div>
+                        <div class="hr-icon"><i class="material-icons">favorite</i></div>
+                        <div class="hr-line"></div>
+                      </div>
+                      <br><br>
             <div class = "row justify-content-center">
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="our-team">
@@ -515,6 +838,12 @@ h2{
                 </div>
 </div>
                 <br><br>
+                <div class="hr-theme-slash-2">
+                        <div class="hr-line"></div>
+                        <div class="hr-icon"><i class="material-icons">favorite</i></div>
+                        <div class="hr-line"></div>
+                      </div>
+                      <br><br>
                 <div class = "row justify-content-center">
                     <div class="col-lg-3 col-md-6 col-sm-6">
                         <div class="our-team">
@@ -560,6 +889,12 @@ h2{
 
                 </div>
                 <br><br>
+                <div class="hr-theme-slash-2">
+                        <div class="hr-line"></div>
+                        <div class="hr-icon"><i class="material-icons">favorite</i></div>
+                        <div class="hr-line"></div>
+                      </div>
+                      <br><br>
                 <div class = "row justify-content-center">
                     <div class="col-lg-3 col-md-6 col-sm-6">
                         <div class="our-team">
@@ -663,9 +998,15 @@ h2{
                             </ul>
                         </div>
                     </div>
+
 </div>
-
-
+<br><br>
+<div class="hr-theme-slash-2">
+        <div class="hr-line"></div>
+        <div class="hr-icon"><i class="material-icons">favorite</i></div>
+        <div class="hr-line"></div>
+      </div>
+      <br><br>
         </div>
 
     </section>
@@ -674,4 +1015,7 @@ h2{
 
 </body>
 
+
+
+</script>
 </html>
