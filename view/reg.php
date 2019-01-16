@@ -418,6 +418,7 @@
 				left: 0;
 				right: 0;
 				padding: 2%;	
+                padding-top: 0;
 				font-family: Ubuntu;
 			}
 			.reg_logo
@@ -491,7 +492,25 @@
 				background: #03a9f4;
                 color: #fff;
 			}
-            
+            #home{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0px;
+                height: 50px;
+            }
+            #home h5{
+                display: inline;
+                text-align: center;
+                font-size: 18px;
+                background: rgba(255,255,255,.7);
+                border-radius: 5px;
+            }
+            #home h5 a{ 
+                text-decoration: none;
+                color: #03a9f4;
+                padding: 5px;
+            }
 
 		</style>
 
@@ -599,8 +618,9 @@
 			</div>
 			
 			<div class="reg_form_div">
+                <div id="home"><h5><a href="https://www.anwesha.info/">Back To Home</a></h5></div>
 				<div class="reg_text">
-					Registration
+                    Registration
 				</div>
 				<br>
 				<div id="fb-root"></div>

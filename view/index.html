@@ -401,10 +401,155 @@ svg#date_container {
     stroke-dasharray: 0 87.5%;
   }
 }
+</style>
+    
+<style>
+    
+    @font-face{
+        font-family: indexText;
+        src: url(/assets/fonts/LemonMilk.otf);
+    }  
+    #start-section{
+        overflow: hidden;
+        position: relative;
+    }
+    .menubar{
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 0;
+        height: 0;
+        transform-origin: 100% 1%;
+        transition: 1s;
+        transform: rotate(180deg);
+        opacity: 0;
+        z-index: 99;
+        }
+    .menubar.active{
+            transform: rotate(0deg);
+            width: 100%;
+            height: 100%;
+            opacity: 1;
+            background: transparent;
+        }
+       #start-section .menu-btn{
+            position: absolute;
+            right: 50px;
+            top: 25px;
+            width: 50px;
+            height: 50px;
+            background: url(../assets/images/skull_menu.png);
+            background-size: 100% 100%;
+            z-index: 999;
+           border: none;
+           outline: none;
+           
+        }
+    .menu{
+        position: absolute;
+        padding-left: 25%;
+        top: 50px;
+        right: 50px;
+        width: calc(100% - 80px);
+        height: calc(100% - 75px);
+        background: url(../assets/img/index_menu3.jpg);
+        background-size: 100% 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        clip-path: polygon(0% 0%,0% 90%,50% 100%,100% 90%,100% 0%);
+        border-radius: 20px;
+    }
+    @media(max-width:1050px){
+        .menu{
+            padding-left: 20%;
+        }
+        .menu span{
+            font-size: .8em;
+        }
+        .menu li{
+            padding: 0;
+            margin: 0;
+        }
+        .menu li a{
+            padding: 0;
+            margin: 0;
+        }
+    }
+    .menu ul{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .menu ul li{
+        position: relative;
+        margin: 5px;
+    }
+    .menu ul li a{
+        display: inline-block;
+        position: relative;
+        box-sizing: border-box;
+        text-align: center;
+        padding: 0px 50px;
+        text-decoration: none;
+    }
+    span{
+        position: relative;
+        color: #fff;
+        font-weight: bold;
+        font-family: indexText;
+        letter-spacing: 3px;
+    }
+    .menu ul li a:hover{
+        letter-spacing: 5px;
+        transform: translateX(30px);
+        transition: transform .5s;
+    }
+    .menu ul li a:before{
+        content: '';
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 10px;
+        background: #fd0;
+        z-index: -1;
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform .5s;
+    }
+    .menu ul li a:hover:before{
+        transform: scaleX(1);
+        transform-origin: left;
+        transition: transform .5s;
+    }
+    
+    
+    
+    
+    
+    
+    
 
-            
-    </style>
-
+        @media(max-width:760px){
+            .menubar,.menu-btn{
+                display: none;
+            }
+        }   
+</style>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.menu-btn').on('click',function(){
+                $('.menubar').toggleClass('active');
+            })
+        })
+    </script>
 </head>
 
 <body class="body" data-gr-c-s-loaded="true" >
@@ -421,6 +566,7 @@ svg#date_container {
 
 
     <img src="/assets/img/card.gif" width="0" height="0" alt="">
+
     <div id="splash">
         <div id="init" style="color: #fff;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">
             <div class="Loadingcontainer">
@@ -434,33 +580,16 @@ svg#date_container {
 
         </div>
         </div>
-    <!-- Splash Screen -->
-        <!-- <img src="/assets/img/card.gif" style="width:100%;height:100%;position: fixed;top:0px;left:0px;z-index: 10000;" alt="">     -->
     </div>
+    
     <div id="logo" data-100="opacity:1;" data-500="opacity:0; " style="opacity: 1;">
-        <a href="http://anwesha.info/" class="logolink" target="_blank"></a>
+        <a href="http://anwesha.info/" class="logolink" target="_blank"><img src="../assets/img/logo_favi2.png" width="100%"></a>
     </div>
-    <div id="logo-white" data-300="opacity:0;" data-500="opacity:1;" >
+    <div id="logo-white" data-300="opacity:0;" data-500="opacity:1;" style="z-index: 99" >
         <a href="http://anwesha.info/" class="logolink" target="_blank"></a>
     </div>
     <!-- Navigation Menu -->
-    <div id="menu">
-        <ul data-start="color:rgb(0,0,0); border-color:rgb(0,0,0); background: rgba(255,255,255,0.9);     box-shadow: 0 0 0px rgba(255,255,255,1);"
-            data-500="color:rgb(0,0,0); border-color:rgb(0,0,0); background: rgba(255,255,255,0.9);     box-shadow: 0 0 10px rgba(255,255,255,1);"
-            class="skrollable skrollable-between" style="border-radius:20px;color: rgb(0,0,0); border-color: rgb(0,0,0); background: rgba(255,255,255,0.9); box-shadow: rgba(255,255,255,1) 0px 0px 30px;">
-            <!-- <li id="home-link"><a href="#start-section">HOME</a></li> -->
-            <li><a href="#After-Movie" id="">After-Movie</a></li>
-            <li><a href="#About" id="">About</a></li>
-            <li><a href="/view/spons.html" id="">Sponsors</a></li>
-            <li><a href="#Contact-Us" id="">Contact Us</a></li>
-            <li><a href="#Audition" id="">Auditions</a></li>
-            <li><a href="/ca" id="">Campus Ambassador</a></li>
-            <li><a href="/gallery" id="">Gallery</a></li>
-            <li><a href="/events" id="">Events</a></li>
-            <li><a href="#highlights" id="">Highlights</a></li>
-            
-        </ul>
-    </div>
+    
     <div id="mobile-nav-btn" class="mobile-nav-btn dark " data-100="opacity:1;" data-500="opacity:0; "
         style="opacity: 1;"></div>
     <div class="mobile-nav-btn white " data-100="opacity:0;" data-500="opacity:1; "></div>
@@ -477,6 +606,9 @@ svg#date_container {
             <li><a href="/events" id="">Events</a></li>
             <li><a href="#highlights" id="">Highlights</a></li>
             <li><a href="/register" id="">Register</a></li>
+            <li><a href="/register" id="">Hospitality</a></li>
+            <li><a href="/register" id="">Pro Nite</a></li>
+            <li><a href="/register" id="">Team</a></li>
         </ul>
     </div>
     <!-- /Navigation Menu -->
@@ -548,6 +680,30 @@ svg#date_container {
     
     <div id="skrollr-body">
         <section id="start-section" class="fp skrolll" style="position: relative">
+            
+            
+            <button class="menu-btn"></button>
+            <div class="menubar">
+                <div class="menu">
+                    <ul>
+                        <li><a href="#After-Movie" id=""><span>After-Movie</span></a></li>
+                        <li><a href="#About" id=""><span>About</span></a></li>
+                        <li><a href="/view/spons.html" id=""><span>Sponsors</span></a></li>
+                        <li><a href="#Contact-Us" id=""><span>Contact Us</span></a></li>
+                        <li><a href="#Audition" id=""><span>Auditions</span></a></li>
+                        <li><a href="/ca" id=""><span>Campus Ambassador</span></a></li>
+                        <li><a href="/gallery" id=""><span>Gallery</span></a></li>
+                        <li><a href="/events" id=""><span>Events</span></a></li>
+                        <li><a href="#highlights" id=""><span>Highlights</span></a></li>
+                        <li><a href="/reg.php" id=""><span>Register</span></a></li>
+                        <li><a href="hospi.html" id=""><span>Hospitality</span></a></li>
+                        <li><a href="#highlights" id=""><span>Pro Nite</span></a></li>
+                        <li><a href="#highlights" id=""><span>Team</span></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            
             <div class="date">
                 <svg viewBox="0 0 800 600" id="date_container">
                         <symbol id="s-text">
