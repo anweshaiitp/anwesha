@@ -801,10 +801,11 @@
                         else
                             $("#regmsg").css("color","#ff0000");
                         if(data.http == 403){
-				alert('Please login first.')
+// 				alert('Please login first.')
+			    $("#regmsg").text('Please Login First.')
                             window.open('/login_bare/');
                             console.log("403");
-                            $(currPar+ " #regmsg").html($(currPar + " #regmsg").text()+"<br> <a href='//anwesha.info/login_bare/' target='_blank'>Login here</a>");
+                            $("#regmsg").html($("#regmsg").text()+"<br> <a href='//anwesha.info/login_bare/' target='_blank'>Login here</a>");
                         }
                         if(data.status == true){
                             $(this).text('Registered!')
