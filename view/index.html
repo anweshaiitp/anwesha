@@ -509,10 +509,6 @@ svg#date_container {
         </div>
         <script>
             $("#btn_submit_login").click(function(){
-                    if($(this).text() == 'Logout'){
-                        window.location = '/logout';
-                        return;
-                    }
 					$("#success").hide();
 					console.log('clicked');
 				$.post("/login/",
@@ -530,8 +526,9 @@ svg#date_container {
 							$("#success").fadeIn();
 							// $("#message").css('background','#5FAB22');
 							$("#log-form input").fadeOut();
+							$("#log-form submit").fadeOut();
 // 							$("#logout2").fadeIn();
-							$("#loginTrigger").text("Logout")
+							$("#loginTrigger").text("Logout");
 							$(".loader").fadeOut();
 						}else{
 							$("#success").fadeIn();
@@ -1051,6 +1048,10 @@ svg#date_container {
             fixedTop();
         });
         $(".login-button").on('click','button#loginTrigger',function(){
+	if($(this).text() == 'Logout'){
+            window.location = '/logout';
+            return;
+        }
             $("#login").show();
             fixedTop();
             return false;
