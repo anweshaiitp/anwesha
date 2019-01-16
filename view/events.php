@@ -394,11 +394,11 @@
                             </div> 
                             <div class="event_details">
                                 <div id="event_short_desc">
-                                    <p style="color:#1c1c1c" id="eve_short_desc">Remember snakes and ladders? Wanna live through it in the real world? Then Static Rush is your ultimate platform with a twist of electronics. With unlimited adventure and enthralling fun packed in every step you take, this one game will make you remember your childhood and with electronics embedded this one event is surely gonna be in your good books.</p>
+                                    <p style="color:#1c1c1c" id="eve_short_desc">Remember snakes and ladders? <a href="#" id="ReadMore"> read more</a></p>
 
                                 </div>
                             <div id="event_long_desc">
-                                <p style="color:#1c1c1c" id="eve_long_desc"></p>
+                                <p style="color:#1c1c1c" id="eve_long_desc">Wanna live through it in the real world? Then Static Rush is your ultimate platform with a twist of electronics. With unlimited adventure and enthralling fun packed in every step you take, this one game will make you remember your childhood and with electronics embedded this one event is surely gonna be in your good books.<a href="#" id="ShowLess"> show less</a></p>
                             </div>
                             <div id="event_organisers">
                                 <h3 style="color:#1c1c1c">Organisers:</h3>
@@ -456,7 +456,7 @@
                 $('.main').css({"height":"auto"});
             }
             
-            
+            $('.bg-image').css({"background-image":"url('https://i.imgur.com/hB1FJxJ.jpg')"});
             bg_naturalHeight =0;
             bg_naturalWidth =0;
             bg_url = $(".bg-image").css('background-image').replace('url(','').replace(')','').replace(/\"/gi, "");
@@ -799,7 +799,7 @@
                         if(data.http==200)
                             $("#regmsg").css("color","#00ff00");
                         else
-                            $("#regmsg").css("color","#ff0000");
+                            $("#regmsg").css({"color":"#ff0000","padding-inline-start":"20px","height":"30px"});
                         if(data.http == 403){
 // 				alert('Please login first.')
 			    $("#regmsg").text('Please Login First.')
