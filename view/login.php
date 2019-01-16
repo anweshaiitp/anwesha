@@ -104,9 +104,9 @@
 			$("document").ready(function(){
 				<?php session_start();
 				 if (isset($_SESSION['userID'])){
-					 echo "$('.logout_div').fadeIn();";
+					 echo "$('.logout_div').fadeIn();window.location='/events'";
 					 }else{
-						echo "$('.login_div').fadeIn();window.location='/events'";} 
+						echo "$('.login_div').fadeIn();";} 
 				?>
 				$("#login").click(function(){
 					$("#err").hide();
