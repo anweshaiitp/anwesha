@@ -14,6 +14,7 @@
 			padding: 5px;
 			font-family: main_font;
 			text-align: center;
+			background: #000000;
 		}
 		.login_div,.logout_div{
 			display:none;
@@ -97,11 +98,13 @@
 			
 		</div></h1>
 		<a style="position:absolute;left:50%;transform:translateX(-50%);color:white;" href="http://anwesha.info/reset_resend" target="_blank">Reset Password or Resend confirmation email</a>
+		<br>
+		<a style="position:absolute;left:50%;transform:translateX(-50%);color:white;" href="http://anwesha.info/register" target="_blank">Register for new account.</a>
 	<script>
 			$("document").ready(function(){
 				<?php session_start();
 				 if (isset($_SESSION['userID'])){
-					 echo "$('.logout_div').fadeIn();";
+					 echo "$('.logout_div').fadeIn();window.location='/events';";
 					 }else{
 						echo "$('.login_div').fadeIn();";} 
 				?>
@@ -120,7 +123,8 @@
 					if(status=='success'){//$("#myloader").fadeOut();
 						console.log(data);
 						if(data["status"]==200){
-							$("#success").html('Logged In!<br>');
+							$("#success").html('Logged In!<br>Redirecting to events...<br>');
+							window.location = '/events'
 							$("#success").fadeIn();
 							// $("#message").css('background','#5FAB22');
 							$(".Lformarea").fadeOut();
