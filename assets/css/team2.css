@@ -30,7 +30,7 @@
 
 .our-team .pic{
     display: inline-block;
-    width: 200px;
+    width: 250px;
     height: 200px;
     margin-bottom: 50px;
     z-index: 1;
@@ -125,3 +125,98 @@
 @media only screen and (max-width: 990px){
     .our-team{ margin-bottom: 30px; }
 }
+
+@font-face {
+    font-family: lemonMilk;
+    src: url(/assets/fonts/LemonMilk.otf);
+  }
+
+  @font-face {
+    font-family: wolf;
+    src: url(/assets/fonts/WolfintheCity.otf);
+  }
+
+  .intro {
+    font-family: 'futura', 'helvetica', sans-serif;
+    color: #fafafa;
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    width: 100%;
+    font-size: 2em;
+    text-align: center;
+    transition: opacity 2s;
+  }
+  .intro.bye {
+    opacity: 0;
+  }
+  
+  #canvas {
+    background: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: auto;
+  }
+  
+  .tada {
+    font-size: 10px;
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    width: 10em;
+    text-align: center;
+    pointer-events: none;
+    -webkit-transform-origin: 6.25% 93.75%;
+            transform-origin: 6.25% 93.75%;
+    -webkit-transform: translateX(0) translateY(0%) rotate(-45deg);
+            transform: translateX(0) translateY(0%) rotate(-45deg);
+  }
+  .tada img {
+    width: 100%;
+    -webkit-transform: translateX(-40%) translateY(40%);
+            transform: translateX(-40%) translateY(40%);
+  }
+  
+  .shake {
+    -webkit-animation: shake 0.1s linear infinite;
+            animation: shake 0.1s linear infinite;
+    font-size: 10px;
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+  }
+  
+  @-webkit-keyframes shake {
+    0% {
+      -webkit-transform: translateX(-5px);
+              transform: translateX(-5px);
+    }
+    50% {
+      -webkit-transform: translateX(5px);
+              transform: translateX(5px);
+    }
+    100% {
+      -webkit-transform: translateX(-5px);
+              transform: translateX(-5px);
+    }
+  }
+  
+  @keyframes shake {
+    0% {
+      -webkit-transform: translateX(-5px);
+              transform: translateX(-5px);
+    }
+    50% {
+      -webkit-transform: translateX(5px);
+              transform: translateX(5px);
+    }
+    100% {
+      -webkit-transform: translateX(-5px);
+              transform: translateX(-5px);
+    }
+  }
+  

@@ -18,10 +18,8 @@
 	height: 90vh;
 	color: #fff;
 	background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
-	background-size: 400% 400%;
-	-webkit-animation: Gradient 15s ease infinite;
-	-moz-animation: Gradient 15s ease infinite;
-	animation: Gradient 15s ease infinite;
+	background-size: 100% 800%;
+
 }
 .mobile-nav-btn {
     cursor: pointer;
@@ -173,11 +171,26 @@ h2{
 	-moz-animation: Gradient 15s ease infinite;
 	animation: Gradient 15s ease infinite;
 }
+
+
 </style>
   
 </head>
 
 <body>
+
+        <canvas id="canvas"></canvas>
+
+        <div class="intro" id="intro">
+            Get the Party Started.
+        </div>
+        
+        <div id="shaker">
+        <!--     <div class="copy" id="tada">🎉</div> -->
+            <div class="tada" id="tada">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/62921/party-popper.png" alt="" />
+            </div>
+        </div>
 
 <!-- Navigation Menu -->
 <div id="menu">
@@ -207,8 +220,8 @@ h2{
       </div>
       <!-- /Navigation Menu -->
 
-    <div class = "title-text">Anwesha '19</div>
-    <h2>The Impeccable Creators of the Impeccable Extravaganza</h2>
+    <div class = "title-text"><span style="font-family: wolf; font-size:2.5em;">Anwesha '19</span></div>
+    <h2><span style="font-family: lemonMilk">The Impeccable Creators of the Impeccable Extravaganza</span></h2>
     <br><br>
       <section class="our-team-section">
         <div class="container">
@@ -232,9 +245,7 @@ h2{
                         </ul>
                     </div>
                 </div>
-            </div>
-            <br><br>
-            <div class="row justify-content-center">
+
                     <div class="col-lg-3 col-md-6 col-sm-6">
                         <div class="our-team">
                             <div class="pic">
