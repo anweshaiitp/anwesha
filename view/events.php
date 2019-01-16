@@ -406,12 +406,13 @@
                                 <li id="eve_organisers">Umang Jain (6394708415)
                                     <br>Rahul Anand (9430056694)</li>
                                 </ul>
+            		        <div id="regmsg"></div>
                                 <div class="refrence">
                                     <a href="https://drive.google.com/open?id=1-OQFzE9tvPPAt-ulEFWf_hghgLRfV9wO" id="RuleBtn">Rulebook</a>
-                                    <a id="RegBtn" data-eveid="10">Register</a>
+                                    <a id="RegBtn" data-eveid="10" style="cursor:pointer" >Register</a>
 
                                 </div> 
-				    <div id="regmsg"></div>
+
                             </div>
                         </div>
                     </div>
@@ -800,6 +801,7 @@
                         else
                             $("#regmsg").css("color","#ff0000");
                         if(data.http == 403){
+				alert('Please login first.')
                             window.open('/login_bare/');
                             console.log("403");
                             $(currPar+ " #regmsg").html($(currPar + " #regmsg").text()+"<br> <a href='//anwesha.info/login_bare/' target='_blank'>Login here</a>");
