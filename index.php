@@ -64,7 +64,7 @@ if (preg_match($base . '$@', $url, $match)) {
 	header('Location: ./');
 } elseif (preg_match($base . 'leaderboard/?$@', $url, $match)) {
 	require ('view/leaderboard.php');
-} elseif (preg_match($base . 'team/$@', $url, $match)) {
+} elseif (preg_match($base . 'team/?$@', $url, $match)) {
 	require ('view/team.html');
 } elseif (preg_match($base . 'accodomation/$@', $url, $match)) {
 	require ('view/accodomation.html');

@@ -1,0 +1,419 @@
+﻿<!doctype html>
+<html>
+	<head>
+        <title>Anwesha 19</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Merienda" rel="stylesheet">
+        
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Merienda');
+            body{
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                font-family: 'Merienda', cursive;
+                background: url(../assets/img/hospi_bg.jpg);
+                background-attachment: fixed;
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+            .content{
+                margin: 5% auto;
+                padding: 0 10%;
+            }
+            .tabbed-content{
+                max-width: 800px;
+                margin: 50px auto;
+            }
+            .heading{
+                color: #fff;
+                margin: 0 0 20px;
+                font-weight: 1000;
+                font-size: 3rem;
+                text-shadow: 2px 2px 20px yellow;
+                animation: animate 3s linear infinite;
+            }
+            @keyframes animate{
+                0%{
+                    transform: scaleX(1);
+                }
+                40%{
+                    transform: scaleX(1.2);
+                }
+                50%{
+                    transform: scaleX(1.1);
+                }
+                60%{
+                    transform: scaleX(1.2);
+                }
+                100%{
+                    transform: scaleX(1);
+                }
+            }
+            .para{
+                color: #fff;
+                margin: 0;
+                font-weight: bold;
+                text-shadow: 2px 2px 20px yellow;
+            }
+            .para2{
+                color: #fff;
+                margin: 0;
+                font-weight: bold;
+                text-shadow: 2px 2px 20px yellow;
+                font-size: 2rem;
+            }
+            .nav{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .nav button{
+                transform: skewX(-30deg);
+                padding: 10px;
+                margin: 5px 5px;
+                border: none;
+                outline: none;
+                background: #0062ff;
+                color: #fff;
+                font-weight: bold;
+                box-shadow: 0 5px 10px rgba(0,0,0,.5);
+                transition: .3s;
+            }
+            .nav button:hover{
+                transform: skewX(-25deg);
+                background: #009f00;
+                box-shadow: 0 5px 10px rgba(0,0,0,.8);
+            }
+            .nav button.active{
+                background: #009f00;
+                box-shadow: 0 5px 15px #fff;
+            }
+            #tabbed-content .panel{
+                display: none;
+            }
+            #tabbed-content .panel.active{
+                display: block;
+            }
+            .panel{
+                border-radius: 10px;
+                margin-top: 20px;
+                background: rgba(4,67,100,.7);
+                color: #fff;
+                padding: 50px;
+                box-shadow: 0 5px 20px #fff;
+            }
+            .panel h1{
+                color: #fcd70f;
+            }
+            .panel a{
+                color: blue;
+            }
+            #two h1{
+                font-size: 2.5rem;
+            }
+            @media(max-width:500px){
+                #two h1{
+                    font-size: 1.5rem;
+                }
+                ul{
+                    padding: 10px;
+                }
+                #two .container{
+                    width: 100%;
+                }
+                .panel{
+                    padding: 10px 20px;
+                    box-sizing: border-box;
+                }
+                #two .container{
+                    margin: 0;
+                    padding: 0;
+                }
+                #two table{
+                    margin: auto;
+                }
+                #five h1{
+                    font-size: 1rem;
+                }
+                .content{
+                    margin: 5% auto;
+                    padding: 0 6%;
+                }
+            }
+            
+            #five h1{
+                font-size: 2em;
+            }
+        </style>
+        <style>
+        /* width */
+        ::-webkit-scrollbar {
+          width: 15px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+          box-shadow: inset 0 0 5px #9a23e5; 
+          border-radius: 7.5px;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+          background: #286eaa; 
+          border-radius: 10px;
+        }
+        </style>
+    </head>
+    <body>
+        <div class="container text-center">
+            <p class="para">IIT Patna's</p>
+            <h1 class="heading">Anwesha'19</h1>
+            <p class="para2">Hospitality / Accommodation</p>
+        </div>
+        
+        <div class="container content">
+            <div id="tabbed-content">
+                
+                <div class="nav tabs">
+                    <button data-target="#one" class="active">General Guidelines</button>
+                    <button data-target="#two">Charges</button>
+                    <button data-target="#three">Getting Here</button>
+                    <button data-target="#four">Bus Timing</button>
+                    <button data-target="#five">Accommodation</button>
+                    <button data-target="#six">Contacts</button>
+                </div>
+                
+                <div class="panel active" id="one">
+                    <h1>General Guidelines</h1>
+                    <ul>
+                        <li>Every student participant must carry his/her college ID card. Entry without a valid ID is not allowed.</li>
+                        <li>Entry is only allowed through Gate 1 of the campus. All other gates will be closed for entry.</li>
+                        <li>Accommodation will only be provided to students having a valid Anwesha'19 ID.</li>
+                        <li>Participants carrying laptops and other valuable items must declare their belongings at the Registration Desk of Anwesha’19 through the form provided. Disclosure of any prior undeclared belongings may result in impounding of those items.</li>
+                        <li>Accommodation will strictly be on first come first serve basis.</li>
+                        <li>You can also avail online accommodation here .</li>
+                        <li>Prior accommodation (01/02/2019) can be availed only through online accommodation facility.</li>
+                        <li>Priority will be given to students having a longer duration of stay.</li>
+                        <li>Anwesha'19 will provide you with mattresses,blankets and pillows. You are encouraged to carry basic requirements for your stay.</li>
+                        <li>Accommodation will be given only after it has been confirmed by the Hospitality committee.</li>
+                        <li>Students not having confirmed accommodation inside the campus are not allowed to use the accommodation facilities.</li>
+                        <li>The declared accommodation charges do not include meal.Though there will be various food joints available in campus during fest.Food will also be available in hostel mess on pay per meal basis.</li>
+                        <li>In case of damage to the property of IIT Patna , hefty fine will be charged.</li>
+                        <li>Alcohol, drugs and sharp objects are strictly prohibited inside the campus. Any other item if deemed unsafe will be confiscated.</li>
+                        <li>Vehicles will not be allowed beyond the parking lot near Gate 1.</li>
+                        <li>Anwesha'19 and IIT Patna will not be responsible for any mishaps that occur through the duration of stay for Anwesha'19.</li>
+                        <li>In case of any discrepancy, the decision made by the Hospitality committee will be final and binding.</li>
+                    </ul>
+                </div>
+                <div class="panel" id="two">
+                    <h1>Accomodation and Registration charges</h1>
+                    <p>The fest and accommodation charges per person are as follows:</p>
+                    <ul>
+                        <li>The registration fee is Rs 100. Registration is compulsory for entry to the fest and participating in the events.</li>
+                        <li>The ticket for the Band night costs Rs 150. You can register yourself and buy the Band night tickets for Rs. 200</li>
+                        <li>The price for accommodation for a day is Rs. 150. For three days, the price is Rs. 400</li>
+                        <li>If you wish to stay for more than 3 days, you will be charged Rs.500</li>
+                    </ul>
+                    
+                    <div class="container">
+                      <table class="table table-bordered" >
+                        <thead>
+                          <tr>
+                            <th>Services</th>
+                            <th>Amount</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Registration</td>
+                            <td>100</td>
+                          </tr>
+                          <tr>
+                            <td>Band Pass</td>
+                            <td>200</td>
+                          </tr>
+                          <tr>
+                            <td>Registration+Band pass</td>
+                            <td>250</td>
+                          </tr>
+                            <tr>
+                            <td>Accommodation per day</td>
+                            <td>200</td>
+                          </tr>
+                            <tr>
+                            <td>Accommodation for 3 days</td>
+                            <td>500</td>
+                          </tr>
+                            <tr>
+                            <td>T-shirt price</td>
+                            <td>300</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                </div>
+                <div class="panel" id="three">
+                    <h1>Getting Here</h1>
+                    <ul>
+                        <li>The IIT Patna campus is located in Bihta, about 35 kms( about 1.5 hours) from Patna junction and 31km from Patna airport , 23 kms ( about 45 mins) from Danapur Railway Station and 5 kms ( about 15 mins) from Bihta railway station. The Campus is well connected by road to each of these major check points. You can readily hire a taxi to reach our campus.</li>
+                        <li>BSRTC has special routes between the campus and Gandhi Maidan.</li>
+                        <li>The approximate taxi fares from each of the stations can be calculated <a style="color: #0062ff" href="https://www.taxi-calculator.com/" target="_blank">here</a></li>
+                        <li><a style="color: #0062ff" href="https://www.google.co.in/maps/place/IIT+Patna+Main+Gate/@25.5357523,84.8488766,17z/data=!4m12!1m6!3m5!1s0x39ed577f6954a4ab:0x6ce8f1b9fc2aa02a!2sIndian+Institute+of+Technology+Patna!8m2!3d25.5357523!4d84.8510653!3m4!1s0x398d56788d553595:0xc65e6a27cdd29336!8m2!3d25.5335547!4d84.8554909" target="_blank">Click here for directions</a></li>
+                    </ul>
+                </div>
+                <div class="panel" id="four">
+                    <h1>Anwesha'19 External Bus Schedule</h1>
+                    <br>
+                    <h3>FROM PATNA TO IIT CAMPUS( BIHTA)</h3>
+                    <div class="container" style="width: 150px; margin: 0">
+                      <table class="table table-bordered" >
+                        <thead>
+                          <tr>
+                            <th>Time</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>10:00 AM</td>
+                          </tr>
+                            <tr>
+                            <td>2:00 PM</td>
+                          </tr>
+                            <tr>
+                            <td>6:00 PM</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <h4>Bus 01 Route:</h4> 
+                    <p>Old IIT Patna Campus (Bakhtiyarpur Engg. College) -> A.N. College -> Patna Women’s College (Patna High Court) -> Hartali More -> Above Flyover (Bailey Road) -> Gate No. 1.</p>
+                    <h4>Bus 02 Route: </h4>
+                    <p>NIFT Patna -> CNLU -> Hartali More -> Above Flyover (Bailey Road) -> Gate No. 1.</p>
+                    <br>
+                    <br>
+                    <h3>FROM IIT CAMPUS(BIHTA) TO PATNA</h3>
+                    <div class="container" style="width: 150px; margin: 0">
+                      <table class="table table-bordered" >
+                        <thead>
+                          <tr>
+                            <th>Time</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>12:00 AM</td>
+                          </tr>
+                            <tr>
+                            <td>4:00 PM</td>
+                          </tr>
+                            <tr>
+                            <td>11:00 PM</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <h4>Bus 01 Route:</h4> 
+                    <p>Gate No. 1 -> Above Flyover (Bailey Road) -> Hartali More -> Patna Women’s College (Patna High Court) -> A.N. College -> Old IIT Patna Campus (Bakhtiyarpur Engg. College). </p>
+                    <h4>Bus 02 Route: </h4>
+                    <p>Gate No. 1 -> Above Flyover (Bailey Road) -> Hartali More -> NIFT Patna -> CNLU (Mithapur). </p>
+                    <br>
+                    <br>
+                    <div class="container">
+                      <table class="table table-bordered" >
+                        <thead>
+                          <tr>
+                            <th>NOTE:</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>1.The time indicates the tentative start time of the bus from start location.</td>
+                          </tr>
+                            <tr>
+                            <td>2.The Hospitality committee reserves the right to cancel the bus with or without prior information.</td>
+                            </tr>
+                            <tr>
+                            <td>3.There can be delay due to unavoidable circumstance.</td>
+                            </tr>
+                            <tr>
+                            <td>4.Any damage to the bus or any offensive behaviour during the journey may lead to serious actions.</td>
+                            </tr>
+                            <tr>
+                            <td>5.Please board the bus after paying the fare and receiving the journey pass and produce it when asked.</td>
+                            </tr>
+                            <tr>
+                            <td>6.The passengers will be allowed to board only from above stops mentioned in route. No interim boarding will be permitted.</td>
+                            </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <br>
+                    <h5>The bus travel will cost Rs 30.00 for one side. Bus travel in night shift (after 10 pm) will cost Rs 50.00.</h5>
+                    
+                </div>
+                <div class="panel" id="five">
+                    <h1>Accommodation</h1>
+                    <ul>
+                        <li>Before applying for online accommodation you must be registered to Anwesha'19 and must have a valid Anwesha'19 ID.</li>
+                        <li>Payment will be made through Paytm only for online accommodation.</li>
+                        <li>No amount will be refunded on cancellation of registration or accommodation.</li>
+                        <li>On successful application of online accommodation, you will receive a confirmation mail.</li>
+                        <li>Prior accommodation (01/02/2019) can be availed only through online accommodation facility.</li>
+                        <li>You will be provided accommodation only after it has been confirmed by the Hospitality committee.</li>
+                        <button class="btn btn-primary">Apply</button>
+                    </ul>
+                </div>
+                <div class="panel" id="six">
+                    <h1>Contacts</h1>
+                    <p>Mayank Tripathi     +91 9702834860 </p>
+                    <p>Naveen     +91 9955543210 </p>
+                    <p>Shashank     +91 9491746913</p>
+                </div>
+                
+          </div>
+        </div>
+        
+        
+        
+
+  
+        
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+        
+        <script type="text/javascript" src="particles.js"></script>
+        <script type="text/javascript">
+             document.addEventListener('DOMContentLoaded', function(){
+                 
+                  const tabs = document.querySelector('.tabs');
+                  const panels = document.querySelectorAll('.panel');
+                  tabs.addEventListener('click',(e)=>{
+                    if(e.target.tagName == 'BUTTON'){
+                      const targetPanel = document.querySelector(e.target.dataset.target);
+                      Array.from(panels).forEach((panel) => {
+                        if(panel == targetPanel){
+                          panel.classList.add('active');
+                        }else{
+                          panel.classList.remove('active');
+                        }
+                      });
+                    }
+                  });
+             });
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                    $('.nav button').each(function(){
+                    $(this).click(function(){
+                        $(this).siblings().removeClass('active'); // if you want to remove class from all sibling buttons
+                        $(this).addClass('active');
+                    });
+                });
+            });
+        </script>
+    </body>
+</html> 

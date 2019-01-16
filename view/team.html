@@ -1,974 +1,677 @@
-<html>
-	<head>
-		<title>Team | Anwesha 2018</title>
-
-		<meta name="viewport" content="width=device-width, initial-scale= 1">
-		<meta name="theme-color" content="#2b2b2b">
-		<link href="../css/bootstrap.min.css" rel="stylesheet">
-		<link href="../css/style.css" rel="stylesheet">
-		<link href="../images/logo_favi.png" rel="icon" >
-
-	<!-----styling for team page------>
-		<style type="text/css">
-		/*------------team menu bar------------*/
-			.team_menu_bar
-			{
-				display: block;
-				z-index: 180;
-				text-align:center;
-				font-size: 120%;
-				margin-bottom: 10px;
-			}
-
-			.team_menu_bar ul
-			{
-				list-style: none;
-				padding:0;
-				margin:0;
-			}
-
-			.team_menu_bar li
-			{
-				background: #ce980f;
-				display: inline-block;
-				padding: .5%;
-				margin-left: .5%;
-				//box-shadow: 3px 3px 1px black;
-				border-radius: 2px;
-				cursor: pointer;
-			}
-
-			.team_menu_bar a
-			{
-				text-decoration: none;
-				color: white;
-				cursor: pointer;
-			}
-
-			.team_menu_bar a:hover
-			{
-				color: black;
-			}
-
-			.arts_cord, .cnd_cord, .cult_cord, .mpr_cord, .reg_cord, .spons_cord, .tech_cord, .web_cord, .web_dev_sub, .hospi_cord
-			{
-				display: none;
-			}
-			
-
-			@media screen and (max-width: 900px)
-			{
-				.moving_floor_div
-				{
-					display: none;
-				}
-
-				.moving_wall_div
-				{
-					display: none;
-				}
-
-				.team_div
-				{
-					//background-color: red;
-					background-image: url(../images/wanted_wall_mob.png);
-					background-size: cover;
-					background-repeat: no-repeat;
-					opacity: 1;
-					height: 60%;
-					width: 100%;
-					overflow-y: scroll;
-					text-align: center;
-					
-				}
-
-				.team_text
-				{
-					display: block;
-					margin:auto;
-					margin: 2%;
-					font-size: 120%;
-				}
-
-				.team_blank
-				{
-					height: 50px;
-					//background: orange;
-					display: block;
-					margin:auto;
-				}
-
-				.team_menu_bar li
-				{
-					display: block;
-					margin: auto;
-					margin-top: 10px;
-					width: 70%;
-					
-				}
-
-			}
-		</style>
-	</head>
-	<body>
-
-<!---------header-----bar-->
-	<div class="header_div">
-		 <div class="menu_toggle">
-			<img src="../images/skull_menu.png">
-			<span> MENU </span>
-		</div>
-	</div>
-
-<!-----menu----bar------>
-	<div class="menu_bar">
-		<ul>
-			<li><a href="/">Home</a></li>
-			<li><a href="/events/">Events</a></li>
-			<!-- <li class="sch_div">Schedule</li> -->
-			<li><a href="https://www.facebook.com/pg/anwesha.iitpatna/photos/?ref=page_internal" target="_blank">Gallery</a></li>
-			<li><a href="/team/">Team</a></li>
-			<!-- <li><a href="/events/">Team</a></li> -->
-			<li class="spons_div">Sponsors</li>
-			<li class="acco_load">Hospitality/Accomodation</li>
-			<li class="register">Register</li>
-			<li class="ca"><a href="/ca/" target="_blank">Campus Ambassador</a></li>
-		</ul>
-	</div>
-
-<!-----doors---->
-	<div class="menu_backgrnd">
-		<div class="overlay"></div>
-		<img class="creep" src="../images/creep.png">
-		<br>
-		<img class="boundary" src="../images/bound.png">
-	</div>
-	
-<!-----moving ----witch------>
-	<img class="moving_witch" id="moving_witch" src="../images/witch_right_1.png">
-
-<!-----fixed ----cloud------>
-	<div class="cloud_div"></div>
-
-<!-----moving ----cloud------>
-	<div class="moving_cloud_div">
-		<img src="../images/moving_cloud.png">
-	</div>
-
-<!-----moving ----wall------>
-	<div class="moving_wall_div">
-		<img src="../images/wanted_wall.png">
-		<!-- <img src="../images/wanted_wall.png"> -->
-	</div>
-
-<!---team div---->
-	<div class="team_div">
-		<div class="team_menu_bar">
-			<ul>
-				<a id="fest_cord"><li>Fest Coordinator</li></a>
-				<a id="mpr"><li>Media &amp; PR</li></a>
-				<a id="hospi"><li>Hospitality</li></a>
-				<a id="rsp"><li>Registration, Security &amp; Planning</li></a>
-				<a id="spons"><li>Marketing &amp; Sponsorship</li></a>
-				<a id="cult"><li>Cultural</li></a>
-				<a id="tech"><li>Technical</li></a>
-				<a id="arts"><li>Arts &amp; Welfare</li></a>
-				<a id="cnd"><li>Creatives &amp; Design</li></a>
-				<a id="webapp"><li>	Web &amp; App</li></a>
-				<a id="webdev"><li>Web Developers</li></a>
-
-			</ul>
-		</div>
-
-		<div class="team_blank"></div>
-	
-	<!---------team loader------>
-		<div class="team_loader">
-
-		<!-----fest cord------>
-			<div class="fest_cord">
-				<div class="team_text"> Fest Coordinator</div>
-				<div class="team_mem">
-					<div class="mem_content">
-						<img src="../images/team/himanshu.jpg"/>
-						<br>
-						<span class="mem_name">Himanshu Barua</span>
-						<br>
-						<a>himanshu.cs15@iitp.ac.in</a>
-					</div>
-				</div>
-			</div>
-							
-		<!----Arts & Welfare---->
-			<div class="arts_cord">
-			
-				<div class="team_text">Arts & Welfare</div>
-
-				<div class="team_mem">
-					<div class="mem_content">
-						<img src="../images/team/rajneesh.jpg"/>
-						<br>
-						<span class="mem_name">Rajneesh Singh</span>
-						
-					</div>
-				</div>
-
-				<div class="team_blank"></div>
-					
-				<div class="team_mem">
-					<div class="mem_content">
-						<img src="../images/team/rajeev.jpg"/>
-						<br>
-						<span class="mem_name">Rajeev Verma</span>
-						<br>
-						<a>rajeev.ee15@iitp.ac.in</a>
-						<br>
-						<a>7294000948</a>
-					</div>
-				</div>
-
-				<div class="team_blank"></div>
-					
-				<div class="team_mem">
-					<div class="mem_content">
-						<img src="../images/team/manohar.jpg"/>
-						<br>
-						<span class="mem_name">Manohar Palavalasa</span>
-						
-					</div>
-				</div>
-			</div>
-
-		<!----Creatives & Design---->
-			<div class="cnd_cord">
-				<div class="team_text">Creatives & Design</div>
-
-				<div class="team_mem">
-					<div class="mem_content">
-						<img src="../images/team/abh_b.jpg"/>
-						<br>
-						<span class="mem_name">Abhishek Kumar</span>
-						<br>
-						<a>abhishek.ee15@iitp.ac.in</a>
-						<br>
-						<a>7261869560</a>
-					</div>
-				</div>
-
-				<div class="team_blank"></div>
-					
-				<div class="team_mem">
-					<div class="mem_content">
-						<img src="../images/team/nitesh.jpg"/>
-						<br>
-						<span class="mem_name">Nitesh Dwivedi</span>
-						<!-- <br>
-						<a href="mailto:aditya.me16@iitp.ac.in">aditya.me16@iitp.ac.in</a>
-						<br>
-						<a href="tel:7424947945">7424947945</a> -->
-					</div>
-				</div>
-
-				<div class="team_blank"></div>
-					
-				<div class="team_mem">
-					<div class="mem_content">
-						<img src="../images/team/shashwat.jpg"/>
-						<br>
-						<span class="mem_name">Shashwat Gupta</span>
-						<!-- <br>
-						<a href="mailto:aditya.me16@iitp.ac.in">aditya.me16@iitp.ac.in</a>
-						<br>
-						<a href="tel:7424947945">7424947945</a> -->
-					</div>
-				</div>
-
-			</div>
-
-		<!----cultural---->
-			<div class="cult_cord">
-				<div class="team_text">Cultural</div>
-
-				<div class="team_mem">
-					<div class="mem_content">
-						<img src="../images/team/rohit.JPG"/>
-						<br>
-						<span class="mem_name">Rohit Gupta</span>
-						<br>
-						<a>rohit.me15@iitp.ac.in</a>
-						<br>
-						<a>7042712975</a>
-					</div>
-				</div>
-
-				<div class="team_blank"></div>
-					
-				<div class="team_mem">
-					<div class="mem_content">
-						<img src="../images/team/vijay.jpg"/>
-						<br>
-						<span class="mem_name">Vijay Yadav</span>
-						<br>
-						<a>vijay.ch15@iitp.ac.in</a>
-						<br>
-						<a>9455061806</a>
-					</div>
-				</div>
-			</div>
-
-		<!---hospi---->
-			<div class="hospi_cord">
-				<div class="team_text">Hospitality</div>
-		
-				<div class="team_mem">
-					<div class="mem_content">
-						<img src="../images/team/solomon.jpg"/>
-						<br>
-						<span class="mem_name">Solomon Joy</span>
-						
-					</div>
-				</div>
-				<div class="team_blank"></div>
-				
-				<div class="team_mem">
-					<div class="mem_content">
-						<img src="../images/team/piyush.jpeg"/>
-						<br>
-						<span class="mem_name">Piyush Kumar Agarwal</span>
-						<br>
-						<a>piyush.ee15@iitp.ac.in</a>
-						<br>
-						<a>7980183647</a>
-					</div>
-				</div>
-				<div class="team_blank"></div>
-				
-				<div class="team_mem">
-					<div class="mem_content">
-						<img src="../images/team/ashish.jpg"/>
-						<br>
-						<span class="mem_name">Ashish Raj</span>
-					
-					</div>
-				</div>
-			</div>
-
-		<!---media---->
-			<div class="mpr_cord">
-				<div class="team_text">Media & PR</div>
-		
-				<div class="team_mem">
-					<div class="mem_content">
-						<img src="../images/team/shiv.jpg"/>
-						<br>
-						<span class="mem_name">Shivpreet Sharma</span>
-						<br>
-						<a>shivpreet.ce15@iitp.ac.in</a>
-						<br>
-						<a>8269502154</a>
-					</div>
-				</div>
-				<div class="team_blank"></div>
-				
-				<div class="team_mem">
-					<div class="mem_content">
-						<img src="../images/team/rahul.jpg"/>
-						<br>
-						<span class="mem_name">Rahul Jain</span>
-						<br>
-						<a>rahul.ce15@iitp.ac.in</a>
-						<br>
-						<a>7292986255</a>
-					</div>
-				</div>
-				<div class="team_blank"></div>
-				
-				<div class="team_mem">
-					<div class="mem_content">
-						<img src="../images/team/arin.jpg"/>
-						<br>
-						<span class="mem_name">Arinjaya Khare</span>
-						<br>
-						<a>arinjaya.cs15@iitp.ac.in</a>
-						<br>
-						<a>9431222254</a>
-					</div>
-				</div>
-	
-			</div>
-
-		<!---reg---->
-			<div class="reg_cord">
-				<div class="team_text">Registration, <br><br> Security & Planning</div>
-		
-				<div class="team_mem">
-					<div class="mem_content">
-						<img src="../images/team/niru.jpg"/>
-						<br>
-						<span class="mem_name">Niranjan Meena</span>
-						<br>
-						<a>niranjan.me15@iitp.ac.in</a>
-						<br>
-						<a>9555516461</a>
-					</div>
-				</div>
-				<div class="team_blank"></div>
-				
-				<div class="team_mem">
-					<div class="mem_content">
-						<img src="../images/team/hariraj.jpg"/>
-						<br>
-						<span class="mem_name">Hariraj Meena</span>
-						<br>
-						<a>hariraj.me15@iitp.ac.in</a>
-						<br>
-						<a>9166510630</a>
-					</div>
-				</div>
-				<div class="team_blank"></div>
-				
-				<div class="team_mem">
-					<div class="mem_content">
-						<img src="../images/team/sahil.jpg"/>
-						<br>
-						<span class="mem_name">Sahil Sharma</span>
-						
-					</div>
-
-				</div>
-				<div class="team_blank"></div>
-				
-				<div class="team_mem">
-					<div class="mem_content">
-						<img src="../images/team/abh_yd.jpg"/>
-						<br>
-						<span class="mem_name">Abhishek Yadav</span>
-					<!-- 	<br>
-						<a href="mailto:aditya.me16@iitp.ac.in">aditya.me16@iitp.ac.in</a>
-						<br>
-						<a href="tel:7424947945">7424947945</a> -->
-					</div>
-				</div>
-			
-			</div>
-
-		<!----spons---->
-			<div class="spons_cord">
-				<div class="team_text">Marketing & Sponsorship</div>
-
-				<div class="team_mem">
-					<div class="mem_content">
-						<img src="../images/team/ayush.jpg"/>
-						<br>
-						<span class="mem_name">Ayush Sharma</span>
-						<br>
-						<a>ayushsharma.cs15@iitp.ac.in</a>
-						<br>
-						<a>9661176887</a>
-					</div>
-				</div>
-
-				<div class="team_blank"></div>
-					
-				<div class="team_mem">
-					<div class="mem_content">
-						<img src="../images/team/himanshu.jpg"/>
-						<br>
-						<span class="mem_name">Himanshu Barua</span>
-						<br>
-						<a>himanshu.cs15@iitp.ac.in</a>
-						
-					</div>
-				</div>
-
-				<div class="team_blank"></div>
-					
-				<div class="team_mem">
-					<div class="mem_content">
-						<img src="../images/team/pranav.jpg"/>
-						<br>
-						<span class="mem_name">Pranav Mutharia</span>
-						<br>
-						<a>pranav.cs15@iitp.ac.in</a>
-						<br>
-						<a>9899802982</a>
-					</div>
-				</div>
-
-			</div>
-
-		<!----technical---->
-			<div class="tech_cord">
-				<div class="team_text">Technical</div>
-
-				<div class="team_mem">
-					<div class="mem_content">
-						<img src="../images/team/tarun.jpeg"/>
-						<br>
-						<span class="mem_name">Tarun Garg</span>
-						<br>
-						<a>tarungarg.cs15@iitp.ac.in</a>
-						<br>
-						<a>7597694454</a>
-					</div>
-				</div>
-
-				<div class="team_blank"></div>
-					
-				<div class="team_mem">
-					<div class="mem_content">
-						<img src="../images/team/debdeep.jpg"/>
-						<br>
-						<span class="mem_name">Debdeep Paul</span>
-						<br>
-						<a>debdeep.ee15@iitp.ac.in</a>
-						<br>
-						<a>9523865409</a>
-					</div>
-				</div>
-
-			</div>
-
-		<!----Web & App---->
-			<div class="web_cord">
-				<div class="team_text">Web & App</div>
-
-				<div class="team_mem">
-					<div class="mem_content">
-						<img src="../images/team/chirag.jpg"/>
-						<br>
-						<span class="mem_name">Chirag Wadhera</span>
-						<br>
-						<a>chirag.cs15@iitp.ac.in</a>
-						<br>
-						<a>9971281365</a>
-					</div>
-				</div>
-
-				<div class="team_blank"></div>
-					
-				<div class="team_mem">
-					<div class="mem_content">
-						<img src="../images/team/yogi.jpg"/>
-						<br>
-						<span class="mem_name">Yogendra Singh</span>
-						<br>
-						<a>yogendra.cs15@iitp.ac.in</a>
-						<br>
-						<a>7770878087</a>
-					</div>
-				</div>
-			</div>
-
-		<!----Web Developers---->
-			<div class="web_dev_sub">
-				<div class="team_text">Web Developers</div>
-
-				<div class="team_mem">
-					<div class="mem_content">
-						<img src="../images/team/aditya.jpg"/>
-						<br>
-						<span class="mem_name">Aditya Suman</span>
-						<br>
-						<a>aditya.me16@iitp.ac.in</a>
-						<br>
-						<a>7424947945</a>
-					</div>
-				</div>
-
-				<div class="team_blank"></div>
-					
-				<div class="team_mem">
-					<div class="mem_content">
-						<img src="../images/team/tameesh.jpg"/>
-						<br>
-						<span class="mem_name">Tameesh Biswas</span>
-						<br>
-						<a href='mailto:me@tameesh.in' target='_blank'>me@tameesh.in</a>
-						<br>
-						<a href='https://tameesh.in' target='_blank'>tameesh.in</a>
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</div>
-
-<!---ajax loader-->
-
-	<div class="ajax_loading_bckgrnd">
-		<div class="ajax_back"></div>
-	</div>
-
-	<div class="ajax_loading_div">
-		<img class="close_icon" src="../images/close2.png"/>
-		<div class="ajax_content"></div>
-	</div>
-
-<!---footer-->
-	<div class="footer_div">
-		<a target="_blank" href="https://www.facebook.com/anwesha.iitpatna/"><img src="../images/social/fb.png"></a>
-		<a target="_blank" href="https://www.instagram.com/anwesha.iitp/"><img src="../images/social/insta.png"></a>
-		<a target="_blank" href="https://www.youtube.com/user/AnweshaIITP"><img src="../images/social/youtube.png"></a>
-		
-		<div class="copyright">
-			&copy; 2019 Anwesha, IIT Patna
-		</div>
-	</div>
-
-<!--scripts-->
-<script type="text/javascript" src="../js/jquery.js"></script>
-<script type="text/javascript" src="../js/jquery.mousewheel.js"></script>
-
-<script type="text/javascript">
-//--horizontal----------- scrolling-->
-	$(document).ready(function() {
-	    $('body, html, *').mousewheel(function(e, delta) {
-	        // multiplying by 40 is the sensitivity, 
-	        // increase to scroll faster.
-	        this.scrollLeft -= (delta * 60);
-	        e.preventDefault();
-	    });
-
-	});
-
-//-----menu toggle
-	$('.menu_toggle img').on("click",function()
-	{
-		span_text=$('.menu_toggle span').text();
-		if(span_text == "EXIT")
-		{
-			$('.menu_toggle span').text('MENU');
-			$('.menu_toggle img').attr('src', '/images/skull_menu.png');
-			$('.menu_backgrnd').fadeOut(800);
-			$('.menu_bar').slideUp(800);
-		}
-		else
-		{
-			$('.menu_toggle span').text('EXIT').fadeIn(800);
-			$('.menu_toggle img').attr('src', '/images/skull_exit.png');
-			$('.menu_backgrnd').fadeIn(800);
-			$('.menu_bar').slideDown(800);
-		}
-	});
-
-	$('.menu_backgrnd').click(function()
-	{
-		$('.menu_toggle span').text('MENU');
-		$('.menu_toggle img').attr('src', '/images/skull_menu.png');
-		$('.menu_backgrnd').fadeOut(800);
-		$('.menu_bar').slideUp(800);
-	});
-
-
-//menu bar item css
-	var new_li= $('.menu_bar li').first();
-	new_li.addClass('first_rot');
-	var new_li= new_li.next().next();
-	new_li.addClass('first_rot');
-	var new_li= new_li.next().next();
-	new_li.addClass('secnd_rot');
-	var new_li= new_li.next().next();
-	new_li.addClass('first_rot');
-	var new_li= new_li.next().next().next();
-	new_li.addClass('secnd_rot');
-
-
-//witch direction on moving mouse
-	$(document).ready( function ()
-	{
-
-	// track and save the position of the mouse
-		$(document).mousemove( function(e) 
-		{
-			mouseX = e.pageX;
-			mouseY = e.pageY; 
-  		 	
-  		 	witchX = parseInt($('#moving_witch').css("left"));
-  		 	witchY = parseInt($('#moving_witch').css("top"));
-
-			$('#moving_witch').css('top',mouseY + 50);
-			 	$('#moving_witch').css('left',mouseX + 50);
-
-  		 	
-  		 	if(witchX < mouseX)
-  		 	{
-  		 		$('#moving_witch').css('transform', 'rotateY(360deg)');
-  		 	}
-  		 	else
-  		 	{
-  		 		$('#moving_witch').css('transform', 'rotateY(180deg)');
-
-  		 	}
-		});
-
-	});
-
-//cloud motion
-	$(document).scroll(function()
-	{
-		var window_pos = $(this).scrollLeft();
-		//alert(window_pos);
-		$('.moving_cloud_div img').css('left', -(window_pos * .05) + 'px');
-	});
-
-//wall motion
-	$(document).scroll(function()
-	{
-		var window_pos = $(this).scrollLeft();
-		//alert(window_pos);
-		$('.moving_wall_div img').css('left', -(window_pos * .2) + 'px');
-	});
-
-//mob scroll
-	mob_scroll_posn = $('.team_div').scrollTop();
-
-	$('.team_div').scroll(function()
-	{
-		var mob_pos = $(this).scrollTop();
-
-	//cloud motion and floor motion
-		$('.moving_cloud_div img').css('left', -(mob_pos * .05) + 'px');
-		$('.moving_floor_div img').css('left', -(mob_pos * .4) + 'px');
-	});
-
-//ajax on menu items
-	$('.close_icon').click(function()
-	{
-		$('.ajax_loading_bckgrnd').fadeOut(800);
-		$('.ajax_loading_div').fadeOut(800);
-	});
-
-	$('.spons_div').click(function()
-	{
-		$('.ajax_loading_bckgrnd').fadeIn(800);
-		$('.ajax_loading_div').fadeIn(800);
-	});
-
-	$('.sch_div').click(function()
-	{
-		$('.ajax_loading_bckgrnd').fadeIn(800);
-		$('.ajax_loading_div').fadeIn(800);
-	});
-
-	$('.acco_load').click(function()
-	{
-		$('.ajax_loading_bckgrnd').fadeIn(800);
-		$('.ajax_loading_div').fadeIn(800);
-	});
-
-	$('.register').click(function()
-	{
-		$('.ajax_loading_bckgrnd').fadeIn(800);
-		$('.ajax_loading_div').fadeIn(800);
-	});
-	
-//team mem ajax loader
-	$('#fest_cord').click(function()
-	{
-		$('.fest_cord').fadeIn(800);
-
-		$('.arts_cord').fadeOut(0);
-		$('.cnd_cord').fadeOut(0);
-		$('.cult_cord').fadeOut(0);
-		$('.hospi_cord').fadeOut(0);
-		$('.mpr_cord').fadeOut(0);
-		$('.reg_cord').fadeOut(0);
-		$('.spons_cord').fadeOut(0);
-		$('.tech_cord').fadeOut(0);
-		$('.web_cord').fadeOut(0);
-		$('.web_dev_sub').fadeOut(0);
-	});
-
-	$('#mpr').click(function()
-	{
-		$('.mpr_cord').fadeIn(800);
-
-		$('.arts_cord').fadeOut(0);
-		$('.cnd_cord').fadeOut(0);
-		$('.cult_cord').fadeOut(0);
-		$('.hospi_cord').fadeOut(0);
-		$('.fest_cord').fadeOut(0);
-		$('.reg_cord').fadeOut(0);
-		$('.spons_cord').fadeOut(0);
-		$('.tech_cord').fadeOut(0);
-		$('.web_cord').fadeOut(0);
-		$('.web_dev_sub').fadeOut(0);
-	});
-
-
-	$('#hospi').click(function()
-	{
-		$('.hospi_cord').fadeIn(800);
-
-		$('.arts_cord').fadeOut(0);
-		$('.cnd_cord').fadeOut(0);
-		$('.cult_cord').fadeOut(0);
-		$('.mpr_cord').fadeOut(0);
-		$('.fest_cord').fadeOut(0);
-		$('.reg_cord').fadeOut(0);
-		$('.spons_cord').fadeOut(0);
-		$('.tech_cord').fadeOut(0);
-		$('.web_cord').fadeOut(0);
-		$('.web_dev_sub').fadeOut(0);
-	});
-
-
-	$('#spons').click(function()
-	{
-		$('.spons_cord').fadeIn(800);
-
-		$('.arts_cord').fadeOut(0);
-		$('.cnd_cord').fadeOut(0);
-		$('.cult_cord').fadeOut(0);
-		$('.mpr_cord').fadeOut(0);
-		$('.fest_cord').fadeOut(0);
-		$('.reg_cord').fadeOut(0);
-		$('.hospi_cord').fadeOut(0);
-		$('.tech_cord').fadeOut(0);
-		$('.web_cord').fadeOut(0);
-		$('.web_dev_sub').fadeOut(0);
-	});
-
-
-	$('#webdev').click(function()
-	{
-		$('.web_dev_sub').fadeIn(800);
-
-		$('.arts_cord').fadeOut(0);
-		$('.cnd_cord').fadeOut(0);
-		$('.cult_cord').fadeOut(0);
-		$('.mpr_cord').fadeOut(0);
-		$('.fest_cord').fadeOut(0);
-		$('.reg_cord').fadeOut(0);
-		$('.hospi_cord').fadeOut(0);
-		$('.tech_cord').fadeOut(0);
-		$('.web_cord').fadeOut(0);
-		$('.spons_cord').fadeOut(0);
-	});
-
-	$('#webapp').click(function()
-	{
-		$('.web_cord').fadeIn(800);
-
-		$('.arts_cord').fadeOut(0);
-		$('.cnd_cord').fadeOut(0);
-		$('.cult_cord').fadeOut(0);
-		$('.mpr_cord').fadeOut(0);
-		$('.fest_cord').fadeOut(0);
-		$('.reg_cord').fadeOut(0);
-		$('.hospi_cord').fadeOut(0);
-		$('.tech_cord').fadeOut(0);
-		$('.web_dev_sub').fadeOut(0);
-		$('.spons_cord').fadeOut(0);
-	});
-
-	$('#cnd').click(function()
-	{
-		$('.cnd_cord').fadeIn(800);
-
-		$('.arts_cord').fadeOut(0);
-		$('.web_cord').fadeOut(0);
-		$('.cult_cord').fadeOut(0);
-		$('.mpr_cord').fadeOut(0);
-		$('.fest_cord').fadeOut(0);
-		$('.reg_cord').fadeOut(0);
-		$('.hospi_cord').fadeOut(0);
-		$('.tech_cord').fadeOut(0);
-		$('.web_dev_sub').fadeOut(0);
-		$('.spons_cord').fadeOut(0);
-	});
-
-	$('#arts').click(function()
-	{
-		$('.arts_cord').fadeIn(800);
-
-		$('.cnd_cord').fadeOut(0);
-		$('.web_cord').fadeOut(0);
-		$('.cult_cord').fadeOut(0);
-		$('.mpr_cord').fadeOut(0);
-		$('.fest_cord').fadeOut(0);
-		$('.reg_cord').fadeOut(0);
-		$('.hospi_cord').fadeOut(0);
-		$('.tech_cord').fadeOut(0);
-		$('.web_dev_sub').fadeOut(0);
-		$('.spons_cord').fadeOut(0);
-	});
-
-	$('#tech').click(function()
-	{
-		$('.tech_cord').fadeIn(800);
-
-		$('.cnd_cord').fadeOut(0);
-		$('.web_cord').fadeOut(0);
-		$('.cult_cord').fadeOut(0);
-		$('.mpr_cord').fadeOut(0);
-		$('.fest_cord').fadeOut(0);
-		$('.reg_cord').fadeOut(0);
-		$('.hospi_cord').fadeOut(0);
-		$('.arts_cord').fadeOut(0);
-		$('.web_dev_sub').fadeOut(0);
-		$('.spons_cord').fadeOut(0);
-	});
-
-	$('#cult').click(function()
-	{
-		$('.cult_cord').fadeIn(800);
-
-		$('.cnd_cord').fadeOut(0);
-		$('.web_cord').fadeOut(0);
-		$('.tech_cord').fadeOut(0);
-		$('.mpr_cord').fadeOut(0);
-		$('.fest_cord').fadeOut(0);
-		$('.reg_cord').fadeOut(0);
-		$('.hospi_cord').fadeOut(0);
-		$('.arts_cord').fadeOut(0);
-		$('.web_dev_sub').fadeOut(0);
-		$('.spons_cord').fadeOut(0);
-	});
-
-	$('#rsp').click(function()
-	{
-		$('.reg_cord').fadeIn(800);
-
-		$('.cnd_cord').fadeOut(0);
-		$('.web_cord').fadeOut(0);
-		$('.tech_cord').fadeOut(0);
-		$('.mpr_cord').fadeOut(0);
-		$('.fest_cord').fadeOut(0);
-		$('.cult_cord').fadeOut(0);
-		$('.hospi_cord').fadeOut(0);
-		$('.arts_cord').fadeOut(0);
-		$('.web_dev_sub').fadeOut(0);
-		$('.spons_cord').fadeOut(0);
-	});
-
-</script>
-
-<!---------stars in background---------->
-<script src="../js/jquery-stars.js"></script>
-<script>
-	$(document).jstars({
-		image_path: 'images',
-		style: 'yellow',
-		frequency: 20,
-		delay: 400
-	});
-	
-</script>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-90791019-1"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag() { dataLayer.push(arguments); }
-		gtag('js', new Date());
-
-		gtag('config', 'UA-90791019-1');
-	</script>
-
-<script type="text/javascript" src="../js/ajax.js"></script>
-
-	</body>
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Our Team</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+
+  
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.0/css/font-awesome.css'>
+
+      <link rel="stylesheet" href="/assets/css/team2.css">
+    <style>
+    body {
+	width: 100wh;
+	height: 90vh;
+	color: #fff;
+	background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+	background-size: 400% 400%;
+	-webkit-animation: Gradient 15s ease infinite;
+	-moz-animation: Gradient 15s ease infinite;
+	animation: Gradient 15s ease infinite;
+}
+.mobile-nav-btn {
+    cursor: pointer;
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    width: 40px;
+    height: 40px;
+    background: #333;
+    background: url(../img/menu.png) no-repeat center center;
+    background-size: contain;
+    display: none;
+    z-index: 101
+}
+
+
+.mobile-nav-btn.white {
+    background: url(../img/menu.png) no-repeat center center;
+    background-size: 40px 40px
+}
+
+#mobile-nav {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    background: #fff;
+    z-index: 102;
+    display: none;
+    margin-top: -30px; 
+}
+
+#mobile-nav .close {
+    position: absolute;
+    top: 20px;
+    right: 20px
+}
+
+#mobile-nav ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    align-content: center;
+    height: 100%
+}
+
+#mobile-nav li {
+    margin: -4px;
+    display: block;
+}
+
+#mobile-nav li a {
+    display: block;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 25px;
+    font-family: PTC55F, cursive !important;
+    color:white;
+    text-decoration: none
+}
+
+#menu {
+    z-index: 100;
+    width: max-content;
+    width: -moz-max-content;
+    top: 20px;
+    position: fixed;
+    font-family: 'navbarfont', cursive;
+    transform: translateX(-50%);
+    left: 50%
+}
+
+#menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0
+}
+
+#menu li {
+    display: inline-block;
+    border-bottom: 1px solid transparent;
+    cursor: pointer
+}
+
+#menu li a {
+    display: block;
+    padding: 5px;
+    text-decoration: none;
+    color: inherit
+}
+
+#menu li a:visited {
+    text-decoration: none;
+    color: inherit
+}
+
+#menu li:hover {
+    border-bottom: 1px solid #333;
+    border-color: inherit
+}
+
+@-webkit-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@-moz-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+.title-text { padding-top:50px; color:#ffffff; font-size:3em; text-shadow: 0 25px 13px #f8f8f8, 0 2px 8px #999999, 0 2px 200px #909090; text-align:center; }
+
+
+h2{
+    text-align: center;
+    color:white;
+    background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+    padding:10px;
+    -webkit-animation: Gradient 15s ease infinite;
+	-moz-animation: Gradient 15s ease infinite;
+	animation: Gradient 15s ease infinite;
+}
+</style>
+  
+</head>
+
+<body>
+
+<!-- Navigation Menu -->
+<div id="menu">
+        <ul data-start="color:rgb(0,0,0); border-color:rgb(0,0,0); background: rgba(255,255,255,0.9);     box-shadow: 0 0 0px rgba(255,255,255,1);"
+          data-500="color:rgb(0,0,0); border-color:rgb(0,0,0); background: rgba(255,255,255,0.9);     box-shadow: 0 0 10px rgba(255,255,255,1);"
+          class="skrollable skrollable-between" style="border-radius:20px;color: rgb(0,0,0); border-color: rgb(0,0,0); background: rgba(255,255,255,0.9); box-shadow: rgba(255,255,255,1) 0px 0px 30px;">
+          <!-- <li id="home-link"><a href="#start-section">HOME</a></li> -->
+          <li><a href="/" id="">Back to Home Page</a></li>
+          <!-- <li><a href="/view/index.html/#About" id="">About</a></li>
+          <li><a href="/view/spons.html" id="">Sponsors</a></li>
+          <li><a href="/view/index.html/#Contact-Us" id="">Contact Us</a></li>
+          <li><a href="/view/index.html/#Audition" id="">Auditions</a></li>
+          <li><a href="/view/ca.php" id="">Campus Ambassador</a></li> -->
+          
+        </ul>
+      </div>
+      <div id="mobile-nav-btn" class="mobile-nav-btn dark " data-100="opacity:1;" data-500="opacity:0; "
+        style="opacity: 1;"></div>
+      <div class="mobile-nav-btn white " data-100="opacity:0;" data-500="opacity:1; " style=""></div>
+      <div id="mobile-nav" style="background-color:black">
+        <img src="/assets/img/close.png" class="close" alt="close menu" width="30" height="30">
+        <ul>
+          <li><a href="/" id="">Back to Home Page</a></li>
+        
+          
+        </ul>
+      </div>
+      <!-- /Navigation Menu -->
+
+    <div class = "title-text">Anwesha '19</div>
+    <h2>The Impeccable Creators of the Impeccable Extravaganza</h2>
+    <br><br>
+      <section class="our-team-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="our-team">
+                        <div class="pic">
+                            <img src="https://graph.facebook.com/100006497449606/picture?type=large">
+                        </div>
+                        <div class="team-content">
+                            <h3 class="title">Mayank Wadhwani</h3>
+                            <span class="post">Overall Fest Coordinator</span>
+                        </div>
+                        <ul class="social">
+                            <li>
+                                <a href="#"  target="_blank"class="fa fa-facebook"></a>
+                            </li>
+                            <li>
+                                <a href="#" class="fa fa-envelope"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            <div class="row justify-content-center">
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="our-team">
+                            <div class="pic">
+                                <img src="https://graph.facebook.com/100002804922282/picture?type=large">
+                            </div>
+                            <div class="team-content">
+                                <h3 class="title">Mayank Tripathi</h3>
+                                <span class="post">Pro-show coordinator</span>
+                            </div>
+                            <ul class="social">
+                                <li>
+                                    <a href="#"  target="_blank"class="fa fa-facebook"></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="fa fa-envelope"></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <br><br>
+            <div class = "row justify-content-center">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="our-team">
+                        <div class="pic">
+                            <img src="https://graph.facebook.com/100003194176751/picture?type=large">
+                        </div>
+                        <div class="team-content">
+                            <h3 class="title">G Sahi Darsini</h3>
+                            <span class="post">Marketing and Sponsorship</span>
+                        </div>
+                        <ul class="social">
+                            <li>
+                                <a href="#" class="fa fa-facebook"></a>
+                            </li>
+                            <li>
+                                <a href="#" class="fa fa-envelope"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="our-team">
+                        <div class="pic">
+                            <img src="https://graph.facebook.com/100005135144799/picture?type=large">
+                        </div>
+                        <div class="team-content">
+                            <h3 class="title">Dhanush S R</h3>
+                            <span class="post">Marketing and Sponsorship</span>
+                        </div>
+                        <ul class="social">
+                            <li>
+                                <a href="#" class="fa fa-facebook"></a>
+                            </li>
+                            <li>
+                                <a href="#" class="fa fa-envelope"></a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+
+                
+            </div>
+            <br><br>
+            <div class = "row justify-content-center">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="our-team">
+                        <div class="pic">
+                            <img src="#">
+                        </div>
+                        <div class="team-content">
+                            <h3 class="title">Ayush Inani</h3>
+                            <span class="post">Media and Public Relations</span>
+                        </div>
+                        <ul class="social">
+                            <li>
+                                <a href="#" class="fa fa-facebook"></a>
+                            </li>
+                            <li>
+                                <a href="#" class="fa fa-envelope"></a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="our-team">
+                        <div class="pic">
+                            <img src="https://graph.facebook.com/100001357623915/picture?type=large">
+                        </div>
+                        <div class="team-content">
+                            <h3 class="title">Milan Jolly</h3>
+                            <span class="post">Media and Public Relations</span>
+                        </div>
+                        <ul class="social">
+                            <li>
+                                <a href="#" class="fa fa-facebook"></a>
+                            </li>
+                            <li>
+                                <a href="#" class="fa fa-envelope"></a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="our-team">
+                        <div class="pic">
+                            <img src="https://graph.facebook.com/100001782654582/picture?type=large">
+                        </div>
+                        <div class="team-content">
+                            <h3 class="title">Yash</h3>
+                            <span class="post">Media and Public Relations</span>
+                        </div>
+                        <ul class="social">
+                            <li>
+                                <a href="#" class="fa fa-facebook"></a>
+                            </li>
+                            <li>
+                                <a href="#" class="fa fa-envelope"></a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <br><br>
+            <div class = "row justify-content-center">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="our-team">
+                        <div class="pic">
+                            <img src="https://graph.facebook.com/100011632443223/picture?type=large">
+                        </div>
+                        <div class="team-content">
+                            <h3 class="title">Abhishek Mourya</h3>
+                            <span class="post">Creatives and Design</span>
+                        </div>
+                        <ul class="social">
+                            <li>
+                                <a href="#" class="fa fa-facebook"></a>
+                            </li>
+                            <li>
+                                <a href="#" class="fa fa-envelope"></a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="our-team">
+                        <div class="pic">
+                            <img src="https://graph.facebook.com/100011632443223/picture?type=large">
+                        </div>
+                        <div class="team-content">
+                            <h3 class="title">Nookesh Pilli</h3>
+                            <span class="post">Creatives and Design</span>
+                        </div>
+                        <ul class="social">
+                            <li>
+                                <a href="#" class="fa fa-facebook"></a>
+                            </li>
+                            <li>
+                                <a href="#" class="fa fa-envelope"></a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="our-team">
+                        <div class="pic">
+                            <img src="https://graph.facebook.com/100001434289217/picture?type=large">
+                        </div>
+                        <div class="team-content">
+                            <h3 class="title">Fazle Rahman Ejazi</h3>
+                            <span class="post">Creatives and Design</span>
+                        </div>
+                        <ul class="social">
+                            <li>
+                                <a href="#" class="fa fa-facebook"></a>
+                            </li>
+                            <li>
+                                <a href="#" class="fa fa-envelope"></a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <br><br>
+            <div class = "row justify-content-center">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="our-team">
+                        <div class="pic">
+                            <img src="https://graph.facebook.com/100011632443223/picture?type=large">
+                        </div>
+                        <div class="team-content">
+                            <h3 class="title">Shashank Singh</h3>
+                            <span class="post">Registration, Security and Planning</span>
+                        </div>
+                        <ul class="social">
+                            <li>
+                                <a href="#" class="fa fa-facebook"></a>
+                            </li>
+                            <li>
+                                <a href="#" class="fa fa-envelope"></a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="our-team">
+                        <div class="pic">
+                            <img src="https://graph.facebook.com/100007347824492/picture?type=large">
+                        </div>
+                        <div class="team-content">
+                            <h3 class="title">Krishan Kaushik</h3>
+                            <span class="post">Registration, Security and Planning</span>
+                        </div>
+                        <ul class="social">
+                            <li>
+                                <a href="#" class="fa fa-facebook"></a>
+                            </li>
+                            <li>
+                                <a href="#" class="fa fa-envelope"></a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+</div>
+
+                <br><br>
+            <div class = "row justify-content-center">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="our-team">
+                        <div class="pic">
+                            <img src="https://graph.facebook.com/100011632443223/picture?type=large">
+                        </div>
+                        <div class="team-content">
+                            <h3 class="title">Shashank</h3>
+                            <span class="post">Hospitality</span>
+                        </div>
+                        <ul class="social">
+                            <li>
+                                <a href="#" class="fa fa-facebook"></a>
+                            </li>
+                            <li>
+                                <a href="#" class="fa fa-envelope"></a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="our-team">
+                        <div class="pic">
+                            <img src="https://graph.facebook.com/100002804922282/picture?type=large">
+                        </div>
+                        <div class="team-content">
+                            <h3 class="title">Mayank Tripathi</h3>
+                            <span class="post">Hospitality</span>
+                        </div>
+                        <ul class="social">
+                            <li>
+                                <a href="#" class="fa fa-facebook"></a>
+                            </li>
+                            <li>
+                                <a href="#" class="fa fa-envelope"></a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+</div>
+                <br><br>
+                <div class = "row justify-content-center">
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="our-team">
+                            <div class="pic">
+                                <img src="https://pbs.twimg.com/profile_images/1027569439200497665/fNZn97dq_400x400.jpg">
+                            </div>
+                            <div class="team-content">
+                                <h3 class="title">Tameesh Biswas</h3>
+                                <span class="post">Web and App</span>
+                            </div>
+                            <ul class="social">
+                                <li>
+                                    <a href="#" class="fa fa-facebook"></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="fa fa-envelope"></a>
+                                </li>
+    
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="our-team">
+                            <div class="pic">
+                                <img src="https://graph.facebook.com/100009684360848/picture?type=large">
+                            </div>
+                            <div class="team-content">
+                                <h3 class="title">Manish</h3>
+                                <span class="post">Web and App</span>
+                            </div>
+                            <ul class="social">
+                                <li>
+                                    <a href="#" class="fa fa-facebook"></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="fa fa-envelope"></a>
+                                </li>
+    
+                            </ul>
+                        </div>
+                    </div>
+
+
+                </div>
+                <br><br>
+                <div class = "row justify-content-center">
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="our-team">
+                            <div class="pic">
+                                <img src="https://graph.facebook.com/100003707365655/picture?type=large">
+                            </div>
+                            <div class="team-content">
+                                <h3 class="title">Parth Patel</h3>
+                                <span class="post">Events</span>
+                            </div>
+                            <ul class="social">
+                                <li>
+                                    <a href="#" class="fa fa-facebook"></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="fa fa-envelope"></a>
+                                </li>
+    
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="our-team">
+                            <div class="pic">
+                                <img src="https://graph.facebook.com/100002380696917/picture?type=large">
+                            </div>
+                            <div class="team-content">
+                                <h3 class="title">Abhinav Sharma</h3>
+                                <span class="post">Events</span>
+                            </div>
+                            <ul class="social">
+                                <li>
+                                    <a href="#" class="fa fa-facebook"></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="fa fa-envelope"></a>
+                                </li>
+    
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="our-team">
+                            <div class="pic">
+                                <img src="https://graph.facebook.com/100012450581217/picture?type=large">
+                            </div>
+                            <div class="team-content">
+                                <h3 class="title">Nilendu Shubham</h3>
+                                <span class="post">Events</span>
+                            </div>
+                            <ul class="social">
+                                <li>
+                                    <a href="#" class="fa fa-facebook"></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="fa fa-envelope"></a>
+                                </li>
+    
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="our-team">
+                            <div class="pic">
+                                <img src="https://graph.facebook.com/100009684360848/picture?type=large">
+                            </div>
+                            <div class="team-content">
+                                <h3 class="title">Abhinav Gyan</h3>
+                                <span class="post">Events</span>
+                            </div>
+                            <ul class="social">
+                                <li>
+                                    <a href="#" class="fa fa-facebook"></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="fa fa-envelope"></a>
+                                </li>
+    
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                            <br><br>
+                        <div class="our-team">
+                            <div class="pic">
+                                <img src="https://graph.facebook.com/100012283511303/picture?type=large">
+                            </div>
+                            <div class="team-content">
+                                <h3 class="title">Kundan</h3>
+                                <span class="post">Events</span>
+                            </div>
+                            <ul class="social">
+                                <li>
+                                    <a href="#" class="fa fa-facebook"></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="fa fa-envelope"></a>
+                                </li>
+    
+                            </ul>
+                        </div>
+                    </div>
+</div>
+
+
+        </div>
+
+    </section>
+  
+  
+
+</body>
+
 </html>
-
-			

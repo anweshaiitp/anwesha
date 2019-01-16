@@ -406,11 +406,13 @@
                                 <li id="eve_organisers">Umang Jain (6394708415)
                                     <br>Rahul Anand (9430056694)</li>
                                 </ul>
+            		        <div id="regmsg"></div>
                                 <div class="refrence">
                                     <a href="https://drive.google.com/open?id=1-OQFzE9tvPPAt-ulEFWf_hghgLRfV9wO" id="RuleBtn">Rulebook</a>
-<!--                                     <a id="RegBtn" data-eveid="10">Register</a> -->
+                                    <a id="RegBtn" data-eveid="10" style="cursor:pointer" >Register</a>
 
                                 </div> 
+
                             </div>
                         </div>
                     </div>
@@ -427,7 +429,7 @@
     </div>
 
     <script>
-  
+	var eveglid = 10;
         $(document).ready(function(){
             $("#event_long_desc").css({"display":"none"});
             $("#accordion").accordion({
@@ -776,6 +778,40 @@
         }
 // 	
 		</script>
+	<script>
+		$(document).on('click', '#RegBtn', function (e) {
+                console.log('this is the click');
+                // if($(this).attr("href")!="" && $(this).attr("href")!=null )
+                // e.preventDefault();
+                 console.log("/register/"+eveglid);
+                $.get( "/register/"+eveglid, function( data ) {
+                        console.log("dat",data);
+                            var databkp = data;
+                        try {
+                            data = jQuery.parseJSON(data);
+                        }
+                        catch(error) {
+                            data = databkp;
+                        }
+                        console.log("dat",data);
+                        // alert(data.msg);
+                        $("#regmsg").text(data["msg"]);
+                        if(data.http==200)
+                            $("#regmsg").css("color","#00ff00");
+                        else
+                            $("#regmsg").css("color","#ff0000");
+                        if(data.http == 403){
+				alert('Please login first.')
+                            window.open('/login_bare/');
+                            console.log("403");
+                            $(currPar+ " #regmsg").html($(currPar + " #regmsg").text()+"<br> <a href='//anwesha.info/login_bare/' target='_blank'>Login here</a>");
+                        }
+                        if(data.status == true){
+                            $(this).text('Registered!')
+                        }
+                    });
+            });
+	</script>
 </body>
 
 </html>
