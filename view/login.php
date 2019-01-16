@@ -98,6 +98,7 @@
 			
 		</div></h1>
 		<a style="position:absolute;left:50%;transform:translateX(-50%);color:white;" href="http://anwesha.info/reset_resend" target="_blank">Reset Password or Resend confirmation email</a>
+		<br>
 		<a style="position:absolute;left:50%;transform:translateX(-50%);color:white;" href="http://anwesha.info/register" target="_blank">Register for new account.</a>
 	<script>
 			$("document").ready(function(){
