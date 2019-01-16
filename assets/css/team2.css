@@ -50,7 +50,7 @@
     transform: scale(3);
     transition: all 0.3s linear 0s;
 }
-.our-team:hover .pic:before{
+.pic:hover::before{
  height: 100%;
     background: #2f2f2f; 
  }
@@ -60,14 +60,18 @@
     height: 100%;
     border-radius: 50%;
     background: #ffffff00;
+    transform: scale(0.5);
     position: absolute;
     top: 0;
     left: 0;
     z-index: 1;
-    transition: all 0.3s linear 0s;
+/*     transition: all 0.3s linear 0s; */
+    transition: transform 0.2s cubic-bezier(.06,.59,.24,1.55),border-color 0.2s;
 }
-.our-team:hover .pic:after{
-    background: #7ab92d;
+.pic:hover::after{
+/*     background: #7ab92d; */
+    border: 7px solid #7ab92d;
+    transform: scale(0.8);
 }
 .our-team .pic img {
     width: 100%;
@@ -75,13 +79,13 @@
     border-radius: 50%;
     transform: scale(1);
     transition: all 0.9s ease 0s;
-    box-shadow: 0 0 0 14px #f7f5ec;
+    box-shadow: 0 0 0 7px #f7f5ec;
     transform: scale(0.7);
     position: relative;
     z-index: 2;
 }
-.our-team:hover .pic img{
-    box-shadow: 0 0 0 14px #f7f5ec;
+.pic:hover img{
+    box-shadow: 0 0 0 7px #f7f5ec;
     transform: scale(0.7);
 }
 .our-team .team-content{ margin-bottom: 30px; }
