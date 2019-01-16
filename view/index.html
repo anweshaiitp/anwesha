@@ -493,7 +493,7 @@ svg#date_container {
                 class="social-white" data-100="" data-500=" " ></a>
     </div>
     <div class="login-button">
-        <button id="loginTrigger"><?php if(isset($result['user']) && $result['user'] != 0) echo "Logout"; else echo "Login"; ?></button>
+        <button id="loginTrigger"><?php if(isset($_SESSION['userID']) && $_SESSION['userID'] != 0) echo "Logout"; else echo "Login"; ?></button>
     </div>
     <!-- /Social Floating Links -->
     <div class="login-container" id="login">
@@ -527,7 +527,7 @@ svg#date_container {
 							$("#success").fadeIn();
 							// $("#message").css('background','#5FAB22');
 							$("#log-form input").fadeOut();
-							$("#log-form submit").fadeOut();
+							$("#btn_submit_login").fadeOut();
 // 							$("#logout2").fadeIn();
 							$("#loginTrigger").text("Logout");
 							$(".loader").fadeOut();
