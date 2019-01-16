@@ -106,7 +106,7 @@
 				 if (isset($_SESSION['userID'])){
 					 echo "$('.logout_div').fadeIn();";
 					 }else{
-						echo "$('.login_div').fadeIn();";} 
+						echo "$('.login_div').fadeIn();window.location='/events'";} 
 				?>
 				$("#login").click(function(){
 					$("#err").hide();
