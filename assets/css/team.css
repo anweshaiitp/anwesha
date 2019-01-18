@@ -76,3 +76,9 @@ font-family:bebas;
 margin:2em;
 font-size:1.5em;
 }
+
+
+@font-face {
+    font-family: lemonMilk;
+    src: url(/assets/fonts/LemonMilk.otf);
+  }

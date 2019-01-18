@@ -12,16 +12,239 @@
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.0/css/font-awesome.css'>
 
       <link rel="stylesheet" href="/assets/css/team2.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <style>
+
+h2{
+    text-align: center;
+    color:white;
+    background: linear-gradient(135deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+    padding:10px;
+    -webkit-animation: Gradient 15s ease infinite;
+	-moz-animation: Gradient 15s ease infinite;
+	animation: Gradient 15s ease infinite;
+}
+
+/* debug */
+/* Cannon */
+.cannon {
+  height: 70vh;
+  width: 1px;
+  position: fixed;
+  -webkit-transform-origin: 50% 100%;
+          transform-origin: 50% 100%;
+  -webkit-animation: cannon-explosion 1.2s cubic-bezier(0.18, 0.89, 0.32, 1.28) both;
+          animation: cannon-explosion 1.2s cubic-bezier(0.18, 0.89, 0.32, 1.28) both;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  /* Paths */
+  /* Confettis */
+}
+@-webkit-keyframes cannon-explosion {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes cannon-explosion {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.cannon__path {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  -webkit-transform-origin: 50% 100%;
+          transform-origin: 50% 100%;
+  padding-bottom: 30%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.cannon__path--lg {
+  height: 200%; 
+  -webkit-transform: rotate(30deg);
+          transform: rotate(30deg);
+}
+.cannon__path--md {
+  height: 180%;
+
+}
+.cannon__path--sm {
+  height: 160%;
+}
+.cannon__path--angle-2 {
+  -webkit-transform: rotate(15deg);
+          transform: rotate(15deg);
+}
+.cannon__path--angle-1 {
+  -webkit-transform: rotate(22.5deg);
+          transform: rotate(22.5deg);
+}
+.cannon__path--angle1 {
+  -webkit-transform: rotate(37.5deg);
+          transform: rotate(37.5deg);
+}
+.cannon__path--angle2 {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.cannon__confetti {
+  flex: 0 1 auto;
+  -webkit-animation-duration: 1.2s;
+          animation-duration: 1.2s;
+  -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  /* Types */
+  /* Colors */
+}
+.cannon__confetti:nth-child(even) {
+  -webkit-animation-name: confetti-rotate-l;
+          animation-name: confetti-rotate-l;
+}
+@-webkit-keyframes confetti-rotate-l {
+  0% {
+    -webkit-transform: rotate(0) scaleY(1);
+            transform: rotate(0) scaleY(1);
+  }
+  50% {
+    -webkit-transform: rotate(2turn) scaleY(1.5);
+            transform: rotate(2turn) scaleY(1.5);
+  }
+  100% {
+    -webkit-transform: rotate(2.05turn) scaleY(1);
+            transform: rotate(2.05turn) scaleY(1);
+  }
+}
+@keyframes confetti-rotate-l {
+  0% {
+    -webkit-transform: rotate(0) scaleY(1);
+            transform: rotate(0) scaleY(1);
+  }
+  50% {
+    -webkit-transform: rotate(2turn) scaleY(1.5);
+            transform: rotate(2turn) scaleY(1.5);
+  }
+  100% {
+    -webkit-transform: rotate(2.05turn) scaleY(1);
+            transform: rotate(2.05turn) scaleY(1);
+  }
+}
+.cannon__confetti:nth-child(odd) {
+  -webkit-animation-name: confetti-rotate-r;
+          animation-name: confetti-rotate-r;
+}
+@-webkit-keyframes confetti-rotate-r {
+  0% {
+    -webkit-transform: rotate(0) scaleY(1);
+            transform: rotate(0) scaleY(1);
+  }
+  50% {
+    -webkit-transform: rotate(-2turn) scaleY(1.5);
+            transform: rotate(-2turn) scaleY(1.5);
+  }
+  100% {
+    -webkit-transform: rotate(-2.05turn) scaleY(1);
+            transform: rotate(-2.05turn) scaleY(1);
+  }
+}
+@keyframes confetti-rotate-r {
+  0% {
+    -webkit-transform: rotate(0) scaleY(1);
+            transform: rotate(0) scaleY(1);
+  }
+  50% {
+    -webkit-transform: rotate(-2turn) scaleY(1.5);
+            transform: rotate(-2turn) scaleY(1.5);
+  }
+  100% {
+    -webkit-transform: rotate(-2.05turn) scaleY(1);
+            transform: rotate(-2.05turn) scaleY(1);
+  }
+}
+.cannon__confetti--ribbon {
+  height: 1em;
+  width: .5em;
+  border-radius: .1em;
+}
+.cannon__confetti--flake {
+  height: .5em;
+  width: .5em;
+  border-radius: 50%;
+}
+.cannon__confetti--color-1 {
+  background-color: #feb535;
+}
+.cannon__confetti--color-2 {
+  background-color: #bea4ff;
+}
+.cannon__confetti--color-3 {
+  background-color: #ff6e83;
+}
+.cannon__confetti--color-4 {
+  background-color: #58cafe;
+}
+
+
+
+.party-popper {
+  position: absolute;
+  left: 4%;
+  bottom: 2vh;
+  font-size: 4em;
+  -webkit-transform: translateX(-50%) rotate(-15deg);
+          transform: translateX(-50%) rotate(-15deg);
+}
+
+.cannon {
+  position: absolute;
+  bottom: 5vh;
+  left: 4%;
+ 
+}
+.hr-theme-slash-2 {
+  display: flex;
+}
+.hr-theme-slash-2 .hr-line {
+  width: 100%;
+  position: relative;
+  margin: 15px;
+  border-bottom: 1px solid #000;
+}
+.hr-theme-slash-2 .hr-icon {
+  position: relative;
+  top: 3px;
+  color: #ff0000;
+}
+
     body {
 	width: 100wh;
 	height: 90vh;
 	color: #fff;
 	background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
-	background-size: 400% 400%;
-	-webkit-animation: Gradient 15s ease infinite;
-	-moz-animation: Gradient 15s ease infinite;
-	animation: Gradient 15s ease infinite;
+	background-size: 100% 1100%;
+
 }
 .mobile-nav-btn {
     cursor: pointer;
@@ -164,21 +387,93 @@
 .title-text { padding-top:50px; color:#ffffff; font-size:3em; text-shadow: 0 25px 13px #f8f8f8, 0 2px 8px #999999, 0 2px 200px #909090; text-align:center; }
 
 
-h2{
-    text-align: center;
-    color:white;
-    background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
-    padding:10px;
-    -webkit-animation: Gradient 15s ease infinite;
-	-moz-animation: Gradient 15s ease infinite;
-	animation: Gradient 15s ease infinite;
-}
+
+
+
 </style>
   
 </head>
 
 <body>
+        <div class="party-popper" style="z-index:500;position: fixed;">🎉</div>
+        
+        <div class="cannon" style="z-index:500;position:fixed;">
+            <div class="cannon__path cannon__path--sm cannon__path--angle-2">
+                <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-3"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-1"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-2"></div>
+                <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-1"></div>
+                <div class="cannon__confetti-spacer"></div>
+                <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-3"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-1"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-2"></div>
+                <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-1"></div>
+                <div class="cannon__confetti-spacer"></div>
 
+
+                
+            </div>
+            <div class="cannon__path cannon__path--md cannon__path--angle-1">
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-2"></div>
+                <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-2"></div>
+                <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-3"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-1"></div>
+                <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-4"></div>
+                <div class="cannon__confetti-spacer"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-2"></div>
+                <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-2"></div>
+                <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-3"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-1"></div>
+                <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-4"></div>
+                <div class="cannon__confetti-spacer"></div>
+
+            </div>
+            <div class="cannon__path cannon__path--lg cannon__path--angle0">
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-1"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-4"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-2"></div>
+                <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-3"></div>
+                <div class="cannon__confetti-spacer"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-1"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-4"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-2"></div>
+                <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-3"></div>
+                <div class="cannon__confetti-spacer"></div>
+
+
+            </div>
+            <div class="cannon__path cannon__path--md cannon__path--angle1">
+                <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-3"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-1"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-4"></div>
+                <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-3"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-2"></div>
+                <div class="cannon__confetti-spacer"></div>
+                <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-3"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-1"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-4"></div>
+                <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-3"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-2"></div>
+                <div class="cannon__confetti-spacer"></div>
+
+
+            </div>
+            <div class="cannon__path cannon__path--sm cannon__path--angle2">
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-2"></div>
+                <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-3"></div>
+                <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-4"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-1"></div>
+                <div class="cannon__confetti-spacer"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-2"></div>
+                <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-3"></div>
+                <div class="cannon__confetti cannon__confetti--flake cannon__confetti--color-4"></div>
+                <div class="cannon__confetti cannon__confetti--ribbon cannon__confetti--color-1"></div>
+                <div class="cannon__confetti-spacer"></div>
+
+
+            
+            </div>
+        </div>
 <!-- Navigation Menu -->
 <div id="menu">
         <ul data-start="color:rgb(0,0,0); border-color:rgb(0,0,0); background: rgba(255,255,255,0.9);     box-shadow: 0 0 0px rgba(255,255,255,1);"
@@ -207,8 +502,8 @@ h2{
       </div>
       <!-- /Navigation Menu -->
 
-    <div class = "title-text">Anwesha '19</div>
-    <h2>The Impeccable Creators of the Impeccable Extravaganza</h2>
+    <div class = "title-text"><span style="font-family: wolf; font-size:2.5em;">Anwesha '19</span></div>
+    <h2><span style="font-family: lemonMilk">The Impeccable Creators of the Impeccable Extravaganza</span></h2>
     <br><br>
       <section class="our-team-section">
         <div class="container">
@@ -216,7 +511,7 @@ h2{
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="our-team">
                         <div class="pic">
-                            <img src="https://graph.facebook.com/100006497449606/picture?type=large">
+                            <img src="https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/21317562_1006922802783975_4121069189608143704_n.jpg?_nc_cat=104&_nc_ht=scontent-bom1-1.xx&oh=48e4b5ff1fc4bff5ab7935d4a9094f2e&oe=5CD259ED">
                         </div>
                         <div class="team-content">
                             <h3 class="title">Mayank Wadhwani</h3>
@@ -224,38 +519,24 @@ h2{
                         </div>
                         <ul class="social">
                             <li>
-                                <a href="#"  target="_blank"class="fa fa-facebook"></a>
+                                <a href="https://www.facebook.com/mayank.wadhwani"  target="_blank"class="fa fa-facebook"></a>
                             </li>
                             <li>
-                                <a href="#" class="fa fa-envelope"></a>
+                                <a href="mailto:wadhwani.cs16@iitp.ac.in" class="fa fa-envelope"></a>
                             </li>
                         </ul>
                     </div>
                 </div>
-            </div>
-            <br><br>
-            <div class="row justify-content-center">
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="our-team">
-                            <div class="pic">
-                                <img src="https://graph.facebook.com/100002804922282/picture?type=large">
-                            </div>
-                            <div class="team-content">
-                                <h3 class="title">Mayank Tripathi</h3>
-                                <span class="post">Pro-show coordinator</span>
-                            </div>
-                            <ul class="social">
-                                <li>
-                                    <a href="#"  target="_blank"class="fa fa-facebook"></a>
-                                </li>
-                                <li>
-                                    <a href="#" class="fa fa-envelope"></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+
+                    
                 </div>
                 <br><br>
+                <div class="hr-theme-slash-2">
+                        <div class="hr-line"></div>
+                        <div class="hr-icon"><i class="material-icons">favorite</i></div>
+                        <div class="hr-line"></div>
+                      </div>
+                      <br><br>
             <div class = "row justify-content-center">
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="our-team">
@@ -268,10 +549,10 @@ h2{
                         </div>
                         <ul class="social">
                             <li>
-                                <a href="#" class="fa fa-facebook"></a>
+                                <a href="https://www.facebook.com/GSahiDarsini" class="fa fa-facebook"></a>
                             </li>
                             <li>
-                                <a href="#" class="fa fa-envelope"></a>
+                                <a href="mailto:sdarsini.ce16@iitp.ac.in" class="fa fa-envelope"></a>
                             </li>
                         </ul>
                     </div>
@@ -287,10 +568,10 @@ h2{
                         </div>
                         <ul class="social">
                             <li>
-                                <a href="#" class="fa fa-facebook"></a>
+                                <a href="https://www.facebook.com/dhanushsr1998" class="fa fa-facebook"></a>
                             </li>
                             <li>
-                                <a href="#" class="fa fa-envelope"></a>
+                                <a href="mailto:dhanushravikumar98@gmail.com" class="fa fa-envelope"></a>
                             </li>
 
                         </ul>
@@ -300,11 +581,17 @@ h2{
                 
             </div>
             <br><br>
+            <div class="hr-theme-slash-2">
+                    <div class="hr-line"></div>
+                    <div class="hr-icon"><i class="material-icons">favorite</i></div>
+                    <div class="hr-line"></div>
+                  </div>
+                  <br><br>
             <div class = "row justify-content-center">
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="our-team">
                         <div class="pic">
-                            <img src="#">
+                            <img src="https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/44392219_1916919161710403_1239057043663355904_n.jpg?_nc_cat=110&_nc_ht=scontent-bom1-1.xx&oh=d332cbf6a9f9b336f1c54da62851a0b8&oe=5CCCFB68">
                         </div>
                         <div class="team-content">
                             <h3 class="title">Ayush Inani</h3>
@@ -312,10 +599,10 @@ h2{
                         </div>
                         <ul class="social">
                             <li>
-                                <a href="#" class="fa fa-facebook"></a>
+                                <a href="https://www.facebook.com/ayushinani1" class="fa fa-facebook"></a>
                             </li>
                             <li>
-                                <a href="#" class="fa fa-envelope"></a>
+                                <a href="ayushinani1@gmail.com" class="fa fa-envelope"></a>
                             </li>
 
                         </ul>
@@ -332,10 +619,10 @@ h2{
                         </div>
                         <ul class="social">
                             <li>
-                                <a href="#" class="fa fa-facebook"></a>
+                                <a href="https://m.facebook.com/milan.jolly.7" class="fa fa-facebook"></a>
                             </li>
                             <li>
-                                <a href="#" class="fa fa-envelope"></a>
+                                <a href="mailto:milan.jolly18@gmail.com" class="fa fa-envelope"></a>
                             </li>
 
                         </ul>
@@ -347,15 +634,15 @@ h2{
                             <img src="https://graph.facebook.com/100001782654582/picture?type=large">
                         </div>
                         <div class="team-content">
-                            <h3 class="title">Yash</h3>
+                            <h3 class="title">Yash Choudhary</h3>
                             <span class="post">Media and Public Relations</span>
                         </div>
                         <ul class="social">
                             <li>
-                                <a href="#" class="fa fa-facebook"></a>
+                                <a href="https://m.facebook.com/yash.choudhary.3994?ref=bookmarks" class="fa fa-facebook"></a>
                             </li>
                             <li>
-                                <a href="#" class="fa fa-envelope"></a>
+                                <a href="mailto:yash.cb16@iitp.ac.in" class="fa fa-envelope"></a>
                             </li>
 
                         </ul>
@@ -364,11 +651,17 @@ h2{
             </div>
 
             <br><br>
+            <div class="hr-theme-slash-2">
+                    <div class="hr-line"></div>
+                    <div class="hr-icon"><i class="material-icons">favorite</i></div>
+                    <div class="hr-line"></div>
+                  </div>
+                  <br><br>
             <div class = "row justify-content-center">
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="our-team">
                         <div class="pic">
-                            <img src="https://graph.facebook.com/100011632443223/picture?type=large">
+                            <img src="https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-1/44907213_1924053914340689_507812133937872896_n.jpg?_nc_cat=101&_nc_ht=scontent-bom1-1.xx&oh=adf4f2d98e897e7416f0849d83404d2e&oe=5CCA671A">
                         </div>
                         <div class="team-content">
                             <h3 class="title">Abhishek Mourya</h3>
@@ -376,10 +669,10 @@ h2{
                         </div>
                         <ul class="social">
                             <li>
-                                <a href="#" class="fa fa-facebook"></a>
+                                <a href="https://www.facebook.com/aBkMOURYA" class="fa fa-facebook"></a>
                             </li>
                             <li>
-                                <a href="#" class="fa fa-envelope"></a>
+                                <a href="mailto:abhishekkumarmourya@gmail.com" class="fa fa-envelope"></a>
                             </li>
 
                         </ul>
@@ -396,10 +689,10 @@ h2{
                         </div>
                         <ul class="social">
                             <li>
-                                <a href="#" class="fa fa-facebook"></a>
+                                <a href="https://m.facebook.com/pilli.nookesh?ref=bookmarks" class="fa fa-facebook"></a>
                             </li>
                             <li>
-                                <a href="#" class="fa fa-envelope"></a>
+                                <a href="mailto:pilli.me16@iitp.ac.in" class="fa fa-envelope"></a>
                             </li>
 
                         </ul>
@@ -416,10 +709,10 @@ h2{
                         </div>
                         <ul class="social">
                             <li>
-                                <a href="#" class="fa fa-facebook"></a>
+                                <a href="https://www.facebook.com/Fazle.Rahman.Ejazi" class="fa fa-facebook"></a>
                             </li>
                             <li>
-                                <a href="#" class="fa fa-envelope"></a>
+                                <a href="mailto:ahmed.belal98@gmail.com" class="fa fa-envelope"></a>
                             </li>
 
                         </ul>
@@ -428,11 +721,17 @@ h2{
             </div>
 
             <br><br>
+            <div class="hr-theme-slash-2">
+                    <div class="hr-line"></div>
+                    <div class="hr-icon"><i class="material-icons">favorite</i></div>
+                    <div class="hr-line"></div>
+                  </div>
+                  <br><br>
             <div class = "row justify-content-center">
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="our-team">
                         <div class="pic">
-                            <img src="https://graph.facebook.com/100011632443223/picture?type=large">
+                            <img src="https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/50324146_2252667151539277_7396590354146787328_n.jpg?_nc_cat=102&_nc_ht=scontent-bom1-1.xx&oh=428c1470be06fdb34739393c680d96d3&oe=5CD343C1">
                         </div>
                         <div class="team-content">
                             <h3 class="title">Shashank Singh</h3>
@@ -440,7 +739,7 @@ h2{
                         </div>
                         <ul class="social">
                             <li>
-                                <a href="#" class="fa fa-facebook"></a>
+                                <a href="https://www.facebook.com/shashank.don.3" class="fa fa-facebook"></a>
                             </li>
                             <li>
                                 <a href="#" class="fa fa-envelope"></a>
@@ -469,25 +768,52 @@ h2{
                         </ul>
                     </div>
                 </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="our-team">
+                        <div class="pic">
+                            <img src="../assets/img/shivesh.jpeg">
+                        </div>
+                        <div class="team-content">
+                            <h3 class="title">Shivesh Yadav</h3>
+                            <span class="post">Registration, Security and Planning</span>
+                        </div>
+                        <ul class="social">
+                            <li>
+                                <a href="https://www.facebook.com/profile.php?id=100008125451849" class="fa fa-facebook"></a>
+                            </li>
+                            <li>
+                                <a href="mailto:shivesh.yadav2607@gmail.com" class="fa fa-envelope"></a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+
 </div>
 
                 <br><br>
+                <div class="hr-theme-slash-2">
+                        <div class="hr-line"></div>
+                        <div class="hr-icon"><i class="material-icons">favorite</i></div>
+                        <div class="hr-line"></div>
+                      </div>
+                      <br><br>
             <div class = "row justify-content-center">
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="our-team">
                         <div class="pic">
-                            <img src="https://graph.facebook.com/100011632443223/picture?type=large">
+                            <img src="https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-1/41991356_1413042788830377_7254415430431801344_n.jpg?_nc_cat=105&_nc_ht=scontent-bom1-1.xx&oh=ade7f9c749931b17a00cae128d69c1cf&oe=5CC273BF">
                         </div>
                         <div class="team-content">
-                            <h3 class="title">Shashank</h3>
+                            <h3 class="title">Shashank Balija</h3>
                             <span class="post">Hospitality</span>
                         </div>
                         <ul class="social">
                             <li>
-                                <a href="#" class="fa fa-facebook"></a>
+                                <a href="https://www.facebook.com/shashank.balija" class="fa fa-facebook"></a>
                             </li>
                             <li>
-                                <a href="#" class="fa fa-envelope"></a>
+                                <a href="mailto:bshashank1998@gmail.com" class="fa fa-envelope"></a>
                             </li>
 
                         </ul>
@@ -504,10 +830,30 @@ h2{
                         </div>
                         <ul class="social">
                             <li>
-                                <a href="#" class="fa fa-facebook"></a>
+                                <a href="https://m.facebook.com/mayank.tripathi.507" class="fa fa-facebook"></a>
                             </li>
                             <li>
-                                <a href="#" class="fa fa-envelope"></a>
+                                <a href="mailto:mayank.me16@gmail.com" class="fa fa-envelope"></a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="our-team">
+                        <div class="pic">
+                            <img src="https://scontent-bom1-1.xx.fbcdn.net/v/t31.0-8/fr/cp0/e15/q65/24059438_782770228597840_190399001903189868_o.jpg?_nc_cat=100&efg=eyJpIjoidCJ9&_nc_ht=scontent-bom1-1.xx&oh=e53ee6ca0450cd87ef0e05af5ee97f77&oe=5CC5F49C">
+                        </div>
+                        <div class="team-content">
+                            <h3 class="title">Naveen Thangavelu</h3>
+                            <span class="post">Hospitality</span>
+                        </div>
+                        <ul class="social">
+                            <li>
+                                <a href="https://m.facebook.com/tnaveen1998?ref=bookmarks" class="fa fa-facebook"></a>
+                            </li>
+                            <li>
+                                <a href="mailto:tnaveen1998@gmail.com" class="fa fa-envelope"></a>
                             </li>
 
                         </ul>
@@ -515,6 +861,12 @@ h2{
                 </div>
 </div>
                 <br><br>
+                <div class="hr-theme-slash-2">
+                        <div class="hr-line"></div>
+                        <div class="hr-icon"><i class="material-icons">favorite</i></div>
+                        <div class="hr-line"></div>
+                      </div>
+                      <br><br>
                 <div class = "row justify-content-center">
                     <div class="col-lg-3 col-md-6 col-sm-6">
                         <div class="our-team">
@@ -527,10 +879,10 @@ h2{
                             </div>
                             <ul class="social">
                                 <li>
-                                    <a href="#" class="fa fa-facebook"></a>
+                                    <a href="https://facebook.com/tameeshb" class="fa fa-facebook"></a>
                                 </li>
                                 <li>
-                                    <a href="#" class="fa fa-envelope"></a>
+                                    <a href="mailto:biswas.cs16@iitp.ac.in" class="fa fa-envelope"></a>
                                 </li>
     
                             </ul>
@@ -547,10 +899,10 @@ h2{
                             </div>
                             <ul class="social">
                                 <li>
-                                    <a href="#" class="fa fa-facebook"></a>
+                                    <a href="https://www.facebook.com/imanishk16" class="fa fa-facebook"></a>
                                 </li>
                                 <li>
-                                    <a href="#" class="fa fa-envelope"></a>
+                                    <a href="mailto:manish.cs16@iitp.ac.in" class="fa fa-envelope"></a>
                                 </li>
     
                             </ul>
@@ -560,6 +912,40 @@ h2{
 
                 </div>
                 <br><br>
+                <div class="hr-theme-slash-2">
+                        <div class="hr-line"></div>
+                        <div class="hr-icon"><i class="material-icons">favorite</i></div>
+                        <div class="hr-line"></div>
+                      </div>
+                      <br><br>
+                <div class ="row justify-content-center">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="our-team">
+                        <div class="pic">
+                            <img src="https://graph.facebook.com/100002804922282/picture?type=large">
+                        </div>
+                        <div class="team-content">
+                            <h3 class="title">Mayank Tripathi</h3>
+                            <span class="post">Pro-show coordinator</span>
+                        </div>
+                        <ul class="social">
+                            <li>
+                                <a href="https://m.facebook.com/mayank.tripathi.507"  target="_blank"class="fa fa-facebook"></a>
+                            </li>
+                            <li>
+                                <a href="mailto:mayank.me16@gmail.com" class="fa fa-envelope"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+                <br><br>
+                <div class="hr-theme-slash-2">
+                        <div class="hr-line"></div>
+                        <div class="hr-icon"><i class="material-icons">favorite</i></div>
+                        <div class="hr-line"></div>
+                      </div>
+                      <br><br>
                 <div class = "row justify-content-center">
                     <div class="col-lg-3 col-md-6 col-sm-6">
                         <div class="our-team">
@@ -572,10 +958,10 @@ h2{
                             </div>
                             <ul class="social">
                                 <li>
-                                    <a href="#" class="fa fa-facebook"></a>
+                                    <a href="https://www.facebook.com/profile.php?id=100003707365655" class="fa fa-facebook"></a>
                                 </li>
                                 <li>
-                                    <a href="#" class="fa fa-envelope"></a>
+                                    <a href="mailto:patel.cb16@iitp.ac.in" class="fa fa-envelope"></a>
                                 </li>
     
                             </ul>
@@ -592,10 +978,10 @@ h2{
                             </div>
                             <ul class="social">
                                 <li>
-                                    <a href="#" class="fa fa-facebook"></a>
+                                    <a href="https://www.facebook.com/abhinav.sharma.79656921" class="fa fa-facebook"></a>
                                 </li>
                                 <li>
-                                    <a href="#" class="fa fa-envelope"></a>
+                                    <a href="mailto:abhinav3706@gmail.com" class="fa fa-envelope"></a>
                                 </li>
     
                             </ul>
@@ -612,10 +998,10 @@ h2{
                             </div>
                             <ul class="social">
                                 <li>
-                                    <a href="#" class="fa fa-facebook"></a>
+                                    <a href="https://www.facebook.com/nilendu.shubham" class="fa fa-facebook"></a>
                                 </li>
                                 <li>
-                                    <a href="#" class="fa fa-envelope"></a>
+                                    <a href="mailto:nilendu.ee16@iitp.ac.in" class="fa fa-envelope"></a>
                                 </li>
     
                             </ul>
@@ -624,7 +1010,7 @@ h2{
                     <div class="col-lg-3 col-md-6 col-sm-6">
                         <div class="our-team">
                             <div class="pic">
-                                <img src="https://graph.facebook.com/100009684360848/picture?type=large">
+                                <img src="https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-1/p160x160/27972691_2032047050379806_5118850200645144422_n.jpg?_nc_cat=102&_nc_ht=scontent-bom1-1.xx&oh=7b60d304fe2829a5dc12a70fef2ccec8&oe=5CC3A81A">
                             </div>
                             <div class="team-content">
                                 <h3 class="title">Abhinav Gyan</h3>
@@ -632,10 +1018,10 @@ h2{
                             </div>
                             <ul class="social">
                                 <li>
-                                    <a href="#" class="fa fa-facebook"></a>
+                                    <a href="https://www.facebook.com/theabhinavgyan" class="fa fa-facebook"></a>
                                 </li>
                                 <li>
-                                    <a href="#" class="fa fa-envelope"></a>
+                                    <a href="mailto:abkgyn@gmail.com" class="fa fa-envelope"></a>
                                 </li>
     
                             </ul>
@@ -654,18 +1040,24 @@ h2{
                             </div>
                             <ul class="social">
                                 <li>
-                                    <a href="#" class="fa fa-facebook"></a>
+                                    <a href="https://www.facebook.com/profile.php?id=100012283511303" class="fa fa-facebook"></a>
                                 </li>
                                 <li>
-                                    <a href="#" class="fa fa-envelope"></a>
+                                    <a href="mailto:kundan.ee16@iitp.ac" class="fa fa-envelope"></a>
                                 </li>
     
                             </ul>
                         </div>
                     </div>
+
 </div>
-
-
+<br><br>
+<div class="hr-theme-slash-2">
+        <div class="hr-line"></div>
+        <div class="hr-icon"><i class="material-icons">favorite</i></div>
+        <div class="hr-line"></div>
+      </div>
+      <br><br>
         </div>
 
     </section>
@@ -674,4 +1066,7 @@ h2{
 
 </body>
 
+
+
+</script>
 </html>
