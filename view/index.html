@@ -83,12 +83,6 @@
             background-size: cover !important;
             background-position: center !important;
         }
-        #registerBtn{
-            background-color: #fff;
-            padding: 5px;
-            border-radius: 5px;
-            box-shadow: #cccbc7 0px 0px 10px 3px;
-        }
          a, u {
             text-decoration: none;
         }
@@ -338,7 +332,34 @@
         top: unset;
        margin-left:10px;
        margin-bottom:35px;
+	font-family: 'Lato', sans-serif;
+    cursor: pointer;
+    border: 0px solid white !important;
+    /* background-color: transparent; */
+    text-shadow: #000000 0px 0px 20px;
+    /* color: white; */
+/*     border-radius: 15px; */
+/*     padding: 2px 28px; */
+	background-color: #ffffff9c;
+	padding: 5px;
+	width: 100px;
+	color: #000;
+	border-radius: 5px;
+	box-shadow: #cccbc7 0px 0px 10px 3px;
        }
+	#registerBtn{
+	margin-left:10px;
+       margin-bottom:35px;
+	font-family: 'Lato', sans-serif;
+	border: 0px solid white !important;
+	 text-shadow: #000000 0px 0px 20px;
+	 background-color: #ffffff9c;
+	padding: 5px;
+	width: 100px;
+	color: #000;
+	border-radius: 5px;
+	box-shadow: #cccbc7 0px 0px 10px 3px;
+	 }
         #logo{
            display: none;
        }
@@ -643,7 +664,6 @@ svg#date_container {
     <!-- Social Floating Links -->
     <div id="social">
         <span class="hashtag">#anwesha19</span>
-        <a href="/register" class="hashtag hidemob" id="registerBtn" style="color: #000">Register</a>
         
         <a href="https://www.facebook.com/anwesha.iitpatna/" target="_blank"><img src="/assets/img/fb-black.png"><img
                 src="/assets/img/fb-w.png" class="social-white" data-100=""
@@ -652,7 +672,8 @@ svg#date_container {
                 class="social-white" data-100="" data-500=" " ></a>
     </div>
     <div class="login-button">
-        <button id="loginTrigger"><?php if(isset($_SESSION['userID']) && $_SESSION['userID'] != 0) echo "Logout"; else echo "Login"; ?></button>
+        <button id="loginTrigger"><?php if(isset($_SESSION['userID']) && $_SESSION['userID'] != 0) echo "LOGOUT"; else echo "LOGIN"; ?></button>
+	<a href="/register" class="hashtag" id="registerBtn" style="color: #000">REGISTER</a>
     </div>
     <!-- /Social Floating Links -->
     <div class="login-container" id="login">
@@ -1212,9 +1233,9 @@ svg#date_container {
             fixedTop();
         });
         $(".login-button").on('click','button#loginTrigger',function(){
-	if($(this).text() == 'Logout'){
+	if($(this).text() == 'LOGOUT'){
 	    $.get( "/logout", function( data ) {
-		$(".login-button").text("Login");
+		$(".login-button").text("LOGIN");
 	    });
             return;
         }
