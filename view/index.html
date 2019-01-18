@@ -334,7 +334,7 @@
        margin-bottom:35px;
        }
 	#registerBtn,#loginTrigger{
-	margin-left:10px;
+/* 	margin-left:10px;
        margin-bottom:35px;
 	font-family: 'Lato', sans-serif;
 	border: 0px solid white !important;
@@ -344,7 +344,7 @@
 	width: 100px;
 	color: #000;
 	border-radius: 5px;
-	box-shadow: #cccbc7 0px 0px 10px 3px;
+	box-shadow: #cccbc7 0px 0px 10px 3px; */
 	 }
         #logo{
            display: none;
@@ -368,7 +368,9 @@
 </style>
 
 <style>
-        
+.login-button a:hover{
+	text-decoration:none !important;
+}
 .date{
     position: absolute;
     bottom: 0;
@@ -658,8 +660,8 @@ svg#date_container {
                 class="social-white" data-100="" data-500=" " ></a>
     </div>
     <div class="login-button">
-        <button id="loginTrigger"><?php if(isset($_SESSION['userID']) && $_SESSION['userID'] != 0) echo "LOGOUT"; else echo "LOGIN"; ?></button>
-	<a href="/register" class="hashtag" id="registerBtn" style="color: #000">REGISTER</a>
+        <button id="loginTrigger" style="margin-left: 10px;margin-bottom: 10px;font-family: 'Lato', sans-serif;border: 0px solid white !important;text-shadow: #000000 0px 0px 20px;background-color: #ffffff9c;padding: 3px;width: 100px;color: #000;border-radius: 5px;box-shadow: #cccbc7 0px 0px 10px 3px;"><?php if(isset($_SESSION['userID']) && $_SESSION['userID'] != 0) echo "LOGOUT"; else echo "LOGIN"; ?></button><span class="" ><br></span>
+	<a href="/register" class="" id="registerBtn" style="color: #000; margin-left: 10px; margin-bottom: 35px;font-family: 'Lato', sans-serif;border: 0px solid white !important;text-shadow: #000000 0px 0px 20px;background-color: #ffffff9c;padding-top: 6px;padding-right: 8.5px;padding-bottom: 6px;padding-left: 8.5px;color: #000;border-radius: 5px;box-shadow: #cccbc7 0px 0px 10px 3px;">REGISTER</a>
     </div>
     <!-- /Social Floating Links -->
     <div class="login-container" id="login">
