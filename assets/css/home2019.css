@@ -29,9 +29,9 @@
     z-index: 2;
     cursor: pointer;
 }
-.hashtag{
+#social .hidemob{
     text-shadow: #efe8e8 0px 0px 3px;
-    color: #9e9e9e;
+    color: #000;
 }
 .anwName{
     /* font-family: 'Pacifico', cursive !important;

@@ -667,7 +667,8 @@
                                     <select name="gender"> 
                                         <option value="choose">Gender</option>
                                         <option value="M">Male</option>
-                                        <option value="F">Female</option> 
+										<option value="F">Female</option>
+										<option value="F">Others</option>
 							         </select>
                                 </div>
                                 <div class="inputbox notrequired">

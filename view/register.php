@@ -312,6 +312,7 @@
 				<option value="choose"></option>
 				<option value="M">Male</option>
 				<option value="F">Female</option> 
+				<option value="F">Others</option> 
 			</select>
 			<br>
 			College
