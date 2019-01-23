@@ -780,7 +780,9 @@
 		</script>
 	<script>
 		$(document).on('click', '#RegBtn', function (e) {
-                console.log('this is the click');
+		var confirmation = confirm("Confirm to register for event?");
+		if (confirmation == true) {
+		  
                 // if($(this).attr("href")!="" && $(this).attr("href")!=null )
                 // e.preventDefault();
                  console.log("/register/"+eveglid);
@@ -811,6 +813,10 @@
                             $(this).text('Registered!')
                         }
                     });
+		
+		} else {
+			
+		}
             });
 	</script>
 </body>

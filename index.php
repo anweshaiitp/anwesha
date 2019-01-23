@@ -68,7 +68,7 @@ if (preg_match($base . '$@', $url, $match)) {
 	require ('view/team.html');
 } elseif (preg_match($base . 'alumni/?$@', $url, $match)) {
 	require ('view/alumni.html');
-} elseif (preg_match($base . 'accomodation/?$@', $url, $match)) {
+} elseif (preg_match($base . 'hospitality/?$@', $url, $match)) {
 	require ('view/hospi.html');
 } elseif (preg_match($base . 'schedule/?$@', $url, $match)) {
 	require ('view/schedule.php');
