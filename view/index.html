@@ -449,10 +449,10 @@ svg#date_container {
         }
     .menu-btn{
             position: fixed;
-            left: calc(50% - 67px);
+            left: calc(50% - 25px);
             top: 0px;
-            width: 135px;
-            height: 105px;
+            width: 75px;
+            height: 75px;
             background: url(../assets/img/pc-menu.png);
             background-size: 100% 100%;
             z-index: 999;
@@ -464,7 +464,7 @@ svg#date_container {
         bottom: 15px;
         left: 50%;
         transform: translateX(-50%);
-        font-size: 1.5em;
+        font-size: 1em;
         color: #fff;
         font-weight: bold;	    
     }
@@ -520,6 +520,7 @@ svg#date_container {
         text-align: center;
         padding: 0px 50px;
         text-decoration: none;
+        transition: transform .5s;
     }
     .menubar span{
         position: relative;
@@ -528,6 +529,7 @@ svg#date_container {
 	text-shadow: #020202 0px 0px 9px;
 	font-family: indexText;
 	letter-spacing: 3px;
+        transition: transform .5s;
     }
     .menubar .menu ul li a:hover{
         letter-spacing: 5px;
@@ -592,7 +594,7 @@ svg#date_container {
                     <li><a href="/events" id=""><span>Events</span></a></li>
                     <li><a href="#highlights" id=""><span>Highlights</span></a></li>
                     <li><a href="/register" id=""><span>Register</span></a></li>
-<!--                     <li><a href="/accomodation" id=""><span>Hospitality</span></a></li> -->
+                    <li><a href="/hospitality" id=""><span>Hospitality/Registration</span></a></li>
 <!--                     <li><a href="#highlights" id=""><span>Pro Nite</span></a></li> -->
                     <li><a href="/team" id=""><span>Team</span></a></li>
                 </ul>
