@@ -721,84 +721,42 @@ svg#date_container {
             
             
 
-            <style>
-	    @import url('https://fonts.googleapis.com/css?family=Roboto:700');
-
-		#container_ {
-		  margin:0px;
-		  font-family:'Roboto';
-		  text-align:center;
-		  color:#999;
-		  text-transform: uppercase;
-		  font-size:36px;
-		  font-weight:bold;
-		  padding-top:200px;  
-		  position:fixed;
-		  width:100%;
-		  bottom:45%;
-		  display:block;
-		}
-
-		#flip {
-		  height:50px;
-		  overflow:hidden;
-		}
-
-		#flip > div > div {
-		  color:#fff;
-		  padding:4px 12px;
-		  height:45px;
-		  margin-bottom:45px;
-		  display:inline-block;
-		}
-
-		#flip div:first-child {
-		  animation: show 5s linear infinite;
-		}
-
-		#flip div div {
-		  background:#42c58a;
-		}
-		#flip div:first-child div {
-		  background:#4ec7f3;
-		}
-		#flip div:last-child div {
-		  background:#DC143C;
-		}
-
-		@keyframes show {
-		  0% {margin-top:-270px;}
-		  5% {margin-top:-180px;}
-		  33% {margin-top:-180px;}
-		  38% {margin-top:-90px;}
-		  66% {margin-top:-90px;}
-		  71% {margin-top:0px;}
-		  99.99% {margin-top:0px;}
-		  100% {margin-top:-270px;}
-		}
-
-		p {
-		  position:fixed;
-		  width:100%;
-		  bottom:30px;
-		  font-size:12px;
-		  color:#999;
-		  margin-top:200px;
-		}
-	    </style>
+            
             <div class="date">
-                <div id="container_">
-		  Feb 
-		  <div id=flip>
-		    <div><div>Live</div></div>
-		    <div><div>Dream</div></div>
-		    <div><div>Think</div></div>
+                <svg viewBox="0 0 800 600" id="date_container">
+                        <symbol id="s-text">
+                          <text text-anchor="middle"
+                                x="50%"
+                                y="35%"
+                                class="text--line"
+                                >
+                            1-3rd
+                          </text>
+                          <text text-anchor="middle"
+                                x="50%"
+                                y="48%"
+                                class="text--line2"
+                                >
+                            Feb
+                          </text>
 
-		  </div>
-		  1,2,3
-		</div>
+                        </symbol>
+
+                        <g class="g-ants">
+                          <use xlink:href="#s-text"
+                            class="text-copy"></use>     
+                          <use xlink:href="#s-text"
+                            class="text-copy"></use>     
+                          <use xlink:href="#s-text"
+                            class="text-copy"></use>     
+                          <use xlink:href="#s-text"
+                            class="text-copy"></use>     
+                          <use xlink:href="#s-text"
+                            class="text-copy"></use>     
+                        </g>
 
 
+                      </svg>
             </div>
             <div class="bcg skrollable skrollable-between" data-start="opacity: 1; width: 100%; height: 100%; top: 0%; left: 0%;"
                 data-100p=" width: 256%; height: 356%; top: -256%; left: -78%;" data-anchor-target="#start-section">
