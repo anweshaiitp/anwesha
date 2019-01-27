@@ -410,7 +410,7 @@
 			.reg_form_div
 			{
                 width: 80%;
-                margin: auto;
+                margin: 75px auto;
 				height: auto;
 				z-index: 500;
 				position: absolute;
@@ -492,25 +492,6 @@
 				background: #03a9f4;
                 color: #fff;
 			}
-            #home{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                margin: 0px;
-                height: 50px;
-            }
-            #home h5{
-                display: inline;
-                text-align: center;
-                font-size: 18px;
-                background: rgba(255,255,255,.7);
-                border-radius: 5px;
-            }
-            #home h5 a{ 
-                text-decoration: none;
-                color: #03a9f4;
-                padding: 5px;
-            }
 
 		</style>
 
@@ -524,6 +505,39 @@
                 margin: 0;
                 padding: 0;
                 font-family: sans-serif;
+            }
+            #menu {
+                z-index: 999;
+                width: max-content;
+                width: -moz-max-content;
+                top: 20px;
+                position: fixed;
+                font-family: 'navbarfont', cursive;
+                transform: translateX(-50%);
+                left: 50%;
+            }
+                        #menu ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+                        #menu li {
+                display: inline-block;
+                border-bottom: 1px solid transparent;
+                cursor: pointer;
+            }
+            #menu li:hover{
+                border-bottom: 1px solid;
+            }
+            #menu li a {
+                display: block;
+                padding: 5px;
+                text-decoration: none;
+                color: inherit;
+            }
+            @media screen and (max-width: 450px)
+            #menu li a{
+                font-size: 16px;
             }
             .wrapper{
                 box-sizing: border-box;
@@ -607,6 +621,11 @@
         </style>
 	</head>
 	<body>
+        <div id="menu">
+            <ul data-start="color:rgb(0,0,0); border-color:rgb(0,0,0); background: rgba(255,255,255,0.9);     box-shadow: 0 0 0px rgba(255,255,255,1);" data-500="color:rgb(0,0,0); border-color:rgb(0,0,0); background: rgba(255,255,255,0.9);     box-shadow: 0 0 10px rgba(255,255,255,1);" class="skrollable skrollable-between" style="border-radius:20px;color: rgb(0,0,0); border-color: rgb(0,0,0); background: rgba(255,255,255,0.9); box-shadow: rgba(255,255,255,1) 0px 0px 30px;">
+          <li><a href="/" id="">Back to Home Page</a></li>
+        </ul>
+        </div>
         <div class="logohome"><a href="/"><img src="/assets/img/logo_favi.png" width="80px"></a></div>
 			<div class="bloc-logo">
 			    <canvas id="logo-canvas" width="730" height="675"></canvas>
@@ -618,7 +637,6 @@
 			</div>
 			
 			<div class="reg_form_div">
-                <div id="home"><h5><a href="https://www.anwesha.info/">Back To Home</a></h5></div>
 				<div class="reg_text">
                     Registration
 				</div>
