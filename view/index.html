@@ -18,7 +18,7 @@
     <meta name="description" content="Anwesha '19'">
     <meta property="og:image" content="/favicon.ico">
     <link href="/assets/css/css" rel="stylesheet">
-    
+    <meta name="theme-color" content="#f99c35">
     <link rel="stylesheet" href="/assets/css/aud.css">
     <script src="https://cdn.rawgit.com/michalsnik/aos/2.0.4/dist/aos.js"></script>
     <link rel='stylesheet' href='https://cdn.rawgit.com/michalsnik/aos/2.0.4/dist/aos.css'>
@@ -82,12 +82,6 @@
             background: url('/assets/img/card.gif') !important;
             background-size: cover !important;
             background-position: center !important;
-        }
-        #registerBtn{
-            background-color: #fff;
-            padding: 5px;
-            border-radius: 5px;
-            box-shadow: #cccbc7 0px 0px 10px 3px;
         }
          a, u {
             text-decoration: none;
@@ -329,13 +323,29 @@
     .login-button button:hover,.login-form form li button:hover{
        color: rgba(254,254,254,0.8);
    }
-    @media screen and (max-width:760px){
+
+         @media screen and (max-width:760px){
     .login-button{
         left:0px;
        bottom:0px;
+        right: unset;
+        top: unset;
        margin-left:10px;
        margin-bottom:35px;
        }
+	#registerBtn,#loginTrigger{
+/* 	margin-left:10px;
+       margin-bottom:35px;
+	font-family: 'Lato', sans-serif;
+	border: 0px solid white !important;
+	 text-shadow: #000000 0px 0px 20px;
+	 background-color: #ffffff9c;
+	padding: 5px;
+	width: 100px;
+	color: #000;
+	border-radius: 5px;
+	box-shadow: #cccbc7 0px 0px 10px 3px; */
+	 }
         #logo{
            display: none;
        }
@@ -349,76 +359,141 @@
            z-index:200;
            left: 0px;
            top:0px;
+           bottom: unset;
+           right: unset;
            margin-top: 20px;
            margin-right: 10px;
        }
-       
-   }
+     
 </style>
 
 <style>
-        
-.date{
-    position: absolute;
-    bottom: 0;
-    width: 200px;
-    height: 200px;
-    background-size: 0.12em 100%;
-    font: 10em/1 Arial;
-    overflow: hidden;
-}
-.text--line {
-  font-size: 0.5em;
-}
-svg#date_container {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-    transform: translateY(50px) scale(2.5);
-}
-.text-copy {
-  fill: none;
-  stroke: white;
-  stroke-dasharray: 7% 28%;
-  stroke-width: 5px;
-  animation: stroke-offset 2s infinite linear;
-}
-.text-copy:nth-child(1) {
-  stroke: #360745;
-  stroke-dashoffset: 7%;
-}
-.text-copy:nth-child(2) {
-  stroke: #d61c59;
-  stroke-dashoffset: 14%;
-}
-.text-copy:nth-child(3) {
-  stroke: #e7d84b;
-  stroke-dashoffset: 21%;
-}
-.text-copy:nth-child(4) {
-  stroke: #efeac5;
-  stroke-dashoffset: 28%;
-}
-.text-copy:nth-child(5) {
-  stroke: #1b8798;
-  stroke-dashoffset: 35%;
-}
-@keyframes stroke-offset {
-  90% {
-    stroke-dashoffset: 35%;
-    stroke-dasharray: 0 87.5%;
-  }
+.login-button a:hover{
+	text-decoration:none !important;
 }
 </style>
+    
+        <style>
+            @font-face{
+                font-family: datetext;
+                src: url(/assets/fonts/LemonMilk.otf);
+            }
+        
+            .date{
+                position: absolute;
+                bottom: 0;
+                overflow: hidden;
+                width: 250px;
+                height: 150px;
+              font-family:'datetext';
+              text-align:center;
+            }
+
+            .date #container{
+                position: relative;
+                top: 0;
+                left: -30px;
+                width: 100%;
+                height: 100%;
+              color:#fff;
+              text-transform: uppercase;
+              font-size:30px; 
+              display:block;
+            }
+
+            #flip {
+              height:50px;
+              overflow:hidden;
+            }
+
+            #flip > div > div {
+              color:#fff;
+              padding:4px 12px;
+              height:50px;
+              margin-bottom:45px;
+              display:inline-block;
+            }
+
+            #flip div:first-child {
+              animation: show 5s linear infinite;
+            }
+
+            #flip div div {
+              background:#1b861b;
+            }
+            #flip div:first-child div {
+              background:#18a6d9;
+            }
+            #flip div:last-child div {
+              background:#f70a0a;
+            }
+            
+            @keyframes show {
+              0% {margin-top:-270px;}
+              5% {margin-top:-180px;}
+              33% {margin-top:-180px;}
+              38% {margin-top:-90px;}
+              66% {margin-top:-90px;}
+              71% {margin-top:0px;}
+              99.99% {margin-top:0px;}
+              100% {margin-top:-270px;}
+            }
+            @media(max-width:760px){
+                .date{
+                    position: absolute;
+                    top: 0;
+                    width: 180px;
+                    height: 100px;
+                }
+                .date #container{
+                    top: 0;
+                  font-size:16px; 
+                }
+                #flip {
+                  height:30px;
+                  overflow:hidden;
+                }
+
+                #flip > div > div {
+                  color:#fff;
+                  padding:4px 12px;
+                  height:50px;
+                  margin-bottom:45px;
+                  display:inline-block;
+                }
+            }
+            @media(max-width:500px){
+                .date{
+                    position: absolute;
+                    top: 100%;
+                    transform: translateY(-110%);
+                    width: 180px;
+                    height: 100px;
+                }
+                .date #container{
+                    top: 0;
+                  font-size:16px; 
+                }
+                #flip {
+                  height:30px;
+                  overflow:hidden;
+                }
+
+                #flip > div > div {
+                  color: #fff;
+                  padding:4px 12px;
+                  height:50px;
+                  margin-bottom:45px;
+                  display:inline-block;
+                }
+            }
+    </style>
     
 <style>
     
     @font-face{
         font-family: indexText;
         src: url(/assets/fonts/LemonMilk.otf);
-    }  
-    body{
-        overflow: hidden;
     }
     .menubar{
         position: fixed;
@@ -429,6 +504,7 @@ svg#date_container {
         transition: 1s;
         opacity: 0;
         z-index: 99;
+	filter: drop-shadow(0px 0px 15px #000000);
         }
     .menubar.active{
             width: 100%;
@@ -438,7 +514,8 @@ svg#date_container {
         }
     .menu-btn{
             position: fixed;
-            left: calc(50% - 37px);
+            left: 50%;
+            transform: translateX(-40%);
             top: 0px;
             width: 75px;
             height: 75px;
@@ -453,21 +530,20 @@ svg#date_container {
         bottom: 15px;
         left: 50%;
         transform: translateX(-50%);
-        font-size: .8em;
+        font-size: 1em;
         color: #fff;
-        font-weight: bold;
+        font-weight: bold;	    
     }
     .menubar .menu{
         position: absolute;
-        padding-left: 20%;
+	left:50%;
+	transform:translateX(-50%);
+	box-shadow: inset #000 0px -1px 18px 2px;
         top: 50px;
-        right: 50px;
-        width: calc(100% - 80px);
+	padding-top: 30px;
+	padding-bottom: 30px;
+	background-image: url('/assets/img/menuBg.jpg');
         height: calc(100% - 75px);
-        background: url(../assets/img/index_menu3.jpg);
-        background-size: 70% 100%;
-        background-position: center;
-        background-repeat: no-repeat;
         display: flex;
         justify-content: flex-start;
         align-items: center;
@@ -475,9 +551,6 @@ svg#date_container {
         border-radius: 20px;
     }
     @media(max-width:1050px){
-        .menubar .menu{
-            padding-left: 20%;
-        }
         .menubar .menu span{
             font-size: .8em;
         }
@@ -510,13 +583,16 @@ svg#date_container {
         text-align: center;
         padding: 0px 50px;
         text-decoration: none;
+        transition: transform .5s;
     }
     .menubar span{
         position: relative;
-        color: #fff;
-        font-weight: bold;
-        font-family: indexText;
-        letter-spacing: 3px;
+	color: #f7e9db;
+	font-weight: bold;
+	text-shadow: #020202 0px 0px 9px;
+	font-family: indexText;
+	letter-spacing: 3px;
+        transition: transform .5s;
     }
     .menubar .menu ul li a:hover{
         letter-spacing: 5px;
@@ -556,38 +632,44 @@ svg#date_container {
             $('.menu-btn').on('click',function(){
                 $('.menubar').toggleClass('active');
             })
+            $('.menubar li').on('click',function(){
+                $('.menubar').toggleClass('active');
+            })
         })
     </script>
 </head>
 
 <body class="body" data-gr-c-s-loaded="true" >
 
+
             
-    <span class="menu-btn"><i>Menu</i></span>
-            <div class="menubar">
-                <div class="menu">
-                    <ul>
-                        <li><a href="#After-Movie" id=""><span>After-Movie</span></a></li>
-                        <li><a href="#About" id=""><span>About</span></a></li>
-                        <li><a href="/view/spons.html" id=""><span>Sponsors</span></a></li>
-                        <li><a href="#Contact-Us" id=""><span>Contact Us</span></a></li>
-                        <li><a href="#Audition" id=""><span>Auditions</span></a></li>
-                        <li><a href="/ca" id=""><span>Campus Ambassador</span></a></li>
-                        <li><a href="/gallery" id=""><span>Gallery</span></a></li>
-                        <li><a href="/events" id=""><span>Events</span></a></li>
-                        <li><a href="#highlights" id=""><span>Highlights</span></a></li>
-                        <li><a href="/reg.php" id=""><span>Register</span></a></li>
-                        <li><a href="hospi.html" id=""><span>Hospitality</span></a></li>
-                        <li><a href="#highlights" id=""><span>Pro Nite</span></a></li>
-                        <li><a href="#highlights" id=""><span>Team</span></a></li>
-                    </ul>
-                </div>
+        <span class="menu-btn"><i>Menu</i></span>
+        <div class="menubar">
+            <div class="menu">
+                <ul>
+                    <li><a href="#After-Movie" id=""><span>After-Movie</span></a></li>
+                    <li><a href="#About" id=""><span>About</span></a></li>
+                    <li><a href="/sponsors" id=""><span>Sponsors</span></a></li>
+                    <li><a href="#Contact-Us" id=""><span>Contact Us</span></a></li>
+                    <li><a href="#Audition" id=""><span>Auditions</span></a></li>
+                    <li><a href="/ca" id=""><span>Campus Ambassador</span></a></li>
+                    <li><a href="/gallery" id=""><span>Gallery</span></a></li>
+                    <li><a href="/events" id=""><span>Events</span></a></li>
+                    <li><a href="#highlights" id=""><span>Highlights</span></a></li>
+                    <li><a href="/register" id=""><span>Register</span></a></li>
+                    <li><a href="/hospitality" id=""><span>Hospitality/Registration</span></a></li>
+<!--                     <li><a href="#highlights" id=""><span>Pro Nite</span></a></li> -->
+                    <li><a href="/team" id=""><span>Team</span></a></li>
+                    <li><a href="/alumni" id=""><span>Alumni</span></a></li>
+                </ul>
             </div>
+        </div>
+          
 
 
     <img src="/assets/img/card.gif" width="0" height="0" alt="">
-<!--
-    <div id="splash">
+
+     <div id="splash">
         <div id="init" style="color: #fff;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">
             <div class="Loadingcontainer">
 
@@ -601,7 +683,7 @@ svg#date_container {
         </div>
         </div>
     </div>
-    -->
+    
     <div id="logo" data-100="opacity:1;" data-500="opacity:0; " style="opacity: 1;">
         <a href="http://anwesha.info/" class="logolink" target="_blank"><img src="../assets/img/logo_favi2.png" width="100%"></a>
     </div>
@@ -618,7 +700,7 @@ svg#date_container {
         <ul>
             <li><a href="#After-Movie" id="">After-Movie</a></li>
             <li><a href="#About" id="">About</a></li>
-            <li><a href="/view/spons.html" id="">Sponsors</a></li>
+            <li><a href="/sponsors" id="">Sponsors</a></li>
             <li><a href="#Contact-Us" id="">Contact Us</a></li>
             <li><a href="#Audition" id="">Auditions</a></li>
             <li><a href="/ca" id="">Campus Ambassador</a></li>
@@ -626,9 +708,11 @@ svg#date_container {
             <li><a href="/events" id="">Events</a></li>
             <li><a href="#highlights" id="">Highlights</a></li>
             <li><a href="/register" id="">Register</a></li>
-            <li><a href="/register" id="">Hospitality</a></li>
-            <li><a href="/register" id="">Pro Nite</a></li>
-            <li><a href="/register" id="">Team</a></li>
+<!--             <li><a href="/accomodation" id="">Hospitality</a></li> -->
+<!--             <li><a href="/register" id="">Pro Nite</a></li> -->
+            <li><a href="/hospitality" id="">Hospitality/Registration</a></li>
+            <li><a href="/team" id="">Team</a></li>
+            <li><a href="/alumni" id="">Alumni</a></li>
         </ul>
     </div>
     <!-- /Navigation Menu -->
@@ -636,7 +720,6 @@ svg#date_container {
     <!-- Social Floating Links -->
     <div id="social">
         <span class="hashtag">#anwesha19</span>
-        <a href="/register" class="hashtag hidemob" id="registerBtn" style="color: #000;">Register</a>
         
         <a href="https://www.facebook.com/anwesha.iitpatna/" target="_blank"><img src="/assets/img/fb-black.png"><img
                 src="/assets/img/fb-w.png" class="social-white" data-100=""
@@ -645,7 +728,8 @@ svg#date_container {
                 class="social-white" data-100="" data-500=" " ></a>
     </div>
     <div class="login-button">
-        <button id="loginTrigger"><?php if(isset($_SESSION['userID']) && $_SESSION['userID'] != 0) echo "Logout"; else echo "Login"; ?></button>
+        <button id="loginTrigger" style="margin-left: 10px;margin-bottom: 10px;font-family: 'Lato', sans-serif;border: 0px solid white !important;text-shadow: #000000 0px 0px 20px;background-color: #ffffff9c;padding: 3px;width: 100px;color: #000;border-radius: 5px;box-shadow: #cccbc7 0px 0px 10px 3px;"><?php if(isset($_SESSION['userID']) && $_SESSION['userID'] != 0) echo "LOGOUT"; else echo "LOGIN"; ?></button><span class="" ><br></span>
+	<a href="/register" class="" id="registerBtn" style="color: #000; margin-left: 10px; margin-bottom: 35px;font-family: 'Lato', sans-serif;border: 0px solid white !important;text-shadow: #000000 0px 0px 20px;background-color: #ffffff9c;padding-top: 6px;padding-right: 8.5px;padding-bottom: 6px;padding-left: 8.5px;color: #000;border-radius: 5px;box-shadow: #cccbc7 0px 0px 10px 3px;">REGISTER</a>
     </div>
     <!-- /Social Floating Links -->
     <div class="login-container" id="login">
@@ -700,43 +784,20 @@ svg#date_container {
     
     <div id="skrollr-body">
         <section id="start-section" class="fp skrolll" style="position: relative">
+            
+            
 
             
             <div class="date">
-                <svg viewBox="0 0 800 600" id="date_container">
-                        <symbol id="s-text">
-                          <text text-anchor="middle"
-                                x="50%"
-                                y="35%"
-                                class="text--line"
-                                >
-                            1-3rd
-                          </text>
-                          <text text-anchor="middle"
-                                x="50%"
-                                y="48%"
-                                class="text--line2"
-                                >
-                            Feb
-                          </text>
-
-                        </symbol>
-
-                        <g class="g-ants">
-                          <use xlink:href="#s-text"
-                            class="text-copy"></use>     
-                          <use xlink:href="#s-text"
-                            class="text-copy"></use>     
-                          <use xlink:href="#s-text"
-                            class="text-copy"></use>     
-                          <use xlink:href="#s-text"
-                            class="text-copy"></use>     
-                          <use xlink:href="#s-text"
-                            class="text-copy"></use>     
-                        </g>
-
-
-                      </svg>
+                <div id=container>
+                  Feb 
+                  <div id=flip>
+                      <div><div><span class="a">Live</span></div></div>
+                      <div><div><span class="b">Dream</span></div></div>
+                      <div><div><span class="c">Think</span></div></div>
+                  </div>
+                  1, 2, 3
+                </div>
             </div>
             <div class="bcg skrollable skrollable-between" data-start="opacity: 1; width: 100%; height: 100%; top: 0%; left: 0%;"
                 data-100p=" width: 256%; height: 356%; top: -256%; left: -78%;" data-anchor-target="#start-section">
@@ -1203,9 +1264,9 @@ svg#date_container {
             fixedTop();
         });
         $(".login-button").on('click','button#loginTrigger',function(){
-	if($(this).text() == 'Logout'){
+	if($(this).text() == 'LOGOUT'){
 	    $.get( "/logout", function( data ) {
-		$(".login-button").text("Login");
+		$(".login-button").text("LOGIN");
 	    });
             return;
         }

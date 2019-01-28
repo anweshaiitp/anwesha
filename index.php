@@ -66,8 +66,10 @@ if (preg_match($base . '$@', $url, $match)) {
 	require ('view/leaderboard.php');
 } elseif (preg_match($base . 'team/?$@', $url, $match)) {
 	require ('view/team.html');
-} elseif (preg_match($base . 'accodomation/$@', $url, $match)) {
-	require ('view/accodomation.html');
+} elseif (preg_match($base . 'alumni/?$@', $url, $match)) {
+	require ('view/alumni.html');
+} elseif (preg_match($base . 'hospitality/?$@', $url, $match)) {
+	require ('view/hospi.html');
 } elseif (preg_match($base . 'schedule/?$@', $url, $match)) {
 	require ('view/schedule.php');
 } elseif (preg_match($base . 'qrReg/([0-9A-Za-z]{4,50})/?$@', $url, $match)) {

@@ -10,9 +10,15 @@
         <style>
             @import url('https://fonts.googleapis.com/css?family=Merienda');
             @font-face{
+                font-family: iitfont;
+                src: url(/assets/fonts/Tangerine_Regular-webfont.ttf);
+            }
+            @font-face {
                 font-family: hospiText;
-                src: url(/assets/fonts/LemonMilk.otf);
-            } 
+                src: url(/assets/fonts/WolfintheCity.otf);
+              }
+            
+            
             body{
                 margin: 0;
                 padding: 0;
@@ -24,19 +30,22 @@
                 background-repeat: no-repeat;
             }
             .content{
-                margin: 5% auto;
+                margin: 20px auto 5%;
                 padding: 0 10%;
             }
             .tabbed-content{
                 max-width: 800px;
                 margin: 50px auto;
             }
+            .text-center{
+                padding-top: 20px;
+            }
             .heading{
                 font-family: hospiText;
                 color: #fff;
-                margin: 0 0 20px;
-                font-weight: 1000;
-                font-size: 3rem;
+                margin: 20px 0 0;
+                font-weight: 500;
+                font-size: 6rem;
                 text-shadow: 2px 2px 20px yellow;
                 animation: animate 3s linear infinite;
             }
@@ -57,12 +66,38 @@
                     transform: scaleX(1);
                 }
             }
-            .para{
-                font-family: hospiText;
-                color: #fff;
+            #menu {
+                z-index: 100;
+                width: max-content;
+                width: -moz-max-content;
+                top: 20px;
+                position: fixed;
+                font-family: 'navbarfont', cursive;
+                transform: translateX(-50%);
+                left: 50%;
+            }
+                        #menu ul {
+                list-style: none;
                 margin: 0;
-                font-weight: bold;
-                text-shadow: 2px 2px 20px yellow;
+                padding: 0;
+            }
+                        #menu li {
+                display: inline-block;
+                border-bottom: 1px solid transparent;
+                cursor: pointer;
+            }
+            #menu li:hover{
+                border-bottom: 1px solid;
+            }
+            #menu li a {
+                display: block;
+                padding: 5px;
+                text-decoration: none;
+                color: inherit;
+            }
+            @media screen and (max-width: 450px)
+            #menu li a{
+                font-size: 16px;
             }
             .para2{
                 color: #fff;
@@ -87,6 +122,7 @@
                 font-weight: bold;
                 box-shadow: 0 5px 10px rgba(0,0,0,.5);
                 transition: .3s;
+                cursor: pointer;
             }
             .nav button:hover{
                 transform: skewX(-25deg);
@@ -174,10 +210,14 @@
         </style>
     </head>
     <body>
+        <div id="menu">
+            <ul data-start="color:rgb(0,0,0); border-color:rgb(0,0,0); background: rgba(255,255,255,0.9);     box-shadow: 0 0 0px rgba(255,255,255,1);" data-500="color:rgb(0,0,0); border-color:rgb(0,0,0); background: rgba(255,255,255,0.9);     box-shadow: 0 0 10px rgba(255,255,255,1);" class="skrollable skrollable-between" style="border-radius:20px;color: rgb(0,0,0); border-color: rgb(0,0,0); background: rgba(255,255,255,0.9); box-shadow: rgba(255,255,255,1) 0px 0px 30px;">
+          <li><a href="/" id="">Back to Home Page</a></li>
+        </ul>
+        </div>
         <div class="container text-center">
-            <p class="para">IIT Patna's</p>
             <h1 class="heading">Anwesha'19</h1>
-            <p class="para2">Hospitality / Accommodation</p>
+            <p class="para2">Hospitality / Registration</p>
         </div>
         
         <div class="container content">
@@ -200,16 +240,16 @@
                         <li>Accommodation will only be provided to students having a valid Anwesha'19 ID.</li>
                         <li>Participants carrying laptops and other valuable items must declare their belongings at the Registration Desk of Anwesha’19 through the form provided. Disclosure of any prior undeclared belongings may result in impounding of those items.</li>
                         <li>Accommodation will strictly be on first come first serve basis.</li>
-                        <li>You can also avail online accommodation here .</li>
-                        <li>Prior accommodation (01/02/2019) can be availed only through online accommodation facility.</li>
+<!--                        <li>You can also avail online accommodation here .</li>-->
+<!--                        <li>Prior accommodation (01/02/2019) can be availed only through online accommodation facility.</li>-->
                         <li>Priority will be given to students having a longer duration of stay.</li>
                         <li>Anwesha'19 will provide you with mattresses,blankets and pillows. You are encouraged to carry basic requirements for your stay.</li>
                         <li>Accommodation will be given only after it has been confirmed by the Hospitality committee.</li>
-                        <li>Students not having confirmed accommodation inside the campus are not allowed to use the accommodation facilities.</li>
-                        <li>The declared accommodation charges do not include meal.Though there will be various food joints available in campus during fest.Food will also be available in hostel mess on pay per meal basis.</li>
+<!--                        <li>Students not having confirmed accommodation inside the campus are not allowed to use the accommodation facilities.</li>-->
+                        <li>The declared accommodation charges do not include meal. Though there will be various food joints available in campus during fest. Food will also be available in hostel mess on pay per meal basis.</li>
                         <li>In case of damage to the property of IIT Patna , hefty fine will be charged.</li>
-                        <li>Alcohol, drugs and sharp objects are strictly prohibited inside the campus. Any other item if deemed unsafe will be confiscated.</li>
-                        <li>Vehicles will not be allowed beyond the parking lot near Gate 1.</li>
+                        <li>Alcohol, drugs, cigarettes and sharp objects are strictly prohibited inside the campus. Any other item if deemed unsafe will be confiscated.</li>
+                        <li>Vehicles will not be allowed beyond the parking lot.</li>
                         <li>Anwesha'19 and IIT Patna will not be responsible for any mishaps that occur through the duration of stay for Anwesha'19.</li>
                         <li>In case of any discrepancy, the decision made by the Hospitality committee will be final and binding.</li>
                     </ul>
@@ -218,10 +258,12 @@
                     <h1>Accomodation and Registration charges</h1>
                     <p>The fest and accommodation charges per person are as follows:</p>
                     <ul>
+                        <li>The registration will start at 9am on 1st Feb 2019.</li>
                         <li>The registration fee is Rs 100. Registration is compulsory for entry to the fest and participating in the events.</li>
-                        <li>The ticket for the Band night costs Rs 150. You can register yourself and buy the Band night tickets for Rs. 200</li>
-                        <li>The price for accommodation for a day is Rs. 150. For three days, the price is Rs. 400</li>
-                        <li>If you wish to stay for more than 3 days, you will be charged Rs.500</li>
+                        <li>Band pass is necessary for entry to the pro nites on 3rd Feb 2019.</li>
+<!--                        <li>The ticket for the Band night costs Rs 150. You can register yourself and buy the Band night tickets for Rs. 200</li>-->
+<!--                        <li>The price for accommodation for a day is Rs. 200. For three days, the price is Rs. 500</li>-->
+<!--                        <li>If you wish to stay for more than 3 days, you will be charged Rs.500</li>-->
                     </ul>
                     
                     <div class="container">
@@ -265,12 +307,14 @@
                     <h1>Getting Here</h1>
                     <ul>
                         <li>The IIT Patna campus is located in Bihta, about 35 kms( about 1.5 hours) from Patna junction and 31km from Patna airport , 23 kms ( about 45 mins) from Danapur Railway Station and 5 kms ( about 15 mins) from Bihta railway station. The Campus is well connected by road to each of these major check points. You can readily hire a taxi to reach our campus.</li>
-                        <li>BSRTC has special routes between the campus and Gandhi Maidan.</li>
-                        <li>The approximate taxi fares from each of the stations can be calculated <a style="color: #0062ff" href="https://www.taxi-calculator.com/" target="_blank">here</a></li>
+                        <li>BSRTC has special routes between the campus and Gandhi Maidan, Patna.</li>
+<!--                        <li>The approximate taxi fares from each of the stations can be calculated <a style="color: #0062ff" href="https://www.taxi-calculator.com/" target="_blank">here</a></li>-->
                         <li><a style="color: #0062ff" href="https://www.google.co.in/maps/place/IIT+Patna+Main+Gate/@25.5357523,84.8488766,17z/data=!4m12!1m6!3m5!1s0x39ed577f6954a4ab:0x6ce8f1b9fc2aa02a!2sIndian+Institute+of+Technology+Patna!8m2!3d25.5357523!4d84.8510653!3m4!1s0x398d56788d553595:0xc65e6a27cdd29336!8m2!3d25.5335547!4d84.8554909" target="_blank">Click here for directions</a></li>
                     </ul>
                 </div>
                 <div class="panel" id="four">
+                    <h1>Schedule will be updated here soon...</h1>
+                    
                     <h1>Anwesha'19 External Bus Schedule</h1>
                     <br>
                     <h3>FROM PATNA TO IIT CAMPUS( BIHTA)</h3>
@@ -364,19 +408,20 @@
                     <h1>Accommodation</h1>
                     <ul>
                         <li>Before applying for online accommodation you must be registered to Anwesha'19 and must have a valid Anwesha'19 ID.</li>
-                        <li>Payment will be made through Paytm only for online accommodation.</li>
+                        <li>Payment will be made in cash at the registration desk.</li>
                         <li>No amount will be refunded on cancellation of registration or accommodation.</li>
-                        <li>On successful application of online accommodation, you will receive a confirmation mail.</li>
-                        <li>Prior accommodation (01/02/2019) can be availed only through online accommodation facility.</li>
+<!--                        <li>On successful application of online accommodation, you will receive a confirmation mail.</li>-->
+<!--                        <li>Prior accommodation (01/02/2019) can be availed only through online accommodation facility.</li>-->
                         <li>You will be provided accommodation only after it has been confirmed by the Hospitality committee.</li>
-                        <button class="btn btn-primary">Apply</button>
+                        <br>
+                        <button class="btn btn-primary"><a href="https://goo.gl/forms/zmCS26vVusIoIrNs2" style="color: #fff">Apply Here</a></button>
                     </ul>
                 </div>
                 <div class="panel" id="six">
                     <h1>Contacts</h1>
-                    <p>Mayank Tripathi     +91 9702834860 </p>
-                    <p>Naveen     +91 9955543210 </p>
-                    <p>Shashank     +91 9491746913</p>
+                    <p>Mayank Tripathi     <a href="tel:+919702834860" style="color: #fff">+91 9702834860</a> </p>
+                    <p>Naveen Thangavelu   <a href="tel:+919955543210" style="color: #fff">+91 9955543210</a> </p>
+                    <p>Shashank Balija    <a href="tel:+919491746913" style="color: #fff">+91 9491746913</a></p>
                 </div>
                 
           </div>
