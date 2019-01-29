@@ -444,32 +444,6 @@ class People{
         return [1,200,$urlRelativeFilePath,$actual_link.'/'.$pngAbsoluteFilePath];
     }
 	
-     public static function genQR($anwID){
-        require('resources/phpqr/qrlib.php');
-        require('defines.php');
-        
-        $tempDir = 'qr/';
-        
-        $codeContents = $anwID.sha1($anwID.$AESKey);
-        
-        // we need to generate filename somehow, 
-        // with md5 or with database ID used to obtains $codeContents...
-        $fileName = 'anw'.$anwID.'.png';
-        
-        $pngAbsoluteFilePath = $tempDir.$fileName;
-        $urlRelativeFilePath = 'qr/'.$fileName;
-        $ret = "";
-        // generating
-        if (!file_exists($pngAbsoluteFilePath)) {
-            QRcode::png($codeContents, $pngAbsoluteFilePath);
-            $ret = self::resize(500,$_SERVER['DOCUMENT_ROOT'].'/qr/'.$fileName,$_SERVER['DOCUMENT_ROOT'].'/qr/'.$fileName);
-        } else {
-            return[-1,409,"Already generated"];
-        }
-        $actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
-        return [1,200,$urlRelativeFilePath,$actual_link.'/'.$pngAbsoluteFilePath];
-    }
-	
      public static function pairQR($anwID, $qrHashNo, $conn){
         require('defines.php');
         $sqlUpdateTokenType = "UPDATE People SET qrNo = $qrHashNo WHERE pId = $anwID";
