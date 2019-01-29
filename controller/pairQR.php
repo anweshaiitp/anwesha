@@ -37,7 +37,7 @@
 
 
 	if(isset($match[2]) && $hashPost == sha1($hashPre.$AESKey)){
-		$call = User::pairQR($pId,$hashPre,$conn);
+		$call = People::pairQR($pId,$hashPre,$conn);
 		$status = $call[0];
 		$httpstatus = $call[1];
 	}else{
