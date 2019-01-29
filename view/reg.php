@@ -691,7 +691,7 @@
                                 </div>
                                 <div class="inputbox notrequired">
                                     <input type="text" name="college">
-                                    <label>College</label>
+                                    <label>College (Alpha-Numeric)</label>
                                 </div>
                                 <div class="inputbox notrequired">
                                     <input type="text" name="city">
