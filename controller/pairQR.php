@@ -10,7 +10,7 @@
 	if(!$conn)
 		error_log(mysqli_connect_error());
 
-	$pId = $match[1]
+	$pId = $match[1];
 	$hash = $match[2];
   $hashPre = substr($match[2],0,4);
   $hashPost = substr($match[2],4);
@@ -37,9 +37,9 @@
 
 
 	if(isset($match[2]) && $hashPost == sha1($hashPre.$AESKey)){
-				$call = User::pairQR($pId,$hashPre,$conn);
-				$status = $call[0];
-				$httpstatus = $call[1];
+		$call = User::pairQR($pId,$hashPre,$conn);
+		$status = $call[0];
+		$httpstatus = $call[1];
 	}else{
 		$message = "Invalid crypto Hash";
 		$httpstatus = 400;
