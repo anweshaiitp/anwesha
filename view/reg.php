@@ -678,8 +678,8 @@
                                     <label>Name</label>
                                 </div>
                                 <div class="inputbox notrequired">
-                                    <input type="date" name="DOB"/>
-                                    <label>Date Of Birth (yyyy-mm-dd)</label>
+                                    <input type="date" name="DOB" placeholder="yyyy-mm-dd"/>
+                                    <label>Date Of Birth</label>
                                 </div>
                                 <div class="inputbox">
                                     <select name="gender"> 
