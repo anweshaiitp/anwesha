@@ -33,11 +33,11 @@
 	$_POST['userID'] = $orgID;
 	require('middleware/authMiddleware.php');
 	$pastpay = [];
-	$sql = " SELECT * FROM payments WHERE pId = $pId ";
-	$result = mysqli_query($conn, $sql);
-	while($row = mysqli_fetch_assoc($result)){
-		$pastpay[] = $row;
-	}    
+// 	$sql = " SELECT * FROM payments WHERE pId = $pId ";
+// 	$result = mysqli_query($conn, $sql);
+// 	while($row = mysqli_fetch_assoc($result)){
+// 		$pastpay[] = $row;
+// 	}    
 
     // $userID = mysqli_real_escape_string($conn, $_POST['orgID']);
     // $privKey =  Auth::getUserPrivateKey($userID,$conn);
@@ -55,7 +55,7 @@
 	if($match[2] == $preHash.sha1($preHash.$AESKey)){
 		if(isset($orgID) && isset($_POST['eveID'])){
 			// if($organiser = Events::isValidOrg($_POST['orgID'],$_POST['eveID'],$conn)){
-				$call = Events::regUser($orgID,$_POST['eveID'],$preHash,$conn);
+				$call = Events::regUserByQR($orgID,$_POST['eveID'],$preHash,$conn);
 				$status = $call[0];
 				$httpstatus = $call[1];
 				$message = $call[2];
