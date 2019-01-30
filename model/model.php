@@ -220,7 +220,7 @@ class People{
    
    }	
 	
-    public static function getUserByQR($id, $conn){	
+    public static function getUserByQR($qrNo, $conn){	
 	$pid = self::getPidByQR($qrNo,$conn)['pId'];
 	return self::getUser($pid,$conn);
     }
