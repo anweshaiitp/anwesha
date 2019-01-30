@@ -678,7 +678,7 @@
                                     <label>Name</label>
                                 </div>
                                 <div class="inputbox notrequired">
-                                    <input type="date" name="DOB"/>
+                                    <input type="date" name="DOB" placeholder="yyyy-mm-dd"/>
                                     <label>Date Of Birth</label>
                                 </div>
                                 <div class="inputbox">

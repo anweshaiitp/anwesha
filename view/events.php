@@ -803,10 +803,11 @@
                         else
                             $("#regmsg").css({"color":"#ff0000","padding-inline-start":"20px","height":"30px"});
                         if(data.http == 403){
-				alert('Please login first.')
+// 				alert('Please login first.')
+			    $("#regmsg").text('Please Login First.')
                             window.open('/login_bare/');
                             console.log("403");
-                            $(currPar+ " #regmsg").html($(currPar + " #regmsg").text()+"<br> <a href='//anwesha.info/login_bare/' target='_blank'>Login here</a>");
+                            $("#regmsg").html($("#regmsg").text()+"<br> <a href='//anwesha.info/login_bare/' target='_blank'>Login here</a>");
                         }
                         if(data.status == true){
                             $(this).text('Registered!')
@@ -817,6 +818,14 @@
 			
 		}
             });
+	</script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-90791019-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	  gtag('config', 'UA-90791019-1');
 	</script>
 </body>
 
