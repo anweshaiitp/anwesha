@@ -31,8 +31,8 @@
     // }
 	//authend
 	$uID = $_POST['userID'];//tempstore
-	$orgID = $_POST['orgID'];
-	$_POST['userID'] = $orgID;
+	//$orgID = $_POST['orgID'];
+	//$_POST['userID'] = $orgID;
 	require('middleware/authMiddleware.php');
 
 
