@@ -840,7 +840,7 @@ class People{
             $eve["eveCount"]++;
             $eve[] =  [
                     "id" => 0,
-                    "name" => 'register',
+                    "name" => 'pairQR',
                 ];
         }
 
