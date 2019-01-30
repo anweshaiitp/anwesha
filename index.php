@@ -75,6 +75,9 @@ if (preg_match($base . '$@', $url, $match)) {
 } elseif (preg_match($base . 'qrReg/([0-9A-Za-z]{4,50})/?$@', $url, $match)) {
 	// alog(json_encode($_POST)."___".json_encode($match));
 	require ('controller/qrReg.php');
+} elseif (preg_match($base . 'qrPair/([0-9]{4})/([0-9A-Za-z]{4,50})/?$@', $url, $match)) {
+	// alog(json_encode($_POST)."___".json_encode($match));
+	require ('controller/pairQR.php');
 } elseif (preg_match($base . 'pay/([0-9]{4})/?$@', $url, $match)) {
 	// alog(json_encode($_POST));
 	require ('controller/pay.php');
