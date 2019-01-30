@@ -205,6 +205,21 @@ class People{
             return -1;
         }
     }
+	
+    
+   public static function getPidByQR($qrNo, $conn){
+   	$sql = "SELECT pId FROM People WHERE qrNo = $qrNo";
+        $result = mysqli_query($conn,$sql);
+        if(!$result){
+            return array("status"=>0, "pId"=>null, "msg" => "User does not exist!");
+        } else {
+            $row = mysqli_fetch_assoc($result);
+            $pId= $row['pId'];
+            return array("status"=> 1, "pId" => $pId, "msg" => "");
+        }
+   
+   }	
+	
     public static function getUserByQR($id, $conn){	
 	$pid = self::getPidByQR($qrNo,$conn)['pId'];
 	return self::getUser($pid,$conn);
@@ -1813,21 +1828,9 @@ class Events{
         
     }
 
-   public static function getPidByQR($qrNo, $conn){
-   	$sql = "SELECT pId FROM People WHERE qrNo = $qrNo";
-        $result = mysqli_query($conn,$sql);
-        if(!$result){
-            return array("status"=>0, "pId"=>null, "msg" => "User does not exist!");
-        } else {
-            $row = mysqli_fetch_assoc($result);
-            $pId= $row['pId'];
-            return array("status"=> 1, "pId" => $pId, "msg" => "");
-        }
-   
-   }	
 	
    public static function regUserByQR($orgID,$eveID,$qrNo,$conn){
-   	$pid = self::getPidByQR($qrNo,$conn)['pId'];
+   	$pid = People::getPidByQR($qrNo,$conn)['pId'];
 	return self::regUser($orgID,$eveID,$pid,$conn);
    }
 	
