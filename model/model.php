@@ -465,7 +465,8 @@ class People{
 	
      public static function pairQR($anwID, $qrHashNo, $conn){
         require('defines.php');
-        $sqlUpdateTokenType = "UPDATE People SET qrNo = $qrHashNo WHERE pId = $anwID";
+        $web_root = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
+        $sqlUpdateTokenType = "UPDATE People SET qrNo = $qrHashNo,qrurl = '".$web_root."/qr/".$qrHashNo.".png' WHERE pId = $anwID";
 
             $result = mysqli_query($conn,$sqlUpdateTokenType);
             if(!$result){
