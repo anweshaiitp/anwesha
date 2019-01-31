@@ -71,7 +71,7 @@ if (preg_match($base . '$@', $url, $match)) {
 } elseif (preg_match($base . 'hospitality/?$@', $url, $match)) {
 	require ('view/hospi.html');
 } elseif (preg_match($base . 'schedule/?$@', $url, $match)) {
-	require ('view/schedule.php');
+	require ('view/sch.html');
 } elseif (preg_match($base . 'qrReg/([0-9A-Za-z]{4,50})/?$@', $url, $match)) {
 	// alog(json_encode($_POST)."___".json_encode($match));
 	require ('controller/qrReg.php');
