@@ -13,7 +13,7 @@
 	$pId = $match[1];
 	$hash = $match[2];
   $hashPre = substr($match[2],0,4);
-  $hashPost = substr($match[2],4);
+  $hashPost = substr($match[2],7);
 	
 	
 	//auth
