@@ -896,9 +896,9 @@ class People{
         $message .= "In case you have any registration related queries feel free to contact, $ANWESHA_REG_CONTACT or drop an email to <i>$ANWESHA_REG_EMAIL</i>.
             <br> 
             You can also visit our website <i>$ANWESHA_URL</i> for more information. Watch the official aftermovie for Anwesha 2k18 here:<br><a href='https://www.youtube.com/watch?v=tare6Drw0Ng'><img src='https://i.ytimg.com/vi/tare6Drw0Ng/hqdefault.jpg' height='200'></a>";
-        if(file_exists($qrDir))
-            $message .= "<br>Yor Registration QRcode is as below and is also attached to this email:<br>
-            <img src='".$actual_link."/qr/anw".$id.".png' height='100' width='100' >";
+//         if(file_exists($qrDir))
+//             $message .= "<br>Yor Registration QRcode is as below and is also attached to this email:<br>
+//             <img src='".$actual_link."/qr/anw".$id.".png' height='100' width='100' >";
         
         // $message .="<br>Thank You.
         //     <br>Registration Desk
