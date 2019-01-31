@@ -1,0 +1,662 @@
+<html>
+    <head>
+        <title>
+            Schedule | Anwesha '19'
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="/assets/css/team2.css">
+        
+        <style>
+            .mobile-nav-btn {
+    cursor: pointer;
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    width: 40px;
+    height: 40px;
+    background: #333;
+    background: url(../img/menu.png) no-repeat center center;
+    background-size: contain;
+    display: none;
+    z-index: 101
+}
+
+
+.mobile-nav-btn.white {
+    background: url(../img/menu.png) no-repeat center center;
+    background-size: 40px 40px
+}
+
+#mobile-nav {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    background: #fff;
+    z-index: 102;
+    display: none;
+    margin-top: -30px; 
+}
+
+#mobile-nav .close {
+    position: absolute;
+    top: 20px;
+    right: 20px
+}
+
+#mobile-nav ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    align-content: center;
+    height: 100%
+}
+
+#mobile-nav li {
+    margin: -4px;
+    display: block;
+}
+
+#mobile-nav li a {
+    display: block;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 25px;
+    font-family: PTC55F, cursive !important;
+    color:white;
+    text-decoration: none
+}
+
+#menu {
+    z-index: 100;
+    width: max-content;
+    width: -moz-max-content;
+    top: 20px;
+    position: fixed;
+    font-family: 'navbarfont', cursive;
+    transform: translateX(-50%);
+    left: 50%
+}
+
+#menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0
+}
+
+#menu li {
+    display: inline-block;
+    border-bottom: 1px solid transparent;
+    cursor: pointer
+}
+
+#menu li a {
+    display: block;
+    padding: 5px;
+    text-decoration: none;
+    color: inherit
+}
+
+#menu li a:visited {
+    text-decoration: none;
+    color: inherit
+}
+
+#menu li:hover {
+    border-bottom: 1px solid #333;
+    border-color: inherit
+}
+            body{
+                background-color:;
+            }
+            .green {
+  background-color: #2ecc71;
+}
+
+.turquoise {
+  background-color: #1abc9c;
+}
+
+.navy {
+  background-color: #34495e;
+}
+
+.blue {
+  background-color: #3498db;
+}
+
+.purple {
+  background-color: #9b59b6;
+}
+
+.grey {
+  background-color: #bdc3c7;
+  color: #202020;
+}
+
+.gray {
+  background-color: #7f8c8d;
+}
+
+.red {
+  background-color: #e74c3c;
+}
+
+.orange {
+  background-color: #f39c12;
+}
+
+.yellow {
+  background-color: #f1c40f;
+  color: #303030;
+}
+
+.day-columns {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  justify-content: center;
+}
+.day-columns .day-column {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  height: 500px;
+  min-width: 160px;
+  border: 1px solid #ebedf2;
+  border-left: none;
+}
+.day-columns .day-column:first-child {
+  border-left: 1px solid #ebedf2;
+}
+.day-columns .day-column .day-header {
+  border-bottom: 1px solid #ebedf2;
+  text-align: center;
+  padding: 5px;
+  color: #898b96;
+}
+.day-columns .day-column .day-content {
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 5px;
+  overflow-y: auto;
+}
+.day-columns .day-column .day-content .event {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  padding: 3px;
+  color: white;
+  padding: 5px;
+  box-shadow: 0px 1px 15px 1px rgba(81, 77, 92, 0.08);
+}
+.day-columns .day-column .day-content .event .title {
+  font-size: 12px;
+}
+.day-columns .day-column .day-content .event footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  font-size: 11px;
+}
+.day-columns .day-column .day-footer {
+  border-top: 1px solid #ebedf2;
+  padding: 5px;
+  text-align: center;
+  font-size: 13px;
+  color: #575962;
+}
+
+.container {
+  margin-top: 20px;
+}
+
+        </style>
+    </head>
+    <body>
+        <!-- Navigation Menu -->
+<div id="menu">
+        <ul data-start="color:rgb(0,0,0); border-color:rgb(0,0,0); background: rgba(255,255,255,0.9);     box-shadow: 0 0 0px rgba(255,255,255,1);"
+          data-500="color:rgb(0,0,0); border-color:rgb(0,0,0); background: rgba(255,255,255,0.9);     box-shadow: 0 0 10px rgba(255,255,255,1);"
+          class="skrollable skrollable-between" style="border-radius:20px;color: rgb(0,0,0); border-color: rgb(0,0,0); background: rgba(255,255,255,0.9); box-shadow: rgba(255,255,255,1) 0px 0px 30px;">
+          <!-- <li id="home-link"><a href="#start-section">HOME</a></li> -->
+          <li><a href="/" id="">Back to Home Page</a></li>
+          <!-- <li><a href="/view/index.html/#About" id="">About</a></li>
+          <li><a href="/view/spons.html" id="">Sponsors</a></li>
+          <li><a href="/view/index.html/#Contact-Us" id="">Contact Us</a></li>
+          <li><a href="/view/index.html/#Audition" id="">Auditions</a></li>
+          <li><a href="/view/ca.php" id="">Campus Ambassador</a></li> -->
+          
+        </ul>
+      </div>
+      <div id="mobile-nav-btn" class="mobile-nav-btn dark " data-100="opacity:1;" data-500="opacity:0; "
+        style="opacity: 1;"></div>
+      <div class="mobile-nav-btn white " data-100="opacity:0;" data-500="opacity:1; " style=""></div>
+      <div id="mobile-nav" style="background-color:black">
+        <img src="/assets/img/close.png" class="close" alt="close menu" width="30" height="30">
+        <ul>
+          <li><a href="/" id="">Back to Home Page</a></li>
+        
+          
+        </ul>
+      </div>
+      <br><br><br>
+      <!-- /Navigation Menu -->
+        <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <div class="row day-columns">
+                  
+                  <div class="day-column">
+                    <div class="day-header">Friday - Day 1</div>
+                    <div class="day-content">
+                      <div class="event purple">
+                          <span class="title">Take 22 Action</span>
+                          <footer>
+                            <span>NKN Room</span>
+                            <span>10:00 - 12:00</span>
+                            
+                          </footer>
+                      </div>
+                      <div class="event navy">
+                          <span class="title">Mind Benders</span>
+                          <footer>
+                            <span>9/101</span>
+                            <span>10:00 - 12:00</span>
+                            
+                          </footer>
+                      </div>
+                       <div class="event yellow">
+                          <span class="title">Electro Exquisite</span>
+                          <footer>
+                            <span>9/104</span>
+                            <span>11:00 - 2:00</span>
+                            
+                          </footer>
+                      </div>
+                      <div class="event navy">
+                          <span class="title">Pic Say</span>
+                          <footer>
+                            <span>9/105</span>
+                            <span>11:00 - 1:00</span>
+                            
+                          </footer>
+                      </div>
+                      <div class="event red">
+                          <span class="title">Aqua Soccer</span>
+                          <footer>
+                            <span>Block 9 Garden</span>
+                            <span>12:00 - 3:00</span>
+                            
+                          </footer>
+                      </div>
+                      <div class="event blue">
+                          <span class="title">Rocket Propulsion</span>
+                          <footer>
+                            <span>Outside Boys Hostel</span>
+                            <span>12:00 - 2:00</span>
+                            
+                          </footer>
+                      </div>
+                      <div class="event orange">
+                          <span class="title">Arty Sticks</span>
+                          <footer>
+                            <span>9/107</span>
+                            <span>12:00-2:00</span>
+                            
+                          </footer>
+                      </div>
+                      <div class="event orange">
+                            <span class="title">Rangoli</span>
+                            <footer>
+                              <span>Food Court</span>
+                              <span>1:00 - 4:00</span>
+                              
+                            </footer>
+                        </div>
+                    </div>
+                    
+                  </div>
+                  <div class="day-column">
+                    <div class="day-header">Friday - Day 1</div>
+                    <div class="day-content">
+                      <div class="event purple">
+                          <span class="title">Mr. Gigglers</span>
+                          <footer>
+                            <span>Senate Hall</span>
+                            <span>2:00 - 4:00</span>
+                            
+                          </footer>
+                      </div>
+                      <div class="event navy">
+                          <span class="title">Chem Charades</span>
+                          <footer>
+                            <span>9/103</span>
+                            <span>2:00 - 4:00</span>
+                            
+                          </footer>
+                      </div>
+                      <div class="event red">
+                          <span class="title">Astro Particle Voyage</span>
+                          <footer>
+                            <span>9/106</span>
+                            <span>3:00 - 5:00</span>
+                            
+                          </footer>
+                      </div>
+                      <div class="event blue">
+                          <span class="title">Lock N Load</span>
+                          <footer>
+                            <span>CC2 and 9/310</span>
+                            <span>10:00 - 5:00</span>
+                            
+                          </footer>
+                      </div>
+                      <div class="event blue">
+                            <span class="title">Heel Turn</span>
+                            <footer>
+                              <span>9/302 and 9/303 and 9/304</span>
+                              <span>10:00 - 5:00</span>
+                              
+                            </footer>
+                        </div>
+                        <div class="event blue">
+                                <span class="title">Syngphony</span>
+                                <footer>
+                                  <span>9/307 & 9/308</span>
+                                  <span>10:00 - 5:00</span>
+                                  
+                                </footer>
+                        </div>
+                        <div class="event blue">
+                                <span class="title">Verve</span>
+                                <footer>
+                                  <span>9/109</span>
+                                  <span>10:00 - 5:00</span>
+                                  
+                                </footer>
+                        </div>
+                        <div class="event blue">
+                                <span class="title">Mr. and Ms. Anwesha</span>
+                                <footer>
+                                  <span>9/102</span>
+                                  <span>10:00 - 5:00</span>
+                                  
+                                </footer>
+                        </div>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="container">
+                <div class="row">
+                  <div class="col-12">
+                    <div class="row day-columns">
+                      
+                      <div class="day-column">
+                        <div class="day-header">Saturday - Day 2</div>
+                        <div class="day-content">
+                          <div class="event purple">
+                              <span class="title">Tamasha</span>
+                              <footer>
+                                <span>9/102</span>
+                                <span>10:00 - 12:00</span>
+                                
+                              </footer>
+                          </div>
+                          <div class="event navy">
+                              <span class="title">Peinture</span>
+                              <footer>
+                                <span>9/103</span>
+                                <span>10:00 - 12:00</span>
+                                
+                              </footer>
+                          </div>
+                           <div class="event yellow">
+                              <span class="title">Robo Wars</span>
+                              <footer>
+                                <span>9/Ground Floor</span>
+                                <span>11:00 - 2:00</span>
+                                
+                              </footer>
+                          </div>
+                          <div class="event navy">
+                              <span class="title">House of Cards</span>
+                              <footer>
+                                <span>9/107</span>
+                                <span>11:00 - 3:00</span>
+                                
+                              </footer>
+                          </div>
+                          <div class="event red">
+                              <span class="title">Aqua Soccer</span>
+                              <footer>
+                                <span>Block 9 Garden</span>
+                                <span>12:00 - 3:00</span>
+                                
+                              </footer>
+                          </div>
+                          <div class="event blue">
+                              <span class="title">Mudooz</span>
+                              <footer>
+                                <span>9/108</span>
+                                <span>12:00 - 3:00</span>
+                                
+                              </footer>
+                          </div>
+                          <div class="event orange">
+                              <span class="title">Assistente Literia</span>
+                              <footer>
+                                <span>9/105</span>
+                                <span>2:00-5:00</span>
+                                
+                              </footer>
+                          </div>
+                          <div class="event orange">
+                                <span class="title">Virtual CID</span>
+                                <footer>
+                                  <span>9/104</span>
+                                  <span>10:00 - 4:00</span>
+                                  
+                                </footer>
+                            </div>
+                            <div class="event orange">
+                                    <span class="title">Static Rush</span>
+                                    <footer>
+                                      <span>Outside</span>
+                                      <span>10:00 - 2:00</span>
+                                      
+                                    </footer>
+                                </div>
+                        </div>
+                        
+                      </div>
+                      <div class="day-column">
+                        <div class="day-header">Saturday - Day 2</div>
+                        <div class="day-content">
+                          <div class="event purple">
+                              <span class="title">Talk - Shri Ravi Shankar Prasad</span>
+                              <footer>
+                                <span>Senate Hall</span>
+                                <span>3:00 - 5:00</span>
+                                
+                              </footer>
+                          </div>
+                          <div class="event navy">
+                              <span class="title">Darpan</span>
+                              <footer>
+                                <span>-</span>
+                                <span>10:00 - 5:00</span>
+                                
+                              </footer>
+                          </div>
+                          <div class="event red">
+                              <span class="title">Main Stage Events</span>
+                              <footer>
+                                <span>-</span>
+                                <span>1:00 - 5:00</span>
+                                
+                              </footer>
+                          </div>
+                          <div class="event blue">
+                              <span class="title">Lock N Load</span>
+                              <footer>
+                                <span>CC2 and 9/310</span>
+                                <span>10:00 - 5:00</span>
+                                
+                              </footer>
+                          </div>
+                          <div class="event blue">
+                                <span class="title">Heel Turn</span>
+                                <footer>
+                                  <span>9/302 and 9/303 and 9/304</span>
+                                  <span>10:00 - 5:00</span>
+                                  
+                                </footer>
+                            </div>
+                            <div class="event blue">
+                                    <span class="title">Syngphony</span>
+                                    <footer>
+                                      <span>9/307 & 9/308</span>
+                                      <span>10:00 - 5:00</span>
+                                      
+                                    </footer>
+                            </div>
+                            <div class="event blue">
+                                    <span class="title">Verve</span>
+                                    <footer>
+                                      <span>9/109</span>
+                                      <span>10:00 - 5:00</span>
+                                      
+                                    </footer>
+                            </div>
+                            <div class="event blue">
+                                    <span class="title">Mr. and Ms. Anwesha</span>
+                                    <footer>
+                                      <span>9/309 and 9/310</span>
+                                      <span>10:00 - 5:00</span>
+                                      
+                                    </footer>
+                            </div>
+                        </div>
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="container">
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="row day-columns">
+                          
+                          <div class="day-column">
+                            <div class="day-header">Sunday - Day 3</div>
+                            <div class="day-content">
+                              <div class="event purple">
+                                  <span class="title">Maidaan e Jung</span>
+                                  <footer>
+                                    <span>9/Outside</span>
+                                    <span>10:00 - 1:00</span>
+                                    
+                                  </footer>
+                              </div>
+                              <div class="event navy">
+                                  <span class="title">Let's Face It</span>
+                                  <footer>
+                                    <span>9/Garden</span>
+                                    <span>10:00 - 1:00</span>
+                                    
+                                  </footer>
+                              </div>
+                               <div class="event yellow">
+                                  <span class="title">Pitch Your Idea</span>
+                                  <footer>
+                                    <span>Senate Hall</span>
+                                    <span>10:00 - 1:00</span>
+                                    
+                                  </footer>
+                              </div>
+                              <div class="event navy">
+                                  <span class="title">Parliamentary Debate</span>
+                                  <footer>
+                                    <span>NKN Room</span>
+                                    <span>12:00 - 3:00</span>
+                                    
+                                  </footer>
+                              </div>
+                              <div class="event red">
+                                  <span class="title">Abhinay</span>
+                                  <footer>
+                                    <span>Senate Hall</span>
+                                    <span>1:00 - 3:00</span>
+                                    
+                                  </footer>
+                              </div>
+                              <div class="event blue">
+                                  <span class="title">Beg Borrow Steal</span>
+                                  <footer>
+                                    <span>9/Outside</span>
+                                    <span>1:00 - 4:00</span>
+                                    
+                                  </footer>
+                              </div>
+                              <div class="event orange">
+                                  <span class="title">Hero No Battle Royale</span>
+                                  <footer>
+                                    <span>9/102</span>
+                                    <span>2:00-5:00</span>
+                                    
+                                  </footer>
+                              </div>
+                              <div class="event orange">
+                                    <span class="title">Best Jodi</span>
+                                    <footer>
+                                      <span>9/109</span>
+                                      <span>3:00 - 5:00</span>
+                                      
+                                    </footer>
+                                </div>
+                                <div class="event orange">
+                                        <span class="title">KTM Stunt Show</span>
+                                        <footer>
+                                          <span>Helipad</span>
+                                          <span>4:00 - 5:00</span>
+                                          
+                                        </footer>
+                                    </div>
+                                    <div class="event orange">
+                                            <span class="title">Lock n Load</span>
+                                            <footer>
+                                              <span>CC2 and 9/310</span>
+                                              <span>10:00 - 5:00</span>
+                                              
+                                            </footer>
+                                        </div>
+                            </div>
+                            
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+    </body>
+</html>
