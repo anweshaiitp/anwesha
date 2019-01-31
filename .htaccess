@@ -4,3 +4,6 @@ RewriteBase /
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php/?$1 [L]
+RewriteRule (^|/)errors(|_|__).log$ - [L,R=404]
+RewriteCond %{HTTP_HOST} ^anwesha.info$ [NC]
+RewriteRule (.*) https://www.anwesha.info/$1 [R=301,L]
