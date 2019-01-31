@@ -36,7 +36,7 @@
 	require('middleware/authMiddleware.php');
 
 
-	if(isset($match[2]) && $hashPost == sha1($hashPre.$AESKey)){
+	if(isset($match[2]) && $hashPost == sha1($hashPre.'reg'.$AESKey)){
 		$call = People::pairQR($pId,$hashPre,$conn);
 		$status = $call[0];
 		$httpstatus = $call[1];
