@@ -52,7 +52,7 @@
     // exit();
     // }
 
-	if($match[1] == $preHash.sha1($preHash.$AESKey)){
+	if($match[1] == $preHash.sha1($preHash.'reg'.$AESKey)){
 		if(isset($orgID) && isset($_POST['eveID'])){
 			// if($organiser = Events::isValidOrg($_POST['orgID'],$_POST['eveID'],$conn)){
 				$call = Events::regUserByQR($orgID,$_POST['eveID'],$preHash,$conn);
