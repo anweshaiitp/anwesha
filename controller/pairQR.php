@@ -35,7 +35,7 @@
 	//$_POST['userID'] = $orgID;
 	require('middleware/authMiddleware.php');
 
-	error_log("a".$match[2]." ".$hashPre." ".$hashPost." ".$hashPre.'reg'.$AESKey)
+	error_log("a".$match[2]." ".$hashPre." ".$hashPost." ".$hashPre.'reg'.$AESKey);
 	if(isset($match[2]) && $hashPost == sha1($hashPre.'reg'.$AESKey)){
 		$call = People::pairQR($pId,$hashPre,$conn);
 		$status = $call[0];
